@@ -16,6 +16,10 @@ on:
       - 'lean-toolchain'
       - 'scripts/verify_chess_reference.py'
       - 'scripts/CompareChessReference.lean'
+      - 'scripts/verify_chess_m2.py'
+      - 'scripts/AuditChessM2.lean'
+      - 'scripts/RunChessM2.lean'
+      - 'docs/chess/m2/perft.json'
       - 'docs/chess/m1/reference-v1.json'
       - 'docs/chess/m1/source/Chess.lean.txt'
       - '.github/workflows/lean_action_ci.yml'
@@ -34,6 +38,10 @@ on:
       - 'lean-toolchain'
       - 'scripts/verify_chess_reference.py'
       - 'scripts/CompareChessReference.lean'
+      - 'scripts/verify_chess_m2.py'
+      - 'scripts/AuditChessM2.lean'
+      - 'scripts/RunChessM2.lean'
+      - 'docs/chess/m2/perft.json'
       - 'docs/chess/m1/reference-v1.json'
       - 'docs/chess/m1/source/Chess.lean.txt'
       - '.github/workflows/lean_action_ci.yml'
@@ -63,6 +71,9 @@ jobs:
 
       - name: Verify frozen chess reference against its pinned source
         run: python3 scripts/verify_chess_reference.py
+
+      - name: Verify executable chess rules, trust, and regression fixtures
+        run: python3 scripts/verify_chess_m2.py
 
       - name: Verify solution against Challenge with comparator
         run: lake comparator --config comparator/all.json
