@@ -103,6 +103,7 @@
     "ConjectureMachines.Semantics.Chess.halts_chess_baseline_iff_not_draw"
   ],
   "source_sha256": {
+    "Challenge.lean": "71320f839b515dfc7b45b6eaa9b874a0498c014ad5d73723db1cb8e7db22aef5",
     "Cryptids/Chess/Compilation.lean": "dc5526fc93dc1b1befd80591e234d73905b99a36a9e34a810607ec9d21051889",
     "Cryptids/Chess/Compilation/Binary.lean": "3ff0919c4f75f7229d49f2bcd0626e50566badac73d9518f2cdb15a7c279cc38",
     "Cryptids/Chess/Compilation/Control.lean": "73488605bd9b35c7106979c1ad77d5fa4b67e9f2afc2ee0c1349bc17be78c603",
@@ -165,6 +166,7 @@
     "artifacts/chess_baseline/challenge.json": "f63261c06cf833bc4618dcebcd72961dd04f312fd324e3ec2613e1a184757338",
     "artifacts/chess_baseline/table/manifest.json": "83e1d7442e5c9fac9ca928d7db2747c0b60b3ecd2612d54a674bfa105c573357",
     "comparator/chess_m6.json": "da67ca995a376a8d32cf06da5937c535376c58f069b9bc26ec720229c4d070e0",
+    "docs/chess/m5/results.json": "af5a79ea18bc973a774483f737ebb7efe162349663815351b31b74b0e572929b",
     "lake-manifest.json": "4bb9288d47457931549bbeff4d0e68d9a8dbd47b063e6b72a3210b0d09311284",
     "lakefile.chess-m6.toml": "6ede9677f30bdb59bc66065ee16637044a308e3a253786b0a54153a4fb0ec084",
     "lakefile.toml": "7c4250e8165473fa250cf95f1db6d36b0deb9a25203209016fe10771ab0db699",
@@ -177,6 +179,7 @@
     "scripts/chess_m6/ActualTemplateFixtures.lean": "87a0917adfbbfd14eaeebc58e6c1a205248654d7f9964bd41c5613c1aa060438",
     "scripts/chess_m6/ActualTemplateNative.lean": "21acf3a71dc705a6fa1b3675fc847bf41d5e42660d780e13b3ca41d2052b5b96",
     "scripts/chess_m6/AssemblyFixtures.lean": "4bcadc44bfb23d3ab9ef33f0bf8f865194817c2fce3fe5019cb124ad8e8e845a",
+    "scripts/chess_m6/BaselineWarningsFixtures.py": "d4b0005ab807cac824cf61100a155698f6e71c2b24e027cdd9eb34b0dbc33c3d",
     "scripts/chess_m6/BinaryTemplateFixtures.lean": "37e8d2423ce240d68963661491cb450fb2f443669e88668f8e119934f7030441",
     "scripts/chess_m6/CertificateFixtures.lean": "138ed95585e6eae66b31066b44ca41e71cb41e9d18c97634a87985b881a33cc6",
     "scripts/chess_m6/Export.lean": "e43c60b7586eeb5eff69c13c11d86fa545ffe2d3784e99f06845bf0fd0da3b92",
@@ -210,7 +213,7 @@
     "scripts/chess_m6/producer_b.py": "a38daf839911d89a35774d89a12bf577cbc5cb19b26a7bf2609ef424d86e4f96",
     "scripts/chess_m6_parallel_parts.py": "34e1850cb3168585214f7de627a7ec14b2269ae0110fd09103b62ce27f242752",
     "scripts/chess_m6_table_parts.py": "59fc07aab43fb57403e70492b704b05834b94e3fd9a9be41006572468f026073",
-    "scripts/verify_chess_m6.py": "b2edb7dca3984b0f2f65fb30ec66bbbbf4b4cac1acbd8ee2e9a07b184569a500"
+    "scripts/verify_chess_m6.py": "33ae49e69942d7b7af37e312073962cc4101f8bedd74d396834786983f8f9f23"
   },
   "table": {
     "directory": "artifacts/chess_baseline/table",

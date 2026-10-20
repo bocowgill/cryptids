@@ -33,13 +33,29 @@ def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def run(args, expected, status=0, *, native_link=False, timeout=600):
+def baseline_diagnostic(output):
+    """Permit only the complete warning set retained by the pinned M5 baseline."""
+    recorded = json.loads((ROOT / "docs/chess/m5/results.json").read_text())
+    previous = recorded["baseline"]["outputs"]["default_build"]
+    known = [line for line in previous.splitlines() if "warning:" in line]
+    require(len(known) == 22 and all(line.startswith("warning: Challenge.lean:")
+                                   for line in known), "Unexpected pinned baseline warning set")
+    found = [line for line in output.splitlines() if "warning:" in line]
+    require(not found or found == known, "Baseline warning set differs from the pinned M5 output")
+    return "\n".join(line for line in output.splitlines() if line not in known)
+
+
+def run(args, expected, status=0, *, native_link=False, baseline_warnings=False, timeout=600):
     result = subprocess.run(args, cwd=ROOT, env=dict(os.environ, ELAN_NO_UPDATE_CHECK="1"),
                             text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
                             timeout=timeout, check=False)
     require(result.returncode == status, f"Unexpected exit: {args}\n{result.stdout}")
     require(expected in result.stdout, f"Missing success/control token: {args}\n{result.stdout}")
     diagnostic = result.stdout
+    if baseline_warnings:
+        require(args == ["python3", "scripts/verify_chess_m5.py", "--baseline"],
+                "Baseline warnings are permitted only for the pinned M5 baseline command")
+        diagnostic = baseline_diagnostic(diagnostic)
     if native_link:
         diagnostic = diagnostic.replace(
             "ld64.lld: warning: directory not found for option -L/usr/local/lib\n", "")
@@ -102,6 +118,7 @@ def inputs():
         "scripts/chess_m6_parallel_parts.py",
         "scripts/RunChessM6.lean", "scripts/RunChessM6VM.lean", "scripts/ProbeChessM6.lean",
         "lean-toolchain", "lakefile.toml", "lakefile.chess-m6.toml", "lake-manifest.json",
+        "docs/chess/m5/results.json", "Challenge.lean",
         ".github/workflows/chess_m6_ci.yml",
     )]
     return {str(path.relative_to(ROOT)): digest(path) for path in paths}
@@ -133,6 +150,8 @@ def foundations():
     results = [run(["lake", "--wfail", "build", "Cryptids.Chess.Compilation.Foundations",
                     "Cryptids.Chess.Compilation.Matrix"],
                    "Build completed successfully")]
+    results.append(run(["python3", "scripts/chess_m6/BaselineWarningsFixtures.py"],
+                       "M6 baseline warning controls passed: 2 accepted, 6 rejected"))
     audit = ["lake", "env", "lean", "-DwarningAsError=true", "--run", "scripts/AuditChessM6.lean"]
     results.append(run(audit, "Chess M6 foundation audit passed"))
     for argument, expected in (
@@ -239,6 +258,7 @@ def release_inputs():
         "scripts/GenerateChessM6.lean", "scripts/ExportChessM6Challenge.lean",
         "scripts/chess_m6_table_parts.py", "scripts/chess_m6_parallel_parts.py",
         "lean-toolchain", "lakefile.toml", "lakefile.chess-m6.toml", "lake-manifest.json",
+        "docs/chess/m5/results.json", "Challenge.lean",
         "comparator/chess_m6.json", "artifacts/chess_baseline/challenge.json",
         "artifacts/chess_baseline/table/manifest.json",
     ))
@@ -345,7 +365,7 @@ def table_check():
 
 def baseline():
     results = [run(["python3", "scripts/verify_chess_m5.py", "--baseline"],
-                   "Chess M5 baseline verification passed", timeout=7200),
+                   "Chess M5 baseline verification passed", baseline_warnings=True, timeout=7200),
                run(["python3", "scripts/verify_chess_m5.py"],
                    "Chess M5 executable verification passed", timeout=7200)]
     work = ROOT / ".lake/chess-m6-check"
