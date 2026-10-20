@@ -6,7 +6,7 @@ refinement proofs, and regression fixtures. M3 is complete with exact history,
 claims, terminal outcomes, and finite-graph dead-position detection. M4 is complete
 with bounded play, total evaluation, and exact strategic correspondence (2026-10-20).
 M5 is complete with a verified binary backend and four literal blank-tape small-game
-machines (2026-10-20). M6–M7 and outreach remain on hold.
+machines (2026-10-20). M6 is in progress. M7 and outreach remain on hold.
 
 ## 1. Agreed objective and scope
 
@@ -60,11 +60,11 @@ the reference model is correct. Milestones below discharge those obligations.
 
 The initial tasks authorized the fork, roadmap, source audit, packaging recommendation,
 and the completed definitions-only reference port and freeze. The latest instruction
-authorizes M5's verified compilation route and explicit small-game machines. The historical
+authorizes M6's explicit baseline chess machine, actual source translation and complete refinement. The historical
 audit is recorded in
 [docs/chess/m1/AUDIT.md](docs/chess/m1/AUDIT.md), with the proposed module boundaries
 in [PACKAGING.md](docs/chess/m1/PACKAGING.md). The completed M1 reference is recorded
-in [FREEZE.md](docs/chess/m1/FREEZE.md). M6–M7, new issues or PRs, and maintainer
+in [FREEZE.md](docs/chess/m1/FREEZE.md). M7, new issues or PRs, and maintainer
 messages remain outside the authorized scope.
 
 ## 2. Repository and source baseline
@@ -153,7 +153,7 @@ modules, and the checked solution theorems must have no placeholder dependency.
 | M3 | Verify history, claims, and terminal outcomes | M2 | Complete: implementation `9115a21` |
 | M4 | Prove bounded play and evaluator/strategy equivalence | M3 | Complete: implementation `0e62d56` |
 | M5 | Validate the compilation route on small finite games | M1; can proceed alongside M2–M4 | Complete: implementation `b3f5e29` |
-| M6 | Construct and verify the baseline chess machine | M4, M5 | Not started |
+| M6 | Construct and verify the baseline chess machine | M4, M5 | In progress |
 | M7 | Reduce states while preserving the target theorem | M6 | Not started; secondary objective |
 
 ### M0 — Fork and planning contract
@@ -400,6 +400,10 @@ linkage to a published chess table. No full-chess machine or full-chess state co
 
 Goal: compose the verified chess evaluator and backend into the primary artifact.
 
+Status: in progress. Checked construction components and the exact remaining obligations
+are recorded in [the M6 progress report](docs/chess/m6/PROGRESS.md). The component verifier
+does not certify the full milestone; all acceptance criteria below remain open.
+
 Acceptance criteria:
 
 - [ ] Translate the actual evaluator, rule procedures, and initial data into the
@@ -560,9 +564,9 @@ M4's bounded play, total evaluator, globally legal optimal strategies, and exact
 correspondence with the frozen strategy propositions are complete; see
 [M4 design](docs/chess/m4/DESIGN.md) and [M4 results](docs/chess/m4/RESULTS.md).
 M5 is complete: the verified compilation route and four literal branching-game machines are
-recorded in [M5 results](docs/chess/m5/RESULTS.md). No later milestone is authorized. M6 is the
-recommended next step: translate and prove the actual evaluator before
-attempting full chess. M6–M7 and outreach remain on hold until separately authorized.
+recorded in [M5 results](docs/chess/m5/RESULTS.md). M6 is now authorized and in progress:
+translate the actual evaluator, rule procedures and initial data, prove refinement and exact
+artifact correspondence, then produce the baseline chess machine. M7 and outreach remain on hold.
 
 [fork]: https://github.com/bocowgill/cryptids
 [upstream]: https://github.com/google-deepmind/cryptids
