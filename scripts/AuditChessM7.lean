@@ -31,7 +31,8 @@ private def dependencies (info : ConstantInfo) : Array Name := Id.run do
 
 def main (args : List String) : IO Unit := do
   initSearchPath (← findSysroot)
-  let env ← importModules #[{module := `Cryptids.Semantics.ChessM7}] {} 0
+  let env ← importModules #[{module := `Cryptids.Semantics.ChessM7},
+    {module := `Cryptids.Chess.Optimisation.M7Table}] {} 0
   let mut roots := env.constants.toList.foldl (init := #[]) fun acc (name, _) ↦
     if prefixes.any (·.isPrefixOf name) then acc.push name else acc
   let generatorRoots := roots.filter generator
@@ -40,6 +41,7 @@ def main (args : List String) : IO Unit := do
       `ConjectureMachines.Optimisation.CompactPost.halts_input,
       `Chess.Optimisation.M7.generated_states, `Chess.Optimisation.M7.halts_iff,
       `Chess.Optimisation.M7.initialises, `Chess.Optimisation.M7.equivalent,
+      `Chess.Optimisation.M7.table_identity, `Chess.Optimisation.M7.strict_generated_reduction,
       `ConjectureMachines.Semantics.ChessM7.halts_chess_m7_iff_not_draw] do
     unless roots.contains required do
       throw <| IO.userError s!"Required construction proof is missing: {required}"

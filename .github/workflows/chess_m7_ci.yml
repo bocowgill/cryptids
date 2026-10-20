@@ -95,7 +95,7 @@ jobs:
           (work / 'M7Probe.lean').write_text(source)
           PY
           timeout --signal=TERM --kill-after=10s 240s lake env lean -M6144 -DwarningAsError=true --root=.lake/chess-m7-check .lake/chess-m7-check/M7Probe.lean
-          lake --wfail build Cryptids.Semantics.ChessM7
+          lake --wfail build Cryptids.Semantics.ChessM7 Cryptids.Chess.Optimisation.M7Table
       - name: Verify quotient proofs, exact stopping and corruption controls
         if: hashFiles('scripts/verify_chess_m7.py') != ''
         run: python3 scripts/verify_chess_m7.py --proofs

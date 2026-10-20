@@ -2,12 +2,9 @@
 Copyright 2026 The Cryptids Authors.
 Released under Apache 2.0 license as described in the file LICENSE.
 -/
-module
+import Cryptids.Chess.Optimisation.M7
+import Cryptids.Chess.Compilation.Matrix
 
-public import Cryptids.Chess.Optimisation.M7
-public import Cryptids.Chess.Compilation.Matrix
-
-@[expose] public section
 namespace Chess.Optimisation.M7
 open ConjectureMachines
 

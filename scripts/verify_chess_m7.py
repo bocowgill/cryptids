@@ -95,7 +95,8 @@ def freeze():
 def proofs():
     freeze()
     before = pins()
-    checks = [run(["lake", "--wfail", "build", "Cryptids.Semantics.ChessM7"],
+    checks = [run(["lake", "--wfail", "build", "Cryptids.Semantics.ChessM7",
+                   "Cryptids.Chess.Optimisation.M7Table"],
                   "Build completed successfully")]
     audit = ["lake", "env", "lean", "-DwarningAsError=true", "--run", "scripts/AuditChessM7.lean"]
     checks.append(run(audit, "Chess M7 foundation audit passed"))
