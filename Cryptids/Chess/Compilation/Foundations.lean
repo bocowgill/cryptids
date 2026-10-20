@@ -23,5 +23,7 @@ public import Cryptids.Compilation.CodeVM
 public import Cryptids.Compilation.RuntimeSupport
 public import Cryptids.Compilation.RuntimeDispatch
 public import Cryptids.Chess.Compilation.Tape
+public import Cryptids.Chess.Compilation.Binary
+public import Cryptids.Compilation.LocalCertificate
 
 /-! Checked components of M6. This import does not assert a complete chess machine. -/

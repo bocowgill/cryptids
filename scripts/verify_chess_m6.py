@@ -11,12 +11,13 @@ import subprocess
 ROOT = Path(__file__).resolve().parents[1]
 COMPONENTS = [
     "Cryptids/Chess/Compilation/" + name + ".lean"
-    for name in ("Encoding", "Evaluator", "WithoutDead", "Rules", "Program", "History", "Geometry", "Updates", "Legality", "Control", "HistoryCode", "Source", "Tape", "Foundations")
+    for name in ("Encoding", "Evaluator", "WithoutDead", "Rules", "Program", "History", "Geometry", "Updates", "Legality", "Control", "HistoryCode", "Source", "SourceModel", "SourceCertificate", "Tape", "Binary", "Foundations")
 ] + [
     "Cryptids/Compilation/" + name + ".lean"
     for name in ("NatCode", "ListCode", "Scalar", "Commands", "Code", "CodeInput", "CodeDAG",
                  "CodeVM", "Runtime", "RuntimeMacros", "RuntimeSupport", "RuntimeData", "RuntimeDispatch",
-                 "RuntimeEval", "RuntimeReturn", "RuntimeLookup", "RuntimeWire", "RuntimeProof")
+                 "RuntimeEval", "RuntimeReturn", "RuntimeLookup", "RuntimeWire", "RuntimeProof",
+                 "NumberTM2", "StrongAssembly", "FlatInit", "LocalCertificate")
 ]
 
 
@@ -73,6 +74,7 @@ def foundations():
         ("--negative-control", "Forbidden axiom: sorryAx"),
         ("--negative-control-open", "The open chess conjecture is a dependency"),
         ("--negative-control-rec", "Unsafe or partial dependency:"),
+        ("--negative-control-generator", "Proof generator is a mathematical dependency:"),
     ):
         results.append(run(audit + [argument], expected, 1))
     results.append(run(["lake", "env", "lean", "-DwarningAsError=true", "--run",
@@ -83,13 +85,22 @@ def foundations():
         ("WireFixtures", "Runtime startup fixtures passed"),
         ("OpcodeFixtures", "Runtime opcode fixtures passed"),
         ("LookupFixtures", "Runtime lookup fixtures passed"),
+        ("AssemblyFixtures", "Strong assembly fixtures passed: 16 assertions"),
+        ("NumberFixtures", "NumberTM2 fixtures passed: 8 kernel assertions, 2 actual-machine runs"),
+        ("InitFixtures", "Flat initializer fixtures passed"),
+        ("CertificateFixtures", "Local certificate fixtures passed: 8 kernel assertions"),
+        ("SourceFixtures", "Literal source fixtures passed: exact identity and two mutation controls"),
     ):
-        results.append(run(["lake", "env", "lean", "-DwarningAsError=true",
-                            f"scripts/chess_m6/{name}.lean"], token))
+        mode = ["--run"] if name == "AssemblyFixtures" else []
+        results.append(run(["lake", "env", "lean", "-DwarningAsError=true"] + mode +
+                           [f"scripts/chess_m6/{name}.lean"], token))
     require(before == {name: digest(ROOT / name) for name in COMPONENTS},
             "A checked source changed during verification")
-    report = {"milestone": "M6", "status": "in_progress", "full_chess_machine": None,
-              "full_chess_state_count": None, "integration_gates_met": 0,
+    report = {"milestone": "M6", "status": "in_progress",
+              "generated_machine": "Chess.Compilation.Binary.generated",
+              "generated_halting_theorem": "Chess.Compilation.Binary.generated_halts",
+              "published_literal_machine": None,
+              "full_chess_state_count": None, "integration_gates_met": 1,
               "integration_gates_total": 8, "source_sha256": before, "checks": results}
     work = ROOT / ".lake/chess-m6-check"
     work.mkdir(parents=True, exist_ok=True)
@@ -106,8 +117,8 @@ def main():
         require(not args.baseline, "Choose one verification mode")
         foundations()
         return
-    raise RuntimeError("M6 remains incomplete: the fixed runtime interpreter, exact literal "
-                       "table, unconditional table theorem and independent comparator are open. "
+    raise RuntimeError("M6 remains incomplete: the exact literal "
+                       "table, numerical state count, exact table theorem and independent comparator are open. "
                        "Use --foundations only to check completed construction components.")
 
 

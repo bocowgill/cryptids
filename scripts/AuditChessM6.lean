@@ -15,13 +15,15 @@ private def prefixes : Array Name := #[
   `Chess.Compilation.Legality, `Chess.Compilation.Control,
   `Chess.Compilation.HistoryCode, `Chess.Compilation.Source, `Chess.Compilation.Tape,
   `Chess.Compilation.Program, `Chess.Compilation.History,
+  `Chess.Compilation.SourceModel, `Chess.Compilation.SourceCertificate, `Chess.Compilation.Binary,
   `ConjectureMachines.Compilation.NatCode, `ConjectureMachines.Compilation.ListCode,
   `ConjectureMachines.Compilation.Scalar, `ConjectureMachines.Compilation.Commands,
   `ConjectureMachines.Compilation.CodeBackend, `ConjectureMachines.Compilation.CodeDAG,
   `ConjectureMachines.Compilation.CodeVM, `ConjectureMachines.Compilation.Runtime,
   `ConjectureMachines.Compilation.RuntimeMacros, `ConjectureMachines.Compilation.RuntimeSupport,
   `ConjectureMachines.Compilation.RuntimeLookup, `ConjectureMachines.Compilation.RuntimeWire,
-  `ConjectureMachines.Compilation.RuntimeProof]
+  `ConjectureMachines.Compilation.RuntimeProof, `ConjectureMachines.Compilation.TM2Number,
+  `ConjectureMachines.Compilation.StrongAssembly, `ConjectureMachines.Compilation.FlatInit, `ConjectureMachines.Compilation.LocalCertificate]
 
 private def dependencies (info : ConstantInfo) : Array Name := Id.run do
   let mut names := info.type.getUsedConstants
@@ -41,6 +43,15 @@ def main (args : List String) : IO Unit := do
   let env ← importModules #[{module := `Cryptids.Chess.Compilation.Foundations}] {} 0
   let mut roots := env.constants.toList.foldl (init := #[]) fun acc (name, _) ↦
     if prefixes.any (·.isPrefixOf name) then acc.push name else acc
+  let generatorRoots := roots.filter (fun name ↦
+    (`Chess.Compilation.SourceCertificate.Generator).isPrefixOf (privateToUserName name))
+  roots := roots.filter (fun name ↦ !generatorRoots.contains name)
+  for required in #[`Chess.Compilation.Source.program_initial_dom,
+      `Chess.Compilation.SourceCertificate.program_decode,
+      `Chess.Compilation.Binary.generated_halts,
+      `Chess.Compilation.Binary.generated_initializes] do
+    unless roots.contains required do
+      throw <| IO.userError s!"Required construction proof is missing: {required}"
   let mut helpers := #[]
   for name in roots do
     if let some owner := Compiler.isUnsafeRecName? name then
@@ -54,6 +65,8 @@ def main (args : List String) : IO Unit := do
   else if args == ["--negative-control-open"] then
     roots := roots.push `Chess.perfect_play_results_in_draw
   else if args == ["--negative-control-rec"] then roots := roots.push helpers[0]!
+  else if args == ["--negative-control-generator"] then
+    roots := roots.push `Chess.Compilation.SourceCertificate.Generator.certify
   else unless args.isEmpty do throw <| IO.userError "Unexpected audit argument"
   let mut pending := roots
   let mut seen : NameSet := {}
@@ -65,6 +78,8 @@ def main (args : List String) : IO Unit := do
     if name == `Chess.perfect_play_results_in_draw then
       throw <| IO.userError "The open chess conjecture is a dependency"
     let some info := env.find? name | throw <| IO.userError s!"Missing declaration: {name}"
+    if (`Chess.Compilation.SourceCertificate.Generator).isPrefixOf (privateToUserName name) then
+      throw <| IO.userError s!"Proof generator is a mathematical dependency: {name}"
     if info.isUnsafe || info.isPartial then
       throw <| IO.userError s!"Unsafe or partial dependency: {name}"
     if info matches .axiomInfo _ then
@@ -73,6 +88,7 @@ def main (args : List String) : IO Unit := do
       axioms := axioms.insert name
     pending := pending ++ dependencies info
   IO.println s!"Audited {roots.size} M6 foundation roots and {seen.size} dependencies"
+  IO.println s!"Meta certificate generator roots outside safe roots: {generatorRoots.size}"
   IO.println s!"Compiler artifacts outside safe roots: {helpers.qsort Name.lt}"
   IO.println s!"Permitted axioms: {axioms.toArray.qsort Name.lt}"
   IO.println "Chess M6 foundation audit passed"

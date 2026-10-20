@@ -402,11 +402,12 @@ Goal: compose the verified chess evaluator and backend into the primary artifact
 
 Status: in progress. Checked construction components and the exact remaining obligations
 are recorded in [the M6 progress report](docs/chess/m6/PROGRESS.md). The component verifier
-does not certify the full milestone; all acceptance criteria below remain open.
+does not certify the full milestone; the complete source-refinement criterion is met,
+while the remaining publication and verification criteria remain open.
 
 Acceptance criteria:
 
-- [ ] Translate the actual evaluator, rule procedures, and initial data into the
+- [x] Translate the actual evaluator, rule procedures, and initial data into the
   supported backend. Prove this program refines the evaluator from M4; prove
   adequacy for any representation change made to suit the compiler.
 - [ ] Emit an explicit finite `Machine q 2` with `q > 0`, a literal transition

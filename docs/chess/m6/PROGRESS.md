@@ -1,6 +1,6 @@
 # M6 construction progress
 
-Status: **in progress**. All eight M6 integration acceptance criteria remain open.
+Status: **in progress**. The complete source-refinement criterion is met; seven integration criteria remain open.
 There is no published full-chess transition table or full-chess state count yet.
 The target remains halting exactly when the frozen initial position is **not drawn**.
 M7 and outreach remain unstarted; the frozen reference and M1–M5 inputs are unchanged.
@@ -27,8 +27,8 @@ M7 and outreach remain unstarted; the frozen reference and M1–M5 inputs are un
 - Concrete history, optional current/intended-move claims, automatic adjudication and
   ordered legal actions. `Source.program_initial_dom` proves that the fully instantiated
   source program terminates exactly when the frozen strategic draw proposition is false.
-- Executable shared DAG construction with exact source-syntax reconstruction and canonical
-  serialization. This reduces representation size without assuming semantic optimization.
+- Executable shared DAG construction and a literal 5,952-row model, with 7,076 checked
+  source congruence lemmas and 371 checked row-block lemmas identifying its exact syntax.
 - A fixed four-stack interpreter: actual startup, complete instruction lookup/restoration,
   all opcode/continuation paths and positive simulation. `Tape.halts_iff` proves both
   termination directions for the complete chess source on that interpreter.
@@ -41,19 +41,24 @@ python3 scripts/verify_chess_m6.py --foundations
 
 The latest report is in `.lake/chess-m6-check/foundations.json`. It records source hashes,
 strict builds, complete dependency/axiom traversal, controls rejecting proof holes, the open
-chess conjecture and compiler recursion artifacts, and eight low-level execution checks.
-The latest checked batch audits 2,626 safe roots and 16,344 dependency declarations and uses
+chess conjecture, compiler recursion artifacts and proof-generator dependencies,
+plus source, VM, opcode, lookup, initialization, numeric-control and local-certificate fixtures.
+The latest checked batch audits 16,717 safe roots and 30,543 dependency declarations and uses
 only `propext`, `Classical.choice`, and `Quot.sound`. Exact compiler-generated recursion
 artifacts are inventoried outside the root set and are never exempted from dependency checks.
 
 The default verifier deliberately fails while full M6 is unfinished; passing the component
-gate cannot certify the eight integration criteria.
+gate certifies the source/refinement components and cannot certify the remaining seven criteria.
 
 ## Remaining assembly
 
-All source callees and the fixed four-stack interpreter are proved correct. Remaining
-backend work concerns scalable construction of binary control, exact literal program
-and matrix certificates, and composition with the paid blank initializer.
+The complete generated blank binary machine now has an unconditional halting equivalence,
+`Chess.Compilation.Binary.generated_halts`. Numeric TM2 control, the two-stage numbered
+backend and a flat array-indexed initializer are proved and composed; exact initialization
+and initializer-inclusive state accounting are proved. See [the binary proof guide](BINARY-COMPILATION.md).
+
+Remaining work concerns a measured numerical state count, scalable native emission, and
+kernel certification of the exact published literal matrix.
 
 After that, M6 still requires the literal transition artifact, complete measured state count,
 kernel-checked identity with the compiled program, unconditional strategic equivalence for
