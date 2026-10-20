@@ -2,6 +2,7 @@
 """Focused range orchestration fixtures; no actual chess evaluator is executed."""
 import argparse
 import copy
+import errno
 import hashlib
 import importlib.util
 import io
@@ -13,6 +14,7 @@ import subprocess
 import sys
 import tempfile
 import time
+from unittest.mock import patch
 
 sys.dont_write_bytecode = True
 ROOT = Path(__file__).resolve().parents[2]
@@ -68,8 +70,29 @@ def same_artifacts(a, b):
         check(True, 'all artifact bytes compared')
 
 
+def rss_monitor_controls():
+    # Exercise the Linux branch on every host without creating a /proc race.
+    with patch.object(parallel.sys, 'platform', 'linux'):
+        with patch.object(parallel.Path, 'read_text', return_value='19 7 0 0 0 0 0'):
+            check(parallel._rss(123) == 7 * os.sysconf('SC_PAGE_SIZE'), 'live Linux RSS retained')
+        for error in [FileNotFoundError(errno.ENOENT, 'gone'),
+                      ProcessLookupError(errno.ESRCH, 'exited during read')]:
+            with patch.object(parallel.Path, 'read_text', side_effect=error):
+                check(parallel._rss(123) == 0, 'exited process has zero resident memory')
+        for error in [PermissionError(errno.EACCES, 'denied'), OSError(errno.EIO, 'read failed')]:
+            with patch.object(parallel.Path, 'read_text', side_effect=error):
+                try:
+                    parallel._rss(123)
+                except OSError as caught:
+                    check(caught is error, 'non-exit monitoring error propagated')
+                else:
+                    raise AssertionError('Non-exit monitoring error was hidden')
+    print('Linux RSS exit-race controls passed: 3 accepted, 2 propagated')
+
+
 def fixtures(base):
     compile(SCRIPT.read_bytes(), str(SCRIPT), 'exec')
+    rss_monitor_controls()
     events = []
     q = 43
     result = parallel.run(base / 'parallel', states=q, rows_per_part=7, workers=4,

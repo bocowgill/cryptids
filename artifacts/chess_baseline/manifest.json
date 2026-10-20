@@ -200,7 +200,7 @@
     "scripts/chess_m6/LookupFixtures.lean": "a2690c5f62b8b9b5a13c767e6aa0cd2bb633c9b9ca9dc2561d339a521c84029d",
     "scripts/chess_m6/NumberFixtures.lean": "410f49ecd4df0ee2e99274a117262459306644287f21afdcd57c99157da14485",
     "scripts/chess_m6/OpcodeFixtures.lean": "e1dd896ed9080a7aaec8a255cd41cc0dd46f548bb610e8e3b4803f32b9eb71cd",
-    "scripts/chess_m6/ParallelFixtures.py": "c49419d4aaa2a5c749b57442a41063aa742187a00997cef8c4d2385cb7f89bc8",
+    "scripts/chess_m6/ParallelFixtures.py": "5d5c33185e27b71a9ab7795fbc5a7eac0afe39ea60b72da3d02695cdeba3dc0a",
     "scripts/chess_m6/RuntimeFixtures.lean": "5913e3a2117fb08aaab7c29384472f40dd0ecd619e26913e4105de1e412b1bf0",
     "scripts/chess_m6/SharedFixtures.lean": "95431190f286c4f0e17cedb4493192d1bd04b0be3d2692ff4717c73c23af2f7c",
     "scripts/chess_m6/SnapshotControls.py": "e59aa1dcd475e5f0bea9449ec956e10e6e5819623b12c23c103cdcd63f77626e",
@@ -211,7 +211,7 @@
     "scripts/chess_m6/WireFixtures.lean": "5eeff86fa7d43feccd07508ff052783c8081d5515bf6d844fa8dbc3de4c110b6",
     "scripts/chess_m6/producer_a.py": "4c0702b5963b6f20fbc75f5b36e7aee4a6d0c4ae2e794823a38cd885bd2e78c1",
     "scripts/chess_m6/producer_b.py": "a38daf839911d89a35774d89a12bf577cbc5cb19b26a7bf2609ef424d86e4f96",
-    "scripts/chess_m6_parallel_parts.py": "34e1850cb3168585214f7de627a7ec14b2269ae0110fd09103b62ce27f242752",
+    "scripts/chess_m6_parallel_parts.py": "c79c8be60fa4627f2d991777d0171fd03144fbae681c2fd19607e1661af3a4b4",
     "scripts/chess_m6_table_parts.py": "59fc07aab43fb57403e70492b704b05834b94e3fd9a9be41006572468f026073",
     "scripts/verify_chess_m6.py": "33ae49e69942d7b7af37e312073962cc4101f8bedd74d396834786983f8f9f23"
   },

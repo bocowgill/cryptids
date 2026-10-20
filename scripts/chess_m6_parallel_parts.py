@@ -152,7 +152,9 @@ def _rss(pid):
         try:
             fields = Path(f"/proc/{pid}/statm").read_text().split()
             return int(fields[1]) * os.sysconf("SC_PAGE_SIZE") if len(fields) >= 2 else 0
-        except FileNotFoundError:
+        except (FileNotFoundError, ProcessLookupError):
+            # The child may exit after /proc was opened but before statm was read.
+            # Its exit status and complete output are checked by the range worker.
             return 0
     raise Error("Resource-monitored orchestration requires macOS or Linux")
 
