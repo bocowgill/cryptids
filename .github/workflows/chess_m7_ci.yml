@@ -86,6 +86,7 @@ jobs:
           from pathlib import Path
           import re
           source = Path('Cryptids/Chess/Optimisation/M7.lean').read_text()
+          source = re.sub(r'/--[\s\S]*?-/\n', '', source)
           source = re.sub(r'^(def|abbrev|instance|theorem) (\w+)',
               lambda m: '#eval IO.eprintln "M7 elaboration: ' + m[2] + '"\n' + m[0],
               source, flags=re.MULTILINE)

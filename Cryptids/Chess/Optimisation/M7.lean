@@ -43,8 +43,9 @@ abbrev generated : BundledMachine 2 := FlatInit.initialise Compilation.Input.bit
 instance generated_neZero : NeZero generated.states := generated.neZeroStates
 
 theorem generated_states : generated.states = 392046822 := by
-  change body.states + 2 * Compilation.Input.bits.size = _
-  rw [body_states, Compilation.Input.paid_prefix]
+  have count := Compilation.Input.initialise_states body
+  rw [body_states] at count
+  exact count
 
 /-- The fixed numeric candidate, with every binary and initializer control counted. -/
 def machine : Machine 392046822 2 :=

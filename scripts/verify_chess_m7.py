@@ -204,9 +204,11 @@ def table():
 
 def baseline():
     freeze()
+    before = pins()
     checks = [run(["python3", "scripts/verify_chess_m6.py", "--baseline"],
                   "Chess M6 baseline verification passed", timeout=10800, baseline=True)]
-    save("baseline.json", {"status": "passed", "checks": checks})
+    require(pins() == before, "M7 baseline input changed during checking")
+    save("baseline.json", {"status": "passed", "source_sha256": before, "checks": checks})
     print("Chess M7 baseline verification passed", flush=True)
 
 
