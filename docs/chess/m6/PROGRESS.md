@@ -29,6 +29,9 @@ M7 and outreach remain unstarted; the frozen reference and M1–M5 inputs are un
   source program terminates exactly when the frozen strategic draw proposition is false.
 - Executable shared DAG construction with exact source-syntax reconstruction and canonical
   serialization. This reduces representation size without assuming semantic optimization.
+- A fixed four-stack interpreter: actual startup, complete instruction lookup/restoration,
+  all opcode/continuation paths and positive simulation. `Tape.halts_iff` proves both
+  termination directions for the complete chess source on that interpreter.
 
 Run the current checked-component gate with:
 
@@ -39,7 +42,7 @@ python3 scripts/verify_chess_m6.py --foundations
 The latest report is in `.lake/chess-m6-check/foundations.json`. It records source hashes,
 strict builds, complete dependency/axiom traversal, controls rejecting proof holes, the open
 chess conjecture and compiler recursion artifacts, and eight low-level execution checks.
-The latest checked batch audits 2,039 safe roots and 15,622 dependency declarations and uses
+The latest checked batch audits 2,626 safe roots and 16,344 dependency declarations and uses
 only `propext`, `Classical.choice`, and `Quot.sound`. Exact compiler-generated recursion
 artifacts are inventoried outside the root set and are never exempted from dependency checks.
 
@@ -48,9 +51,9 @@ gate cannot certify the eight integration criteria.
 
 ## Remaining assembly
 
-All source callees are instantiated and proved correct. The remaining backend work is a
-fixed interpreter for the shared program table, including exact instruction lookup and
-runtime return frames. The source theorem alone does not prove that interpreter correct.
+All source callees and the fixed four-stack interpreter are proved correct. Remaining
+backend work concerns scalable construction of binary control, exact literal program
+and matrix certificates, and composition with the paid blank initializer.
 
 After that, M6 still requires the literal transition artifact, complete measured state count,
 kernel-checked identity with the compiled program, unconditional strategic equivalence for
@@ -80,5 +83,9 @@ possible use of a shared interpreter must be resolved before promising a literal
 The measured update source reduces to 3,281 shared DAG rows. Its direct support traversal
 would contain 98,385,948 occurrences before deduplication, and static continuation memoization
 hit a 500,000-context cap before finishing. The selected construction keeps program rows,
-the program counter and return frames on tape in a fixed interpreter. Its correctness and
-full emission remain open; see [EMISSION.md](EMISSION.md) for exact measurement scope.
+the program counter and return frames on tape in a fixed interpreter. Its correctness is
+now proved; full emission remains open. The full source has 118,913,842 expanded occurrences
+and 5,952 shared rows, with root 5,951. Its canonical serialization has 17,858 words and
+141,070 binary/cons symbols. These are native construction measurements, not a binary state
+count. Fixed control has a kernel-proved 344 candidate labels. See [EMISSION.md](EMISSION.md)
+for the earlier audit's measurement scope.

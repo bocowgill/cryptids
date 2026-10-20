@@ -11,10 +11,12 @@ import subprocess
 ROOT = Path(__file__).resolve().parents[1]
 COMPONENTS = [
     "Cryptids/Chess/Compilation/" + name + ".lean"
-    for name in ("Encoding", "Evaluator", "WithoutDead", "Rules", "Program", "History", "Geometry", "Updates", "Legality", "Control", "HistoryCode", "Source", "Foundations")
+    for name in ("Encoding", "Evaluator", "WithoutDead", "Rules", "Program", "History", "Geometry", "Updates", "Legality", "Control", "HistoryCode", "Source", "Tape", "Foundations")
 ] + [
     "Cryptids/Compilation/" + name + ".lean"
-    for name in ("NatCode", "ListCode", "Scalar", "Commands", "Code", "CodeInput", "CodeDAG")
+    for name in ("NatCode", "ListCode", "Scalar", "Commands", "Code", "CodeInput", "CodeDAG",
+                 "CodeVM", "Runtime", "RuntimeMacros", "RuntimeSupport", "RuntimeData", "RuntimeDispatch",
+                 "RuntimeEval", "RuntimeReturn", "RuntimeLookup", "RuntimeWire", "RuntimeProof")
 ]
 
 
@@ -75,6 +77,15 @@ def foundations():
         results.append(run(audit + [argument], expected, 1))
     results.append(run(["lake", "env", "lean", "-DwarningAsError=true", "--run",
                         "scripts/RunChessM6.lean"], "Chess M6 component fixtures passed: 8 checks"))
+    results.append(run(["lake", "env", "lean", "-DwarningAsError=true", "--run",
+                        "scripts/RunChessM6VM.lean"], "Code VM fixtures passed: 27 assertions"))
+    for name, token in (
+        ("WireFixtures", "Runtime startup fixtures passed"),
+        ("OpcodeFixtures", "Runtime opcode fixtures passed"),
+        ("LookupFixtures", "Runtime lookup fixtures passed"),
+    ):
+        results.append(run(["lake", "env", "lean", "-DwarningAsError=true",
+                            f"scripts/chess_m6/{name}.lean"], token))
     require(before == {name: digest(ROOT / name) for name in COMPONENTS},
             "A checked source changed during verification")
     report = {"milestone": "M6", "status": "in_progress", "full_chess_machine": None,

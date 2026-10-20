@@ -13,11 +13,15 @@ private def prefixes : Array Name := #[
   `Chess.Compilation.Data, `Chess.Compilation.Evaluator, `Chess.Compilation.WithoutDead,
   `Chess.Compilation.Geometry, `Chess.Compilation.Updates, `Chess.Compilation.Rules,
   `Chess.Compilation.Legality, `Chess.Compilation.Control,
-  `Chess.Compilation.HistoryCode, `Chess.Compilation.Source,
+  `Chess.Compilation.HistoryCode, `Chess.Compilation.Source, `Chess.Compilation.Tape,
   `Chess.Compilation.Program, `Chess.Compilation.History,
   `ConjectureMachines.Compilation.NatCode, `ConjectureMachines.Compilation.ListCode,
   `ConjectureMachines.Compilation.Scalar, `ConjectureMachines.Compilation.Commands,
-  `ConjectureMachines.Compilation.CodeBackend, `ConjectureMachines.Compilation.CodeDAG]
+  `ConjectureMachines.Compilation.CodeBackend, `ConjectureMachines.Compilation.CodeDAG,
+  `ConjectureMachines.Compilation.CodeVM, `ConjectureMachines.Compilation.Runtime,
+  `ConjectureMachines.Compilation.RuntimeMacros, `ConjectureMachines.Compilation.RuntimeSupport,
+  `ConjectureMachines.Compilation.RuntimeLookup, `ConjectureMachines.Compilation.RuntimeWire,
+  `ConjectureMachines.Compilation.RuntimeProof]
 
 private def dependencies (info : ConstantInfo) : Array Name := Id.run do
   let mut names := info.type.getUsedConstants
