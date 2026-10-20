@@ -1,7 +1,8 @@
 # M6 construction progress
 
 Status: **in progress**. The complete source-refinement criterion is met; seven integration criteria remain open.
-There is no published full-chess transition table or finalized baseline state count yet.
+The verified Image candidate has 392,046,832 states. Its complete table is being exported;
+publication and standalone-reference identity are still open.
 The target remains halting exactly when the frozen initial position is **not drawn**.
 M7 and outreach remain unstarted; the frozen reference and M1–M5 inputs are unchanged.
 
@@ -37,7 +38,8 @@ M7 and outreach remain unstarted; the frozen reference and M1–M5 inputs are un
 - Generic first-order Boolean syntax graphs, direct numeric Post lowering, and numeric binary
   block templates. The actual 4,042-row source has complete 270-write/1,734-read/1,188-move
   classification certificates. Exact arithmetic getter graphs and their Post transitions are
-  proved without allocating the whole graph. Actual final image/publication remains open.
+  proved without allocating the whole graph. The actual Image instantiation now proves the
+  exact final count, blank initialization and unconditional frozen strategic equivalence.
 - A fixed four-stack interpreter: actual startup, complete instruction lookup/restoration,
   all opcode/continuation paths and positive simulation. `Tape.halts_iff` proves both
   termination directions for the complete chess source on that interpreter.
@@ -52,7 +54,7 @@ The latest report is in `.lake/chess-m6-check/foundations.json`. It records sour
 strict builds, complete dependency/axiom traversal, controls rejecting proof holes, the open
 chess conjecture, compiler recursion artifacts and proof-generator dependencies,
 plus source, VM, opcode, lookup, initialization, numeric-control and local-certificate fixtures.
-The latest checked batch audits 39,289 safe roots and 54,023 dependency declarations and uses
+The latest checked batch audits 39,372 safe roots and 54,117 dependency declarations and uses
 only `propext`, `Classical.choice`, and `Quot.sound`. Exact compiler-generated recursion
 artifacts are inventoried outside the root set and are never exempted from dependency checks.
 
@@ -66,8 +68,12 @@ The complete generated blank binary machine now has an unconditional halting equ
 backend and a flat array-indexed initializer are proved and composed; exact initialization
 and initializer-inclusive state accounting are proved. See [the binary proof guide](BINARY-COMPILATION.md).
 
-Remaining work concerns a measured numerical state count, scalable native emission, and
-kernel certification of the exact published literal matrix.
+The selected arithmetic Image route has 38,893,646 graph nodes and 194,468,236 Post
+controls. Its binary body has 388,936,472 states; the paid initializer adds 3,110,360.
+`Image.machine` has exactly 392,046,832 states and `Image.halts_iff` proves the target
+unconditionally. An independent mathematical review found no defect in this candidate.
+Remaining work concerns complete retained table bytes, standalone executable packaging,
+full independent comparison and final regression evidence.
 
 After that, M6 still requires the literal transition artifact, complete measured state count,
 kernel-checked identity with the compiled program, unconditional strategic equivalence for
@@ -114,8 +120,8 @@ RSS. No completed matrix or samples from that package are claimed. This is a mea
 construction size, not a frozen baseline artifact or a claim that the current final
 publication route has that count.
 
-The locally certified route replaces hash-order reduction with explicit numeric primitive
-rows and arithmetic binary templates. Its final count may differ and is not frozen yet.
+The selected locally certified route replaces hash-order reduction with explicit numeric
+primitive rows and arithmetic binary templates. Its final candidate count is 392,046,832.
 All reserved states must be counted, including unreachable template cells. The complete
 literal export may be stored in deterministic row-aligned compressed parts, with every
 decompressed byte compared against an independent export. Descriptor proofs establish

@@ -37,5 +37,7 @@ public import Cryptids.Compilation.BinaryTemplates
 public import Cryptids.Compilation.LazyGraph
 public import Cryptids.Compilation.TemplateGraph
 public import Cryptids.Chess.Compilation.Templates
+public import Cryptids.Chess.Compilation.Image
+public import Cryptids.Semantics.Chess
 
-/-! Checked components of M6. This import does not assert a complete chess machine. -/
+/-! Checked M6 construction. Full artifact/challenge publication has separate verification gates. -/

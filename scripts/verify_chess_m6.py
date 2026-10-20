@@ -11,8 +11,8 @@ import subprocess
 ROOT = Path(__file__).resolve().parents[1]
 COMPONENTS = [
     "Cryptids/Chess/Compilation/" + name + ".lean"
-    for name in ("Encoding", "Evaluator", "WithoutDead", "Rules", "Program", "History", "Geometry", "Updates", "Legality", "Control", "HistoryCode", "Source", "SourceModel", "SourceCertificate", "Tape", "Input", "Templates", "Binary", "Foundations")
-] + [
+    for name in ("Encoding", "Evaluator", "WithoutDead", "Rules", "Program", "History", "Geometry", "Updates", "Legality", "Control", "HistoryCode", "Source", "SourceModel", "SourceCertificate", "Tape", "Input", "Templates", "Image", "Binary", "Foundations")
+] + ["Cryptids/Semantics/Chess.lean", "Cryptids/Chess/Compilation.lean"] + [
     "Cryptids/Compilation/" + name + ".lean"
     for name in ("NatCode", "ListCode", "Scalar", "Commands", "Code", "CodeInput", "CodeDAG",
                  "CodeVM", "Runtime", "RuntimeMacros", "RuntimeSupport", "RuntimeData", "RuntimeDispatch",
@@ -32,13 +32,17 @@ def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def run(args, expected, status=0):
+def run(args, expected, status=0, *, native_link=False):
     result = subprocess.run(args, cwd=ROOT, env=dict(os.environ, ELAN_NO_UPDATE_CHECK="1"),
                             text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
                             timeout=600, check=False)
     require(result.returncode == status, f"Unexpected exit: {args}\n{result.stdout}")
     require(expected in result.stdout, f"Missing success/control token: {args}\n{result.stdout}")
-    require("warning:" not in result.stdout, f"Unexpected warning: {result.stdout}")
+    diagnostic = result.stdout
+    if native_link:
+        diagnostic = diagnostic.replace(
+            "ld64.lld: warning: directory not found for option -L/usr/local/lib\n", "")
+    require("warning:" not in diagnostic, f"Unexpected warning: {result.stdout}")
     print(result.stdout, end="", flush=True)
     return {"argv": args, "exit": result.returncode,
             "output_sha256": hashlib.sha256(result.stdout.encode()).hexdigest(),
@@ -94,6 +98,7 @@ def inputs():
     paths = [ROOT / name for name in COMPONENTS] + sorted((ROOT / "scripts/chess_m6").glob("*.lean")) + sorted((ROOT / "scripts/chess_m6").glob("*.py"))
     paths += [ROOT / name for name in (
         "scripts/verify_chess_m6.py", "scripts/AuditChessM6.lean", "scripts/chess_m6_table_parts.py",
+        "scripts/chess_m6_parallel_parts.py",
         "scripts/RunChessM6.lean", "scripts/RunChessM6VM.lean", "scripts/ProbeChessM6.lean",
         "lean-toolchain", "lakefile.toml", "lakefile.chess-m6.toml", "lake-manifest.json",
         ".github/workflows/chess_m6_ci.yml",
@@ -121,6 +126,7 @@ def foundations():
         require(digest(ROOT / name) == expected, f"Frozen M5 input changed: {name}")
     extra = '\n[[lean_exe]]\nname = "chess_m6_probe"\nroot = "scripts.ProbeChessM6"\n'
     extra += '\n[[lean_lib]]\nname = "ChessM6Tools"\nroots = ["scripts.chess_m6.Export"]\n'
+    extra += '\n[[lean_exe]]\nname = "chess_m6_generate"\nroot = "scripts.GenerateChessM6"\n\n[[lean_exe]]\nname = "chess_m6_reference"\nroot = "scripts.ExportChessM6Challenge"\n'
     require((ROOT / "lakefile.chess-m6.toml").read_text() ==
             (ROOT / "lakefile.toml").read_text() + extra, "Unreviewed alternate Lake configuration")
     results = [run(["lake", "--wfail", "build", "Cryptids.Chess.Compilation.Foundations"],
@@ -175,13 +181,43 @@ def foundations():
                         ("negative", "Table parts negative controls passed"),
                         ("profile", "Table parts bounded profiles passed")):
         results.append(run(["python3", "scripts/chess_m6/TablePartsFixtures.py", "--" + mode], token))
+    results.append(run(["python3", "scripts/chess_m6/ParallelFixtures.py", "--all"],
+                       "Parallel table focused verification passed"))
+    results.append(run(["lake", "env", "lean", "-DwarningAsError=true",
+                        "scripts/chess_m6/ImageFixtures.lean"], ""))
+    image_audit = ["lake", "env", "lean", "-DwarningAsError=true", "--run",
+                   "scripts/chess_m6/ImageAudit.lean"]
+    results.append(run(image_audit, "Image axiom audit passed"))
+    results.append(run(image_audit + ["--image-only"],
+                       "Executable image conservatively excludes semantic/materialized dependencies"))
+    for argument, expected in (
+        ("--negative-control", "Forbidden axiom: sorryAx"),
+        ("--unsafe-control", "Unsafe or partial dependency:"),
+        ("--negative-image-control", "compiler: ConjectureMachines.Compilation.SharedModel.entries"),
+        ("--negative-record-control", "compiler: Chess.Compilation.Templates.writeSites"),
+        ("--negative-valid-control", "compiler: Chess.Compilation.Image.valid"),
+    ):
+        results.append(run(image_audit + [argument], expected, 1))
+    for name in ("ImageNegativeCount", "ImageNegativeTransition", "ImageNegativeSite"):
+        results.append(run(["lake", "env", "lean", "-DwarningAsError=true",
+                            f"scripts/chess_m6/{name}.lean"], "is false", 1))
+    work = ROOT / ".lake/chess-m6-check"
+    work.mkdir(parents=True, exist_ok=True)
+    image_config = work / "lakefile-image.toml"
+    image_config.write_text((ROOT / "lakefile.toml").read_text() +
+        '\n[[lean_exe]]\nname = "chess_m6_image_fixtures"\n'
+        'root = "scripts.chess_m6.ImageNative"\n')
+    results.append(run(["lake", "--wfail", "-f", str(image_config), "build",
+                        "chess_m6_image_fixtures"], "Build completed successfully", native_link=True))
+    results.append(run([".lake/build/bin/chess_m6_image_fixtures"],
+                       "Image native checks passed; initial chess program not evaluated"))
     require(before == inputs(),
             "A checked source changed during verification")
     report = {"milestone": "M6", "status": "in_progress",
-              "generated_machine": "Chess.Compilation.Binary.generated",
-              "generated_halting_theorem": "Chess.Compilation.Binary.generated_halts",
+              "generated_machine": "Chess.Compilation.Image.machine",
+              "generated_halting_theorem": "Chess.Compilation.Image.halts_iff",
               "published_literal_machine": None,
-              "full_chess_state_count": None, "integration_gates_met": 1,
+              "full_chess_state_count": 392046832, "integration_gates_met": 1,
               "integration_gates_total": 8, "source_sha256": before, "checks": results}
     work = ROOT / ".lake/chess-m6-check"
     work.mkdir(parents=True, exist_ok=True)

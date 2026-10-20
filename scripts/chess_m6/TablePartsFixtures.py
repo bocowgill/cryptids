@@ -353,19 +353,29 @@ def profile_tests():
     for states in [100_000, 1_000_000]:
         command = [sys.executable, str(Path(__file__).resolve()), "--worker", str(states)]
         started = time.monotonic()
-        child = subprocess.Popen(command, cwd=ROOT, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-        cap = 8 * 1024**3
-        peak_sampled = 0
-        while child.poll() is None:
-            elapsed = time.monotonic() - started
-            rss = child_rss(child.pid)
-            peak_sampled = max(peak_sampled, rss)
-            if elapsed >= 60 or rss > cap:
-                child.kill()
-                stdout, stderr = child.communicate()
-                raise AssertionError(f"Profile resource cap: elapsed={elapsed}, RSS={rss}; {stdout}{stderr}")
-            time.sleep(0.025)
-        stdout, stderr = child.communicate()
+        # Drain to files while monitoring: a child can fill a small OS pipe before exiting.
+        with tempfile.TemporaryFile(mode="w+") as stdout_file, \
+                tempfile.TemporaryFile(mode="w+") as stderr_file:
+            child = subprocess.Popen(command, cwd=ROOT, stdout=stdout_file, stderr=stderr_file,
+                                     text=True)
+            cap = 8 * 1024**3
+            peak_sampled = 0
+            cap_reason = None
+            while child.poll() is None:
+                elapsed = time.monotonic() - started
+                rss = child_rss(child.pid)
+                peak_sampled = max(peak_sampled, rss)
+                if elapsed >= 60 or rss > cap:
+                    child.kill()
+                    cap_reason = f"elapsed={elapsed}, RSS={rss}"
+                    break
+                time.sleep(0.025)
+            child.wait()
+            stdout_file.seek(0)
+            stderr_file.seek(0)
+            stdout, stderr = stdout_file.read(), stderr_file.read()
+            if cap_reason:
+                raise AssertionError(f"Profile resource cap: {cap_reason}; {stdout}{stderr}")
         output = stdout + stderr
         print(output, end="")
         assert child.returncode == 0, (child.returncode, output)
