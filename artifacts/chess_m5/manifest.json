@@ -1,0 +1,139 @@
+{
+  "format": "two ASCII cells per state row; --- or [01][LR]decimal-target; final newline",
+  "initial_state": 0,
+  "initial_tape": "all zeros",
+  "symbols": 2,
+  "halting": "missing transition; no extra halt state",
+  "generator": "lake -f lakefile.chess-m5.toml build chess_m5_generate && .lake/build/bin/chess_m5_generate --output artifacts/chess_m5",
+  "lean_toolchain": "leanprover/lean4:v4.35.0-rc4",
+  "source_input_bits": 6,
+  "count_formula": "2 * Post states + 2 * input bits",
+  "artifacts": {
+    "white": {
+      "states": 49910,
+      "sha256": "013d20c86e63a4da69bed35d162356ba9f2364e332b79a5e3c578b8cfecaf430",
+      "trace": {
+        "halted": true,
+        "steps": 1994
+      },
+      "tree": [
+        "w",
+        0,
+        2
+      ],
+      "value": 2,
+      "post_states": 24949,
+      "initializer_states": 12
+    },
+    "black": {
+      "states": 49910,
+      "sha256": "0877b94c1e2a3d52f77f85ab84ef9d8ddbfeee31da3ff8646ddaef5756ff6930",
+      "trace": {
+        "halted": true,
+        "steps": 1994
+      },
+      "tree": [
+        "b",
+        2,
+        0
+      ],
+      "value": 0,
+      "post_states": 24949,
+      "initializer_states": 12
+    },
+    "draw": {
+      "states": 49910,
+      "sha256": "5b7a602b5c6e185947ae8818e4eb6452f5705e9de01ae6e6ca5deb271f786cf1",
+      "trace": {
+        "halted": false,
+        "prefix_steps": 1993,
+        "cycle_start": 1991,
+        "cycle_length": 2,
+        "cycle_state": 40430
+      },
+      "tree": [
+        "w",
+        0,
+        1
+      ],
+      "value": 1,
+      "loop_rows": {
+        "40430": [
+          [
+            0,
+            -1,
+            15481
+          ],
+          [
+            1,
+            -1,
+            15481
+          ]
+        ],
+        "15481": [
+          [
+            0,
+            1,
+            40430
+          ],
+          [
+            1,
+            1,
+            40430
+          ]
+        ]
+      },
+      "post_states": 24949,
+      "initializer_states": 12
+    },
+    "refutation": {
+      "states": 58838,
+      "sha256": "51f57d37f23ceee6034de45f0de7c74ff1259986051b60a3e38c6c7bdd9a388d",
+      "trace": {
+        "halted": false,
+        "prefix_steps": 3741,
+        "cycle_start": 3739,
+        "cycle_length": 2,
+        "cycle_state": 54720
+      },
+      "tree": [
+        "w",
+        [
+          "b",
+          2,
+          1
+        ],
+        0
+      ],
+      "value": 1,
+      "loop_rows": {
+        "54720": [
+          [
+            0,
+            -1,
+            25307
+          ],
+          [
+            1,
+            -1,
+            25307
+          ]
+        ],
+        "25307": [
+          [
+            0,
+            1,
+            54720
+          ],
+          [
+            1,
+            1,
+            54720
+          ]
+        ]
+      },
+      "post_states": 29413,
+      "initializer_states": 12
+    }
+  }
+}
