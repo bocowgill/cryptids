@@ -112,6 +112,9 @@ jobs:
           exit 1
       - name: Build M6 construction proofs strictly
         run: lake --wfail build Cryptids.Chess.Compilation.Foundations Cryptids.Chess.Compilation.Matrix
+      - name: Build native source and standalone exporters
+        timeout-minutes: 40
+        run: lake --wfail -f lakefile.chess-m6.toml build chess_m6_generate chess_m6_reference
       - name: Verify M6 proofs, standalone target, semantic controls and every table row
         run: python3 scripts/verify_chess_m6.py
 
