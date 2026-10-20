@@ -15,7 +15,8 @@ private def prefixes : Array Name := #[
   `Chess.Compilation.HistoryCode, `Chess.Compilation.Source, `Chess.Compilation.Tape,
   `Chess.Compilation.Program, `Chess.Compilation.History,
   `Chess.Compilation.SourceModel, `Chess.Compilation.SourceCertificate, `Chess.Compilation.Binary,
-  `Chess.Compilation.Input, `Chess.Compilation.Templates, `Chess.Compilation.Image,
+  `Chess.Compilation.Input, `Chess.Compilation.Templates, `Chess.Compilation.Image, `Chess.Compilation.Matrix,
+  `ConjectureMachines.Machine.expandedRows, `ConjectureMachines.Machine.ofRows_expandedRows,
   `ConjectureMachines.Semantics.Chess, `ConjectureMachines.Machines.chess_baseline,
   `ConjectureMachines.Compilation.NatCode, `ConjectureMachines.Compilation.ListCode,
   `ConjectureMachines.Compilation.Scalar, `ConjectureMachines.Compilation.Commands,
@@ -52,7 +53,8 @@ private def dependencies (info : ConstantInfo) : Array Name := Id.run do
 
 def main (args : List String) : IO Unit := do
   initSearchPath (← findSysroot)
-  let env ← importModules #[{module := `Cryptids.Chess.Compilation.Foundations}] {} 0
+  let env ← importModules #[{module := `Cryptids.Chess.Compilation.Foundations},
+    {module := `Cryptids.Chess.Compilation.Matrix}] {} 0
   let mut roots := env.constants.toList.foldl (init := #[]) fun acc (name, _) ↦
     if prefixes.any (·.isPrefixOf name) then acc.push name else acc
   let generatorRoots := roots.filter generator
@@ -65,6 +67,7 @@ def main (args : List String) : IO Unit := do
       `Chess.Compilation.Templates.rows,
       `Chess.Compilation.Templates.runtime_eval_dom,
       `Chess.Compilation.Image.halts_iff,
+      `Chess.Compilation.Matrix.identity, `Chess.Compilation.Matrix.halts_iff,
       `Chess.Compilation.Image.initialises,
       `ConjectureMachines.Semantics.Chess.halts_chess_baseline_iff_not_draw,
       `ConjectureMachines.Compilation.RuntimeCertificate.rows,

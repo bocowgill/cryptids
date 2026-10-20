@@ -1,0 +1,8 @@
+{
+  "challenge_module": "Cryptids.ChessM6Challenge",
+  "solution_module": "Cryptids.Semantics.Chess",
+  "theorem_names": [
+    "ConjectureMachines.Semantics.Chess.halts_chess_baseline_iff_not_draw"
+  ],
+  "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"]
+}

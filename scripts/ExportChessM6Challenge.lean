@@ -57,4 +57,5 @@ def main (args : List String) : IO Unit := do
   emitRange output ConjectureMachines.Machines.chess_baseline start count
   let ended ← IO.monoMsNow
   let log ← IO.getStderr
-  log.putStrLn s!"chess-m6 standalone reference: start={start}; rows={count}; elapsed_ms={ended-begin}"
+  log.putStrLn <| s!"chess-m6 standalone reference: start={start}; rows={count}; " ++
+    s!"elapsed_ms={ended-begin}"
