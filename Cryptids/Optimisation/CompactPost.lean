@@ -14,7 +14,7 @@ the live initial root is renamed to ordinary state zero. No tape cell is changed
 
 @[expose] public section
 namespace ConjectureMachines.Optimisation.CompactPost
-open Turing StateTransition
+open Turing StateTransition ConjectureMachines.Compilation
 
 set_option backward.isDefEq.respectTransparency false
 
