@@ -1,97 +1,98 @@
 # Complete blank binary compilation
 
-`Cryptids/Chess/Compilation/Binary.lean` now establishes the unconditional theorem
-`Chess.Compilation.Binary.generated_halts`:
+The published construction is `Chess.Compilation.Image.machine`, an ordinary
+`Machine 392046832 2`. Its initial state is zero and its tape is entirely zero.
+`Image.halts_iff` proves, without assuming either player's result,
 
 ```lean
-generated.Halts ↔ ¬ (WhiteCanAvoidLoss ∧ BlackCanAvoidLoss)
+Halts Image.machine ↔ ¬(Chess.WhiteCanAvoidLoss ∧ Chess.BlackCanAvoidLoss)
 ```
 
-This theorem concerns the actual finite generated binary machine, started in state zero
-on an all-blank tape. It does not determine the initial chess value. Publication of a literal
-matrix with a measured numerical state count and its own certificate remains unfinished.
+The final theorem exposed to the comparator is
+`ConjectureMachines.Semantics.Chess.halts_chess_baseline_iff_not_draw`.
+The proof concerns the frozen `chess-reference-v1`. It does not determine whether
+that initial position is drawn. Full file verification is a separate acceptance
+boundary, recorded in [the results](RESULTS.md) when complete.
 
-The proof follows these checked links:
+## Proof links
 
-1. `Source.program_initial_dom` connects all concrete rule procedures and the fuel-free
-   continuation evaluator to the frozen M4 strategic proposition. No callee remains abstract.
-2. `SourceCertificate.program_decode` identifies the 5,952 explicit literal DAG rows with
-   precisely that complete source syntax. Its two proof families certify shared syntax and
-   each row's children and constructor. The elaborator produces ordinary kernel-checked
-   theorems; it supplies no mathematical axiom or runtime primitive.
-3. `Tape.halts_iff` applies the fixed four-stack interpreter proof to the literal DAG and
-   the literal packed initial game. `Tape.argument_eq` checks the latter against the frozen
-   initial position's complete history encoding. The whole program and initial data are input.
-4. `TM2Number.cachedNumberProgram_dom_of_support` converts the interpreter's supported
-   macro labels to finite numeric control and captures all store-dependent jump values.
-5. `StrongAssembly.twiceStack_halts` lowers those stacks to a shared tape, normalizes
-   control, encodes the finite alphabet into binary blocks, numbers binary control, and
-   lowers to a finite binary Post machine. Both simulation directions are retained.
-6. `Compilation.Binary.compile_halts_input` changes Post writes to write/move pairs,
-   with one main state and one return state per Post state.
-7. `FlatInit.initialise_halts` connects the body on its complete binary input to the
-   closed machine on blank tape. `generated_initializes` gives its exact prefix execution:
-   write every input bit, return the head, and enter body state zero after twice the
-   number of input bits in actual steps.
+1. `Source.program_initial_dom` connects the concrete arithmetic, list, geometric,
+   legal-move, update, history, draw-claim and evaluation procedures to the M4
+   strategic proposition. Every callee is instantiated. `WithoutDead` proves
+   that internally deferring dead-position adjudication preserves the complete
+   value; it introduces no approximation or fuel-exhaustion draw.
+2. `SourceCertificate.program_decode` identifies the complete source syntax with
+   5,952 literal shared DAG rows. Kernel-checked congruence and row certificates
+   cover the entire program. The certificate generator is outside the theorem's
+   mathematical dependencies.
+3. `Tape.halts_iff` applies the four-stack interpreter to this exact DAG and packed
+   initial game. `Tape.argument_eq` connects the literal game to the unchanged
+   initial position and its complete history encoding. Program and game data are
+   input to the fixed interpreter, and are subsequently written by the machine.
+4. `RuntimeCertificate.rows` identifies every numeric interpreter row;
+   `RuntimeCertificate.eval_dom` preserves both halting directions.
+   `SharedCertificate.rows` identifies all 4,042 normalized primitive rows, and
+   `runtime_eval_dom` connects them to the full shared tape.
+5. `Templates.rows`, its write/read/move partition and the continuation inverses
+   fix every primitive site. `runtime_eval_dom` preserves execution through the
+   exact 11-bit block codec. The row theorems also cover invalid codewords.
+   Executable data are separate from erased validity and refinement proofs.
+6. `TemplateGraph.machine_eq` identifies the arithmetic getter graph with every
+   numeric template. `LazyGraph.machine_eq` and `step_decode` identify direct
+   Post lookup with the graph's finite interpretation, including missing
+   transitions and halted stores. `TemplateGraph.halts_iff` composes the
+   two-direction correspondence.
+7. `Compilation.Binary.compile_halts_input` replaces Post writes by write/move
+   pairs, with a main state and preserving return state for every Post control.
+8. `Input.bits_size` and `Input.paid_prefix` account for every serialized program
+   and game bit. `FlatInit.initialise_run` supplies the exact write-and-return
+   execution from blank tape; `initialise_halts` connects it to the body.
+   `Image.initialises` specializes this to exactly 3,110,360 actual transitions.
+9. The explicit finite-index transport in `Image` preserves every transition,
+   configuration step and halting condition. `Image.halts_iff` composes the
+   complete chain. `Matrix.row_count`, `column_count` and `identity` identify
+   the ordinary complete row-list machine; `Matrix.halts_iff` proves its same
+   strategic equivalence.
 
-`generated_states` proves the exact accounting formula
-`2 * (post.extraStates + 1) + 2 * bits.size`. No input bit, return state, or source table is
-supplied by an external oracle. Hashes affect construction/numbering, while all collisions
-are resolved with full decidable equality; the correctness theorem is valid for the supplied
-hasher without assumptions about its collision rate.
+Every local row theorem quantifies over all states, scanned symbols and stores.
+Reachable-state samples are supplementary fixtures. The count is
+`388936472 + 3110360 = 392046832`: all reserved cells, store variants, bounce
+states and blank initializer controls are charged.
 
-The separate literal-matrix task must establish stopping as well as successor preservation.
-A finite local-row certificate and an initial-state decoder can prove both halting directions
-without recomputing a native hash table in the kernel. Until that table and certificate exist,
-this generated-machine theorem does not close all M6 acceptance criteria.
+## Literal files and independent target
 
-The exact input bridge is now proved too: `Input.bits_size = 1555180`,
-`Binary.initializer_states = 3110360`, and `generated_states_paid` accounts for all
-those states. The independent literal-control certificates are `RuntimeCertificate.rows`
-and `SharedCertificate.rows`; their local decoded-step equations preserve stopping and
-continue through ordinary initialization. `BinaryTemplates.rows_refine` handles every
-normal and site/glyph binary macro without a hash-order computation in the kernel.
-These are separately checked prerequisites for the eventual published arithmetic table.
+The finite mathematical machine is fixed by literal primitive fields and
+arithmetic templates. Its complete canonical text is retained in 393 ordered
+lossless gzip parts, with 392,046,832 rows and two columns. The parts manifest
+fixes every row range, length and compressed/raw SHA-256.
 
-## Arithmetic publication route
+`Cryptids.ChessM6Challenge` imports fixed libraries and replays literal declaration
+constructor data through kernel checking. It copies the target definitions and
+frozen chess proposition, without copying the selected solution proof. Its
+explicit reference-only goal is never a premise of that proof. The deep comparator
+checks the complete target dependency closure's types, values and inductive/
+recursor fields in separate environments. The source proof and independently
+compiled runtime aliases receive separate standard-axiom audits. Actual semantic
+mutation controls verify that changed propositions, valid transitions, frozen
+initial clocks and reference bridges are rejected.
 
-The publication route uses literal numeric rows and arithmetic template families. Its
-independently checked prerequisites replace hash-order packaging; the original generated
-machine above remains a separate construction. The final `Image` integration and full-table
-publication checks are tracked in `PROGRESS.md` until the executable verifier passes.
+The source exporter queries `Image.machine`. A separately built exporter queries
+only the standalone target. The full byte sweep compares every retained row
+against the latter, validates all destination bounds and hashes, and, on the
+recorded Python/zlib runtime, reproduces every compressed part exactly. Raw row
+bytes remain the portable identity across codec versions.
 
-The proof chain after `Tape.halts_iff` is:
+Native compilation, printing, filesystem I/O, gzip and SHA-256 are external
+verification tools. Lean proves the fixed mathematical transition function's
+behavior and complete row-list identity; the exhaustive independent byte check
+connects the saved payload to that function. No Lean theorem about native file
+I/O is claimed.
 
-1. `RuntimeCertificate.rows` identifies every literal numeric interpreter row with the
-   fixed Runtime instruction. `RuntimeCertificate.eval_dom` preserves both domain directions.
-2. `SharedCertificate.rows` identifies all 4,042 normalized source rows. Its
-   `runtime_eval_dom` covers all stack inputs with the complete initial shared tape.
-3. `Templates.write_row`, its inverses/coverage certificates, and the read/move partition
-   fix every primitive site. The literal primitive row tree carries no raw decoder witnesses.
-4. `Templates.rows` and `runtime_eval_dom` lower every normal/write-site/symbol control
-   through the exact 11-bit block codec. Invalid 11-bit codewords are covered too.
-5. `TemplateGraph.machine_eq` identifies the finite getter graph's decoded statement at
-   every label with the exact numeric binary template. `Valid` and all semantic certificates
-   are erased proof arguments, separate from the graph's literal computational fields.
-6. `LazyGraph.machine_eq` and `step_decode` identify direct numeric Post lookup with that
-   graph's full finite interpretation. Missing transitions and all halted stores are retained.
-   `TemplateGraph.halts_iff` composes the complete partial-output correspondence.
-7. `Compilation.Binary.compile_halts_input` gives one main and one return state per Post
-   control and preserves both stopping directions on the full binary input.
-8. `Input.bits_size` and `Input.paid_prefix` account for every serialized program and game
-   bit. `FlatInit.initialise_run` proves the exact write-and-return path from blank tape;
-   `initialise_halts` composes that real path with the body on its encoded input.
-9. The final state-count transport preserves numeric row destinations, every tape cell,
-   configuration steps and blank halting. It changes no transition or initialization convention.
+## Earlier construction experiment
 
-The mathematical row theorems cover every finite state, scanned symbol and local store;
-reachable-state sampling is not their proof. Bounded execution fixtures supplement these
-proofs and never establish nonhalting or the initial position's value.
-
-The artifact boundary is separate. The finite machine is fixed by literal numeric primitive
-fields and arithmetic template descriptors in Lean. The complete expanded canonical text is
-retained as ordered lossless gzip parts. The byte checker must decompress every part and
-compare every row against an independently compiled standalone snapshot. Native export,
-filesystem I/O, gzip and SHA256 are not being proved correct inside Lean. The theorem proves
-the fixed mathematical machine's behavior; complete byte comparison binds the saved payload
-to that machine under the ordinary Lean native execution and artifact-checker boundary.
+`Chess.Compilation.Binary.generated_halts` proves the same strategic equivalence
+for a separate hash-numbered construction using `TM2Number` and `StrongAssembly`.
+Its complete-label packaging exceeded the measured construction limits. It is
+retained as proof and engineering evidence, and supplies neither the published
+state count nor its byte-identity check. The arithmetic `Image` route above is the
+baseline artifact.

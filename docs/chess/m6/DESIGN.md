@@ -53,6 +53,11 @@ return states and the entire initializer. It is an initial correctness baseline;
 state reduction belongs to M7. Earlier capped hash-based construction experiments
 are retained as engineering evidence and do not determine this artifact's count.
 
+The 4,042 primitive rows partition into 1,734 read-bearing rows, 1,188 moves,
+1,119 plain jumps and one halt. The read-bearing rows include 1,233 branches,
+231 loads and 270 writes; those writes also allocate separate writer suffixes.
+Read-site and write-site counts therefore overlap rather than forming a partition.
+
 ## Publication and independent checks
 
 The intended canonical table has one LF-terminated row per state, in numeric
