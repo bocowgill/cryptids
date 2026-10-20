@@ -5,6 +5,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 module
 
 public import Cryptids.Chess.Compilation.Tape
+public import Cryptids.Chess.Compilation.Input
 public import Cryptids.Compilation.NumberTM2
 public import Cryptids.Compilation.StrongAssembly
 public import Cryptids.Compilation.FlatInit
@@ -51,6 +52,20 @@ def body : BundledMachine 2 := CodeBackend.body post
 /-- The full finite binary input is written by the machine itself from the blank tape. -/
 def bits : Array (Fin 2) := (post.input.map Compilation.Binary.encodeSymbol).toArray
 
+theorem post_input_eq : post.input = Input.binary :=
+  StrongAssembly.twiceStack_input frontend.get CodeBackend.blockCode labels sourceHash
+    CodeBackend.symbols CodeBackend.stores main Tape.input
+
+theorem bits_eq : bits = Input.bits := by
+  rw [bits, post_input_eq]
+  rfl
+
+theorem bits_size : bits.size = 1555180 := by
+  rw [bits_eq]
+  exact Input.bits_size
+
+theorem initializer_states : 2 * bits.size = 3110360 := by rw [bits_size]
+
 /-- This is a closed binary machine, with the complete initializer included in its states. -/
 def generated : BundledMachine 2 := FlatInit.initialise bits body
 
@@ -74,6 +89,10 @@ theorem generated_states :
     generated.states = 2 * (post.extraStates + 1) + 2 * bits.size := by
   change (post.extraStates + 1) + (post.extraStates + 1) + 2 * bits.size = _
   omega
+
+theorem generated_states_paid :
+    generated.states = 2 * (post.extraStates + 1) + 3110360 := by
+  rw [generated_states, initializer_states]
 
 /-- The exact initializer path restores the head and enters the unchanged binary body. -/
 theorem generated_initializes :

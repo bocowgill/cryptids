@@ -44,3 +44,11 @@ The separate literal-matrix task must establish stopping as well as successor pr
 A finite local-row certificate and an initial-state decoder can prove both halting directions
 without recomputing a native hash table in the kernel. Until that table and certificate exist,
 this generated-machine theorem does not close all M6 acceptance criteria.
+
+The exact input bridge is now proved too: `Input.bits_size = 1555180`,
+`Binary.initializer_states = 3110360`, and `generated_states_paid` accounts for all
+those states. The independent literal-control certificates are `RuntimeCertificate.rows`
+and `SharedCertificate.rows`; their local decoded-step equations preserve stopping and
+continue through ordinary initialization. `BinaryTemplates.rows_refine` handles every
+normal and site/glyph binary macro without a hash-order computation in the kernel.
+These are separately checked prerequisites for the eventual published arithmetic table.

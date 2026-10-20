@@ -6,6 +6,7 @@ module
 
 public import Cryptids.Machines
 public import Mathlib.Computability.TuringMachine.PostTuringMachine
+public import Cryptids.Compilation.NumberTM1
 
 /-! # Exact local certificates for independently numbered finite tables
 
@@ -112,4 +113,49 @@ theorem post_halts_iff (literal : TM0.Machine Γ (Fin p)) (source : TM0.Machine 
       rw [initial]
       rfl)).symm
 end Post
+
+section TapeMachine
+variable {Γ A B σ : Type*} [Inhabited Γ]
+
+/-- Exact statement decoding also certifies finite shared-tape and binary control snapshots. -/
+def TM1Rows (literal : A → TM1.Stmt Γ A σ) (source : B → TM1.Stmt Γ B σ)
+    (decode : A → B) : Prop :=
+  ∀ state, TM1Number.mapStmt decode (literal state) = source (decode state)
+
+theorem tm1_step_decode (literal : A → TM1.Stmt Γ A σ) (source : B → TM1.Stmt Γ B σ)
+    (decode : A → B) (rows : TM1Rows literal source decode)
+    (cfg : TM1.Cfg Γ A σ) :
+    (TM1.step literal cfg).map (TM1Number.mapCfg decode) =
+      TM1.step source (TM1Number.mapCfg decode cfg) := by
+  rcases cfg with ⟨pc, store, tape⟩
+  cases pc with
+  | none => rfl
+  | some pc =>
+    simp only [TM1.step, TM1Number.mapCfg, Option.map_some]
+    rw [← rows pc, TM1Number.stepAux_map]
+    rfl
+
+theorem tm1_respects (literal : A → TM1.Stmt Γ A σ) (source : B → TM1.Stmt Γ B σ)
+    (decode : A → B) (rows : TM1Rows literal source decode) :
+    Respects (TM1.step literal) (TM1.step source)
+      (fun a b ↦ TM1Number.mapCfg decode a = b) := by
+  apply fun_respects.mpr
+  intro cfg
+  have equal := tm1_step_decode literal source decode rows cfg
+  cases move : TM1.step literal cfg with
+  | none => simpa only [move, Option.map_none, FRespects] using equal.symm
+  | some next =>
+    exact Relation.TransGen.single
+      (by simpa only [move, Option.map_some, Option.mem_def] using equal.symm)
+
+/-- A local statement certificate suffices for both input-tape termination directions. -/
+theorem tm1_halts_iff [Inhabited A] [Inhabited B] [Inhabited σ]
+    (literal : A → TM1.Stmt Γ A σ) (source : B → TM1.Stmt Γ B σ)
+    (decode : A → B) (rows : TM1Rows literal source decode)
+    (initial : decode default = default) (input : List Γ) :
+    (TM1.eval literal input).Dom ↔ (TM1.eval source input).Dom := by
+  exact (tr_eval_dom (tm1_respects literal source decode rows)
+    (show TM1Number.mapCfg decode (TM1.init input) = TM1.init input from by
+      simp only [TM1Number.mapCfg, TM1.init, Option.map_some, initial])).symm
+end TapeMachine
 end ConjectureMachines.Compilation.LocalCertificate

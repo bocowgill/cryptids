@@ -25,5 +25,13 @@ public import Cryptids.Compilation.RuntimeDispatch
 public import Cryptids.Chess.Compilation.Tape
 public import Cryptids.Chess.Compilation.Binary
 public import Cryptids.Compilation.LocalCertificate
+public import Cryptids.Compilation.RuntimeCertificate
+public import Cryptids.Compilation.ListAssembly
+public import Cryptids.Compilation.UniqueAssembly
+
+public import Cryptids.Compilation.GraphPost
+public import Cryptids.Compilation.SharedCertificate
+
+public import Cryptids.Compilation.BinaryTemplates
 
 /-! Checked components of M6. This import does not assert a complete chess machine. -/

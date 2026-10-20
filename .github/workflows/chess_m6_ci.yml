@@ -1,0 +1,39 @@
+name: Chess M6 construction checks
+
+on:
+  push:
+    paths:
+      - 'Cryptids/Chess/Compilation/**'
+      - 'Cryptids/Compilation/**'
+      - 'scripts/*ChessM6*'
+      - 'scripts/verify_chess_m6.py'
+      - 'scripts/chess_m6/**'
+      - 'lakefile.chess-m6.toml'
+      - '.github/workflows/chess_m6_ci.yml'
+  pull_request:
+    paths:
+      - 'Cryptids/Chess/Compilation/**'
+      - 'Cryptids/Compilation/**'
+      - 'scripts/*ChessM6*'
+      - 'scripts/verify_chess_m6.py'
+      - 'scripts/chess_m6/**'
+      - 'lakefile.chess-m6.toml'
+      - '.github/workflows/chess_m6_ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  foundations:
+    runs-on: ubuntu-latest
+    env:
+      ELAN_NO_UPDATE_CHECK: '1'
+      LEAN_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - uses: leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6 # v1
+        with:
+          build-args: 'Cryptids.Chess.Compilation.Foundations'
+      - name: Verify M6 construction proofs and regression fixtures
+        run: python3 scripts/verify_chess_m6.py --foundations

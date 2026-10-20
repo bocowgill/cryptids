@@ -1,7 +1,7 @@
 # M6 construction progress
 
 Status: **in progress**. The complete source-refinement criterion is met; seven integration criteria remain open.
-There is no published full-chess transition table or full-chess state count yet.
+There is no published full-chess transition table or finalized baseline state count yet.
 The target remains halting exactly when the frozen initial position is **not drawn**.
 M7 and outreach remain unstarted; the frozen reference and M1–M5 inputs are unchanged.
 
@@ -29,6 +29,14 @@ M7 and outreach remain unstarted; the frozen reference and M1–M5 inputs are un
   source program terminates exactly when the frozen strategic draw proposition is false.
 - Executable shared DAG construction and a literal 5,952-row model, with 7,076 checked
   source congruence lemmas and 371 checked row-block lemmas identifying its exact syntax.
+- Exact paid input certificates: 141,380 stack symbols, 1,555,180 input bits, and
+  3,110,360 initializer states/steps. Four mutation fixtures reject omitted or extra data.
+- Literal 345-row numeric interpreter and 4,042-row normalized shared-tape snapshots,
+  with exact local-row, initial-state, complete-step and two-direction halting certificates.
+  Paired interpreter and normalized-machine fixtures agree step for step and retain final data.
+- Generic first-order Boolean syntax graphs, direct numeric Post lowering, and numeric binary
+  block templates. Exact finite write-site data and arithmetic template graphs remain
+  integration work; their generic theorems alone do not certify a chess table.
 - A fixed four-stack interpreter: actual startup, complete instruction lookup/restoration,
   all opcode/continuation paths and positive simulation. `Tape.halts_iff` proves both
   termination directions for the complete chess source on that interpreter.
@@ -43,7 +51,7 @@ The latest report is in `.lake/chess-m6-check/foundations.json`. It records sour
 strict builds, complete dependency/axiom traversal, controls rejecting proof holes, the open
 chess conjecture, compiler recursion artifacts and proof-generator dependencies,
 plus source, VM, opcode, lookup, initialization, numeric-control and local-certificate fixtures.
-The latest checked batch audits 16,717 safe roots and 30,543 dependency declarations and uses
+The latest checked batch audits 37,564 safe roots and 52,138 dependency declarations and uses
 only `propext`, `Classical.choice`, and `Quot.sound`. Exact compiler-generated recursion
 artifacts are inventoried outside the root set and are never exempted from dependency checks.
 
@@ -94,3 +102,20 @@ and 5,952 shared rows, with root 5,951. Its canonical serialization has 17,858 w
 141,070 binary/cons symbols. These are native construction measurements, not a binary state
 count. Fixed control has a kernel-proved 344 candidate labels. See [EMISSION.md](EMISSION.md)
 for the earlier audit's measurement scope.
+
+## Current literal-emission boundary
+
+The complete structural-support traversal for the original numeric/hash route measured
+12,261,090 Post labels. Its proved accounting therefore gives 12,261,091 Post controls,
+24,522,182 binary body controls and 27,632,542 controls after the paid initializer.
+The final lookup packaging then hit its separate 300-second cap at about 6.6 GB observed
+RSS. No completed matrix or samples from that package are claimed. This is a measured
+construction size, not a frozen baseline artifact or a claim that the current final
+publication route has that count.
+
+The locally certified route replaces hash-order reduction with explicit numeric primitive
+rows and arithmetic binary templates. Its final count may differ and is not frozen yet.
+All reserved states must be counted, including unreachable template cells. The complete
+literal export may be stored in deterministic row-aligned compressed parts, with every
+decompressed byte compared against an independent export. Descriptor proofs establish
+mathematical row identity; hashes alone cannot establish that correspondence.

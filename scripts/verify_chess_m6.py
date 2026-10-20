@@ -11,13 +11,15 @@ import subprocess
 ROOT = Path(__file__).resolve().parents[1]
 COMPONENTS = [
     "Cryptids/Chess/Compilation/" + name + ".lean"
-    for name in ("Encoding", "Evaluator", "WithoutDead", "Rules", "Program", "History", "Geometry", "Updates", "Legality", "Control", "HistoryCode", "Source", "SourceModel", "SourceCertificate", "Tape", "Binary", "Foundations")
+    for name in ("Encoding", "Evaluator", "WithoutDead", "Rules", "Program", "History", "Geometry", "Updates", "Legality", "Control", "HistoryCode", "Source", "SourceModel", "SourceCertificate", "Tape", "Input", "Binary", "Foundations")
 ] + [
     "Cryptids/Compilation/" + name + ".lean"
     for name in ("NatCode", "ListCode", "Scalar", "Commands", "Code", "CodeInput", "CodeDAG",
                  "CodeVM", "Runtime", "RuntimeMacros", "RuntimeSupport", "RuntimeData", "RuntimeDispatch",
                  "RuntimeEval", "RuntimeReturn", "RuntimeLookup", "RuntimeWire", "RuntimeProof",
-                 "NumberTM2", "StrongAssembly", "FlatInit", "LocalCertificate")
+                 "NumberTM2", "StrongAssembly", "FlatInit", "LocalCertificate",
+                 "RuntimeModel", "RuntimeCertificate", "ListEquality", "ListAssembly",
+                 "UniqueSupport", "UniqueAssembly", "BoolGraph", "GraphPost", "SharedModel", "SharedCertificate", "BinaryTemplates")
 ]
 
 
@@ -43,16 +45,59 @@ def run(args, expected, status=0):
             "output": result.stdout}
 
 
+def source_code(text):
+    """Remove nested Lean comments while retaining code and quoted strings."""
+    out, index, depth, quoted = [], 0, 0, False
+    while index < len(text):
+        pair = text[index:index + 2]
+        if depth:
+            if pair == "/-":
+                depth += 1
+                index += 2
+            elif pair == "-/":
+                depth -= 1
+                index += 2
+                out.append(" ")
+            else:
+                if text[index] == "\n":
+                    out.append("\n")
+                index += 1
+        elif quoted:
+            out.append(text[index])
+            if text[index] == "\\" and index + 1 < len(text):
+                index += 1
+                out.append(text[index])
+            elif text[index] == '"':
+                quoted = False
+            index += 1
+        elif pair == "/-":
+            depth = 1
+            index += 2
+            out.append(" ")
+        elif pair == "--":
+            end = text.find("\n", index)
+            index = len(text) if end < 0 else end
+        else:
+            out.append(text[index])
+            quoted = text[index] == '"'
+            index += 1
+    require(depth == 0, "Unterminated Lean block comment")
+    return "".join(out)
+
+
 def source_safe(text):
     return not re.search(r"\b(?:sorry|admit|axiom|native_decide|unsafe|implemented_by|_unsafe_rec)\b|"
-                         r"\bpartial\s+def\b", text)
+                         r"\bpartial\s+def\b", source_code(text))
 
 
 def foundations():
     before = {name: digest(ROOT / name) for name in COMPONENTS}
     for bad in ("by sorry", "axiom hidden : False", "unsafe def", "native_decide",
-                "partial def", "implemented_by", "_unsafe_rec"):
+                "partial def", "implemented_by", "_unsafe_rec",
+                "/- outer /- inner -/ end -/ by sorry", 'def s := "/-"\nby sorry'):
         require(not source_safe(bad), f"Source control accepted: {bad}")
+    require(source_safe("/- proofs admit /- nested -/ this word -/ def x := 1"),
+            "Comment scanner rejected ordinary prose")
     for name in COMPONENTS:
         source = (ROOT / name).read_text()
         require(source_safe(source), f"Proof escape in {name}")
@@ -75,6 +120,7 @@ def foundations():
         ("--negative-control-open", "The open chess conjecture is a dependency"),
         ("--negative-control-rec", "Unsafe or partial dependency:"),
         ("--negative-control-generator", "Proof generator is a mathematical dependency:"),
+        ("--negative-control-input-generator", "Proof generator is a mathematical dependency:"),
     ):
         results.append(run(audit + [argument], expected, 1))
     results.append(run(["lake", "env", "lean", "-DwarningAsError=true", "--run",
@@ -88,10 +134,18 @@ def foundations():
         ("AssemblyFixtures", "Strong assembly fixtures passed: 16 assertions"),
         ("NumberFixtures", "NumberTM2 fixtures passed: 8 kernel assertions, 2 actual-machine runs"),
         ("InitFixtures", "Flat initializer fixtures passed"),
-        ("CertificateFixtures", "Local certificate fixtures passed: 8 kernel assertions"),
+        ("CertificateFixtures", "Local certificate fixtures passed: 11 kernel assertions"),
         ("SourceFixtures", "Literal source fixtures passed: exact identity and two mutation controls"),
+        ("InputFixtures", "Chess input fixtures passed: exact counts and four mutation controls"),
+        ("RuntimeFixtures", "Literal runtime fixtures passed: 8 kernel assertions, 3 paired executions"),
+        ("ListAssemblyFixtures", "Explicit list assembly fixtures passed: 20 assertions"),
+        ("UniqueFixtures", "Unique support fixtures passed: 14 assertions"),
+        ("GraphFixtures", "Boolean graph kernel fixtures passed"),
+        ("SharedFixtures", "Shared fixtures passed: 12 kernel assertions, 3 paired executions"),
+        ("GraphNative", "states=50011; cells=100022; checksum=3550210"),
+        ("BinaryTemplateFixtures", "BinaryTemplates native fixtures passed: 96 finite corners + 4 execution checks"),
     ):
-        mode = ["--run"] if name == "AssemblyFixtures" else []
+        mode = ["--run"] if name in ("AssemblyFixtures", "ListAssemblyFixtures", "UniqueFixtures", "GraphNative", "BinaryTemplateFixtures") else []
         results.append(run(["lake", "env", "lean", "-DwarningAsError=true"] + mode +
                            [f"scripts/chess_m6/{name}.lean"], token))
     require(before == {name: digest(ROOT / name) for name in COMPONENTS},

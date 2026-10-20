@@ -16,6 +16,7 @@ private def prefixes : Array Name := #[
   `Chess.Compilation.HistoryCode, `Chess.Compilation.Source, `Chess.Compilation.Tape,
   `Chess.Compilation.Program, `Chess.Compilation.History,
   `Chess.Compilation.SourceModel, `Chess.Compilation.SourceCertificate, `Chess.Compilation.Binary,
+  `Chess.Compilation.Input,
   `ConjectureMachines.Compilation.NatCode, `ConjectureMachines.Compilation.ListCode,
   `ConjectureMachines.Compilation.Scalar, `ConjectureMachines.Compilation.Commands,
   `ConjectureMachines.Compilation.CodeBackend, `ConjectureMachines.Compilation.CodeDAG,
@@ -23,7 +24,17 @@ private def prefixes : Array Name := #[
   `ConjectureMachines.Compilation.RuntimeMacros, `ConjectureMachines.Compilation.RuntimeSupport,
   `ConjectureMachines.Compilation.RuntimeLookup, `ConjectureMachines.Compilation.RuntimeWire,
   `ConjectureMachines.Compilation.RuntimeProof, `ConjectureMachines.Compilation.TM2Number,
-  `ConjectureMachines.Compilation.StrongAssembly, `ConjectureMachines.Compilation.FlatInit, `ConjectureMachines.Compilation.LocalCertificate]
+  `ConjectureMachines.Compilation.StrongAssembly, `ConjectureMachines.Compilation.FlatInit,
+  `ConjectureMachines.Compilation.LocalCertificate, `ConjectureMachines.Compilation.RuntimeModel,
+  `ConjectureMachines.Compilation.RuntimeCertificate, `ConjectureMachines.Compilation.ListEquality,
+  `ConjectureMachines.Compilation.ListAssembly, `ConjectureMachines.Compilation.UniqueSupport,
+  `ConjectureMachines.Compilation.UniqueAssembly, `ConjectureMachines.Compilation.BoolGraph,
+  `ConjectureMachines.Compilation.GraphPost, `ConjectureMachines.Compilation.SharedModel,
+  `ConjectureMachines.Compilation.SharedCertificate, `ConjectureMachines.Compilation.BinaryTemplates]
+
+private def generator (name : Name) : Bool :=
+  #[`Chess.Compilation.SourceCertificate.Generator, `Chess.Compilation.Input.Generator].any
+    (·.isPrefixOf (privateToUserName name))
 
 private def dependencies (info : ConstantInfo) : Array Name := Id.run do
   let mut names := info.type.getUsedConstants
@@ -43,13 +54,17 @@ def main (args : List String) : IO Unit := do
   let env ← importModules #[{module := `Cryptids.Chess.Compilation.Foundations}] {} 0
   let mut roots := env.constants.toList.foldl (init := #[]) fun acc (name, _) ↦
     if prefixes.any (·.isPrefixOf name) then acc.push name else acc
-  let generatorRoots := roots.filter (fun name ↦
-    (`Chess.Compilation.SourceCertificate.Generator).isPrefixOf (privateToUserName name))
+  let generatorRoots := roots.filter generator
   roots := roots.filter (fun name ↦ !generatorRoots.contains name)
   for required in #[`Chess.Compilation.Source.program_initial_dom,
       `Chess.Compilation.SourceCertificate.program_decode,
       `Chess.Compilation.Binary.generated_halts,
-      `Chess.Compilation.Binary.generated_initializes] do
+      `Chess.Compilation.Binary.generated_initializes,
+      `Chess.Compilation.Input.bits_size,
+      `ConjectureMachines.Compilation.RuntimeCertificate.rows,
+      `ConjectureMachines.Compilation.RuntimeCertificate.eval_dom,
+      `ConjectureMachines.Compilation.SharedCertificate.rows,
+      `ConjectureMachines.Compilation.SharedCertificate.runtime_eval_dom] do
     unless roots.contains required do
       throw <| IO.userError s!"Required construction proof is missing: {required}"
   let mut helpers := #[]
@@ -67,6 +82,9 @@ def main (args : List String) : IO Unit := do
   else if args == ["--negative-control-rec"] then roots := roots.push helpers[0]!
   else if args == ["--negative-control-generator"] then
     roots := roots.push `Chess.Compilation.SourceCertificate.Generator.certify
+  else if args == ["--negative-control-input-generator"] then
+    roots := roots ++ generatorRoots.filter (fun name ↦
+      (`Chess.Compilation.Input.Generator).isPrefixOf (privateToUserName name))
   else unless args.isEmpty do throw <| IO.userError "Unexpected audit argument"
   let mut pending := roots
   let mut seen : NameSet := {}
@@ -78,7 +96,7 @@ def main (args : List String) : IO Unit := do
     if name == `Chess.perfect_play_results_in_draw then
       throw <| IO.userError "The open chess conjecture is a dependency"
     let some info := env.find? name | throw <| IO.userError s!"Missing declaration: {name}"
-    if (`Chess.Compilation.SourceCertificate.Generator).isPrefixOf (privateToUserName name) then
+    if generator name then
       throw <| IO.userError s!"Proof generator is a mathematical dependency: {name}"
     if info.isUnsafe || info.isPartial then
       throw <| IO.userError s!"Unsafe or partial dependency: {name}"

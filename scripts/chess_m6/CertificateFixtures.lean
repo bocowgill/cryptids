@@ -5,6 +5,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 import Cryptids.Compilation.LocalCertificate
 
 open ConjectureMachines Turing
+open ConjectureMachines.Compilation
 open ConjectureMachines.Compilation.LocalCertificate
 namespace CertificateFixtures
 
@@ -51,4 +52,24 @@ example : ¬ PostRows postWrongCommand postSource postDecode := by
   simp [postWrongCommand, postSource] at row
 
 end CertificateFixtures
-#eval IO.println "Local certificate fixtures passed: 8 kernel assertions"
+
+namespace CertificateFixtures
+
+def tapeSource : Unit → TM1.Stmt Bool Unit Bool := fun _ ↦
+  .move .right (.goto fun _ _ ↦ ())
+def tapeDuplicate : Fin 2 → TM1.Stmt Bool (Fin 2) Bool := fun _ ↦
+  .move .right (.goto fun _ _ ↦ 1)
+example : TM1Rows tapeDuplicate tapeSource postDecode := by intro state; rfl
+example (input : List Bool) :
+    (TM1.eval tapeDuplicate input).Dom ↔ (TM1.eval tapeSource input).Dom :=
+  tm1_halts_iff _ _ postDecode (by intro state; rfl) rfl input
+
+def tapeFalseHalt : Fin 2 → TM1.Stmt Bool (Fin 2) Bool := fun state ↦
+  if state = 1 then .halt else .move .right (.goto fun _ _ ↦ 1)
+example : ¬ TM1Rows tapeFalseHalt tapeSource postDecode := by
+  intro rows
+  have row := rows 1
+  simp [tapeFalseHalt, tapeSource, TM1Number.mapStmt] at row
+
+end CertificateFixtures
+#eval IO.println "Local certificate fixtures passed: 11 kernel assertions"
