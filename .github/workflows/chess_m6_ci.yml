@@ -110,8 +110,8 @@ jobs:
             echo "Mathlib cache attempt ${m6_attempt} failed or timed out"
           done
           exit 1
-      - name: Build M6 construction proofs strictly
-        run: lake --wfail build Cryptids.Chess.Compilation.Foundations Cryptids.Chess.Compilation.Matrix
+      - name: Build M6 proofs and retained M5 fixture tables strictly
+        run: lake --wfail build Cryptids.Chess.Compilation.Foundations Cryptids.Chess.Compilation.Matrix Cryptids.Compilation.Tables
       - name: Build native source and standalone exporters
         timeout-minutes: 40
         run: lake --wfail -f lakefile.chess-m6.toml build chess_m6_generate chess_m6_reference
