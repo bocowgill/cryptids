@@ -8,6 +8,7 @@ public import Cryptids.Machines
 public import Cryptids.Propositions
 public import Cryptids.Chess
 public import Cryptids.Chess.Exec
+public import Cryptids.Chess.Adjudication
 public import Cryptids.Goldbach21
 public import Cryptids.Riemann104
 public import Cryptids.Riemann95
@@ -34,6 +35,7 @@ linking every machine's blank-tape halting problem to Mathlib's statements:
   `MatiyasevichRiemannCounterexample`, `ZFInconsistent`, and `WadeZFInconsistent`.
 - `Cryptids.Chess` — Frozen definitions-only chess reference; no game value is asserted.
 - `Cryptids.Chess.Exec` — Executable move rules with refinement on every raw position.
+- `Cryptids.Chess.Adjudication` — Exact history, claims, dead positions, and legal actions.
 - `Cryptids.Machines` — Turing machine execution model, bundled machines (`BundledMachine`), and
   machine table definitions (`ConjectureMachines.Machines.*`).
 - `Cryptids.Goldbach21`, `Cryptids.Zf380`, `Cryptids.Riemann104` — Proofs of

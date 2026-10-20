@@ -20,6 +20,9 @@ on:
       - 'scripts/AuditChessM2.lean'
       - 'scripts/RunChessM2.lean'
       - 'docs/chess/m2/perft.json'
+      - 'scripts/verify_chess_m3.py'
+      - 'scripts/AuditChessM3.lean'
+      - 'scripts/RunChessM3.lean'
       - 'docs/chess/m1/reference-v1.json'
       - 'docs/chess/m1/source/Chess.lean.txt'
       - '.github/workflows/lean_action_ci.yml'
@@ -42,6 +45,9 @@ on:
       - 'scripts/AuditChessM2.lean'
       - 'scripts/RunChessM2.lean'
       - 'docs/chess/m2/perft.json'
+      - 'scripts/verify_chess_m3.py'
+      - 'scripts/AuditChessM3.lean'
+      - 'scripts/RunChessM3.lean'
       - 'docs/chess/m1/reference-v1.json'
       - 'docs/chess/m1/source/Chess.lean.txt'
       - '.github/workflows/lean_action_ci.yml'
@@ -74,6 +80,9 @@ jobs:
 
       - name: Verify executable chess rules, trust, and regression fixtures
         run: python3 scripts/verify_chess_m2.py
+
+      - name: Verify exact chess history and adjudication
+        run: python3 scripts/verify_chess_m3.py
 
       - name: Verify solution against Challenge with comparator
         run: lake comparator --config comparator/all.json
