@@ -26,7 +26,7 @@ instance {n k : Nat} : NeZero (stateCount n k) := ⟨by simp [stateCount]⟩
 /-- Halted stores have no observable successor and therefore share index zero. -/
 def rawEncode {n k : Nat} (d : GraphPost.Descriptor n k) : Fin (stateCount n k) :=
   match d.1 with
-  | none => 0
+  | none => Fin.castAdd (n * k) (0 : Fin 1)
   | some pc => Fin.natAdd 1 (finProdFinEquiv (pc, d.2))
 
 /-- The inverse on live controls; the halt control deliberately forgets its store. -/
@@ -105,7 +105,8 @@ theorem respects {n k labels : Nat} [NeZero k] [NeZero labels]
 @[simp] theorem trCfg_init {n k labels : Nat} [NeZero k] [NeZero labels]
     (g : LazyGraph.Graph n k labels) (input : List Bool) :
     trCfg g (TM0.init input) = TM0.init input := by
-  simp only [TM0.init, trCfg, LazyGraph.descriptor_zero, encode_initial]
+  change trCfg g ⟨0, Tape.mk₁ input⟩ = ⟨0, Tape.mk₁ input⟩
+  simp only [trCfg, LazyGraph.descriptor_zero, encode_initial]
 
 /-- Both halting directions hold for every finite input, without a reachability oracle. -/
 theorem halts_input {n k labels : Nat} [NeZero k] [NeZero labels]

@@ -65,7 +65,7 @@ jobs:
               raise SystemExit('Pinned Mathlib cache fetch failed')
           PY
       - name: Check generic quotient proof strictly
-        run: lake --wfail build Cryptids.Optimisation.CompactPost
+        run: lake --wfail build Cryptids.Optimisation.CompactPost Cryptids.Semantics.ChessM7
       - uses: actions/cache/save@caa296126883cff596d87d8935842f9db880ef25
         if: always() && steps.lean-cache.outputs.cache-hit != 'true'
         continue-on-error: true
