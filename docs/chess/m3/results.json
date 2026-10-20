@@ -1,0 +1,86 @@
+{
+  "source_sha256": {
+    "Cryptids/Chess/Adjudication/Claims.lean": "aa851f7e56befbc85b59da544baa5916b1c1e77d6f4a28a40b11e0ef9c166800",
+    "Cryptids/Chess/Adjudication/DeadPosition.lean": "ac016c85405469c34f59bfd8bd9088b9cb33ca1bdc792a425851335c94180f45",
+    "Cryptids/Chess/Adjudication/History.lean": "fcd6c49ae7966f71ae2c9f2afaccf3264a6702ed9684057eb4072a22df0db5b1",
+    "Cryptids/Chess/Adjudication/Outcomes.lean": "a811a709d79e6810d1faf54a2409541accdf854df75f4054f58b76517471da87",
+    "Cryptids/Chess/Adjudication/Projection.lean": "806e8dcf07ba5ea18efd5301fd3990b95de67ccff5924a32d146f8743fb7ad7c",
+    "Cryptids/Chess/Adjudication/Search.lean": "a2f9b0d2df6ef30658fc95ce3247943b62b855c4c29806177b6eb8486c02dc72",
+    "Cryptids/Chess/Adjudication.lean": "c5a5eb0e7c4f13f930ea1d8a9457bd3ae509af6ca88709b113a394b8b549e607",
+    "scripts/AuditChessM3.lean": "c6aac172f1a5d563ac9cd98477d1d951ee90792317882305719269e97d30d719",
+    "scripts/RunChessM3.lean": "eac3097cb7302f6ebddbac81078f7c0ffa512e2869167f0b37d4261e2cf34e40",
+    "scripts/verify_chess_m3.py": "a2dbe728d7c0beddbf7ad04af99913d8bf8ae59403e8e96b2c1142690d7e9297"
+  },
+  "build": "Build completed successfully (3145 jobs).\n",
+  "audit": "Audited 174 M3 declarations and 8279 dependency declarations\nInventoried 1 Lean-generated recursion artifact outside the safe dependency closure\nPermitted axioms used: #[propext, Classical.choice, Quot.sound]\nChess M3 theorem audit passed\n",
+  "fixtures": "Chess M3 fixtures passed: 55 assertions\n",
+  "negative_controls": [
+    "sorryAx rejected",
+    "open conjecture rejected",
+    "compiler recursion artifact rejected as proof dependency"
+  ],
+  "implementation_revision": "9115a213a1203fde1e9b4725e1b0b0eee6b3426d",
+  "mathematical_implementation_commit": "4aeb126fae44d86fe695f93e821eacefe3bac4f4",
+  "prior_milestone_revision": "06fa3e29a6f1a6a71f6f835595dcb686d78fb41b",
+  "baseline": {
+    "m2_inputs_verified": {
+      "Cryptids/Chess/Exec/Encoding.lean": "f47516c0d7f62d711d8d11bf067f2b0dfcb0d1ca87ab54d2f195245567fd5206",
+      "Cryptids/Chess/Exec/Moves.lean": "8d373aa13c83a13eaca7d1a6fb242c68cae28a8f67c0345c90e3aac1c41add1a",
+      "Cryptids/Chess/Exec/Rules.lean": "5bb5ea30312fe0aac54c6f9b09118c8526e4c48e228965b240856b3a94deb71d",
+      "Cryptids/Chess/Exec.lean": "3a945e569077f08b2bd0eb0a316c10bdae3c1b2470f237c477d7d663da47db57",
+      "Cryptids/Chess/Fixtures.lean": "7145b844242aef539de39be94a30049c79698cbfe660801104ac683fd2e08eff",
+      "scripts/AuditChessM2.lean": "548965fedb1afa7bec416ac004b674232c9955f73659af6b43d4ac2cf30a6b0a",
+      "scripts/RunChessM2.lean": "4b16306cc5da08f20fe81542e64ae76f34175ff1e1145ff99c349a1598e2352a",
+      "scripts/verify_chess_m2.py": "689464c4d2449765b69e46be6122cbe0581cac361fbcb93b80aab9f4baae0778",
+      "docs/chess/m2/perft.json": "7333615699197c3dfff690532874dfdec5ad43cbbd96c311e0f182d390b0cdbc",
+      "lean-toolchain": "8f89aa44fccdb1a0b6cc768c7c9f54b94cd40e47a08d582f82d1235f13075cf7",
+      "lakefile.toml": "7c4250e8165473fa250cf95f1db6d36b0deb9a25203209016fe10771ab0db699",
+      "lake-manifest.json": "4bb9288d47457931549bbeff4d0e68d9a8dbd47b063e6b72a3210b0d09311284"
+    },
+    "reference": "Matched 385 Chess declarations; 2728 dependency declarations\nPermitted axioms used: #[propext, Classical.choice, Quot.sound]\nCompiled chess declarations and dependencies match\nSemantic negative control rejected\nChess reference correspondence verified\n",
+    "m2_audit": "Audited 152 M2 declarations and 3328 transitive dependencies\nPermitted axioms used: [Quot.sound, Classical.choice, propext]\nChess M2 theorem audit passed\n",
+    "default_build": "\u26a0 [4055/4058] Replayed Challenge\nwarning: Challenge.lean:236:8: declaration uses `sorry`\nwarning: Challenge.lean:237:8: declaration uses `sorry`\nwarning: Challenge.lean:239:8: declaration uses `sorry`\nwarning: Challenge.lean:240:8: declaration uses `sorry`\nwarning: Challenge.lean:247:8: declaration uses `sorry`\nwarning: Challenge.lean:249:8: declaration uses `sorry`\nwarning: Challenge.lean:257:8: declaration uses `sorry`\nwarning: Challenge.lean:258:8: declaration uses `sorry`\nwarning: Challenge.lean:260:8: declaration uses `sorry`\nwarning: Challenge.lean:261:8: declaration uses `sorry`\nwarning: Challenge.lean:266:8: declaration uses `sorry`\nwarning: Challenge.lean:268:8: declaration uses `sorry`\nwarning: Challenge.lean:269:8: declaration uses `sorry`\nwarning: Challenge.lean:274:8: declaration uses `sorry`\nwarning: Challenge.lean:277:8: declaration uses `sorry`\nwarning: Challenge.lean:284:8: declaration uses `sorry`\nwarning: Challenge.lean:293:8: declaration uses `sorry`\nwarning: Challenge.lean:294:8: declaration uses `sorry`\nwarning: Challenge.lean:296:8: declaration uses `sorry`\nwarning: Challenge.lean:306:8: declaration uses `sorry`\nwarning: Challenge.lean:307:8: declaration uses `sorry`\nwarning: Challenge.lean:309:8: declaration uses `sorry`\nBuild completed successfully (4058 jobs).\n"
+  },
+  "evidence": {
+    "M3A": {
+      "exit": 0,
+      "shell": "/bin/zsh",
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "expect_matched": true,
+      "output_sha256": "e40cb655abb527fd24760eade81bbd3977154e5e4428f46cbf8cbbc2acdb5052",
+      "output_bytes": 42
+    },
+    "M3B": {
+      "exit": 0,
+      "shell": "/bin/zsh",
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "expect_matched": true,
+      "output_sha256": "aebdcb829a48250314ac78ff1fb6c148a78859c65f70859fe7cfe358a8292543",
+      "output_bytes": 239
+    },
+    "M3C": {
+      "exit": 0,
+      "shell": "/bin/zsh",
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "expect_matched": true,
+      "output_sha256": "aebdcb829a48250314ac78ff1fb6c148a78859c65f70859fe7cfe358a8292543",
+      "output_bytes": 239
+    },
+    "M3D": {
+      "exit": 0,
+      "shell": "/bin/zsh",
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "expect_matched": true,
+      "output_sha256": "a11f614dacdf4f530d0ed2b8f875632010418e8d32ddc74f8f440464c81f7886",
+      "output_bytes": 397
+    },
+    "M3E": {
+      "exit": 0,
+      "shell": "/bin/zsh",
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "expect_matched": true,
+      "output_sha256": "72de28e0b321bfe60ebf10e87be70e9ad7944728de0fe871a5084c59593d836d",
+      "output_bytes": 1752
+    }
+  }
+}

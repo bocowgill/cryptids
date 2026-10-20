@@ -2,7 +2,9 @@
 
 Planning date: 2026-10-19. Status: M1 complete; `chess-reference-v1` is built,
 source-checked, and frozen. M2 is complete with executable rules, unrestricted
-refinement proofs, and regression fixtures. M3–M7 and outreach remain on hold.
+refinement proofs, and regression fixtures. M3 is complete with exact history,
+claims, terminal outcomes, and finite-graph dead-position detection. M4–M7 and
+outreach remain on hold.
 
 ## 1. Agreed objective and scope
 
@@ -56,11 +58,11 @@ the reference model is correct. Milestones below discharge those obligations.
 
 The initial tasks authorized the fork, roadmap, source audit, packaging recommendation,
 and the completed definitions-only reference port and freeze. The latest instruction
-authorizes M2's executable rules, unrestricted refinement proofs, and regression
-fixtures against that unchanged reference. The historical audit is recorded in
+authorizes M3's exact history, claims, automatic outcomes, legal actions, and
+dead-position decision against that unchanged reference. The historical audit is recorded in
 [docs/chess/m1/AUDIT.md](docs/chess/m1/AUDIT.md), with the proposed module boundaries
 in [PACKAGING.md](docs/chess/m1/PACKAGING.md). The completed M1 reference is recorded
-in [FREEZE.md](docs/chess/m1/FREEZE.md). M3–M7, new issues or PRs, and maintainer
+in [FREEZE.md](docs/chess/m1/FREEZE.md). M4–M7, new issues or PRs, and maintainer
 messages remain outside the authorized scope.
 
 ## 2. Repository and source baseline
@@ -146,7 +148,7 @@ modules, and the checked solution theorems must have no placeholder dependency.
 | M0 | Establish fork and campaign contract | User's scope decisions | Complete |
 | M1 | Audit, correct as needed, and freeze a usable reference | M0; authorized definitions-only port | Complete: chess-reference-v1 |
 | M2 | Verify executable move generation and position updates | M1 | Complete: implementation `3fe6082` |
-| M3 | Verify history, claims, and terminal outcomes | M2 | Not started |
+| M3 | Verify history, claims, and terminal outcomes | M2 | Complete: implementation `9115a21` |
 | M4 | Prove bounded play and evaluator/strategy equivalence | M3 | Not started |
 | M5 | Validate the compilation route on small finite games | M1; can proceed alongside M2–M4 | Not started |
 | M6 | Construct and verify the baseline chess machine | M4, M5 | Not started |
@@ -172,8 +174,9 @@ Goal: make the mathematical target precise and suitable for subsequent proofs.
 Audit outcome: no confirmed reachable-game rule defect. The port preserves the
 reference bodies and strategy quantifiers. Its open-conjecture/import boundaries,
 domain contract, rule-edition documentation, toolchain build, compiled correspondence,
-and reference freeze are complete. Terminal and strategy proofs remain M3–M4 work;
-M2's move/update refinement is recorded separately. The archive remains noncompiled
+and reference freeze are complete. M3's terminal refinement is complete; bounded
+play and strategy proofs remain M4 work. M2's move/update refinement is recorded
+separately. The archive remains noncompiled
 evidence. See the historical
 [audit](docs/chess/m1/AUDIT.md), [audit evidence](docs/chess/m1/EVIDENCE.md), and
 completed [freeze record](docs/chess/m1/FREEZE.md).
@@ -255,32 +258,44 @@ Goal: connect executable game actions and adjudication to the reviewed game mode
 
 Acceptance criteria:
 
-- [ ] Implement and prove exact correspondence for repetition equality,
+- [x] Implement and prove exact correspondence for repetition equality,
   occurrence counting, game-history extension, and valid claims, including claims
   based on an intended legal move. Claims remain optional actions.
-- [ ] Implement checkmate, stalemate, automatic draws, and the complete legal
+- [x] Implement checkmate, stalemate, automatic draws, and the complete legal
   action set. Prove correspondence to `AutomaticOutcome` and `IsLegalAction`.
-- [ ] Prove automatic outcomes are unique on the relevant domain, no action is
+- [x] Prove automatic outcomes are unique on the relevant domain, no action is
   legal after one, and every reachable nonterminal game has an available action.
   Cover checkmate at an automatic-draw threshold explicitly.
-- [ ] Resolve dead positions exactly. The baseline route is finite-graph
+- [x] Resolve dead positions exactly. The baseline route is finite-graph
   reachability for `Position.Next` after projecting away the halfmove clock;
   prove move-edge correspondence, path lifting/projection, and preservation of
   checkmate before using this projection to decide `IsDeadPosition`.
-- [ ] Respect the source's unrestricted legal-ply reachability in that definition;
+- [x] Respect the source's unrestricted legal-ply reachability in that definition;
   do not replace it with an insufficient-material heuristic or stop that search
   at other game-level draw rules without a proof.
-- [ ] If deferring dead-position termination is chosen instead, replace the exact
+- [x] If deferring dead-position termination is chosen instead, replace the exact
   terminal-refinement requirement with an explicit, proved preservation theorem
   connecting the modified game to the reviewed strategic proposition. Record
   this design change before using it; local material tests are insufficient.
-- [ ] Test repetition with changing rights/en-passant possibilities, immediate
+  Not applicable here: the exact finite-graph route was completed; no modified
+  game or alternative preservation theorem is used.
+- [x] Test repetition with changing rights/en-passant possibilities, immediate
   and intended-move claims, reset/threshold counters, terminal precedence, and
   dead/non-dead examples. Preserve full history until a proved compression
   theorem justifies discarding it.
 
 Exit condition: terminal behavior and legal actions are executable and justified
 against the reference, or a documented alternative has its full preservation proof.
+
+Completed in implementation revision `9115a213a1203fde1e9b4725e1b0b0eee6b3426d`.
+The exact proof chain removes only the clock, preserves legal edges and checkmate,
+lifts/projects paths, and proves a terminating finite-graph search correct.
+Outcome uniqueness and nonterminal action existence hold on all raw games.
+The safe declaration audit covers 174 M3 roots and 8,279 dependencies, with only
+standard axioms; one compiler-generated recursion implementation is separately
+inventoried and excluded from the mathematical dependency closure. All 55 runtime
+assertions passed. See [design](docs/chess/m3/DESIGN.md) and
+[results](docs/chess/m3/RESULTS.md). The exact search can be astronomically slow.
 
 ### M4 — Bounded play, backward induction, and strategic correctness
 
@@ -471,9 +486,10 @@ and default builds plus `python3 scripts/verify_chess_reference.py`, which check
 exact retained bodies, independent compiled declarations/dependencies, permitted
 axioms, a semantic negative control, and the frozen manifest. M2 adds unrestricted
 move/update refinement, an audit of 152 new declarations and their dependencies,
-164 rule assertions, and 22 independently sourced perft counts. The full default
-build passes. These establish the M2 contracts; no complete game adjudicator or
-evaluator-correctness proof is claimed.
+164 rule assertions, and 22 independently sourced perft counts. M3 adds exact
+history and adjudication with a proved finite-graph deadness decision, 55 runtime
+assertions, and a safe declaration/axiom audit. The full default build passes.
+These establish M2–M3; evaluator correctness remains M4.
 
 ## 7. Principal risks and decision points
 
@@ -495,9 +511,12 @@ evaluator-correctness proof is claimed.
 M1 is complete and `chess-reference-v1` remains fixed. M2's implementation,
 refinement theorems, fixture provenance, and reproduction commands are recorded in
 [docs/chess/m2/README.md](docs/chess/m2/README.md). M2 is complete; its evidence is
-in [RESULTS.md](docs/chess/m2/RESULTS.md). M3 would add exact history, draw claims,
-and terminal outcomes, including the dead-position obligation. Keep M3–M7 and
-outreach on hold until separately authorized.
+in [M2 results](docs/chess/m2/RESULTS.md). M3's exact history, claims, terminal
+outcomes, and finite-graph dead-position decision are complete and documented in
+[M3 design](docs/chess/m3/DESIGN.md) and [M3 results](docs/chess/m3/RESULTS.md).
+M4 would prove bounded play, construct the total evaluator, and connect its value
+to the reference's strategy propositions. Keep M4–M7 and outreach on hold until
+separately authorized.
 
 [fork]: https://github.com/bocowgill/cryptids
 [upstream]: https://github.com/google-deepmind/cryptids
