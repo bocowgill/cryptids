@@ -6,7 +6,8 @@ refinement proofs, and regression fixtures. M3 is complete with exact history,
 claims, terminal outcomes, and finite-graph dead-position detection. M4 is complete
 with bounded play, total evaluation, and exact strategic correspondence (2026-10-20).
 M5 is complete with a verified binary backend and four literal blank-tape small-game
-machines (2026-10-20). M6 is in progress. M7 and outreach remain on hold.
+machines (2026-10-20). M6 is complete with the verified 392,046,832-state baseline
+and retained literal table (2026-10-20). M7 and outreach remain on hold.
 
 ## 1. Agreed objective and scope
 
@@ -36,8 +37,9 @@ if the value is WhiteWin or BlackWin: halt
 if the value is Draw: enter a proved infinite loop
 ```
 
-This program is a construction plan, not an implemented solver or a proof that
-the reference model is correct. Milestones below discharge those obligations.
+This wrapper describes the intended behavior. M6 supplies concrete source,
+verified compilation, paid blank initialization and the exact table theorem,
+without running the initial-position evaluator to completion.
 
 ### Rules and permitted changes
 
@@ -153,7 +155,7 @@ modules, and the checked solution theorems must have no placeholder dependency.
 | M3 | Verify history, claims, and terminal outcomes | M2 | Complete: implementation `9115a21` |
 | M4 | Prove bounded play and evaluator/strategy equivalence | M3 | Complete: implementation `0e62d56` |
 | M5 | Validate the compilation route on small finite games | M1; can proceed alongside M2–M4 | Complete: implementation `b3f5e29` |
-| M6 | Construct and verify the baseline chess machine | M4, M5 | In progress |
+| M6 | Construct and verify the baseline chess machine | M4, M5 | Complete; 392,046,832 states |
 | M7 | Reduce states while preserving the target theorem | M6 | Not started; secondary objective |
 
 ### M0 — Fork and planning contract
@@ -393,43 +395,45 @@ valid-transition mutations. The audit excludes proof holes, the open chess conje
 nonstandard axioms. The complete M1–M4 regression baseline passes.
 
 The original M1 Lake configuration remains frozen; the checked additional generator target
-uses `lakefile.chess-m5.toml`. M6 must translate the actual M4 evaluator and prove the full
-linkage to a published chess table. No full-chess machine or full-chess state count is claimed.
+uses `lakefile.chess-m5.toml`. At M5, full-chess translation and published table
+identity remained for M6; that subsequent milestone is completed below.
 
 ### M6 — Explicit baseline chess cryptid
 
 Goal: compose the verified chess evaluator and backend into the primary artifact.
 
-Status: in progress. Checked construction components and the exact remaining obligations
-are recorded in [the M6 progress report](docs/chess/m6/PROGRESS.md). The component verifier
-does not certify the full milestone; the complete source-refinement criterion is met,
-while the remaining publication and verification criteria remain open.
+Status: complete. The primary goal is achieved by the explicit 392,046,832-state,
+two-symbol blank-tape machine. All eight acceptance gates pass, including the
+unconditional Lean theorem, complete retained transition payload, independent
+standalone target, exhaustive byte comparison and supported Linux sandbox checks.
+See [M6 results](docs/chess/m6/RESULTS.md), the [proof guide](docs/chess/m6/BINARY-COMPILATION.md)
+and [final review](docs/chess/m6/PUBLICATION-REVIEW.md). The initial chess value was not computed.
 
 Acceptance criteria:
 
 - [x] Translate the actual evaluator, rule procedures, and initial data into the
   supported backend. Prove this program refines the evaluator from M4; prove
   adequacy for any representation change made to suit the compiler.
-- [ ] Emit an explicit finite `Machine q 2` with `q > 0`, a literal transition
+- [x] Emit an explicit finite `Machine q 2` with `q > 0`, a literal transition
   table, and a reproducible construction manifest. Identify and count all
   interpreter, chess-program, data-initializer, wrapper, and control states.
-- [ ] Use the repository's state-0, all-zero blank-tape initialization and
+- [x] Use the repository's state-0, all-zero blank-tape initialization and
   missing-transition halting convention. All initial board/program data must be
   produced by the machine itself. No prewritten tape, external oracle, or assumed
   chess value may be hidden in the size claim.
-- [ ] Prove the exact initializer reaches the evaluator's encoded initial
+- [x] Prove the exact initializer reaches the evaluator's encoded initial
   configuration, and that all subsequent machine execution satisfies the
   required invariants. Prove halting iff the evaluator returns a non-draw.
-- [ ] Prove the unconditional end-to-end equivalence stated in section 1 for the
+- [x] Prove the unconditional end-to-end equivalence stated in section 1 for the
   exact published transition table. This theorem must exclude `sorryAx`, added
   axioms, and the open draw theorem from its dependency closure.
-- [ ] Add a self-contained challenge target and comparator configuration that
+- [x] Add a self-contained challenge target and comparator configuration that
   independently fix the machine, chess definitions, and proposition. Audit
   transitive definitions as well as theorem names.
-- [ ] Verify the artifact/table/Lean definition agree, record hashes and state
+- [x] Verify the artifact/table/Lean definition agree, record hashes and state
   count, and retain reproducible small-game and initializer checks. Clearly
   label bounded traces as such; a full initial chess search is not required.
-- [ ] Complete applicable clean-checkout builds, comparator audits, and artifact
+- [x] Complete applicable clean-checkout builds, comparator audits, and artifact
   verification using the commands in section 6. Publish a proof guide showing
   each link from blank tape to the strategic proposition.
 
@@ -536,7 +540,9 @@ python3 scripts/verify_chess_m5.py
 python3 scripts/verify_chess_m5.py --baseline
 ```
 
-Only M6's full-chess translation and explicit chess machine remain before the primary goal.
+M6 completes the primary goal with the actual full-chess source translation, paid
+blank initialization and explicit 392,046,832-state table. Reproduction commands
+and the exact native I/O/codec verification boundary are in [M6 results](docs/chess/m6/RESULTS.md).
 
 ## 7. Principal risks and decision points
 
@@ -565,9 +571,11 @@ M4's bounded play, total evaluator, globally legal optimal strategies, and exact
 correspondence with the frozen strategy propositions are complete; see
 [M4 design](docs/chess/m4/DESIGN.md) and [M4 results](docs/chess/m4/RESULTS.md).
 M5 is complete: the verified compilation route and four literal branching-game machines are
-recorded in [M5 results](docs/chess/m5/RESULTS.md). M6 is now authorized and in progress:
-translate the actual evaluator, rule procedures and initial data, prove refinement and exact
-artifact correspondence, then produce the baseline chess machine. M7 and outreach remain on hold.
+recorded in [M5 results](docs/chess/m5/RESULTS.md). M6 is complete: actual source
+refinement, paid blank initialization, an explicit 392,046,832-state machine and its
+unconditional frozen non-draw equivalence, full table retention and independent
+verification are recorded in [M6 results](docs/chess/m6/RESULTS.md).
+No later milestone is authorized. M7 and outreach remain on hold.
 
 [fork]: https://github.com/bocowgill/cryptids
 [upstream]: https://github.com/google-deepmind/cryptids

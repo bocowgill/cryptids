@@ -1,7 +1,8 @@
 # M6 baseline progress
 
-Status: **in progress**. The complete source, final mathematical matrix, paid blank
-initialization and unconditional strategic equivalence are proved. All 393 literal
+Status: **complete — all eight M6 acceptance gates met**. The complete source,
+final mathematical matrix, paid blank initialization and unconditional strategic
+equivalence are proved. All 393 literal
 compressed table parts and their complete manifest are retained. The baseline has
 **392,046,832 states** and halts iff the frozen initial position is **not drawn**.
 The initial chess value has not been computed. M7 and outreach remain unstarted.
@@ -47,18 +48,23 @@ The initial chess value has not been computed. M7 and outreach remain unstarted.
 - The final 50-check construction suite and complete M1–M5 regression suites pass.
   Prior-milestone evidence includes all four native small-game regenerations,
   independent literal exports/target comparison and both semantic mutation controls.
-- The full independent standalone exporter matches **every row byte** across all
+- The recorded local independent standalone exporter matches **every row byte** across all
   392,046,832 states and reproduces every compressed part and its manifest exactly.
   The 393-range run completed in 2,454.86 seconds, with sampled aggregate peak RSS
-  of 792,969,216 bytes. All 111 publication inputs remained unchanged throughout.
+  of 792,969,216 bytes. All 111 publication inputs remained unchanged throughout
+  that run on Python 3.9.6/zlib 1.2.12. Its original pins are retained separately
+  from the later monitor/fixture correction and fresh Linux run in the results.
 
-## Remaining acceptance
+## Final acceptance
 
-Linux CI must pass the supported sandbox comparator and complete-table check.
-The local exhaustive byte/gzip check and all local proof/regression checks pass.
-Final independent publication review, release results and acceptance ledgers remain
-to be closed.
-The frozen reference and M1–M5 source files remain unchanged.
+The supported Linux M6 run passes the full default verifier, normal sandbox
+comparator and exhaustive table check. Original repository and M1–M5 Linux
+regressions pass on identical mathematical/runtime/artifact inputs. Final independent
+publication review passes, and all eight integration gates are met. Exact commits,
+run URLs, output fingerprints and source pins are retained in [results](RESULTS.md)
+and [machine-readable evidence](results.json).
+The frozen reference and M1–M5 source files remain unchanged. M7 and outreach
+remain unstarted.
 
 ```sh
 python3 scripts/verify_chess_m6.py --foundations
@@ -67,8 +73,9 @@ python3 scripts/verify_chess_m6.py --table-only
 python3 scripts/verify_chess_m6.py --baseline
 ```
 
-On a cold checkout, first build `chess_m6_generate` and `chess_m6_reference` with
-`lake --wfail -f lakefile.chess-m6.toml build`; CI has an explicit native build phase.
+On a cold checkout, first build `Cryptids.Compilation.Tables`, then
+`chess_m6_generate` and `chess_m6_reference` with the M6 Lake configuration;
+CI has explicit proof/fixture and native build phases. See the results commands.
 The default command runs construction, independent definition/mutation checks and
 the complete table comparison. Separate modes expose intermediate evidence without
 claiming full M6 completion. The baseline mode runs the previous milestone suites.

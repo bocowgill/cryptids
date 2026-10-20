@@ -1,9 +1,10 @@
 # M6 results
 
-Status: **verification in progress**. The candidate implementation and complete
-retained table are on `codex/chess-baseline-m6`, at code commit
-`3af047cbabe0df1d672685d2cccbb81f581b32a5`. Complete local byte/gzip comparison passes;
-final Linux verification remains an acceptance gate. M6 is not yet marked complete.
+Status: **complete — all eight acceptance gates met**. The implementation and
+complete retained table are on `codex/chess-baseline-m6`, at checked code commit
+`256d7e1a91546d4b2289edf2b075ab7ffa2aa0ee`. The local exhaustive byte/gzip comparison,
+supported Linux verification and final independent publication review pass.
+The [machine-readable evidence](results.json) records the exact reports and pins.
 
 The construction provides an explicit **392,046,832-state, two-symbol** machine
 whose Lean theorem is
@@ -81,6 +82,7 @@ proof rejection and unsupported dependencies.
 
 ```sh
 # Prepare native dependencies on a cold checkout.
+ELAN_NO_UPDATE_CHECK=1 lake --wfail build Cryptids.Compilation.Tables
 ELAN_NO_UPDATE_CHECK=1 lake --wfail -f lakefile.chess-m6.toml build \
   chess_m6_generate chess_m6_reference
 ELAN_NO_UPDATE_CHECK=1 python3 scripts/verify_chess_m6.py
@@ -106,12 +108,13 @@ identity on other codec runtimes. Native printing, filesystem I/O, gzip and
 hashing remain external verification tools. No Lean theorem about native file
 I/O is claimed.
 
-The final local independent sweep matched every row byte across all 392,046,832
+The recorded local independent sweep matched every row byte across all 392,046,832
 states and reproduced all 393 gzip parts and their manifest exactly. It completed
 in 2,454.86 seconds with sampled aggregate peak RSS of 792,969,216 bytes. The checker
 confirmed all 111 publication inputs and the construction manifest were unchanged
-throughout the run. The byte check's evidence is exhaustive over this fixed table;
-it is separate from the symbolic Lean proof of unbounded execution behavior.
+throughout that run, before the Linux monitor correction. The byte check's evidence
+is exhaustive over this fixed table; it is separate from the symbolic Lean proof
+of unbounded execution behavior.
 
 Completed local checks include the 50-check construction suite, audits of 39,379
 safe roots and 54,127 dependencies, the exact 13,860-declaration standalone target
@@ -121,11 +124,25 @@ the three standard axioms. Complete M1–M5 regression suites pass, including al
 four native small-game regenerations, literal exports, independent target
 comparison and both semantic mutation controls.
 
-Pending final evidence:
+The supported Linux [M6 run](https://github.com/bocowgill/cryptids/actions/runs/39458752058)
+passes the strict clean proof/fixture build, cold native exporters, complete default
+verifier, normal sandbox comparator, semantic controls and every retained table row.
+The Linux comparison completed every row across 393 ranges in 2,897.99 seconds,
+with sampled aggregate peak RSS of 844,886,016 bytes. All 111 current publication
+inputs remained fixed.
 
-- Linux sandbox comparator and complete candidate CI.
-- Final independent publication review and acceptance ledger closure.
+The separate [original regression run](https://github.com/bocowgill/cryptids/actions/runs/39458752023)
+at the same checked implementation commit passes M1–M5, the original repository
+sandbox comparator and machine/blank-initializer checks.
 
-The macOS run does not claim to execute the Linux namespace sandbox. Linux
-results will be recorded with exact commit and run URLs. Bounded traces and
-fixture executions never establish the initial chess value.
+The earlier complete local byte/gzip report retains its original source pins.
+The only later publication-input changes are the Linux process-exit monitoring fix
+and its regression fixture. All mathematical definitions, exporter code, retained
+table bytes and gzip logic are identical. The complete Linux comparison was repeated
+with the current pins; old reports are never relabelled as new executions.
+
+The [final independent publication review](PUBLICATION-REVIEW.md) accepts the
+proof chain, exact accounting, standalone identity, full comparison and recorded
+native file/codec boundary. The macOS exact gzip reproduction claim remains distinct
+from the Linux check of portable raw bytes and retained compressed hashes. Bounded
+traces and fixture executions never establish the initial chess value.

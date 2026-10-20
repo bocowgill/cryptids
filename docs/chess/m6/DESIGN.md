@@ -60,7 +60,7 @@ Read-site and write-site counts therefore overlap rather than forming a partitio
 
 ## Publication and independent checks
 
-The intended canonical table has one LF-terminated row per state, in numeric
+The retained canonical table has one LF-terminated row per state, in numeric
 order, with columns for scanned zero and one. A cell is `---` for halt or
 `0L17`/`1R23` for write, move and destination. Every destination is checked against
 the complete state range. The table is retained as ordered lossless gzip parts;
@@ -85,7 +85,7 @@ verification tools, not Lean theorems about file I/O. The Lean proof establishes
 the finite mathematical transition function, and complete independent byte
 comparison connects the retained files to it.
 
-Publication, standalone identity and full-byte comparison remain acceptance gates
-until the final results report records successful runs. Passing construction
-fixtures alone does not complete M6. No bounded run of this machine is evidence
-that chess is drawn; the initial position is not solved during this campaign.
+The [final results](RESULTS.md) record successful publication, standalone identity,
+full byte comparison, Linux sandbox, regression and independent review checks.
+The [acceptance ledger](GATES.md) closes all eight M6 requirements. No bounded run
+of this machine is evidence that chess is drawn; the initial value was not computed.
