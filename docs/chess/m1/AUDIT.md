@@ -1,5 +1,9 @@
 # M1 audit: chess specification in FormalConjectures PR #5216
 
+This is the historical source-audit report. The subsequent definitions-only port
+and M1 completion are recorded in [FREEZE.md](FREEZE.md); descriptions below of
+pending implementation refer to the audit-only task.
+
 ## Verdict
 
 **PASS WITH CAVEATS for the source-level specification review. Not a completed

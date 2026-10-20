@@ -14,6 +14,10 @@ on:
       - 'lakefile.toml'
       - 'lake-manifest.json'
       - 'lean-toolchain'
+      - 'scripts/verify_chess_reference.py'
+      - 'scripts/CompareChessReference.lean'
+      - 'docs/chess/m1/reference-v1.json'
+      - 'docs/chess/m1/source/Chess.lean.txt'
       - '.github/workflows/lean_action_ci.yml'
   pull_request:
     paths:
@@ -28,6 +32,10 @@ on:
       - 'lakefile.toml'
       - 'lake-manifest.json'
       - 'lean-toolchain'
+      - 'scripts/verify_chess_reference.py'
+      - 'scripts/CompareChessReference.lean'
+      - 'docs/chess/m1/reference-v1.json'
+      - 'docs/chess/m1/source/Chess.lean.txt'
       - '.github/workflows/lean_action_ci.yml'
   workflow_dispatch:
 
@@ -52,6 +60,9 @@ jobs:
           build-args: "Cryptids Challenge"
         env:
           LEAN_NUM_THREADS: "1"
+
+      - name: Verify frozen chess reference against its pinned source
+        run: python3 scripts/verify_chess_reference.py
 
       - name: Verify solution against Challenge with comparator
         run: lake comparator --config comparator/all.json

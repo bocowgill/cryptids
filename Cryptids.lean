@@ -6,6 +6,7 @@ module
 
 public import Cryptids.Machines
 public import Cryptids.Propositions
+public import Cryptids.Chess
 public import Cryptids.Goldbach21
 public import Cryptids.Riemann104
 public import Cryptids.Riemann95
@@ -30,6 +31,7 @@ linking every machine's blank-tape halting problem to Mathlib's statements:
 
 - `Cryptids.Propositions` — Shared definitions of `GoldbachConjecture`,
   `MatiyasevichRiemannCounterexample`, `ZFInconsistent`, and `WadeZFInconsistent`.
+- `Cryptids.Chess` — Frozen definitions-only chess reference; no game value is asserted.
 - `Cryptids.Machines` — Turing machine execution model, bundled machines (`BundledMachine`), and
   machine table definitions (`ConjectureMachines.Machines.*`).
 - `Cryptids.Goldbach21`, `Cryptids.Zf380`, `Cryptids.Riemann104` — Proofs of

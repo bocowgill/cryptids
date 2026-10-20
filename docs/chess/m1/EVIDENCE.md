@@ -1,5 +1,8 @@
 # Evidence and limits of the M1 audit
 
+This records the historical audit-only task. Subsequent port/build/correspondence
+evidence and the completed reference freeze are in [FREEZE.md](FREEZE.md).
+
 ## Source identity
 
 Input retrieved from [the pinned PR head][source] through the connected GitHub

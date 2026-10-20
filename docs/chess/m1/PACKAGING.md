@@ -1,7 +1,9 @@
 # Recommended Cryptids packaging for chess
 
-Status: recommendation only. No modules, dependencies, or build targets below
-have been implemented. This document accompanies the [M1 audit](AUDIT.md).
+Status: accepted design from the audit-only task. The reference module, sanity
+lemma module, and public aggregate are now implemented; see [FREEZE.md](FREEZE.md).
+The remaining module layout is a proposal for later milestones. This document
+preserves the reasoning accompanying the original [M1 audit](AUDIT.md).
 
 ## Decision
 
