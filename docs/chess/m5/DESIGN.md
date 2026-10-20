@@ -49,7 +49,8 @@ used in a mathematical proof.
 
 ## Branching game interpreter
 
-`Games.Tree` has terminal White-win/draw/Black-win outcomes and White/Black binary choices.
+`Chess.Compilation.Tree` has terminal White-win/draw/Black-win outcomes and White/Black
+binary choices.
 The score order is Black-win < draw < White-win; White maximizes and Black minimizes.
 Trees are serialized in postfix form with five tokens. A two-stack TM2 interpreter reads
 tokens and pushes scores, reduces White choices with max and Black choices with min, then

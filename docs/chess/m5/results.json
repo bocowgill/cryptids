@@ -1,0 +1,212 @@
+{
+  "milestone": "M5",
+  "status": "complete",
+  "implementation_commit": "b3f5e29eebcb96ebdebf08ebf746a0dbae01a140",
+  "baseline_commit": "62d8f4df9d1c4fcd0613ca7b4c994fae4df0f501",
+  "reference": "chess-reference-v1",
+  "verification": {
+    "source_sha256": {
+      "Cryptids/Compilation/Assembly.lean": "c033657393cf781877f57e920e5167cd5be39b8b0c563445d2be58f6ed41d7f1",
+      "Cryptids/Compilation/AssemblyFast.lean": "ad02716cedeb4b859f199df6e5a6505e533f810f9122f96edbf45b4297dec647",
+      "Cryptids/Compilation/BalancedTable.lean": "2a5beebb78067cf14a139eeaf3a0820b6bd1a9cc70941e8af57173f66b003904",
+      "Cryptids/Compilation/Binary.lean": "a8ea5ef150f3ec9ba7a2911fb896c0d28bdc30f3e3bd8149f4d4741ec24be1a4",
+      "Cryptids/Compilation/Block.lean": "80802fdd1f524bf2e43c416d03e56b9c9b251a0ebff252752ea9cf737854bc38",
+      "Cryptids/Compilation/Examples.lean": "84aa61eb488acbcdba97143940af173a608e70a6a9663d8e3eedfa2710094297",
+      "Cryptids/Compilation/Finite.lean": "1dc05b336652338fb27b29587802e88be27af8428c0233d3401c7c78a18cfe5b",
+      "Cryptids/Compilation/FreeNormalize.lean": "93045e6875f7ce4ee7f754849a9544882b4def579810d5cc0341900e51695547",
+      "Cryptids/Compilation/Games.lean": "42a935f997556155f53ebd9741eccb21cc16d007a435218b5a9432682be07e27",
+      "Cryptids/Compilation/HashNumber.lean": "5cc2b70124af09d4b5bfa4a0681edfa447e649919469f6b46dfe9a625e1108c4",
+      "Cryptids/Compilation/HashSupport.lean": "54ddc70d36188ee7865765d66d29fd3491ae56181bbb8ddd4a5eb5d3df403e29",
+      "Cryptids/Compilation/Init.lean": "174b8190aa49e4f68518ec0f87a66c29a3747cc65c100f0259dac3cb4432b3bf",
+      "Cryptids/Compilation/Literal.lean": "8ed99e6683a9b42b4054f7c863017bf87b13f7cebce3fcfffceb0859154fffc8",
+      "Cryptids/Compilation/Memo.lean": "fe5bc8bef4617489207cb6b687b14843d5f17ba9dd31344914b32b7e8ae0ee7c",
+      "Cryptids/Compilation/Normalize.lean": "d8ae53bfa24b712b77183306e6f5403a4bf218a669c0c24782b58952e3f8d564",
+      "Cryptids/Compilation/NumberTM1.lean": "254696f86962943e0d6f4bcbd950ec4f70589be09020866a6fae82c2464059d0",
+      "Cryptids/Compilation/Stack.lean": "efbc3dd34eaa344f0b24fe9c47978556c4512a69d99e87241775d1799a794845",
+      "Cryptids/Compilation/Tables.lean": "b6d87b039c801bc6e8eca985b6fa4a38df9ca6d60b6686abc08a2784d976d3c5",
+      "Cryptids/Compilation.lean": "b8bab3d3549824f68fc12467c757365598aaee1920d0dafda52500c8d37b0648",
+      "ChessM5Challenge.lean": "b6be144da49ba2a37ca9760adf8b8c5b82a708a7446364efd48774d675958574",
+      "Cryptids.lean": "efe01580e118d340bf9bcc3a7bd574e78a0bf4f818ca48f526e4f8d8491be5c3",
+      "lakefile.toml": "7c4250e8165473fa250cf95f1db6d36b0deb9a25203209016fe10771ab0db699",
+      "lakefile.chess-m5.toml": "0ebc759e106ffad08e8468245551065169b356114ed89916608c66b7bf10dc8d",
+      "lean-toolchain": "8f89aa44fccdb1a0b6cc768c7c9f54b94cd40e47a08d582f82d1235f13075cf7",
+      "lake-manifest.json": "4bb9288d47457931549bbeff4d0e68d9a8dbd47b063e6b72a3210b0d09311284",
+      ".github/workflows/lean_action_ci.yml": "d34dd2bc03ce6f305cdfb4c92fd28f6fab2603d0363bc7c79d8df7c5f08e21a3",
+      "scripts/AuditChessM5.lean": "0a748fc6bd3d6d14342cd8b64f2c18bfb3c4e18f5544a093461fe5c63de67617",
+      "scripts/CompareChessM5.lean": "8c672a3bbb85d222485075a591ae06fb788afc164b081eb3e42e43fc2f412646",
+      "scripts/ExportChessM5.lean": "fb259e1f5f1bf0037eb781a9d73ad2b342efb48aaaa047204fdc38dd1bea1612",
+      "scripts/GenerateChessM5.lean": "5785f388332d95c8ba2ef9fcfa89217dd5cde8a2524c8cbc171a502ccf635515",
+      "scripts/RunChessM5.lean": "45443b6fde45c1e486e563cd3980144b0caa29301de752b55a256af930044597",
+      "scripts/verify_chess_m5.py": "935f1bdc1c6660ea2976f87dfcb36a0e95c08c4a68ce751d6267bb876841d8f4",
+      "artifacts/chess_m5/white.txt": "013d20c86e63a4da69bed35d162356ba9f2364e332b79a5e3c578b8cfecaf430",
+      "artifacts/chess_m5/black.txt": "0877b94c1e2a3d52f77f85ab84ef9d8ddbfeee31da3ff8646ddaef5756ff6930",
+      "artifacts/chess_m5/draw.txt": "5b7a602b5c6e185947ae8818e4eb6452f5705e9de01ae6e6ca5deb271f786cf1",
+      "artifacts/chess_m5/refutation.txt": "51f57d37f23ceee6034de45f0de7c74ff1259986051b60a3e38c6c7bdd9a388d",
+      "artifacts/chess_m5/manifest.json": "657da168eff07dfad4b9fd0c26be2b055872698ed0e10f3f3e78009c07cdc91c"
+    },
+    "artifacts": {
+      "white": {
+        "states": 49910,
+        "sha256": "013d20c86e63a4da69bed35d162356ba9f2364e332b79a5e3c578b8cfecaf430",
+        "trace": {
+          "halted": true,
+          "steps": 1994
+        },
+        "tree": [
+          "w",
+          0,
+          2
+        ],
+        "value": 2
+      },
+      "black": {
+        "states": 49910,
+        "sha256": "0877b94c1e2a3d52f77f85ab84ef9d8ddbfeee31da3ff8646ddaef5756ff6930",
+        "trace": {
+          "halted": true,
+          "steps": 1994
+        },
+        "tree": [
+          "b",
+          2,
+          0
+        ],
+        "value": 0
+      },
+      "draw": {
+        "states": 49910,
+        "sha256": "5b7a602b5c6e185947ae8818e4eb6452f5705e9de01ae6e6ca5deb271f786cf1",
+        "trace": {
+          "halted": false,
+          "prefix_steps": 1993,
+          "cycle_start": 1991,
+          "cycle_length": 2,
+          "cycle_state": 40430
+        },
+        "tree": [
+          "w",
+          0,
+          1
+        ],
+        "value": 1
+      },
+      "refutation": {
+        "states": 58838,
+        "sha256": "51f57d37f23ceee6034de45f0de7c74ff1259986051b60a3e38c6c7bdd9a388d",
+        "trace": {
+          "halted": false,
+          "prefix_steps": 3741,
+          "cycle_start": 3739,
+          "cycle_length": 2,
+          "cycle_state": 54720
+        },
+        "tree": [
+          "w",
+          [
+            "b",
+            2,
+            1
+          ],
+          0
+        ],
+        "value": 1
+      }
+    },
+    "outputs": {
+      "build": "Build completed successfully (3847 jobs).\n",
+      "native_build": "Build completed successfully (7674 jobs).\n",
+      "fresh_literal_proofs": "",
+      "audit": "Audited 68567 M5 declarations and 78005 dependency declarations\nInventoried 33 Lean-generated recursion artifacts outside the safe closure\nRecursion artifacts: #[Chess.Compilation.leafOutcomes._unsafe_rec, Chess.Compilation.pushData._unsafe_rec, Chess.Compilation.rightSpine._unsafe_rec, Chess.Compilation.runTokens._unsafe_rec, Chess.Compilation.serialize._unsafe_rec, Chess.Compilation.value._unsafe_rec, ConjectureMachines.Compilation.binaryWriteList._unsafe_rec, ConjectureMachines.Compilation.binaryWrites._unsafe_rec, ConjectureMachines.Compilation.memoStmt._unsafe_rec, ConjectureMachines.Compilation.sampleStmtHash._unsafe_rec, ConjectureMachines.Compilation.stackLabelList._unsafe_rec, ConjectureMachines.Compilation.stackLabels._unsafe_rec, ConjectureMachines.Compilation.subtermList._unsafe_rec, ConjectureMachines.Compilation.subterms._unsafe_rec, ConjectureMachines.Compilation.tm1StmtDecEq._unsafe_rec, ConjectureMachines.Compilation.tm2StmtDecEq._unsafe_rec, Chess.Compilation.instDecidableEqTree.decEq._unsafe_rec, ConjectureMachines.Compilation.Block.AllHeadFree._unsafe_rec, ConjectureMachines.Compilation.Block.fastNormal._unsafe_rec, ConjectureMachines.Compilation.Block.fastNormalFree._unsafe_rec, ConjectureMachines.Compilation.Init.embedAll._unsafe_rec, ConjectureMachines.Compilation.Init.executeList._unsafe_rec, ConjectureMachines.Compilation.Init.prependAll._unsafe_rec, ConjectureMachines.Compilation.Init.writer._unsafe_rec, ConjectureMachines.Compilation.Literal.runFrom._unsafe_rec, ConjectureMachines.Compilation.TM1Number.mapStmt._unsafe_rec, ConjectureMachines.Compilation.Balanced.RowTree.WellFormed._unsafe_rec, ConjectureMachines.Compilation.Balanced.RowTree.count._unsafe_rec, ConjectureMachines.Compilation.Balanced.RowTree.decidableWellFormed._unsafe_rec, ConjectureMachines.Compilation.Balanced.RowTree.flatten._unsafe_rec, ConjectureMachines.Compilation.Balanced.RowTree.height._unsafe_rec, ConjectureMachines.Compilation.Balanced.RowTree.lookup._unsafe_rec, ConjectureMachines.Compilation.Balanced.RowTree.lookupDepth._unsafe_rec]\nPermitted axioms used: #[propext, Classical.choice, Quot.sound]\nChess M5 theorem audit passed\n",
+      "fixtures": "ok: White maximizes\nok: Black minimizes\nok: draw\nok: favorable line is not forced\nok: White serialization\nok: Black serialization\nok: draw serialization\nok: refutation serialization\nok: empty input rejected\nok: underflow rejected\nok: surplus values remain surplus\nok: nested min/max\nok: White wrapper halts within runPrefix\nok: Black wrapper halts within runPrefix\nok: draw runPrefix remains live\nok: refutation runPrefix remains live\nChess M5 fixtures passed: 16 assertions\n",
+      "literal_export": "Exported all four elaborated literal tables\n",
+      "generation": "white: 49910 states; Post 24949; input 6\nblack: 49910 states; Post 24949; input 6\ndraw: 49910 states; Post 24949; input 6\nrefutation: 58838 states; Post 29413; input 6\n",
+      "challenge_build": "",
+      "comparison": "Matched 4 M5 targets; 70415 dependency declarations\nPermitted axioms used: #[propext, Classical.choice, Quot.sound]\nIndependent M5 target declarations and dependencies match\n"
+    },
+    "controls": {
+      "source": 8,
+      "audit": 3,
+      "parser": 5,
+      "kernel_bounds": 1,
+      "independent_target": 2
+    },
+    "nonhalting_evidence": "Lean closed-total-state proofs; traces supplement them"
+  },
+  "baseline": {
+    "prior_inputs_verified": {
+      "m2": {
+        "Cryptids/Chess/Exec/Encoding.lean": "f47516c0d7f62d711d8d11bf067f2b0dfcb0d1ca87ab54d2f195245567fd5206",
+        "Cryptids/Chess/Exec/Moves.lean": "8d373aa13c83a13eaca7d1a6fb242c68cae28a8f67c0345c90e3aac1c41add1a",
+        "Cryptids/Chess/Exec/Rules.lean": "5bb5ea30312fe0aac54c6f9b09118c8526e4c48e228965b240856b3a94deb71d",
+        "Cryptids/Chess/Exec.lean": "3a945e569077f08b2bd0eb0a316c10bdae3c1b2470f237c477d7d663da47db57",
+        "Cryptids/Chess/Fixtures.lean": "7145b844242aef539de39be94a30049c79698cbfe660801104ac683fd2e08eff",
+        "scripts/AuditChessM2.lean": "548965fedb1afa7bec416ac004b674232c9955f73659af6b43d4ac2cf30a6b0a",
+        "scripts/RunChessM2.lean": "4b16306cc5da08f20fe81542e64ae76f34175ff1e1145ff99c349a1598e2352a",
+        "scripts/verify_chess_m2.py": "689464c4d2449765b69e46be6122cbe0581cac361fbcb93b80aab9f4baae0778",
+        "docs/chess/m2/perft.json": "7333615699197c3dfff690532874dfdec5ad43cbbd96c311e0f182d390b0cdbc",
+        "lean-toolchain": "8f89aa44fccdb1a0b6cc768c7c9f54b94cd40e47a08d582f82d1235f13075cf7",
+        "lakefile.toml": "7c4250e8165473fa250cf95f1db6d36b0deb9a25203209016fe10771ab0db699",
+        "lake-manifest.json": "4bb9288d47457931549bbeff4d0e68d9a8dbd47b063e6b72a3210b0d09311284"
+      },
+      "m3": {
+        "Cryptids/Chess/Adjudication/Claims.lean": "aa851f7e56befbc85b59da544baa5916b1c1e77d6f4a28a40b11e0ef9c166800",
+        "Cryptids/Chess/Adjudication/DeadPosition.lean": "ac016c85405469c34f59bfd8bd9088b9cb33ca1bdc792a425851335c94180f45",
+        "Cryptids/Chess/Adjudication/History.lean": "fcd6c49ae7966f71ae2c9f2afaccf3264a6702ed9684057eb4072a22df0db5b1",
+        "Cryptids/Chess/Adjudication/Outcomes.lean": "a811a709d79e6810d1faf54a2409541accdf854df75f4054f58b76517471da87",
+        "Cryptids/Chess/Adjudication/Projection.lean": "806e8dcf07ba5ea18efd5301fd3990b95de67ccff5924a32d146f8743fb7ad7c",
+        "Cryptids/Chess/Adjudication/Search.lean": "a2f9b0d2df6ef30658fc95ce3247943b62b855c4c29806177b6eb8486c02dc72",
+        "Cryptids/Chess/Adjudication.lean": "c5a5eb0e7c4f13f930ea1d8a9457bd3ae509af6ca88709b113a394b8b549e607",
+        "scripts/AuditChessM3.lean": "c6aac172f1a5d563ac9cd98477d1d951ee90792317882305719269e97d30d719",
+        "scripts/RunChessM3.lean": "eac3097cb7302f6ebddbac81078f7c0ffa512e2869167f0b37d4261e2cf34e40",
+        "scripts/verify_chess_m3.py": "a2dbe728d7c0beddbf7ad04af99913d8bf8ae59403e8e96b2c1142690d7e9297"
+      },
+      "m4": {
+        "Cryptids/Chess/Evaluation/Bound.lean": "1b2fb91fb6e4a470266831c0e5d96f485647f6a447fe5f75d45ded8acbf0c834",
+        "Cryptids/Chess/Evaluation/Choice.lean": "53ba656c84761e41a69443ecfdc966507abebfbf3cbe6c5a27e6d303ee60d3b3",
+        "Cryptids/Chess/Evaluation/Correspondence.lean": "b5ec4053b7f79711506f5975a7d1ee52cf02af1fb87d8b89b2593a62ff94cedd",
+        "Cryptids/Chess/Evaluation/Optimality.lean": "a473cf779715d992d4a60039b566d9b09bb012033057392ef6203a087fe93e01",
+        "Cryptids/Chess/Evaluation/Solver.lean": "c54a99e77134bae9aa40a2f2ddb4f69d8c4052b32dad43909a623414deeaa121",
+        "Cryptids/Chess/Evaluation/Strategies.lean": "88393901d711844fe2bd0e30a799f3334d0209d72bb38a9aaa22ce9923aaa757",
+        "Cryptids/Chess/Evaluation.lean": "6abf7f009e84063d78f6294924da91f6ddc09946f794d6447d978e82e5c4411f",
+        "scripts/AuditChessM4.lean": "3f9742cb153ec55473d719d89e00c3704a47cad5eac767bd27370508c37619ee",
+        "scripts/RunChessM4.lean": "165510833e98fc18b5a44eeeffdfbcc4f835f6f39cd84844390bef0c93cbb90e",
+        "scripts/verify_chess_m4.py": "b3cd2c968adf6f973df62595fce2f71218571e978580b7ae4f0e780cd53d45da",
+        "Cryptids.lean": "84f6452b97f83ab9fcaf48c9513a3887571be70f717bbf9038f94f5f0b615d43",
+        ".github/workflows/lean_action_ci.yml": "a3cc54aa3ca7c632b8b5482ade437faa85679e030ddcb18418fb566d21a64750",
+        "lean-toolchain": "8f89aa44fccdb1a0b6cc768c7c9f54b94cd40e47a08d582f82d1235f13075cf7",
+        "lakefile.toml": "7c4250e8165473fa250cf95f1db6d36b0deb9a25203209016fe10771ab0db699",
+        "lake-manifest.json": "4bb9288d47457931549bbeff4d0e68d9a8dbd47b063e6b72a3210b0d09311284"
+      }
+    },
+    "reviewed_integration_changes": [
+      ".github/workflows/lean_action_ci.yml",
+      "Cryptids.lean"
+    ],
+    "outputs": {
+      "default_build": "\u26a0 [4099/4100] Replayed Challenge\nwarning: Challenge.lean:236:8: declaration uses `sorry`\nwarning: Challenge.lean:237:8: declaration uses `sorry`\nwarning: Challenge.lean:239:8: declaration uses `sorry`\nwarning: Challenge.lean:240:8: declaration uses `sorry`\nwarning: Challenge.lean:247:8: declaration uses `sorry`\nwarning: Challenge.lean:249:8: declaration uses `sorry`\nwarning: Challenge.lean:257:8: declaration uses `sorry`\nwarning: Challenge.lean:258:8: declaration uses `sorry`\nwarning: Challenge.lean:260:8: declaration uses `sorry`\nwarning: Challenge.lean:261:8: declaration uses `sorry`\nwarning: Challenge.lean:266:8: declaration uses `sorry`\nwarning: Challenge.lean:268:8: declaration uses `sorry`\nwarning: Challenge.lean:269:8: declaration uses `sorry`\nwarning: Challenge.lean:274:8: declaration uses `sorry`\nwarning: Challenge.lean:277:8: declaration uses `sorry`\nwarning: Challenge.lean:284:8: declaration uses `sorry`\nwarning: Challenge.lean:293:8: declaration uses `sorry`\nwarning: Challenge.lean:294:8: declaration uses `sorry`\nwarning: Challenge.lean:296:8: declaration uses `sorry`\nwarning: Challenge.lean:306:8: declaration uses `sorry`\nwarning: Challenge.lean:307:8: declaration uses `sorry`\nwarning: Challenge.lean:309:8: declaration uses `sorry`\nBuild completed successfully (4100 jobs).\n",
+      "reference": "Matched 385 Chess declarations; 2728 dependency declarations\nPermitted axioms used: #[propext, Classical.choice, Quot.sound]\nCompiled chess declarations and dependencies match\nSemantic negative control rejected\nChess reference correspondence verified\n",
+      "m2": "Build completed successfully (3138 jobs).\nAudited 152 M2 declarations and 3328 transitive dependencies\nPermitted axioms used: [Quot.sound, Classical.choice, propext]\nChess M2 theorem audit passed\nTrust-audit negative control rejected sorryAx\nRule fixtures passed: 164 assertions\nPerft initial depth 0: 1\nPerft initial depth 1: 20\nPerft initial depth 2: 400\nPerft initial depth 3: 8902\nPerft kiwipete depth 0: 1\nPerft kiwipete depth 1: 48\nPerft kiwipete depth 2: 2039\nPerft position-3 depth 0: 1\nPerft position-3 depth 1: 14\nPerft position-3 depth 2: 191\nPerft position-4 depth 0: 1\nPerft position-4 depth 1: 6\nPerft position-4 depth 2: 264\nPerft position-4-mirror depth 0: 1\nPerft position-4-mirror depth 1: 6\nPerft position-4-mirror depth 2: 264\nPerft position-5 depth 0: 1\nPerft position-5 depth 1: 44\nPerft position-5 depth 2: 1486\nPerft position-6 depth 0: 1\nPerft position-6 depth 1: 46\nPerft position-6 depth 2: 2079\nMatched 22 perft counts across 7 positions\nChess M2 executable verification passed\n",
+      "m3": "Build completed successfully (3145 jobs).\nAudited 174 M3 declarations and 8279 dependency declarations\nInventoried 1 Lean-generated recursion artifact outside the safe dependency closure\nPermitted axioms used: #[propext, Classical.choice, Quot.sound]\nChess M3 theorem audit passed\nM3 trust negative controls rejected\nChess M3 fixtures passed: 55 assertions\nChess M3 executable verification passed\n",
+      "m4": "Build completed successfully (3152 jobs).\nAudited 111 M4 declarations and 8713 dependency declarations\nInventoried 2 Lean-generated recursion artifacts outside the safe dependency closure\nPermitted axioms used: #[propext, Classical.choice, Quot.sound]\nChess M4 theorem audit passed\nM4 trust negative controls rejected\nok: terminal White win takes priority over clock draw\nok: terminal Black win takes priority over clock draw\nok: terminal stalemate evaluates to draw\nok: White can claim before a winning move\nok: White chooses mate over an available draw\nok: White optimal action is a move\nok: White chosen move is legal\nok: White chosen move attains the value\nok: Black chooses mate over an available draw\nok: Black optimal action is a move\nok: Black chosen move is legal\nok: Black chosen move attains the value\nok: threatened position has exactly one move plus a claim\nok: threatened position offers a legal draw claim\nok: every played alternative loses to a forced mate\nok: claim improves the outcome from loss to draw\nok: optimal policy takes the saving claim\nok: automatic draw stops evaluation before considering moves\nok: full history changes a winning layout into an automatic draw\nok: finite selector rejects one favorable line with a better opposing option\nok: finite selector preserves an actual candidate on ties\nChess M4 fixtures passed: 21 assertions\nChess M4 executable verification passed\n"
+    }
+  },
+  "repository_checks": {
+    "first_principles": {
+      "command": "python3 verify.py",
+      "status": "passed",
+      "exit_code": 0,
+      "output": "==============================================================================\nCONJECTURE MACHINES: ZERO-DEPENDENCY FIRST-PRINCIPLES VERIFICATION\n==============================================================================\n[PASS] Cryptids/Machines.lean verified (31d791e357fb1860...)\n[PASS] Baseline goldbach:  25 states | source->table->Lean verified (Cryptids/Machines.lean)\n[PASS] Baseline zf      : 432 states | source->table->Lean verified (Cryptids/Machines.lean)\n[PASS] Baseline riemann : 744 states | source->table->Lean verified (Cryptids/Machines.lean)\n[PASS] Baseline zf_393  : 393 states | source->table->Lean verified (Cryptids/Machines.lean)\n[PASS] Baseline riemann_120: 120 states | source->table->Lean verified (Cryptids/Machines.lean)\n[PASS] Candidate goldbach_21:  21 states (-  4, -16.00%) | SHA-256 b248827bd190d5ae... | Cryptids/Goldbach21.lean (1818 lines)\n[PASS] Candidate zf_380     : 380 states (- 13, - 3.31%) | SHA-256 c3b8b166f41bd731... | Cryptids/Zf380.lean (2863 lines)\n[PASS] Candidate riemann_104: 104 states (- 16, -13.33%) | SHA-256 ac0c7e8a76679ba2... | Cryptids/Riemann104.lean (243 lines)\n[PASS] Candidate riemann_95 :  95 states (-  9, - 8.65%) | SHA-256 7e9731ed1b7c63d4... | Cryptids/Riemann95.lean (37 lines)\n[PASS] Goldbach 21 Cryptids/Goldbach21.lean table cross-check: all 42 candidate + 50 edited cells match\n[PASS] ZF 380 simulation (250,000 steps): boot tape identical at t=39,753 + 3527/3527 post-boot checkpoints match 1-to-1\n[PASS] Riemann 104 simulation (250,000 steps): boot at t=9,037 (`state 19`) + 1136 post-boot root dispatches verified (102/104 states visited)\n[PASS] Riemann 95 bootstrap: all 190 cells + complete tape at t=3,634 (state 15, head -4) verified\n[PASS] Goldbach 21 stage simulation (250,000 steps): 18/18 even stages `2w+4` match 1-to-1; 21/21 candidate states visited\n[PASS] zf blank-tape simulation (250,000 steps): state=1, head=-772; 699 active cells\n[PASS] zf_393 blank-tape simulation (250,000 steps): boot checkpoint at t=39,773 (`state 99`) verified; 230 active cells\n[PASS] riemann blank-tape simulation (250,000 steps): state=566, head=20; 44 active cells\n[PASS] riemann_120 blank-tape simulation (250,000 steps): state=1, head=-772; 699 active cells\n==============================================================================\nALL FIRST-PRINCIPLES VERIFICATION CHECKS PASSED IN 0.50s (EXIT 0)\n==============================================================================\n"
+    },
+    "sandbox_comparator": {
+      "command": "lake comparator --config comparator/all.json",
+      "local_status": "unavailable_on_macos",
+      "local_exit_code": 2,
+      "output": "error: `lake comparator` sandboxes the code it checks with `bwrap`, which needs Linux namespaces.\n",
+      "linux_status": "in_progress",
+      "linux_run_id": 39380457555,
+      "linux_run_url": "https://github.com/bocowgill/cryptids/actions/runs/39380457555",
+      "linux_commit": "b3f5e29eebcb96ebdebf08ebf746a0dbae01a140"
+    }
+  },
+  "scope": "Backend and finite branching games; M6/M7 and outreach remain on hold"
+}

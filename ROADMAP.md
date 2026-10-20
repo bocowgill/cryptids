@@ -5,7 +5,8 @@ source-checked, and frozen. M2 is complete with executable rules, unrestricted
 refinement proofs, and regression fixtures. M3 is complete with exact history,
 claims, terminal outcomes, and finite-graph dead-position detection. M4 is complete
 with bounded play, total evaluation, and exact strategic correspondence (2026-10-20).
-M5–M7 and outreach remain on hold.
+M5 is complete with a verified binary backend and four literal blank-tape small-game
+machines (2026-10-20). M6–M7 and outreach remain on hold.
 
 ## 1. Agreed objective and scope
 
@@ -59,11 +60,11 @@ the reference model is correct. Milestones below discharge those obligations.
 
 The initial tasks authorized the fork, roadmap, source audit, packaging recommendation,
 and the completed definitions-only reference port and freeze. The latest instruction
-authorizes M4's bounded-play proof, total evaluator, globally legal optimal strategies,
-and correspondence with the unchanged reference. The historical audit is recorded in
+authorizes M5's verified compilation route and explicit small-game machines. The historical
+audit is recorded in
 [docs/chess/m1/AUDIT.md](docs/chess/m1/AUDIT.md), with the proposed module boundaries
 in [PACKAGING.md](docs/chess/m1/PACKAGING.md). The completed M1 reference is recorded
-in [FREEZE.md](docs/chess/m1/FREEZE.md). M5–M7, new issues or PRs, and maintainer
+in [FREEZE.md](docs/chess/m1/FREEZE.md). M6–M7, new issues or PRs, and maintainer
 messages remain outside the authorized scope.
 
 ## 2. Repository and source baseline
@@ -151,7 +152,7 @@ modules, and the checked solution theorems must have no placeholder dependency.
 | M2 | Verify executable move generation and position updates | M1 | Complete: implementation `3fe6082` |
 | M3 | Verify history, claims, and terminal outcomes | M2 | Complete: implementation `9115a21` |
 | M4 | Prove bounded play and evaluator/strategy equivalence | M3 | Complete: implementation `0e62d56` |
-| M5 | Validate the compilation route on small finite games | M1; can proceed alongside M2–M4 | Not started |
+| M5 | Validate the compilation route on small finite games | M1; can proceed alongside M2–M4 | Complete: implementation `b3f5e29` |
 | M6 | Construct and verify the baseline chess machine | M4, M5 | Not started |
 | M7 | Reduce states while preserving the target theorem | M6 | Not started; secondary objective |
 
@@ -356,26 +357,44 @@ intermediate language, and explicit binary machines for test games.
 
 Acceptance criteria:
 
-- [ ] Inspect existing register-machine and tape proofs for reuse. Choose the
+- [x] Inspect existing register-machine and tape proofs for reuse. Choose the
   smallest backend sufficient for recursive finite-game evaluation and its data
   encoding. Record language semantics, arithmetic/storage operations, stack
   invariants, and the program-to-machine relation.
-- [ ] Prove simulation for the actual supported language/program. Arbitrary Lean
+- [x] Prove simulation for the actual supported language/program. Arbitrary Lean
   evaluation is not assumed to have an existing verified compiler. An executable
   Lean prototype alone does not discharge compilation correctness.
-- [ ] Establish both directions of the required halting correspondence; prevent
+- [x] Establish both directions of the required halting correspondence; prevent
   unintended machine halts and prove the draw wrapper loops forever. Account for
   initialization, malformed encodings on reachable executions, and memory growth.
-- [ ] Compile small branching games with White-win, Black-win, and draw outcomes.
+- [x] Compile small branching games with White-win, Black-win, and draw outcomes.
   Include a game where one favorable line does not imply a forced win.
-- [ ] Produce literal two-symbol transition tables that start on blank tape and
+- [x] Produce literal two-symbol transition tables that start on blank tape and
   construct their own game/program data. Prove their end-to-end equivalences;
   use bounded simulation as additional evidence, not as a nonhalting proof.
-- [ ] Demonstrate reproducible table generation, canonical serialization, state
+- [x] Demonstrate reproducible table generation, canonical serialization, state
   counting, and an independent checker/audit of a small-game target statement.
 
 Exit condition: a concrete backend works end to end and is adequate for the
 operations required by chess. This milestone can inform M2–M4's representations.
+
+Completed implementation: `b3f5e29eebcb96ebdebf08ebf746a0dbae01a140`, based on M4
+`62d8f4df9d1c4fcd0613ca7b4c994fae4df0f501`. See
+[M5 design](docs/chess/m5/DESIGN.md), [results](docs/chess/m5/RESULTS.md),
+[acceptance ledger](docs/chess/m5/GATES.md), and
+[construction manifest](artifacts/chess_m5/manifest.json).
+
+`Examples.generated_halts` proves both directions from blank binary tape for every finite
+tree. The White-win, Black-win and draw fixtures each have 49,910 states; the favorable-line
+refutation has 58,838. Each exact table has an independent kernel halting/nonhalting certificate,
+row-semantics identity, canonical regeneration and literal export check. The standalone target
+checker compares all four statement bodies and their dependencies and rejects proposition and
+valid-transition mutations. The audit excludes proof holes, the open chess conjecture and
+nonstandard axioms. The complete M1–M4 regression baseline passes.
+
+The original M1 Lake configuration remains frozen; the checked additional generator target
+uses `lakefile.chess-m5.toml`. M6 must translate the actual M4 evaluator and prove the full
+linkage to a published chess table. No full-chess machine or full-chess state count is claimed.
 
 ### M6 — Explicit baseline chess cryptid
 
@@ -504,7 +523,15 @@ history and adjudication with a proved finite-graph deadness decision, 55 runtim
 assertions, and a safe declaration/axiom audit. The full default build passes.
 M4 adds a uniform play bound, a total evaluator, and exact strategic correspondence,
 with 21 runtime assertions and a complete safe-declaration audit. These establish
-M2–M4; verified compilation and the explicit machine remain M5–M6.
+M2–M4. M5 adds the actual supported stack language, verified binary lowering, blank
+initialization and four literal branching-game tables. Its commands are:
+
+```sh
+python3 scripts/verify_chess_m5.py
+python3 scripts/verify_chess_m5.py --baseline
+```
+
+Only M6's full-chess translation and explicit chess machine remain before the primary goal.
 
 ## 7. Principal risks and decision points
 
@@ -532,9 +559,10 @@ outcomes, and finite-graph dead-position decision are complete and documented in
 M4's bounded play, total evaluator, globally legal optimal strategies, and exact
 correspondence with the frozen strategy propositions are complete; see
 [M4 design](docs/chess/m4/DESIGN.md) and [M4 results](docs/chess/m4/RESULTS.md).
-The next proposed milestone is M5: validate a verified compilation route on small
-finite games before attempting full chess. Keep M5–M7 and outreach on hold until
-separately authorized.
+M5 is complete: the verified compilation route and four literal branching-game machines are
+recorded in [M5 results](docs/chess/m5/RESULTS.md). No later milestone is authorized. M6 is the
+recommended next step: translate and prove the actual evaluator before
+attempting full chess. M6–M7 and outreach remain on hold until separately authorized.
 
 [fork]: https://github.com/bocowgill/cryptids
 [upstream]: https://github.com/google-deepmind/cryptids
