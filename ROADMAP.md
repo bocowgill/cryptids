@@ -1,6 +1,7 @@
 # Chess Cryptid Campaign
 
-Planning date: 2026-10-19. Status: repository setup and planning only.
+Planning date: 2026-10-19. Status: M1 source audit complete; reference port,
+compatibility build, and freeze pending. Implementation and outreach remain on hold.
 
 ## 1. Agreed objective and scope
 
@@ -52,9 +53,12 @@ the reference model is correct. Milestones below discharge those obligations.
 
 ### Current authorization
 
-This task authorizes creating the fork and writing this roadmap. Implementation,
-proof development, issues, PRs, and messages to maintainers have not been started.
-The milestones below are future work and do not authorize outreach.
+The initial task authorized the fork and roadmap. The subsequent M1 task
+authorizes source-level audit, documentation of issues/proposed corrections, and
+a packaging recommendation. That audit is recorded in
+[docs/chess/m1/AUDIT.md](docs/chess/m1/AUDIT.md), with the proposed module boundaries
+in [PACKAGING.md](docs/chess/m1/PACKAGING.md). No Lean implementation or proof
+development, issues, PRs, or maintainer messages are authorized by this task.
 
 ## 2. Repository and source baseline
 
@@ -64,15 +68,17 @@ the intended integration route. Keep `main` available for upstream synchronizati
 and use `codex/` branches for campaign work. The planning branch is
 `codex/chess-roadmap`. This checkout's existing upstream remote remains intact.
 
-The following are observed inputs, not claims of completed audit or verification:
+The versions below identify the inputs; the source-audit result is recorded
+separately and does not establish a compiled or formally verified port:
 
 | Input | Recorded version | Role |
 | --- | --- | --- |
 | Cryptids starting point | `a0c1f56af53a76e985a656032b48015f7e48921b` | Existing machine model, proof architecture, artifact and comparator conventions |
 | Cryptids Lean toolchain | `leanprover/lean4:v4.35.0-rc4` | Campaign starting toolchain; preserve its pinned dependencies |
-| Chess proposal | [FormalConjectures PR #5216][chess-pr], open when checked | Candidate reference requiring audit |
+| Chess proposal | [FormalConjectures PR #5216][chess-pr], open when checked | Source audit complete; candidate still awaits port/build/freeze |
 | Chess candidate source | [`FormalConjectures/Books/Chess.lean`][chess-source] at `03536100b3d15e928f45649e7935f8c2b785337b` | Precise source snapshot for the audit |
-| Chess candidate Git blob | `8018d10a3bfcd375a17c76599cfd3ceafe3e930d` | Source identity; record a file SHA-256 when materializing it |
+| Chess candidate Git blob | `8018d10a3bfcd375a17c76599cfd3ceafe3e930d` | Matches the archived audit input byte for byte |
+| Chess source SHA-256 | `ad43e6cfa086ff692daf57b8ee2444faa34f318ff43e05e44b53b27a53e10348` | Identity of `docs/chess/m1/source/Chess.lean.txt`; not a proof certificate |
 | Candidate's Lean toolchain | `leanprover/lean4:v4.33.1` | Porting obligation; source build reports do not establish compatibility here |
 | Strategic statement | [FormalConjectures issue #5154][chess-issue] | Statement and scope provenance |
 
@@ -133,8 +139,8 @@ modules, and the checked solution theorems must have no placeholder dependency.
 
 | ID | Goal | Depends on | Status |
 | --- | --- | --- | --- |
-| M0 | Establish fork and campaign contract | User's scope decisions | Complete with this planning task |
-| M1 | Audit, correct as needed, and freeze a usable reference | M0; implementation authorization | Not started |
+| M0 | Establish fork and campaign contract | User's scope decisions | Complete |
+| M1 | Audit, correct as needed, and freeze a usable reference | M0; separate authorization for code work | Audit documented; port/build/freeze pending |
 | M2 | Verify executable move generation and position updates | M1 | Not started |
 | M3 | Verify history, claims, and terminal outcomes | M2 | Not started |
 | M4 | Prove bounded play and evaluator/strategy equivalence | M3 | Not started |
@@ -151,12 +157,21 @@ Acceptance criteria:
 - [x] Create `bocowgill/cryptids` and verify its parent is `google-deepmind/cryptids`.
 - [x] Record the agreed target, reference-audit policy, incremental contribution
   strategy, dependencies, and objective completion criteria in `ROADMAP.md`.
-- [x] Limit campaign file changes to this document; open no issue or PR and send
-  no outreach. Leave all later milestones explicitly unstarted.
+- [x] During the initial planning task, limit campaign file changes to this
+  document; open no issue or PR and send no outreach. Leave later milestones
+  unstarted at that point.
 
 ### M1 — Audited and pinned chess reference
 
 Goal: make the mathematical target precise and suitable for subsequent proofs.
+
+Audit outcome: no confirmed reachable-game rule defect. Preserve the reference
+definitions and strategy quantifiers. Documented findings concern the open
+conjecture's trust boundary, raw-position domains, supporting proofs, exact
+dead-position refinement, toolchain/import compatibility, and rule-edition/claim
+documentation. The archived source is evidence, not a compiled reference module.
+See the [audit](docs/chess/m1/AUDIT.md) and
+[validation evidence](docs/chess/m1/EVIDENCE.md). The whole milestone is not complete.
 
 Deliverables: a rule-to-definition audit, source/provenance record, a minimal
 reference module, an invariant specification, and a log of corrections or unresolved
@@ -164,17 +179,19 @@ questions. Review both rule fidelity and the strategic statement's meaning.
 
 Acceptance criteria:
 
-- [ ] Trace modeled rules to the fixed edition; cover king safety and attacks,
+- [x] Trace modeled rules to the fixed edition; cover king safety and attacks,
   castling transit/destination safety and lost rights, en-passant eligibility,
   all promotion choices, history, draw claims, and automatic-result precedence.
-- [ ] Audit `SamePosition`, especially legal en-passant availability, and the
+- [x] Audit `SamePosition`, especially legal en-passant availability, and the
   treatment of claims based on an announced move. Distinguish piece-move legality
   from permission to continue a game after an automatic result.
-- [ ] Audit `Reachable`, `IsLegalStrategy`, and `ResultsIn` for vacuous strategy
+- [x] Audit `Reachable`, `IsLegalStrategy`, and `ResultsIn` for vacuous strategy
   quantification or missing results. Record the required existence, legality,
   termination, and uniqueness lemmas for M3–M4.
 - [ ] Define the exact well-formedness/reachability assumptions needed downstream,
   including kings, castling/en-passant consistency, counters, and legal histories.
+  The audit identifies the required invariant families; formal predicates and
+  their preservation proofs have not been implemented.
 - [ ] Resolve target-affecting audit findings before declaring the reference
   frozen. Retain the original and document each change. A semantic correction
   requires a newly identified reviewed target, not an unexplained replacement.
@@ -431,9 +448,10 @@ For machines, also retain program/generator versions, table hashes, state counts
 initializer proofs/traces, and the independent specification audit. Mark generated
 artifacts distinctly from trusted checked statements.
 
-No Lean build, chess tests, or proof audit is claimed for this planning-only task.
-Its checks are fork identity/parent, document completeness, and the absence of
-implementation or outreach changes.
+The initial planning task checked fork identity/parent and document completeness.
+The later M1 audit adds source-level mathematical review, a byte-identified source
+archive, and a finite geometry replay documented in its evidence file. It does
+not claim a Lean port build, a full chess regression suite, or formal verification.
 
 ## 7. Principal risks and decision points
 
@@ -452,10 +470,12 @@ implementation or outreach changes.
 
 ## 8. Next authorized work
 
-The fork and this roadmap are the complete deliverables of the current task.
-Hold implementation and outreach. When implementation is authorized, begin with
-M1's reference audit and a proposed packaging decision; use its findings to
-refine M2–M5 before starting code or proof work against an unreviewed target.
+The requested M1 audit and packaging recommendation are documented. Hold
+implementation and outreach. When code work is authorized, start with the
+attributed definitions-only extraction, explicit invariant contract, compatibility
+build, and port correspondence described in the packaging recommendation. Complete
+M1's reference freeze before starting M2. Keep M2–M7 unstarted until their work is
+authorized and their dependencies are satisfied.
 
 [fork]: https://github.com/bocowgill/cryptids
 [upstream]: https://github.com/google-deepmind/cryptids
