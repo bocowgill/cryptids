@@ -3,8 +3,9 @@
 Planning date: 2026-10-19. Status: M1 complete; `chess-reference-v1` is built,
 source-checked, and frozen. M2 is complete with executable rules, unrestricted
 refinement proofs, and regression fixtures. M3 is complete with exact history,
-claims, terminal outcomes, and finite-graph dead-position detection. M4–M7 and
-outreach remain on hold.
+claims, terminal outcomes, and finite-graph dead-position detection. M4 is complete
+with bounded play, total evaluation, and exact strategic correspondence (2026-10-20).
+M5–M7 and outreach remain on hold.
 
 ## 1. Agreed objective and scope
 
@@ -58,11 +59,11 @@ the reference model is correct. Milestones below discharge those obligations.
 
 The initial tasks authorized the fork, roadmap, source audit, packaging recommendation,
 and the completed definitions-only reference port and freeze. The latest instruction
-authorizes M3's exact history, claims, automatic outcomes, legal actions, and
-dead-position decision against that unchanged reference. The historical audit is recorded in
+authorizes M4's bounded-play proof, total evaluator, globally legal optimal strategies,
+and correspondence with the unchanged reference. The historical audit is recorded in
 [docs/chess/m1/AUDIT.md](docs/chess/m1/AUDIT.md), with the proposed module boundaries
 in [PACKAGING.md](docs/chess/m1/PACKAGING.md). The completed M1 reference is recorded
-in [FREEZE.md](docs/chess/m1/FREEZE.md). M4–M7, new issues or PRs, and maintainer
+in [FREEZE.md](docs/chess/m1/FREEZE.md). M5–M7, new issues or PRs, and maintainer
 messages remain outside the authorized scope.
 
 ## 2. Repository and source baseline
@@ -149,7 +150,7 @@ modules, and the checked solution theorems must have no placeholder dependency.
 | M1 | Audit, correct as needed, and freeze a usable reference | M0; authorized definitions-only port | Complete: chess-reference-v1 |
 | M2 | Verify executable move generation and position updates | M1 | Complete: implementation `3fe6082` |
 | M3 | Verify history, claims, and terminal outcomes | M2 | Complete: implementation `9115a21` |
-| M4 | Prove bounded play and evaluator/strategy equivalence | M3 | Not started |
+| M4 | Prove bounded play and evaluator/strategy equivalence | M3 | Complete: implementation `0e62d56` |
 | M5 | Validate the compilation route on small finite games | M1; can proceed alongside M2–M4 | Not started |
 | M6 | Construct and verify the baseline chess machine | M4, M5 | Not started |
 | M7 | Reduce states while preserving the target theorem | M6 | Not started; secondary objective |
@@ -174,8 +175,8 @@ Goal: make the mathematical target precise and suitable for subsequent proofs.
 Audit outcome: no confirmed reachable-game rule defect. The port preserves the
 reference bodies and strategy quantifiers. Its open-conjecture/import boundaries,
 domain contract, rule-edition documentation, toolchain build, compiled correspondence,
-and reference freeze are complete. M3's terminal refinement is complete; bounded
-play and strategy proofs remain M4 work. M2's move/update refinement is recorded
+and reference freeze are complete. M3's terminal refinement and M4's bounded-play
+and strategy proofs are complete. M2's move/update refinement is recorded
 separately. The archive remains noncompiled
 evidence. See the historical
 [audit](docs/chess/m1/AUDIT.md), [audit evidence](docs/chess/m1/EVIDENCE.md), and
@@ -304,35 +305,47 @@ reference's history-dependent strategy definitions.
 
 Acceptance criteria:
 
-- [ ] Prove finite branching using the legal-action enumeration.
-- [ ] Prove a uniform finite bound on legal play from the initial game. Prefer a
+- [x] Prove finite branching using the legal-action enumeration.
+- [x] Prove a uniform finite bound on legal play from the initial game. Prefer a
   coarse pigeonhole argument: finitely many encodings of board, turn, castling
   rights, and en-passant data; equality implies repetition equivalence; fivefold
   repetition bounds a continuing prefix. Prove the counting and endpoint details,
   including terminal moves and claims. Do not assume the full `Position` or `Game`
   type is finite: they contain an unbounded clock and history.
-- [ ] Distinguish the finite key used to prove termination from a replacement
+- [x] Distinguish the finite key used to prove termination from a replacement
   for the full game state. Keeping only that key does not justify dropping
   repetition history, the halfmove clock, or draw-claim choices in evaluation.
-- [ ] Construct a total evaluator by backward induction over the bounded legal
+- [x] Construct a total evaluator by backward induction over the bounded legal
   tree, with proved fuel sufficiency if a fuel-based implementation is used.
   Fuel exhaustion must not be interpreted as a draw without that theorem.
-- [ ] Prove legal strategies exist, every legal strategy pair from the initial
+- [x] Prove legal strategies exist, every legal strategy pair from the initial
   game produces a unique result, and the evaluator constructs/characterizes
   optimal legal strategies. Address global strategy legality on reachable
   histories outside a chosen play; do not enumerate `Strategy := Game → Action`
   as though this function type were a finite list.
-- [ ] Prove
+- [x] Prove
   `solve initial = draw ↔ (WhiteCanAvoidLoss ∧ BlackCanAvoidLoss)`
   and the corresponding White-win and Black-win characterizations. A winning
   line is not a proof of a winning strategy against every legal response.
-- [ ] Test the evaluator on bounded games/positions of known outcomes, including
+- [x] Test the evaluator on bounded games/positions of known outcomes, including
   a claim that improves a player's outcome to a draw. Audit all public theorem
   dependencies independently of `perfect_play_results_in_draw`.
 
 Exit condition: a computable, total evaluator is linked to the strategic
 proposition. No initial-position exhaustive run or sharp maximum game length is
 required. Literature bounds, if later used, need their own applicability proof.
+
+Completed in implementation revision `0e62d56fdb5971900250949fa82affb5734c68b9`.
+A proof-only finite-key capacity bounds played prefixes and claims by `8*N+1`,
+where `N` is the finite key cardinality, even on arbitrary input histories.
+The executable recursion keeps full state and has no fuel cutoff. Globally legal
+pointwise policies, unique results for legal strategy pairs, optimality against
+all legal opponents, and all three initial-value characterizations are proved.
+The audit covers 111 safe M4 declarations and 8,713 dependencies using only standard
+axioms; two compiler-generated recursion artifacts are separately inventoried and
+excluded from the mathematical closure. All 21 M4 assertions and prior regression
+suites passed. See [design](docs/chess/m4/DESIGN.md) and
+[results](docs/chess/m4/RESULTS.md). The initial value was not computed.
 
 ### M5 — Verified compilation route on small games
 
@@ -489,7 +502,9 @@ move/update refinement, an audit of 152 new declarations and their dependencies,
 164 rule assertions, and 22 independently sourced perft counts. M3 adds exact
 history and adjudication with a proved finite-graph deadness decision, 55 runtime
 assertions, and a safe declaration/axiom audit. The full default build passes.
-These establish M2–M3; evaluator correctness remains M4.
+M4 adds a uniform play bound, a total evaluator, and exact strategic correspondence,
+with 21 runtime assertions and a complete safe-declaration audit. These establish
+M2–M4; verified compilation and the explicit machine remain M5–M6.
 
 ## 7. Principal risks and decision points
 
@@ -514,8 +529,11 @@ refinement theorems, fixture provenance, and reproduction commands are recorded 
 in [M2 results](docs/chess/m2/RESULTS.md). M3's exact history, claims, terminal
 outcomes, and finite-graph dead-position decision are complete and documented in
 [M3 design](docs/chess/m3/DESIGN.md) and [M3 results](docs/chess/m3/RESULTS.md).
-M4 would prove bounded play, construct the total evaluator, and connect its value
-to the reference's strategy propositions. Keep M4–M7 and outreach on hold until
+M4's bounded play, total evaluator, globally legal optimal strategies, and exact
+correspondence with the frozen strategy propositions are complete; see
+[M4 design](docs/chess/m4/DESIGN.md) and [M4 results](docs/chess/m4/RESULTS.md).
+The next proposed milestone is M5: validate a verified compilation route on small
+finite games before attempting full chess. Keep M5–M7 and outreach on hold until
 separately authorized.
 
 [fork]: https://github.com/bocowgill/cryptids

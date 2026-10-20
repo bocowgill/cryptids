@@ -1,0 +1,110 @@
+{
+  "source_sha256": {
+    "Cryptids/Chess/Evaluation/Bound.lean": "1b2fb91fb6e4a470266831c0e5d96f485647f6a447fe5f75d45ded8acbf0c834",
+    "Cryptids/Chess/Evaluation/Choice.lean": "53ba656c84761e41a69443ecfdc966507abebfbf3cbe6c5a27e6d303ee60d3b3",
+    "Cryptids/Chess/Evaluation/Correspondence.lean": "b5ec4053b7f79711506f5975a7d1ee52cf02af1fb87d8b89b2593a62ff94cedd",
+    "Cryptids/Chess/Evaluation/Optimality.lean": "a473cf779715d992d4a60039b566d9b09bb012033057392ef6203a087fe93e01",
+    "Cryptids/Chess/Evaluation/Solver.lean": "c54a99e77134bae9aa40a2f2ddb4f69d8c4052b32dad43909a623414deeaa121",
+    "Cryptids/Chess/Evaluation/Strategies.lean": "88393901d711844fe2bd0e30a799f3334d0209d72bb38a9aaa22ce9923aaa757",
+    "Cryptids/Chess/Evaluation.lean": "6abf7f009e84063d78f6294924da91f6ddc09946f794d6447d978e82e5c4411f",
+    "scripts/AuditChessM4.lean": "3f9742cb153ec55473d719d89e00c3704a47cad5eac767bd27370508c37619ee",
+    "scripts/RunChessM4.lean": "165510833e98fc18b5a44eeeffdfbcc4f835f6f39cd84844390bef0c93cbb90e",
+    "scripts/verify_chess_m4.py": "b3cd2c968adf6f973df62595fce2f71218571e978580b7ae4f0e780cd53d45da",
+    "Cryptids.lean": "84f6452b97f83ab9fcaf48c9513a3887571be70f717bbf9038f94f5f0b615d43",
+    ".github/workflows/lean_action_ci.yml": "a3cc54aa3ca7c632b8b5482ade437faa85679e030ddcb18418fb566d21a64750",
+    "lean-toolchain": "8f89aa44fccdb1a0b6cc768c7c9f54b94cd40e47a08d582f82d1235f13075cf7",
+    "lakefile.toml": "7c4250e8165473fa250cf95f1db6d36b0deb9a25203209016fe10771ab0db699",
+    "lake-manifest.json": "4bb9288d47457931549bbeff4d0e68d9a8dbd47b063e6b72a3210b0d09311284"
+  },
+  "build": "Build completed successfully (3152 jobs).\n",
+  "audit": "Audited 111 M4 declarations and 8713 dependency declarations\nInventoried 2 Lean-generated recursion artifacts outside the safe dependency closure\nPermitted axioms used: #[propext, Classical.choice, Quot.sound]\nChess M4 theorem audit passed\n",
+  "fixtures": "ok: terminal White win takes priority over clock draw\nok: terminal Black win takes priority over clock draw\nok: terminal stalemate evaluates to draw\nok: White can claim before a winning move\nok: White chooses mate over an available draw\nok: White optimal action is a move\nok: White chosen move is legal\nok: White chosen move attains the value\nok: Black chooses mate over an available draw\nok: Black optimal action is a move\nok: Black chosen move is legal\nok: Black chosen move attains the value\nok: threatened position has exactly one move plus a claim\nok: threatened position offers a legal draw claim\nok: every played alternative loses to a forced mate\nok: claim improves the outcome from loss to draw\nok: optimal policy takes the saving claim\nok: automatic draw stops evaluation before considering moves\nok: full history changes a winning layout into an automatic draw\nok: finite selector rejects one favorable line with a better opposing option\nok: finite selector preserves an actual candidate on ties\nChess M4 fixtures passed: 21 assertions\n",
+  "negative_controls": [
+    "sorryAx rejected",
+    "open conjecture rejected",
+    "evaluator recursion artifact rejected as proof dependency",
+    "selector recursion artifact rejected as proof dependency"
+  ],
+  "implementation_revision": "0e62d56fdb5971900250949fa82affb5734c68b9",
+  "verification_date": "2026-10-20",
+  "baseline": {
+    "prior_inputs_verified": {
+      "m2": {
+        "Cryptids/Chess/Exec/Encoding.lean": "f47516c0d7f62d711d8d11bf067f2b0dfcb0d1ca87ab54d2f195245567fd5206",
+        "Cryptids/Chess/Exec/Moves.lean": "8d373aa13c83a13eaca7d1a6fb242c68cae28a8f67c0345c90e3aac1c41add1a",
+        "Cryptids/Chess/Exec/Rules.lean": "5bb5ea30312fe0aac54c6f9b09118c8526e4c48e228965b240856b3a94deb71d",
+        "Cryptids/Chess/Exec.lean": "3a945e569077f08b2bd0eb0a316c10bdae3c1b2470f237c477d7d663da47db57",
+        "Cryptids/Chess/Fixtures.lean": "7145b844242aef539de39be94a30049c79698cbfe660801104ac683fd2e08eff",
+        "scripts/AuditChessM2.lean": "548965fedb1afa7bec416ac004b674232c9955f73659af6b43d4ac2cf30a6b0a",
+        "scripts/RunChessM2.lean": "4b16306cc5da08f20fe81542e64ae76f34175ff1e1145ff99c349a1598e2352a",
+        "scripts/verify_chess_m2.py": "689464c4d2449765b69e46be6122cbe0581cac361fbcb93b80aab9f4baae0778",
+        "docs/chess/m2/perft.json": "7333615699197c3dfff690532874dfdec5ad43cbbd96c311e0f182d390b0cdbc",
+        "lean-toolchain": "8f89aa44fccdb1a0b6cc768c7c9f54b94cd40e47a08d582f82d1235f13075cf7",
+        "lakefile.toml": "7c4250e8165473fa250cf95f1db6d36b0deb9a25203209016fe10771ab0db699",
+        "lake-manifest.json": "4bb9288d47457931549bbeff4d0e68d9a8dbd47b063e6b72a3210b0d09311284"
+      },
+      "m3": {
+        "Cryptids/Chess/Adjudication/Claims.lean": "aa851f7e56befbc85b59da544baa5916b1c1e77d6f4a28a40b11e0ef9c166800",
+        "Cryptids/Chess/Adjudication/DeadPosition.lean": "ac016c85405469c34f59bfd8bd9088b9cb33ca1bdc792a425851335c94180f45",
+        "Cryptids/Chess/Adjudication/History.lean": "fcd6c49ae7966f71ae2c9f2afaccf3264a6702ed9684057eb4072a22df0db5b1",
+        "Cryptids/Chess/Adjudication/Outcomes.lean": "a811a709d79e6810d1faf54a2409541accdf854df75f4054f58b76517471da87",
+        "Cryptids/Chess/Adjudication/Projection.lean": "806e8dcf07ba5ea18efd5301fd3990b95de67ccff5924a32d146f8743fb7ad7c",
+        "Cryptids/Chess/Adjudication/Search.lean": "a2f9b0d2df6ef30658fc95ce3247943b62b855c4c29806177b6eb8486c02dc72",
+        "Cryptids/Chess/Adjudication.lean": "c5a5eb0e7c4f13f930ea1d8a9457bd3ae509af6ca88709b113a394b8b549e607",
+        "scripts/AuditChessM3.lean": "c6aac172f1a5d563ac9cd98477d1d951ee90792317882305719269e97d30d719",
+        "scripts/RunChessM3.lean": "eac3097cb7302f6ebddbac81078f7c0ffa512e2869167f0b37d4261e2cf34e40",
+        "scripts/verify_chess_m3.py": "a2dbe728d7c0beddbf7ad04af99913d8bf8ae59403e8e96b2c1142690d7e9297"
+      }
+    },
+    "reference_and_build": "\u26a0 [4062/4065] Replayed Challenge\nwarning: Challenge.lean:236:8: declaration uses `sorry`\nwarning: Challenge.lean:237:8: declaration uses `sorry`\nwarning: Challenge.lean:239:8: declaration uses `sorry`\nwarning: Challenge.lean:240:8: declaration uses `sorry`\nwarning: Challenge.lean:247:8: declaration uses `sorry`\nwarning: Challenge.lean:249:8: declaration uses `sorry`\nwarning: Challenge.lean:257:8: declaration uses `sorry`\nwarning: Challenge.lean:258:8: declaration uses `sorry`\nwarning: Challenge.lean:260:8: declaration uses `sorry`\nwarning: Challenge.lean:261:8: declaration uses `sorry`\nwarning: Challenge.lean:266:8: declaration uses `sorry`\nwarning: Challenge.lean:268:8: declaration uses `sorry`\nwarning: Challenge.lean:269:8: declaration uses `sorry`\nwarning: Challenge.lean:274:8: declaration uses `sorry`\nwarning: Challenge.lean:277:8: declaration uses `sorry`\nwarning: Challenge.lean:284:8: declaration uses `sorry`\nwarning: Challenge.lean:293:8: declaration uses `sorry`\nwarning: Challenge.lean:294:8: declaration uses `sorry`\nwarning: Challenge.lean:296:8: declaration uses `sorry`\nwarning: Challenge.lean:306:8: declaration uses `sorry`\nwarning: Challenge.lean:307:8: declaration uses `sorry`\nwarning: Challenge.lean:309:8: declaration uses `sorry`\n\u2714 [4064/4065] Built Cryptids (2.1s)\nBuild completed successfully (4065 jobs).\nMatched 385 Chess declarations; 2728 dependency declarations\nPermitted axioms used: #[propext, Classical.choice, Quot.sound]\nCompiled chess declarations and dependencies match\nSemantic negative control rejected\nChess reference correspondence verified\nAudited 152 M2 declarations and 3328 transitive dependencies\nPermitted axioms used: [Quot.sound, Classical.choice, propext]\nChess M2 theorem audit passed\nChess M3 baseline verification passed\n",
+    "m2_regressions": "Build completed successfully (3138 jobs).\nAudited 152 M2 declarations and 3328 transitive dependencies\nPermitted axioms used: [Quot.sound, Classical.choice, propext]\nChess M2 theorem audit passed\nTrust-audit negative control rejected sorryAx\nRule fixtures passed: 164 assertions\nPerft initial depth 0: 1\nPerft initial depth 1: 20\nPerft initial depth 2: 400\nPerft initial depth 3: 8902\nPerft kiwipete depth 0: 1\nPerft kiwipete depth 1: 48\nPerft kiwipete depth 2: 2039\nPerft position-3 depth 0: 1\nPerft position-3 depth 1: 14\nPerft position-3 depth 2: 191\nPerft position-4 depth 0: 1\nPerft position-4 depth 1: 6\nPerft position-4 depth 2: 264\nPerft position-4-mirror depth 0: 1\nPerft position-4-mirror depth 1: 6\nPerft position-4-mirror depth 2: 264\nPerft position-5 depth 0: 1\nPerft position-5 depth 1: 44\nPerft position-5 depth 2: 1486\nPerft position-6 depth 0: 1\nPerft position-6 depth 1: 46\nPerft position-6 depth 2: 2079\nMatched 22 perft counts across 7 positions\nChess M2 executable verification passed\n",
+    "m3_regressions": "Build completed successfully (3145 jobs).\nAudited 174 M3 declarations and 8279 dependency declarations\nInventoried 1 Lean-generated recursion artifact outside the safe dependency closure\nPermitted axioms used: #[propext, Classical.choice, Quot.sound]\nChess M3 theorem audit passed\nM3 trust negative controls rejected\nChess M3 fixtures passed: 55 assertions\nChess M3 executable verification passed\n"
+  },
+  "gate_evidence": {
+    "M4A": {
+      "command": "env ELAN_NO_UPDATE_CHECK=1 lake --wfail build Cryptids.Chess.Evaluation Cryptids.Chess.Fixtures",
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": "/bin/zsh",
+      "exit": 0,
+      "expect_matched": true,
+      "output_sha256": "202a72950e5eb378619b02068a26f8682e43291813d818ea25f49d54be9975a2",
+      "output_bytes": 42
+    },
+    "M4B": {
+      "command": "env ELAN_NO_UPDATE_CHECK=1 lake env lean -DwarningAsError=true --run scripts/AuditChessM4.lean",
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": "/bin/zsh",
+      "exit": 0,
+      "expect_matched": true,
+      "output_sha256": "cafc7843c464f581d8ca77f9b1adff602968f0014801d6ba16ab62992fed0ee3",
+      "output_bytes": 240
+    },
+    "M4C": {
+      "command": "env ELAN_NO_UPDATE_CHECK=1 lake env lean -DwarningAsError=true --run scripts/AuditChessM4.lean",
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": "/bin/zsh",
+      "exit": 0,
+      "expect_matched": true,
+      "output_sha256": "cafc7843c464f581d8ca77f9b1adff602968f0014801d6ba16ab62992fed0ee3",
+      "output_bytes": 240
+    },
+    "M4D": {
+      "command": "python3 scripts/verify_chess_m4.py",
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": "/bin/zsh",
+      "exit": 0,
+      "expect_matched": true,
+      "output_sha256": "965de6cb280e42aa36ce566cccd720665ceae64ddc28b899b3b0de405050d264",
+      "output_bytes": 1405
+    },
+    "M4E": {
+      "command": "python3 scripts/verify_chess_m4.py --baseline",
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": "/bin/zsh",
+      "exit": 0,
+      "expect_matched": true,
+      "output_sha256": "f312fa660ddc721e60c666874b4c9a0810c2c4f3925e9e3eabfbb9725823b5ec",
+      "output_bytes": 3231
+    }
+  }
+}
