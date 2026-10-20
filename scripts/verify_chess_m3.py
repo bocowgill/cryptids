@@ -57,15 +57,15 @@ def baseline():
     m2 = json.loads((ROOT / "docs/chess/m2/results.json").read_text())
     for name, expected in m2["source_sha256"].items():
         require(digest(ROOT / name) == expected, f"M2 input changed: {name}")
+    build = run("lake", "build", warnings=True)
+    require("Build completed successfully" in build, "Default build incomplete")
+    print(build, end="", flush=True)
     reference = run("python3", "scripts/verify_chess_reference.py")
     require("Chess reference correspondence verified" in reference, "M1 verification incomplete")
     print(reference, end="", flush=True)
     audit = lean("scripts/AuditChessM2.lean")
     require("Chess M2 theorem audit passed" in audit, "M2 audit incomplete")
     print(audit, end="", flush=True)
-    build = run("lake", "build", warnings=True)
-    require("Build completed successfully" in build, "Default build incomplete")
-    print(build, end="", flush=True)
     WORK.mkdir(parents=True, exist_ok=True)
     (WORK / "baseline.json").write_text(json.dumps({
         "m2_inputs_verified": m2["source_sha256"], "reference": reference,
@@ -87,7 +87,8 @@ def main():
         require(not source_safe(control), f"Source control unexpectedly accepted: {control}")
     for path in sorted((ROOT / "Cryptids/Chess/Adjudication").glob("*.lean")):
         require(source_safe(path.read_text()), f"Proof shortcut in {path}")
-    build = run("lake", "--wfail", "build", "Cryptids.Chess.Adjudication")
+    build = run("lake", "--wfail", "build", "Cryptids.Chess.Adjudication",
+                "Cryptids.Chess.Fixtures")
     print(build, end="", flush=True)
     audit = lean("scripts/AuditChessM3.lean")
     require("Chess M3 theorem audit passed" in audit, "Missing audit success")
