@@ -1,0 +1,107 @@
+verify	Check generic quotient proof strictly	﻿2026-10-20T20:47:53.4321639Z ##[group]Run lake --wfail build Cryptids.Optimisation.CompactPost
+verify	Check generic quotient proof strictly	2026-10-20T20:47:53.4322196Z ^[[36;1mlake --wfail build Cryptids.Optimisation.CompactPost^[[0m
+verify	Check generic quotient proof strictly	2026-10-20T20:47:53.4382230Z shell: /usr/bin/bash -e {0}
+verify	Check generic quotient proof strictly	2026-10-20T20:47:53.4382482Z env:
+verify	Check generic quotient proof strictly	2026-10-20T20:47:53.4382678Z   ELAN_NO_UPDATE_CHECK: 1
+verify	Check generic quotient proof strictly	2026-10-20T20:47:53.4382927Z   LEAN_NUM_THREADS: 1
+verify	Check generic quotient proof strictly	2026-10-20T20:47:53.4383139Z ##[endgroup]
+verify	Check generic quotient proof strictly	2026-10-20T20:47:55.9066076Z ✔ [735/808] Built Cryptids.Compilation.BoolGraph (1.1s)
+verify	Check generic quotient proof strictly	2026-10-20T20:48:10.8225852Z ✔ [3252/3255] Built Cryptids.Machines (13s)
+verify	Check generic quotient proof strictly	2026-10-20T20:48:14.5295336Z ✔ [3255/3277] Built Cryptids.Compilation.Finite (3.7s)
+verify	Check generic quotient proof strictly	2026-10-20T20:48:16.1322063Z ✔ [3271/3277] Built Cryptids.Compilation.Stack (1.6s)
+verify	Check generic quotient proof strictly	2026-10-20T20:48:17.8412627Z ✔ [3272/3277] Built Cryptids.Compilation.Block (1.8s)
+verify	Check generic quotient proof strictly	2026-10-20T20:48:19.1436398Z ✔ [3273/3277] Built Cryptids.Compilation.NumberTM1 (1.3s)
+verify	Check generic quotient proof strictly	2026-10-20T20:48:20.8456039Z ✔ [3274/3277] Built Cryptids.Compilation.LocalCertificate (1.7s)
+verify	Check generic quotient proof strictly	2026-10-20T20:48:22.8477835Z ✔ [3275/3277] Built Cryptids.Compilation.GraphPost (2.0s)
+verify	Check generic quotient proof strictly	2026-10-20T20:48:24.6508082Z ✔ [3276/3277] Built Cryptids.Compilation.LazyGraph (1.9s)
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4537630Z ✖ [3277/3277] Building Cryptids.Optimisation.CompactPost (1.7s)
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4549576Z trace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean /home/runner/work/cryptids/cryptids/Cryptids/Optimisation/CompactPost.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Optimisation/CompactPost.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Optimisation/CompactPost.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Optimisation/CompactPost.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Optimisation/CompactPost.setup.json --json
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4560639Z error: Cryptids/Optimisation/CompactPost.lean:27:31: Unknown identifier `GraphPost.Descriptor`
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4562050Z error: Cryptids/Optimisation/CompactPost.lean:38:42: Unknown identifier `GraphPost.Descriptor`
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4563012Z error: Cryptids/Optimisation/CompactPost.lean:45:9: Unknown identifier `LazyGraph.Graph`
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4588038Z error: Cryptids/Optimisation/CompactPost.lean:49:9: Unknown identifier `LazyGraph.Graph`
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4589173Z error: Cryptids/Optimisation/CompactPost.lean:49:42: Unknown identifier `GraphPost.Descriptor`
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4590201Z error: Cryptids/Optimisation/CompactPost.lean:53:9: Unknown identifier `LazyGraph.Graph`
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4591418Z error: Cryptids/Optimisation/CompactPost.lean:57:9: Unknown identifier `LazyGraph.Graph`
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4592112Z error: Cryptids/Optimisation/CompactPost.lean:57:42: Unknown identifier `GraphPost.Descriptor`
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4592766Z error: Cryptids/Optimisation/CompactPost.lean:59:65: Unknown identifier `rawDecode_encode`
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4593327Z error: Cryptids/Optimisation/CompactPost.lean:58:60: unsolved goals
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4594188Z n k labels : ℕ
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4594590Z inst✝¹ : NeZero k
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4594837Z inst✝ : NeZero labels
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4595047Z g : sorry
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4595222Z d : sorry
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4595461Z ⊢ sorry g (sorry g d) = sorry
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4595847Z warning: Cryptids/Optimisation/CompactPost.lean:59:13: declaration uses `sorry`
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4596380Z warning: Cryptids/Optimisation/CompactPost.lean:59:21: declaration uses `sorry`
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4596897Z warning: Cryptids/Optimisation/CompactPost.lean:59:29: declaration uses `sorry`
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4597437Z warning: Cryptids/Optimisation/CompactPost.lean:59:29: This simp argument is unused:
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4597859Z   permutation
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4597974Z 
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4598087Z Hint: Omit it from the simp argument list.
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4598469Z   [apply] simp only [decode, encode, Equiv.swap_apply_self, rawDecode_encode]
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4598769Z 
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4598983Z Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4599513Z warning: Cryptids/Optimisation/CompactPost.lean:59:42: This simp argument is unused:
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4599929Z   Equiv.swap_apply_self
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4600255Z 
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4600362Z Hint: Omit it from the simp argument list.
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4600719Z   [apply] simp only [decode, encode, permutation, rawDecode_encode]
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4601376Z 
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4601621Z Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4602209Z error: Cryptids/Optimisation/CompactPost.lean:62:9: Unknown identifier `LazyGraph.Graph`
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4602818Z error: Cryptids/Optimisation/CompactPost.lean:67:9: Unknown identifier `LazyGraph.Graph`
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4603409Z error: Cryptids/Optimisation/CompactPost.lean:71:20: Unknown identifier `LazyGraph.trAux`
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4603994Z error: Cryptids/Optimisation/CompactPost.lean:72:21: Invalid projection: Type of
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4604384Z   result
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4604597Z is not known; cannot resolve projection `1`
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4605011Z error: Cryptids/Optimisation/CompactPost.lean:72:31: Invalid projection: Type of
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4605434Z   result
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4605644Z is not known; cannot resolve projection `2`
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4606092Z error: Cryptids/Optimisation/CompactPost.lean:76:9: Unknown identifier `LazyGraph.Graph`
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4606728Z error: Cryptids/Optimisation/CompactPost.lean:77:30: Unknown identifier `GraphPost.stateCount`
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4607366Z error: Cryptids/Optimisation/CompactPost.lean:79:13: Unknown identifier `LazyGraph.descriptor`
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4607976Z error: Cryptids/Optimisation/CompactPost.lean:83:9: Unknown identifier `LazyGraph.Graph`
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4608624Z error: Cryptids/Optimisation/CompactPost.lean:84:30: Unknown identifier `GraphPost.stateCount`
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4609255Z error: Cryptids/Optimisation/CompactPost.lean:86:17: Unknown identifier `LazyGraph.machine`
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4609880Z error: Cryptids/Optimisation/CompactPost.lean:88:15: Unknown identifier `LazyGraph.descriptor`
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4610484Z error: Cryptids/Optimisation/CompactPost.lean:94:9: Unknown identifier `LazyGraph.Graph`
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4611412Z error: Cryptids/Optimisation/CompactPost.lean:95:24: Unknown identifier `LazyGraph.machine`
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4612128Z error: Cryptids/Optimisation/CompactPost.lean:98:2: Tactic `subst` failed: did not find equation for eliminating 'target'
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4612586Z 
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4612726Z n k labels : ℕ
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4612966Z inst✝¹ : NeZero k
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4613216Z inst✝ : NeZero labels
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4613430Z g : sorry
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4613624Z cfg : TM0.Cfg Bool (Fin sorry)
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4613933Z target : TM0.Cfg Bool (Fin (stateCount (?m.33 g) (?m.34 g)))
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4614260Z equal : trCfg g cfg = target
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4614763Z ⊢ match TM0.step sorry cfg with
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4615324Z   | some b₁ => ∃ b₂, (fun first second ↦ trCfg g first = second) b₁ b₂ ∧ Reaches₁ (TM0.step (machine g)) target b₂
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4615840Z   | none => TM0.step (machine g) target = none
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4616322Z error: Cryptids/Optimisation/CompactPost.lean:106:9: Unknown identifier `LazyGraph.Graph`
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4616978Z error: Cryptids/Optimisation/CompactPost.lean:108:30: Unknown identifier `LazyGraph.descriptor_zero`
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4617616Z error: Cryptids/Optimisation/CompactPost.lean:108:57: Unknown identifier `encode_initial`
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4618150Z error: Cryptids/Optimisation/CompactPost.lean:107:49: unsolved goals
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4618513Z n k labels : ℕ
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4618756Z inst✝¹ : NeZero k
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4619031Z inst✝ : NeZero labels
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4619236Z g : sorry
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4619419Z input : List Bool
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4619729Z ⊢ sorry g sorry = { q := default, Tape := Tape.mk₁ input }
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4620183Z warning: Cryptids/Optimisation/CompactPost.lean:108:23: declaration uses `sorry`
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4620768Z error: Cryptids/Optimisation/CompactPost.lean:112:9: Unknown identifier `LazyGraph.Graph`
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4621870Z error: Cryptids/Optimisation/CompactPost.lean:113:50: Unknown identifier `LazyGraph.machine`
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4622474Z error: Cryptids/Optimisation/CompactPost.lean:114:21: Unknown identifier `respects`
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4623035Z error: Cryptids/Optimisation/CompactPost.lean:114:34: Unknown identifier `trCfg_init`
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4623556Z error: Cryptids/Optimisation/CompactPost.lean:113:85: unsolved goals
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4623935Z n k labels : ℕ
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4624155Z inst✝¹ : NeZero k
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4624377Z inst✝ : NeZero labels
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4624581Z g : sorry
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4624776Z input : List Bool
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4625096Z ⊢ (TM0.eval (machine g) input).Dom ↔ (TM0.eval sorry input).Dom
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4625446Z Some required targets logged failures:
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4625736Z - Cryptids.Optimisation.CompactPost
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4626014Z error: build failed
+verify	Check generic quotient proof strictly	2026-10-20T20:48:26.4990917Z ##[error]Process completed with exit code 1.

@@ -1,0 +1,42 @@
+verify	Check generic quotient proof strictly	﻿2026-10-20T20:53:36.8115905Z ##[group]Run lake --wfail build Cryptids.Optimisation.CompactPost
+verify	Check generic quotient proof strictly	2026-10-20T20:53:36.8116493Z ^[[36;1mlake --wfail build Cryptids.Optimisation.CompactPost^[[0m
+verify	Check generic quotient proof strictly	2026-10-20T20:53:36.8196518Z shell: /usr/bin/bash -e {0}
+verify	Check generic quotient proof strictly	2026-10-20T20:53:36.8196941Z env:
+verify	Check generic quotient proof strictly	2026-10-20T20:53:36.8197260Z   ELAN_NO_UPDATE_CHECK: 1
+verify	Check generic quotient proof strictly	2026-10-20T20:53:36.8197652Z   LEAN_NUM_THREADS: 1
+verify	Check generic quotient proof strictly	2026-10-20T20:53:36.8197997Z ##[endgroup]
+verify	Check generic quotient proof strictly	2026-10-20T20:53:41.1884286Z ✖ [3277/3277] Building Cryptids.Optimisation.CompactPost (1.8s)
+verify	Check generic quotient proof strictly	2026-10-20T20:53:41.1900805Z trace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean /home/runner/work/cryptids/cryptids/Cryptids/Optimisation/CompactPost.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Optimisation/CompactPost.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Optimisation/CompactPost.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Optimisation/CompactPost.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Optimisation/CompactPost.setup.json --json
+verify	Check generic quotient proof strictly	2026-10-20T20:53:41.1909879Z error: Cryptids/Optimisation/CompactPost.lean:39:62: unsolved goals
+verify	Check generic quotient proof strictly	2026-10-20T20:53:41.1910370Z case none
+verify	Check generic quotient proof strictly	2026-10-20T20:53:41.1910694Z n k : ℕ
+verify	Check generic quotient proof strictly	2026-10-20T20:53:41.1910934Z value : Fin k
+verify	Check generic quotient proof strictly	2026-10-20T20:53:41.1911286Z ⊢ (match finSumFinEquiv.symm 0 with
+verify	Check generic quotient proof strictly	2026-10-20T20:53:41.1911742Z     | Sum.inl val => none
+verify	Check generic quotient proof strictly	2026-10-20T20:53:41.1912118Z     | Sum.inr pair => some (pair.divNat, pair.modNat)) =
+verify	Check generic quotient proof strictly	2026-10-20T20:53:41.1912529Z     none
+verify	Check generic quotient proof strictly	2026-10-20T20:53:41.1912911Z error: Cryptids/Optimisation/CompactPost.lean:107:49: unsolved goals
+verify	Check generic quotient proof strictly	2026-10-20T20:53:41.1913411Z n k labels : ℕ
+verify	Check generic quotient proof strictly	2026-10-20T20:53:41.1914120Z inst✝¹ : NeZero k
+verify	Check generic quotient proof strictly	2026-10-20T20:53:41.1914488Z inst✝ : NeZero labels
+verify	Check generic quotient proof strictly	2026-10-20T20:53:41.1914800Z g : LazyGraph.Graph n k labels
+verify	Check generic quotient proof strictly	2026-10-20T20:53:41.1915122Z input : List Bool
+verify	Check generic quotient proof strictly	2026-10-20T20:53:41.1915850Z ⊢ { q := encode g (LazyGraph.descriptor g default), Tape := Tape.mk₁ input } = { q := default, Tape := Tape.mk₁ input }
+verify	Check generic quotient proof strictly	2026-10-20T20:53:41.1916784Z warning: Cryptids/Optimisation/CompactPost.lean:108:30: This simp argument is unused:
+verify	Check generic quotient proof strictly	2026-10-20T20:53:41.1917371Z   LazyGraph.descriptor_zero
+verify	Check generic quotient proof strictly	2026-10-20T20:53:41.1917581Z 
+verify	Check generic quotient proof strictly	2026-10-20T20:53:41.1917724Z Hint: Omit it from the simp argument list.
+verify	Check generic quotient proof strictly	2026-10-20T20:53:41.1918143Z   [apply] simp only [TM0.init, trCfg, encode_initial]
+verify	Check generic quotient proof strictly	2026-10-20T20:53:41.1918433Z 
+verify	Check generic quotient proof strictly	2026-10-20T20:53:41.1918721Z Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+verify	Check generic quotient proof strictly	2026-10-20T20:53:41.1919446Z warning: Cryptids/Optimisation/CompactPost.lean:108:57: This simp argument is unused:
+verify	Check generic quotient proof strictly	2026-10-20T20:53:41.1920003Z   encode_initial
+verify	Check generic quotient proof strictly	2026-10-20T20:53:41.1920163Z 
+verify	Check generic quotient proof strictly	2026-10-20T20:53:41.1920305Z Hint: Omit it from the simp argument list.
+verify	Check generic quotient proof strictly	2026-10-20T20:53:41.1921188Z   [apply] simp only [TM0.init, trCfg, LazyGraph.descriptor_zero]
+verify	Check generic quotient proof strictly	2026-10-20T20:53:41.1921578Z 
+verify	Check generic quotient proof strictly	2026-10-20T20:53:41.1921866Z Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+verify	Check generic quotient proof strictly	2026-10-20T20:53:41.1922724Z error: build failed
+verify	Check generic quotient proof strictly	2026-10-20T20:53:41.1923026Z Some required targets logged failures:
+verify	Check generic quotient proof strictly	2026-10-20T20:53:41.1923411Z - Cryptids.Optimisation.CompactPost
+verify	Check generic quotient proof strictly	2026-10-20T20:53:41.2315578Z ##[error]Process completed with exit code 1.

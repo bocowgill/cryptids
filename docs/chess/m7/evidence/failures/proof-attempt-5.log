@@ -1,0 +1,57 @@
+verify	Check generic quotient proof strictly	﻿2026-10-20T21:34:44.8110997Z ##[group]Run lake --wfail build Cryptids.Optimisation.CompactPost Cryptids.Chess.Compilation.Image
+verify	Check generic quotient proof strictly	2026-10-20T21:34:44.8111802Z ^[[36;1mlake --wfail build Cryptids.Optimisation.CompactPost Cryptids.Chess.Compilation.Image^[[0m
+verify	Check generic quotient proof strictly	2026-10-20T21:34:44.8112293Z ^[[36;1mpython3 - <<'PY'^[[0m
+verify	Check generic quotient proof strictly	2026-10-20T21:34:44.8112571Z ^[[36;1mfrom pathlib import Path^[[0m
+verify	Check generic quotient proof strictly	2026-10-20T21:34:44.8112834Z ^[[36;1mimport re^[[0m
+verify	Check generic quotient proof strictly	2026-10-20T21:34:44.8113169Z ^[[36;1msource = Path('Cryptids/Chess/Optimisation/M7.lean').read_text()^[[0m
+verify	Check generic quotient proof strictly	2026-10-20T21:34:44.8113600Z ^[[36;1msource = re.sub(r'/--[\s\S]*?-/\n', '', source)^[[0m
+verify	Check generic quotient proof strictly	2026-10-20T21:34:44.8113992Z ^[[36;1msource = re.sub(r'^(def|abbrev|instance|theorem) (\w+)',^[[0m
+verify	Check generic quotient proof strictly	2026-10-20T21:34:44.8114447Z ^[[36;1m    lambda m: '#eval IO.eprintln "M7 elaboration: ' + m[2] + '"\n' + m[0],^[[0m
+verify	Check generic quotient proof strictly	2026-10-20T21:34:44.8115190Z ^[[36;1m    source, flags=re.MULTILINE)^[[0m
+verify	Check generic quotient proof strictly	2026-10-20T21:34:44.8115523Z ^[[36;1mwork = Path('.lake/chess-m7-check')^[[0m
+verify	Check generic quotient proof strictly	2026-10-20T21:34:44.8115852Z ^[[36;1mwork.mkdir(parents=True, exist_ok=True)^[[0m
+verify	Check generic quotient proof strictly	2026-10-20T21:34:44.8116232Z ^[[36;1m(work / 'M7Probe.lean').write_text(source)^[[0m
+verify	Check generic quotient proof strictly	2026-10-20T21:34:44.8116523Z ^[[36;1mPY^[[0m
+verify	Check generic quotient proof strictly	2026-10-20T21:34:44.8117118Z ^[[36;1mtimeout --signal=TERM --kill-after=10s 240s lake env lean -M6144 -DwarningAsError=true --root=.lake/chess-m7-check .lake/chess-m7-check/M7Probe.lean^[[0m
+verify	Check generic quotient proof strictly	2026-10-20T21:34:44.8117864Z ^[[36;1mlake --wfail build Cryptids.Semantics.ChessM7^[[0m
+verify	Check generic quotient proof strictly	2026-10-20T21:34:44.8177107Z shell: /usr/bin/bash -e {0}
+verify	Check generic quotient proof strictly	2026-10-20T21:34:44.8177366Z env:
+verify	Check generic quotient proof strictly	2026-10-20T21:34:44.8177576Z   ELAN_NO_UPDATE_CHECK: 1
+verify	Check generic quotient proof strictly	2026-10-20T21:34:44.8177816Z   LEAN_NUM_THREADS: 1
+verify	Check generic quotient proof strictly	2026-10-20T21:34:44.8178038Z ##[endgroup]
+verify	Check generic quotient proof strictly	2026-10-20T21:34:47.4206404Z ℹ [3893/3907] Replayed Cryptids.Chess.Compilation.SourceCertificate
+verify	Check generic quotient proof strictly	2026-10-20T21:34:47.4208118Z info: Cryptids/Chess/Compilation/SourceCertificate.lean:226:0: Source certificate: 7076 checked lemmas, 7037 cache hits
+verify	Check generic quotient proof strictly	2026-10-20T21:34:47.4209982Z info: Cryptids/Chess/Compilation/SourceCertificate.lean:230:0: Literal row certificate: 5952 checked rows in 186 chunks
+verify	Check generic quotient proof strictly	2026-10-20T21:34:47.4211241Z ℹ [3905/3907] Replayed Cryptids.Chess.Compilation.Input
+verify	Check generic quotient proof strictly	2026-10-20T21:34:47.4212100Z info: Cryptids/Chess/Compilation/Input.lean:128:0: Checked 186 literal row chunks: 141042 stack symbols
+verify	Check generic quotient proof strictly	2026-10-20T21:34:47.4268029Z Build completed successfully (3907 jobs).
+verify	Check generic quotient proof strictly	2026-10-20T21:34:50.8479555Z M7 elaboration: post
+verify	Check generic quotient proof strictly	2026-10-20T21:34:50.8480221Z M7 elaboration: post_count
+verify	Check generic quotient proof strictly	2026-10-20T21:34:50.8480763Z M7 elaboration: body
+verify	Check generic quotient proof strictly	2026-10-20T21:34:50.8481158Z M7 elaboration: body_states
+verify	Check generic quotient proof strictly	2026-10-20T21:34:50.8481528Z M7 elaboration: generated
+verify	Check generic quotient proof strictly	2026-10-20T21:34:50.8481887Z M7 elaboration: generated_neZero
+verify	Check generic quotient proof strictly	2026-10-20T21:34:50.8482280Z M7 elaboration: generated_states
+verify	Check generic quotient proof strictly	2026-10-20T21:34:50.8482647Z M7 elaboration: machine
+verify	Check generic quotient proof strictly	2026-10-20T21:34:50.8482991Z M7 elaboration: post_halts_input
+verify	Check generic quotient proof strictly	2026-10-20T21:34:50.8483366Z M7 elaboration: body_halts_input
+verify	Check generic quotient proof strictly	2026-10-20T21:34:50.8483746Z M7 elaboration: generated_halts
+verify	Check generic quotient proof strictly	2026-10-20T21:34:50.8484110Z M7 elaboration: halts_iff
+verify	Check generic quotient proof strictly	2026-10-20T21:34:50.8484461Z M7 elaboration: equivalent
+verify	Check generic quotient proof strictly	2026-10-20T21:34:50.8485141Z M7 elaboration: strict_reduction
+verify	Check generic quotient proof strictly	2026-10-20T21:34:50.8485540Z M7 elaboration: saved_states
+verify	Check generic quotient proof strictly	2026-10-20T21:34:50.8485898Z M7 elaboration: initialises
+verify	Check generic quotient proof strictly	2026-10-20T21:34:53.4901619Z ℹ [3889/3911] Replayed Cryptids.Chess.Compilation.SourceCertificate
+verify	Check generic quotient proof strictly	2026-10-20T21:34:53.4902928Z info: Cryptids/Chess/Compilation/SourceCertificate.lean:226:0: Source certificate: 7076 checked lemmas, 7037 cache hits
+verify	Check generic quotient proof strictly	2026-10-20T21:34:53.4904314Z info: Cryptids/Chess/Compilation/SourceCertificate.lean:230:0: Literal row certificate: 5952 checked rows in 186 chunks
+verify	Check generic quotient proof strictly	2026-10-20T21:34:53.4905677Z ℹ [3901/3911] Replayed Cryptids.Chess.Compilation.Input
+verify	Check generic quotient proof strictly	2026-10-20T21:34:53.4906564Z info: Cryptids/Chess/Compilation/Input.lean:128:0: Checked 186 literal row chunks: 141042 stack symbols
+verify	Check generic quotient proof strictly	2026-10-20T21:34:56.2932742Z ✔ [3908/3911] Built Cryptids.Chess.Compilation.Matrix (2.8s)
+verify	Check generic quotient proof strictly	2026-10-20T21:34:58.4956428Z ✔ [3909/3911] Built Cryptids.Chess.Optimisation.M7 (2.2s)
+verify	Check generic quotient proof strictly	2026-10-20T21:34:59.2964188Z ✖ [3910/3911] Building Cryptids.Chess.Optimisation.M7Table (837ms)
+verify	Check generic quotient proof strictly	2026-10-20T21:34:59.2973172Z trace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean /home/runner/work/cryptids/cryptids/Cryptids/Chess/Optimisation/M7Table.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Chess/Optimisation/M7Table.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Chess/Optimisation/M7Table.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Chess/Optimisation/M7Table.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Chess/Optimisation/M7Table.setup.json --json
+verify	Check generic quotient proof strictly	2026-10-20T21:34:59.2981445Z error: Cryptids/Chess/Optimisation/M7Table.lean:5:0: cannot import non-`module` Cryptids.Chess.Compilation.Matrix from `module`
+verify	Check generic quotient proof strictly	2026-10-20T21:34:59.3965105Z Some required targets logged failures:
+verify	Check generic quotient proof strictly	2026-10-20T21:34:59.3965884Z - Cryptids.Chess.Optimisation.M7Table
+verify	Check generic quotient proof strictly	2026-10-20T21:34:59.3981839Z error: build failed
+verify	Check generic quotient proof strictly	2026-10-20T21:34:59.4403230Z ##[error]Process completed with exit code 1.

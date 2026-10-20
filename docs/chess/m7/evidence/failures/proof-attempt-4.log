@@ -1,0 +1,119 @@
+verify	Check generic quotient proof strictly	﻿2026-10-20T21:22:46.3840847Z ##[group]Run lake --wfail build Cryptids.Optimisation.CompactPost Cryptids.Chess.Compilation.Image
+verify	Check generic quotient proof strictly	2026-10-20T21:22:46.3841293Z ^[[36;1mlake --wfail build Cryptids.Optimisation.CompactPost Cryptids.Chess.Compilation.Image^[[0m
+verify	Check generic quotient proof strictly	2026-10-20T21:22:46.3841556Z ^[[36;1mpython3 - <<'PY'^[[0m
+verify	Check generic quotient proof strictly	2026-10-20T21:22:46.3841702Z ^[[36;1mfrom pathlib import Path^[[0m
+verify	Check generic quotient proof strictly	2026-10-20T21:22:46.3841855Z ^[[36;1mimport re^[[0m
+verify	Check generic quotient proof strictly	2026-10-20T21:22:46.3842043Z ^[[36;1msource = Path('Cryptids/Chess/Optimisation/M7.lean').read_text()^[[0m
+verify	Check generic quotient proof strictly	2026-10-20T21:22:46.3842292Z ^[[36;1msource = re.sub(r'^(def|abbrev|instance|theorem) (\w+)',^[[0m
+verify	Check generic quotient proof strictly	2026-10-20T21:22:46.3842722Z ^[[36;1m    lambda m: '#eval IO.eprintln "M7 elaboration: ' + m[2] + '"\n' + m[0],^[[0m
+verify	Check generic quotient proof strictly	2026-10-20T21:22:46.3842964Z ^[[36;1m    source, flags=re.MULTILINE)^[[0m
+verify	Check generic quotient proof strictly	2026-10-20T21:22:46.3843132Z ^[[36;1mwork = Path('.lake/chess-m7-check')^[[0m
+verify	Check generic quotient proof strictly	2026-10-20T21:22:46.3843316Z ^[[36;1mwork.mkdir(parents=True, exist_ok=True)^[[0m
+verify	Check generic quotient proof strictly	2026-10-20T21:22:46.3843506Z ^[[36;1m(work / 'M7Probe.lean').write_text(source)^[[0m
+verify	Check generic quotient proof strictly	2026-10-20T21:22:46.3843700Z ^[[36;1mPY^[[0m
+verify	Check generic quotient proof strictly	2026-10-20T21:22:46.3844022Z ^[[36;1mtimeout --signal=TERM --kill-after=10s 240s lake env lean -M6144 -DwarningAsError=true --root=.lake/chess-m7-check .lake/chess-m7-check/M7Probe.lean^[[0m
+verify	Check generic quotient proof strictly	2026-10-20T21:22:46.3844404Z ^[[36;1mlake --wfail build Cryptids.Semantics.ChessM7^[[0m
+verify	Check generic quotient proof strictly	2026-10-20T21:22:46.3894113Z shell: /usr/bin/bash -e {0}
+verify	Check generic quotient proof strictly	2026-10-20T21:22:46.3894261Z env:
+verify	Check generic quotient proof strictly	2026-10-20T21:22:46.3894389Z   ELAN_NO_UPDATE_CHECK: 1
+verify	Check generic quotient proof strictly	2026-10-20T21:22:46.3894531Z   LEAN_NUM_THREADS: 1
+verify	Check generic quotient proof strictly	2026-10-20T21:22:46.3894660Z ##[endgroup]
+verify	Check generic quotient proof strictly	2026-10-20T21:22:48.8777339Z ✔ [3272/3283] Built Cryptids.Compilation.Normalize (839ms)
+verify	Check generic quotient proof strictly	2026-10-20T21:22:50.3791938Z ✔ [3273/3283] Built Cryptids.Compilation.BalancedTable (1.5s)
+verify	Check generic quotient proof strictly	2026-10-20T21:22:51.1799666Z ✔ [3275/3283] Built Cryptids.Compilation.Memo (810ms)
+verify	Check generic quotient proof strictly	2026-10-20T21:22:53.4862776Z ✔ [3277/3283] Built Cryptids.Compilation.RuntimeModel (2.3s)
+verify	Check generic quotient proof strictly	2026-10-20T21:23:30.8369882Z ✔ [3278/3283] Built Cryptids.Compilation.SharedModel (37s)
+verify	Check generic quotient proof strictly	2026-10-20T21:23:32.5398758Z ✔ [3281/3285] Built Cryptids.Compilation.BinaryTemplates (1.8s)
+verify	Check generic quotient proof strictly	2026-10-20T21:23:33.8416457Z ✔ [3282/3286] Built Cryptids.Optimisation.CompactPost (1.3s)
+verify	Check generic quotient proof strictly	2026-10-20T21:23:34.6424738Z ✔ [3283/3288] Built Cryptids.Compilation.FreeNormalize (817ms)
+verify	Check generic quotient proof strictly	2026-10-20T21:23:35.3421767Z ✔ [3284/3288] Built Cryptids.Compilation.HashSupport (705ms)
+verify	Check generic quotient proof strictly	2026-10-20T21:23:36.1431142Z ✔ [3285/3289] Built Cryptids.Compilation.Assembly (818ms)
+verify	Check generic quotient proof strictly	2026-10-20T21:23:37.1440301Z ✔ [3286/3289] Built Cryptids.Compilation.HashNumber (953ms)
+verify	Check generic quotient proof strictly	2026-10-20T21:23:38.4452999Z ✔ [3287/3289] Built Cryptids.Compilation.Binary (1.3s)
+verify	Check generic quotient proof strictly	2026-10-20T21:23:39.3461230Z ✔ [3288/3321] Built Cryptids.Compilation.AssemblyFast (919ms)
+verify	Check generic quotient proof strictly	2026-10-20T21:23:40.6470686Z ✔ [3847/3855] Built Cryptids.Compilation.NumberTM2 (1.0s)
+verify	Check generic quotient proof strictly	2026-10-20T21:23:42.1507934Z ✔ [3848/3855] Built Cryptids.Compilation.Init (1.5s)
+verify	Check generic quotient proof strictly	2026-10-20T21:23:44.4538222Z ✔ [3849/3855] Built Cryptids.Compilation.Code (2.3s)
+verify	Check generic quotient proof strictly	2026-10-20T21:23:46.0554582Z ✔ [3850/3855] Built Cryptids.Compilation.Runtime (1.7s)
+verify	Check generic quotient proof strictly	2026-10-20T21:23:47.7560098Z ✔ [3851/3855] Built Cryptids.Compilation.RuntimeSupport (1.7s)
+verify	Check generic quotient proof strictly	2026-10-20T21:24:25.8940651Z ✔ [3852/3855] Built Cryptids.Compilation.RuntimeCertificate (38s)
+verify	Check generic quotient proof strictly	2026-10-20T21:25:22.1553142Z ✔ [3853/3855] Built Cryptids.Compilation.SharedCertificate (56s)
+verify	Check generic quotient proof strictly	2026-10-20T21:26:10.3108188Z ✔ [3854/3874] Built Cryptids.Chess.Compilation.Templates (48s)
+verify	Check generic quotient proof strictly	2026-10-20T21:26:11.3108172Z ✔ [3856/3876] Built Cryptids.Chess.Spec (999ms)
+verify	Check generic quotient proof strictly	2026-10-20T21:26:12.6121218Z ✔ [3857/3878] Built Cryptids.Chess.Exec.Encoding (1.4s)
+verify	Check generic quotient proof strictly	2026-10-20T21:26:14.9163505Z ✔ [3858/3878] Built Cryptids.Compilation.NatCode (2.3s)
+verify	Check generic quotient proof strictly	2026-10-20T21:26:16.5196358Z ✔ [3859/3878] Built Cryptids.Chess.Exec.Rules (1.6s)
+verify	Check generic quotient proof strictly	2026-10-20T21:26:18.8241603Z ✔ [3860/3878] Built Cryptids.Compilation.ListCode (2.3s)
+verify	Check generic quotient proof strictly	2026-10-20T21:26:20.3266482Z ✔ [3861/3880] Built Cryptids.Chess.Exec.Moves (1.5s)
+verify	Check generic quotient proof strictly	2026-10-20T21:26:21.6280639Z ✔ [3862/3880] Built Cryptids.Chess.Exec (1.2s)
+verify	Check generic quotient proof strictly	2026-10-20T21:26:23.4301664Z ✔ [3863/3880] Built Cryptids.Compilation.CodeDAG (1.8s)
+verify	Check generic quotient proof strictly	2026-10-20T21:26:24.8317643Z ✔ [3864/3880] Built Cryptids.Chess.Adjudication.Search (1.4s)
+verify	Check generic quotient proof strictly	2026-10-20T21:26:45.9570217Z ✔ [3865/3881] Built Cryptids.Chess.Compilation.SourceModel (21s)
+verify	Check generic quotient proof strictly	2026-10-20T21:26:47.2583749Z ✔ [3866/3881] Built Cryptids.Chess.Adjudication.Projection (1.4s)
+verify	Check generic quotient proof strictly	2026-10-20T21:26:48.5615678Z ✔ [3867/3883] Built Cryptids.Chess.Adjudication.DeadPosition (1.3s)
+verify	Check generic quotient proof strictly	2026-10-20T21:26:49.9630909Z ✔ [3868/3883] Built Cryptids.Chess.Adjudication.History (1.3s)
+verify	Check generic quotient proof strictly	2026-10-20T21:26:51.7650414Z ✔ [3869/3883] Built Cryptids.Compilation.Scalar (1.8s)
+verify	Check generic quotient proof strictly	2026-10-20T21:27:01.6763891Z ✔ [3870/3885] Built Cryptids.Chess.Compilation.Encoding (9.0s)
+verify	Check generic quotient proof strictly	2026-10-20T21:27:03.0778967Z ✔ [3871/3887] Built Cryptids.Chess.Adjudication.Claims (1.3s)
+verify	Check generic quotient proof strictly	2026-10-20T21:27:05.8818277Z ✔ [3872/3887] Built Cryptids.Chess.Compilation.Geometry (2.8s)
+verify	Check generic quotient proof strictly	2026-10-20T21:27:07.1831003Z ✔ [3873/3887] Built Cryptids.Chess.Compilation.History (1.3s)
+verify	Check generic quotient proof strictly	2026-10-20T21:27:08.4844348Z ✔ [3874/3887] Built Cryptids.Chess.Compilation.Rules (1.3s)
+verify	Check generic quotient proof strictly	2026-10-20T21:27:10.1852994Z ✔ [3875/3888] Built Cryptids.Chess.Adjudication.Outcomes (1.7s)
+verify	Check generic quotient proof strictly	2026-10-20T21:27:11.8872856Z ✔ [3876/3888] Built Cryptids.Compilation.Commands (1.7s)
+verify	Check generic quotient proof strictly	2026-10-20T21:27:16.9978569Z ✔ [3877/3888] Built Cryptids.Chess.Compilation.Updates (5.2s)
+verify	Check generic quotient proof strictly	2026-10-20T21:27:18.3994398Z ✔ [3878/3888] Built Cryptids.Chess.Adjudication (1.3s)
+verify	Check generic quotient proof strictly	2026-10-20T21:27:20.9025680Z ✔ [3879/3888] Built Cryptids.Chess.Compilation.Legality (2.5s)
+verify	Check generic quotient proof strictly	2026-10-20T21:27:22.4046472Z ✔ [3880/3893] Built Cryptids.Chess.Evaluation.Bound (1.5s)
+verify	Check generic quotient proof strictly	2026-10-20T21:27:23.8062321Z ✔ [3881/3893] Built Cryptids.Chess.Evaluation.Choice (1.4s)
+verify	Check generic quotient proof strictly	2026-10-20T21:27:25.3078133Z ✔ [3882/3893] Built Cryptids.Chess.Evaluation.Solver (1.5s)
+verify	Check generic quotient proof strictly	2026-10-20T21:27:26.7092489Z ✔ [3883/3893] Built Cryptids.Chess.Evaluation.Strategies (1.4s)
+verify	Check generic quotient proof strictly	2026-10-20T21:27:28.3099356Z ✔ [3884/3895] Built Cryptids.Chess.Compilation.Evaluator (1.6s)
+verify	Check generic quotient proof strictly	2026-10-20T21:27:29.7114915Z ✔ [3885/3895] Built Cryptids.Chess.Evaluation.Optimality (1.4s)
+verify	Check generic quotient proof strictly	2026-10-20T21:27:31.2133601Z ✔ [3886/3897] Built Cryptids.Chess.Compilation.Program (1.5s)
+verify	Check generic quotient proof strictly	2026-10-20T21:27:33.0157765Z ✔ [3887/3897] Built Cryptids.Chess.Compilation.WithoutDead (1.8s)
+verify	Check generic quotient proof strictly	2026-10-20T21:27:34.8171344Z ✔ [3888/3898] Built Cryptids.Compilation.RuntimeMacros (1.8s)
+verify	Check generic quotient proof strictly	2026-10-20T21:27:36.9193696Z ✔ [3889/3898] Built Cryptids.Chess.Evaluation.Correspondence (2.1s)
+verify	Check generic quotient proof strictly	2026-10-20T21:27:38.2229770Z ✔ [3890/3898] Built Cryptids.Compilation.CodeVM (1.3s)
+verify	Check generic quotient proof strictly	2026-10-20T21:27:44.1315627Z ✔ [3891/3899] Built Cryptids.Chess.Compilation.HistoryCode (5.9s)
+verify	Check generic quotient proof strictly	2026-10-20T21:27:46.5369667Z ✔ [3892/3899] Built Cryptids.Chess.Compilation.Control (2.4s)
+verify	Check generic quotient proof strictly	2026-10-20T21:27:48.0384993Z ✔ [3893/3900] Built Cryptids.Compilation.RuntimeData (1.5s)
+verify	Check generic quotient proof strictly	2026-10-20T21:27:49.4400477Z ✔ [3894/3903] Built Cryptids.Chess.Compilation.Source (1.4s)
+verify	Check generic quotient proof strictly	2026-10-20T21:27:51.2420319Z ✔ [3895/3903] Built Cryptids.Compilation.RuntimeReturn (1.8s)
+verify	Check generic quotient proof strictly	2026-10-20T21:27:52.9454952Z ✔ [3896/3903] Built Cryptids.Compilation.RuntimeEval (1.8s)
+verify	Check generic quotient proof strictly	2026-10-20T21:27:54.5469985Z ✔ [3897/3903] Built Cryptids.Compilation.RuntimeWire (1.6s)
+verify	Check generic quotient proof strictly	2026-10-20T21:27:56.0484740Z ✔ [3898/3905] Built Cryptids.Compilation.RuntimeDispatch (1.5s)
+verify	Check generic quotient proof strictly	2026-10-20T21:28:11.7634880Z ℹ [3899/3905] Built Cryptids.Chess.Compilation.SourceCertificate (15s)
+verify	Check generic quotient proof strictly	2026-10-20T21:28:11.7635626Z info: Cryptids/Chess/Compilation/SourceCertificate.lean:226:0: Source certificate: 7076 checked lemmas, 7037 cache hits
+verify	Check generic quotient proof strictly	2026-10-20T21:28:11.7636378Z info: Cryptids/Chess/Compilation/SourceCertificate.lean:230:0: Literal row certificate: 5952 checked rows in 186 chunks
+verify	Check generic quotient proof strictly	2026-10-20T21:28:13.5648713Z ✔ [3901/3907] Built Cryptids.Compilation.RuntimeLookup (1.8s)
+verify	Check generic quotient proof strictly	2026-10-20T21:28:15.7667485Z ✔ [3902/3907] Built Cryptids.Compilation.FlatInit (2.2s)
+verify	Check generic quotient proof strictly	2026-10-20T21:28:17.6700227Z ✔ [3903/3907] Built Cryptids.Compilation.RuntimeProof (1.8s)
+verify	Check generic quotient proof strictly	2026-10-20T21:28:20.7756248Z ✔ [3904/3907] Built Cryptids.Compilation.TemplateGraph (3.1s)
+verify	Check generic quotient proof strictly	2026-10-20T21:28:22.4764551Z ✔ [3905/3907] Built Cryptids.Chess.Compilation.Tape (1.7s)
+verify	Check generic quotient proof strictly	2026-10-20T21:28:37.7923069Z ℹ [3906/3907] Built Cryptids.Chess.Compilation.Input (15s)
+verify	Check generic quotient proof strictly	2026-10-20T21:28:37.7925527Z info: Cryptids/Chess/Compilation/Input.lean:128:0: Checked 186 literal row chunks: 141042 stack symbols
+verify	Check generic quotient proof strictly	2026-10-20T21:28:39.8949055Z ✔ [3907/3907] Built Cryptids.Chess.Compilation.Image (2.1s)
+verify	Check generic quotient proof strictly	2026-10-20T21:28:39.8998042Z Build completed successfully (3907 jobs).
+verify	Check generic quotient proof strictly	2026-10-20T21:29:01.6946668Z M7 elaboration: post
+verify	Check generic quotient proof strictly	2026-10-20T21:29:01.6947048Z M7 elaboration: post_count
+verify	Check generic quotient proof strictly	2026-10-20T21:29:01.6947203Z M7 elaboration: body
+verify	Check generic quotient proof strictly	2026-10-20T21:29:01.6947334Z M7 elaboration: body_states
+verify	Check generic quotient proof strictly	2026-10-20T21:29:01.6947522Z M7 elaboration: generated
+verify	Check generic quotient proof strictly	2026-10-20T21:29:01.6947774Z .lake/chess-m7-check/M7Probe.lean:47:88: error: unexpected token '#eval'; expected 'lemma'
+verify	Check generic quotient proof strictly	2026-10-20T21:29:01.6948090Z M7 elaboration: generated_neZero
+verify	Check generic quotient proof strictly	2026-10-20T21:29:01.6948243Z M7 elaboration: generated_states
+verify	Check generic quotient proof strictly	2026-10-20T21:29:01.6948514Z .lake/chess-m7-check/M7Probe.lean:52:8: error: (kernel) excessive memory consumption detected
+verify	Check generic quotient proof strictly	2026-10-20T21:29:01.6948860Z .lake/chess-m7-check/M7Probe.lean:56:86: error: unexpected token '#eval'; expected 'lemma'
+verify	Check generic quotient proof strictly	2026-10-20T21:29:01.6949132Z M7 elaboration: machine
+verify	Check generic quotient proof strictly	2026-10-20T21:29:01.6949275Z M7 elaboration: post_halts_input
+verify	Check generic quotient proof strictly	2026-10-20T21:29:01.6949443Z M7 elaboration: body_halts_input
+verify	Check generic quotient proof strictly	2026-10-20T21:29:01.6949590Z M7 elaboration: generated_halts
+verify	Check generic quotient proof strictly	2026-10-20T21:29:01.6949864Z .lake/chess-m7-check/M7Probe.lean:79:81: error: unexpected token '#eval'; expected 'lemma'
+verify	Check generic quotient proof strictly	2026-10-20T21:29:01.6950094Z M7 elaboration: halts_iff
+verify	Check generic quotient proof strictly	2026-10-20T21:29:01.6950327Z .lake/chess-m7-check/M7Probe.lean:84:74: error: unexpected token '#eval'; expected 'lemma'
+verify	Check generic quotient proof strictly	2026-10-20T21:29:01.6950583Z M7 elaboration: equivalent
+verify	Check generic quotient proof strictly	2026-10-20T21:29:01.6950730Z M7 elaboration: strict_reduction
+verify	Check generic quotient proof strictly	2026-10-20T21:29:01.6950903Z M7 elaboration: saved_states
+verify	Check generic quotient proof strictly	2026-10-20T21:29:01.6951122Z .lake/chess-m7-check/M7Probe.lean:95:95: error: unexpected token '#eval'; expected 'lemma'
+verify	Check generic quotient proof strictly	2026-10-20T21:29:01.6951348Z M7 elaboration: initialises
+verify	Check generic quotient proof strictly	2026-10-20T21:29:01.8820522Z ##[error]Process completed with exit code 1.

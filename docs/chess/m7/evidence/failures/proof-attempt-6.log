@@ -1,0 +1,756 @@
+verify	Verify quotient proofs, exact stopping and corruption controls	﻿2026-10-20T21:41:52.6918140Z ##[group]Run python3 scripts/verify_chess_m7.py --proofs
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:41:52.6918617Z ^[[36;1mpython3 scripts/verify_chess_m7.py --proofs^[[0m
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:41:52.6978043Z shell: /usr/bin/bash -e {0}
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:41:52.6978310Z env:
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:41:52.6978516Z   ELAN_NO_UPDATE_CHECK: 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:41:52.6978756Z   LEAN_NUM_THREADS: 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:41:52.6978977Z ##[endgroup]
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:41:52.7878495Z Chess M7 frozen baseline verification passed
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:41:55.4221390Z ℹ [3889/3911] Replayed Cryptids.Chess.Compilation.SourceCertificate
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:41:55.4222386Z info: Cryptids/Chess/Compilation/SourceCertificate.lean:226:0: Source certificate: 7076 checked lemmas, 7037 cache hits
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:41:55.4223443Z info: Cryptids/Chess/Compilation/SourceCertificate.lean:230:0: Literal row certificate: 5952 checked rows in 186 chunks
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:41:55.4224270Z ℹ [3901/3911] Replayed Cryptids.Chess.Compilation.Input
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:41:55.4224925Z info: Cryptids/Chess/Compilation/Input.lean:128:0: Checked 186 literal row chunks: 141042 stack symbols
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:41:55.4225658Z Build completed successfully (3911 jobs).
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:03.3953155Z Audited 63 M7 foundation roots and 48672 dependencies
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:03.3953683Z Meta certificate generator roots outside safe roots: 0
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:03.3954078Z Compiler artifacts outside safe roots: #[]
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:03.3954482Z Permitted axioms: #[propext, Classical.choice, Quot.sound]
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:03.3954885Z Chess M7 foundation audit passed
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:09.7224198Z uncaught exception: Forbidden axiom: sorryAx
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:15.9183492Z uncaught exception: The open chess conjecture is a dependency
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:22.1057632Z uncaught exception: Proof generator is a mathematical dependency: Chess.Compilation.SourceCertificate.Generator.certify
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8771057Z scripts/chess_m7/Fixtures.lean:42:32: error: Tactic `decide` failed to reduce
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8771923Z   @decide
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8772925Z     (view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨0, ⋯⟩))) false) =
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8774701Z       view (expected ((fun i => i) ⟨0, ⋯⟩) false))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8775552Z     ((view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨0, ⋯⟩))) false)).instDecidableEq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8776237Z       (view (expected ((fun i => i) ⟨0, ⋯⟩) false)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8776914Z to `true` or `false`.
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8777159Z 
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8778185Z After unfolding the instances `instDecidableEqFin`, `instDecidableEqNat`, `instDecidableEqProd`, `Nat.decEq`, `Nat.decLe`, `Nat.decLt`, and `Option.instDecidableEq`, reduction got stuck at
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8779704Z   (↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8780080Z           (LazyGraph.trAux getter false
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8780533Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8780971Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8781855Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨0, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8782900Z                   ⋯).divNat
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8783296Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8783561Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8784306Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨0, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8785277Z                   ⋯).modNat).1)).beq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8785817Z     ↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8786765Z         (LazyGraph.descriptor getter (GraphPost.encode (LazyGraph.trAux getter false (getter.entry 0) 0).1)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8787804Z scripts/chess_m7/Fixtures.lean:42:32: error: Tactic `decide` failed to reduce
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8788429Z   @decide
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8789190Z     (view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨0, ⋯⟩))) true) =
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8790085Z       view (expected ((fun i => i) ⟨0, ⋯⟩) true))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8791219Z     ((view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨0, ⋯⟩))) true)).instDecidableEq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8792751Z       (view (expected ((fun i => i) ⟨0, ⋯⟩) true)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8793192Z to `true` or `false`.
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8793335Z 
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8794099Z After unfolding the instances `instDecidableEqFin`, `instDecidableEqNat`, `instDecidableEqProd`, `Nat.decEq`, `Nat.decLe`, `Nat.decLt`, and `Option.instDecidableEq`, reduction got stuck at
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8795586Z   (↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8795997Z           (LazyGraph.trAux getter true
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8796487Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8797957Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8798923Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨0, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8799857Z                   ⋯).divNat
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8800280Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8800742Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8801737Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨0, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8802696Z                   ⋯).modNat).1)).beq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8803781Z     ↑(encode getter (LazyGraph.descriptor getter (GraphPost.encode (LazyGraph.trAux getter true (getter.entry 0) 0).1)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8804986Z scripts/chess_m7/Fixtures.lean:42:32: error: Tactic `decide` failed to reduce
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8805953Z   @decide
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8807037Z     (view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨3, ⋯⟩))) false) =
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8808057Z       view (expected ((fun i => i) ⟨3, ⋯⟩) false))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8809016Z     ((view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨3, ⋯⟩))) false)).instDecidableEq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8809623Z       (view (expected ((fun i => i) ⟨3, ⋯⟩) false)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8809917Z to `true` or `false`.
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8810055Z 
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8810693Z After unfolding the instances `instDecidableEqFin`, `instDecidableEqNat`, `instDecidableEqProd`, `Fin.decLt`, `Nat.decEq`, `Nat.decLe`, `Nat.decLt`, and `Option.instDecidableEq`, reduction got stuck at
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8811703Z   (↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8811950Z           (LazyGraph.trAux getter false
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8812434Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8812847Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8813373Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨3, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8814074Z                   ⋯).divNat
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8814307Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8814547Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8815338Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨3, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8816324Z                   ⋯).modNat).1)).beq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8816977Z     ↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8817369Z         (LazyGraph.descriptor getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8817662Z           (GraphPost.encode
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8818361Z             (LazyGraph.trAux getter false ((Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨3, ⋯⟩)) ⋯).divNat.pred ⋯)
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8819282Z                 ((Equiv.refl (Fin 2)).symm (Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨3, ⋯⟩)) ⋯).modNat)).1)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8819854Z scripts/chess_m7/Fixtures.lean:42:32: error: Tactic `decide` failed to reduce
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8820232Z   @decide
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8820773Z     (view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨3, ⋯⟩))) true) =
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8821869Z       view (expected ((fun i => i) ⟨3, ⋯⟩) true))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8823281Z     ((view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨3, ⋯⟩))) true)).instDecidableEq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8824011Z       (view (expected ((fun i => i) ⟨3, ⋯⟩) true)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8824317Z to `true` or `false`.
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8824670Z 
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8825306Z After unfolding the instances `instDecidableEqFin`, `instDecidableEqNat`, `instDecidableEqProd`, `Fin.decLt`, `Nat.decEq`, `Nat.decLe`, `Nat.decLt`, and `Option.instDecidableEq`, reduction got stuck at
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8826884Z   (↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8827288Z           (LazyGraph.trAux getter true
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8827752Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8828187Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8829078Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨3, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8829975Z                   ⋯).divNat
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8830371Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8830799Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8831678Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨3, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8832547Z                   ⋯).modNat).1)).beq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8833057Z     ↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8833462Z         (LazyGraph.descriptor getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8833945Z           (GraphPost.encode
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8834868Z             (LazyGraph.trAux getter true ((Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨3, ⋯⟩)) ⋯).divNat.pred ⋯)
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8836176Z                 ((Equiv.refl (Fin 2)).symm (Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨3, ⋯⟩)) ⋯).modNat)).1)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8837482Z scripts/chess_m7/Fixtures.lean:42:32: error: Tactic `decide` failed to reduce
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8838202Z   @decide
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8839059Z     (view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨4, ⋯⟩))) false) =
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8840062Z       view (expected ((fun i => i) ⟨4, ⋯⟩) false))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8841277Z     ((view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨4, ⋯⟩))) false)).instDecidableEq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8842395Z       (view (expected ((fun i => i) ⟨4, ⋯⟩) false)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8842957Z to `true` or `false`.
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8843463Z 
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8844637Z After unfolding the instances `instDecidableEqFin`, `instDecidableEqNat`, `instDecidableEqProd`, `Fin.decLt`, `Nat.decEq`, `Nat.decLe`, `Nat.decLt`, and `Option.instDecidableEq`, reduction got stuck at
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8846242Z   (↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8846930Z           (LazyGraph.trAux getter false
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8847448Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8847955Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8848933Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨4, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8849872Z                   ⋯).divNat
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8850310Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8850786Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8851755Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨4, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8852768Z                   ⋯).modNat).1)).beq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8853313Z     ↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8853741Z         (LazyGraph.descriptor getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8854264Z           (GraphPost.encode
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8854880Z             (LazyGraph.trAux getter false ((Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨4, ⋯⟩)) ⋯).divNat.pred ⋯)
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8855601Z                 ((Equiv.refl (Fin 2)).symm (Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨4, ⋯⟩)) ⋯).modNat)).1)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8856185Z scripts/chess_m7/Fixtures.lean:42:32: error: Tactic `decide` failed to reduce
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8856881Z   @decide
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8857379Z     (view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨4, ⋯⟩))) true) =
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8857924Z       view (expected ((fun i => i) ⟨4, ⋯⟩) true))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8858544Z     ((view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨4, ⋯⟩))) true)).instDecidableEq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8859329Z       (view (expected ((fun i => i) ⟨4, ⋯⟩) true)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8859633Z to `true` or `false`.
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8859770Z 
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8860384Z After unfolding the instances `instDecidableEqFin`, `instDecidableEqNat`, `instDecidableEqProd`, `Fin.decLt`, `Nat.decEq`, `Nat.decLe`, `Nat.decLt`, and `Option.instDecidableEq`, reduction got stuck at
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8861202Z   (↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8861430Z           (LazyGraph.trAux getter true
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8861695Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8861942Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8862455Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨4, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8862939Z                   ⋯).divNat
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8863162Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8863395Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8863890Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨4, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8864401Z                   ⋯).modNat).1)).beq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8864671Z     ↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8864892Z         (LazyGraph.descriptor getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8865161Z           (GraphPost.encode
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8865747Z             (LazyGraph.trAux getter true ((Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨4, ⋯⟩)) ⋯).divNat.pred ⋯)
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8866453Z                 ((Equiv.refl (Fin 2)).symm (Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨4, ⋯⟩)) ⋯).modNat)).1)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8867336Z scripts/chess_m7/Fixtures.lean:42:32: error: Tactic `decide` failed to reduce
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8867730Z   @decide
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8868196Z     (view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨5, ⋯⟩))) false) =
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8868724Z       view (expected ((fun i => i) ⟨5, ⋯⟩) false))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8869340Z     ((view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨5, ⋯⟩))) false)).instDecidableEq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8869946Z       (view (expected ((fun i => i) ⟨5, ⋯⟩) false)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8870403Z to `true` or `false`.
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8870541Z 
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8871157Z After unfolding the instances `instDecidableEqFin`, `instDecidableEqNat`, `instDecidableEqProd`, `Fin.decLt`, `Nat.decEq`, `Nat.decLe`, `Nat.decLt`, and `Option.instDecidableEq`, reduction got stuck at
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8871982Z   (↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8872215Z           (LazyGraph.trAux getter false
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8872484Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8872726Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8873238Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨5, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8873723Z                   ⋯).divNat
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8873946Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8874184Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8874679Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨5, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8875187Z                   ⋯).modNat).1)).beq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8875460Z     ↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8875679Z         (LazyGraph.descriptor getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8875951Z           (GraphPost.encode
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8876458Z             (LazyGraph.trAux getter false ((Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨5, ⋯⟩)) ⋯).divNat.pred ⋯)
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8877402Z                 ((Equiv.refl (Fin 2)).symm (Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨5, ⋯⟩)) ⋯).modNat)).1)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8877959Z scripts/chess_m7/Fixtures.lean:42:32: error: Tactic `decide` failed to reduce
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8878352Z   @decide
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8878803Z     (view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨5, ⋯⟩))) true) =
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8879331Z       view (expected ((fun i => i) ⟨5, ⋯⟩) true))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8879935Z     ((view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨5, ⋯⟩))) true)).instDecidableEq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8880675Z       (view (expected ((fun i => i) ⟨5, ⋯⟩) true)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8880963Z to `true` or `false`.
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8881094Z 
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8881707Z After unfolding the instances `instDecidableEqFin`, `instDecidableEqNat`, `instDecidableEqProd`, `Fin.decLt`, `Nat.decEq`, `Nat.decLe`, `Nat.decLt`, and `Option.instDecidableEq`, reduction got stuck at
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8882566Z   (↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8882785Z           (LazyGraph.trAux getter true
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8883047Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8883287Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8883788Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨5, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8884266Z                   ⋯).divNat
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8884487Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8884719Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8885213Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨5, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8886011Z                   ⋯).modNat).1)).beq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8886839Z     ↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8887288Z         (LazyGraph.descriptor getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8887805Z           (GraphPost.encode
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8888646Z             (LazyGraph.trAux getter true ((Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨5, ⋯⟩)) ⋯).divNat.pred ⋯)
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8889367Z                 ((Equiv.refl (Fin 2)).symm (Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨5, ⋯⟩)) ⋯).modNat)).1)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8889929Z scripts/chess_m7/Fixtures.lean:42:32: error: Tactic `decide` failed to reduce
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8890331Z   @decide
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8890795Z     (view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨6, ⋯⟩))) false) =
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8891794Z       view (expected ((fun i => i) ⟨6, ⋯⟩) false))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8892902Z     ((view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨6, ⋯⟩))) false)).instDecidableEq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8894181Z       (view (expected ((fun i => i) ⟨6, ⋯⟩) false)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8894678Z to `true` or `false`.
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8894903Z 
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8895989Z After unfolding the instances `instDecidableEqFin`, `instDecidableEqNat`, `instDecidableEqProd`, `Fin.decLt`, `Nat.decEq`, `Nat.decLe`, `Nat.decLt`, and `Option.instDecidableEq`, reduction got stuck at
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8897842Z   (↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8898303Z           (LazyGraph.trAux getter false
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8898620Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8898903Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8899432Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨6, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8899947Z                   ⋯).divNat
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8900177Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8900703Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8901715Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨6, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8902707Z                   ⋯).modNat).1)).beq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8903236Z     ↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8903550Z         (LazyGraph.descriptor getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8903824Z           (GraphPost.encode
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8904351Z             (LazyGraph.trAux getter false ((Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨6, ⋯⟩)) ⋯).divNat.pred ⋯)
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8905061Z                 ((Equiv.refl (Fin 2)).symm (Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨6, ⋯⟩)) ⋯).modNat)).1)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8905959Z scripts/chess_m7/Fixtures.lean:42:32: error: Tactic `decide` failed to reduce
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8906935Z   @decide
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8907765Z     (view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨6, ⋯⟩))) true) =
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8908690Z       view (expected ((fun i => i) ⟨6, ⋯⟩) true))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8910033Z     ((view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨6, ⋯⟩))) true)).instDecidableEq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8911308Z       (view (expected ((fun i => i) ⟨6, ⋯⟩) true)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8912192Z to `true` or `false`.
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8912481Z 
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8932644Z After unfolding the instances `instDecidableEqFin`, `instDecidableEqNat`, `instDecidableEqProd`, `Fin.decLt`, `Nat.decEq`, `Nat.decLe`, `Nat.decLt`, and `Option.instDecidableEq`, reduction got stuck at
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8934233Z   (↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8934696Z           (LazyGraph.trAux getter true
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8935178Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8935480Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8936023Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨6, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8936788Z                   ⋯).divNat
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8937285Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8937775Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8938764Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨6, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8939413Z                   ⋯).modNat).1)).beq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8939711Z     ↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8939947Z         (LazyGraph.descriptor getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8940249Z           (GraphPost.encode
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8940765Z             (LazyGraph.trAux getter true ((Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨6, ⋯⟩)) ⋯).divNat.pred ⋯)
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8942118Z                 ((Equiv.refl (Fin 2)).symm (Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨6, ⋯⟩)) ⋯).modNat)).1)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8943136Z scripts/chess_m7/Fixtures.lean:42:32: error: Tactic `decide` failed to reduce
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8943874Z   @decide
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8944675Z     (view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨7, ⋯⟩))) false) =
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8945260Z       view (expected ((fun i => i) ⟨7, ⋯⟩) false))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8946086Z     ((view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨7, ⋯⟩))) false)).instDecidableEq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8947253Z       (view (expected ((fun i => i) ⟨7, ⋯⟩) false)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8947787Z to `true` or `false`.
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8948019Z 
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8949100Z After unfolding the instances `instDecidableEqFin`, `instDecidableEqNat`, `instDecidableEqProd`, `Fin.decLt`, `Nat.decEq`, `Nat.decLe`, `Nat.decLt`, and `Option.instDecidableEq`, reduction got stuck at
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8950652Z   (↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8951082Z           (LazyGraph.trAux getter false
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8951515Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8951795Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8952328Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨7, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8952855Z                   ⋯).divNat
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8953103Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8953525Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8954444Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨7, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8955331Z                   ⋯).modNat).1)).beq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8955825Z     ↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8956216Z         (LazyGraph.descriptor getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8956908Z           (GraphPost.encode
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8957841Z             (LazyGraph.trAux getter false ((Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨7, ⋯⟩)) ⋯).divNat.pred ⋯)
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8959148Z                 ((Equiv.refl (Fin 2)).symm (Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨7, ⋯⟩)) ⋯).modNat)).1)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8960182Z scripts/chess_m7/Fixtures.lean:42:32: error: Tactic `decide` failed to reduce
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8960913Z   @decide
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8961804Z     (view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨7, ⋯⟩))) true) =
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8963125Z       view (expected ((fun i => i) ⟨7, ⋯⟩) true))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8964311Z     ((view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨7, ⋯⟩))) true)).instDecidableEq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8965457Z       (view (expected ((fun i => i) ⟨7, ⋯⟩) true)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8966014Z to `true` or `false`.
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8966274Z 
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8967688Z After unfolding the instances `instDecidableEqFin`, `instDecidableEqNat`, `instDecidableEqProd`, `Fin.decLt`, `Nat.decEq`, `Nat.decLe`, `Nat.decLt`, and `Option.instDecidableEq`, reduction got stuck at
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8969302Z   (↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8969734Z           (LazyGraph.trAux getter true
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8970252Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8970744Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8971715Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨7, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8972692Z                   ⋯).divNat
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8973152Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8973629Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8974615Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨7, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8975435Z                   ⋯).modNat).1)).beq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8975742Z     ↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8975976Z         (LazyGraph.descriptor getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8976249Z           (GraphPost.encode
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8977147Z             (LazyGraph.trAux getter true ((Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨7, ⋯⟩)) ⋯).divNat.pred ⋯)
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8978472Z                 ((Equiv.refl (Fin 2)).symm (Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨7, ⋯⟩)) ⋯).modNat)).1)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8979475Z scripts/chess_m7/Fixtures.lean:42:32: error: Tactic `decide` failed to reduce
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8980157Z   @decide
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8981000Z     (view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨8, ⋯⟩))) false) =
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8982310Z       view (expected ((fun i => i) ⟨8, ⋯⟩) false))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8983533Z     ((view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨8, ⋯⟩))) false)).instDecidableEq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8984498Z       (view (expected ((fun i => i) ⟨8, ⋯⟩) false)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8984808Z to `true` or `false`.
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8984956Z 
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8985584Z After unfolding the instances `instDecidableEqFin`, `instDecidableEqNat`, `instDecidableEqProd`, `Fin.decLt`, `Nat.decEq`, `Nat.decLe`, `Nat.decLt`, and `Option.instDecidableEq`, reduction got stuck at
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8986736Z   (↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8987181Z           (LazyGraph.trAux getter false
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8987660Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8988114Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8989104Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨8, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8989913Z                   ⋯).divNat
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8990149Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8990397Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8990896Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨8, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8991619Z                   ⋯).modNat).1)).beq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8992148Z     ↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8992556Z         (LazyGraph.descriptor getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8993046Z           (GraphPost.encode
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8994003Z             (LazyGraph.trAux getter false ((Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨8, ⋯⟩)) ⋯).divNat.pred ⋯)
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8995354Z                 ((Equiv.refl (Fin 2)).symm (Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨8, ⋯⟩)) ⋯).modNat)).1)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8995994Z scripts/chess_m7/Fixtures.lean:42:32: error: Tactic `decide` failed to reduce
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8996947Z   @decide
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8997827Z     (view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨8, ⋯⟩))) true) =
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8998872Z       view (expected ((fun i => i) ⟨8, ⋯⟩) true))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.8999892Z     ((view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨8, ⋯⟩))) true)).instDecidableEq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9000520Z       (view (expected ((fun i => i) ⟨8, ⋯⟩) true)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9000816Z to `true` or `false`.
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9000950Z 
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9001570Z After unfolding the instances `instDecidableEqFin`, `instDecidableEqNat`, `instDecidableEqProd`, `Fin.decLt`, `Nat.decEq`, `Nat.decLe`, `Nat.decLt`, and `Option.instDecidableEq`, reduction got stuck at
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9003042Z   (↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9003460Z           (LazyGraph.trAux getter true
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9003952Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9004401Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9005364Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨8, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9006295Z                   ⋯).divNat
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9006966Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9007435Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9008383Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨8, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9009374Z                   ⋯).modNat).1)).beq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9009920Z     ↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9010343Z         (LazyGraph.descriptor getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9010855Z           (GraphPost.encode
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9011642Z             (LazyGraph.trAux getter true ((Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨8, ⋯⟩)) ⋯).divNat.pred ⋯)
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9012350Z                 ((Equiv.refl (Fin 2)).symm (Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨8, ⋯⟩)) ⋯).modNat)).1)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9012914Z scripts/chess_m7/Fixtures.lean:42:32: error: Tactic `decide` failed to reduce
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9013511Z   @decide
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9014375Z     (view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨9, ⋯⟩))) false) =
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9015359Z       view (expected ((fun i => i) ⟨9, ⋯⟩) false))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9016452Z     ((view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨9, ⋯⟩))) false)).instDecidableEq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9017764Z       (view (expected ((fun i => i) ⟨9, ⋯⟩) false)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9018331Z to `true` or `false`.
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9018584Z 
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9019552Z After unfolding the instances `instDecidableEqFin`, `instDecidableEqNat`, `instDecidableEqProd`, `Fin.decLt`, `Nat.decEq`, `Nat.decLe`, `Nat.decLt`, and `Option.instDecidableEq`, reduction got stuck at
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9020450Z   (↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9020689Z           (LazyGraph.trAux getter false
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9020971Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9021302Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9022309Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨9, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9023304Z                   ⋯).divNat
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9023655Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9023915Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9024430Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨9, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9024938Z                   ⋯).modNat).1)).beq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9025333Z     ↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9025741Z         (LazyGraph.descriptor getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9026220Z           (GraphPost.encode
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9027563Z             (LazyGraph.trAux getter false ((Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨9, ⋯⟩)) ⋯).divNat.pred ⋯)
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9028441Z                 ((Equiv.refl (Fin 2)).symm (Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨9, ⋯⟩)) ⋯).modNat)).1)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9029378Z scripts/chess_m7/Fixtures.lean:42:32: error: Tactic `decide` failed to reduce
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9029964Z   @decide
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9030559Z     (view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨9, ⋯⟩))) true) =
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9031252Z       view (expected ((fun i => i) ⟨9, ⋯⟩) true))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9032026Z     ((view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨9, ⋯⟩))) true)).instDecidableEq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9032763Z       (view (expected ((fun i => i) ⟨9, ⋯⟩) true)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9033141Z to `true` or `false`.
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9033307Z 
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9034098Z After unfolding the instances `instDecidableEqFin`, `instDecidableEqNat`, `instDecidableEqProd`, `Fin.decLt`, `Nat.decEq`, `Nat.decLe`, `Nat.decLt`, and `Option.instDecidableEq`, reduction got stuck at
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9035122Z   (↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9035402Z           (LazyGraph.trAux getter true
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9035756Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9036241Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9037058Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨9, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9037675Z                   ⋯).divNat
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9037964Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9038258Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9038870Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨9, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9039422Z                   ⋯).modNat).1)).beq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9039705Z     ↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9039926Z         (LazyGraph.descriptor getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9040193Z           (GraphPost.encode
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9040689Z             (LazyGraph.trAux getter true ((Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨9, ⋯⟩)) ⋯).divNat.pred ⋯)
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9041385Z                 ((Equiv.refl (Fin 2)).symm (Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨9, ⋯⟩)) ⋯).modNat)).1)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9041966Z scripts/chess_m7/Fixtures.lean:42:32: error: Tactic `decide` failed to reduce
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9042349Z   @decide
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9042805Z     (view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨10, ⋯⟩))) false) =
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9043351Z       view (expected ((fun i => i) ⟨10, ⋯⟩) false))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9043971Z     ((view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨10, ⋯⟩))) false)).instDecidableEq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9044567Z       (view (expected ((fun i => i) ⟨10, ⋯⟩) false)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9044869Z to `true` or `false`.
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9045005Z 
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9045635Z After unfolding the instances `instDecidableEqFin`, `instDecidableEqNat`, `instDecidableEqProd`, `Fin.decLt`, `Nat.decEq`, `Nat.decLe`, `Nat.decLt`, and `Option.instDecidableEq`, reduction got stuck at
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9046463Z   (↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9046858Z           (LazyGraph.trAux getter false
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9047299Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9047557Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9048084Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨10, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9048580Z                   ⋯).divNat
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9048806Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9049060Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9049563Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨10, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9050065Z                   ⋯).modNat).1)).beq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9050352Z     ↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9050582Z         (LazyGraph.descriptor getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9050850Z           (GraphPost.encode
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9051373Z             (LazyGraph.trAux getter false ((Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨10, ⋯⟩)) ⋯).divNat.pred ⋯)
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9052098Z                 ((Equiv.refl (Fin 2)).symm (Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨10, ⋯⟩)) ⋯).modNat)).1)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9052689Z scripts/chess_m7/Fixtures.lean:42:32: error: Tactic `decide` failed to reduce
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9053074Z   @decide
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9053531Z     (view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨10, ⋯⟩))) true) =
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9054073Z       view (expected ((fun i => i) ⟨10, ⋯⟩) true))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9054689Z     ((view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨10, ⋯⟩))) true)).instDecidableEq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9055280Z       (view (expected ((fun i => i) ⟨10, ⋯⟩) true)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9055572Z to `true` or `false`.
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9055708Z 
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9056335Z After unfolding the instances `instDecidableEqFin`, `instDecidableEqNat`, `instDecidableEqProd`, `Fin.decLt`, `Nat.decEq`, `Nat.decLe`, `Nat.decLt`, and `Option.instDecidableEq`, reduction got stuck at
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9057344Z   (↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9057575Z           (LazyGraph.trAux getter true
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9057981Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9058236Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9058745Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨10, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9059235Z                   ⋯).divNat
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9059456Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9059697Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9060188Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨10, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9060680Z                   ⋯).modNat).1)).beq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9060952Z     ↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9061180Z         (LazyGraph.descriptor getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9061441Z           (GraphPost.encode
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9061940Z             (LazyGraph.trAux getter true ((Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨10, ⋯⟩)) ⋯).divNat.pred ⋯)
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9062642Z                 ((Equiv.refl (Fin 2)).symm (Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨10, ⋯⟩)) ⋯).modNat)).1)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9063211Z scripts/chess_m7/Fixtures.lean:42:32: error: Tactic `decide` failed to reduce
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9063589Z   @decide
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9064046Z     (view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨11, ⋯⟩))) false) =
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9064592Z       view (expected ((fun i => i) ⟨11, ⋯⟩) false))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9065222Z     ((view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨11, ⋯⟩))) false)).instDecidableEq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9065818Z       (view (expected ((fun i => i) ⟨11, ⋯⟩) false)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9066127Z to `true` or `false`.
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9066263Z 
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9067160Z After unfolding the instances `instDecidableEqFin`, `instDecidableEqNat`, `instDecidableEqProd`, `Fin.decLt`, `Nat.decEq`, `Nat.decLe`, `Nat.decLt`, and `Option.instDecidableEq`, reduction got stuck at
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9068204Z   (↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9068427Z           (LazyGraph.trAux getter false
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9068700Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9068944Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9069467Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨11, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9069952Z                   ⋯).divNat
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9070177Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9070409Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9070914Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨11, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9071409Z                   ⋯).modNat).1)).beq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9071687Z     ↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9071905Z         (LazyGraph.descriptor getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9072169Z           (GraphPost.encode
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9072672Z             (LazyGraph.trAux getter false ((Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨11, ⋯⟩)) ⋯).divNat.pred ⋯)
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9073470Z                 ((Equiv.refl (Fin 2)).symm (Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨11, ⋯⟩)) ⋯).modNat)).1)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9074151Z scripts/chess_m7/Fixtures.lean:42:32: error: Tactic `decide` failed to reduce
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9074537Z   @decide
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9075000Z     (view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨11, ⋯⟩))) true) =
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9075535Z       view (expected ((fun i => i) ⟨11, ⋯⟩) true))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9076145Z     ((view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨11, ⋯⟩))) true)).instDecidableEq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9076920Z       (view (expected ((fun i => i) ⟨11, ⋯⟩) true)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9077221Z to `true` or `false`.
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9077357Z 
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9077980Z After unfolding the instances `instDecidableEqFin`, `instDecidableEqNat`, `instDecidableEqProd`, `Fin.decLt`, `Nat.decEq`, `Nat.decLe`, `Nat.decLt`, and `Option.instDecidableEq`, reduction got stuck at
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9078961Z   (↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9079182Z           (LazyGraph.trAux getter true
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9079444Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9079693Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9080192Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨11, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9080677Z                   ⋯).divNat
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9080894Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9081135Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9081627Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨11, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9082121Z                   ⋯).modNat).1)).beq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9082391Z     ↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9082661Z         (LazyGraph.descriptor getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9082924Z           (GraphPost.encode
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9083427Z             (LazyGraph.trAux getter true ((Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨11, ⋯⟩)) ⋯).divNat.pred ⋯)
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9084118Z                 ((Equiv.refl (Fin 2)).symm (Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨11, ⋯⟩)) ⋯).modNat)).1)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9084686Z scripts/chess_m7/Fixtures.lean:42:32: error: Tactic `decide` failed to reduce
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9085072Z   @decide
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9085527Z     (view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨12, ⋯⟩))) false) =
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9086064Z       view (expected ((fun i => i) ⟨12, ⋯⟩) false))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9086821Z     ((view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨12, ⋯⟩))) false)).instDecidableEq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9087422Z       (view (expected ((fun i => i) ⟨12, ⋯⟩) false)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9087716Z to `true` or `false`.
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9087847Z 
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9088473Z After unfolding the instances `instDecidableEqFin`, `instDecidableEqNat`, `instDecidableEqProd`, `Fin.decLt`, `Nat.decEq`, `Nat.decLe`, `Nat.decLt`, and `Option.instDecidableEq`, reduction got stuck at
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9089438Z   (↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9089667Z           (LazyGraph.trAux getter false
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9089937Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9090177Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9090679Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨12, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9091159Z                   ⋯).divNat
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9091374Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9091610Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9092096Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨12, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9092591Z                   ⋯).modNat).1)).beq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9092864Z     ↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9093096Z         (LazyGraph.descriptor getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9093372Z           (GraphPost.encode
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9093885Z             (LazyGraph.trAux getter false ((Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨12, ⋯⟩)) ⋯).divNat.pred ⋯)
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9094589Z                 ((Equiv.refl (Fin 2)).symm (Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨12, ⋯⟩)) ⋯).modNat)).1)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9095156Z scripts/chess_m7/Fixtures.lean:42:32: error: Tactic `decide` failed to reduce
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9095537Z   @decide
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9095989Z     (view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨12, ⋯⟩))) true) =
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9096672Z       view (expected ((fun i => i) ⟨12, ⋯⟩) true))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9097306Z     ((view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨12, ⋯⟩))) true)).instDecidableEq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9097896Z       (view (expected ((fun i => i) ⟨12, ⋯⟩) true)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9098184Z to `true` or `false`.
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9098316Z 
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9098945Z After unfolding the instances `instDecidableEqFin`, `instDecidableEqNat`, `instDecidableEqProd`, `Fin.decLt`, `Nat.decEq`, `Nat.decLe`, `Nat.decLt`, and `Option.instDecidableEq`, reduction got stuck at
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9099905Z   (↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9100125Z           (LazyGraph.trAux getter true
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9100390Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9100630Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9101141Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨12, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9101625Z                   ⋯).divNat
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9101843Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9102095Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9102588Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨12, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9103082Z                   ⋯).modNat).1)).beq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9103359Z     ↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9103594Z         (LazyGraph.descriptor getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9103867Z           (GraphPost.encode
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9104362Z             (LazyGraph.trAux getter true ((Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨12, ⋯⟩)) ⋯).divNat.pred ⋯)
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9105062Z                 ((Equiv.refl (Fin 2)).symm (Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨12, ⋯⟩)) ⋯).modNat)).1)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9105616Z scripts/chess_m7/Fixtures.lean:42:32: error: Tactic `decide` failed to reduce
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9105997Z   @decide
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9106452Z     (view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨13, ⋯⟩))) false) =
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9107130Z       view (expected ((fun i => i) ⟨13, ⋯⟩) false))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9107747Z     ((view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨13, ⋯⟩))) false)).instDecidableEq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9108336Z       (view (expected ((fun i => i) ⟨13, ⋯⟩) false)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9108627Z to `true` or `false`.
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9108895Z 
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9109527Z After unfolding the instances `instDecidableEqFin`, `instDecidableEqNat`, `instDecidableEqProd`, `Fin.decLt`, `Nat.decEq`, `Nat.decLe`, `Nat.decLt`, and `Option.instDecidableEq`, reduction got stuck at
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9110346Z   (↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9110564Z           (LazyGraph.trAux getter false
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9110836Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9111076Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9111574Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨13, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9112062Z                   ⋯).divNat
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9112290Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9112523Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9113014Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨13, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9113513Z                   ⋯).modNat).1)).beq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9113792Z     ↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9114016Z         (LazyGraph.descriptor getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9114278Z           (GraphPost.encode
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9114775Z             (LazyGraph.trAux getter false ((Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨13, ⋯⟩)) ⋯).divNat.pred ⋯)
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9115472Z                 ((Equiv.refl (Fin 2)).symm (Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨13, ⋯⟩)) ⋯).modNat)).1)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9116034Z scripts/chess_m7/Fixtures.lean:42:32: error: Tactic `decide` failed to reduce
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9116418Z   @decide
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9117037Z     (view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨13, ⋯⟩))) true) =
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9117575Z       view (expected ((fun i => i) ⟨13, ⋯⟩) true))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9118184Z     ((view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨13, ⋯⟩))) true)).instDecidableEq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9118771Z       (view (expected ((fun i => i) ⟨13, ⋯⟩) true)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9119074Z to `true` or `false`.
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9119396Z 
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9120020Z After unfolding the instances `instDecidableEqFin`, `instDecidableEqNat`, `instDecidableEqProd`, `Fin.decLt`, `Nat.decEq`, `Nat.decLe`, `Nat.decLt`, and `Option.instDecidableEq`, reduction got stuck at
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9120844Z   (↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9121067Z           (LazyGraph.trAux getter true
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9121334Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9121581Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9122084Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨13, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9122574Z                   ⋯).divNat
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9122794Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9123036Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9123527Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨13, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9124032Z                   ⋯).modNat).1)).beq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9124322Z     ↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9124555Z         (LazyGraph.descriptor getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9124810Z           (GraphPost.encode
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9125296Z             (LazyGraph.trAux getter true ((Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨13, ⋯⟩)) ⋯).divNat.pred ⋯)
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9125981Z                 ((Equiv.refl (Fin 2)).symm (Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨13, ⋯⟩)) ⋯).modNat)).1)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9126677Z scripts/chess_m7/Fixtures.lean:42:32: error: Tactic `decide` failed to reduce
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9127060Z   @decide
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9127514Z     (view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨14, ⋯⟩))) false) =
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9128049Z       view (expected ((fun i => i) ⟨14, ⋯⟩) false))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9128668Z     ((view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨14, ⋯⟩))) false)).instDecidableEq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9129401Z       (view (expected ((fun i => i) ⟨14, ⋯⟩) false)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9129697Z to `true` or `false`.
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9129829Z 
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9130443Z After unfolding the instances `instDecidableEqFin`, `instDecidableEqNat`, `instDecidableEqProd`, `Fin.decLt`, `Nat.decEq`, `Nat.decLe`, `Nat.decLt`, and `Option.instDecidableEq`, reduction got stuck at
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9131300Z   (↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9131523Z           (LazyGraph.trAux getter false
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9131808Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9132060Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9132611Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨14, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9133184Z                   ⋯).divNat
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9133426Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9133668Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9134162Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨14, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9134679Z                   ⋯).modNat).1)).beq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9134946Z     ↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9135170Z         (LazyGraph.descriptor getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9135431Z           (GraphPost.encode
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9136083Z             (LazyGraph.trAux getter false ((Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨14, ⋯⟩)) ⋯).divNat.pred ⋯)
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9136946Z                 ((Equiv.refl (Fin 2)).symm (Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨14, ⋯⟩)) ⋯).modNat)).1)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9137542Z scripts/chess_m7/Fixtures.lean:42:32: error: Tactic `decide` failed to reduce
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9137922Z   @decide
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9138376Z     (view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨14, ⋯⟩))) true) =
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9138910Z       view (expected ((fun i => i) ⟨14, ⋯⟩) true))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9139528Z     ((view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨14, ⋯⟩))) true)).instDecidableEq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9140264Z       (view (expected ((fun i => i) ⟨14, ⋯⟩) true)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9140553Z to `true` or `false`.
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9140687Z 
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9141303Z After unfolding the instances `instDecidableEqFin`, `instDecidableEqNat`, `instDecidableEqProd`, `Fin.decLt`, `Nat.decEq`, `Nat.decLe`, `Nat.decLt`, and `Option.instDecidableEq`, reduction got stuck at
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9142133Z   (↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9142353Z           (LazyGraph.trAux getter true
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9142616Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9142856Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9143362Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨14, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9143850Z                   ⋯).divNat
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9144072Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9144307Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9144815Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨14, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9145313Z                   ⋯).modNat).1)).beq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9145578Z     ↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9145795Z         (LazyGraph.descriptor getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9146061Z           (GraphPost.encode
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9146705Z             (LazyGraph.trAux getter true ((Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨14, ⋯⟩)) ⋯).divNat.pred ⋯)
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9147408Z                 ((Equiv.refl (Fin 2)).symm (Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨14, ⋯⟩)) ⋯).modNat)).1)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9147961Z scripts/chess_m7/Fixtures.lean:42:32: error: Tactic `decide` failed to reduce
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9148344Z   @decide
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9148797Z     (view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨15, ⋯⟩))) false) =
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9149340Z       view (expected ((fun i => i) ⟨15, ⋯⟩) false))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9150097Z     ((view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨15, ⋯⟩))) false)).instDecidableEq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9150701Z       (view (expected ((fun i => i) ⟨15, ⋯⟩) false)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9150993Z to `true` or `false`.
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9151125Z 
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9151744Z After unfolding the instances `instDecidableEqFin`, `instDecidableEqNat`, `instDecidableEqProd`, `Fin.decLt`, `Nat.decEq`, `Nat.decLe`, `Nat.decLt`, and `Option.instDecidableEq`, reduction got stuck at
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9152594Z   (↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9152818Z           (LazyGraph.trAux getter false
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9153087Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9153330Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9153836Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨15, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9154325Z                   ⋯).divNat
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9154545Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9154786Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9155292Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨15, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9155798Z                   ⋯).modNat).1)).beq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9156072Z     ↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9156292Z         (LazyGraph.descriptor getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9156704Z           (GraphPost.encode
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9157225Z             (LazyGraph.trAux getter false ((Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨15, ⋯⟩)) ⋯).divNat.pred ⋯)
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9157921Z                 ((Equiv.refl (Fin 2)).symm (Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨15, ⋯⟩)) ⋯).modNat)).1)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9158482Z scripts/chess_m7/Fixtures.lean:42:32: error: Tactic `decide` failed to reduce
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9158872Z   @decide
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9159331Z     (view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨15, ⋯⟩))) true) =
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9159866Z       view (expected ((fun i => i) ⟨15, ⋯⟩) true))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9160624Z     ((view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨15, ⋯⟩))) true)).instDecidableEq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9161216Z       (view (expected ((fun i => i) ⟨15, ⋯⟩) true)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9161504Z to `true` or `false`.
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9161636Z 
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9162256Z After unfolding the instances `instDecidableEqFin`, `instDecidableEqNat`, `instDecidableEqProd`, `Fin.decLt`, `Nat.decEq`, `Nat.decLe`, `Nat.decLt`, and `Option.instDecidableEq`, reduction got stuck at
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9163073Z   (↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9163296Z           (LazyGraph.trAux getter true
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9163561Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9163805Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9164314Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨15, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9164816Z                   ⋯).divNat
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9165048Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9165292Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9165782Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨15, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9166284Z                   ⋯).modNat).1)).beq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9166676Z     ↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9166899Z         (LazyGraph.descriptor getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9167159Z           (GraphPost.encode
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9167663Z             (LazyGraph.trAux getter true ((Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨15, ⋯⟩)) ⋯).divNat.pred ⋯)
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9168357Z                 ((Equiv.refl (Fin 2)).symm (Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨15, ⋯⟩)) ⋯).modNat)).1)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9168914Z scripts/chess_m7/Fixtures.lean:42:32: error: Tactic `decide` failed to reduce
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9169302Z   @decide
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9169766Z     (view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨16, ⋯⟩))) false) =
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9170439Z       view (expected ((fun i => i) ⟨16, ⋯⟩) false))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9171070Z     ((view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨16, ⋯⟩))) false)).instDecidableEq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9171671Z       (view (expected ((fun i => i) ⟨16, ⋯⟩) false)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9171969Z to `true` or `false`.
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9172095Z 
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9172723Z After unfolding the instances `instDecidableEqFin`, `instDecidableEqNat`, `instDecidableEqProd`, `Fin.decLt`, `Nat.decEq`, `Nat.decLe`, `Nat.decLt`, and `Option.instDecidableEq`, reduction got stuck at
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9173541Z   (↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9173773Z           (LazyGraph.trAux getter false
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9174081Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9174340Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9174845Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨16, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9175347Z                   ⋯).divNat
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9175572Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9175806Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9176293Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨16, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9176953Z                   ⋯).modNat).1)).beq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9177230Z     ↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9177453Z         (LazyGraph.descriptor getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9177719Z           (GraphPost.encode
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9178222Z             (LazyGraph.trAux getter false ((Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨16, ⋯⟩)) ⋯).divNat.pred ⋯)
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9178926Z                 ((Equiv.refl (Fin 2)).symm (Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨16, ⋯⟩)) ⋯).modNat)).1)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9179485Z scripts/chess_m7/Fixtures.lean:42:32: error: Tactic `decide` failed to reduce
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9179862Z   @decide
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9180323Z     (view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨16, ⋯⟩))) true) =
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9181005Z       view (expected ((fun i => i) ⟨16, ⋯⟩) true))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9181622Z     ((view (machine getter (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨16, ⋯⟩))) true)).instDecidableEq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9182208Z       (view (expected ((fun i => i) ⟨16, ⋯⟩) true)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9182506Z to `true` or `false`.
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9182634Z 
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9183262Z After unfolding the instances `instDecidableEqFin`, `instDecidableEqNat`, `instDecidableEqProd`, `Fin.decLt`, `Nat.decEq`, `Nat.decLe`, `Nat.decLt`, and `Option.instDecidableEq`, reduction got stuck at
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9184080Z   (↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9184305Z           (LazyGraph.trAux getter true
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9184573Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9184814Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9185317Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨16, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9185821Z                   ⋯).divNat
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9186048Z               (Fin.subNat 1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9186283Z                   (Fin.cast ⋯
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9186914Z                     ((permutation getter) (encode getter (LazyGraph.descriptor getter ((fun i => i) ⟨16, ⋯⟩)))))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9187416Z                   ⋯).modNat).1)).beq
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9187692Z     ↑(encode getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9187915Z         (LazyGraph.descriptor getter
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9188178Z           (GraphPost.encode
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9188669Z             (LazyGraph.trAux getter true ((Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨16, ⋯⟩)) ⋯).divNat.pred ⋯)
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9189367Z                 ((Equiv.refl (Fin 2)).symm (Fin.subNat 1 (Fin.cast ⋯ ((fun i => i) ⟨16, ⋯⟩)) ⋯).modNat)).1)))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9560903Z Traceback (most recent call last):
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9566857Z   File "/home/runner/work/cryptids/cryptids/scripts/verify_chess_m7.py", line 233, in <module>
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9567721Z     main()
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9567932Z     ~~~~^^
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9568348Z   File "/home/runner/work/cryptids/cryptids/scripts/verify_chess_m7.py", line 224, in main
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9568865Z     globals()[name]()
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9569100Z     ~~~~~~~~~~~~~~~^^
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9569552Z   File "/home/runner/work/cryptids/cryptids/scripts/verify_chess_m7.py", line 107, in proofs
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9570218Z     checks.append(run(["lake", "env", "lean", "-DwarningAsError=true", "--run",
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9570699Z                   ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9571188Z                        "scripts/chess_m7/Fixtures.lean"], "M7 quotient fixtures passed"))
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9571675Z                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9572213Z   File "/home/runner/work/cryptids/cryptids/scripts/verify_chess_m7.py", line 47, in run
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9572826Z     require(result.returncode == code and expected in result.stdout,
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9573515Z     ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9573937Z             f"Wrong result for {argv}: exit={result.returncode}")
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9574320Z             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9574836Z   File "/home/runner/work/cryptids/cryptids/scripts/verify_chess_m7.py", line 22, in require
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9575356Z     raise RuntimeError(message)
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9575953Z RuntimeError: Wrong result for ['lake', 'env', 'lean', '-DwarningAsError=true', '--run', 'scripts/chess_m7/Fixtures.lean']: exit=1
+verify	Verify quotient proofs, exact stopping and corruption controls	2026-10-20T21:42:25.9746434Z ##[error]Process completed with exit code 1.

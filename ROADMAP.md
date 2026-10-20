@@ -7,7 +7,7 @@ claims, terminal outcomes, and finite-graph dead-position detection. M4 is compl
 with bounded play, total evaluation, and exact strategic correspondence (2026-10-20).
 M5 is complete with a verified binary backend and four literal blank-tape small-game
 machines (2026-10-20). M6 is complete with the verified 392,046,832-state baseline
-and retained literal table (2026-10-20). M7 and outreach remain on hold.
+and retained literal table (2026-10-20). M7 is authorized and in progress; outreach remains on hold.
 
 ## 1. Agreed objective and scope
 
@@ -156,7 +156,7 @@ modules, and the checked solution theorems must have no placeholder dependency.
 | M4 | Prove bounded play and evaluator/strategy equivalence | M3 | Complete: implementation `0e62d56` |
 | M5 | Validate the compilation route on small finite games | M1; can proceed alongside M2–M4 | Complete: implementation `b3f5e29` |
 | M6 | Construct and verify the baseline chess machine | M4, M5 | Complete; 392,046,832 states |
-| M7 | Reduce states while preserving the target theorem | M6 | Not started; secondary objective |
+| M7 | Reduce states while preserving the target theorem | M6 | In progress; first certified strict reduction |
 
 ### M0 — Fork and planning contract
 
@@ -444,6 +444,12 @@ state-count improvement are tracked separately from this mathematical result.
 
 Goal: improve the established bound without weakening the target proposition.
 
+Status: in progress. The first candidate quotients duplicate initial and halted-store
+Post controls, proposing ten fewer binary states while retaining the complete paid
+initializer. See [M7 design](docs/chess/m7/DESIGN.md), [research records](docs/chess/m7/RESEARCH.md)
+and [independent review](docs/chess/m7/REVIEW.md). Proposed counts are not accepted
+until the current kernel, independent target, all-row and regression checks pass.
+
 Acceptance criteria for each accepted improvement:
 
 - [ ] Freeze and retain the M6 baseline table and proof. Record the candidate's
@@ -575,7 +581,8 @@ recorded in [M5 results](docs/chess/m5/RESULTS.md). M6 is complete: actual sourc
 refinement, paid blank initialization, an explicit 392,046,832-state machine and its
 unconditional frozen non-draw equivalence, full table retention and independent
 verification are recorded in [M6 results](docs/chess/m6/RESULTS.md).
-No later milestone is authorized. M7 and outreach remain on hold.
+M7 is now authorized and in progress, with all heavy computation remote. The frozen
+M6 baseline remains fixed. Outreach remains on hold.
 
 [fork]: https://github.com/bocowgill/cryptids
 [upstream]: https://github.com/google-deepmind/cryptids

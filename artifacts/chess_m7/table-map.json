@@ -1,0 +1,11 @@
+{
+  "format": "chess-m7-literal-table-quotient-v1",
+  "baseline_directory": "artifacts/chess_baseline/table",
+  "baseline_manifest_sha256": "83e1d7442e5c9fac9ca928d7db2747c0b60b3ecd2612d54a674bfa105c573357",
+  "baseline_states": 392046832,
+  "candidate_states": 392046822,
+  "initial_node": 0,
+  "post_states": 194468236,
+  "prefix_states": 3110360,
+  "stores": 5
+}

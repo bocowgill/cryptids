@@ -1,0 +1,32 @@
+[
+  {
+    "file": "proof-attempt-1.log",
+    "bytes": 15464,
+    "sha256": "269024f9668eaf7b97f6bd30b5e867c7634e7f51b728a4fa80091909e8d10511"
+  },
+  {
+    "file": "proof-attempt-2.log",
+    "bytes": 6344,
+    "sha256": "7af3b5efa9db004c4ab4c58031c1b6755dbe3820d30c22cce4d180f7759418b7"
+  },
+  {
+    "file": "proof-attempt-3.log",
+    "bytes": 11292,
+    "sha256": "093a28ba0d7ad1e77eed2ae6cbf790bf71381e53329d9ca972704cb7dec43434"
+  },
+  {
+    "file": "proof-attempt-4.log",
+    "bytes": 15788,
+    "sha256": "b1fc513d73b3ba1923fb23d708e2541907d6f36e5c9b58792c400337440e12c9"
+  },
+  {
+    "file": "proof-attempt-5.log",
+    "bytes": 8930,
+    "sha256": "0df03f03e183b7b8859dc828cf40a7554db87f2346162231d0f0af88e55ffa80"
+  },
+  {
+    "file": "proof-attempt-6.log",
+    "bytes": 121370,
+    "sha256": "f868b85be0d248967cb71107046df97d9a1ac4453ae462fddd83c36225e3f8ef"
+  }
+]
