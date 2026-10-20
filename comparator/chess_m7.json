@@ -1,0 +1,12 @@
+{
+  "challenge_module": "Cryptids.ChessM7Challenge",
+  "solution_module": "Cryptids.Semantics.ChessM7",
+  "theorem_names": [
+    "ConjectureMachines.Semantics.ChessM7.halts_chess_m7_iff_not_draw"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

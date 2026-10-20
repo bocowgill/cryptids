@@ -4,7 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 -/
 module
 
-public import Cryptids.Chess.Optimisation.M7
+public import Cryptids.Chess.Optimisation.M7Table
 
 @[expose] public section
 namespace ConjectureMachines.Machines

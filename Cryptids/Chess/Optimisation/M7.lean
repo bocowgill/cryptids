@@ -39,6 +39,9 @@ theorem body_states : body.states = 388936462 := by
 
 abbrev generated : BundledMachine 2 := FlatInit.initialise Compilation.Input.bits body
 
+/-- Keep instance synthesis symbolic instead of expanding the serialized input array. -/
+instance generated_neZero : NeZero generated.states := generated.neZeroStates
+
 theorem generated_states : generated.states = 392046822 := by
   change body.states + 2 * Compilation.Input.bits.size = _
   rw [body_states, Compilation.Input.paid_prefix]
