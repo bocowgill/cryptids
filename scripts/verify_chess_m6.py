@@ -11,7 +11,7 @@ import subprocess
 ROOT = Path(__file__).resolve().parents[1]
 COMPONENTS = [
     "Cryptids/Chess/Compilation/" + name + ".lean"
-    for name in ("Encoding", "Evaluator", "WithoutDead", "Rules", "Program", "History", "Geometry", "Updates", "Legality", "Control", "HistoryCode", "Source", "SourceModel", "SourceCertificate", "Tape", "Input", "Binary", "Foundations")
+    for name in ("Encoding", "Evaluator", "WithoutDead", "Rules", "Program", "History", "Geometry", "Updates", "Legality", "Control", "HistoryCode", "Source", "SourceModel", "SourceCertificate", "Tape", "Input", "Templates", "Binary", "Foundations")
 ] + [
     "Cryptids/Compilation/" + name + ".lean"
     for name in ("NatCode", "ListCode", "Scalar", "Commands", "Code", "CodeInput", "CodeDAG",
@@ -19,7 +19,7 @@ COMPONENTS = [
                  "RuntimeEval", "RuntimeReturn", "RuntimeLookup", "RuntimeWire", "RuntimeProof",
                  "NumberTM2", "StrongAssembly", "FlatInit", "LocalCertificate",
                  "RuntimeModel", "RuntimeCertificate", "ListEquality", "ListAssembly",
-                 "UniqueSupport", "UniqueAssembly", "BoolGraph", "GraphPost", "SharedModel", "SharedCertificate", "BinaryTemplates")
+                 "UniqueSupport", "UniqueAssembly", "BoolGraph", "GraphPost", "SharedModel", "SharedCertificate", "BinaryTemplates", "LazyGraph", "TemplateGraph")
 ]
 
 
@@ -90,8 +90,19 @@ def source_safe(text):
                          r"\bpartial\s+def\b", source_code(text))
 
 
+def inputs():
+    paths = [ROOT / name for name in COMPONENTS] + sorted((ROOT / "scripts/chess_m6").glob("*.lean")) + sorted((ROOT / "scripts/chess_m6").glob("*.py"))
+    paths += [ROOT / name for name in (
+        "scripts/verify_chess_m6.py", "scripts/AuditChessM6.lean", "scripts/chess_m6_table_parts.py",
+        "scripts/RunChessM6.lean", "scripts/RunChessM6VM.lean", "scripts/ProbeChessM6.lean",
+        "lean-toolchain", "lakefile.toml", "lakefile.chess-m6.toml", "lake-manifest.json",
+        ".github/workflows/chess_m6_ci.yml",
+    )]
+    return {str(path.relative_to(ROOT)): digest(path) for path in paths}
+
+
 def foundations():
-    before = {name: digest(ROOT / name) for name in COMPONENTS}
+    before = inputs()
     for bad in ("by sorry", "axiom hidden : False", "unsafe def", "native_decide",
                 "partial def", "implemented_by", "_unsafe_rec",
                 "/- outer /- inner -/ end -/ by sorry", 'def s := "/-"\nby sorry'):
@@ -109,6 +120,7 @@ def foundations():
     for name, expected in m5_inputs.items():
         require(digest(ROOT / name) == expected, f"Frozen M5 input changed: {name}")
     extra = '\n[[lean_exe]]\nname = "chess_m6_probe"\nroot = "scripts.ProbeChessM6"\n'
+    extra += '\n[[lean_lib]]\nname = "ChessM6Tools"\nroots = ["scripts.chess_m6.Export"]\n'
     require((ROOT / "lakefile.chess-m6.toml").read_text() ==
             (ROOT / "lakefile.toml").read_text() + extra, "Unreviewed alternate Lake configuration")
     results = [run(["lake", "--wfail", "build", "Cryptids.Chess.Compilation.Foundations"],
@@ -141,14 +153,29 @@ def foundations():
         ("ListAssemblyFixtures", "Explicit list assembly fixtures passed: 20 assertions"),
         ("UniqueFixtures", "Unique support fixtures passed: 14 assertions"),
         ("GraphFixtures", "Boolean graph kernel fixtures passed"),
+        ("TemplateGraphFixtures", ""),
+        ("LazyFixtures", "Lazy graph kernel fixtures passed"),
+        ("ActualTemplateFixtures", ""),
+        ("ActualTemplateNative", "Actual template execution fixtures passed; no chess program evaluated"),
+        ("LazyNative", "nodes=1000000000001 paidStates=5000000000011 queries=340000 checksum=1540000"),
         ("SharedFixtures", "Shared fixtures passed: 12 kernel assertions, 3 paired executions"),
         ("GraphNative", "states=50011; cells=100022; checksum=3550210"),
         ("BinaryTemplateFixtures", "BinaryTemplates native fixtures passed: 96 finite corners + 4 execution checks"),
     ):
-        mode = ["--run"] if name in ("AssemblyFixtures", "ListAssemblyFixtures", "UniqueFixtures", "GraphNative", "BinaryTemplateFixtures") else []
+        mode = ["--run"] if name in ("AssemblyFixtures", "ListAssemblyFixtures", "UniqueFixtures", "GraphNative", "BinaryTemplateFixtures", "LazyNative", "ActualTemplateNative") else []
         results.append(run(["lake", "env", "lean", "-DwarningAsError=true"] + mode +
-                           [f"scripts/chess_m6/{name}.lean"], token))
-    require(before == {name: digest(ROOT / name) for name in COMPONENTS},
+                           [f"scripts/chess_m6/{name}.lean"] +
+                           (["1000000000000"] if name == "LazyNative" else []), token))
+    results.append(run(["lake", "--wfail", "-f", "lakefile.chess-m6.toml", "build", "ChessM6Tools"],
+                       "Build completed successfully"))
+    results.append(run(["lake", "env", "lean", "-DwarningAsError=true", "--run",
+                        "scripts/chess_m6/ExportFixtures.lean"],
+                       "Streaming export fixtures passed: complete M5 bytes, suffix, two rejection controls"))
+    for mode, token in (("format", "Table parts format verification passed"),
+                        ("negative", "Table parts negative controls passed"),
+                        ("profile", "Table parts bounded profiles passed")):
+        results.append(run(["python3", "scripts/chess_m6/TablePartsFixtures.py", "--" + mode], token))
+    require(before == inputs(),
             "A checked source changed during verification")
     report = {"milestone": "M6", "status": "in_progress",
               "generated_machine": "Chess.Compilation.Binary.generated",

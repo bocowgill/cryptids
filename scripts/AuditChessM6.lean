@@ -2,7 +2,6 @@
 Copyright 2026 The Cryptids Authors.
 Released under Apache 2.0 license as described in the file LICENSE.
 -/
-import Cryptids.Chess.Compilation.Foundations
 import Lean
 
 /-! Audit the checked construction components, without claiming the M6 theorem exists. -/
@@ -16,7 +15,7 @@ private def prefixes : Array Name := #[
   `Chess.Compilation.HistoryCode, `Chess.Compilation.Source, `Chess.Compilation.Tape,
   `Chess.Compilation.Program, `Chess.Compilation.History,
   `Chess.Compilation.SourceModel, `Chess.Compilation.SourceCertificate, `Chess.Compilation.Binary,
-  `Chess.Compilation.Input,
+  `Chess.Compilation.Input, `Chess.Compilation.Templates,
   `ConjectureMachines.Compilation.NatCode, `ConjectureMachines.Compilation.ListCode,
   `ConjectureMachines.Compilation.Scalar, `ConjectureMachines.Compilation.Commands,
   `ConjectureMachines.Compilation.CodeBackend, `ConjectureMachines.Compilation.CodeDAG,
@@ -30,7 +29,8 @@ private def prefixes : Array Name := #[
   `ConjectureMachines.Compilation.ListAssembly, `ConjectureMachines.Compilation.UniqueSupport,
   `ConjectureMachines.Compilation.UniqueAssembly, `ConjectureMachines.Compilation.BoolGraph,
   `ConjectureMachines.Compilation.GraphPost, `ConjectureMachines.Compilation.SharedModel,
-  `ConjectureMachines.Compilation.SharedCertificate, `ConjectureMachines.Compilation.BinaryTemplates]
+  `ConjectureMachines.Compilation.SharedCertificate, `ConjectureMachines.Compilation.BinaryTemplates, `ConjectureMachines.Compilation.LazyGraph,
+  `ConjectureMachines.Compilation.TemplateGraph]
 
 private def generator (name : Name) : Bool :=
   #[`Chess.Compilation.SourceCertificate.Generator, `Chess.Compilation.Input.Generator].any
@@ -61,6 +61,8 @@ def main (args : List String) : IO Unit := do
       `Chess.Compilation.Binary.generated_halts,
       `Chess.Compilation.Binary.generated_initializes,
       `Chess.Compilation.Input.bits_size,
+      `Chess.Compilation.Templates.rows,
+      `Chess.Compilation.Templates.runtime_eval_dom,
       `ConjectureMachines.Compilation.RuntimeCertificate.rows,
       `ConjectureMachines.Compilation.RuntimeCertificate.eval_dom,
       `ConjectureMachines.Compilation.SharedCertificate.rows,

@@ -34,4 +34,8 @@ public import Cryptids.Compilation.SharedCertificate
 
 public import Cryptids.Compilation.BinaryTemplates
 
+public import Cryptids.Compilation.LazyGraph
+public import Cryptids.Compilation.TemplateGraph
+public import Cryptids.Chess.Compilation.Templates
+
 /-! Checked components of M6. This import does not assert a complete chess machine. -/

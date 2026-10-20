@@ -35,8 +35,9 @@ M7 and outreach remain unstarted; the frozen reference and M1–M5 inputs are un
   with exact local-row, initial-state, complete-step and two-direction halting certificates.
   Paired interpreter and normalized-machine fixtures agree step for step and retain final data.
 - Generic first-order Boolean syntax graphs, direct numeric Post lowering, and numeric binary
-  block templates. Exact finite write-site data and arithmetic template graphs remain
-  integration work; their generic theorems alone do not certify a chess table.
+  block templates. The actual 4,042-row source has complete 270-write/1,734-read/1,188-move
+  classification certificates. Exact arithmetic getter graphs and their Post transitions are
+  proved without allocating the whole graph. Actual final image/publication remains open.
 - A fixed four-stack interpreter: actual startup, complete instruction lookup/restoration,
   all opcode/continuation paths and positive simulation. `Tape.halts_iff` proves both
   termination directions for the complete chess source on that interpreter.
@@ -51,7 +52,7 @@ The latest report is in `.lake/chess-m6-check/foundations.json`. It records sour
 strict builds, complete dependency/axiom traversal, controls rejecting proof holes, the open
 chess conjecture, compiler recursion artifacts and proof-generator dependencies,
 plus source, VM, opcode, lookup, initialization, numeric-control and local-certificate fixtures.
-The latest checked batch audits 37,564 safe roots and 52,138 dependency declarations and uses
+The latest checked batch audits 39,289 safe roots and 54,023 dependency declarations and uses
 only `propext`, `Classical.choice`, and `Quot.sound`. Exact compiler-generated recursion
 artifacts are inventoried outside the root set and are never exempted from dependency checks.
 

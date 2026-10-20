@@ -35,3 +35,7 @@ name = "BusyBeaverChallenge"
 [[lean_exe]]
 name = "chess_m6_probe"
 root = "scripts.ProbeChessM6"
+
+[[lean_lib]]
+name = "ChessM6Tools"
+roots = ["scripts.chess_m6.Export"]
