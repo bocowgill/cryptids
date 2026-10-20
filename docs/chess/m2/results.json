@@ -1,0 +1,181 @@
+{
+  "suite_sha256": "7333615699197c3dfff690532874dfdec5ad43cbbd96c311e0f182d390b0cdbc",
+  "source_sha256": {
+    "Cryptids/Chess/Exec/Encoding.lean": "f47516c0d7f62d711d8d11bf067f2b0dfcb0d1ca87ab54d2f195245567fd5206",
+    "Cryptids/Chess/Exec/Moves.lean": "8d373aa13c83a13eaca7d1a6fb242c68cae28a8f67c0345c90e3aac1c41add1a",
+    "Cryptids/Chess/Exec/Rules.lean": "5bb5ea30312fe0aac54c6f9b09118c8526e4c48e228965b240856b3a94deb71d",
+    "Cryptids/Chess/Exec.lean": "3a945e569077f08b2bd0eb0a316c10bdae3c1b2470f237c477d7d663da47db57",
+    "Cryptids/Chess/Fixtures.lean": "7145b844242aef539de39be94a30049c79698cbfe660801104ac683fd2e08eff",
+    "scripts/AuditChessM2.lean": "548965fedb1afa7bec416ac004b674232c9955f73659af6b43d4ac2cf30a6b0a",
+    "scripts/RunChessM2.lean": "4b16306cc5da08f20fe81542e64ae76f34175ff1e1145ff99c349a1598e2352a",
+    "scripts/verify_chess_m2.py": "689464c4d2449765b69e46be6122cbe0581cac361fbcb93b80aab9f4baae0778",
+    "docs/chess/m2/perft.json": "7333615699197c3dfff690532874dfdec5ad43cbbd96c311e0f182d390b0cdbc",
+    "lean-toolchain": "8f89aa44fccdb1a0b6cc768c7c9f54b94cd40e47a08d582f82d1235f13075cf7",
+    "lakefile.toml": "7c4250e8165473fa250cf95f1db6d36b0deb9a25203209016fe10771ab0db699",
+    "lake-manifest.json": "4bb9288d47457931549bbeff4d0e68d9a8dbd47b063e6b72a3210b0d09311284"
+  },
+  "audit": "Audited 152 M2 declarations and 3328 transitive dependencies\nPermitted axioms used: [Quot.sound, Classical.choice, propext]\nChess M2 theorem audit passed",
+  "rules": "Rule fixtures passed: 164 assertions",
+  "observed": [
+    {
+      "name": "initial",
+      "depth": 0,
+      "nodes": 1
+    },
+    {
+      "name": "initial",
+      "depth": 1,
+      "nodes": 20
+    },
+    {
+      "name": "initial",
+      "depth": 2,
+      "nodes": 400
+    },
+    {
+      "name": "initial",
+      "depth": 3,
+      "nodes": 8902
+    },
+    {
+      "name": "kiwipete",
+      "depth": 0,
+      "nodes": 1
+    },
+    {
+      "name": "kiwipete",
+      "depth": 1,
+      "nodes": 48
+    },
+    {
+      "name": "kiwipete",
+      "depth": 2,
+      "nodes": 2039
+    },
+    {
+      "name": "position-3",
+      "depth": 0,
+      "nodes": 1
+    },
+    {
+      "name": "position-3",
+      "depth": 1,
+      "nodes": 14
+    },
+    {
+      "name": "position-3",
+      "depth": 2,
+      "nodes": 191
+    },
+    {
+      "name": "position-4",
+      "depth": 0,
+      "nodes": 1
+    },
+    {
+      "name": "position-4",
+      "depth": 1,
+      "nodes": 6
+    },
+    {
+      "name": "position-4",
+      "depth": 2,
+      "nodes": 264
+    },
+    {
+      "name": "position-4-mirror",
+      "depth": 0,
+      "nodes": 1
+    },
+    {
+      "name": "position-4-mirror",
+      "depth": 1,
+      "nodes": 6
+    },
+    {
+      "name": "position-4-mirror",
+      "depth": 2,
+      "nodes": 264
+    },
+    {
+      "name": "position-5",
+      "depth": 0,
+      "nodes": 1
+    },
+    {
+      "name": "position-5",
+      "depth": 1,
+      "nodes": 44
+    },
+    {
+      "name": "position-5",
+      "depth": 2,
+      "nodes": 1486
+    },
+    {
+      "name": "position-6",
+      "depth": 0,
+      "nodes": 1
+    },
+    {
+      "name": "position-6",
+      "depth": 1,
+      "nodes": 46
+    },
+    {
+      "name": "position-6",
+      "depth": 2,
+      "nodes": 2079
+    }
+  ],
+  "implementation_commit": "3fe6082385cdbf5136a02af43ea61aaab8e5de13",
+  "commands": {
+    "M2A": "env ELAN_NO_UPDATE_CHECK=1 lake --wfail build Cryptids.Chess.Exec Cryptids.Chess.Fixtures",
+    "M2B": "env ELAN_NO_UPDATE_CHECK=1 lake env lean --run scripts/AuditChessM2.lean",
+    "M2C": "python3 scripts/verify_chess_m2.py",
+    "M2D": "python3 scripts/verify_chess_reference.py",
+    "M2E": "env ELAN_NO_UPDATE_CHECK=1 lake build"
+  },
+  "evidence": {
+    "M2A": {
+      "exit": 0,
+      "shell": "/bin/zsh",
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "expect_matched": true,
+      "output_sha256": "0cba766514c31fcbb5f02ab3ae7f5af672bfb3b38fb6e8ab27b51fca2691b05a",
+      "output_bytes": 42
+    },
+    "M2B": {
+      "exit": 0,
+      "shell": "/bin/zsh",
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "expect_matched": true,
+      "output_sha256": "310048f2c8d657e374df050f0228639e52cb07f06cdb61adb2f4f9ad14ad6969",
+      "output_bytes": 154
+    },
+    "M2C": {
+      "exit": 0,
+      "shell": "/bin/zsh",
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "expect_matched": true,
+      "output_sha256": "04bb29faab7bc9c8cbe7463b9108df8adc82300ffe70da60f9d6ced575a28f3b",
+      "output_bytes": 1006
+    },
+    "M2D": {
+      "exit": 0,
+      "shell": "/bin/zsh",
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "expect_matched": true,
+      "output_sha256": "013e0d2a69026565cd6d2ab2e890051d89850344ecc4ae44278cb8f97ba65efb",
+      "output_bytes": 251
+    },
+    "M2E": {
+      "exit": 0,
+      "shell": "/bin/zsh",
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "expect_matched": true,
+      "output_sha256": "96aa18f51fd66810129f67e8bcdbb5a23643a7b1e071560bda947ccd85d47c2d",
+      "output_bytes": 1347
+    }
+  }
+}

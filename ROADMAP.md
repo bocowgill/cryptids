@@ -1,7 +1,8 @@
 # Chess Cryptid Campaign
 
 Planning date: 2026-10-19. Status: M1 complete; `chess-reference-v1` is built,
-source-checked, and frozen. M2 and outreach remain on hold.
+source-checked, and frozen. M2 is complete with executable rules, unrestricted
+refinement proofs, and regression fixtures. M3–M7 and outreach remain on hold.
 
 ## 1. Agreed objective and scope
 
@@ -53,14 +54,14 @@ the reference model is correct. Milestones below discharge those obligations.
 
 ### Current authorization
 
-The initial tasks authorized the fork, roadmap, source audit, and packaging
-recommendation. The latest instruction authorizes completing the definitions-only
-port, its Cryptids-toolchain build, source correspondence check, and reference
-freeze. The historical audit is recorded in
+The initial tasks authorized the fork, roadmap, source audit, packaging recommendation,
+and the completed definitions-only reference port and freeze. The latest instruction
+authorizes M2's executable rules, unrestricted refinement proofs, and regression
+fixtures against that unchanged reference. The historical audit is recorded in
 [docs/chess/m1/AUDIT.md](docs/chess/m1/AUDIT.md), with the proposed module boundaries
 in [PACKAGING.md](docs/chess/m1/PACKAGING.md). The completed M1 reference is recorded
-in [FREEZE.md](docs/chess/m1/FREEZE.md). M2, issues, PRs, and maintainer messages
-remain outside the authorized scope.
+in [FREEZE.md](docs/chess/m1/FREEZE.md). M3–M7, new issues or PRs, and maintainer
+messages remain outside the authorized scope.
 
 ## 2. Repository and source baseline
 
@@ -144,7 +145,7 @@ modules, and the checked solution theorems must have no placeholder dependency.
 | --- | --- | --- | --- |
 | M0 | Establish fork and campaign contract | User's scope decisions | Complete |
 | M1 | Audit, correct as needed, and freeze a usable reference | M0; authorized definitions-only port | Complete: chess-reference-v1 |
-| M2 | Verify executable move generation and position updates | M1 | Not started |
+| M2 | Verify executable move generation and position updates | M1 | Complete: implementation `3fe6082` |
 | M3 | Verify history, claims, and terminal outcomes | M2 | Not started |
 | M4 | Prove bounded play and evaluator/strategy equivalence | M3 | Not started |
 | M5 | Validate the compilation route on small finite games | M1; can proceed alongside M2–M4 | Not started |
@@ -171,8 +172,9 @@ Goal: make the mathematical target precise and suitable for subsequent proofs.
 Audit outcome: no confirmed reachable-game rule defect. The port preserves the
 reference bodies and strategy quantifiers. Its open-conjecture/import boundaries,
 domain contract, rule-edition documentation, toolchain build, compiled correspondence,
-and reference freeze are complete. Exact terminal/refinement/strategy proofs remain
-M2–M4 work. The archive remains noncompiled evidence. See the historical
+and reference freeze are complete. Terminal and strategy proofs remain M3–M4 work;
+M2's move/update refinement is recorded separately. The archive remains noncompiled
+evidence. See the historical
 [audit](docs/chess/m1/AUDIT.md), [audit evidence](docs/chess/m1/EVIDENCE.md), and
 completed [freeze record](docs/chess/m1/FREEZE.md).
 
@@ -217,26 +219,35 @@ schematic; adapt them to the final representation and namespace.
 
 Acceptance criteria:
 
-- [ ] Give executable equality, finite move enumeration, and encoding/decoding
+- [x] Give executable equality, finite move enumeration, and encoding/decoding
   functions with round-trip theorems. A function-valued reference board must have
   a proved correspondence to its concrete executable representation.
-- [ ] Prove soundness and completeness on the declared domain:
+- [x] Prove soundness and completeness on the declared domain:
   `m ∈ legalPlies p ↔ Reference.IsLegalPly (decode p) (decodePly m)`.
   Enumerate every promotion option and specify duplicate behavior.
-- [ ] Prove executable updates agree with `applyBoard` and `applyPly`, including
+- [x] Prove executable updates agree with `applyBoard` and `applyPly`, including
   board contents, turn, rights, en-passant state, and the halfmove clock.
-- [ ] Prove initial encoding correctness and preservation of the invariants
+- [x] Prove initial encoding correctness and preservation of the invariants
   needed by later milestones under legal moves.
-- [ ] Run regression cases for both castling sides and colors, prohibited
+- [x] Run regression cases for both castling sides and colors, prohibited
   castling through check, rook move/capture rights loss, pinned en passant,
   en-passant expiry, promotion/underpromotion, check evasion, checkmate, and
   stalemate. Include initial-position move counts and a modest, reproducible
   legal-move-tree count suite with independently documented expectations.
-- [ ] Build and axiom-audit the refinement theorems; execute the runtime
+- [x] Build and axiom-audit the refinement theorems; execute the runtime
   implementation on the fixtures without noncomputable definitions.
 
 Exit condition: every legal move and its full position update are covered by
 checked refinement theorems. Terminal adjudication is addressed separately in M3.
+
+Completed in implementation commit `3fe6082385cdbf5136a02af43ea61aaab8e5de13`.
+The unrestricted domain needs no additional chess-state invariant. Vector sizes
+are intrinsic; `decode_initial`, `invariant_applyPly`, and `reachable_applyPly`
+establish initial correctness, reference invariant transport, and exact legal
+history closure. This does not claim all desired reachable-game consequences in
+M1's `DOMAIN.md` have been proved. All 164 rule assertions and 22 sourced perft
+counts passed. See [M2 results](docs/chess/m2/RESULTS.md) for commands and trust
+audit results.
 
 ### M3 — Exact history, draw claims, and terminal outcomes
 
@@ -458,8 +469,11 @@ The later M1 audit adds source-level mathematical review, a byte-identified sour
 archive, and a finite geometry replay. The subsequent M1 port passes its focused
 and default builds plus `python3 scripts/verify_chess_reference.py`, which checks
 exact retained bodies, independent compiled declarations/dependencies, permitted
-axioms, a semantic negative control, and the frozen manifest. See the freeze record
-for limits; no full chess regression suite or evaluator-correctness proof is claimed.
+axioms, a semantic negative control, and the frozen manifest. M2 adds unrestricted
+move/update refinement, an audit of 152 new declarations and their dependencies,
+164 rule assertions, and 22 independently sourced perft counts. The full default
+build passes. These establish the M2 contracts; no complete game adjudicator or
+evaluator-correctness proof is claimed.
 
 ## 7. Principal risks and decision points
 
@@ -478,10 +492,12 @@ for limits; no full chess regression suite or evaluator-correctness proof is cla
 
 ## 8. Next authorized work
 
-M1 is complete and `chess-reference-v1` is the fixed reference for subsequent work.
-Hold M2 and outreach as instructed. When M2 is authorized, begin the executable
-move/update refinement against this reference and its documented domain contract.
-Keep M2–M7 unstarted until their work is authorized and dependencies are satisfied.
+M1 is complete and `chess-reference-v1` remains fixed. M2's implementation,
+refinement theorems, fixture provenance, and reproduction commands are recorded in
+[docs/chess/m2/README.md](docs/chess/m2/README.md). M2 is complete; its evidence is
+in [RESULTS.md](docs/chess/m2/RESULTS.md). M3 would add exact history, draw claims,
+and terminal outcomes, including the dead-position obligation. Keep M3–M7 and
+outreach on hold until separately authorized.
 
 [fork]: https://github.com/bocowgill/cryptids
 [upstream]: https://github.com/google-deepmind/cryptids
