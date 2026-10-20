@@ -35,11 +35,11 @@ def expected (q : Fin 17) (bit : Bool) : Option (Fin 15 × TM0.Stmt Bool) :=
   (LazyGraph.machine getter q bit).map fun (next, cmd) ↦
     (encode getter (LazyGraph.descriptor getter next), cmd)
 
--- Exhaust all old controls and both symbols, including every halted store and initial duplicate.
+-- Specialize the universal row theorem; native checks below also enumerate all 34 corners.
 example (q : Fin 17) (bit : Bool) :
     view (machine getter (encode getter (LazyGraph.descriptor getter q)) bit) =
       view (expected q bit) := by
-  fin_cases q <;> cases bit <;> decide
+  exact congrArg view (transition_tr getter q bit)
 
 end M7Fixtures
 

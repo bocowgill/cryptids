@@ -78,6 +78,17 @@ def trCfg {n k labels : Nat} [NeZero k] [NeZero labels]
     TM0.Cfg Bool (Fin (stateCount n k)) :=
   ⟨encode g (LazyGraph.descriptor g cfg.q), cfg.Tape⟩
 
+/-- Every source row has the identical command and quotient successor, including stopping. -/
+theorem transition_tr {n k labels : Nat} [NeZero k] [NeZero labels]
+    (g : LazyGraph.Graph n k labels) (q : Fin (GraphPost.stateCount n k)) (bit : Bool) :
+    machine g (encode g (LazyGraph.descriptor g q)) bit =
+      (LazyGraph.machine g q bit).map (fun (next, cmd) ↦
+        (encode g (LazyGraph.descriptor g next), cmd)) := by
+  cases desc : LazyGraph.descriptor g q with
+  | mk pc value =>
+    cases pc <;> simp [machine, LazyGraph.machine, desc, decode_encode,
+      LazyGraph.descriptor_encode]
+
 /-- Exact steps and exact stopping commute with the quotient on arbitrary tapes. -/
 theorem step_trCfg {n k labels : Nat} [NeZero k] [NeZero labels]
     (g : LazyGraph.Graph n k labels)
