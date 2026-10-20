@@ -1,5 +1,10 @@
 [
   {
+    "file": "original-fixed-tls.log",
+    "bytes": 10984,
+    "sha256": "9493a4200ea67a8f736b1a4759e79905ac6732f09883de456bd8a34a2d8b1c8d"
+  },
+  {
     "file": "proof-attempt-1.log",
     "bytes": 15464,
     "sha256": "269024f9668eaf7b97f6bd30b5e867c7634e7f51b728a4fa80091909e8d10511"

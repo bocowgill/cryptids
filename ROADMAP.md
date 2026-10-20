@@ -61,12 +61,13 @@ without running the initial-position evaluator to completion.
 ### Current authorization
 
 The initial tasks authorized the fork, roadmap, source audit, packaging recommendation,
-and the completed definitions-only reference port and freeze. The latest instruction
-authorizes M6's explicit baseline chess machine, actual source translation and complete refinement. The historical
+and the completed definitions-only reference port and freeze. M2–M6 were subsequently
+authorized and completed. The latest instruction authorizes M7 state reduction,
+with heavy computation remote and the frozen reference fixed. The historical
 audit is recorded in
 [docs/chess/m1/AUDIT.md](docs/chess/m1/AUDIT.md), with the proposed module boundaries
 in [PACKAGING.md](docs/chess/m1/PACKAGING.md). The completed M1 reference is recorded
-in [FREEZE.md](docs/chess/m1/FREEZE.md). M7, new issues or PRs, and maintainer
+in [FREEZE.md](docs/chess/m1/FREEZE.md). New issues or PRs and maintainer
 messages remain outside the authorized scope.
 
 ## 2. Repository and source baseline

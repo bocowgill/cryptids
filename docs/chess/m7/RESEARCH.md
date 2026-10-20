@@ -45,9 +45,35 @@ search or nonexistence result is used in this attempt.
 
 These are implementation/build failures, not mathematical counterexamples to the
 quotient theorem. The symbolic proof repair does not change the proposed machine.
-Exact logs remain under `.unlazy/chess-m7/`; source versions and remote runs are
-recorded above. Later results must distinguish pending trials from completed
+Exact failed-step logs and their hashes are retained in
+[evidence/failures](evidence/failures/manifest.json); source versions and remote
+runs are recorded above. Later results must distinguish pending trials from completed
 verification and report construction/verification cost separately from state count.
 
 No current bound is claimed optimal. Larger reductions remain possible research
 questions after the first strict improvement has been accepted. Outreach is held.
+
+## First successful proof and bootstrap
+
+`86b82c9`, [run39503052097](https://github.com/bocowgill/cryptids/actions/runs/39503052097),
+passes the actual assembly, generic row/step/stop proofs, all seven proof-suite
+checks, three audit rejection controls, 34 native row corners and the Python
+literal oracle across all 120 intervals. The foundation audit covers 65 roots
+and 48,674 dependencies, using only the three permitted standard axioms. The
+remote native generator build took 1,223.32 seconds; target export took 78.47
+seconds. Its result is explicitly `proposed_only`, not final M7 acceptance.
+
+The official artifact archive has SHA-256
+`57f8ceabd9f247de0cffc6c0d92bf98b78aa98c75d8fd1530611368ac3d614d2`;
+its extracted entries were checked against that archive. The bootstrap fixes
+initial graph node 0, hence raw root control 1. The snapshot and quotient map were
+committed in `088988f` for the full fixed-target workflow. Pending independent
+definition/mutation/sandbox, every-row and regression checks remain separate.
+
+The first original Cryptids CI attempt at `088988f`
+([run39506528743](https://github.com/bocowgill/cryptids/actions/runs/39506528743))
+failed before compilation because the remote Lean release download encountered a
+TLS connection error. Its log is retained in
+[evidence/failures/original-fixed-tls.log](evidence/failures/original-fixed-tls.log).
+The same source revision was retried without a code or toolchain change. This
+network failure does not certify or refute any source theorem.

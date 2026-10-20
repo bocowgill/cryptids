@@ -1,0 +1,66 @@
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	﻿2026-10-20T22:15:27.4521126Z ##[group]Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:27.4521470Z with:
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:27.4521649Z   build-args: Cryptids Challenge
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:27.4521862Z   auto-config: true
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:27.4522033Z   build: default
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:27.4522199Z   test: default
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:27.4522358Z   lint: default
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:27.4522516Z   mk_all-check: false
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:27.4522697Z   use-mathlib-cache: auto
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:27.4522900Z   check-reservoir-eligibility: false
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:27.4523288Z   leanchecker: false
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:27.4523461Z   lean4checker: false
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:27.4523644Z   nanoda: false
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:27.4523822Z   nanoda-allow-sorry: true
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:27.4524022Z   axiom-audit: false
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:27.4524248Z   axiom-audit-allow: propext,Classical.choice,Quot.sound
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:27.4524511Z   use-github-cache: true
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:27.4524701Z   lake-package-directory: .
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:27.4524918Z   reinstall-transient-toolchain: false
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:27.4525192Z env:
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:27.4525350Z   LEAN_NUM_THREADS: 1
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:27.4525523Z ##[endgroup]
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:27.4578173Z ##[start-action display=install elan;id=__leanprover_lean-action.__run]
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:27.5111493Z ##[group]Run : Install Elan
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:27.5111787Z ^[[36;1m: Install Elan^[[0m
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:27.5112035Z ^[[36;1m${GITHUB_ACTION_PATH}/scripts/install_elan.sh^[[0m
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:27.5167068Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:27.5167390Z env:
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:27.5167554Z   LEAN_NUM_THREADS: 1
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:27.5167736Z ##[endgroup]
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:27.7330207Z ##[group]Elan Installation Output
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:27.7873124Z info: downloading installer
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:29.2099864Z info: downloading https://releases.lean-lang.org/lean4/v4.35.0-rc4/lean-4.35.0-rc4-linux.tar.zst
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:29.8934572Z error: could not download file from 'https://releases.lean-lang.org/lean4/v4.35.0-rc4/lean-4.35.0-rc4-linux.tar.zst' to '/home/runner/.elan/tmp/w6bdauyf_xx1r1bi_file'
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:29.8935534Z info: caused by: error during download
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:29.8942298Z info: caused by: [35] SSL connect error (TLS connect error: error:00000000:lib(0)::reason(0))
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:29.8962151Z ##[error]Process completed with exit code 1.
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:29.8973143Z ##[end-action id=__leanprover_lean-action.__run;outcome=failure;conclusion=failure;duration_ms=2439]
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:29.8978060Z ##[start-action display=configure `lean-action`;id=__leanprover_lean-action.config]
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:29.8982472Z ##[end-action id=__leanprover_lean-action.config;outcome=skipped;conclusion=skipped;duration_ms=0]
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:29.8984228Z ##[start-action display=reinstall transient toolchain;id=__leanprover_lean-action.__run_2]
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:29.8993545Z ##[end-action id=__leanprover_lean-action.__run_2;outcome=skipped;conclusion=skipped;duration_ms=0]
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:29.8995578Z ##[start-action display=ensure all files are imported;id=__leanprover_lean-action.mk_all]
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:29.8997556Z ##[end-action id=__leanprover_lean-action.mk_all;outcome=skipped;conclusion=skipped;duration_ms=0]
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:29.8999583Z ##[start-action display=Run actions/cache/restore@caa296126883cff596d87d8935842f9db880ef25;id=__leanprover_lean-action.cache-restore]
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:29.9001655Z ##[end-action id=__leanprover_lean-action.cache-restore;outcome=skipped;conclusion=skipped;duration_ms=0]
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:29.9003098Z ##[start-action display=detect mathlib;id=__leanprover_lean-action.detect-mathlib]
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:29.9005022Z ##[end-action id=__leanprover_lean-action.detect-mathlib;outcome=skipped;conclusion=skipped;duration_ms=0]
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:29.9006424Z ##[start-action display=get mathlib cache;id=__leanprover_lean-action.__run_3]
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:29.9011777Z ##[end-action id=__leanprover_lean-action.__run_3;outcome=skipped;conclusion=skipped;duration_ms=0]
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:29.9031467Z ##[start-action display=build bocowgill/cryptids;id=__leanprover_lean-action.build]
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:29.9034060Z ##[end-action id=__leanprover_lean-action.build;outcome=skipped;conclusion=skipped;duration_ms=0]
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:29.9036795Z ##[start-action display=test bocowgill/cryptids;id=__leanprover_lean-action.test]
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:29.9038964Z ##[end-action id=__leanprover_lean-action.test;outcome=skipped;conclusion=skipped;duration_ms=0]
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:29.9041051Z ##[start-action display=lint bocowgill/cryptids;id=__leanprover_lean-action.lint]
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:29.9064970Z ##[end-action id=__leanprover_lean-action.lint;outcome=skipped;conclusion=skipped;duration_ms=0]
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:29.9066700Z ##[start-action display=Run actions/cache/save@caa296126883cff596d87d8935842f9db880ef25;id=__leanprover_lean-action.__actions_cache]
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:29.9091685Z ##[end-action id=__leanprover_lean-action.__actions_cache;outcome=skipped;conclusion=skipped;duration_ms=0]
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:29.9093324Z ##[start-action display=check reservoir eligibility;id=__leanprover_lean-action.__run_4]
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:29.9095354Z ##[end-action id=__leanprover_lean-action.__run_4;outcome=skipped;conclusion=skipped;duration_ms=0]
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:29.9097440Z ##[start-action display=check environment with leanchecker;id=__leanprover_lean-action.__run_5]
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:29.9099928Z ##[end-action id=__leanprover_lean-action.__run_5;outcome=skipped;conclusion=skipped;duration_ms=0]
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:29.9101682Z ##[start-action display=check environment with nanoda;id=__leanprover_lean-action.nanoda]
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:29.9103486Z ##[end-action id=__leanprover_lean-action.nanoda;outcome=skipped;conclusion=skipped;duration_ms=0]
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:29.9105211Z ##[start-action display=audit axioms with axiom-audit;id=__leanprover_lean-action.axiom-audit]
+build	Run leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6	2026-10-20T22:15:29.9107080Z ##[end-action id=__leanprover_lean-action.axiom-audit;outcome=skipped;conclusion=skipped;duration_ms=0]
