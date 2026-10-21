@@ -74,7 +74,9 @@ def sourceWord (source : Tape Symbol) : Word :=
 
 theorem represented_main (source : Tape Symbol) (binary : Tape Bit)
     (rep : RepTape source binary) : wordAt 0 binary = sourceWord source := by
-  simpa [fieldOffset, FieldReturn.symbolCell, FieldReturn.stackAt, sourceWord] using
+  have atzero : FieldReturn.stackAt (0 : Fin 4) = K'.main := rfl
+  simpa only [fieldOffset, Fin.val_zero, mul_zero, FieldReturn.symbolCell, atzero,
+    sourceWord] using
     represented_field (FieldReturn.symbolCell source.head) binary 0 (local_rep source binary rep)
 
 theorem wordValue_encode (v : Fin 5) : wordValue (encodeWord v) = v.val := by
@@ -103,6 +105,7 @@ theorem clear_rep (source : Tape Symbol) (binary : Tape Bit) (rep : RepTape sour
   intro i j
   by_cases zero : i = 0
   · subst i
+    simp only [Int.mul_zero, zero_add, Tape.nth_zero, Tape.write]
     change (written 0 (0, 0, 0) binary).nth (j.val : Int) =
       encodeCell (FieldReturn.symbolCell (clearMain source.head)) j
     rw [symbolCell_clear]
@@ -322,7 +325,7 @@ theorem composed_certificate (source bottom last : Tape Symbol) (n m : Nat)
   refine ⟨⟨Or.inl ⟨v, rfl, rfl, rfl⟩, rep⟩, finalBits, ?_, ?_, ?_⟩
   · rw [show n + m + 3 = (n + 1) + (1 + (m + 1)) by omega,
       sourceRun_add, FieldReturn.source_return source bottom n returnPath,
-      Option.bind_some]
+      Option.bind_some, Nat.one_add]
     change (TM1.step FieldReturn.sourceMachine
       ⟨some FieldReturn.continuation, FieldReturn.codeSymbol v, bottom⟩).bind
         (FieldReturn.sourceRun (m + 1)) = _
