@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "lake",
+    "--wfail",
+    "-f",
+    "lakefile.chess-openevolve-wide.toml",
+    "build",
+    "Cryptids.Semantics.ChessOpenEvolveWide"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "\u2139 [3889/3913] Replayed Cryptids.Chess.Compilation.SourceCertificate\ninfo: Cryptids/Chess/Compilation/SourceCertificate.lean:226:0: Source certificate: 7076 checked lemmas, 7037 cache hits\ninfo: Cryptids/Chess/Compilation/SourceCertificate.lean:230:0: Literal row certificate: 5952 checked rows in 186 chunks\n\u2139 [3901/3913] Replayed Cryptids.Chess.Compilation.Input\ninfo: Cryptids/Chess/Compilation/Input.lean:128:0: Checked 186 literal row chunks: 141042 stack symbols\nBuild completed successfully (3913 jobs).\n",
+  "output_sha256": "aed3b441ba14b7d203cfb3083f09b0eed9dec4ee9ad1363cbb634c76492fdc22",
+  "timed_out": false,
+  "elapsed_seconds": 2.4938702599999942,
+  "cumulative_children_peak_rss_kib": 877700
+}

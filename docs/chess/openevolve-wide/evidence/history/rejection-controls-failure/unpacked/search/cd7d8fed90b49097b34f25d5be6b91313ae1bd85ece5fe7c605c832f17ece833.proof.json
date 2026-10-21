@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-openevolve-wide/search/cd7d8fed90b49097b34f25d5be6b91313ae1bd85ece5fe7c605c832f17ece833.lean"
+  ],
+  "exit": 1,
+  "stdout": "/home/runner/work/cryptids/cryptids/.lake/chess-openevolve-wide/search/cd7d8fed90b49097b34f25d5be6b91313ae1bd85ece5fe7c605c832f17ece833.lean:10:4: error: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\n",
+  "stderr": "",
+  "source": "import Cryptids.Optimisation.ReverseInit\nopen Turing ConjectureMachines.Compilation\nopen ConjectureMachines.Optimisation\ndef proposed (bits : List (Fin 2)) : List Init.Instruction := ((ReverseInit.writes (bits).reverse .left) ++ (ReverseInit.moves .right 1))\nset_option linter.unusedTactic false in\nexample (bits : List (Fin 2)) :\n    Init.executeList (proposed bits) (Tape.mk\u2081 []) = Tape.mk\u2081 bits := by\n  first\n  | simpa [proposed] using ReverseInit.reverse_correct bits\n  | simpa [proposed] using ReverseInit.forward_correct bits\ntheorem proposed_length (bits : List (Fin 2)) :\n    (proposed bits).length = (bits.length + 1) := by\n  simp [proposed, ReverseInit.writes, ReverseInit.moves]\nexample (bits : List (Fin 2)) (size : bits.length = 1555180) :\n    (proposed bits).length = 1555181 := by\n  rw [proposed_length, size]\n",
+  "source_sha256": "cd7d8fed90b49097b34f25d5be6b91313ae1bd85ece5fe7c605c832f17ece833",
+  "initializer_states": 1555181
+}

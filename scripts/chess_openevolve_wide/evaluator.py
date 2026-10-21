@@ -18,16 +18,14 @@ BASELINE_STATES = 392046821
 def certificate(plan, timeout=120):
     assert os.environ.get("CHESS_REMOTE") == "1", "Proof checking is remote-only"
     count = plan.length(INPUT_BITS)
+    witness = "ReverseInit.reverse_correct" if count == INPUT_BITS + 1 else "ReverseInit.forward_correct"
     source = '''import Cryptids.Optimisation.ReverseInit
 open Turing ConjectureMachines.Compilation
 open ConjectureMachines.Optimisation
 def proposed (bits : List (Fin 2)) : List Init.Instruction := ''' + plan.lean.replace("R.", "ReverseInit.") + '''
-set_option linter.unusedTactic false in
 example (bits : List (Fin 2)) :
     Init.executeList (proposed bits) (Tape.mk₁ []) = Tape.mk₁ bits := by
-  first
-  | simpa [proposed] using ReverseInit.reverse_correct bits
-  | simpa [proposed] using ReverseInit.forward_correct bits
+  simpa [proposed] using ''' + witness + ''' bits
 theorem proposed_length (bits : List (Fin 2)) :
     (proposed bits).length = ''' + plan.cost_lean() + ''' := by
   simp [proposed, ReverseInit.writes, ReverseInit.moves]

@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_openevolve_wide/controls.py"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "Traceback (most recent call last):\n  File \"/home/runner/work/cryptids/cryptids/scripts/chess_openevolve_wide/controls.py\", line 81, in <module>\n    main()\n  File \"/home/runner/work/cryptids/cryptids/scripts/chess_openevolve_wide/controls.py\", line 19, in main\n    positives.append(dict(code=code, fixtures=plan.fixtures(), proof=certificate(plan)))\n                                                                     ^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/cryptids/cryptids/scripts/chess_openevolve_wide/evaluator.py\", line 48, in certificate\n    raise ValueError(\"Universal certificate rejected: \" + json.dumps(record))\nValueError: Universal certificate rejected: {\"argv\": [\"lake\", \"env\", \"lean\", \"-M6144\", \"-DwarningAsError=true\", \"/home/runner/work/cryptids/cryptids/.lake/chess-openevolve-wide/search/cd7d8fed90b49097b34f25d5be6b91313ae1bd85ece5fe7c605c832f17ece833.lean\"], \"exit\": 1, \"stdout\": \"/home/runner/work/cryptids/cryptids/.lake/chess-openevolve-wide/search/cd7d8fed90b49097b34f25d5be6b91313ae1bd85ece5fe7c605c832f17ece833.lean:10:4: error: this tactic is never executed\\n\\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\\n\", \"stderr\": \"\", \"source\": \"import Cryptids.Optimisation.ReverseInit\\nopen Turing ConjectureMachines.Compilation\\nopen ConjectureMachines.Optimisation\\ndef proposed (bits : List (Fin 2)) : List Init.Instruction := ((ReverseInit.writes (bits).reverse .left) ++ (ReverseInit.moves .right 1))\\nset_option linter.unusedTactic false in\\nexample (bits : List (Fin 2)) :\\n    Init.executeList (proposed bits) (Tape.mk\\u2081 []) = Tape.mk\\u2081 bits := by\\n  first\\n  | simpa [proposed] using ReverseInit.reverse_correct bits\\n  | simpa [proposed] using ReverseInit.forward_correct bits\\ntheorem proposed_length (bits : List (Fin 2)) :\\n    (proposed bits).length = (bits.length + 1) := by\\n  simp [proposed, ReverseInit.writes, ReverseInit.moves]\\nexample (bits : List (Fin 2)) (size : bits.length = 1555180) :\\n    (proposed bits).length = 1555181 := by\\n  rw [proposed_length, size]\\n\", \"source_sha256\": \"cd7d8fed90b49097b34f25d5be6b91313ae1bd85ece5fe7c605c832f17ece833\", \"initializer_states\": 1555181}\n",
+  "output_sha256": "25fb9d99e418f59edd8caa9f903d9d1e4962391c6d3c2d0b0574f2be34067f6b",
+  "timed_out": false,
+  "elapsed_seconds": 7.750623510999958,
+  "cumulative_children_peak_rss_kib": 4042656
+}

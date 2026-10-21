@@ -62,8 +62,8 @@ def main():
     else:
         raise AssertionError("Timeout control did not time out")
     corrupt = positives[1]["proof"]["source"]
-    start = corrupt.index(' := by\n  first')
-    end = corrupt.index('\nexample (bits', start)
+    start = corrupt.index(' := by\n', corrupt.index('example (bits'))
+    end = corrupt.index('\ntheorem proposed_length', start)
     corrupt = corrupt[:start] + ' := by\n  rfl\n' + corrupt[end:]
     path = WORK / "corrupt-proof.lean"
     path.write_text(corrupt)
