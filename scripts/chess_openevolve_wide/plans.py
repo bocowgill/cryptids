@@ -120,6 +120,25 @@ class Plan:
             return length(node.args[0], "bits")
         return length(self.tree, "plan")
 
+    def cost_lean(self):
+        """Symbolic cost before substituting the million-bit concrete input length."""
+        def length(node, kind):
+            if isinstance(node, ast.BinOp):
+                op = " * " if isinstance(node.op, ast.Mult) else " + "
+                return "(" + length(node.left, kind) + op + length(node.right, kind) + ")"
+            if isinstance(node, ast.List):
+                return str(len(node.elts))
+            if kind == "plan":
+                return length(node.args[0], "bits") if self.call(node, "writes", 2) else length(node.args[1], "nat")
+            if kind == "bits":
+                if isinstance(node, ast.Name):
+                    return "bits.length"
+                return length(node.value if isinstance(node, ast.Subscript) else node.args[0], "bits")
+            if isinstance(node, ast.Constant):
+                return str(node.value)
+            return length(node.args[0], "bits")
+        return length(self.tree, "plan")
+
     def fixtures(self):
         checked = 0
         for n in range(7):

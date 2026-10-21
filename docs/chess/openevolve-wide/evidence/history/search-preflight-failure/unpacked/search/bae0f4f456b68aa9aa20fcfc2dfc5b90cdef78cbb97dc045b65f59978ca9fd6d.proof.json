@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-openevolve-wide/search/bae0f4f456b68aa9aa20fcfc2dfc5b90cdef78cbb97dc045b65f59978ca9fd6d.lean"
+  ],
+  "exit": 1,
+  "stdout": "/home/runner/work/cryptids/cryptids/.lake/chess-openevolve-wide/search/bae0f4f456b68aa9aa20fcfc2dfc5b90cdef78cbb97dc045b65f59978ca9fd6d.lean:12:2: error: Tactic `simp` failed with a nested error:\nmaximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information\n",
+  "stderr": "",
+  "source": "import Cryptids.Optimisation.ReverseInit\nopen Turing ConjectureMachines.Compilation\nopen ConjectureMachines.Optimisation\ndef proposed (bits : List (Fin 2)) : List Init.Instruction := ((ReverseInit.writes bits .right) ++ (ReverseInit.moves .left (bits).length))\nexample (bits : List (Fin 2)) :\n    Init.executeList (proposed bits) (Tape.mk\u2081 []) = Tape.mk\u2081 bits := by\n  first\n  | simpa [proposed] using ReverseInit.reverse_correct bits\n  | simpa [proposed] using ReverseInit.forward_correct bits\nexample (bits : List (Fin 2)) (size : bits.length = 1555180) :\n    (proposed bits).length = 3110360 := by\n  simp [proposed, ReverseInit.writes, ReverseInit.moves, size]\n",
+  "source_sha256": "bae0f4f456b68aa9aa20fcfc2dfc5b90cdef78cbb97dc045b65f59978ca9fd6d",
+  "initializer_states": 3110360
+}

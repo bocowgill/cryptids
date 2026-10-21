@@ -27,9 +27,12 @@ example (bits : List (Fin 2)) :
   first
   | simpa [proposed] using ReverseInit.reverse_correct bits
   | simpa [proposed] using ReverseInit.forward_correct bits
+theorem proposed_length (bits : List (Fin 2)) :
+    (proposed bits).length = ''' + plan.cost_lean() + ''' := by
+  simp [proposed, ReverseInit.writes, ReverseInit.moves]
 example (bits : List (Fin 2)) (size : bits.length = 1555180) :
     (proposed bits).length = ''' + str(count) + ''' := by
-  simp [proposed, ReverseInit.writes, ReverseInit.moves, size]
+  rw [proposed_length, size]
 '''
     digest = hashlib.sha256(source.encode()).hexdigest()
     WORK.mkdir(parents=True, exist_ok=True)

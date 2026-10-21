@@ -1,0 +1,30 @@
+{
+  "format": "chess-paid-reverse-initializer-v1",
+  "candidate_states": 390491642,
+  "source_states": 392046821,
+  "source_recipe": "artifacts/chess_openevolve/table-map.json",
+  "source_recipe_sha256": "a69825863b02d27f56d95a70ac99ca80daafed6016bec3a6610e23852c1a38c5",
+  "input_bits": 1555180,
+  "source_prefix_states": 3110360,
+  "candidate_prefix_states": 1555181,
+  "body_states": 388936461,
+  "saved_states": 1555179,
+  "symbols": 2,
+  "initial_state": 0,
+  "blank_symbol": 0,
+  "prefix_write_rows": "For 0 <= s < input_bits, write frozen input bit[input_bits-1-s], move left, next=s+1, for either scanned symbol.",
+  "prefix_last_row": "At s=input_bits, preserve scanned symbol, move right, next=candidate_prefix_states, for either scanned symbol.",
+  "body_rows": "For s>=candidate_prefix_states, read accepted source row s+saved_states; preserve write/direction and subtract saved_states from every destination. Missing transitions remain missing.",
+  "input_reference": "Chess.Compilation.Input.bits, unchanged",
+  "machine": "ConjectureMachines.Machines.chess_openevolve_wide",
+  "row_constructor": "Chess.Optimisation.OpenEvolveWide.rowMachine",
+  "row_correspondence": "Chess.Optimisation.OpenEvolveWide.rowMachine_eq",
+  "universal_prefix_and_body_rows": [
+    "ConjectureMachines.Optimisation.ReverseInit.Schedule.transition_prefix",
+    "ConjectureMachines.Optimisation.ReverseInit.Schedule.transition_body"
+  ],
+  "exact_paid_initialization": "Chess.Optimisation.OpenEvolveWide.initialises",
+  "halting_target": "NOT(Chess.WhiteCanAvoidLoss AND Chess.BlackCanAvoidLoss)",
+  "full_table_streamed": false,
+  "new_expanded_payload": false
+}
