@@ -29,19 +29,34 @@ theorem writes_reverse_left (bits : List (Fin 2)) :
     Init.executeList (writes bits.reverse .left) (Tape.mk₁ []) =
       Tape.mk₁ (0 :: bits) := by
   induction bits with
-  | nil => simp [writes, Init.executeList, Tape.mk₁, ListBlank.mk_cons]
+  | nil => rfl
   | cons bit rest ih =>
-    simp only [List.reverse_cons, writes, List.map_append, List.map_cons, List.map_nil,
-      Init.executeList_append, ih, Init.executeList, Init.execute, Option.getD_some]
-    simp [Tape.mk₁, Tape.write_mk', Tape.move_left_mk', ListBlank.tail_mk,
-      ListBlank.cons_mk]
+    rw [List.reverse_cons]
+    change Init.executeList (writes rest.reverse .left ++ [(some bit, .left)]) _ = _
+    rw [Init.executeList_append, ih]
+    rfl
 
 /-- A single final right move restores the head onto the first input bit. -/
 theorem reverse_correct (bits : List (Fin 2)) :
     Init.executeList (writes bits.reverse .left ++ moves .right 1) (Tape.mk₁ []) =
       Tape.mk₁ bits := by
   rw [Init.executeList_append, writes_reverse_left]
-  simp [moves, Init.executeList, Init.execute, Tape.write_self, Tape.mk₁,
-    Tape.move_right_mk', ListBlank.tail_mk, ListBlank.head_mk, ListBlank.cons_mk]
+  change (Tape.mk₁ (0 :: bits)).move .right = Tape.mk₁ bits
+  change (Tape.mk' (ListBlank.mk []) (ListBlank.mk (0 :: bits))).move .right = _
+  rw [Tape.move_right_mk']
+  have blank : ListBlank.mk [(0 : Fin 2)] = ListBlank.mk [] :=
+    ListBlank.cons_head_tail (ListBlank.mk [])
+  change Tape.mk' (ListBlank.mk [0]) (ListBlank.mk bits) = Tape.mk₁ bits
+  rw [blank]
+  rfl
+
+/-- The seed schedule is exactly the accepted forward writer. -/
+theorem forward_correct (bits : List (Fin 2)) :
+    Init.executeList (writes bits .right ++ moves .left bits.length) (Tape.mk₁ []) =
+      Tape.mk₁ bits := by
+  change Init.executeList (bits.map (fun bit ↦ (some bit, .right)) ++
+    List.replicate bits.length (none, .left)) _ = _
+  rw [← FlatInit.writer_eq_actions]
+  exact Init.writer_correct bits (ListBlank.mk [])
 
 end ConjectureMachines.Optimisation.ReverseInit
