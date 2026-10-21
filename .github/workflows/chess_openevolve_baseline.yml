@@ -1,0 +1,91 @@
+name: Chess OpenEvolve baseline completion
+
+on:
+  push:
+    branches: ['codex/chess-openevolve-pilot']
+    paths: ['.github/workflows/chess_openevolve_baseline.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: chess-openevolve-baseline-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    env:
+      ELAN_NO_UPDATE_CHECK: '1'
+      LEAN_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '2'
+      MKL_NUM_THREADS: '2'
+      CHESS_REMOTE: '1'
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+      - name: Prepare supported remote sandbox
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /usr/local/share/boost
+          sudo apt-get update -qq >/dev/null
+          sudo apt-get install -y -qq bubblewrap >/dev/null
+          sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+      - uses: leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6
+        with:
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'false'
+          use-github-cache: 'false'
+      - uses: actions/cache/restore@caa296126883cff596d87d8935842f9db880ef25
+        with:
+          path: |
+            .lake/packages
+            .lake/build
+          key: chess-openevolve-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-baseline-${{ github.sha }}
+          restore-keys: |
+            chess-openevolve-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-
+      - name: Start fresh baseline evidence after cache restore
+        run: rm -rf .lake/chess-openevolve
+      - name: Fetch complete pinned Mathlib cache
+        run: timeout --signal=TERM --kill-after=10s 1200s lake exe cache get Mathlib
+      - name: Check frozen M1 through M5 regression
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, os, pathlib, runpy
+          v = runpy.run_path('scripts/chess_openevolve/verify.py')
+          work = v['WORK']
+          work.mkdir(parents=True, exist_ok=True)
+          helper = pathlib.Path('.github/workflows/chess_openevolve_baseline.yml')
+          record = {
+              'commit': os.environ['GITHUB_SHA'], 'run_id': os.environ['GITHUB_RUN_ID'],
+              'source_sha256': v['sources'](), 'frozen_source_sha256': v['metadata'](),
+              'orchestration_workflow': str(helper),
+              'orchestration_sha256': hashlib.sha256(helper.read_bytes()).hexdigest(),
+              'baseline_timeout_seconds': 7200,
+              'core_run_id': 39542309855,
+              'scope': 'same unchanged baseline CLI; longer outer timeout; no repeated search'
+          }
+          (work / 'helper-checkout.json').write_text(json.dumps(record, indent=2) + '\n')
+          checks = [v['run'](['python3', 'scripts/verify_chess_m6.py', '--baseline'],
+                            'Chess M6 baseline verification passed', timeout=7200)]
+          v['save']('baseline', checks, orchestration_sha256=record['orchestration_sha256'],
+                    baseline_timeout_seconds=7200, core_run_id=39542309855)
+          print('Chess OpenEvolve baseline passed')
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: chess-openevolve-baseline-${{ github.sha }}
+          include-hidden-files: true
+          path: .lake/chess-openevolve/**
+      - uses: actions/cache/save@caa296126883cff596d87d8935842f9db880ef25
+        if: always()
+        continue-on-error: true
+        with:
+          path: |
+            .lake/packages
+            .lake/build
+          key: chess-openevolve-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-baseline-${{ github.sha }}
