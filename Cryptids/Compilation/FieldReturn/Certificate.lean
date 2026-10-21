@@ -210,10 +210,10 @@ theorem iteration_refines (source : Tape Symbol) (binary : Tape Bit) (v : Fin 5)
   have marker := marker_rep source binary rep
   cases flag : source.head.1
   · simp only [Bool.false_eq_true, ↓reduceIte] at marker ⊢
-    exact ⟨by simpa [Routine.liftCfg, marker] using lift,
+    exact ⟨by simpa [Routine.liftCfg, marker, flag] using lift,
       move_rep source binary rep, by simpa [flag] using source_step (codeSymbol v) source⟩
   · simp only [↓reduceIte] at marker ⊢
-    exact ⟨by simpa [Routine.liftCfg, marker] using lift,
+    exact ⟨by simpa [Routine.liftCfg, marker, flag] using lift,
       rep, by simpa [flag] using source_step (codeSymbol v) source⟩
 
 /-- The source has exactly n unmarked cells before its first marker to the left. -/
