@@ -74,10 +74,10 @@ def sourceWord (source : Tape Symbol) : Word :=
 
 theorem represented_main (source : Tape Symbol) (binary : Tape Bit)
     (rep : RepTape source binary) : wordAt 0 binary = sourceWord source := by
-  have atzero : FieldReturn.stackAt (0 : Fin 4) = K'.main := rfl
-  simpa only [fieldOffset, Fin.val_zero, mul_zero, FieldReturn.symbolCell, atzero,
-    sourceWord] using
-    represented_field (FieldReturn.symbolCell source.head) binary 0 (local_rep source binary rep)
+  calc
+    wordAt 0 binary = encodeWord ((FieldReturn.symbolCell source.head).2 (0 : Fin 4)) :=
+      represented_field (FieldReturn.symbolCell source.head) binary 0 (local_rep source binary rep)
+    _ = sourceWord source := rfl
 
 theorem wordValue_encode (v : Fin 5) : wordValue (encodeWord v) = v.val := by
   fin_cases v <;> rfl
