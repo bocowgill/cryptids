@@ -141,11 +141,19 @@ theorem run_execute (p : Routine α) (tape : Tape Bit) :
     by_cases bit : tape.head = 0
     · simp only [steps, bit, ↓reduceIte, exitState, execute]
       rw [Nat.add_comm 1, FlatInit.runFrom]
+      have first : step (machine (.read dir zero one)) ⟨0, tape⟩ =
+          some (liftCfg (leftState zero one) ⟨0, tape.move dir⟩) := by
+        simp [step, machine, bit, liftCfg]
+      rw [first, Option.bind_some]
       change FlatInit.runFrom _ _ (liftCfg (leftState zero one) ⟨0, tape.move dir⟩) = _
       rw [run_lift zero.machine _ (leftState zero one) (left_rows dir zero one), iz]
       rfl
     · simp only [steps, bit, ↓reduceIte, exitState, execute]
       rw [Nat.add_comm 1, FlatInit.runFrom]
+      have first : step (machine (.read dir zero one)) ⟨0, tape⟩ =
+          some (liftCfg (rightState zero one) ⟨0, tape.move dir⟩) := by
+        simp [step, machine, bit, liftCfg]
+      rw [first, Option.bind_some]
       change FlatInit.runFrom _ _ (liftCfg (rightState zero one) ⟨0, tape.move dir⟩) = _
       rw [run_lift one.machine _ (rightState zero one) (right_rows dir zero one), io]
       rfl
