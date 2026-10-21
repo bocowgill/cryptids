@@ -13,6 +13,7 @@ namespace ConjectureMachines.Compilation.FieldContinuation
 open Turing PartrecToTM2 FieldBinary
 
 set_option backward.isDefEq.respectTransparency false
+set_option maxRecDepth 8192
 
 abbrev Symbol := FieldReturn.Symbol
 abbrev RepTape := FieldReturn.RepresentsTape
@@ -73,8 +74,7 @@ def sourceWord (source : Tape Symbol) : Word :=
 
 theorem represented_main (source : Tape Symbol) (binary : Tape Bit)
     (rep : RepTape source binary) : wordAt 0 binary = sourceWord source := by
-  simpa only [fieldOffset, Fin.val_zero, mul_zero, FieldReturn.symbolCell,
-    FieldReturn.stackAt, sourceWord] using
+  simpa [fieldOffset, FieldReturn.symbolCell, FieldReturn.stackAt, sourceWord] using
     represented_field (FieldReturn.symbolCell source.head) binary 0 (local_rep source binary rep)
 
 theorem wordValue_encode (v : Fin 5) : wordValue (encodeWord v) = v.val := by
@@ -90,9 +90,10 @@ theorem main_word_zero (source : Tape Symbol) :
 theorem symbolCell_clear (symbol : Symbol) :
     FieldReturn.symbolCell (clearMain symbol) =
       updateCell (FieldReturn.symbolCell symbol) 0 0 := by
-  apply Prod.ext rfl
-  funext i
-  fin_cases i <;> rfl
+  apply Prod.ext
+  · rfl
+  · funext i
+    fin_cases i <;> rfl
 
 /-- Clearing the main coordinate refines the actual source write over the entire tape. -/
 theorem clear_rep (source : Tape Symbol) (binary : Tape Bit) (rep : RepTape source binary) :
@@ -102,12 +103,16 @@ theorem clear_rep (source : Tape Symbol) (binary : Tape Bit) (rep : RepTape sour
   intro i j
   by_cases zero : i = 0
   · subst i
-    simpa [Represents, writeAt_execute, symbolCell_clear] using cellWrite j
+    change (written 0 (0, 0, 0) binary).nth (j.val : Int) =
+      encodeCell (FieldReturn.symbolCell (clearMain source.head)) j
+    rw [symbolCell_clear]
+    simpa [fieldOffset, encodeWord, writeAt_execute] using cellWrite j
   · have outside : 13 * i + (j.val : Int) < 0 ∨ 3 ≤ 13 * i + (j.val : Int) := by
       have := j.isLt
       omega
     rw [written_outside 0 (0, 0, 0) binary _ (by simpa using outside),
-      Tape.write_nth, if_neg zero]
+      Tape.write_nth]
+    simp only [zero, ↓reduceIte]
     exact rep i j
 
 theorem move_right_rep (source : Tape Symbol) (binary : Tape Bit)

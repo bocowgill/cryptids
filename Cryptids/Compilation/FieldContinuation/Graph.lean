@@ -13,7 +13,6 @@ namespace ConjectureMachines.Compilation.FieldContinuation
 open Turing FieldBinary
 
 set_option backward.isDefEq.respectTransparency false
-set_option maxHeartbeats 2000000
 
 abbrev readRoutine := readAt 0
 abbrev moveRight := moveCell Dir.right
@@ -148,7 +147,6 @@ theorem routine_transfer {α : Type} (p : Routine α) (encode : Fin p.size → F
   rw [FieldReturn.run_add, lifted, Option.bind_some]
   apply two_hop _ (back (p.execute tape).1) _ _ (gates (p.execute tape).1)
   intro b
-  change machine.transition (encode (p.exitState tape)) b = _
   rw [rows]
   simp only [plugged, p.exit_stops, p.result_exit, Option.map_some]
 
