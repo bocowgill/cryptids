@@ -81,11 +81,61 @@ def probe():
     save("probe", checks)
     print("Field binary compiler probe passed")
 
+def proofs():
+    checks=[run(["lake","--wfail","-f","lakefile.chess-field-binary.toml","build",
+                 "Cryptids.Compilation.FieldBinary.Pilot","chess_field_binary_audit",
+                 "chess_field_binary_export"], "Build completed successfully",timeout=1200)]
+    save("proofs",checks)
+    print("Field binary proof verification passed")
+
+def contracts():
+    audit=["lake","env",str(ROOT/".lake/build/bin/chess_field_binary_audit")]
+    checks=[run(audit,"FieldBinary foundation audit passed")]
+    for flag,expected in [("--negative-control","Forbidden axiom: sorryAx"),
+                          ("--negative-control-open","The open chess conjecture is a dependency"),
+                          ("--negative-control-generator","Proof generator is a mathematical dependency:")]:
+        checks.append(run(audit+[flag],expected,code=1))
+    for name,text in [
+        ("BadCount", "example : (moveCell Turing.Dir.right).size = 13 := by decide +kernel"),
+        ("BadWrite", "example (tape : Turing.Tape Bit) : (written 0 (1, 0, 0) tape).nth 0 = 0 := by rw [written_nth]; norm_num"),
+        ("BadCodec", "example : decodeWord (1, 0, 1) = 1 := by decide +kernel")]:
+        path=WORK/(name+".lean")
+        path.write_text("import Cryptids.Compilation.FieldBinary.Pilot\nopen ConjectureMachines.Compilation.FieldBinary\n"+text+"\n")
+        checks.append(run(["lake","env","lean","-M6144","-DwarningAsError=true",str(path)],"error:",code=1))
+    save("contracts",checks)
+    print("Field binary contracts passed")
+
+def fixtures():
+    checks=[run(["lake","env",str(ROOT/".lake/build/bin/chess_field_binary_export"),
+                 str(WORK/"routines.json")],"Field binary routine export passed")]
+    checks.append(run([sys.executable,"scripts/chess_field_binary/fixtures.py"],
+                      "Field binary independent fixtures passed",timeout=600))
+    detail=json.loads((WORK/"fixtures-detail.json").read_text())
+    save("fixtures",checks,case_count=detail["binary_machine_cases"],
+         exported_rows_sha256=sha(WORK/"routines.json"))
+    print("Field binary fixtures passed")
+
+def counts():
+    data=json.loads((WORK/"routines.json").read_text())
+    assert len(data["routines"])==38
+    read=[x["states"] for x in data["routines"] if x["kind"]=="read"]
+    write=[x["states"] for x in data["routines"] if x["kind"]=="write" and x["value"]==0]
+    movement=[x["states"] for x in data["routines"] if x["kind"].startswith("move_")]
+    assert read==[39,66,93,120] and write==[5,11,17,23] and movement==[14,14]
+    assert all(len(x["rows"])==x["states"]==len(x["exits"]) for x in data["routines"])
+    assert data["legacy_allocation_marginals"]==[211410,82000,110]
+    save("counts",[],candidate_standalone={"read":read,"write_constant":write,"move":movement},
+         legacy_marginal_body_allocation={"read":211410,"write":82000,"move":110},
+         comparison_scopes_differ=True,full_chess_machine_constructed=False,
+         accepted_chess_machine_states=390491642,
+         exported_rows_sha256=sha(WORK/"routines.json"))
+    print("Field binary counts passed")
+
 def main():
     parser=argparse.ArgumentParser()
-    parser.add_argument("--metadata",action="store_true")
-    parser.add_argument("--probe",action="store_true")
+    for flag in ["metadata","probe","proofs","contracts","fixtures","counts"]:
+        parser.add_argument("--"+flag,action="store_true")
     args=parser.parse_args()
-    if args.metadata: metadata()
-    if args.probe: probe()
+    for flag in ["metadata","probe","proofs","contracts","fixtures","counts"]:
+        if getattr(args,flag): globals()[flag]()
 if __name__=="__main__": main()

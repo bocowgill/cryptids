@@ -143,7 +143,8 @@ theorem run_execute (p : Routine α) (tape : Tape Bit) :
       rw [Nat.add_comm 1, FlatInit.runFrom]
       have first : step (machine (.read dir zero one)) ⟨0, tape⟩ =
           some (liftCfg (leftState zero one) ⟨0, tape.move dir⟩) := by
-        simp [step, machine, bit, liftCfg]
+        have unchanged : tape.write 0 = tape := by rw [← bit, Tape.write_self]
+        simp [step, machine, bit, liftCfg, unchanged]
       rw [first, Option.bind_some]
       change FlatInit.runFrom _ _ (liftCfg (leftState zero one) ⟨0, tape.move dir⟩) = _
       rw [run_lift zero.machine _ (leftState zero one) (left_rows dir zero one), iz]

@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "lake",
+    "--wfail",
+    "-f",
+    "lakefile.chess-field-binary.toml",
+    "build",
+    "Cryptids.Compilation.FieldBinary.Pilot"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "\u2716 [3814/3844] Building Cryptids.Compilation.FieldBinary.Routine (2.8s)\ntrace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean -M6144 /home/runner/work/cryptids/cryptids/Cryptids/Compilation/FieldBinary/Routine.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Compilation/FieldBinary/Routine.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Compilation/FieldBinary/Routine.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Compilation/FieldBinary/Routine.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Compilation/FieldBinary/Routine.setup.json --json\nerror: Cryptids/Compilation/FieldBinary/Routine.lean:145:68: unsolved goals\n\u03b1 : Type\ndir : Dir\nzero one : Routine \u03b1\niz :\n  \u2200 (tape : Tape Bit),\n    FlatInit.runFrom zero.machine (zero.steps tape) { state := 0, tape := tape } =\n      some { state := zero.exitState tape, tape := (zero.execute tape).2 }\nio :\n  \u2200 (tape : Tape Bit),\n    FlatInit.runFrom one.machine (one.steps tape) { state := 0, tape := tape } =\n      some { state := one.exitState tape, tape := (one.execute tape).2 }\ntape : Tape Bit\nbit : tape.head = 0\n\u22a2 Tape.move dir (Tape.write 0 tape) = Tape.move dir tape\nSome required targets logged failures:\n- Cryptids.Compilation.FieldBinary.Routine\nerror: build failed\n",
+  "output_sha256": "7b0c49ac352cac573e59a1cad3291fe37ea682bdb7aba57d4b7bcdf9752167c1",
+  "timed_out": false,
+  "elapsed_seconds": 5.738236937000011,
+  "cumulative_children_peak_rss_kib": 1764768
+}

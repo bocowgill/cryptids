@@ -33,3 +33,11 @@ name = "BusyBeaver"
 [[lean_lib]]
 name = "BusyBeaverChallenge"
 
+
+[[lean_exe]]
+name = "chess_field_binary_audit"
+root = "scripts.chess_field_binary.Audit"
+
+[[lean_exe]]
+name = "chess_field_binary_export"
+root = "scripts.chess_field_binary.Export"
