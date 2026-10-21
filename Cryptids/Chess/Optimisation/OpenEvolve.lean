@@ -77,10 +77,13 @@ theorem rowBody_eq : rowBody = body := by
     ⟨body.states, TerminalBinary.compile terminal M7.post⟩
   rw [TerminalBinary.table_compile]
 
+theorem rowBody_states : rowBody.states = 388936461 :=
+  (congrArg BundledMachine.states rowBody_eq).trans body_states
+
 theorem rowGenerated_states : (FlatInit.initialise Compilation.Input.bits rowBody).states =
     392046821 := by
   have count := Compilation.Input.initialise_states rowBody
-  rw [rowBody_eq, body_states] at count
+  rw [rowBody_states] at count
   exact count
 
 /-- Independent table recipe: remove the terminal bounce from M7's body before initialization. -/
