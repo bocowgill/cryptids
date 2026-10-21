@@ -54,15 +54,42 @@ theorem generated_states : generated.states = 392046821 := by
 def machine : Machine 392046821 2 :=
   Compilation.Image.castMachine generated_states generated.toMachine
 
+/-- Package an arbitrary paid initializer without normalizing any concrete input array. -/
+def numericImage {states : Nat} (bits : Array (Fin 2)) (B : BundledMachine 2)
+    (count : (FlatInit.initialise bits B).states = states) : Machine states 2 :=
+  Compilation.Image.castMachine count (FlatInit.initialise bits B).toMachine
+
+/-- Body equality passes through paid initialization and numeric casts, for arbitrary inputs. -/
+theorem numericImage_congr {states : Nat} (bits : Array (Fin 2))
+    (B C : BundledMachine 2) (equal : B = C)
+    (first : (FlatInit.initialise bits B).states = states)
+    (second : (FlatInit.initialise bits C).states = states) :
+    numericImage bits B first = numericImage bits C second := by
+  cases equal
+  rfl
+
+/-- The table-side body consumes only surviving accepted M7 binary rows. -/
+def rowBody : BundledMachine 2 :=
+  ⟨body.states, TerminalBinary.table terminal M7.body.toMachine⟩
+
+theorem rowBody_eq : rowBody = body := by
+  change (⟨body.states, TerminalBinary.table terminal (Binary.compile M7.post)⟩ : BundledMachine 2) =
+    ⟨body.states, TerminalBinary.compile terminal M7.post⟩
+  rw [TerminalBinary.table_compile]
+
+theorem rowGenerated_states : (FlatInit.initialise Compilation.Input.bits rowBody).states =
+    392046821 := by
+  have count := Compilation.Input.initialise_states rowBody
+  rw [rowBody_eq, body_states] at count
+  exact count
+
 /-- Independent table recipe: remove the terminal bounce from M7's body before initialization. -/
 def rowMachine : Machine 392046821 2 :=
-  Compilation.Image.castMachine generated_states
-    (FlatInit.initialise Compilation.Input.bits
-      ⟨body.states, TerminalBinary.table terminal M7.body.toMachine⟩).toMachine
+  numericImage Compilation.Input.bits rowBody rowGenerated_states
 
 theorem rowMachine_eq : rowMachine = machine := by
-  simp only [rowMachine, M7.body, TerminalBinary.table_compile]
-  rfl
+  exact numericImage_congr Compilation.Input.bits rowBody body rowBody_eq
+    rowGenerated_states generated_states
 
 theorem body_halts_input :
     Init.HaltsOn body.toMachine (Tape.mk₁ Compilation.Input.bits.toList) ↔

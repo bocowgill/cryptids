@@ -52,8 +52,11 @@ def run(command, expected="", code=0, timeout=900):
         selector = selectors.DefaultSelector()
         selector.register(process.stdout, selectors.EVENT_READ)
         while selector.get_map():
-            if time.monotonic() - begin > timeout:
-                os.killpg(process.pid, signal.SIGKILL)
+            if not timed_out and time.monotonic() - begin > timeout:
+                try:
+                    os.killpg(process.pid, signal.SIGKILL)
+                except ProcessLookupError:
+                    pass
                 timed_out = True
             for key, _ in selector.select(1):
                 data = os.read(key.fd, 65536)
