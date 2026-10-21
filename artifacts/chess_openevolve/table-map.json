@@ -1,0 +1,13 @@
+{
+  "format": "chess-openevolve-terminal-return-v1",
+  "source_map": "artifacts/chess_m7/table-map.json",
+  "source_map_sha256": "ecb76aa334014cf5ef038beaa5ec9c3808e8022d0e695847eae6f118a7207140",
+  "source_states": 392046822,
+  "candidate_states": 392046821,
+  "prefix_states": 3110360,
+  "post_states": 194468231,
+  "terminal": 1,
+  "removed_state": 197578592,
+  "construction": "delete source row; redirect incoming destinations to main terminal; decrement greater indices",
+  "certificate": "Chess.Optimisation.OpenEvolve.rowMachine_eq"
+}

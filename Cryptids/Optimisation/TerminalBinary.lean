@@ -149,4 +149,40 @@ theorem halts_input (h : Fin q) (M : TM0.Machine Bool (Fin q))
   simpa only [trCfg, TM0.init, Binary.encodeTape, Tape.map_mk₁, mainState, Fin.castAdd_zero]
     using haltsFrom h M terminal (TM0.init input)
 
+/-- Numeric destination map for a literal table: redirect the omitted bounce to main halt. -/
+def remap (h : Fin q) (s : Fin (q + q)) : Fin (q + (q - 1)) :=
+  Fin.addCases mainState (writeNext h) s
+
+@[simp] theorem remap_main (h i : Fin q) :
+    remap h (Binary.mainState i) = mainState i := by
+  simp [remap, Binary.mainState]
+
+@[simp] theorem remap_bounce (h i : Fin q) :
+    remap h (Binary.bounceState i) = writeNext h i := by
+  simp [remap, Binary.bounceState]
+
+/-- A table-side construction reads surviving original rows and maps their destinations.
+It does not inspect the Post program or the chess specification. -/
+def table (h : Fin q) (old : Machine (q + q) 2) : Machine (q + (q - 1)) 2 where
+  transition s a :=
+    (old.transition (Fin.addCases Binary.mainState (fun i ↦ Binary.bounceState (lift h i)) s) a).map
+      fun (b, d, next) ↦ (b, d, remap h next)
+
+/-- The independent row-deletion recipe and the new compiler agree on every state and symbol. -/
+theorem table_compile (h : Fin q) (M : TM0.Machine Bool (Fin q)) :
+    table h (Binary.compile M) = compile h M := by
+  ext s a
+  refine Fin.addCases (fun i ↦ ?_) (fun i ↦ ?_) s
+  · change ((Binary.compile M).transition (Binary.mainState i) a).map _ =
+      (compile h M).transition (mainState i) a
+    rw [Binary.compile_main, compile_main]
+    cases row : M i (Binary.decodeSymbol a) with
+    | none => rfl
+    | some v =>
+      rcases v with ⟨j, cmd⟩
+      cases cmd <;> simp
+  · change ((Binary.compile M).transition (Binary.bounceState (lift h i)) a).map _ =
+      (compile h M).transition (bounceState i) a
+    simp
+
 end ConjectureMachines.Optimisation.TerminalBinary

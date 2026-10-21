@@ -57,12 +57,32 @@ jobs:
         run: |
           mkdir -p .lake/chess-openevolve
           timeout --signal=TERM --kill-after=10s 600s lake --wfail build Cryptids.Optimisation.TerminalBinary 2>&1 | tee .lake/chess-openevolve/compiler.log
+      - name: Check new paid machine, trust closure and artifact
+        run: |
+          python3 scripts/chess_openevolve/verify.py --proofs
+          python3 scripts/chess_openevolve/verify.py --controls
+          python3 scripts/chess_openevolve/verify.py --artifact
+      - name: Check accepted M7 regression
+        run: python3 scripts/chess_openevolve/verify.py --regression
+      - name: Install pinned search runtime on remote CPU
+        run: |
+          python3 -m venv .lake/chess-openevolve/venv
+          .lake/chess-openevolve/venv/bin/pip install torch==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+          .lake/chess-openevolve/venv/bin/pip install -r scripts/chess_openevolve/requirements.txt
+          .lake/chess-openevolve/venv/bin/pip install --no-deps 'git+https://github.com/algorithmicsuperintelligence/openevolve.git@59dfe764b5ab4478ac00214432fcac33bbe2bf4b'
+          .lake/chess-openevolve/venv/bin/pip freeze > .lake/chess-openevolve/dependencies.txt
+      - name: Run bounded real OpenEvolve search
+        run: timeout --signal=TERM --kill-after=15s 2100s .lake/chess-openevolve/venv/bin/python scripts/chess_openevolve/verify.py --search
+      - name: Check frozen M1 through M5 regression
+        run: python3 scripts/chess_openevolve/verify.py --baseline
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
           name: chess-openevolve-evidence-${{ github.sha }}
           include-hidden-files: true
-          path: .lake/chess-openevolve/**
+          path: |
+            .lake/chess-openevolve/**
+            !.lake/chess-openevolve/venv/**
       - uses: actions/cache/save@caa296126883cff596d87d8935842f9db880ef25
         if: always()
         continue-on-error: true
