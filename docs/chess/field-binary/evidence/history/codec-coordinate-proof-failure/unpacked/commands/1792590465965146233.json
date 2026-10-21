@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "lake",
+    "--wfail",
+    "-f",
+    "lakefile.chess-field-binary.toml",
+    "build",
+    "Cryptids.Compilation.FieldBinary.Pilot"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "\u2714 [3814/3816] Built Cryptids.Compilation.FieldBinary.Fields (2.4s)\n\u2716 [3815/3819] Building Cryptids.Compilation.FieldBinary.Codec (3.0s)\ntrace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean -M6144 /home/runner/work/cryptids/cryptids/Cryptids/Compilation/FieldBinary/Codec.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Compilation/FieldBinary/Codec.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Compilation/FieldBinary/Codec.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Compilation/FieldBinary/Codec.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Compilation/FieldBinary/Codec.setup.json --json\nerror: Cryptids/Compilation/FieldBinary/Codec.lean:60:14: omega could not prove the goal:\nNo usable constraints found. You may need to unfold definitions so `omega` can see linear arithmetic facts about `Nat` and `Int`, which may also involve multiplication, division, and modular remainder by constants.\nerror: Cryptids/Compilation/FieldBinary/Codec.lean:60:14: omega could not prove the goal:\nNo usable constraints found. You may need to unfold definitions so `omega` can see linear arithmetic facts about `Nat` and `Int`, which may also involve multiplication, division, and modular remainder by constants.\nSome required targets logged failures:\n- Cryptids.Compilation.FieldBinary.Codec\nerror: build failed\n",
+  "output_sha256": "7663bf0090a0552458c73478be18d30cac959ba003af580914ddeaefdcc6e347",
+  "timed_out": false,
+  "elapsed_seconds": 8.422123423000016,
+  "cumulative_children_peak_rss_kib": 1816464
+}

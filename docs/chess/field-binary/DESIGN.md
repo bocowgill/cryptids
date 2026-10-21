@@ -28,3 +28,10 @@ Complete backend savings require later integration, which this pilot does not do
 
 Acceptance is recorded in .unlazy/chess-field-binary/GATES.md. Failed remote
 attempts and exact source hashes are retained; no local Lean/LSP/LeanProbe build.
+
+The legacy count differences hold every other inventory parameter fixed. Read and
+write-bearing families overlap in the accepted source classification. Those
+counterfactual allocation differences are not additive replacement costs for
+individual field operations. In particular, a constant three-bit write routine
+is not a complete dynamic writer/dispatcher. Do not report a per-operation saved
+state count or a full-machine saving ratio from this comparison.

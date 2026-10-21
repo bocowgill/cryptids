@@ -57,7 +57,7 @@ theorem wordAt_nth (offset : Nat) (tape : Tape Bit) :
   simp only [wordAt, wordHere]
   have head (t : Tape Bit) : t.head = t.nth 0 := rfl
   simp only [head, shift_right_nth, Tape.move_right_nth, zero_add]
-  congr 2 <;> omega
+  congr 2 <;> congr 1 <;> omega
 
 theorem represented_field (cell : Cell) (tape : Tape Bit) (field : Fin 4)
     (rep : Represents cell tape) :

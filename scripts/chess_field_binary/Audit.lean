@@ -75,9 +75,9 @@ def main (args : List String) : IO Unit := do
     seen := seen.insert name
     if name == `Chess.perfect_play_results_in_draw then
       throw <| IO.userError "The open chess conjecture is a dependency"
-    let some info := env.find? name | throw <| IO.userError s!"Missing declaration: {name}"
     if generator name then
       throw <| IO.userError s!"Proof generator is a mathematical dependency: {name}"
+    let some info := env.find? name | throw <| IO.userError s!"Missing declaration: {name}"
     if info.isUnsafe || info.isPartial then
       throw <| IO.userError s!"Unsafe or partial dependency: {name}"
     if info matches .axiomInfo _ then

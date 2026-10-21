@@ -12,7 +12,8 @@ public import Cryptids.Optimisation.CompactPost
 
 Candidate counts are complete standalone machines, including terminal controls. The
 legacy figures are marginal contributions of the accepted generic allocator, not counts
-for separately extracted standalone machines or a claimed full-chess improvement.
+for separately extracted standalone machines or a claimed full-chess improvement. Read/write
+families overlap; holding other inventory parameters fixed does not give additive replacement costs.
 -/
 
 @[expose] public section
