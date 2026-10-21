@@ -29,6 +29,10 @@ the reversed-write solution. The initial population contains only the accepted
 forward-write/long-return seed. Preflight checks of supplied identities are not
 model proposals and are recorded separately.
 
+Certificate diagnostics in later feedback can expose the names or source of the
+supplied proof identities. Absence of an explicit solution in the static system
+prompt does not mean that every later model request is free of optimization hints.
+
 The current proof tactic bank covers schedules reducible to the two supplied
 universal identities by Lean simplification. This restricts certification more
 than proposal generation: a valid new plan can be rejected as unproved. Such a

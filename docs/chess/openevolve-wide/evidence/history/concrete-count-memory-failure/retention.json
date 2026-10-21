@@ -1,0 +1,8 @@
+{
+  "run_id": 39593962240,
+  "commit": "75cbd9c19919579523955333ee0db009555dd148",
+  "conclusion": "failure",
+  "artifact_sha256": "248a4f898e3c99c90cc484cb41c4fc8140cd8493c6a52324cb03b1469b6c6eae",
+  "logs_sha256": "7c20c1f23d093ca7dc1ca27661a711521bfccd90f02703d7b60bd94886b947f4",
+  "entries": 1
+}

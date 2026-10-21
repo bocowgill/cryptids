@@ -70,7 +70,8 @@ def main():
         tokens=sum(m["usage"]["total_tokens"] for m in model),
         search_space="generative typed schedule expression trees; no enumerated response set",
         proof_support="supplied universal identities for forward and reversed initialization",
-        optimization_hint_in_prompt=False, autonomous_discovery_claim=False,
+        explicit_solution_in_system_prompt=False,
+        feedback_may_expose_supplied_proof_identities=True, autonomous_discovery_claim=False,
         python=sys.version, platform=platform.platform(), installed_openevolve_source=installed,
         versions={d.metadata["Name"]: d.version for d in importlib.metadata.distributions()},
         paid_api_calls=0, billing_amount_measured=False)

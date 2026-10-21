@@ -56,7 +56,8 @@ class CpuModel:
             prompt_truncated=original_width > 4096, response=response, usage=self.last_usage,
             input_token_ids=inputs.input_ids[0].tolist(), output_token_ids=output[0, width:].tolist(),
             seconds=time.monotonic()-begin, pid=os.getpid(), remote=True,
-            constrained_response_set=False, supplied_optimization_hint=False)
+            constrained_response_set=False, explicit_solution_in_system_prompt=False,
+            feedback_may_expose_supplied_proof_identities=True)
         with path.open("a") as stream:
             stream.write(json.dumps(record) + "\n")
         return response

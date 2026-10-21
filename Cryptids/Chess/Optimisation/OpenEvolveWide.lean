@@ -87,6 +87,8 @@ theorem cast_initialises {states offset : Nat} [NeZero states]
       some (⟨⟨offset, bound⟩, Tape.mk₁ bits.toList⟩ : Cfg states 2) := by
   have result := ReverseInit.Schedule.initialise_run (schedule bits) body (Tape.mk₁ [])
   rw [schedule_correct] at result
+  change FlatInit.runFrom (ReverseInit.Schedule.initialise (schedule bits) body).toMachine
+    (schedule bits).size ConjectureMachines.init = _ at result
   have lifted := Compilation.Image.cast_run count
     (ReverseInit.Schedule.initialise (schedule bits) body).toMachine
     (schedule bits).size ConjectureMachines.init
