@@ -1,0 +1,11 @@
+{
+  "Cryptids/Compilation/FieldReturn/Certificate.lean": "04b1e01d73be11a2fcade2ff4d559a4a81273bcf362883f5e114f8f33559b16e",
+  "scripts/chess_field_return/verify.py": "bda34e0d477dbe9733821387eb2d498754266a88a829008e8fb98f84c691792f",
+  "scripts/chess_field_return/fixtures.py": "9090ee641e175e9538069a62ad865ece4bd6139613b453aeb77b624043193978",
+  "scripts/chess_field_return/Audit.lean": "2fb6e9120fdf81cac8c66731668f1820439fe30b0f3551beb144008137cfb68b",
+  "scripts/chess_field_return/Export.lean": "b57cb8c8f51e8bc80cea4a14533885a017322795f44e35b337728336b4362714",
+  "docs/chess/field-return/DESIGN.md": "18af6a041d0512fa6535b61fd05a8359d20fba49495dfe85fde03dd2a599eaff",
+  "docs/chess/field-return/baseline-pins.json": "17010ce83e5148ffa247a87fe7fab02f0f2b18385e523d68ed86e839507fa279",
+  ".github/workflows/chess_field_return.yml": "c7e0774493bbd2bb3ab74ed161e87e1e934cf7ae43ca26bb45fecbac36c44917",
+  "lakefile.chess-field-return.toml": "45cae384c515337437a73ee047ce22c5aefec1eb3274fad092f761fc750ee61a"
+}

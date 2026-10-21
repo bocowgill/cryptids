@@ -1,0 +1,32 @@
+{
+  "source": {
+    "exit": 1,
+    "output": "Field return independent review rejected: computation source binding changed: proofs\n",
+    "output_sha256": "5d6841b0a23b57a2484c483bcd1c8d064f46250254397e1b99aad418dba0b4b4"
+  },
+  "entry": {
+    "exit": 1,
+    "output": "Field return independent review rejected: archive entry binding mismatch: BadCodec.lean\n",
+    "output_sha256": "96dacc3f633ee80fee9ab9b5b366f7931d95341ec12d59c53aef824796591ab6"
+  },
+  "claim": {
+    "exit": 1,
+    "output": "Field return independent review rejected: unsupported comparison claim\n",
+    "output_sha256": "66079188706def3568a7dcd8d9d0e202145a7217d6e742c743f9815dbf5dce7a"
+  },
+  "receipt": {
+    "exit": 1,
+    "output": "Field return independent review rejected: command receipt inventory/content mismatch\n",
+    "output_sha256": "94594e01da848a593848d12f80844b63bc8dee0239d43c3663d50b3967cbfcb5"
+  },
+  "missing-phase": {
+    "exit": 1,
+    "output": "Field return independent review rejected: missing verification phase\n",
+    "output_sha256": "24383af0173aae0c36101597dd8b2d96a25c6d39bfb220c0352371e7f28e6b05"
+  },
+  "seal": {
+    "exit": 1,
+    "output": "Field return independent review rejected: review seal mismatch: check_saved_evidence.py\n",
+    "output_sha256": "8eee6b0f803463a523cdd7f6edb17b615813ffc210bb23a5386b1cbcfd027413"
+  }
+}

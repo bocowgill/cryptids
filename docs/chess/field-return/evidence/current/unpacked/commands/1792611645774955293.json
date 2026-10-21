@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_field_return/fixtures.py"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "{\"status\": \"passed\", \"binary_machine_cases\": 56585, \"raw_cell_patterns\": 8192, \"valid_unmarked_cell_patterns\": 625, \"store_values\": 5, \"return_distances\": [0, 1, 2, 3, 7, 31, 64], \"visited_controls\": 245, \"corruption_controls\": [{\"name\": \"write-preservation\", \"rejected\": true}, {\"name\": \"marker-dispatch\", \"rejected\": true}, {\"name\": \"store-dispatch\", \"rejected\": true}, {\"name\": \"loop-return\", \"rejected\": true}, {\"name\": \"continuation-port\", \"rejected\": true}, {\"name\": \"uncharged-early-exit\", \"rejected\": true}]}\nField return independent fixtures passed\n",
+  "output_sha256": "06cd8e26df9c455046d8a3475025f9bd323c51e7eef3ca5a6da2213d8dc33afa",
+  "timed_out": false,
+  "elapsed_seconds": 2.235341919999996,
+  "cumulative_children_peak_rss_kib": 4374100
+}

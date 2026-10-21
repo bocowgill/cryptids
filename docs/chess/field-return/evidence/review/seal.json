@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "review_kind": "independent-model-advisory",
+  "reviewer": "independent leaf-1.1 / return_referee",
+  "review_gates": {
+    "R1": "passed",
+    "R2": "passed"
+  },
+  "remote_run_id": 39663260946,
+  "computation_commit": "a54a0823d7da7461c4b2c44998ff79f251e9b07e",
+  "formal_verification_by_reviewer": false,
+  "human_approval": false,
+  "local_heavy_computation": false,
+  "root_acceptance_and_live_status_separate": true,
+  "review_files_sha256": {
+    "check_saved_evidence.py": "312379a223d3f4ba5ae6d9d310c219919bb5e7fa022816be06bdfb604a8e0993",
+    "construction-binding.json": "ccc4a076d068b87a19943435e80c0381c98fbd05630ec715701ec0e6dec64cd2",
+    "receipt.json": "359cc3d7567ee0a307215a3b0adaab843bec3cdb393b23d43c830fe78aa553ad",
+    "R1.md": "dfcccecd6e3df0d160d8c69654d1b9bca90f7ba576f862f1512e177c83c68d7d",
+    "R1-repair.md": "26620feece37b389139aac27013af1a9846ecec3b231d117f58c51d21e519e0b",
+    "r1-source-sha256.json": "5b0c5c422ff7da1f0e68925aa165b63790ba41d2a02aeef3509b05bd8b8a08e2",
+    "R2.md": "1286da66b2aa4fc6e4d85454d38f5a5f3402be88cbc0ed13e02912188eb39caf",
+    "README.md": "3ff01179ad7cec515db4e4984ad6f3f2b2e617d3e040b717fb555a30cbd2d987",
+    "negative-controls.json": "848b586eb19009582f98314a9ff5bf11079657949676ca70b5f04529ea017af3"
+  },
+  "metadata_checker_negative_controls": {
+    "source": {
+      "exit": 1,
+      "output": "Field return independent review rejected: computation source binding changed: proofs\n",
+      "output_sha256": "5d6841b0a23b57a2484c483bcd1c8d064f46250254397e1b99aad418dba0b4b4"
+    },
+    "entry": {
+      "exit": 1,
+      "output": "Field return independent review rejected: archive entry binding mismatch: BadCodec.lean\n",
+      "output_sha256": "96dacc3f633ee80fee9ab9b5b366f7931d95341ec12d59c53aef824796591ab6"
+    },
+    "claim": {
+      "exit": 1,
+      "output": "Field return independent review rejected: unsupported comparison claim\n",
+      "output_sha256": "66079188706def3568a7dcd8d9d0e202145a7217d6e742c743f9815dbf5dce7a"
+    },
+    "receipt": {
+      "exit": 1,
+      "output": "Field return independent review rejected: command receipt inventory/content mismatch\n",
+      "output_sha256": "94594e01da848a593848d12f80844b63bc8dee0239d43c3663d50b3967cbfcb5"
+    },
+    "missing-phase": {
+      "exit": 1,
+      "output": "Field return independent review rejected: missing verification phase\n",
+      "output_sha256": "24383af0173aae0c36101597dd8b2d96a25c6d39bfb220c0352371e7f28e6b05"
+    },
+    "seal": {
+      "exit": 1,
+      "output": "Field return independent review rejected: review seal mismatch: check_saved_evidence.py\n",
+      "output_sha256": "8eee6b0f803463a523cdd7f6edb17b615813ffc210bb23a5386b1cbcfd027413"
+    }
+  }
+}

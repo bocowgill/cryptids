@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_field_return_audit"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "Audited 79 FieldReturn foundation roots and 4986 dependencies\nMeta certificate generator roots outside safe roots: 0\nCompiler artifacts outside safe roots: #[ConjectureMachines.Compilation.FieldReturn.sourceRun._unsafe_rec]\nPermitted axioms: #[propext, Classical.choice, Quot.sound]\nChess FieldReturn foundation audit passed\n",
+  "output_sha256": "31aeec80aef65a0f9039320134d523145739bb3fc6f24d877e9ea8909bbe17d4",
+  "timed_out": false,
+  "elapsed_seconds": 3.117115747999975,
+  "cumulative_children_peak_rss_kib": 4374100
+}

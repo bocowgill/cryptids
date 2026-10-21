@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_field_return_export",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-field-return/machine.json"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "Field return machine export passed\n",
+  "output_sha256": "c33975921bc050523f8ab8d3f0c2b44c4b65d6fa1319ea8be4d400e78180d3d8",
+  "timed_out": false,
+  "elapsed_seconds": 0.7683158979999973,
+  "cumulative_children_peak_rss_kib": 4374100
+}

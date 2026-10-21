@@ -1,0 +1,43 @@
+{
+  "status": "passed",
+  "binary_machine_cases": 56585,
+  "raw_cell_patterns": 8192,
+  "valid_unmarked_cell_patterns": 625,
+  "store_values": 5,
+  "return_distances": [
+    0,
+    1,
+    2,
+    3,
+    7,
+    31,
+    64
+  ],
+  "visited_controls": 245,
+  "corruption_controls": [
+    {
+      "name": "write-preservation",
+      "rejected": true
+    },
+    {
+      "name": "marker-dispatch",
+      "rejected": true
+    },
+    {
+      "name": "store-dispatch",
+      "rejected": true
+    },
+    {
+      "name": "loop-return",
+      "rejected": true
+    },
+    {
+      "name": "continuation-port",
+      "rejected": true
+    },
+    {
+      "name": "uncharged-early-exit",
+      "rejected": true
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "artifact_sha256": "3269f01270936800a80fb4b51e6375f97fa81b81713fbd3a52e3270444842451",
+  "computation_commit": "a54a0823d7da7461c4b2c44998ff79f251e9b07e",
+  "exported_rows_sha256": "2f993982f1fc2f958b6a9d03591a210fdabccc0fa927de1c5cf663a957ead1e1",
+  "full_chess_machine_constructed": false,
+  "full_chess_state_saving_claimed": false,
+  "local_heavy_computation": false,
+  "logs_sha256": "207c49df89e3fcac17164aeefd47fd51e53161e3c663d1140c9f92f0b893f0de",
+  "phases": [
+    "probe",
+    "proofs",
+    "contracts",
+    "fixtures",
+    "counts"
+  ],
+  "remote_run_id": 39663260946,
+  "saved_remote_fixture_cases": 56585,
+  "schema": 1,
+  "scope": "raw-return-continuation-capsule",
+  "source_sha256": {
+    ".github/workflows/chess_field_return.yml": "c7e0774493bbd2bb3ab74ed161e87e1e934cf7ae43ca26bb45fecbac36c44917",
+    "Cryptids/Compilation/FieldReturn/Certificate.lean": "e9fd2d47fac72639519ec69c1a48dd7289ac03ee9123313f8208be8c77d8b027",
+    "docs/chess/field-return/baseline-pins.json": "17010ce83e5148ffa247a87fe7fab02f0f2b18385e523d68ed86e839507fa279",
+    "lakefile.chess-field-return.toml": "45cae384c515337437a73ee047ce22c5aefec1eb3274fad092f761fc750ee61a",
+    "scripts/chess_field_return/Audit.lean": "fdade6a6e7b71171cb5abcf82ea999c2a44fea6043b1b48a5d615f2b84edd375",
+    "scripts/chess_field_return/Export.lean": "b57cb8c8f51e8bc80cea4a14533885a017322795f44e35b337728336b4362714",
+    "scripts/chess_field_return/fixtures.py": "9090ee641e175e9538069a62ad865ece4bd6139613b453aeb77b624043193978",
+    "scripts/chess_field_return/verify.py": "449f5c5861407629a59c6957487cfa36b2d4fe8fc0bc13e5feac0b1d3e67d861"
+  },
+  "status": "passed"
+}

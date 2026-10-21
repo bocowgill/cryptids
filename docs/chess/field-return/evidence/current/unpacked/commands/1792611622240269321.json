@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "lake",
+    "--wfail",
+    "-f",
+    "lakefile.chess-field-return.toml",
+    "build",
+    "Cryptids.Compilation.FieldReturn.Certificate",
+    "chess_field_return_audit",
+    "chess_field_return_export"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "\u2714 [3834/7669] Built scripts.chess_field_return.Audit (2.5s)\n\u2714 [7651/7669] Built Cryptids.Compilation.BalancedTable:c.o (482ms)\n\u2714 [7652/7669] Built scripts.chess_field_return.Audit:c.o (210ms)\n\u2714 [7658/7669] Built chess_field_return_audit:exe (1.3s)\n\u2714 [7663/7669] Built Cryptids.Compilation.RuntimeModel:c.o (915ms)\n\u2714 [7665/7669] Built Cryptids.Compilation.SharedModel:c.o (16s)\n\u2714 [7666/7669] Built Cryptids.Compilation.FieldReturn.Certificate:c.o (167ms)\n\u2714 [7667/7669] Built scripts.chess_field_return.Export (3.5s)\n\u2714 [7668/7669] Built scripts.chess_field_return.Export:c.o (107ms)\n\u2714 [7669/7669] Built chess_field_return_export:exe (1.9s)\nBuild completed successfully (7669 jobs).\n",
+  "output_sha256": "53f6a24636cf3c0c2965243565927e7e293cca1d93828ecb364c7616ec78bd32",
+  "timed_out": false,
+  "elapsed_seconds": 29.940439131000005,
+  "cumulative_children_peak_rss_kib": 4374100
+}

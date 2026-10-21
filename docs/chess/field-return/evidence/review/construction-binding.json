@@ -1,0 +1,131 @@
+{
+  "schema": 1,
+  "scope": "raw-return-continuation-capsule",
+  "formal_target": "ConjectureMachines.Compilation.FieldReturn.return_certificate",
+  "full_chess_machine_constructed": false,
+  "full_chess_state_saving_claimed": false,
+  "remote_run_id": 39663260946,
+  "computation_commit": "a54a0823d7da7461c4b2c44998ff79f251e9b07e",
+  "source_sha256": {
+    ".github/workflows/chess_field_return.yml": "c7e0774493bbd2bb3ab74ed161e87e1e934cf7ae43ca26bb45fecbac36c44917",
+    "Cryptids/Compilation/FieldReturn/Certificate.lean": "e9fd2d47fac72639519ec69c1a48dd7289ac03ee9123313f8208be8c77d8b027",
+    "docs/chess/field-return/baseline-pins.json": "17010ce83e5148ffa247a87fe7fab02f0f2b18385e523d68ed86e839507fa279",
+    "lakefile.chess-field-return.toml": "45cae384c515337437a73ee047ce22c5aefec1eb3274fad092f761fc750ee61a",
+    "scripts/chess_field_return/Audit.lean": "fdade6a6e7b71171cb5abcf82ea999c2a44fea6043b1b48a5d615f2b84edd375",
+    "scripts/chess_field_return/Export.lean": "b57cb8c8f51e8bc80cea4a14533885a017322795f44e35b337728336b4362714",
+    "scripts/chess_field_return/fixtures.py": "9090ee641e175e9538069a62ad865ece4bd6139613b453aeb77b624043193978",
+    "scripts/chess_field_return/verify.py": "449f5c5861407629a59c6957487cfa36b2d4fe8fc0bc13e5feac0b1d3e67d861"
+  },
+  "reviewed_extra_source_sha256": {
+    "docs/chess/field-return/DESIGN.md": "18af6a041d0512fa6535b61fd05a8359d20fba49495dfe85fde03dd2a599eaff",
+    "docs/chess/field-return/RESULTS.md": "f92c74581ecf3e4a4c2200d0ac048b3b4749a0949611045e376d8ccd40a427a0",
+    "docs/chess/field-return/RESUME.md": "35e2916213e6e06df73f9fa52d4a3702c7aeec90be9070bb30e5650c0fafaa12",
+    "docs/chess/field-return/results.json": "5a47d585d38edfd3bce5ceb22824632cf6c3ce163ff6900822e119cb231844d0",
+    "docs/chess/field-return/evidence/check_evidence.py": "2ebda478189e46ac5f57dddcc2a78a07fd5176b231441c6128a655e2f4ad0cce",
+    "docs/chess/field-return/evidence/retain_remote.py": "7fb033ccff9daff1c2665491f7d4b778cc453e32baafa72d73acd06959b7fd69",
+    "docs/chess/field-return/evidence/remote-status.json": "8abc7b8617c5848457ca9d0c965d31beca96782b9a8c0e5ed55e1f72bc4cd23c",
+    "docs/chess/field-return/evidence/run-dispositions.json": "517ffa9fbaf8a145d290fa9043b2d6f8f35b9df1d6e51685fa58931d46745cff"
+  },
+  "retained_history_sha256": {
+    "docs/chess/field-return/evidence/history/attempt-1/archive-entries.json": "4b34fda94b4b49fdac918f617737cde7f2ebd9077916cdc6fdd765f0d32e4a0b",
+    "docs/chess/field-return/evidence/history/attempt-1/artifact-api.json": "a4dea46d8f83962ffc2086167b13d209de5c07425579110314a2787b1054bd2e",
+    "docs/chess/field-return/evidence/history/attempt-1/artifact.zip": "4cbc2c6afb4147781050a4ee948c655476163d4a94993411ea6675b449bf9a19",
+    "docs/chess/field-return/evidence/history/attempt-1/jobs-api.json": "4cd8b1e8f839ee8c3f6900f7b6e42ff757b73ee5c3ac8c76fcf26a8a38066fa1",
+    "docs/chess/field-return/evidence/history/attempt-1/logs.zip": "2e4610e3e0225e0cfa8cb6457be3cfaa20fc04bfd5bc060664bc5a216fca7af1",
+    "docs/chess/field-return/evidence/history/attempt-1/retention.json": "2029905b8c70adfa296649cc60c134cf988358964660abc278697bad570717f2",
+    "docs/chess/field-return/evidence/history/attempt-1/run-api.json": "fd8a722474086441e9cd4d082b918639f9a6b8a91a5fdeea1faa197c9d8cdd49",
+    "docs/chess/field-return/evidence/history/attempt-1/unpacked/commands/1792610847587931071.json": "c9f842f6baa6a25139e38764e707353521405a94cefe63a976abb795f5d7bf5f",
+    "docs/chess/field-return/evidence/history/attempt-2/archive-entries.json": "b5530d8265d19ebee9c5a70217431a1c99ad5d735d0aa8947480ffa37071de24",
+    "docs/chess/field-return/evidence/history/attempt-2/artifact-api.json": "91eb49223590db798ad832d0aaf271d8ba6dd424bbe0ac173e88677e3ed860e9",
+    "docs/chess/field-return/evidence/history/attempt-2/artifact.zip": "cdecfbf51faf554200bfb5438eb24c64c7bb9e13b935637cea4089321c6c8b85",
+    "docs/chess/field-return/evidence/history/attempt-2/jobs-api.json": "b9127bafffaf7418031ff7e3defe2ec9bd745ca6fba0b87228ac89b35b69b647",
+    "docs/chess/field-return/evidence/history/attempt-2/logs.zip": "45a3ec5c15d9f908135c91e45d9bc2c361c9d908587b61efe794621de7ffb21a",
+    "docs/chess/field-return/evidence/history/attempt-2/retention.json": "d42c46858fe60ea7dd01232adb9f4699e35eda355939663c5b65f42b44ac341c",
+    "docs/chess/field-return/evidence/history/attempt-2/run-api.json": "9d15f3109af8c323b605d5f674b4e76b8f5867ed523d3211502236c292abac87",
+    "docs/chess/field-return/evidence/history/attempt-2/unpacked/commands/1792611165346454948.json": "3c4bc09def2a92b6c2a491887fe16f5967849459f76c738e019887a12e5ca27a",
+    "docs/chess/field-return/evidence/history/attempt-3/archive-entries.json": "bd279ae07970b0b6150ab6de9ee77d7febe80816cb38431bdf6c839d1e82faab",
+    "docs/chess/field-return/evidence/history/attempt-3/artifact-api.json": "52bd563c8a884c55de199d866da0848c8e1f3448784ba592c21600a2269c7de9",
+    "docs/chess/field-return/evidence/history/attempt-3/artifact.zip": "866d55a3a41c5e297a383a755d69f02a97a24731c02169f38ff810bdcb40c0e0",
+    "docs/chess/field-return/evidence/history/attempt-3/jobs-api.json": "fc7a54b5f93e7a5e4112eaf45e27c659f83790dfabfd7b12b760d9682e78ae8f",
+    "docs/chess/field-return/evidence/history/attempt-3/logs.zip": "2a467d322bc5be25ca217fae03e58993811994efec75394f82d27738954cf6e4",
+    "docs/chess/field-return/evidence/history/attempt-3/retention.json": "fb98c537f880dec18f8f8c7fae117e4b871f4ba1a3d349efad7ffa71971e3e4d",
+    "docs/chess/field-return/evidence/history/attempt-3/run-api.json": "7073dc1c2f8f1576f82c14d75c7a0e2890579caed6c2fa76fa7bd2361f61d781",
+    "docs/chess/field-return/evidence/history/attempt-3/unpacked/commands/1792611363680360435.json": "44e9ad8ef6174d285fdb0ddbc28bc19a6542bef85f8c84d06e9962a19c6070b4"
+  },
+  "retained_unsuccessful_runs": [
+    {
+      "folder": "attempt-1",
+      "run_id": 39661491662,
+      "commit": "1f843eb36a96a69c7fc872100a46e2de44d66806",
+      "conclusion": "failure"
+    },
+    {
+      "folder": "attempt-2",
+      "run_id": 39662174056,
+      "commit": "708be93174d9d7782336b301136c7958d3635fc2",
+      "conclusion": "failure"
+    },
+    {
+      "folder": "attempt-3",
+      "run_id": 39662810477,
+      "commit": "09be6bc27fd153d5228f7a8d8c54ddcd876baefe",
+      "conclusion": "failure"
+    }
+  ],
+  "official_metadata_sha256": {
+    "run-api.json": "bde14c54cd4e6c7cf21a5cabde95c2578783cd5b1c66592d17f8ed5178e5b0e6",
+    "jobs-api.json": "706d11f9100aae0ae0be240415d3b366f4064ee281afe255c1ce147b26976dec",
+    "artifact-api.json": "f95c414039c30db58b02af2e0f7e23e3077b8e316099a475f2578321b2a45815",
+    "retention.json": "de8972a062a74d1a81faefe248200660a812abbd8f42699910030f3d9566995b",
+    "archive-entries.json": "8ac54546f906bbc4d8dd07b623f888071d9461752396f40a00061bccae6e4165"
+  },
+  "artifact_sha256": "3269f01270936800a80fb4b51e6375f97fa81b81713fbd3a52e3270444842451",
+  "logs_sha256": "207c49df89e3fcac17164aeefd47fd51e53161e3c663d1140c9f92f0b893f0de",
+  "exported_rows_sha256": "2f993982f1fc2f958b6a9d03591a210fdabccc0fa927de1c5cf663a957ead1e1",
+  "remote_root": "/home/runner/work/cryptids/cryptids",
+  "python_executable": "/usr/bin/python3",
+  "permitted_axioms_line": "Permitted axioms: #[propext, Classical.choice, Quot.sound]",
+  "fixture_detail": {
+    "status": "passed",
+    "binary_machine_cases": 56585,
+    "raw_cell_patterns": 8192,
+    "valid_unmarked_cell_patterns": 625,
+    "store_values": 5,
+    "return_distances": [
+      0,
+      1,
+      2,
+      3,
+      7,
+      31,
+      64
+    ],
+    "visited_controls": 245,
+    "corruption_controls": [
+      {
+        "name": "write-preservation",
+        "rejected": true
+      },
+      {
+        "name": "marker-dispatch",
+        "rejected": true
+      },
+      {
+        "name": "store-dispatch",
+        "rejected": true
+      },
+      {
+        "name": "loop-return",
+        "rejected": true
+      },
+      {
+        "name": "continuation-port",
+        "rejected": true
+      },
+      {
+        "name": "uncharged-early-exit",
+        "rejected": true
+      }
+    ]
+  }
+}

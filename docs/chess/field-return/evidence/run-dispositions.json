@@ -1,0 +1,13 @@
+{
+  "accepted": 39663260946,
+  "failed_proof_development": [
+    39661491662,
+    39662174056,
+    39662810477
+  ],
+  "cancelled_redundant_jobs": [
+    39661491594,
+    39661491608
+  ],
+  "active_jobs": []
+}

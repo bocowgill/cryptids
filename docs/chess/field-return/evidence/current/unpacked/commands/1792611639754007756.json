@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-field-return/BadDispatch.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "/home/runner/work/cryptids/cryptids/.lake/chess-field-return/BadDispatch.lean:3:70: error: Tactic `decide` proved that the proposition\n  block.transition 12 0 = some (0, Turing.Dir.left, 37)\nis false\n",
+  "output_sha256": "f930a47e33c96e28ccd65f1fabd29658edd165a1433f701126057febd5b38809",
+  "timed_out": false,
+  "elapsed_seconds": 3.0660750389999976,
+  "cumulative_children_peak_rss_kib": 4374100
+}
