@@ -1,0 +1,68 @@
+name: Chess OpenEvolve pilot
+
+on:
+  push:
+    branches: ['codex/chess-openevolve-pilot']
+    paths:
+      - 'Cryptids/Optimisation/TerminalBinary.lean'
+      - 'Cryptids/Chess/Optimisation/OpenEvolve.lean'
+      - 'Cryptids/Semantics/ChessOpenEvolve.lean'
+      - 'scripts/chess_openevolve/**'
+      - '.github/workflows/chess_openevolve_ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: chess-openevolve-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      ELAN_NO_UPDATE_CHECK: '1'
+      LEAN_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '2'
+      MKL_NUM_THREADS: '2'
+      CHESS_REMOTE: '1'
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+      - name: Prepare supported remote sandbox
+        run: |
+          sudo apt-get update -qq >/dev/null
+          sudo apt-get install -y -qq bubblewrap >/dev/null
+          sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+      - uses: leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6
+        with:
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'false'
+          use-github-cache: 'false'
+      - uses: actions/cache/restore@caa296126883cff596d87d8935842f9db880ef25
+        with:
+          path: .lake
+          key: chess-openevolve-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-${{ github.sha }}
+          restore-keys: |
+            chess-openevolve-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-
+            chess-m7-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-
+      - name: Check compiler contract remotely
+        run: |
+          mkdir -p .lake/chess-openevolve
+          timeout --signal=TERM --kill-after=10s 600s lake --wfail build Cryptids.Optimisation.TerminalBinary 2>&1 | tee .lake/chess-openevolve/compiler.log
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: chess-openevolve-evidence-${{ github.sha }}
+          include-hidden-files: true
+          path: .lake/chess-openevolve/**
+      - uses: actions/cache/save@caa296126883cff596d87d8935842f9db880ef25
+        if: always()
+        continue-on-error: true
+        with:
+          path: .lake
+          key: chess-openevolve-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-${{ github.sha }}
