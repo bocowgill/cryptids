@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_field_binary_audit"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "Audited 196 FieldBinary foundation roots and 5787 dependencies\nMeta certificate generator roots outside safe roots: 0\nCompiler artifacts outside safe roots: #[ConjectureMachines.Compilation.FieldBinary.shift._unsafe_rec, ConjectureMachines.Compilation.FieldBinary.Routine.execute._unsafe_rec, ConjectureMachines.Compilation.FieldBinary.Routine.exitState._unsafe_rec, ConjectureMachines.Compilation.FieldBinary.Routine.machine._unsafe_rec, ConjectureMachines.Compilation.FieldBinary.Routine.result._unsafe_rec, ConjectureMachines.Compilation.FieldBinary.Routine.size._unsafe_rec, ConjectureMachines.Compilation.FieldBinary.Routine.steps._unsafe_rec]\nPermitted axioms: #[propext, Classical.choice, Quot.sound]\nChess FieldBinary foundation audit passed\n",
+  "output_sha256": "77cfd79e8ec9233e597a82ccb328d2d116fc0839aced298e5d239cee216332c0",
+  "timed_out": false,
+  "elapsed_seconds": 3.536838782999979,
+  "cumulative_children_peak_rss_kib": 4380464
+}

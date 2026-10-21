@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_field_binary/fixtures.py"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "Field binary independent fixtures passed: 311296 machine cases; 6 rejected controls\n",
+  "output_sha256": "f6686d999197a877739c48bf41cb2e05c10818d164b147b346306bcb4c1fc2a1",
+  "timed_out": false,
+  "elapsed_seconds": 3.042430825999986,
+  "cumulative_children_peak_rss_kib": 4380464
+}

@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_field_binary_export",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-field-binary/routines.json"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "Field binary routine export passed\n",
+  "output_sha256": "abfb9c053261ef8ce2056dd31de3a92f265c35132e461487ff6dd20b88772473",
+  "timed_out": false,
+  "elapsed_seconds": 0.8112242779999974,
+  "cumulative_children_peak_rss_kib": 4380464
+}

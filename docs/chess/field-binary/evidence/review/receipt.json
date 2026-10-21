@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "scope": "independent saved-evidence and source review",
+  "remote_run_id": 39621322042,
+  "computation_commit": "aec53614962607635789060f51c4576bdcdc00b0",
+  "saved_run_updated_at": "2026-10-21T15:00:19Z",
+  "artifact_id": 12354329768,
+  "artifact_sha256": "3b760230b9d449a32293edeaeccbce7a7d6446b568d6467976279f72cfd9d22e",
+  "logs_sha256": "765b273322ae0246304a04f604ab8ff6b429a84d7057e24e18086e8efdff491c",
+  "archive_entries": 21,
+  "phases": [
+    "probe",
+    "proofs",
+    "contracts",
+    "fixtures",
+    "counts"
+  ],
+  "computation_inputs": 11,
+  "frozen_inputs": 237,
+  "machine_cases_observed_remotely": 311296,
+  "raw_patterns": 8192,
+  "valid_cells": 1250,
+  "invalid_cells": 6942,
+  "table_controls": 6,
+  "audit_roots": 196,
+  "audit_dependencies": 5787,
+  "audit_controls": 3,
+  "false_theorem_controls": 3,
+  "retained_failed_runs": [
+    39607907762,
+    39608668800,
+    39609387995,
+    39610078320,
+    39610691159
+  ],
+  "standalone_states": {
+    "read": [
+      39,
+      66,
+      93,
+      120
+    ],
+    "write_constant": [
+      5,
+      11,
+      17,
+      23
+    ],
+    "move": [
+      14,
+      14
+    ]
+  },
+  "legacy_allocation_marginals": {
+    "read": 211410,
+    "write": 82000,
+    "move": 110
+  },
+  "comparison_scopes_differ": true,
+  "marginals_additive_replacement_costs": false,
+  "full_chess_backend_integration": false,
+  "accepted_chess_machine_states": 390491642,
+  "local_heavy_computation": false,
+  "outreach_performed": false,
+  "live_job_status_reviewed_here": false,
+  "root_acceptance_is_separate": true,
+  "construction_binding_sha256": "a0f633c7c78bca3299ebed45a115d083a1e5225b97809a6d24d0c2589c22a60a"
+}

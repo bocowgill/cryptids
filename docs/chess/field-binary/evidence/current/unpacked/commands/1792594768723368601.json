@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-field-binary/BadWrite.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "/home/runner/work/cryptids/cryptids/.lake/chess-field-binary/BadWrite.lean:3:75: error: unsolved goals\ntape : Turing.Tape Bit\n\u22a2 False\n",
+  "output_sha256": "a7378096575f49ef0b4af9f7a61595bfb24dcecff312921a3fd3406e4749eaef",
+  "timed_out": false,
+  "elapsed_seconds": 3.5813994830000127,
+  "cumulative_children_peak_rss_kib": 4380464
+}

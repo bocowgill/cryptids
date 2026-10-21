@@ -1,0 +1,147 @@
+{
+  "status": "passed",
+  "recorded_utc": "2026-10-21T16:49:37.414875+00:00",
+  "run_id": 39621322042,
+  "computation_commit": "aec53614962607635789060f51c4576bdcdc00b0",
+  "local_heavy_computation": false,
+  "checks": [
+    {
+      "command": "python3 scripts/chess_field_binary/verify.py --metadata",
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": "/bin/zsh",
+      "exit": 0,
+      "expected_exit": 0,
+      "expect": "Field binary frozen inputs passed",
+      "matched": true,
+      "output": "Field binary frozen inputs passed\n",
+      "output_sha256": "c57e325c6e28ef247b4b99475907ba1425aef6394d5ea55acc1ba4f12da84c43"
+    },
+    {
+      "command": "python3 docs/chess/field-binary/evidence/check_evidence.py",
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": "/bin/zsh",
+      "exit": 0,
+      "expected_exit": 0,
+      "expect": "Field binary retained evidence passed",
+      "matched": true,
+      "output": "Field binary retained evidence passed\n",
+      "output_sha256": "0b0c5f7769981752eae009c5621a95e459d9561dd647f61369f00289fcf14673"
+    },
+    {
+      "command": "python3 docs/chess/openevolve-wide/evidence/check_evidence.py",
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": "/bin/zsh",
+      "exit": 0,
+      "expected_exit": 0,
+      "expect": "Broader OpenEvolve retained evidence passed",
+      "matched": true,
+      "output": "Retained OpenEvolve evidence passed: matching current sources, 192 frozen inputs, six composed phases, five real model proposals; core timeout retained\nBroader OpenEvolve retained evidence passed\n",
+      "output_sha256": "8fb5fbb24de4307f80b9ad7121f888c98f53fba6334794c77c5a61cc79e8b0ff"
+    },
+    {
+      "command": "python3 docs/chess/field-binary/evidence/review/check_saved_evidence.py",
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": "/bin/zsh",
+      "exit": 0,
+      "expected_exit": 0,
+      "expect": "Field binary independent saved-evidence review passed",
+      "matched": true,
+      "output": "Field binary independent saved-evidence review passed\n",
+      "output_sha256": "af8cbe8cf59b6a29bfa646304567ace03fc3b7a349c8f6a4b1f81cf15d2dd770"
+    },
+    {
+      "command": "python3 docs/chess/field-binary/evidence/review/check_saved_evidence.py --negative-control source",
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": "/bin/zsh",
+      "exit": 1,
+      "expected_exit": 1,
+      "expect": "Field binary independent review rejected:",
+      "matched": true,
+      "output": "Field binary independent review rejected: computation source binding changed\n",
+      "output_sha256": "e5e1c780b7cf81293b775a3d29847bb508942b21ac63190933e7105ad3db4f61"
+    },
+    {
+      "command": "python3 docs/chess/field-binary/evidence/review/check_saved_evidence.py --negative-control entry",
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": "/bin/zsh",
+      "exit": 1,
+      "expected_exit": 1,
+      "expect": "Field binary independent review rejected:",
+      "matched": true,
+      "output": "Field binary independent review rejected: archive entry binding mismatch: BadCodec.lean\n",
+      "output_sha256": "306a0b7520e86186f742a7669eee7e71b3c52238edb4da55cc630d3a429c5ade"
+    },
+    {
+      "command": "python3 docs/chess/field-binary/evidence/review/check_saved_evidence.py --negative-control claim",
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": "/bin/zsh",
+      "exit": 1,
+      "expected_exit": 1,
+      "expect": "Field binary independent review rejected:",
+      "matched": true,
+      "output": "Field binary independent review rejected: unsupported comparison claim\n",
+      "output_sha256": "fbde77795184c47d3a26e0e86281484dde4215a73802f37f2ee865ccadde9f54"
+    },
+    {
+      "command": "git diff --check",
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": "/bin/zsh",
+      "exit": 0,
+      "expected_exit": 0,
+      "expect": "",
+      "matched": true,
+      "output": "",
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "independent_review_type": "advisory model review; not human approval or replacement for Lean proofs",
+  "review_seal_sha256": "5701b0badcf9918ca0193c624cb5c8e32a4e44874bd7871956bc4ddef30aa164",
+  "reviewed_repository_bindings_checked": 324,
+  "promoted_review_files": 8,
+  "promoted_files_byte_identical": true,
+  "deterministic_receipt_replay_unchanged": true,
+  "frozen_inputs_checked": 237,
+  "new_computation_inputs": 11,
+  "public_local_links_checked": 14,
+  "saved_remote_run_count": 65,
+  "active_remote_runs": 0,
+  "remote_snapshot_sha256": "7d45f937cab7d57dc802023be5703bc22964759b6989c84a5d6aa47f54e2fd4d",
+  "candidate_routine_counts": {
+    "read": [
+      39,
+      66,
+      93,
+      120
+    ],
+    "write_constant": [
+      5,
+      11,
+      17,
+      23
+    ],
+    "move": [
+      14,
+      14
+    ]
+  },
+  "full_chess_machine_states": 390491642,
+  "full_chess_backend_integration": false,
+  "per_operation_saving_claim": false,
+  "outreach_performed": false,
+  "upstream_writes": false,
+  "gate_counts": {
+    "met": 8,
+    "unmet": 0,
+    "abandoned": 0,
+    "command": [
+      "node",
+      "/Users/bocowgill/.agents/skills/unlazy/scripts/gate-check.mjs",
+      "--scope",
+      "chess-field-binary",
+      "--status"
+    ],
+    "exit": 0,
+    "output": "GATES.md: 6 gates\nleaf-1.1.md: 2 gates\nALL MET (8 met) [scope chess-field-binary]\n",
+    "output_sha256": "6f6f92a462805f9a00f7cf70c8ff9c1a027740da48452c5996a4eaa48f23dd7a"
+  }
+}

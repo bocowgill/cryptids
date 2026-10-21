@@ -1,0 +1,309 @@
+{
+  "status": "passed",
+  "routines": [
+    {
+      "kind": "read",
+      "offset": 0,
+      "value": 0,
+      "states": 39,
+      "raw_cell_patterns": 8192
+    },
+    {
+      "kind": "write",
+      "offset": 0,
+      "value": 0,
+      "states": 5,
+      "raw_cell_patterns": 8192
+    },
+    {
+      "kind": "write",
+      "offset": 0,
+      "value": 1,
+      "states": 5,
+      "raw_cell_patterns": 8192
+    },
+    {
+      "kind": "write",
+      "offset": 0,
+      "value": 2,
+      "states": 5,
+      "raw_cell_patterns": 8192
+    },
+    {
+      "kind": "write",
+      "offset": 0,
+      "value": 3,
+      "states": 5,
+      "raw_cell_patterns": 8192
+    },
+    {
+      "kind": "write",
+      "offset": 0,
+      "value": 4,
+      "states": 5,
+      "raw_cell_patterns": 8192
+    },
+    {
+      "kind": "write",
+      "offset": 0,
+      "value": 5,
+      "states": 5,
+      "raw_cell_patterns": 8192
+    },
+    {
+      "kind": "write",
+      "offset": 0,
+      "value": 6,
+      "states": 5,
+      "raw_cell_patterns": 8192
+    },
+    {
+      "kind": "write",
+      "offset": 0,
+      "value": 7,
+      "states": 5,
+      "raw_cell_patterns": 8192
+    },
+    {
+      "kind": "read",
+      "offset": 3,
+      "value": 0,
+      "states": 66,
+      "raw_cell_patterns": 8192
+    },
+    {
+      "kind": "write",
+      "offset": 3,
+      "value": 0,
+      "states": 11,
+      "raw_cell_patterns": 8192
+    },
+    {
+      "kind": "write",
+      "offset": 3,
+      "value": 1,
+      "states": 11,
+      "raw_cell_patterns": 8192
+    },
+    {
+      "kind": "write",
+      "offset": 3,
+      "value": 2,
+      "states": 11,
+      "raw_cell_patterns": 8192
+    },
+    {
+      "kind": "write",
+      "offset": 3,
+      "value": 3,
+      "states": 11,
+      "raw_cell_patterns": 8192
+    },
+    {
+      "kind": "write",
+      "offset": 3,
+      "value": 4,
+      "states": 11,
+      "raw_cell_patterns": 8192
+    },
+    {
+      "kind": "write",
+      "offset": 3,
+      "value": 5,
+      "states": 11,
+      "raw_cell_patterns": 8192
+    },
+    {
+      "kind": "write",
+      "offset": 3,
+      "value": 6,
+      "states": 11,
+      "raw_cell_patterns": 8192
+    },
+    {
+      "kind": "write",
+      "offset": 3,
+      "value": 7,
+      "states": 11,
+      "raw_cell_patterns": 8192
+    },
+    {
+      "kind": "read",
+      "offset": 6,
+      "value": 0,
+      "states": 93,
+      "raw_cell_patterns": 8192
+    },
+    {
+      "kind": "write",
+      "offset": 6,
+      "value": 0,
+      "states": 17,
+      "raw_cell_patterns": 8192
+    },
+    {
+      "kind": "write",
+      "offset": 6,
+      "value": 1,
+      "states": 17,
+      "raw_cell_patterns": 8192
+    },
+    {
+      "kind": "write",
+      "offset": 6,
+      "value": 2,
+      "states": 17,
+      "raw_cell_patterns": 8192
+    },
+    {
+      "kind": "write",
+      "offset": 6,
+      "value": 3,
+      "states": 17,
+      "raw_cell_patterns": 8192
+    },
+    {
+      "kind": "write",
+      "offset": 6,
+      "value": 4,
+      "states": 17,
+      "raw_cell_patterns": 8192
+    },
+    {
+      "kind": "write",
+      "offset": 6,
+      "value": 5,
+      "states": 17,
+      "raw_cell_patterns": 8192
+    },
+    {
+      "kind": "write",
+      "offset": 6,
+      "value": 6,
+      "states": 17,
+      "raw_cell_patterns": 8192
+    },
+    {
+      "kind": "write",
+      "offset": 6,
+      "value": 7,
+      "states": 17,
+      "raw_cell_patterns": 8192
+    },
+    {
+      "kind": "read",
+      "offset": 9,
+      "value": 0,
+      "states": 120,
+      "raw_cell_patterns": 8192
+    },
+    {
+      "kind": "write",
+      "offset": 9,
+      "value": 0,
+      "states": 23,
+      "raw_cell_patterns": 8192
+    },
+    {
+      "kind": "write",
+      "offset": 9,
+      "value": 1,
+      "states": 23,
+      "raw_cell_patterns": 8192
+    },
+    {
+      "kind": "write",
+      "offset": 9,
+      "value": 2,
+      "states": 23,
+      "raw_cell_patterns": 8192
+    },
+    {
+      "kind": "write",
+      "offset": 9,
+      "value": 3,
+      "states": 23,
+      "raw_cell_patterns": 8192
+    },
+    {
+      "kind": "write",
+      "offset": 9,
+      "value": 4,
+      "states": 23,
+      "raw_cell_patterns": 8192
+    },
+    {
+      "kind": "write",
+      "offset": 9,
+      "value": 5,
+      "states": 23,
+      "raw_cell_patterns": 8192
+    },
+    {
+      "kind": "write",
+      "offset": 9,
+      "value": 6,
+      "states": 23,
+      "raw_cell_patterns": 8192
+    },
+    {
+      "kind": "write",
+      "offset": 9,
+      "value": 7,
+      "states": 23,
+      "raw_cell_patterns": 8192
+    },
+    {
+      "kind": "move_left",
+      "offset": 0,
+      "value": 0,
+      "states": 14,
+      "raw_cell_patterns": 8192
+    },
+    {
+      "kind": "move_right",
+      "offset": 0,
+      "value": 0,
+      "states": 14,
+      "raw_cell_patterns": 8192
+    }
+  ],
+  "binary_machine_cases": 311296,
+  "raw_cell_patterns": 8192,
+  "valid_encoded_cells": 1250,
+  "raw_invalid_cells_exercised": 6942,
+  "negative_controls": [
+    {
+      "name": "wrong state charge",
+      "rejected": true,
+      "reason": ""
+    },
+    {
+      "name": "wrong read result",
+      "rejected": true,
+      "reason": "('result', 'read', 0, 1, 0)"
+    },
+    {
+      "name": "wrong head movement",
+      "rejected": true,
+      "reason": "('alignment', 'read', 0, -2, 0)"
+    },
+    {
+      "name": "surrounding tape corruption",
+      "rejected": true,
+      "reason": "('frame/write', 'read', 0)"
+    },
+    {
+      "name": "premature missing transition",
+      "rejected": true,
+      "reason": "unexpected missing internal transition"
+    },
+    {
+      "name": "cycle",
+      "rejected": true,
+      "reason": "finite routine edges must descend in remaining syntax"
+    }
+  ],
+  "universal_proof": false,
+  "surroundings": "nonblank left and right contexts; full sparse-tape equality"
+}

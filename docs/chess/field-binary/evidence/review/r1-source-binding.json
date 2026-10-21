@@ -1,0 +1,84 @@
+{
+  "review": "R1 completed advisory source review",
+  "head": "aec53614962607635789060f51c4576bdcdc00b0",
+  "scope": "source inspection only; no Lean, fixture, native, table or model evaluation",
+  "files": {
+    "Cryptids/Compilation/FieldBinary/Routine.lean": {
+      "sha256": "7d8185075e13bb4b9e6f0d6919c46fbdfac0176127d520c1203c57d116b5fdab",
+      "bytes": 8595
+    },
+    "Cryptids/Compilation/FieldBinary/Fields.lean": {
+      "sha256": "d24e1bfa61eeffe13abd94427101196df3190bea4e53c47969968500f796627a",
+      "bytes": 8493
+    },
+    "Cryptids/Compilation/FieldBinary/Codec.lean": {
+      "sha256": "d26c6d2e5558a400cbde50f38dbe1d008565e6e5eac63ab579864fb2da3d7185",
+      "bytes": 4316
+    },
+    "Cryptids/Compilation/FieldBinary/Pilot.lean": {
+      "sha256": "30e2b1d290c73aadd491d8d1c904e27bf8ebfb4da1f29bbcfa6da387189ccaf7",
+      "bytes": 4034
+    },
+    "scripts/chess_field_binary/verify.py": {
+      "sha256": "204eadbdeae1b901bff9c22f272eb2bb7bbcc8351cb25a14f1bd391f046480f9",
+      "bytes": 7314
+    },
+    "scripts/chess_field_binary/Audit.lean": {
+      "sha256": "5e4eefdb3a8b00b828d59857fa9794e47a005267390ce9de36e0ee3d61cd1dd3",
+      "bytes": 4836
+    },
+    "scripts/chess_field_binary/Export.lean": {
+      "sha256": "ff922712c68a7961bdc6250dceba01532e4db48a1589909d65fc7db5263178d8",
+      "bytes": 2440
+    },
+    "scripts/chess_field_binary/fixtures.py": {
+      "sha256": "01d048a4dda1c4d83ce20333283b4f31bb5f4d653ac6e5238575681b978c1979",
+      "bytes": 5639
+    },
+    "lakefile.chess-field-binary.toml": {
+      "sha256": "12b735cea1ff61472e9d39d10f6f9e297d49f2ab2b7c96b976ea9456c26954c8",
+      "bytes": 791
+    },
+    ".github/workflows/chess_field_binary.yml": {
+      "sha256": "76c1514474f118b1896c71399c9d3b92e54e2299871417bea3bc5cc6c4947ccd",
+      "bytes": 2528
+    },
+    "docs/chess/field-binary/DESIGN.md": {
+      "sha256": "9e820f95e9733112948379bc4c5cf875c00daa93957ea4f576f0e674f37f3e7e",
+      "bytes": 2325
+    },
+    "docs/chess/field-binary/baseline-pins.json": {
+      "sha256": "37151a997df805f71be5906398204a59a7dafdce325be2301211bc61346e88d4",
+      "bytes": 25872
+    },
+    "Cryptids/Compilation/TemplateGraph.lean": {
+      "sha256": "71dc7ef7de855c565036b1775b2b44a721fc67499c56eb004f6884c35f5399b7",
+      "bytes": 58725
+    },
+    "Cryptids/Optimisation/CompactPost.lean": {
+      "sha256": "0ff81896d6afcfd2081b025e576f1f08d45bc74eb56cf91b7369b169458c54a2",
+      "bytes": 5762
+    },
+    "Cryptids/Optimisation/TerminalBinary.lean": {
+      "sha256": "8d8b668f72a8db0266ef9db903f1bf53122cd38aec6478ebb9273310f28259f9",
+      "bytes": 9236
+    },
+    "Cryptids/Compilation/Init.lean": {
+      "sha256": "174b8190aa49e4f68518ec0f87a66c29a3747cc65c100f0259dac3cb4432b3bf",
+      "bytes": 9437
+    },
+    "Cryptids/Compilation/FlatInit.lean": {
+      "sha256": "e22032cd5880d9c394c1f8442ab95a85e38c56f57f10ab3b964a9329baf5124d",
+      "bytes": 13516
+    },
+    "Cryptids/Compilation/BinaryTemplates.lean": {
+      "sha256": "8f5da13cb689ae2a37bf24a88589e6a6ea28ef78631c8db6474ed9125fae4024",
+      "bytes": 19259
+    },
+    "docs/chess/m6/DESIGN.md": {
+      "sha256": "889db93023b4867e8706a6e55af51d13bf40a45951f5f7bd923c8161ca2bab40",
+      "bytes": 5372
+    }
+  },
+  "disposition": "No remaining source-level semantic, counting or acceptance-scope defect found after R1-S1 repair; formal replay and final evidence remain R2 pending"
+}

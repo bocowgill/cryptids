@@ -1,0 +1,59 @@
+{
+  "pilot_runs": [
+    {
+      "conclusion": "success",
+      "databaseId": 39621322042,
+      "headSha": "aec53614962607635789060f51c4576bdcdc00b0",
+      "status": "completed",
+      "workflowName": "Chess field-aware binary pilot"
+    },
+    {
+      "conclusion": "failure",
+      "databaseId": 39610691159,
+      "headSha": "e642c7251e1e390b8fd96e05a5eadfe6f8700eb2",
+      "status": "completed",
+      "workflowName": "Chess field-aware binary pilot"
+    },
+    {
+      "conclusion": "failure",
+      "databaseId": 39610078320,
+      "headSha": "6a1e80d37e43c4242d4a293e18e14ee07cd25682",
+      "status": "completed",
+      "workflowName": "Chess field-aware binary pilot"
+    },
+    {
+      "conclusion": "failure",
+      "databaseId": 39609387995,
+      "headSha": "a49deb7056c67f0c08922be6a571ca05fb6275cb",
+      "status": "completed",
+      "workflowName": "Chess field-aware binary pilot"
+    },
+    {
+      "conclusion": "failure",
+      "databaseId": 39608668800,
+      "headSha": "147de1aa3e57711fcdce96a2590d2431c2b9236e",
+      "status": "completed",
+      "workflowName": "Chess field-aware binary pilot"
+    },
+    {
+      "conclusion": "cancelled",
+      "databaseId": 39608526061,
+      "headSha": "e3c66175c61cdd014b42c84aac4f0abf95e78684",
+      "status": "completed",
+      "workflowName": "Chess field-aware binary pilot"
+    },
+    {
+      "conclusion": "failure",
+      "databaseId": 39607907762,
+      "headSha": "e3c66175c61cdd014b42c84aac4f0abf95e78684",
+      "status": "completed",
+      "workflowName": "Chess field-aware binary pilot"
+    }
+  ],
+  "cancelled_duplicate": 39608526061,
+  "cancelled_duplicate_reason": "Publication failed at external Git index; duplicate old-source probe cancelled before repair validation.",
+  "redundant_initial_ci_cancelled": [
+    39607907488,
+    39607907736
+  ]
+}

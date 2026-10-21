@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-field-binary/BadCount.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "/home/runner/work/cryptids/cryptids/.lake/chess-field-binary/BadCount.lean:3:54: error: Tactic `decide` proved that the proposition\n  (moveCell Turing.Dir.right).size = 13\nis false\n",
+  "output_sha256": "e4ba6aad57ba7eaa2f4db3789312844c828686e37ec907b00ade0abde61c9c00",
+  "timed_out": false,
+  "elapsed_seconds": 3.6242456079999954,
+  "cumulative_children_peak_rss_kib": 4380464
+}

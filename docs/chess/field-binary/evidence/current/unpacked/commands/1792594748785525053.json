@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "lake",
+    "--wfail",
+    "-f",
+    "lakefile.chess-field-binary.toml",
+    "build",
+    "Cryptids.Compilation.FieldBinary.Pilot",
+    "chess_field_binary_audit",
+    "chess_field_binary_export"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "\u2714 [3833/7679] Built scripts.chess_field_binary.Audit (2.6s)\n\u2714 [7630/7679] Built Cryptids.Compilation.FlatInit:c.o (362ms)\n\u2714 [7631/7679] Built Cryptids.Compilation.FieldBinary.Routine:c.o (314ms)\n\u2714 [7632/7679] Built Cryptids.Compilation.FieldBinary.Fields:c.o (201ms)\n\u2714 [7633/7679] Built Cryptids.Compilation.FieldBinary.Codec:c.o (147ms)\n\u2714 [7634/7679] Built Cryptids.Compilation.BoolGraph:c.o (270ms)\n\u2714 [7650/7679] Built scripts.chess_field_binary.Audit:c.o (371ms)\n\u2714 [7655/7679] Built chess_field_binary_audit:exe (1.4s)\n\u2714 [7666/7679] Built Cryptids.Compilation.LocalCertificate:c.o (119ms)\n\u2714 [7667/7679] Built Cryptids.Compilation.BinaryTemplates:c.o (476ms)\n\u2714 [7669/7679] Built Cryptids.Compilation.GraphPost:c.o (308ms)\n\u2714 [7672/7679] Built Cryptids.Compilation.LazyGraph:c.o (265ms)\n\u2714 [7673/7679] Built Cryptids.Optimisation.CompactPost:c.o (182ms)\n\u2714 [7675/7679] Built Cryptids.Compilation.TemplateGraph:c.o (1.9s)\n\u2714 [7676/7679] Built Cryptids.Compilation.FieldBinary.Pilot:c.o (112ms)\n\u2714 [7677/7679] Built scripts.chess_field_binary.Export (3.3s)\n\u2714 [7678/7679] Built scripts.chess_field_binary.Export:c.o (231ms)\n\u2714 [7679/7679] Built chess_field_binary_export:exe (1.3s)\nBuild completed successfully (7679 jobs).\n",
+  "output_sha256": "adbfd51314f1ff1e8b6938ac44789b17376c30dae3e9b3abb31cb0bdc697f15d",
+  "timed_out": false,
+  "elapsed_seconds": 17.531090390000003,
+  "cumulative_children_peak_rss_kib": 4380464
+}

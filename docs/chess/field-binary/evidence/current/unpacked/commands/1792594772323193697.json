@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-field-binary/BadCodec.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "/home/runner/work/cryptids/cryptids/.lake/chess-field-binary/BadCodec.lean:3:41: error: Tactic `decide` proved that the proposition\n  decodeWord (1, 0, 1) = 1\nis false\n",
+  "output_sha256": "eb067e4e56f133cda8a7f9e9d57347b46e67cd95cb7e0887f808cae05c16ace6",
+  "timed_out": false,
+  "elapsed_seconds": 3.599358307000017,
+  "cumulative_children_peak_rss_kib": 4380464
+}

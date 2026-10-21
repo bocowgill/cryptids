@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "lake",
+    "--wfail",
+    "-f",
+    "lakefile.chess-field-binary.toml",
+    "build",
+    "Cryptids.Compilation.FieldBinary.Pilot"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "\u2714 [3816/3844] Built Cryptids.Compilation.FieldBinary.Codec (7.6s)\n\u2714 [3844/3844] Built Cryptids.Compilation.FieldBinary.Pilot (2.0s)\nBuild completed successfully (3844 jobs).\n",
+  "output_sha256": "6f970916e7316e14770e54df58ac351bb2830806e1348f49ae29d34e5000a03a",
+  "timed_out": false,
+  "elapsed_seconds": 12.652850599000004,
+  "cumulative_children_peak_rss_kib": 1818144
+}

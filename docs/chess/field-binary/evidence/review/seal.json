@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "reviewer": "independent leaf-1.1 / field_referee",
+  "review_gates": {
+    "R1": "passed",
+    "R2": "passed"
+  },
+  "remote_run_id": 39621322042,
+  "computation_commit": "aec53614962607635789060f51c4576bdcdc00b0",
+  "saved_run_updated_at": "2026-10-21T15:00:19Z",
+  "local_heavy_computation": false,
+  "root_acceptance_and_live_status_separate": true,
+  "review_files_sha256": {
+    "check_saved_evidence.py": "9fd87429f86531f7e9317652494dfdd6a2536b81430dadb87fde4d02cec09790",
+    "construction-binding.json": "a0f633c7c78bca3299ebed45a115d083a1e5225b97809a6d24d0c2589c22a60a",
+    "receipt.json": "52016e95823c41749edc3116149ee8f2d94c53fc77163393f24435bf53fb5b66",
+    "report.md": "025b187ba582368c4ce934957921e72f6a2bdae0f18ae7f3e4f75a891852c94c",
+    "r1-source-review.md": "d804c2c756b801e77abe97a31a5778be8784ce576c5136b01443c2d9c37ac473",
+    "r1-source-binding.json": "d04975c24b63ef28f56a07b7e6491d26b270d21d3d679b9ab92fb1fe350aff76",
+    "r1-initial-source-binding.json": "46c8d7e35ed5ebf2f56dcbb92fa4b25c4bcf4c89d23fab8a6715f49f1ab465ce"
+  },
+  "metadata_checker_negative_controls": {
+    "source": {
+      "exit": 1,
+      "output": "Field binary independent review rejected: computation source binding changed\n",
+      "output_sha256": "e5e1c780b7cf81293b775a3d29847bb508942b21ac63190933e7105ad3db4f61"
+    },
+    "entry": {
+      "exit": 1,
+      "output": "Field binary independent review rejected: archive entry binding mismatch: BadCodec.lean\n",
+      "output_sha256": "306a0b7520e86186f742a7669eee7e71b3c52238edb4da55cc630d3a429c5ade"
+    },
+    "claim": {
+      "exit": 1,
+      "output": "Field binary independent review rejected: unsupported comparison claim\n",
+      "output_sha256": "fbde77795184c47d3a26e0e86281484dde4215a73802f37f2ee865ccadde9f54"
+    }
+  }
+}

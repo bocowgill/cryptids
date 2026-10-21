@@ -1,46 +1,53 @@
-# Field-aware binary pilot checkpoint
+# Completed field-aware binary pilot checkpoint
 
-Work in bocowgill/cryptids on codex/chess-openevolve-pilot. Do not change any file
-pinned by baseline-pins.json (237 prior accepted files), the frozen chess reference,
-or the default toolchain. All new implementation is separate. Heavy Lean,
-fixture, native and count computation stays remote. Outreach stays on hold.
+Fork: `bocowgill/cryptids`; branch: `codex/chess-openevolve-pilot`.
+Computation commit: `aec53614962607635789060f51c4576bdcdc00b0`.
+Successful full remote run:
+[39621322042](https://github.com/bocowgill/cryptids/actions/runs/39621322042).
 
-The finite routine compiler is certified by a strict remote build in run39610078320
-at6a1e80d. That whole run failed in Fields.lean, so it is not a passed pilot.
-Run39610691159 at e642c72 passed strict Fields.lean (all arbitrary-tape read, write,
-frame and movement proofs), then failed two coordinate-cast goals in Codec.lean.
-The current patch adds the missing congruence step and repairs the audit name test;
-inspect the latest run before starting a duplicate. Earlier failed attempts are retained in
-evidence/history. The cancelled duplicate39608526061 ran the old e3c6617 source
-because a Git-index permission failure prevented a new commit; it is not useful
-new proof evidence. Subsequent Git mutations use escalation for the external index.
+The requested routine pilot is complete. The standalone certified counts are:
+reads39/66/93/120; constant writes5/11/17/23; movement14 in either direction.
+Every exit is charged. Four fields occupy offsets0/3/6/9 of a thirteen-bit cell;
+bit12 is the marker. Arbitrary-tape preservation, valid-cell refinement and exact
+execution to decoded numeric exits are universally proved. All38 emitted binary
+machines passed311296 independent cases over8192 raw cell patterns and nonblank
+neighbours, plus six corruption controls. Strict compilation, native dependency
+audit and all false-theorem controls passed. See [RESULTS.md](RESULTS.md),
+[results.json](results.json), [REVIEW.md](REVIEW.md) and
+[root-check.json](evidence/root-check.json).
 
-Uncommitted follow-up repairs may be present: independent review found the audit's
-forbidden-generator name test must precede env.find?, and comparison documentation
-must explicitly note overlapping old read/write families. These do not change the
-field routines. A complete successful run with final source hashes is still needed.
+No new full chess machine was constructed; the accepted total remains390491642.
+Legacy211410/82000/110 figures are allocator sensitivities with overlapping
+families and different scopes, not standalone routine counts or additive
+replacement savings. Dynamic write dispatch, marker operations and a complete
+simulation of actual interpreter primitives remain future integration work.
+Do not claim these were implemented or extrapolate a global saving ratio.
 
-Files: Routine.lean (charged finite binary tree compiler and execution/exit proofs),
-Fields.lean (arbitrary-tape read/write/13-bit move contracts), Codec.lean (four
-five-valued fields plus marker, invalid-code behavior and cell refinement), Pilot.lean
-(exact counts and explicitly scoped old allocation sensitivities). Remote harness
-is scripts/chess_field_binary/verify.py and .github/workflows/chess_field_binary.yml.
+Preserve all237 entries in baseline-pins.json, including the frozen chess
+reference, accepted source, toolchain and prior review bindings. All pilot changes
+are separate. No local Lean/LSP/LeanProbe/Lake, native, fixture, model or machine
+execution: all heavy work stays remote. Local edits, hashes and saved-output
+checks are permitted. Outreach and upstream writes remain on hold.
 
-Candidate standalone counts are39/66/93/120 for reads,5/11/17/23 for constant writes,
-14 for movement. These remain proposed until final strict proof replay and actual
-emitted-row checks pass. Old generic allocation differences211410/82000/110 are
-counterfactual marginals holding other inventory parameters fixed, with overlapping
-families; they are not additive per-operation replacement costs. No new full chess
-machine, total saving or interpreter integration is claimed.
+The full accepted run is source-bound by five matching phase maps. Original
+failed attempts and logs are retained under evidence/history. A cancelled duplicate
+39608526061 used the old e3c6617 source because a Git-index permission failure
+prevented publication of repairs; it is not new proof evidence. Later Git changes
+use escalation for the index outside the writable checkout. The independent
+referee's audit-control ordering finding was repaired before accepted computation.
 
-Native export produces38 complete binary routine tables. Independent Python
-fixtures must check all8192 raw cell patterns (including1250 valid cells), arbitrary
-sampled nonblank neighbours, exact result/head/tape and six deliberate corruptions.
-They supplement universal proofs. Native dependency audit and three false theorem
-controls must pass before acceptance. Record all receipts under one exact source map.
+Remote reproduction workflow: chess_field_binary.yml with stage=full. A new run
+is not needed to finish this completed pilot. Inspect existing jobs before
+starting another. Heavy full-chess integration is a separate next task; the most
+useful first extension is one actual Runtime primitive with all caller/return
+controls and the required marker operations, then a checked end-to-end simulation.
 
-Independent referee /root/field_referee owns only .unlazy/chess-field-binary/review/**
-and its own ledger. R1 source review is in flight; R2 awaits actual successful final
-evidence and final public docs. Root owns all public files. Acceptance ledger:
-.unlazy/chess-field-binary/GATES.md, six root gates plus two review gates. Do not run
-CHECK commands locally except --metadata. Saved-evidence/hash replay is local-safe.
+Local-safe receipt replay:
+
+```sh
+python3 docs/chess/field-binary/evidence/check_evidence.py
+python3 scripts/chess_field_binary/verify.py --metadata
+```
+
+The private acceptance ledger has six root gates and two review gates at
+.unlazy/chess-field-binary. Final measured counts are recorded in the root receipt.

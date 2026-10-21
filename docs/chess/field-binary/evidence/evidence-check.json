@@ -1,0 +1,41 @@
+{
+  "status": "passed",
+  "run_id": 39621322042,
+  "computation_commit": "aec53614962607635789060f51c4576bdcdc00b0",
+  "artifact_sha256": "3b760230b9d449a32293edeaeccbce7a7d6446b568d6467976279f72cfd9d22e",
+  "logs_sha256": "765b273322ae0246304a04f604ab8ff6b429a84d7057e24e18086e8efdff491c",
+  "archive_entries": 21,
+  "source_sha256": {
+    ".github/workflows/chess_field_binary.yml": "76c1514474f118b1896c71399c9d3b92e54e2299871417bea3bc5cc6c4947ccd",
+    "Cryptids/Compilation/FieldBinary/Codec.lean": "d26c6d2e5558a400cbde50f38dbe1d008565e6e5eac63ab579864fb2da3d7185",
+    "Cryptids/Compilation/FieldBinary/Fields.lean": "d24e1bfa61eeffe13abd94427101196df3190bea4e53c47969968500f796627a",
+    "Cryptids/Compilation/FieldBinary/Pilot.lean": "30e2b1d290c73aadd491d8d1c904e27bf8ebfb4da1f29bbcfa6da387189ccaf7",
+    "Cryptids/Compilation/FieldBinary/Routine.lean": "7d8185075e13bb4b9e6f0d6919c46fbdfac0176127d520c1203c57d116b5fdab",
+    "docs/chess/field-binary/baseline-pins.json": "37151a997df805f71be5906398204a59a7dafdce325be2301211bc61346e88d4",
+    "lakefile.chess-field-binary.toml": "12b735cea1ff61472e9d39d10f6f9e297d49f2ab2b7c96b976ea9456c26954c8",
+    "scripts/chess_field_binary/Audit.lean": "5e4eefdb3a8b00b828d59857fa9794e47a005267390ce9de36e0ee3d61cd1dd3",
+    "scripts/chess_field_binary/Export.lean": "ff922712c68a7961bdc6250dceba01532e4db48a1589909d65fc7db5263178d8",
+    "scripts/chess_field_binary/fixtures.py": "01d048a4dda1c4d83ce20333283b4f31bb5f4d653ac6e5238575681b978c1979",
+    "scripts/chess_field_binary/verify.py": "204eadbdeae1b901bff9c22f272eb2bb7bbcc8351cb25a14f1bd391f046480f9"
+  },
+  "frozen_inputs": 237,
+  "phases": [
+    "probe",
+    "proofs",
+    "contracts",
+    "fixtures",
+    "counts"
+  ],
+  "actual_binary_machine_cases": 311296,
+  "retained_failed_runs": [
+    39609387995,
+    39608668800,
+    39610691159,
+    39610078320,
+    39607907762
+  ],
+  "comparison_scopes_differ": true,
+  "full_chess_machine_constructed": false,
+  "accepted_chess_machine_states": 390491642,
+  "local_heavy_computation": false
+}
