@@ -33,6 +33,7 @@ def lift (h : Fin q) (i : Fin (q - 1)) : Fin q :=
     have := h.isLt
     split <;> omega⟩
 
+omit [NeZero q] in
 theorem lift_drop (h j : Fin q) (different : j ≠ h) :
     lift h (drop h j different) = j := by
   apply Fin.ext
@@ -61,6 +62,7 @@ def trCfg (c : TM0.Cfg Bool (Fin q)) : Cfg (q + (q - 1)) 2 :=
 def Related (h : Fin q) (c : TM0.Cfg Bool (Fin q)) (d : Cfg (q + (q - 1)) 2) : Prop :=
   d.state = mainState c.q ∧ (c.q ≠ h → d.tape = Binary.encodeTape c.Tape)
 
+omit [NeZero q] in
 theorem related_trCfg (h : Fin q) (c : TM0.Cfg Bool (Fin q)) : Related h c (trCfg c) :=
   ⟨rfl, fun _ ↦ rfl⟩
 
@@ -129,12 +131,12 @@ theorem respects (h : Fin q) (M : TM0.Machine Bool (Fin q))
           refine ⟨⟨mainState h,
             ((Binary.encodeTape T).write (Binary.encodeSymbol b)).move .right⟩,
             ⟨rfl, fun impossible ↦ (impossible rfl).elim⟩, .single ?_⟩
-          simpa only [writeNext, dif_pos rfl] using compile_step_write h M i h T b row
+          simpa [writeNext, trCfg] using compile_step_write h M i h T b row
         · refine ⟨trCfg ⟨j, T.write b⟩, related_trCfg h _,
             Relation.TransGen.head (b := ⟨bounceState (drop h j jh),
               ((Binary.encodeTape T).write (Binary.encodeSymbol b)).move .right⟩)
               ?_ (.single (compile_write_return h M j jh T b))⟩
-          simpa only [writeNext, dif_neg jh] using compile_step_write h M i j T b row
+          simpa [writeNext, trCfg, jh] using compile_step_write h M i j T b row
 
 theorem haltsFrom (h : Fin q) (M : TM0.Machine Bool (Fin q))
     (terminal : ∀ b, M h b = none) (c : TM0.Cfg Bool (Fin q)) :
@@ -157,13 +159,15 @@ theorem halts_input (h : Fin q) (M : TM0.Machine Bool (Fin q))
 def remap (h : Fin q) (s : Fin (q + q)) : Fin (q + (q - 1)) :=
   Fin.addCases mainState (writeNext h) s
 
+omit [NeZero q] in
 @[simp] theorem remap_main (h i : Fin q) :
     remap h (Binary.mainState i) = mainState i := by
   simp [remap, Binary.mainState]
 
+omit [NeZero q] in
 @[simp] theorem remap_bounce (h i : Fin q) :
     remap h (Binary.bounceState i) = writeNext h i := by
-  simp [remap, Binary.bounceState]
+  simp only [remap, Binary.bounceState, Fin.addCases_right]
 
 /-- A table-side construction reads surviving original rows and maps their destinations.
 It does not inspect the Post program or the chess specification. -/
@@ -175,7 +179,8 @@ def table (h : Fin q) (old : Machine (q + q) 2) : Machine (q + (q - 1)) 2 where
 /-- The independent row-deletion recipe and the new compiler agree on every state and symbol. -/
 theorem table_compile (h : Fin q) (M : TM0.Machine Bool (Fin q)) :
     table h (Binary.compile M) = compile h M := by
-  ext s a
+  apply congrArg Machine.mk
+  funext s a
   refine Fin.addCases (fun i ↦ ?_) (fun i ↦ ?_) s
   · change ((Binary.compile M).transition (Binary.mainState i) a).map _ =
       (compile h M).transition (mainState i) a

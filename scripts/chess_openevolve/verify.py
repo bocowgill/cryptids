@@ -5,6 +5,7 @@ import hashlib
 import importlib.util
 import json
 import os
+import resource
 import subprocess
 import sys
 import time
@@ -46,7 +47,8 @@ def run(command, expected="", code=0, timeout=900):
     print(result.stdout, end="", flush=True)
     record = {"argv": command, "cwd": str(ROOT), "shell": False, "exit": result.returncode,
               "output": result.stdout, "output_sha256": hashlib.sha256(result.stdout.encode()).hexdigest(),
-              "elapsed_seconds": time.monotonic() - begin}
+              "elapsed_seconds": time.monotonic() - begin,
+              "cumulative_children_peak_rss_kib": resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss}
     assert result.returncode == code and expected in result.stdout, json.dumps(record)
     return record
 
@@ -106,6 +108,12 @@ def controls():
         fixtures(policy)
         proof = certificate(policy)
         checks.append(proof)
+    try:
+        certificate((1, 0), timeout=0.000001)
+    except subprocess.TimeoutExpired:
+        rejections.append("Real Lean subprocess timeout rejected; no certificate returned")
+    else:
+        raise AssertionError("Timeout control did not trigger")
     # Corrupt the actual proof term of the selected policy, not just its metadata.
     proof = certificate((1, 0))
     bad = WORK / "corrupt-certificate.lean"

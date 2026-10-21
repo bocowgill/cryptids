@@ -70,7 +70,7 @@ def fixtures(policy):
     return results
 
 
-def certificate(policy):
+def certificate(policy, timeout=180):
     if os.environ.get("CHESS_REMOTE") != "1":
         raise RuntimeError("Lean evaluation is remote-only")
     WORK.mkdir(parents=True, exist_ok=True)
@@ -98,7 +98,7 @@ example {q : Nat} [NeZero q] (h : Fin q) (M : TM0.Machine Bool (Fin q))
     path = WORK / (digest + ".lean")
     path.write_text(source)
     command = ["lake", "env", "lean", "-M6144", "-DwarningAsError=true", str(path)]
-    result = subprocess.run(command, cwd=ROOT, text=True, capture_output=True, timeout=180)
+    result = subprocess.run(command, cwd=ROOT, text=True, capture_output=True, timeout=timeout)
     proof = {"argv": command, "exit": result.returncode, "stdout": result.stdout,
              "stderr": result.stderr, "source_sha256": digest, "source": source}
     if result.returncode or "warning:" in result.stdout + result.stderr:

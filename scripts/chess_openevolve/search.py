@@ -57,10 +57,13 @@ def main():
                            config=config, iterations=5, output_dir=str(work / "openevolve"),
                            cleanup=False)
     versions = {d.metadata["Name"]: d.version for d in importlib.metadata.distributions()}
+    installed_source = json.loads(importlib.metadata.distribution("openevolve").read_text("direct_url.json"))
+    assert installed_source["vcs_info"]["commit_id"] == "59dfe764b5ab4478ac00214432fcac33bbe2bf4b"
     record = {"status": "passed" if result.best_score == 1.0 else "no-improvement",
               "best_code": result.best_code, "metrics": result.metrics,
               "best_score": result.best_score, "elapsed_seconds": time.monotonic() - begin,
               "model": MODEL, "model_revision": REVISION, "versions": versions,
+              "installed_openevolve_source": installed_source,
               "python": sys.version, "platform": platform.platform(),
               "paid_api_calls": 0, "maximum_proposals": 5, "maximum_output_tokens_per_proposal": 32,
               "search_space": "supplied six-policy family; model constrained to unseen policies",

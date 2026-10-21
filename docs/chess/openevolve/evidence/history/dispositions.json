@@ -1,0 +1,15 @@
+{
+  "39534822415": {
+    "commit": "07d666e93bc71b21e73044a665744653324f0be6",
+    "disposition": "cancelled: cold build lacked explicit Mathlib cache fetch; no accepted gate"
+  },
+  "39534961665": {
+    "commit": "64f9423f37c895667368aac157a6ab0a20e19f7d",
+    "overall_conclusion": "success",
+    "disposition": "INVALID for proof acceptance: tee masked failed Lean exit; compiler.log contains errors; pipefail fixed at 7dd95f3"
+  },
+  "39535590629": {
+    "commit": "fee3f79bc63b3a2e540ba4a8a1878729cbd27274",
+    "disposition": "superseded by proof corrections; no accepted gate"
+  }
+}

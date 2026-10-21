@@ -1,0 +1,116 @@
+✔ [3252/3254] Built Cryptids.Machines (9.9s)
+✔ [3253/3254] Built Cryptids.Compilation.Binary (1.5s)
+✖ [3254/3254] Building Cryptids.Optimisation.TerminalBinary (1.4s)
+trace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean /home/runner/work/cryptids/cryptids/Cryptids/Optimisation/TerminalBinary.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Optimisation/TerminalBinary.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Optimisation/TerminalBinary.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Optimisation/TerminalBinary.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Optimisation/TerminalBinary.setup.json --json
+error: Cryptids/Optimisation/TerminalBinary.lean:41:12: Tactic `split` failed: Could not split an `if` or `match` expression in the goal
+
+Hint: Use `set_option trace.split.failure true` to display additional diagnostic information
+
+case isTrue
+q : ℕ
+inst✝ : NeZero q
+h j : Fin q
+different : j ≠ h
+this : ↑j ≠ ↑h
+h✝ : ↑j < ↑h
+⊢ ↑j = ↑j
+error: Cryptids/Optimisation/TerminalBinary.lean:37:39: unsolved goals
+case isFalse.isTrue
+q : ℕ
+inst✝ : NeZero q
+h j : Fin q
+different : j ≠ h
+this : ↑j ≠ ↑h
+h✝¹ : ¬↑j < ↑h
+h✝ : ↑j - 1 < ↑h
+⊢ ↑j - 1 = ↑j
+
+case isFalse.isFalse
+q : ℕ
+inst✝ : NeZero q
+h j : Fin q
+different : j ≠ h
+this : ↑j ≠ ↑h
+h✝¹ : ¬↑j < ↑h
+h✝ : ¬↑j - 1 < ↑h
+⊢ ↑j - 1 + 1 = ↑j
+error: Cryptids/Optimisation/TerminalBinary.lean:62:4: Invalid field `q`: The environment does not contain `ConjectureMachines.Cfg.q`, so it is not possible to project the field `q` from an expression
+  d
+of type `Cfg (q + (q - 1)) 2`
+error: Cryptids/Optimisation/TerminalBinary.lean:62:37: Invalid field `Tape`: The environment does not contain `ConjectureMachines.Cfg.Tape`, so it is not possible to project the field `Tape` from an expression
+  d
+of type `Cfg (q + (q - 1)) 2`
+warning: Cryptids/Optimisation/TerminalBinary.lean:64:8: declaration uses `sorry`
+warning: Cryptids/Optimisation/TerminalBinary.lean:101:8: declaration uses `sorry`
+warning: Cryptids/Optimisation/TerminalBinary.lean:102:5: Variable name `terminal` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _terminal
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Cryptids/Optimisation/TerminalBinary.lean:108:2: Unused tactic linter: `change s = mainState i at state` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: Cryptids/Optimisation/TerminalBinary.lean:109:2: Unused tactic linter: `subst s` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: Cryptids/Optimisation/TerminalBinary.lean:110:2: Unused tactic linter: `by_cases ih : i = h` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: Cryptids/Optimisation/TerminalBinary.lean:111:2: Unused tactic linter: `·
+  subst i
+  simp [TM0.step, terminal, step, compile_main]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: Cryptids/Optimisation/TerminalBinary.lean:113:2: Unused tactic linter: `·
+  have tape' : U = Binary.encodeTape T := tape ih
+  subst U
+  cases row : M i T.head with
+  | none => simp [TM0.step, row, step, compile_main, Binary.encodeTape, Tape.map_fst]
+  | some v =>
+    rcases v with ⟨j, cmd⟩
+    cases cmd with
+    | move dir =>
+      simp only [TM0.step, row, Option.map_some]
+      exact ⟨trCfg ⟨j, T.move dir⟩, related_trCfg h _, .single (compile_step_move h M i j T dir row)⟩
+    | write b =>
+      simp only [TM0.step, row, Option.map_some]
+      by_cases jh : j = h
+      · subst j
+        refine
+          ⟨⟨mainState h, ((Binary.encodeTape T).write (Binary.encodeSymbol b)).move .right⟩,
+            ⟨rfl, fun impossible ↦ (impossible rfl).elim⟩, .single ?_⟩
+        simpa only [writeNext, dif_pos rfl] using compile_step_write h M i h T b row
+      · refine
+          ⟨trCfg ⟨j, T.write b⟩, related_trCfg h _,
+            Relation.TransGen.head (b :=
+              ⟨bounceState (drop h j jh), ((Binary.encodeTape T).write (Binary.encodeSymbol b)).move .right⟩) ?_
+              (.single (compile_write_return h M j jh T b))⟩
+        simpa only [writeNext, dif_neg jh] using compile_step_write h M i j T b row` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: Cryptids/Optimisation/TerminalBinary.lean:109:2: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: Cryptids/Optimisation/TerminalBinary.lean:110:2: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: Cryptids/Optimisation/TerminalBinary.lean:111:2: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: Cryptids/Optimisation/TerminalBinary.lean:113:2: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+error: Cryptids/Optimisation/TerminalBinary.lean:149:2: Type mismatch: After simplification, term
+  haltsFrom h M terminal (TM0.init input)
+ has type
+  Iff
+    (eval (step (compile h M))
+        { state := Fin.castAdd (q - 1) default, tape := Tape.mk₁ (List.map Binary.encodeSymbol.f input) }).Dom
+    (eval (TM0.step M) { q := default, Tape := Tape.mk₁ input }).Dom
+but is expected to have type
+  Iff (eval (step (compile h M)) { state := 0, tape := Tape.mk₁ (List.map Binary.encodeSymbol.f input) }).Dom
+    (TM0.eval M input).Dom
+Some required targets logged failures:
+- Cryptids.Optimisation.TerminalBinary
+error: build failed
