@@ -37,6 +37,12 @@ theorem schedule_correct (bits : Array (Fin 2)) :
   rw [schedule_list]
   exact ReverseInit.reverse_correct bits.toList
 
+/-- Count symbolically before instantiating the frozen million-bit input. -/
+theorem schedule_initialise_states (bits : Array (Fin 2)) (body : BundledMachine 2) :
+    (ReverseInit.Schedule.initialise (schedule bits) body).states =
+      body.states + (bits.size + 1) := by
+  rw [ReverseInit.Schedule.initialise_states, schedule_size]
+
 abbrev generated : BundledMachine 2 :=
   ReverseInit.Schedule.initialise (schedule Compilation.Input.bits) OpenEvolve.body
 
@@ -46,8 +52,9 @@ theorem prefix_states : (schedule Compilation.Input.bits).size = 1555181 := by
   rw [schedule_size, Compilation.Input.bits_size]
 
 theorem generated_states : generated.states = 390491642 := by
-  change OpenEvolve.body.states + (schedule Compilation.Input.bits).size = _
-  rw [OpenEvolve.body_states, prefix_states]
+  have count := schedule_initialise_states Compilation.Input.bits OpenEvolve.body
+  rw [OpenEvolve.body_states, Compilation.Input.bits_size] at count
+  exact count
 
 def machine : Machine 390491642 2 :=
   Compilation.Image.castMachine generated_states generated.toMachine
@@ -73,7 +80,7 @@ theorem strict_reduction : generated.states < OpenEvolve.generated.states := by
 theorem cast_initialises {states offset : Nat} [NeZero states]
     (bits : Array (Fin 2)) (body : BundledMachine 2)
     (count : (ReverseInit.Schedule.initialise (schedule bits) body).states = states)
-    (prefix : (schedule bits).size = offset) (bound : offset < states) :
+    (paid : (schedule bits).size = offset) (bound : offset < states) :
     FlatInit.runFrom (Compilation.Image.castMachine count
         (ReverseInit.Schedule.initialise (schedule bits) body).toMachine)
         offset ConjectureMachines.init =
@@ -83,7 +90,7 @@ theorem cast_initialises {states offset : Nat} [NeZero states]
   have lifted := Compilation.Image.cast_run count
     (ReverseInit.Schedule.initialise (schedule bits) body).toMachine
     (schedule bits).size ConjectureMachines.init
-  rw [Compilation.Image.cast_init, result, Option.map_some, prefix] at lifted
+  rw [Compilation.Image.cast_init, result, Option.map_some, paid] at lifted
   refine lifted.trans (congrArg some ?_)
   apply congrArg (fun state ↦ (⟨state, Tape.mk₁ bits.toList⟩ : Cfg states 2))
   apply Fin.ext
@@ -111,8 +118,9 @@ theorem numericImage_congr {states : Nat} (actions : Array Init.Instruction)
 theorem rowGenerated_states :
     (ReverseInit.Schedule.initialise (schedule Compilation.Input.bits)
       OpenEvolve.rowBody).states = 390491642 := by
-  change OpenEvolve.rowBody.states + (schedule Compilation.Input.bits).size = _
-  rw [OpenEvolve.rowBody_states, prefix_states]
+  have count := schedule_initialise_states Compilation.Input.bits OpenEvolve.rowBody
+  rw [OpenEvolve.rowBody_states, Compilation.Input.bits_size] at count
+  exact count
 
 def rowMachine : Machine 390491642 2 :=
   numericImage (schedule Compilation.Input.bits) OpenEvolve.rowBody rowGenerated_states

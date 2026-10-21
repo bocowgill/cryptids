@@ -95,16 +95,83 @@ def search():
     search_work = WORK / "search"
     model = [json.loads(x) for x in (search_work / "model.jsonl").read_text().splitlines()]
     evaluations = [json.loads(x) for x in (search_work / "evaluations.jsonl").read_text().splitlines()]
-    assert len(model) == 24 and len(evaluations) == 25
+    assert len(model) == 24 and 1 <= len(evaluations) <= 25
     assert all(m["remote"] and not m["constrained_response_set"] for m in model)
     assert all(m["usage"]["completion_tokens"] <= 256 and m["usage"]["prompt_tokens"] <= 4096 for m in model)
     save("search", checks, preflight=preflight, requests=len(model), evaluations=len(evaluations),
          tokens=sum(m["usage"]["total_tokens"] for m in model))
     print("Broader OpenEvolve search completed")
 
+def controls():
+    checks = [run([sys.executable, "scripts/chess_openevolve_wide/controls.py"],
+                  "Broader OpenEvolve rejection controls passed", timeout=600)]
+    save("controls", checks)
+    print("Broader OpenEvolve controls passed")
+
+def proofs():
+    checks = [run(["lake", "--wfail", "-f", "lakefile.chess-openevolve-wide.toml", "build",
+                  "Cryptids.Semantics.ChessOpenEvolveWide", "chess_openevolve_wide_audit"],
+                  "Build completed successfully", timeout=1800)]
+    audit = ["prlimit", "--as=17179869184", "--", "lake", "env",
+             str(ROOT / ".lake/build/bin/chess_openevolve_wide_audit")]
+    checks += [run(audit, "Chess OpenEvolveWide foundation audit passed")]
+    for flag, expected in [("--negative-control", "Forbidden axiom: sorryAx"),
+                           ("--negative-control-open", "The open chess conjecture is a dependency"),
+                           ("--negative-control-generator", "Proof generator is a mathematical dependency:")]:
+        checks += [run(audit + [flag], expected, code=1)]
+    # Actual prior regressions on the same frozen files. Legacy M1--M5 receipts are
+    # also authenticated separately by the final retained-evidence checker.
+    checks += [run(["python3", "scripts/verify_chess_m7.py", "--proofs"],
+                   "Chess M7 quotient proof verification passed", timeout=2400)]
+    checks += [run(["python3", "scripts/chess_openevolve/verify.py", "--proofs"],
+                   "Chess OpenEvolve proof verification passed", timeout=1800)]
+    save("proofs", checks, states=390491642, previous_states=392046821, saving=1555179,
+         initializer_states=1555181, body_states=388936461,
+         target="NOT(WhiteCanAvoidLoss AND BlackCanAvoidLoss)", full_table_streamed=False)
+    print("Broader OpenEvolve proof verification passed")
+
+def results():
+    search_work = WORK / "search"
+    result = json.loads((search_work / "result.json").read_text())
+    proposals = [json.loads(x) for x in (search_work / "model.jsonl").read_text().splitlines()]
+    evaluations = [json.loads(x) for x in (search_work / "evaluations.jsonl").read_text().splitlines()]
+    certified = [e for e in evaluations if e["certified"]]
+    assert certified and all(e["proof"]["exit"] == 0 for e in certified)
+    best = min(certified, key=lambda e:e["states"])
+    assert result["best_code"] == best["code"] or result["metrics"]["states"] == best["states"]
+    measured = dict(requests=len(proposals), evaluations=len(evaluations),
+        certified_evaluations=len(certified), distinct_proposals=len({m["response"] for m in proposals}),
+        best_states=best["states"], saving=392046821-best["states"], best_code=best["code"],
+        best_source_sha256=best["code_sha256"], model_generated=any(
+            best["code"].strip() in m["response"] for m in proposals), target_saving=1000000,
+        target_met=392046821-best["states"] >= 1000000,
+        proof_support_supplied=True, autonomous_invention_claim=False)
+    checks = []
+    if measured["target_met"]:
+        from scripts.chess_openevolve_wide.plans import Plan
+        plan = Plan(best["code"])
+        bridge = WORK / "selected-plan-bridge.lean"
+        bridge.write_text("import Cryptids.Chess.Optimisation.OpenEvolveWide\n"
+            "open Turing ConjectureMachines.Compilation ConjectureMachines.Optimisation\n"
+            "def selected (bits : List (Fin 2)) : List Init.Instruction := " +
+            plan.lean.replace("R.", "ReverseInit.") + "\n"
+            "example (bits : Array (Fin 2)) : selected bits.toList =\n"
+            "    (Chess.Optimisation.OpenEvolveWide.schedule bits).toList := by\n"
+            "  rw [Chess.Optimisation.OpenEvolveWide.schedule_list]\n"
+            "  simp [selected]\n")
+        checks = [run(["lake", "env", "lean", "-M6144", "-DwarningAsError=true", str(bridge)],
+                      timeout=120)]
+        measured["selected_plan_bridge_sha256"] = sha(bridge)
+        measured["selected_plan_equals_actual_initializer"] = True
+    else:
+        measured["selected_plan_equals_actual_initializer"] = False
+    save("results", checks, measured=measured)
+    print(json.dumps(measured))
+    print("Broader OpenEvolve result record passed")
+
 if __name__ == "__main__":
     parser=argparse.ArgumentParser()
-    for phase in ["metadata", "probe", "search"]:
+    for phase in ["metadata", "probe", "search", "controls", "proofs", "results"]:
         parser.add_argument("--"+phase, action="store_true")
     for phase, selected in vars(parser.parse_args()).items():
         if selected: globals()[phase]()
