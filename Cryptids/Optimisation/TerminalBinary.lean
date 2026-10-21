@@ -182,13 +182,13 @@ theorem table_compile (h : Fin q) (M : TM0.Machine Bool (Fin q)) :
   apply congrArg Machine.mk
   funext s a
   refine Fin.addCases (fun i ↦ ?_) (fun i ↦ ?_) s
-  · simp only [table, compile, Fin.addCases_left, Binary.compile_main]
+  · simp only [Fin.addCases_left, Binary.compile_main]
     cases row : M i (Binary.decodeSymbol a) with
     | none => rfl
     | some v =>
       rcases v with ⟨j, cmd⟩
       cases cmd <;> simp
-  · simp only [table, compile, Fin.addCases_right, Binary.compile_bounce,
+  · simp only [Fin.addCases_right, Binary.compile_bounce,
       Option.map_some, remap_main]
 
 omit [NeZero q] in
