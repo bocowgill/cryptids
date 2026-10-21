@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "prlimit",
+    "--as=8589934592",
+    "--",
+    "lake",
+    "env",
+    "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_openevolve_audit"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "uncaught exception: failed to read file '/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/lib/lean/Lean/Elab/PreDefinition/Eqns.olean.private'\n",
+  "output_sha256": "e93d64adde322223835fc4e3af97e48b2cc4dc43eb9b83bc3e3e57f773f66ad4",
+  "timed_out": false,
+  "elapsed_seconds": 2.2594439370000146,
+  "cumulative_children_peak_rss_kib": 1600828
+}

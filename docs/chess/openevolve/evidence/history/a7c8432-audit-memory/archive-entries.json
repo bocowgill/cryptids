@@ -1,0 +1,14 @@
+{
+  "commands/1792555050926885067.json": {
+    "bytes": 1039,
+    "sha256": "d332c7ee432c4bee29bd3da45a314aac7f98292fbf25a8ac7eebf1c5441b5b0b"
+  },
+  "commands/1792555055632590041.json": {
+    "bytes": 560,
+    "sha256": "27f38baa8400ac315ebd6ad9c7081d13d76a6228917389ad291c4559b366097f"
+  },
+  "compiler.log": {
+    "bytes": 42,
+    "sha256": "cb3e7ccaa87ab32e7418fc8cc75b17cd4d48f085c54db30b929b0f30a539a547"
+  }
+}

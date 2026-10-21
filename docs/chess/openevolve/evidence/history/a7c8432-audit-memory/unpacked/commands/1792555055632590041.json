@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "--run",
+    "scripts/chess_openevolve/Audit.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "excessive memory consumption detected at 'interpreter' (potential solution: increase memory consumption threshold)\n",
+  "output_sha256": "0f8fcb2ce35b4b2c3bf8091f9b4630de6b53f2d2a4a0556e8511e64608bfae66",
+  "timed_out": false,
+  "elapsed_seconds": 4.705421840999975,
+  "cumulative_children_peak_rss_kib": 6302892
+}
