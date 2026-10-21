@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-openevolve-wide/search/243cc2cd5ee89f4c5af8b9472b7ce2a1bd78bc1b3a5fcd0539efa5849474bb47.lean"
+  ],
+  "exit": 0,
+  "stdout": "",
+  "stderr": "",
+  "source": "import Cryptids.Optimisation.ReverseInit\nopen Turing ConjectureMachines.Compilation\nopen ConjectureMachines.Optimisation\ndef proposed (bits : List (Fin 2)) : List Init.Instruction := ((ReverseInit.writes bits .right) ++ (ReverseInit.moves .left (bits).length))\nexample (bits : List (Fin 2)) :\n    Init.executeList (proposed bits) (Tape.mk\u2081 []) = Tape.mk\u2081 bits := by\n  first\n  | simpa [proposed] using ReverseInit.reverse_correct bits\n  | simpa [proposed] using ReverseInit.forward_correct bits\ntheorem proposed_length (bits : List (Fin 2)) :\n    (proposed bits).length = (bits.length + bits.length) := by\n  simp [proposed, ReverseInit.writes, ReverseInit.moves]\nexample (bits : List (Fin 2)) (size : bits.length = 1555180) :\n    (proposed bits).length = 3110360 := by\n  rw [proposed_length, size]\n",
+  "source_sha256": "243cc2cd5ee89f4c5af8b9472b7ce2a1bd78bc1b3a5fcd0539efa5849474bb47",
+  "initializer_states": 3110360
+}

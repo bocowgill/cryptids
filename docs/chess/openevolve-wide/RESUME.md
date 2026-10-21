@@ -35,10 +35,24 @@ Probe history:
   official archive retained in evidence/history/first-proof-failure.
 - 39593192497 at 983d002: only the map-over-append definitional rewrite remained;
   official archive retained in evidence/history/list-map-proof-failure.
-- 39593962240 at 75cbd9c: current probe includes the repaired tape identity,
-  generic flat schedule compiler and actual 390,491,642-state candidate assembly.
-  Await its actual result before claiming any new proof acceptance.
+- 39593962240 at 75cbd9c: strict generic ReverseInit proof passed; concrete
+  state-count conversion reached the 6144-MiB cap, with a reserved binder name.
+  Official archive: evidence/history/concrete-count-memory-failure.
+- 39594768893 at 5058c59: symbolic count repair passed; generic cast initializer
+  needed explicit normalization of the blank init configuration. No search ran.
+  Official archive: evidence/history/blank-cast-rewrite-failure.
+- 39595465200 at 2d9987b: strict full concrete machine/semantics build passed in
+  10 seconds. Search preflight failed while simplifying the concrete million-bit
+  cost, before ANY model request. Official archive: evidence/history/search-preflight-failure.
+- Current full run 39596779016 at 4124781639ff63a5573da0e923cd7fca865d72e3 proves
+  schedule length symbolically before substituting the concrete length. It reuses
+  the same verified mathematical construction; inspect its actual outcome.
 
-Uncommitted new controls and result/proof driver changes are not yet remotely
-verified. Gate ledger: `.unlazy/chess-openevolve-wide/GATES.md`. No model search
-has yet spent any of the 24-proposal budget.
+No model search had spent any of the 24-proposal budget as of the preceding
+retained preflight failure. Do not launch a duplicate run before checking the
+current run. Final native audit, controls, model search, regressions and root
+acceptance are still pending; no overall completion claim is authorized.
+Gate ledger: `.unlazy/chess-openevolve-wide/GATES.md` (6 root gates +2 review gates).
+The independent source review R1 found no construction defect; R2 still waits
+for actual final evidence. Supplied proof identities may be exposed in later
+certificate feedback, even though the static system prompt omits the solution.

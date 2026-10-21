@@ -40,6 +40,10 @@ failure is retained, never treated as a mathematical refutation. This campaign
 tests generative schedule proposals and their certified assembly; it does not
 implement unrestricted compiler or Lean-proof synthesis.
 
+Generated certificates intentionally try more than one supplied identity. Only
+the redundant-alternative tactic style warning is disabled for that declaration;
+kernel checking, cost proofs and warning-as-error handling otherwise remain strict.
+
 Independent finite fixtures use a sparse integer-indexed tape and all 127 binary
 inputs of lengths zero through six. They compare both cell contents and the head's
 position relative to the written input. They also independently compare expanded

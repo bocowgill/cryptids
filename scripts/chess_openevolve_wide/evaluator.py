@@ -22,6 +22,7 @@ def certificate(plan, timeout=120):
 open Turing ConjectureMachines.Compilation
 open ConjectureMachines.Optimisation
 def proposed (bits : List (Fin 2)) : List Init.Instruction := ''' + plan.lean.replace("R.", "ReverseInit.") + '''
+set_option linter.unusedTactic false in
 example (bits : List (Fin 2)) :
     Init.executeList (proposed bits) (Tape.mk₁ []) = Tape.mk₁ bits := by
   first
