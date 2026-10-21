@@ -1,0 +1,104 @@
+name: Chess M7 regression completion
+
+on:
+  push:
+    paths:
+      - '.github/workflows/chess_m7_regressions.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: chess-m7-regressions-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      ELAN_NO_UPDATE_CHECK: '1'
+      LEAN_NUM_THREADS: '1'
+    steps:
+      - name: Prepare remote disk space and supported sandbox
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /usr/local/share/boost
+          sudo apt-get update -qq >/dev/null
+          sudo apt-get install -y -qq bubblewrap >/dev/null
+          sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+      - uses: leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6
+        with:
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'false'
+          use-github-cache: 'false'
+      - uses: actions/cache/restore@caa296126883cff596d87d8935842f9db880ef25
+        id: lean-cache
+        with:
+          path: .lake
+          key: chess-m7-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-regressions-${{ github.run_id }}
+          restore-keys: |
+            chess-m7-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-
+      - name: Fetch complete pinned Mathlib for original reference imports
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import shutil
+          import subprocess
+          # Full-table journals are retained in the earlier official artifact.
+          # Discard only duplicate temporary output parts before growing the library cache.
+          for path in Path('.lake/chess-m7-check').glob('full-table-*'):
+              for child in ('extract/parts', 'independent/parts'):
+                  shutil.rmtree(path / child, ignore_errors=True)
+          for attempt in range(3):
+              result = subprocess.run(['lake', 'exe', 'cache', 'get', 'Mathlib'], timeout=1800)
+              if result.returncode == 0:
+                  break
+          else:
+              raise SystemExit('Complete pinned Mathlib cache fetch failed')
+          assert Path('.lake/packages/mathlib/.lake/build/lib/lean/Mathlib.olean').is_file()
+          PY
+      - name: Record exact checkout and unchanged computation inputs
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib
+          import json
+          import subprocess
+          import runpy
+          verifier = runpy.run_path('scripts/verify_chess_m7.py')
+          (verifier['WORK'] / 'baseline.json').unlink(missing_ok=True)
+          verifier['freeze']()
+          pins = verifier['pins']()
+          assert len(pins) == 192
+          data = {
+              'source_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(),
+              'source_sha256': pins,
+              'toolchain': subprocess.check_output(['lake', 'env', 'lean', '--version'], text=True).strip(),
+              'regression_workflow_sha256': hashlib.sha256(Path('.github/workflows/chess_m7_regressions.yml').read_bytes()).hexdigest()
+          }
+          verifier['save']('regression-checkout.json', data)
+          PY
+      - name: Verify unchanged M1–M5 regression baseline
+        run: python3 scripts/verify_chess_m7.py --baseline
+      - name: Retain exact M7 regression completion evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: chess-m7-regressions-${{ github.sha }}
+          include-hidden-files: true
+          retention-days: 14
+          path: |
+            .lake/chess-m7-check/baseline.json
+            .lake/chess-m7-check/freeze.json
+            .lake/chess-m7-check/regression-checkout.json
+      - uses: actions/cache/save@caa296126883cff596d87d8935842f9db880ef25
+        if: always()
+        continue-on-error: true
+        with:
+          path: .lake
+          key: ${{ steps.lean-cache.outputs.cache-primary-key }}
