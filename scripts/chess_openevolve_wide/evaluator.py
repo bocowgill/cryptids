@@ -25,12 +25,8 @@ def proposed (bits : List (Fin 2)) : List Init.Instruction := ''' + plan.lean.re
 example (bits : List (Fin 2)) :
     Init.executeList (proposed bits) (Tape.mk₁ []) = Tape.mk₁ bits := by
   first
-  | simpa only [proposed, List.reverse_reverse, List.append_nil, List.nil_append,
-      List.append_assoc, Nat.add_zero, Nat.zero_add, Nat.mul_one, Nat.one_mul,
-      Nat.mul_zero, Nat.zero_mul] using ReverseInit.reverse_correct bits
-  | simpa only [proposed, List.reverse_reverse, List.append_nil, List.nil_append,
-      List.append_assoc, Nat.add_zero, Nat.zero_add, Nat.mul_one, Nat.one_mul,
-      Nat.mul_zero, Nat.zero_mul] using ReverseInit.forward_correct bits
+  | simpa [proposed] using ReverseInit.reverse_correct bits
+  | simpa [proposed] using ReverseInit.forward_correct bits
 example (bits : List (Fin 2)) (size : bits.length = 1555180) :
     (proposed bits).length = ''' + str(count) + ''' := by
   simp [proposed, ReverseInit.writes, ReverseInit.moves, size]

@@ -24,7 +24,8 @@ def metadata():
     return pins
 def sources():
     paths = ["Cryptids/Optimisation/ReverseInit.lean", "lakefile.chess-openevolve-wide.toml",
-             ".github/workflows/chess_openevolve_wide.yml", "docs/chess/openevolve-wide/baseline-pins.json"]
+             ".github/workflows/chess_openevolve_wide.yml", "docs/chess/openevolve-wide/baseline-pins.json",
+             "docs/chess/openevolve-wide/model-pin.json"]
     paths += [str(p.relative_to(ROOT)) for p in (ROOT / "scripts/chess_openevolve_wide").glob("*")
               if p.is_file() and p.suffix in (".py", ".lean", ".txt")]
     paths += [str(p.relative_to(ROOT)) for name in ["Cryptids/Chess/Optimisation/OpenEvolveWide.lean",
@@ -77,12 +78,33 @@ def run(command, expected="", code=0, timeout=900):
 
 def probe():
     checks = [run(["lake", "--wfail", "-f", "lakefile.chess-openevolve-wide.toml", "build",
-        "Cryptids.Optimisation.ReverseInit"], "Build completed successfully", timeout=1200)]
+        "Cryptids.Semantics.ChessOpenEvolveWide"], "Build completed successfully", timeout=1200)]
     save("probe", checks)
     print("Broader OpenEvolve compiler probe passed")
+
+def search():
+    from scripts.chess_openevolve_wide.evaluator import certificate
+    from scripts.chess_openevolve_wide.plans import Plan
+    # Preflight supplied proof support before spending the model budget. These are
+    # engineering controls, never counted as model proposals or search discoveries.
+    preflight = [certificate(Plan(code)) for code in [
+        'PLAN = writes(bits, "R") + moves("L", len(bits))',
+        'PLAN = writes(reverse(bits), "L") + moves("R", 1)']]
+    checks = [run([sys.executable, "scripts/chess_openevolve_wide/search.py"],
+                  '\"status\": \"completed\"', timeout=2400)]
+    search_work = WORK / "search"
+    model = [json.loads(x) for x in (search_work / "model.jsonl").read_text().splitlines()]
+    evaluations = [json.loads(x) for x in (search_work / "evaluations.jsonl").read_text().splitlines()]
+    assert len(model) == 24 and len(evaluations) == 25
+    assert all(m["remote"] and not m["constrained_response_set"] for m in model)
+    assert all(m["usage"]["completion_tokens"] <= 256 and m["usage"]["prompt_tokens"] <= 4096 for m in model)
+    save("search", checks, preflight=preflight, requests=len(model), evaluations=len(evaluations),
+         tokens=sum(m["usage"]["total_tokens"] for m in model))
+    print("Broader OpenEvolve search completed")
+
 if __name__ == "__main__":
     parser=argparse.ArgumentParser()
-    for phase in ["metadata", "probe"]:
+    for phase in ["metadata", "probe", "search"]:
         parser.add_argument("--"+phase, action="store_true")
     for phase, selected in vars(parser.parse_args()).items():
         if selected: globals()[phase]()
