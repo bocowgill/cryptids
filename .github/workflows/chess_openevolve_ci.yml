@@ -55,6 +55,7 @@ jobs:
         run: timeout --signal=TERM --kill-after=10s 1200s lake exe cache get Mathlib
       - name: Check compiler contract remotely
         run: |
+          set -o pipefail
           mkdir -p .lake/chess-openevolve
           timeout --signal=TERM --kill-after=10s 600s lake --wfail build Cryptids.Optimisation.TerminalBinary 2>&1 | tee .lake/chess-openevolve/compiler.log
       - name: Check new paid machine, trust closure and artifact

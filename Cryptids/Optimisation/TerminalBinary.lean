@@ -38,7 +38,7 @@ theorem lift_drop (h j : Fin q) (different : j ≠ h) :
   apply Fin.ext
   have : j.val ≠ h.val := fun e ↦ different (Fin.ext e)
   simp only [lift, drop]
-  split <;> split <;> omega
+  split_ifs <;> omega
 
 def mainState (i : Fin q) : Fin (q + (q - 1)) := i.castAdd (q - 1)
 def bounceState (i : Fin (q - 1)) : Fin (q + (q - 1)) := Fin.natAdd q i
@@ -59,7 +59,7 @@ def trCfg (c : TM0.Cfg Bool (Fin q)) : Cfg (q + (q - 1)) 2 :=
 
 /-- At live boundaries all tape data agree; terminal boundaries only preserve the control. -/
 def Related (h : Fin q) (c : TM0.Cfg Bool (Fin q)) (d : Cfg (q + (q - 1)) 2) : Prop :=
-  d.q = mainState c.q ∧ (c.q ≠ h → d.Tape = Binary.encodeTape c.Tape)
+  d.state = mainState c.q ∧ (c.q ≠ h → d.tape = Binary.encodeTape c.Tape)
 
 theorem related_trCfg (h : Fin q) (c : TM0.Cfg Bool (Fin q)) : Related h c (trCfg c) :=
   ⟨rfl, fun _ ↦ rfl⟩
@@ -146,8 +146,12 @@ theorem halts_input (h : Fin q) (M : TM0.Machine Bool (Fin q))
     (terminal : ∀ b, M h b = none) (input : List Bool) :
     (StateTransition.eval (step (compile h M))
       ⟨0, Tape.mk₁ (input.map Binary.encodeSymbol)⟩).Dom ↔ (TM0.eval M input).Dom := by
-  simpa only [trCfg, TM0.init, Binary.encodeTape, Tape.map_mk₁, mainState, Fin.castAdd_zero]
-    using haltsFrom h M terminal (TM0.init input)
+  have initial : trCfg (TM0.init (Λ := Fin q) input) =
+      ⟨0, Tape.mk₁ (input.map Binary.encodeSymbol)⟩ := by
+    simp only [trCfg, TM0.init, Binary.encodeTape, Tape.map_mk₁]
+    rfl
+  rw [← initial]
+  exact haltsFrom h M terminal (TM0.init input)
 
 /-- Numeric destination map for a literal table: redirect the omitted bounce to main halt. -/
 def remap (h : Fin q) (s : Fin (q + q)) : Fin (q + (q - 1)) :=
