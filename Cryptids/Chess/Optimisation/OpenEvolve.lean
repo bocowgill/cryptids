@@ -73,7 +73,8 @@ def rowBody : BundledMachine 2 :=
   ⟨body.states, TerminalBinary.table terminal M7.body.toMachine⟩
 
 theorem rowBody_eq : rowBody = body := by
-  change (⟨body.states, TerminalBinary.table terminal (Binary.compile M7.post)⟩ : BundledMachine 2) =
+  change
+    (⟨body.states, TerminalBinary.table terminal (Binary.compile M7.post)⟩ : BundledMachine 2) =
     ⟨body.states, TerminalBinary.compile terminal M7.post⟩
   rw [TerminalBinary.table_compile]
 
