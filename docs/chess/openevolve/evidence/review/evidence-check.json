@@ -1,0 +1,68 @@
+{
+  "status": "passed",
+  "scope": "independent metadata and saved-output review; no local proof/model/native/table execution",
+  "commit": "e2888bf3d0ac9ff13119d65aa6ae9a66cec51709",
+  "run_id": 39542309855,
+  "artifact_sha256": "35e34032deb6744aeffafe2cd2dd58acc47b760244ce51293af4e0f36e940823",
+  "logs_sha256": "f5d0c43de3e3028f2b31d4877ea4ca50cb4ac28aa3ae51be1c7b71d3285e5d11",
+  "source_sha256": {
+    ".github/workflows/chess_openevolve_ci.yml": "13edba404bad92f51a22d039f71a47e9c05ececd4fede6d8fa8dfa776975d37e",
+    "Cryptids/Chess/Optimisation/OpenEvolve.lean": "1c0bca1da8cf579ce351ba44a2bdd7b3875d77ddd5622a77d3431f6c5738f200",
+    "Cryptids/Optimisation/TerminalBinary.lean": "8d8b668f72a8db0266ef9db903f1bf53122cd38aec6478ebb9273310f28259f9",
+    "Cryptids/Semantics/ChessOpenEvolve.lean": "37dee9cbfae4c650931f22d903cb08aabbe7285c8ddaa7d5fe93c8825d33e085",
+    "artifacts/chess_openevolve/table-map.json": "a69825863b02d27f56d95a70ac99ca80daafed6016bec3a6610e23852c1a38c5",
+    "docs/chess/openevolve/baseline-pins.json": "bd47cf5ed7b21f896c74481fb85ba6892653d25eb44a5fab6727dfaaad263b47",
+    "lakefile.chess-openevolve.toml": "110ed0afe136cdfd2403b699ee748fe8239afc7f9adf018b0a787110049dadab",
+    "scripts/chess_openevolve/Audit.lean": "be38ca7f0d8eead5487ff32eea329332a5c8a87285f8e9fe414c9990c3af65cd",
+    "scripts/chess_openevolve/Fixtures.lean": "3e0a450925cd0105b6c9ee2d65bd325b98e81f66dd94de9623b8ecbc95eef0e2",
+    "scripts/chess_openevolve/TableCertificate.lean": "2ce3f44e4fbc17c958d9deb3e806de84dbcdb945864b4ea8d26604b46b42c2bf",
+    "scripts/chess_openevolve/evaluator.py": "20ba8f1aad0ffb87674ba305999aedf04f7383c593f6ef2d5d208e87341546d6",
+    "scripts/chess_openevolve/model.py": "cb4fe5fc41f62b1f740a23ffe5bb0fea92cfe9209e44deadb89320f9d599d706",
+    "scripts/chess_openevolve/requirements.txt": "326038ef7e4b530bdaa095a8af06fb5997aa4aed326d9ca28b711eaff7b5ae0f",
+    "scripts/chess_openevolve/search.py": "3ec6ecf915cc59252aafe8960b4b299db43277d883d1e1ba343e76507eb567d3",
+    "scripts/chess_openevolve/seed.py": "576ca7d3b9faa788cec9de146aa36e6264d4a1f49cdd193d03389a37479a1fd7",
+    "scripts/chess_openevolve/table_map.py": "f06f1392b2486d1d0fa425a04bd1d07adcd4eb02da210e374aa963f2af9c09a8",
+    "scripts/chess_openevolve/verify.py": "8a907ecb11c46715b8024a64704222a651238218fc2e91f0801744aaf7a88e92"
+  },
+  "core_conclusion": "failure",
+  "frozen_inputs": 192,
+  "phase_reports": 6,
+  "model_requests": 5,
+  "evaluations": 6,
+  "tokens": 4081,
+  "ordered_model_proposals": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      2,
+      0
+    ]
+  ],
+  "framework_elapsed_seconds": 46.953745078,
+  "model_generation_seconds": 36.90156902600006,
+  "core_baseline_timeout_seconds": 3600.151719467,
+  "new_full_table_streamed": false,
+  "construction_binding_sha256": "ab9af693a8a97b2cab3a4306bb475ad00191e406d374ee37cba971d831db2d93",
+  "baseline_run_id": 39548653262,
+  "baseline_commit": "c7d3ff318ef8beda1e41f3185013b03ce5f2290b",
+  "baseline_conclusion": "success",
+  "baseline_artifact_sha256": "ad8503c93a567f9d5618667766d8e6f0a3221746897d850965a0d8f1cd58b78a",
+  "baseline_logs_sha256": "036a14fe3cbf7a40f0dacffbe2648cdc7d95acdece018e8a2506d62e77845940",
+  "separate_orchestration_sha256": {
+    ".github/workflows/chess_openevolve_baseline.yml": "2503eb0d458baacc6fb621211845164b1d7c14adb85b4ebbf01699591d0401f2"
+  }
+}

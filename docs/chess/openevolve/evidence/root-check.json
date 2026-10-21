@@ -1,0 +1,56 @@
+{
+  "format": "chess-openevolve-root-recheck-v1",
+  "status": "passed",
+  "scope": "saved official evidence, metadata, hashes and whitespace only; no local Lean, model, native checker or table execution",
+  "checks": [
+    {
+      "command": "python3 docs/chess/openevolve/evidence/check_evidence.py",
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "exit": 0,
+      "output": "Retained OpenEvolve evidence passed: matching current sources, 192 frozen inputs, six composed phases, five real model proposals; core timeout retained\n",
+      "output_sha256": "f08c4b4abc0f209aacd7198f49513f3f8ebabcd932cde837090ece49c45e952f",
+      "checker_sha256": "624ec4cc9c482779cbd005dde435277808d694da5cadd236365c659d4a46abca"
+    },
+    {
+      "command": "python3 docs/chess/openevolve/evidence/review/validate_review.py",
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "exit": 0,
+      "output": "{\"status\": \"passed\", \"scope\": \"independent metadata and saved-output review; no local proof/model/native/table execution\", \"commit\": \"e2888bf3d0ac9ff13119d65aa6ae9a66cec51709\", \"run_id\": 39542309855, \"artifact_sha256\": \"35e34032deb6744aeffafe2cd2dd58acc47b760244ce51293af4e0f36e940823\", \"logs_sha256\": \"f5d0c43de3e3028f2b31d4877ea4ca50cb4ac28aa3ae51be1c7b71d3285e5d11\", \"core_conclusion\": \"failure\", \"frozen_inputs\": 192, \"phase_reports\": 6, \"model_requests\": 5, \"evaluations\": 6, \"tokens\": 4081, \"ordered_model_proposals\": [[0, 1], [1, 1], [1, 0], [2, 1], [2, 0]], \"framework_elapsed_seconds\": 46.953745078, \"model_generation_seconds\": 36.90156902600006, \"core_baseline_timeout_seconds\": 3600.151719467, \"new_full_table_streamed\": false, \"construction_binding_sha256\": \"ab9af693a8a97b2cab3a4306bb475ad00191e406d374ee37cba971d831db2d93\", \"baseline_run_id\": 39548653262, \"baseline_commit\": \"c7d3ff318ef8beda1e41f3185013b03ce5f2290b\", \"baseline_conclusion\": \"success\", \"baseline_artifact_sha256\": \"ad8503c93a567f9d5618667766d8e6f0a3221746897d850965a0d8f1cd58b78a\", \"baseline_logs_sha256\": \"036a14fe3cbf7a40f0dacffbe2648cdc7d95acdece018e8a2506d62e77845940\", \"separate_orchestration_sha256\": {\".github/workflows/chess_openevolve_baseline.yml\": \"2503eb0d458baacc6fb621211845164b1d7c14adb85b4ebbf01699591d0401f2\"}}\n",
+      "output_sha256": "ee90a9b17dabd1fb9cc4dfcbc6f440b5e2156e39e7248c8b42141cf57420e73b",
+      "checker_sha256": "31039cf295a4611706c84e7b5f60a6b3053daadbe787db2bb5ed48a5992f64cd"
+    },
+    {
+      "command": "python3 scripts/chess_openevolve/verify.py --metadata",
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "exit": 0,
+      "output": "",
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "checker_sha256": "8a907ecb11c46715b8024a64704222a651238218fc2e91f0801744aaf7a88e92"
+    },
+    {
+      "command": "git diff --check",
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "exit": 0,
+      "output": "",
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "completed_at_utc": "2026-10-21T06:15:24.852975+00:00",
+  "review_seal_sha256": "c1940e39213ae9aa1c6910c0bd7544871b55dc38ceb23ac0aecca0f5229fa516",
+  "verified_seal_map_counts": {
+    "core_source_sha256": 17,
+    "frozen_source_sha256": 192,
+    "separate_orchestration_sha256": 1,
+    "reviewer_evidence_sha256": 5,
+    "durable_official_evidence_sha256": 78
+  },
+  "public_review_files_match_private": true,
+  "review_report_matches_seal": true,
+  "current_results_match_seal": true,
+  "implementation_commit": "e2888bf3d0ac9ff13119d65aa6ae9a66cec51709",
+  "remote_runs": [
+    39542309855,
+    39548653262
+  ],
+  "core_timeout_preserved": true
+}

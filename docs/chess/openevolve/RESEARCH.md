@@ -44,10 +44,11 @@ family with Lean certificates; it does not reproduce those full algorithms.
 
 ## Limits and follow-on decision
 
-The expected one-state saving is deliberately modest. Evidence of integration
-success would be a genuinely model-proposed policy, accepted by Lean, with the
-actual smaller blank machine and unchanged frozen target, plus rejected controls,
-retained prompts/feedback/checkpoints and passing regressions. A larger campaign
-would need more productive operators and a stronger model; decide that from the
-measured pilot instead of treating a one-state success as evidence of scalability.
+The certified one-state saving is deliberately modest. The model ordered all five
+nonbaseline policies in the supplied family; the third passed its Lean certificate.
+The actual smaller blank machine retains the frozen target, and rejected controls,
+prompts, feedback, checkpoints and passing regressions are preserved. This proves
+the integration works for the supplied family. A larger campaign needs more
+productive operators; whether a stronger model helps requires another experiment.
+The one-state success supplies no evidence of scalability.
 No outreach or later milestone is part of this run.

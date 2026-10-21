@@ -25,9 +25,9 @@
   },
   "39541668987": {
     "commit": "48c55c91f4445951287cffce5115805e244e461e",
-    "observed_status": "in_progress",
-    "overall_conclusion": "",
-    "disposition": "Strict assembly and native checker build passed;8GiBAS audit failed reading toolchain metadata. No audit/search acceptance."
+    "observed_status": "completed",
+    "overall_conclusion": "failure",
+    "disposition": "Strict assembly and native checker build passed; 8-GiB address-space audit failed reading toolchain metadata. No audit/search acceptance."
   },
   "39541592332": {
     "commit": "e269c15aba880be1fc3325a98b49ec5936bb144a",
@@ -39,7 +39,7 @@
     "commit": "a7c843265f42aeddc04ab8b665aa4981aea50c7d",
     "observed_status": "completed",
     "overall_conclusion": "failure",
-    "disposition": "Strict concrete build passed; interpreter audit reached6144MiB limit before search."
+    "disposition": "Strict concrete build passed; interpreter audit reached 6144-MiB limit before search."
   },
   "39540527173": {
     "commit": "bcc7ab9bc7c228099b1f344f7ae8a9bff2af4fef",
@@ -57,13 +57,13 @@
     "commit": "d3fc8723c3e3bcd7d22f9db705fe493d0f509cc9",
     "observed_status": "completed",
     "overall_conclusion": "failure",
-    "disposition": "Inherited backend built; concrete rowMachine normalization reached6144MiB cap. Failed closed before search; repaired symbolically."
+    "disposition": "Inherited backend built; concrete rowMachine normalization reached 6144-MiB cap. Failed closed before search; repaired symbolically."
   },
   "39537193950": {
     "commit": "079cb6b34a46fdf80b9ba81091b6eb89b6110ead",
     "observed_status": "completed",
     "overall_conclusion": "failure",
-    "disposition": "Strict generic proof passed; concrete build terminated with exit143, no final artifact. Cause unestablished."
+    "disposition": "Strict generic proof passed; concrete build terminated with exit 143, no final artifact. Cause unestablished."
   },
   "39537060615": {
     "commit": "ee20347cc9de4cea1f6cd8c2b9603a2d63adf118",
@@ -82,5 +82,17 @@
     "observed_status": "completed",
     "overall_conclusion": "failure",
     "disposition": "Strict generic row-map proof failure; corrected before acceptance."
+  },
+  "39542309855": {
+    "commit": "e2888bf3d0ac9ff13119d65aa6ae9a66cec51709",
+    "overall_conclusion": "failure",
+    "disposition": "Five pilot phases passed and are independently authenticated; final legacy baseline reached 3600s timeout during M5 executable verification after M1\u2013M4/default build success. Not a green whole run. Completed separately on exactly matching computation inputs.",
+    "observed_status": "completed"
+  },
+  "39548653262": {
+    "commit": "c7d3ff318ef8beda1e41f3185013b03ce5f2290b",
+    "overall_conclusion": "success",
+    "disposition": "Actual unchanged baseline CLI completed in 2578.28s with matching 17 core / 192 frozen source pins and separately sealed helper workflow. Accepted baseline completion only; no repeated model search.",
+    "observed_status": "completed"
   }
 }

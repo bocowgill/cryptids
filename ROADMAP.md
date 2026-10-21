@@ -9,8 +9,9 @@ M5 is complete with a verified binary backend and four literal blank-tape small-
 machines (2026-10-20). M6 is complete with the verified 392,046,832-state baseline
 and retained literal table (2026-10-20). M7's first certified reduction is complete:
 392,046,822 states, ten fewer than M6, with the same halting equivalence (2026-10-20).
-An OpenEvolve compiler pilot has passed its new proof and search steps for a
-392,046,821-state candidate; baseline and final evidence acceptance are pending.
+The OpenEvolve compiler pilot is complete: a further certified reduction to
+392,046,821 states, with verified search integration and passing regressions
+(2026-10-21).
 Heavy computation remains remote; outreach remains on hold.
 
 ## 1. Agreed objective and scope
@@ -486,26 +487,28 @@ SAT nonexistence results, retain a checkable UNSAT certificate when practical.
 Goal: connect the real pinned OpenEvolve framework to semantic rejection filters
 and mandatory Lean certificates, using accepted M7 as the fixed regression case.
 Target one compiler routine: binary lowering of writes into a terminal Post
-control. The intended saving is one return state, including the full paid input
+control. The certified saving is one return state, including the full paid input
 initializer in the 392,046,821-state total. The model orders a supplied finite
 policy family; this pilot makes no autonomous-discovery or scalability claim.
 
-Status: new proof, audit, controls, table certificate, M7 regression and actual
-model-backed search steps passed remotely. The frozen M1–M5 baseline and final
-independent evidence acceptance are pending. See
+Status: complete. New proof, audit, controls, table certificate, M7 regression,
+actual model-backed search and full frozen M1–M5 baseline passed remotely.
+Independent review accepted matching source-bound component evidence, retaining
+the first baseline timeout and its successful separate recovery. All 9 gates are
+met; none remain unmet or abandoned. See
 [pilot results and scope](docs/chess/openevolve/RESULTS.md).
 
 Acceptance criteria:
 
-- [ ] Keep all 192 accepted M7 computation inputs and the frozen reference fixed;
+- [x] Keep all 192 accepted M7 computation inputs and the frozen reference fixed;
   pass the actual M7 regression.
-- [ ] Execute a bounded, genuinely model-backed OpenEvolve run remotely; retain
+- [x] Execute a bounded model-backed OpenEvolve run remotely; retain
   raw proposals, feedback, checkpoints, exact versions and measured costs.
-- [ ] Reject malformed and semantically incorrect policies, corrupt costs and
+- [x] Reject malformed and semantically incorrect policies, corrupt costs and
   certificates, and actual proof timeouts.
-- [ ] Certify the actual smaller blank machine's unconditional frozen non-draw
+- [x] Certify the actual smaller blank machine's unconditional frozen non-draw
   equivalence, paid initialization and universally justified table recipe.
-- [ ] Pass applicable regressions and independent review of authentic, current
+- [x] Pass applicable regressions and independent review of authentic, current
   source-bound evidence. Preserve unsuccessful attempts and honest limits.
 
 All substantial computation remains remote. Outreach and later milestones remain
@@ -630,6 +633,14 @@ same 192 computation inputs; the successful regression setup helper is pinned
 separately, and the earlier whole-run setup failure is retained honestly. All
 heavy computation ran remotely. The frozen M6 baseline remains fixed and outreach
 remains on hold.
+
+The additional OpenEvolve compiler pilot is complete at 392,046,821 states.
+It exhausts a supplied finite policy family, with five actual model proposals,
+mandatory Lean certificates and a one-state strict reduction. The successful
+baseline recovery shares all 17 pilot computation hashes and 192 frozen inputs
+with the accepted core components; its orchestration hash is sealed separately.
+The original core failure remains recorded. See
+[pilot results](docs/chess/openevolve/RESULTS.md).
 
 [fork]: https://github.com/bocowgill/cryptids
 [upstream]: https://github.com/google-deepmind/cryptids

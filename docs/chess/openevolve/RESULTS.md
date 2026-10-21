@@ -1,10 +1,11 @@
 # OpenEvolve compiler pilot
 
-Status: verification in progress. The generic compiler theorem, concrete chess
-assembly, dependency audit, controls, artifact certificate, M7 regression and
-actual OpenEvolve search have passed their remote steps. The frozen M1–M5 baseline
-and independent acceptance of the completed official evidence remain required.
-See [RESUME.md](RESUME.md) for the current remote run.
+Status: **complete**. The generic compiler theorem, concrete chess assembly,
+dependency audit, controls, artifact certificate, M7 regression, actual OpenEvolve
+search and complete frozen M1–M5 baseline passed remotely. Independent review
+accepted the construction and authenticated composed evidence. All 9 acceptance
+gates are met: 0 unmet and 0 abandoned. See [REVIEW.md](REVIEW.md) and the
+[final review seal](evidence/review/seal.json).
 
 The [machine-readable results](results.json) record the measured core outcome.
 Core run [39542309855](https://github.com/bocowgill/cryptids/actions/runs/39542309855)
@@ -14,8 +15,12 @@ verification. The default build and M1–M4 had passed. The five earlier pilot
 phase reports passed and are retained in the authenticated 61-entry
 [official archive](evidence/current/artifact.zip). The
 [baseline-only recovery](https://github.com/bocowgill/cryptids/actions/runs/39548653262)
-is separate and remains pending; its orchestration hash is sealed independently
+passed in full; its orchestration hash is sealed independently
 while all 17 core computation hashes and 192 frozen inputs remain identical.
+Its [official archive](evidence/baseline/artifact.zip) records successful execution
+of the unchanged baseline CLI in 2,578.28 seconds. The original core workflow
+remains a failed whole run; acceptance combines its five passed components with
+the matching successful baseline receipt.
 
 ## Construction
 
@@ -80,6 +85,19 @@ subprocess timeout, and a corrupt Lean proof. Small executable table fixtures
 covered 30 corners; a separate universal theorem covers the singleton terminal
 initial-state edge case.
 
+| Completed core operation | Measured wall time |
+| --- | ---: |
+| New assembly, native audit, controls and artifact certificate step | 41 s |
+| Accepted M7 regression step | 44 s |
+| Pinned CPU search-runtime installation | 51 s |
+| OpenEvolve search step, including startup and evaluation | 49 s |
+| Incomplete legacy baseline attempt | 3,600.15 s; timed out |
+| Complete baseline-only recovery CLI | 2,578.28 s |
+
+These are construction and validation costs. The initial-position chess evaluator
+was not run to determine its value. Failed attempts and the separate baseline
+recovery are additional costs, recorded with their actual run outcomes.
+
 ## Explicit table representation
 
 The [fixed recipe](../../../artifacts/chess_openevolve/table-map.json) selects rows
@@ -119,10 +137,16 @@ To reproduce, dispatch the `Chess OpenEvolve pilot` workflow on the pilot branch
 in the fork. It uses Ubuntu24.04 and the unchanged Lean4.35.0-rc4 toolchain,
 fetches the complete pinned Mathlib cache, prepares the supported sandbox,
 installs the pinned CPU inference environment, and executes all six phases.
-Do not run these substantial verification commands locally. A lightweight local
+The separate `Chess OpenEvolve baseline completion` workflow reproduces the
+baseline completion with its separately pinned orchestration file and longer
+outer timeout. Do not run these substantial verification commands locally.
+A lightweight local
 `python3 scripts/chess_openevolve/verify.py --metadata` checks only frozen hashes.
 Once official evidence is retained, `evidence/check_evidence.py` inspects archive
 digests, saved outputs and current file hashes without executing Lean or a model.
+The independent `evidence/review/validate_review.py` rechecks both official archives,
+all six components, policy/proof bindings, checkpoints, current inputs and the
+separate helper hash. Both metadata-only validators passed on the final inputs.
 
 The [failure history](evidence/history/dispositions.json) retains rejected proof
 attempts, an early masked build exit, termination without a final artifact,

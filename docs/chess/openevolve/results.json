@@ -1,10 +1,6 @@
 {
-  "status": "verification_in_progress",
-  "remaining": [
-    "baseline completion",
-    "independent final evidence review",
-    "root final current-hash recheck"
-  ],
+  "status": "complete",
+  "remaining": [],
   "implementation_commit": "e2888bf3d0ac9ff13119d65aa6ae9a66cec51709",
   "branch": "codex/chess-openevolve-pilot",
   "target": "Halts machine iff NOT(Chess.WhiteCanAvoidLoss AND Chess.BlackCanAvoidLoss)",
@@ -256,9 +252,27 @@
   },
   "baseline_recovery": {
     "run_id": 39548653262,
-    "status": "in_progress",
+    "status": "passed",
     "outer_timeout_seconds": 7200,
-    "workflow": ".github/workflows/chess_openevolve_baseline.yml"
+    "workflow": ".github/workflows/chess_openevolve_baseline.yml",
+    "commit": "c7d3ff318ef8beda1e41f3185013b03ce5f2290b",
+    "elapsed_seconds": 2578.277817373,
+    "retention": {
+      "run_id": 39548653262,
+      "commit": "c7d3ff318ef8beda1e41f3185013b03ce5f2290b",
+      "conclusion": "success",
+      "artifact_sha256": "ad8503c93a567f9d5618667766d8e6f0a3221746897d850965a0d8f1cd58b78a",
+      "logs_sha256": "036a14fe3cbf7a40f0dacffbe2648cdc7d95acdece018e8a2506d62e77845940",
+      "entries": 3
+    },
+    "orchestration_sha256": "2503eb0d458baacc6fb621211845164b1d7c14adb85b4ebbf01699591d0401f2",
+    "command": [
+      "python3",
+      "scripts/verify_chess_m6.py",
+      "--baseline"
+    ],
+    "output_sha256": "26b646ebaf4a54bdd3918f3f2b4b6ca8ef606aec32392832eb4be942c68189d9",
+    "child_maxrss_kib": 10548600
   },
   "search": {
     "framework_commit": "59dfe764b5ab4478ac00214432fcac33bbe2bf4b",
@@ -371,8 +385,8 @@
   "outreach": "on_hold",
   "later_milestones": "on_hold",
   "acceptance": {
-    "met": 6,
-    "unmet": 3,
+    "met": 9,
+    "unmet": 0,
     "abandoned": 0,
     "met_gates": [
       "G1",
@@ -380,12 +394,19 @@
       "G3",
       "G4",
       "G5",
-      "R1"
-    ],
-    "unmet_gates": [
       "G6",
       "G7",
+      "R1",
       "R2"
-    ]
-  }
+    ],
+    "unmet_gates": []
+  },
+  "independent_review": {
+    "report": "docs/chess/openevolve/REVIEW.md",
+    "seal": "docs/chess/openevolve/evidence/review/seal.json",
+    "seal_sha256": "c1940e39213ae9aa1c6910c0bd7544871b55dc38ceb23ac0aecca0f5229fa516",
+    "advisory_model_review": true,
+    "human_approval": false
+  },
+  "root_recheck": "docs/chess/openevolve/evidence/root-check.json"
 }
