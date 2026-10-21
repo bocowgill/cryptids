@@ -102,7 +102,10 @@ def proofs():
                   "Build completed successfully", timeout=1800)]
     checks += [run(["lake", "--wfail", "-f", "lakefile.chess-openevolve.toml", "build",
                     "chess_openevolve_audit"], "Build completed successfully")]
-    audit = [str(ROOT / ".lake/build/bin/chess_openevolve_audit")]
+    # Native audit: same inspector, correct Lake search path, 8 GiB address-space
+    # ceiling and run()'s 900-second timeout. This is not Lean's -M6144 bound.
+    audit = ["prlimit", "--as=8589934592", "--", "lake", "env",
+             str(ROOT / ".lake/build/bin/chess_openevolve_audit")]
     checks += [run(audit, "Chess OpenEvolve foundation audit passed")]
     checks += [run(audit + [flag], expected, 1) for flag, expected in [
         ("--negative-control", "Forbidden axiom: sorryAx"),
