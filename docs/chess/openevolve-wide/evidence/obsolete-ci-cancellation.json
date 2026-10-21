@@ -1,0 +1,17 @@
+{
+  "run_id": 39593186986,
+  "source_commit": "983d002fc5f6a1c8d139010098bbb4d24a61739b",
+  "workflow": "Cryptids CI",
+  "reason": "Superseded source; required accepted regression evidence already retained. Found by final 100-run scan after recent12 scan missed it.",
+  "normal_cancel": {
+    "command": "gh run cancel 39593186986 --repo bocowgill/cryptids",
+    "exit": 0,
+    "output": "Request to cancel workflow 39593186986 submitted."
+  },
+  "force_cancel": {
+    "command": "gh api --method POST repos/bocowgill/cryptids/actions/runs/39593186986/force-cancel",
+    "exit": 0,
+    "response": {}
+  },
+  "not_counted_as_accepted_evidence": true
+}

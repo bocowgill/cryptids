@@ -1,58 +1,58 @@
-# Broader compiler search checkpoint
+# Completed broader-search checkpoint
 
-Work on fork `bocowgill/cryptids`, branch `codex/chess-openevolve-pilot`, with new
-modules under `openevolve-wide` and `chess_openevolve_wide`. Existing pilot/M7
-computation inputs are frozen by `baseline-pins.json` (211 files). Never change
-the frozen chess specification or any of those computation inputs.
+Fork: `bocowgill/cryptids`; branch: `codex/chess-openevolve-pilot`.
+Computation source: `5af346f454a32b403a0dfd085160431b8d9cca77`.
+Successful full remote run:
+[39598997807](https://github.com/bocowgill/cryptids/actions/runs/39598997807).
 
-User authorizes a broader generative OpenEvolve search and a larger certified
-reduction. All Lean, model, fixture, native and table computation remains remote.
-Outreach and upstream writes remain on hold. Only local editing, hashes and saved
-evidence inspection are permitted. Do not execute remote phase CHECKs locally.
+The bounded campaign is complete. The actual 24-proposal OpenEvolve search found
+zero certified saving; all six certified evaluations are the original seed.
+The reverse-write optimization supplied before the run is separately certified
+at **390,491,642 states**, saving **1,555,179 states** over the completed pilot.
+Do not credit that reduction to model discovery or claim that the million-state
+search objective was met. Full details: [RESULTS.md](RESULTS.md),
+[results.json](results.json), [REVIEW.md](REVIEW.md) and
+[root-check.json](evidence/root-check.json).
 
-Hypothesis: reverse-order leftward writing plus one right move initializes the
-same exact input zipper in n+1 states. At n=1,555,180 this would give 390,491,642
-paid states, saving 1,555,179 relative to the completed pilot. This remains a
-candidate until strict assembly, audit, artifact and regression checks succeed.
+The proof is unconditional against the frozen non-draw statement. The input and
+388,936,461-state binary body are unchanged. The paid initializer now uses exactly
+1,555,181 states and transitions by writing in reverse while moving left, then
+moving right once. Relative tape equality is proved for all finite bit lists;
+absolute return to the original physical cell is not claimed. A universal numeric
+row recipe is retained; a new expanded table/full row sweep was not performed.
 
-Search proposes new expression trees, rather than selecting finite policy IDs.
-The reverse-write idea and proof support were supplied before the run. See
-RESEARCH.md for the certification bank's limitations. Do not attribute that idea
-to the search model, or conflate supplied preflight plans with model proposals.
-Maximum budget: 24 model proposals, 256 output tokens each, 4096 input tokens each,
-40-minute search bound. No paid model API; actual runner billing unknown.
+All five successful phase receipts bind the same 16 new computation inputs and
+211 frozen prior inputs. Official artifact/log archives, raw requests, population
+checkpoints, failures and certificates are under `evidence/current`; earlier
+failed proof/preflight archives are under `evidence/history`. Every earlier
+retained failed preflight stopped before inference. These failures remain failures.
+The original M7/pilot and M1–M5 accepted evidence remains fixed and authenticated.
 
-Remote workflow: `.github/workflows/chess_openevolve_wide.yml`. Dispatch `stage=probe`
-for strict compiler/concrete machine checks, `stage=search` for the model run, and
-`stage=full` for complete validation. Inspect any currently running job before
-launching another; keep failures and cancelled/superseded attempt provenance.
-Workflow setup reuses the existing same-branch cache. The initial separate broad
-branch was left unused to avoid losing access to that remote cache.
+The current proof bank recognizes two supplied universal identities. Generation
+is unconstrained within a typed schedule-expression language, but certification
+does not synthesize arbitrary new proofs. Before spending a larger future budget,
+consider widening that proof frontier. No further model run is authorized by this
+checkpoint. The static prompt omits the solution; later proof diagnostics can
+expose supplied identities. See [RESEARCH.md](RESEARCH.md).
 
-Probe history:
+Preserve the frozen chess reference, toolchain and all entries in
+`baseline-pins.json`. All Lean, model, fixtures, native audits and table work must
+remain remote. Local editing, hashing and saved-evidence inspection are permitted.
+Outreach, upstream writes and later milestones remain on hold. Inspect remote
+jobs before launching another; do not start duplicate or unattended searches.
 
-- 39592429542 at 30ec16d: failed on a nonexistent lemma and unfolding details;
-  official archive retained in evidence/history/first-proof-failure.
-- 39593192497 at 983d002: only the map-over-append definitional rewrite remained;
-  official archive retained in evidence/history/list-map-proof-failure.
-- 39593962240 at 75cbd9c: strict generic ReverseInit proof passed; concrete
-  state-count conversion reached the 6144-MiB cap, with a reserved binder name.
-  Official archive: evidence/history/concrete-count-memory-failure.
-- 39594768893 at 5058c59: symbolic count repair passed; generic cast initializer
-  needed explicit normalization of the blank init configuration. No search ran.
-  Official archive: evidence/history/blank-cast-rewrite-failure.
-- 39595465200 at 2d9987b: strict full concrete machine/semantics build passed in
-  10 seconds. Search preflight failed while simplifying the concrete million-bit
-  cost, before ANY model request. Official archive: evidence/history/search-preflight-failure.
-- Current full run 39596779016 at 4124781639ff63a5573da0e923cd7fca865d72e3 proves
-  schedule length symbolically before substituting the concrete length. It reuses
-  the same verified mathematical construction; inspect its actual outcome.
+Reproduction workflow: `.github/workflows/chess_openevolve_wide.yml`, with stages
+`probe`, `search` and `full`. A full rerun means a new experiment, not necessary
+acceptance work for this completed run. The original budget was 24 proposals,
+4096 input /256 output tokens per request, with a 40-minute search bound. No paid
+model API was used; runner billing is unknown.
 
-No model search had spent any of the 24-proposal budget as of the preceding
-retained preflight failure. Do not launch a duplicate run before checking the
-current run. Final native audit, controls, model search, regressions and root
-acceptance are still pending; no overall completion claim is authorized.
-Gate ledger: `.unlazy/chess-openevolve-wide/GATES.md` (6 root gates +2 review gates).
-The independent source review R1 found no construction defect; R2 still waits
-for actual final evidence. Supplied proof identities may be exposed in later
-certificate feedback, even though the static system prompt omits the solution.
+Lightweight saved-evidence replay:
+
+```sh
+python3 docs/chess/openevolve-wide/evidence/check_evidence.py
+python3 scripts/chess_openevolve_wide/verify.py --metadata
+```
+
+The final acceptance ledger has six root and two independent-review gates at
+`.unlazy/chess-openevolve-wide/`; the measured final counts are in the root receipt.

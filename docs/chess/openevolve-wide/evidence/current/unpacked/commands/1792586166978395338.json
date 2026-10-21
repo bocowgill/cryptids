@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "python3",
+    "scripts/verify_chess_m7.py",
+    "--proofs"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "Chess M7 frozen baseline verification passed\n\u2139 [3889/3911] Replayed Cryptids.Chess.Compilation.SourceCertificate\ninfo: Cryptids/Chess/Compilation/SourceCertificate.lean:226:0: Source certificate: 7076 checked lemmas, 7037 cache hits\ninfo: Cryptids/Chess/Compilation/SourceCertificate.lean:230:0: Literal row certificate: 5952 checked rows in 186 chunks\n\u2139 [3901/3911] Replayed Cryptids.Chess.Compilation.Input\ninfo: Cryptids/Chess/Compilation/Input.lean:128:0: Checked 186 literal row chunks: 141042 stack symbols\nBuild completed successfully (3911 jobs).\nAudited 65 M7 foundation roots and 48674 dependencies\nMeta certificate generator roots outside safe roots: 0\nCompiler artifacts outside safe roots: #[]\nPermitted axioms: #[propext, Classical.choice, Quot.sound]\nChess M7 foundation audit passed\nuncaught exception: Forbidden axiom: sorryAx\nuncaught exception: The open chess conjecture is a dependency\nuncaught exception: Proof generator is a mathematical dependency: Chess.Compilation.SourceCertificate.Generator.certify\nM7 quotient fixtures passed: 34 row corners and universal input equivalence\nM7 quotient table fixtures passed: literal oracle, all 120 intervals, corruption/map/count controls\nChess M7 quotient proof verification passed\n",
+  "output_sha256": "fe7aa7ce7ecf3f84e8eeb6057de8e9adfd78e0383fa709a63b24746b216d373c",
+  "timed_out": false,
+  "elapsed_seconds": 33.11235128199996,
+  "cumulative_children_peak_rss_kib": 6263340
+}

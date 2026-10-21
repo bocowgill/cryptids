@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-openevolve-wide/search/41f11d6784680b8540da10303e1b79cd5b0af30b8038d1d11149bcc201094e89.lean"
+  ],
+  "exit": 1,
+  "stdout": "/home/runner/work/cryptids/cryptids/.lake/chess-openevolve-wide/search/41f11d6784680b8540da10303e1b79cd5b0af30b8038d1d11149bcc201094e89.lean:7:2: error: Type mismatch: After simplification, term\n  ReverseInit.forward_correct bits\n has type\n  Init.executeList (ReverseInit.writes bits Dir.right ++ ReverseInit.moves Dir.left bits.length) (Tape.mk\u2081 []) =\n    Tape.mk\u2081 bits\nbut is expected to have type\n  Init.executeList\n      (ReverseInit.moves Dir.left 1 ++ (ReverseInit.writes bits.reverse Dir.left ++ ReverseInit.moves Dir.right 1))\n      (Tape.mk\u2081 []) =\n    Tape.mk\u2081 bits\n/home/runner/work/cryptids/cryptids/.lake/chess-openevolve-wide/search/41f11d6784680b8540da10303e1b79cd5b0af30b8038d1d11149bcc201094e89.lean:9:56: error: unsolved goals\nbits : List (Fin 2)\n\u22a2 bits.length + 1 = 1 + bits.length\n",
+  "stderr": "",
+  "source": "import Cryptids.Optimisation.ReverseInit\nopen Turing ConjectureMachines.Compilation\nopen ConjectureMachines.Optimisation\ndef proposed (bits : List (Fin 2)) : List Init.Instruction := (((ReverseInit.moves .left 1) ++ (ReverseInit.writes (bits).reverse .left)) ++ (ReverseInit.moves .right 1))\nexample (bits : List (Fin 2)) :\n    Init.executeList (proposed bits) (Tape.mk\u2081 []) = Tape.mk\u2081 bits := by\n  simpa [proposed] using ReverseInit.forward_correct bits\ntheorem proposed_length (bits : List (Fin 2)) :\n    (proposed bits).length = ((1 + bits.length) + 1) := by\n  simp [proposed, ReverseInit.writes, ReverseInit.moves]\nexample (bits : List (Fin 2)) (size : bits.length = 1555180) :\n    (proposed bits).length = 1555182 := by\n  rw [proposed_length, size]\n",
+  "source_sha256": "41f11d6784680b8540da10303e1b79cd5b0af30b8038d1d11149bcc201094e89",
+  "initializer_states": 1555182
+}

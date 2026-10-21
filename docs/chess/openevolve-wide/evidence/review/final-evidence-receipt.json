@@ -1,0 +1,158 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "review_type": "independent advisory saved-evidence review",
+  "evidence_run_updated_utc": "2026-10-21T12:37:27Z",
+  "local_heavy_computation": false,
+  "live_network_authentication_performed": false,
+  "authentication_scope": "retained official API metadata, digest-bound archives, extracted bytes and saved logs",
+  "run_id": 39598997807,
+  "computation_commit": "5af346f454a32b403a0dfd085160431b8d9cca77",
+  "conclusion": "success",
+  "artifact_sha256": "581026dac290c7ebb74d666ed7760f335027fb8eb99eacf0226ae517f59f1ec7",
+  "logs_sha256": "513a221c803178a54919ce72990ec965771a5662a9c672623329a8c037cc8bb4",
+  "archive_entries_checked": 427,
+  "phase_reports_checked": [
+    "probe",
+    "controls",
+    "search",
+    "proofs",
+    "results"
+  ],
+  "computation_source_sha256": {
+    ".github/workflows/chess_openevolve_wide.yml": "acd796d38e6274f6a69cffb151311841990633a9d5e7d174b14232c462e047ad",
+    "Cryptids/Chess/Optimisation/OpenEvolveWide.lean": "209f0c15fd86a71712ea8fa3bee0904531859311255fa9dbec0aa14848e8bb2d",
+    "Cryptids/Optimisation/ReverseInit.lean": "c9ffcf40ec6c592a47f2065f8277ba9916292cf92b01c911a08c296a4f0a786c",
+    "Cryptids/Semantics/ChessOpenEvolveWide.lean": "774e182af00da69cbe657f81ff7da728f34e284d7a7dc3e0dd53782a9f49978f",
+    "docs/chess/openevolve-wide/baseline-pins.json": "854d3e35d51ede67db6db263c8797bb99e388ace4e79a760a5e7b12b103977d6",
+    "docs/chess/openevolve-wide/model-pin.json": "a725c1fdfd6ae9129b54c6f16a277f50bcac39d7cd915ef52448c1bca4024602",
+    "lakefile.chess-openevolve-wide.toml": "20f0ce9c0f6561152b2707408e6965d86ab1291356d66e0da5f8448b68be9005",
+    "scripts/chess_openevolve_wide/Audit.lean": "e7d8598c68eed6ac376bcbabd88295bff3715d913943087a8420f4b031c31dd5",
+    "scripts/chess_openevolve_wide/controls.py": "8847abfd722c36b750388d8c6cb92de75280cd86e2fb2ed3319796b388934bf7",
+    "scripts/chess_openevolve_wide/evaluator.py": "bc4ec9be6260cda6b2d4acf58c65007542e16765f6157119202016a5aa87e9c6",
+    "scripts/chess_openevolve_wide/model.py": "be52102d57feec96296ac291ad91f401f97378a09f89b6fa354df3e6c0b6395f",
+    "scripts/chess_openevolve_wide/plans.py": "9383dc9b88b0d5849c7d0157d3406fb667999dcd77effad69607c042ad88ca7b",
+    "scripts/chess_openevolve_wide/requirements.txt": "326038ef7e4b530bdaa095a8af06fb5997aa4aed326d9ca28b711eaff7b5ae0f",
+    "scripts/chess_openevolve_wide/search.py": "2844cae94267e7abec2df498bca94213f2a9c5460a72f0ab2757cc44964ddf83",
+    "scripts/chess_openevolve_wide/seed.py": "72f39bbfd68936a8024f64a13b22e2b03acebfa2e3240f7e8ea8274c81e06ead",
+    "scripts/chess_openevolve_wide/verify.py": "08c71d64f2d0f96696d877da4994206a5784ee2cee3e9d1d8f1053c5d52360cd"
+  },
+  "frozen_inputs_checked": 211,
+  "frozen_mismatches": [],
+  "actual_engineered_machine": {
+    "states": 390491642,
+    "saving": 1555179,
+    "model_generated": false,
+    "formal_evidence": "remote strict build plus safe dependency audit"
+  },
+  "search_outcome": {
+    "requests": 24,
+    "evaluations": 25,
+    "distinct_raw_proposals": 18,
+    "certified_evaluations": 6,
+    "all_certified_codes_equal_seed": true,
+    "best_states": 392046821,
+    "saving": 0,
+    "target_met": false,
+    "selected_plan_bridge_invoked": false,
+    "checkpoints": 24,
+    "tokens": 20098,
+    "framework_elapsed_seconds": 535.1097267079999,
+    "model_generation_seconds": 508.91833227799975,
+    "paid_api_calls": 0,
+    "runner_billing_measured": false
+  },
+  "controls": {
+    "positive_schedules": 2,
+    "binary_inputs_per_positive": 127,
+    "rejection_stage_counts": {
+      "syntax": 6,
+      "semantic": 4,
+      "cost": 1,
+      "unproved": 1,
+      "timeout": 1,
+      "corrupt-proof": 1
+    }
+  },
+  "native_audit": {
+    "roots": 69,
+    "dependencies": 48854,
+    "permitted_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "negative_controls": 3
+  },
+  "table_descriptor_sha256": "46f1848d2bb6e8f150786a84fbb4a6f2bb0c15a3c5448b89000dd8ab78d5ea93",
+  "expanded_table_or_full_sweep": false,
+  "legacy_receipts": {
+    "pilot_core_run": 39542309855,
+    "pilot_core_conclusion": "failure",
+    "pilot_core_archive_entries_checked": 61,
+    "baseline_completion_run": 39548653262,
+    "baseline_completion_conclusion": "success",
+    "baseline_archive_entries_checked": 3,
+    "frozen_legacy_inputs_checked": 192
+  },
+  "retained_failed_wide_attempts": [
+    {
+      "run_id": 39594768893,
+      "commit": "5058c591db84184fb727acb3212eaca2838e9092",
+      "conclusion": "failure",
+      "model_request_evidence": false,
+      "artifact_sha256": "cc725fbe66b1555daa49ebe4cfed1a7c19c549681066115e0eb4273a938f71b9"
+    },
+    {
+      "run_id": 39593962240,
+      "commit": "75cbd9c19919579523955333ee0db009555dd148",
+      "conclusion": "failure",
+      "model_request_evidence": false,
+      "artifact_sha256": "248a4f898e3c99c90cc484cb41c4fc8140cd8493c6a52324cb03b1469b6c6eae"
+    },
+    {
+      "run_id": 39592429542,
+      "commit": "30ec16dc81eef84389798ed2167031205b484504",
+      "conclusion": "failure",
+      "model_request_evidence": false,
+      "artifact_sha256": "ab941ad3cbe6a36889f26e4cccd18810bfd44d331d6b807c5e1eb9fd41c656f6"
+    },
+    {
+      "run_id": 39593192497,
+      "commit": "983d002fc5f6a1c8d139010098bbb4d24a61739b",
+      "conclusion": "failure",
+      "model_request_evidence": false,
+      "artifact_sha256": "ed32f2d5d9d7e73e3d90c3a1862030beb5be9bc023b6a003a0e3e6413afa7473"
+    },
+    {
+      "run_id": 39597851497,
+      "commit": "2ac576a2444376e2f6d5aa07554e45d1769076bf",
+      "conclusion": "failure",
+      "model_request_evidence": false,
+      "artifact_sha256": "107e9a2c0bfc2425eb9640614940bea50c0f50ae35b2a4599621f9d770916d75"
+    },
+    {
+      "run_id": 39595465200,
+      "commit": "2d9987b6dad63fc5cd4dcde7c5b2a21f93e53ff3",
+      "conclusion": "failure",
+      "model_request_evidence": false,
+      "artifact_sha256": "28e3a8c07a6e0cf0e4297771d56db6d25fdc77f66cb6c7765e4c72dd37c84abb"
+    },
+    {
+      "run_id": 39596779016,
+      "commit": "4124781639ff63a5573da0e923cd7fca865d72e3",
+      "conclusion": "failure",
+      "model_request_evidence": false,
+      "artifact_sha256": "068bfd6bf85e19110680202153e6c7a44c987f39b3ca1128363073e85ed662ee"
+    }
+  ],
+  "reviewed_public_document_sha256": {
+    "docs/chess/openevolve-wide/RESULTS.md": "2183f22f0001c5fc84d6979ab3edcf3ba555347a4b4446d280837c1cac234705",
+    "docs/chess/openevolve-wide/RESUME.md": "ad942521cf698d789b0ac49c9d80ad4dca96b793e8448b3ce0264741e6ee8dfe",
+    "docs/chess/openevolve-wide/results.json": "af0220e5e01f147ddb62535b7dd7ab551295d6624c25469db216aa3e887651d8",
+    "docs/chess/openevolve-wide/RESEARCH.md": "f937b8de0c3718590a1f237dab8014ec2e0993f0d6866d1a789c94d8fca7fe61",
+    "docs/chess/openevolve-wide/DESIGN.md": "78b12e296038afffd34412f3ea3cd8c0fd4002df98ad23bc9e5b67cb7c618e7f",
+    "ROADMAP.md": "2e7df0b5660d2a8f970b21e1e366d7cb481fb15986d43ec6593cdd1b6dca3551"
+  },
+  "checker_sha256": "663e2065ce809ef59ceaadd3bf149e61501a06b2ad5c63e9f25ea8e09c79ba84"
+}

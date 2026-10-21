@@ -1,0 +1,123 @@
+{
+  "positives": [
+    {
+      "code": "PLAN = writes(bits, \"R\") + moves(\"L\", len(bits))",
+      "fixtures": {
+        "binary_inputs": 127,
+        "maximum_length": 6,
+        "proof": false
+      },
+      "proof": {
+        "argv": [
+          "lake",
+          "env",
+          "lean",
+          "-M6144",
+          "-DwarningAsError=true",
+          "/home/runner/work/cryptids/cryptids/.lake/chess-openevolve-wide/search/9e6f16d194edbb51d2dabe999850e148e101c5630e7259d660fd9364006d7f17.lean"
+        ],
+        "exit": 0,
+        "stdout": "",
+        "stderr": "",
+        "source": "import Cryptids.Optimisation.ReverseInit\nopen Turing ConjectureMachines.Compilation\nopen ConjectureMachines.Optimisation\ndef proposed (bits : List (Fin 2)) : List Init.Instruction := ((ReverseInit.writes bits .right) ++ (ReverseInit.moves .left (bits).length))\nexample (bits : List (Fin 2)) :\n    Init.executeList (proposed bits) (Tape.mk\u2081 []) = Tape.mk\u2081 bits := by\n  simpa [proposed] using ReverseInit.forward_correct bits\ntheorem proposed_length (bits : List (Fin 2)) :\n    (proposed bits).length = (bits.length + bits.length) := by\n  simp [proposed, ReverseInit.writes, ReverseInit.moves]\nexample (bits : List (Fin 2)) (size : bits.length = 1555180) :\n    (proposed bits).length = 3110360 := by\n  rw [proposed_length, size]\n",
+        "source_sha256": "9e6f16d194edbb51d2dabe999850e148e101c5630e7259d660fd9364006d7f17",
+        "initializer_states": 3110360
+      }
+    },
+    {
+      "code": "PLAN = writes(bits[::-1], \"L\") + moves(\"R\", 1)",
+      "fixtures": {
+        "binary_inputs": 127,
+        "maximum_length": 6,
+        "proof": false
+      },
+      "proof": {
+        "argv": [
+          "lake",
+          "env",
+          "lean",
+          "-M6144",
+          "-DwarningAsError=true",
+          "/home/runner/work/cryptids/cryptids/.lake/chess-openevolve-wide/search/93d26bc9e556c9911112228cc2e71e07bd20ec8ae0c7ecc7b1b4fe165081578b.lean"
+        ],
+        "exit": 0,
+        "stdout": "",
+        "stderr": "",
+        "source": "import Cryptids.Optimisation.ReverseInit\nopen Turing ConjectureMachines.Compilation\nopen ConjectureMachines.Optimisation\ndef proposed (bits : List (Fin 2)) : List Init.Instruction := ((ReverseInit.writes (bits).reverse .left) ++ (ReverseInit.moves .right 1))\nexample (bits : List (Fin 2)) :\n    Init.executeList (proposed bits) (Tape.mk\u2081 []) = Tape.mk\u2081 bits := by\n  simpa [proposed] using ReverseInit.reverse_correct bits\ntheorem proposed_length (bits : List (Fin 2)) :\n    (proposed bits).length = (bits.length + 1) := by\n  simp [proposed, ReverseInit.writes, ReverseInit.moves]\nexample (bits : List (Fin 2)) (size : bits.length = 1555180) :\n    (proposed bits).length = 1555181 := by\n  rw [proposed_length, size]\n",
+        "source_sha256": "93d26bc9e556c9911112228cc2e71e07bd20ec8ae0c7ecc7b1b4fe165081578b",
+        "initializer_states": 1555181
+      }
+    }
+  ],
+  "rejections": [
+    {
+      "code": "import os\nPLAN = []",
+      "stage": "syntax",
+      "diagnostic": "Use exactly one PLAN = expression assignment"
+    },
+    {
+      "code": "PLAN = __import__(\"os\").system(\"true\")",
+      "stage": "syntax",
+      "diagnostic": "Unsupported plan expression: Call(func=Attribute(value=Call(func=Name(id='__import__', ctx=Load()), args=[Constant(value='os')], keywords=[]), attr='system', ctx=Load()), args=[Constant(value='true')], keywords=[])"
+    },
+    {
+      "code": "PLAN = writes(bits, \"R\"); print(bits)",
+      "stage": "syntax",
+      "diagnostic": "Use exactly one PLAN = expression assignment"
+    },
+    {
+      "code": "PLAN = moves(\"L\", True)",
+      "stage": "syntax",
+      "diagnostic": "Unsupported nat expression: Constant(value=True)"
+    },
+    {
+      "code": "PLAN = writes(bits, \"UP\")",
+      "stage": "syntax",
+      "diagnostic": "Unsupported dir expression: Constant(value='UP')"
+    },
+    {
+      "code": "PLAN = bits.__class__",
+      "stage": "syntax",
+      "diagnostic": "Unsupported plan expression: Attribute(value=Name(id='bits', ctx=Load()), attr='__class__', ctx=Load())"
+    },
+    {
+      "code": "PLAN = []",
+      "stage": "semantic",
+      "diagnostic": "Tape/head counterexample: {'bits': [1], 'head': 0, 'expected': {0: 1}, 'actual': {}}"
+    },
+    {
+      "code": "PLAN = writes(bits, \"R\")",
+      "stage": "semantic",
+      "diagnostic": "Tape/head counterexample: {'bits': [1], 'head': 1, 'expected': {0: 1}, 'actual': {-1: 1}}"
+    },
+    {
+      "code": "PLAN = writes(bits, \"L\") + moves(\"R\", 1)",
+      "stage": "semantic",
+      "diagnostic": "Tape/head counterexample: {'bits': [0, 1], 'head': -1, 'expected': {1: 1}, 'actual': {0: 1}}"
+    },
+    {
+      "code": "PLAN = writes(reverse(bits), \"L\") + moves(\"L\", 1)",
+      "stage": "semantic",
+      "diagnostic": "Tape/head counterexample: {'bits': [1], 'head': -2, 'expected': {0: 1}, 'actual': {2: 1}}"
+    },
+    {
+      "stage": "cost",
+      "diagnostic": "Independent cost mismatch"
+    },
+    {
+      "stage": "unproved",
+      "diagnostic": "Universal certificate rejected: {\"argv\": [\"lake\", \"env\", \"lean\", \"-M6144\", \"-DwarningAsError=true\", \"/home/runner/work/cryptids/cryptids/.lake/chess-openevolve-wide/search/41f11d6784680b8540da10303e1b79cd5b0af30b8038d1d11149bcc201094e89.lean\"], \"exit\": 1, \"stdout\": \"/home/runner/work/cryptids/cryptids/.lake/chess-openevolve-wide/search/41f11d6784680b8540da10303e1b79cd5b0af30b8038d1d11149bcc201094e89.lean:7:2: error: Type mismatch: After simplification, term\\n  ReverseInit.forward_correct bits\\n has type\\n  Init.executeList (ReverseInit.writes bits Dir.right ++ ReverseInit.moves Dir.left bits.length) (Tape.mk\\u2081 []) =\\n    Tape.mk\\u2081 bits\\nbut is expected to have type\\n  Init.executeList\\n      (ReverseInit.moves Dir.left 1 ++ (ReverseInit.writes bits.reverse Dir.left ++ ReverseInit.moves Dir.right 1))\\n      (Tape.mk\\u2081 []) =\\n    Tape.mk\\u2081 bits\\n/home/runner/work/cryptids/cryptids/.lake/chess-openevolve-wide/search/41f11d6784680b8540da10303e1b79cd5b0af30b8038d1d11149bcc201094e89.lean:9:56: error: unsolved goals\\nbits : List (Fin 2)\\n\\u22a2 bits.length + 1 = 1 + bits.length\\n\", \"stderr\": \"\", \"source\": \"import Cryptids.Optimisation.ReverseInit\\nopen Turing ConjectureMachines.Compilation\\nopen ConjectureMachines.Optimisation\\ndef proposed (bits : List (Fin 2)) : List Init.Instruction := (((ReverseInit.moves .left 1) ++ (ReverseInit.writes (bits).reverse .left)) ++ (ReverseInit.moves .right 1))\\nexample (bits : List (Fin 2)) :\\n    Init.executeList (proposed bits) (Tape.mk\\u2081 []) = Tape.mk\\u2081 bits := by\\n  simpa [proposed] using ReverseInit.forward_correct bits\\ntheorem proposed_length (bits : List (Fin 2)) :\\n    (proposed bits).length = ((1 + bits.length) + 1) := by\\n  simp [proposed, ReverseInit.writes, ReverseInit.moves]\\nexample (bits : List (Fin 2)) (size : bits.length = 1555180) :\\n    (proposed bits).length = 1555182 := by\\n  rw [proposed_length, size]\\n\", \"source_sha256\": \"41f11d6784680b8540da10303e1b79cd5b0af30b8038d1d11149bcc201094e89\", \"initializer_states\": 1555182}"
+    },
+    {
+      "stage": "timeout",
+      "diagnostic": "Actual Lean subprocess timeout rejected"
+    },
+    {
+      "stage": "corrupt-proof",
+      "exit": 1,
+      "stdout": "/home/runner/work/cryptids/cryptids/.lake/chess-openevolve-wide/search/corrupt-proof.lean:7:2: error: Tactic `rfl` failed: The left-hand side\n  Init.executeList (proposed bits) (Tape.mk\u2081 [])\nis not definitionally equal to the right-hand side\n  Tape.mk\u2081 bits\n\nbits : List (Fin 2)\n\u22a2 Init.executeList (proposed bits) (Tape.mk\u2081 []) = Tape.mk\u2081 bits\n",
+      "stderr": ""
+    }
+  ],
+  "no_candidate_python_execution": true
+}

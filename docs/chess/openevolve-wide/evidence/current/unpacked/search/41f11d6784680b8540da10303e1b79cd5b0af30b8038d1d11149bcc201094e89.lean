@@ -1,0 +1,13 @@
+import Cryptids.Optimisation.ReverseInit
+open Turing ConjectureMachines.Compilation
+open ConjectureMachines.Optimisation
+def proposed (bits : List (Fin 2)) : List Init.Instruction := (((ReverseInit.moves .left 1) ++ (ReverseInit.writes (bits).reverse .left)) ++ (ReverseInit.moves .right 1))
+example (bits : List (Fin 2)) :
+    Init.executeList (proposed bits) (Tape.mk₁ []) = Tape.mk₁ bits := by
+  simpa [proposed] using ReverseInit.forward_correct bits
+theorem proposed_length (bits : List (Fin 2)) :
+    (proposed bits).length = ((1 + bits.length) + 1) := by
+  simp [proposed, ReverseInit.writes, ReverseInit.moves]
+example (bits : List (Fin 2)) (size : bits.length = 1555180) :
+    (proposed bits).length = 1555182 := by
+  rw [proposed_length, size]

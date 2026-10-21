@@ -1,0 +1,93 @@
+{
+  "status": "passed",
+  "recorded_utc": "2026-10-21T12:56:26.708376+00:00",
+  "computation_commit": "5af346f454a32b403a0dfd085160431b8d9cca77",
+  "run_id": 39598997807,
+  "local_heavy_computation": false,
+  "checks": [
+    {
+      "command": "python3 scripts/chess_openevolve_wide/verify.py --metadata",
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": "/bin/zsh",
+      "exit": 0,
+      "expect": "Broader OpenEvolve frozen inputs passed",
+      "matched": true,
+      "output": "Broader OpenEvolve frozen inputs passed\n",
+      "output_sha256": "a6275d3db01dbfa1a3245efb5e3834fc40dcfcb47523043efb76b88ee7096ebf"
+    },
+    {
+      "command": "python3 docs/chess/openevolve-wide/evidence/check_evidence.py",
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": "/bin/zsh",
+      "exit": 0,
+      "expect": "Broader OpenEvolve retained evidence passed",
+      "matched": true,
+      "output": "Retained OpenEvolve evidence passed: matching current sources, 192 frozen inputs, six composed phases, five real model proposals; core timeout retained\nBroader OpenEvolve retained evidence passed\n",
+      "output_sha256": "8fb5fbb24de4307f80b9ad7121f888c98f53fba6334794c77c5a61cc79e8b0ff"
+    },
+    {
+      "command": "python3 docs/chess/openevolve-wide/evidence/review/check_saved_evidence.py",
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": "/bin/zsh",
+      "exit": 0,
+      "expect": "\"status\": \"passed\"",
+      "matched": true,
+      "output": "{\"status\": \"passed\", \"run_id\": 39598997807, \"archive_entries\": 427, \"source_hashes\": 16, \"frozen_hashes\": 211, \"search_best_states\": 392046821, \"search_saving\": 0, \"engineered_machine_states\": 390491642, \"engineered_saving\": 1555179}\n",
+      "output_sha256": "7abf1edb27656b191a548b1eba80a1e3f84c05ca941bd6b34b7ba7202aa7c93a"
+    },
+    {
+      "command": "git diff --check",
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": "/bin/zsh",
+      "exit": 0,
+      "expect": null,
+      "matched": true,
+      "output": "",
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "preliminary_root_check": {
+    "status": "failed_expectation",
+    "checker_exit": 0,
+    "expected_text": "Independent broader OpenEvolve saved-evidence review passed",
+    "actual_output": "{\"status\": \"passed\", \"run_id\": 39598997807, \"archive_entries\": 427, \"source_hashes\": 16, \"frozen_hashes\": 211, \"search_best_states\": 392046821, \"search_saving\": 0, \"engineered_machine_states\": 390491642, \"engineered_saving\": 1555179}\n",
+    "output_sha256": "7abf1edb27656b191a548b1eba80a1e3f84c05ca941bd6b34b7ba7202aa7c93a",
+    "correction": "Root expected a prose marker; independent checker emits JSON. Matched and inspected its actual passed JSON on replay. No source/proof/evidence changed."
+  },
+  "review_seal_sha256": "bf30554de5bef5e313bf6abae9b1a83db714a95c2499b7fcb4eec01278bf0973",
+  "review_verdict": "correct",
+  "review_type": "advisory model review",
+  "reviewed_files_checked": 31,
+  "review_files_checked": 4,
+  "official_evidence_bindings_checked": 28,
+  "frozen_inputs_checked": 211,
+  "local_doc_links_checked": 53,
+  "promoted_review_byte_identical": true,
+  "independent_checker_replay_preserves_sealed_receipt": true,
+  "remote_runs_in_snapshot": 56,
+  "active_remote_runs": 0,
+  "obsolete_ci_run_cancelled": 39593186986,
+  "remote_snapshot_sha256": "4ee0d78b7ff6f7217cc8bf0c8570ac008aa1b31941f491becf2aea9c667df4a4",
+  "model_search_saving": 0,
+  "model_search_target_met": false,
+  "engineered_machine_states": 390491642,
+  "engineered_saved_states": 1555179,
+  "model_discovered_reduction": false,
+  "outreach_performed": false,
+  "upstream_writes": false,
+  "gate_counts": {
+    "met": 8,
+    "unmet": 0,
+    "abandoned": 0,
+    "command": [
+      "node",
+      "/Users/bocowgill/.agents/skills/unlazy/scripts/gate-check.mjs",
+      "--scope",
+      "chess-openevolve-wide",
+      "--status"
+    ],
+    "exit": 0,
+    "output": "GATES.md: 6 gates\nleaf-1.1.md: 2 gates\nALL MET (8 met) [scope chess-openevolve-wide]\n",
+    "output_sha256": "23c3ea04ce6960d12a68e5a37f84513c65939169e38c7c8979a4bc76d3f7ce25"
+  }
+}

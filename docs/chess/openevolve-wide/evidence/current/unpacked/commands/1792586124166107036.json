@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "prlimit",
+    "--as=17179869184",
+    "--",
+    "lake",
+    "env",
+    "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_openevolve_wide_audit"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "Audited 69 OpenEvolveWide foundation roots and 48854 dependencies\nMeta certificate generator roots outside safe roots: 0\nCompiler artifacts outside safe roots: #[]\nPermitted axioms: #[propext, Classical.choice, Quot.sound]\nChess OpenEvolveWide foundation audit passed\n",
+  "output_sha256": "ec74c31f4bb0aaec8d29c9808efc2907fe83c630eeb12481ceb6b12ef5d0deb6",
+  "timed_out": false,
+  "elapsed_seconds": 4.586101930000041,
+  "cumulative_children_peak_rss_kib": 3969500
+}

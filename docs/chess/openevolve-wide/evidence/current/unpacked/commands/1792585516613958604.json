@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_openevolve_wide/controls.py"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "Broader OpenEvolve rejection controls passed\n",
+  "output_sha256": "869e8ba9ec505f59d765d5cf21f3b0ac9bf422b4bc70358c495ff3741509af4d",
+  "timed_out": false,
+  "elapsed_seconds": 15.437594959999956,
+  "cumulative_children_peak_rss_kib": 4038892
+}

@@ -642,6 +642,19 @@ with the accepted core components; its orchestration hash is sealed separately.
 The original core failure remains recorded. See
 [pilot results](docs/chess/openevolve/RESULTS.md).
 
+The broader generative OpenEvolve follow-up is complete. Its 24 model proposals
+found **zero certified state savings**; the best certified plan remains the pilot
+seed. Separately, the reverse-write initializer supplied before the run is now
+certified at **390,491,642 states**, saving **1,555,179 states** while preserving
+the same unconditional non-draw halting equivalence. The model did not discover
+this reduction. All heavy work ran remotely; strict assembly, rejection controls,
+native dependency audit and actual M7/pilot proof regressions passed. The search
+accepts new expression trees but its current proof bank supports only two supplied
+identities, so its certification frontier remains limited. See
+[broader-search results](docs/chess/openevolve-wide/RESULTS.md) for measured outcomes,
+retained failed attempts, provenance and the completed checkpoint. The frozen
+specification remains fixed; outreach and later milestones remain on hold.
+
 [fork]: https://github.com/bocowgill/cryptids
 [upstream]: https://github.com/google-deepmind/cryptids
 [contributing]: https://github.com/google-deepmind/cryptids/blob/a0c1f56af53a76e985a656032b48015f7e48921b/CONTRIBUTING.md
