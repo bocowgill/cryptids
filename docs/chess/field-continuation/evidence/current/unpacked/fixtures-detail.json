@@ -1,0 +1,63 @@
+{
+  "status": "passed",
+  "composed_source_cases": 46875,
+  "raw_pop_cases": 8192,
+  "arbitrary_valid_gap_cases": 5,
+  "binary_machine_cases": 55072,
+  "source_pattern_seeds": 625,
+  "raw_cell_patterns": 8192,
+  "store_values": 5,
+  "return_distances": [
+    0,
+    1,
+    7
+  ],
+  "scan_distances": [
+    0,
+    1,
+    2,
+    7,
+    31
+  ],
+  "visited_controls": 425,
+  "corruption_controls": [
+    {
+      "name": "former-return-port-stops",
+      "rejected": true
+    },
+    {
+      "name": "normal-dispatch-alignment",
+      "rejected": true
+    },
+    {
+      "name": "gap-dispatch",
+      "rejected": true
+    },
+    {
+      "name": "marker-dispatch",
+      "rejected": true
+    },
+    {
+      "name": "loaded-store-gate",
+      "rejected": true
+    },
+    {
+      "name": "main-field-clear",
+      "rejected": true
+    },
+    {
+      "name": "successor-store-port",
+      "rejected": true
+    },
+    {
+      "name": "scan-loop-head",
+      "rejected": true
+    },
+    {
+      "name": "return-prefix-loop",
+      "rejected": true
+    }
+  ],
+  "source_oracle": "return + normal2 + main-pop + ret s003",
+  "raw_invalid_codes_are_source_evidence": false
+}

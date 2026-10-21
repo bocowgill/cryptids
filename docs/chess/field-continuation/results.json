@@ -1,0 +1,159 @@
+{
+  "status": "passed",
+  "scope": "return-through-main-pop-continuation",
+  "source_label": "SharedModel.stack0629",
+  "source_dispatch": "TM2to1.normal 2 / RuntimeModel.s004",
+  "source_successor": "TM2to1.ret RuntimeModel.s003",
+  "computation_commit": "4ee97f0289f7400f822022e67b6399a69715e949",
+  "remote_run_id": 39677074188,
+  "states": 425,
+  "retained_return_states": 245,
+  "additional_states": 180,
+  "inventory": [
+    245,
+    1,
+    39,
+    2,
+    14,
+    1,
+    37,
+    2,
+    14,
+    1,
+    39,
+    5,
+    25
+  ],
+  "entries": [
+    0,
+    49,
+    98,
+    147,
+    196
+  ],
+  "final_ports": [
+    404,
+    409,
+    414,
+    419,
+    424
+  ],
+  "final_ports_are_counted": true,
+  "final_ports_are_module_terminals": true,
+  "successor_body_executed": false,
+  "external_store_register": false,
+  "external_return_register": false,
+  "full_chess_machine_constructed": false,
+  "full_chess_state_saving_claimed": false,
+  "accepted_chess_machine_states": 390491642,
+  "frozen_input_count": 406,
+  "computation_source_count": 9,
+  "fixtures": {
+    "status": "passed",
+    "composed_source_cases": 46875,
+    "raw_pop_cases": 8192,
+    "arbitrary_valid_gap_cases": 5,
+    "binary_machine_cases": 55072,
+    "source_pattern_seeds": 625,
+    "raw_cell_patterns": 8192,
+    "store_values": 5,
+    "return_distances": [
+      0,
+      1,
+      7
+    ],
+    "scan_distances": [
+      0,
+      1,
+      2,
+      7,
+      31
+    ],
+    "visited_controls": 425,
+    "corruption_controls": [
+      {
+        "name": "former-return-port-stops",
+        "rejected": true
+      },
+      {
+        "name": "normal-dispatch-alignment",
+        "rejected": true
+      },
+      {
+        "name": "gap-dispatch",
+        "rejected": true
+      },
+      {
+        "name": "marker-dispatch",
+        "rejected": true
+      },
+      {
+        "name": "loaded-store-gate",
+        "rejected": true
+      },
+      {
+        "name": "main-field-clear",
+        "rejected": true
+      },
+      {
+        "name": "successor-store-port",
+        "rejected": true
+      },
+      {
+        "name": "scan-loop-head",
+        "rejected": true
+      },
+      {
+        "name": "return-prefix-loop",
+        "rejected": true
+      }
+    ],
+    "source_oracle": "return + normal2 + main-pop + ret s003",
+    "raw_invalid_codes_are_source_evidence": false
+  },
+  "audit": {
+    "roots": 132,
+    "dependencies": 6909,
+    "permitted_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "excluded_verified_compiler_helpers": [],
+    "meta_generator_roots_outside_safe_roots": 0,
+    "negative_dependencies_rejected": 3,
+    "false_contracts_rejected": 3
+  },
+  "universal_certificate": "ConjectureMachines.Compilation.FieldContinuation.composed_certificate",
+  "premises": [
+    "FieldReturn.ReturnPath source n bottom",
+    "PopPath bottom m last value flag",
+    "RepTape source binary"
+  ],
+  "source_step_count": "n+m+3",
+  "binary_step_count": "37*n+26+23*m+(if flag then 34 else 61)",
+  "source_sha256": {
+    ".github/workflows/chess_field_continuation.yml": "12bf2068ecaff5aa8d29ea0b700e49ba63c1adff9fdcf2c16627cee81e66b134",
+    "Cryptids/Compilation/FieldContinuation/Certificate.lean": "6ae0a6fdbff18f7d574de1898290ccb44b4fbace19b9f2ccc63948709fe8ed30",
+    "Cryptids/Compilation/FieldContinuation/Graph.lean": "03bf899442d2e5bedeca04d1e1b7e8f24bf022e0b45a512544d324da5e5c6643",
+    "docs/chess/field-continuation/baseline-pins.json": "dd3dc6cb030ad13bf392c3a243d290b385e087ac48c6ea0450600466188b50c6",
+    "lakefile.chess-field-continuation.toml": "eb86a3be68411973f4b0a407a699d0c0a5526f4d27648af433f06d5cacf24c68",
+    "scripts/chess_field_continuation/Audit.lean": "ca538a10f1158e556b69bae2ef9e8df1aebd15579e89529f1c2c7531a80d6f1d",
+    "scripts/chess_field_continuation/Export.lean": "a958ee9e2f83d65b4dc2cd67236407bcded31ee1728ea7a3f2040bbedf223ab6",
+    "scripts/chess_field_continuation/fixtures.py": "c2d3e591a566c707905452bfe81d27c4e4dfba17465674774562ea8ed131bde3",
+    "scripts/chess_field_continuation/verify.py": "119e3888585ef6d5e114cbe9bebb74fe5c39c8f998b93550bec6162f7520ae2c"
+  },
+  "exported_rows_sha256": "dc6050c9bdfaa706d5e4e136a1d3e2b9c2290acdd7df06410110db4d01645328",
+  "artifact_sha256": "dd33b4db40acf14ded7972ad7eacc5679e5d7c94f4612e3beda371cda50c6cbc",
+  "logs_sha256": "4b18766676248bcfca058da109fa007702a07a67e289de64ef0afcde43f88e49",
+  "official_artifact_entries": 21,
+  "heavy_computation_remote": true,
+  "outreach_on_hold": true,
+  "failed_remote_runs": [
+    39673979598,
+    39674692166,
+    39675367750,
+    39676025858,
+    39676443472
+  ]
+}

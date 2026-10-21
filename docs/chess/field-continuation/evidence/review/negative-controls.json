@@ -1,0 +1,32 @@
+{
+  "source": {
+    "exit": 1,
+    "output": "Field continuation independent review rejected: computation source binding changed: proofs\n",
+    "output_sha256": "f4f7da3f65892843df55241970c5a5a53ba23c5b3168025305f999c717af46e7"
+  },
+  "entry": {
+    "exit": 1,
+    "output": "Field continuation independent review rejected: archive entry binding mismatch: BadConnector.lean\n",
+    "output_sha256": "a69f58d3026b48a117fd1c61a5555992903141f2a3a58ed4d5cab4eeca5443be"
+  },
+  "claim": {
+    "exit": 1,
+    "output": "Field continuation independent review rejected: unsupported comparison claim\n",
+    "output_sha256": "14f1b5b61dd3ace652ed19bc3edd6164c3f1905febf88f7959d2a90ff982446c"
+  },
+  "receipt": {
+    "exit": 1,
+    "output": "Field continuation independent review rejected: command receipt inventory/content mismatch\n",
+    "output_sha256": "08d389b660eaa940ddd78309285dfbb96bc42dc944bc7c320adfa41a8cb716e1"
+  },
+  "missing-phase": {
+    "exit": 1,
+    "output": "Field continuation independent review rejected: missing verification phase\n",
+    "output_sha256": "ffa605aa1dab2606acaa79be6ee761f198ac4d5acaeb065c74d02eba6518d0a5"
+  },
+  "seal": {
+    "exit": 1,
+    "output": "Field continuation independent review rejected: review seal mismatch: check_saved_evidence.py\n",
+    "output_sha256": "3c9fc6c9c65179a4a1769d5af740a409b06ea2fb75ef6aff9710e34da4bf3bcb"
+  }
+}

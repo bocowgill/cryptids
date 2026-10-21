@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "lake",
+    "--wfail",
+    "-f",
+    "lakefile.chess-field-continuation.toml",
+    "build",
+    "Cryptids.Compilation.FieldContinuation.Certificate",
+    "chess_field_continuation_audit",
+    "chess_field_continuation_export"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "\u2714 [3834/7673] Built scripts.chess_field_continuation.Audit (3.6s)\n\u2714 [7652/7673] Built scripts.chess_field_continuation.Audit:c.o (522ms)\n\u2714 [7661/7673] Built chess_field_continuation_audit:exe (1.4s)\n\u2714 [7669/7673] Built Cryptids.Compilation.FieldContinuation.Graph:c.o (348ms)\n\u2714 [7670/7673] Built Cryptids.Compilation.FieldContinuation.Certificate:c.o (145ms)\n\u2714 [7671/7673] Built scripts.chess_field_continuation.Export (3.4s)\n\u2714 [7672/7673] Built scripts.chess_field_continuation.Export:c.o (188ms)\n\u2714 [7673/7673] Built chess_field_continuation_export:exe (1.4s)\nBuild completed successfully (7673 jobs).\n",
+  "output_sha256": "a96a08ca071eea588886d645af190132d059e8cf7ade1fe3b283df084043afd7",
+  "timed_out": false,
+  "elapsed_seconds": 14.908587396999991,
+  "cumulative_children_peak_rss_kib": 4369972
+}

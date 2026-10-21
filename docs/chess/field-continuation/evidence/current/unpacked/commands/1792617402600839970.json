@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_field_continuation_export",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-field-continuation/machine.json"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "Field continuation machine export passed\n",
+  "output_sha256": "28b848fad26bbb26d683a84e54ff83dc9e8ebba1c83e209d6fc168a10001cc15",
+  "timed_out": false,
+  "elapsed_seconds": 0.8078729060000001,
+  "cumulative_children_peak_rss_kib": 4369972
+}

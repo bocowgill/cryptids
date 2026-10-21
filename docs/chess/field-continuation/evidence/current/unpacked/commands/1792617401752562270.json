@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-field-continuation/BadStore.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "/home/runner/work/cryptids/cryptids/.lake/chess-field-continuation/BadStore.lean:3:109: error: Tactic `decide` proved that the proposition\n  ConjectureMachines.Compilation.FieldReturn.symbolCode (some Turing.PartrecToTM2.\u0393'.bit1) = 3\nis false\n",
+  "output_sha256": "ad910544477e5a42e9d2ae456a375510a4fb5f05b8629933bc2859bb94f8ff5f",
+  "timed_out": false,
+  "elapsed_seconds": 3.510889861999999,
+  "cumulative_children_peak_rss_kib": 4369972
+}

@@ -1,0 +1,21 @@
+# R2 retained evidence review
+
+Independent model advisory review; no human approval and no formal verification performed by the reviewer. All local execution in this review is metadata/hash validation. The reviewer did not run Lean, Lake, LSP, LeanProbe, native exports, machine rows, fixtures, or state-count computations. The universal proof, native audit/export, replay, controls, and counts were executed by the focused remote workflow.
+
+## Official evidence
+
+The retained official run is `39677074188`, computation commit `4ee97f0289f7400f822022e67b6399a69715e949`, repository `bocowgill/cryptids`, branch `codex/chess-openevolve-pilot`, workflow `.github/workflows/chess_field_continuation.yml`, invoked by `workflow_dispatch`. The run, its single job, and required full verification steps succeeded. The GitHub artifact digest/size, retained archive CRCs, every entry digest, unpacked bytes, logs digest, phase identities, and all eleven exact command receipts agree. Each of the five phases records the same nine source hashes as the reviewed local computation files and the same frozen dependency manifest.
+
+The strict certificate build succeeds with warnings treated as failures. The native safe-closure audit reports 132 continuation foundation roots and 6,909 dependencies. It permits only `propext`, `Classical.choice`, and `Quot.sound`; there are no excluded compiler artifacts or generator roots. The three audit controls reject `sorryAx`, the open chess conjecture, and a proof-generator dependency. The three false-contract files fail because the kernel proves the asserted propositions false, with no missing-import or unrelated elaboration error.
+
+Remote replay reports 46,875 composed valid-source cases, 8,192 raw pop robustness cases, and five arbitrary valid gap cases: 55,072 cases total. All five incoming stores and all 425 controls are covered. All nine reviewed graph/store/write/port corruptions are rejected. Invalid raw codes remain explicitly outside source-simulation evidence. The exact emitted-row bytes are bound by SHA-256 `dc6050c9bdfaa706d5e4e136a1d3e2b9c2290acdd7df06410110db4d01645328`; the reviewer hashes these bytes without parsing or executing the rows.
+
+The saved count receipt is 425 states: 245 retained return controls plus 180 additional controls, including all transfer gates and the five final successor ports. The inventory is `[245, 1, 39, 2, 14, 1, 37, 2, 14, 1, 39, 5, 25]`. The kernel graph has the matching `Machine 425 2` type. This is a composed interpreter module; no full chess machine or full-machine state saving is asserted. The accepted complete chess count remains 390491642.
+
+## Final disposition
+
+R1 and R2 pass as independent model advisory review. The final public results, machine-readable summary, design, resume instructions, retainer, remote status, and run dispositions were inspected and bound as seven reviewed extras. They accurately describe the theorem's finite-path premises, real continuation, tape effects, boundary, remote results, and state scope. Five unsuccessful development runs remain retained; their official identities, artifact/log digests, CRCs, entries, and unpacked bytes are also checked. The computation sources have not changed since the final R1 supplement.
+
+The portable `check_saved_evidence.py` validates this construction binding, all 406 frozen inputs, the complete saved packet, history, deterministic receipt, and independent review seal. Its six controls reject a changed source hash, archive entry, unsupported full-machine claim, command receipt, missing phase, and damaged seal. Each fails with exit 1 for its intended predicate; exact outputs are retained in `negative-controls.json`. The final sealed default replay passes, and all six controls were replayed against the final seal.
+
+No critical source-fidelity, missing operational assembly, hidden-control, frame-preservation, count-accounting, or evidence-binding issue remains within this exact scope. The universal Lean certificate is the proof basis; the finite tests support the emitted artifact and do not replace that theorem. The root owner must separately replay the promoted sealed checker and controls before recording root acceptance. Root replay and the public `REVIEW.md` are intentionally outside this binding to avoid a cycle.

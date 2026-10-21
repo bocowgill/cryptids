@@ -1,0 +1,18 @@
+{
+  "Cryptids/Compilation/FieldContinuation/Graph.lean": "c78d8b123e9263f46ff4fb368f3e819ba39a23edaba363581f45fda86b216a1f",
+  "Cryptids/Compilation/FieldContinuation/Certificate.lean": "989837c692657bb108d07b334d1f44301d0dfc7109bed5f1a1a2f21855cdcc1e",
+  "scripts/chess_field_continuation/verify.py": "119e3888585ef6d5e114cbe9bebb74fe5c39c8f998b93550bec6162f7520ae2c",
+  "scripts/chess_field_continuation/Audit.lean": "ca538a10f1158e556b69bae2ef9e8df1aebd15579e89529f1c2c7531a80d6f1d",
+  "scripts/chess_field_continuation/Export.lean": "338d8d9216fc9ba72c469de82c25ffcd59e94f30d5bdc882e672ebd866095a7b",
+  "docs/chess/field-continuation/DESIGN.md": "53e567dd61d4743c0ea8660b028249a31bf119de54563c76e9fdcdd29d05f521",
+  ".github/workflows/chess_field_continuation.yml": "12bf2068ecaff5aa8d29ea0b700e49ba63c1adff9fdcf2c16627cee81e66b134",
+  "lakefile.chess-field-continuation.toml": "eb86a3be68411973f4b0a407a699d0c0a5526f4d27648af433f06d5cacf24c68",
+  "docs/chess/field-continuation/baseline-pins.json": "dd3dc6cb030ad13bf392c3a243d290b385e087ac48c6ea0450600466188b50c6",
+  "Cryptids/Compilation/FieldReturn/Certificate.lean": "e9fd2d47fac72639519ec69c1a48dd7289ac03ee9123313f8208be8c77d8b027",
+  "Cryptids/Compilation/FieldBinary/Routine.lean": "7d8185075e13bb4b9e6f0d6919c46fbdfac0176127d520c1203c57d116b5fdab",
+  "Cryptids/Compilation/FieldBinary/Fields.lean": "d24e1bfa61eeffe13abd94427101196df3190bea4e53c47969968500f796627a",
+  "Cryptids/Compilation/FieldBinary/Codec.lean": "d26c6d2e5558a400cbde50f38dbe1d008565e6e5eac63ab579864fb2da3d7185",
+  "Cryptids/Compilation/SharedModel.lean": "b12f925cbbb0cb1871424a2af4f90fbc5423ff9bb19797672ac1b8705b101aaa",
+  "Cryptids/Compilation/RuntimeModel.lean": "190d0f4ecac779cc6444f37db07e05f66b60c769b4a454a09f54952fdcf5d587",
+  ".lake/packages/mathlib/Mathlib/Computability/TuringMachine/StackTuringMachine.lean": "c6794793ea2146a0fcc88bb757bd82ae21be91f9bef422255475b17774faefac"
+}

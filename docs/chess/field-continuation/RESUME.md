@@ -1,45 +1,60 @@
 # Return-to-main-pop composition checkpoint
 
-Active task: connect frozen return through actual normal2/main-pop to ret s003,
-certify composed source/binary execution and count all states. No outreach, later
-successor body, full chess recompile or frozen-reference edits. All Lean/Lake/LSP/
-LeanProbe/native/fixture/count computation remains remote.
+The requested composition is complete. Fork: `bocowgill/cryptids`; branch:
+`codex/chess-openevolve-pilot`. Successful computation revision:
+`4ee97f0289f7400f822022e67b6399a69715e949`; full remote run: `39677074188`.
+Results and exact state inventory are in `RESULTS.md` and `results.json`.
 
-Fork bocowgill/cryptids; branch codex/chess-openevolve-pilot. Current computation
-candidate bf6223a; full workflow run39675367750 active. Prior failed probes
-39673979598 (graph bounds/reserved prefix name) and39674692166 (liftCfg rewrite,
-scan-gate broad simp timeout) retained under evidence/history/attempt-{1,2}.
-Two initially triggered generic/M6 builds39673979363 and39673980030 were cancelled.
+The composed path starts at `SharedModel.stack0629` / `TM2to1.ret s000`,
+executes the frozen return, dispatches actual `normal 2` / `RuntimeModel.s004`,
+performs its main-stack pop, and ends on arrival at `ret RuntimeModel.s003`.
+`FieldContinuation.composed_certificate` proves the actual source and binary
+executions reach corresponding successor configurations. Its explicit premises
+are finite `FieldReturn.ReturnPath` and `FieldContinuation.PopPath` witnesses
+and global `RepTape`. Source cost: `n+m+3`; binary cost:
+`37*n+26+23*m+(if markedEmptyGap then 34 else 61)`.
 
-New files: Cryptids/Compilation/FieldContinuation/{Graph,Certificate}.lean;
-scripts/chess_field_continuation/{verify.py,fixtures.py,Audit.lean,Export.lean};
-lakefile.chess-field-continuation.toml; .github/workflows/chess_field_continuation.yml.
-Graph425states: old245return,245sharednormalback,246..284scan,285..286scanback,
-287..300advance,301advanceback,302..338marker,339..340markerback,
-341..354retreat,355retreatback,356..394previousread,395..399loadedstoreback,
-400..424five5-stateclearinstances. Old return ports48/97/146/195/244 are nowlive.
-Final ports404/409/414/419/424 denote ret s003 and stores0..4, all counted.
+The remote native export contains 425 states, including all 245 old return
+states, 180 new states, every connector and five final successor ports.
+Final ports 404/409/414/419/424 represent `ret s003` and stores 0–4.
+Execution of that successor is the next integration boundary and has not been
+implemented by this task. Its label can first be audited against the frozen
+runtime, then connected with another explicit composed certificate and complete
+state inventory if requested. No later work or outreach is authorized here.
 
-Graph helpers run_partial and routine_transfer lift component runs while allowing
-terminal rows to be patched, then explicitly execute charged two-move handoffs.
-All frozen return/field files stay unchanged. Certificate states actual source
-normal2=RuntimeModel.s004, popRead overwrites store, source execution to ret s003,
-global field clear correspondence, finite PopPath scan, and composed_certificate.
-Expected native425states,180additional, no full chess count saving. Original
-complete machine remains390491642. Source n+m+3steps; binary37*n+26+23*m+34
-for marked empty gap, otherwise37*n+26+23*m+61. PopPath carries the terminal
-marker flag and makes only explicit finite-path assumptions.
+Source files: `Cryptids/Compilation/FieldContinuation/{Graph,Certificate}.lean`;
+`scripts/chess_field_continuation/{verify.py,fixtures.py,Audit.lean,Export.lean}`;
+`lakefile.chess-field-continuation.toml`;
+`.github/workflows/chess_field_continuation.yml`.
+Accepted return and backend sources are unchanged. The 406-entry pin manifest
+also freezes the prior chess specification, compiler, toolchain and evidence.
+The accepted full chess machine remains 390,491,642 states.
 
-Fixtures run only remotely: independent valid-source oracle, raw pop-only tests
-with unused codes explicitly separated from source evidence, arbitrary valid gap
-cases, all425controls,9corruptions. Full proof/native stages not yet passed at this
-checkpoint. Fresh reviewer /root/continuation_referee owns only private review
-folder and leaf ledger, R1 source advisory passed; R2 awaits successful evidence.
-Root gates .unlazy/chess-field-continuation/GATES.md; review wave review-1 sealed.
+All five successful remote phases share the same nine computation hashes.
+Strict proofs, trust audit, negative contracts, export, 55,072 replay cases,
+nine corruption controls and complete count accounting passed. Five earlier
+proof-development failures are retained under `evidence/history/attempt-1`
+through `attempt-5`. The official accepted packet is `evidence/current`.
+Remote dispositions are in `evidence/run-dispositions.json`; no task jobs remain
+active. The advisory R1/R2 review and sealed portable checker are in
+`evidence/review`; root replays are in `evidence/root-check.json`.
 
-Use escalation for git add/commit (index outside checkout) and network. Commits
-[skip ci], then dispatch focused workflow stage=full. Do not publish stale source
-if an index mutation fails. Retain every failed attempt. Once successful, retain
-current official artifact, finalize RESULTS/results/RESUME, give reviewer final
-stable docs, promote exact sealed review bytes, replay metadata checker and6
-mutations locally, record root receipt/gates, release review lease, commit/push.
+Safe local checks inspect hashes and saved metadata only:
+
+```sh
+python3 scripts/chess_field_continuation/verify.py --metadata
+python3 docs/chess/field-continuation/evidence/review/check_saved_evidence.py
+```
+
+Do not run Lean, Lake, LSP, LeanProbe, native compilation/export, machine replay,
+fixtures or state-count computations locally. Heavy work stays remote. If the
+nine computation files change, commit and push the exact candidate, dispatch
+the focused `chess_field_continuation.yml` workflow with `stage=full`, retain
+the official completed packet with `evidence/retain_remote.py RUN_ID`, and
+renew review bindings. Documentation-only commits do not require rebuilding
+unchanged certified sources. Use `[skip ci]` and explicit focused dispatch to
+avoid redundant generic builds. Git index mutations and network operations
+require sandbox escalation in this worktree.
+
+Outreach remains on hold. The frozen reference remains fixed. No full chess
+machine recompile, state saving or new full-machine halting theorem is claimed.

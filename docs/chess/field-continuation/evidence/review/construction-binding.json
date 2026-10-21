@@ -1,0 +1,179 @@
+{
+  "schema": 1,
+  "scope": "return-through-main-pop-continuation",
+  "formal_target": "ConjectureMachines.Compilation.FieldContinuation.composed_certificate",
+  "full_chess_machine_constructed": false,
+  "full_chess_state_saving_claimed": false,
+  "remote_run_id": 39677074188,
+  "computation_commit": "4ee97f0289f7400f822022e67b6399a69715e949",
+  "source_sha256": {
+    ".github/workflows/chess_field_continuation.yml": "12bf2068ecaff5aa8d29ea0b700e49ba63c1adff9fdcf2c16627cee81e66b134",
+    "Cryptids/Compilation/FieldContinuation/Certificate.lean": "6ae0a6fdbff18f7d574de1898290ccb44b4fbace19b9f2ccc63948709fe8ed30",
+    "Cryptids/Compilation/FieldContinuation/Graph.lean": "03bf899442d2e5bedeca04d1e1b7e8f24bf022e0b45a512544d324da5e5c6643",
+    "docs/chess/field-continuation/baseline-pins.json": "dd3dc6cb030ad13bf392c3a243d290b385e087ac48c6ea0450600466188b50c6",
+    "lakefile.chess-field-continuation.toml": "eb86a3be68411973f4b0a407a699d0c0a5526f4d27648af433f06d5cacf24c68",
+    "scripts/chess_field_continuation/Audit.lean": "ca538a10f1158e556b69bae2ef9e8df1aebd15579e89529f1c2c7531a80d6f1d",
+    "scripts/chess_field_continuation/Export.lean": "a958ee9e2f83d65b4dc2cd67236407bcded31ee1728ea7a3f2040bbedf223ab6",
+    "scripts/chess_field_continuation/fixtures.py": "c2d3e591a566c707905452bfe81d27c4e4dfba17465674774562ea8ed131bde3",
+    "scripts/chess_field_continuation/verify.py": "119e3888585ef6d5e114cbe9bebb74fe5c39c8f998b93550bec6162f7520ae2c"
+  },
+  "reviewed_extra_source_sha256": {
+    "docs/chess/field-continuation/RESULTS.md": "0f9ef8013209150b787927d8de7b38f8745f2919fa0449dbfb6a8adda2202219",
+    "docs/chess/field-continuation/results.json": "349edc720ee66a59e95c33149f69682768ab45e09ead065b62a4c2ab9f065a3c",
+    "docs/chess/field-continuation/RESUME.md": "7d3bd44d9e63f009782672a387ed4bdab52cad40c03ceaf7dc8ca57cbea5ab55",
+    "docs/chess/field-continuation/DESIGN.md": "53e567dd61d4743c0ea8660b028249a31bf119de54563c76e9fdcdd29d05f521",
+    "docs/chess/field-continuation/evidence/retain_remote.py": "7fb033ccff9daff1c2665491f7d4b778cc453e32baafa72d73acd06959b7fd69",
+    "docs/chess/field-continuation/evidence/remote-status.json": "0dc55eda5757bc2a808d3b6fd6dbb8b5c75f8bb2cc5b5426daa6e600e84a4ade",
+    "docs/chess/field-continuation/evidence/run-dispositions.json": "ef9a60a47c6f8936506a9ac579701fa2ea3bc9aa32aa37be0c343539fc6a6bae"
+  },
+  "retained_history_sha256": {
+    "docs/chess/field-continuation/evidence/history/attempt-1/archive-entries.json": "d4a4e686143c476557be5dc040a2d29c270305678e470b7d8e684eab41b768e6",
+    "docs/chess/field-continuation/evidence/history/attempt-1/artifact-api.json": "1168cddd87863365fe0bac8fe79de6ddfca9835f917a02b74833366e3d06601f",
+    "docs/chess/field-continuation/evidence/history/attempt-1/artifact.zip": "ec6bdb2eda3a2bcad8a9eefbc65edf2256ae1e168fc49b62e8e23f2ee202c309",
+    "docs/chess/field-continuation/evidence/history/attempt-1/jobs-api.json": "e95076d795f5a9b759ce7660035ab7aeb229d1644e331b31cfbe243254a777e9",
+    "docs/chess/field-continuation/evidence/history/attempt-1/logs.zip": "45a9d30890b14e12840b37638604ed7cfa59283a9b4d7d3cdf0757929bcac60d",
+    "docs/chess/field-continuation/evidence/history/attempt-1/retention.json": "07b627fd91b730719923be2c345d650ab57054c004c037d64192ffd3e4c9a3e4",
+    "docs/chess/field-continuation/evidence/history/attempt-1/run-api.json": "cff0787d93b57eab476fec6570b817f6ccc304e14d7474dd70eabc15cefbdc87",
+    "docs/chess/field-continuation/evidence/history/attempt-1/unpacked/commands/1792616099425554109.json": "9ef1801dfa4aba642c3f920d5ff1e3f77f379dc12b990e81ebd1c82d0e335e63",
+    "docs/chess/field-continuation/evidence/history/attempt-2/archive-entries.json": "f7bd4409a70fe46151eab0fc600ae94ba1beba69b607121b135837689dd55af3",
+    "docs/chess/field-continuation/evidence/history/attempt-2/artifact-api.json": "22e03d1498530836ba75e5e457aa9feaf67a90a4681b07430ef64a021334491e",
+    "docs/chess/field-continuation/evidence/history/attempt-2/artifact.zip": "8f3b1f18cd59935e0cdd0b66c03625fe47a65391056e8a2aa2e869d69daf4771",
+    "docs/chess/field-continuation/evidence/history/attempt-2/jobs-api.json": "4398c0e8c094d69e7cbdbba4a4a0e610dfec89e905d627850f94b95d4bf3a17e",
+    "docs/chess/field-continuation/evidence/history/attempt-2/logs.zip": "cb2571ecc4ea6f8c8e95297b2b5072c4e3bddde7c011e06f6975730c671cbbec",
+    "docs/chess/field-continuation/evidence/history/attempt-2/retention.json": "02e9deee44aa9f01a0deb3650756b04d3f6117fc399279f0b58d5f58c8a19a1f",
+    "docs/chess/field-continuation/evidence/history/attempt-2/run-api.json": "39a36a7abab597ea0a3b28c21422f865746b44b0365867632a2376f95aa57444",
+    "docs/chess/field-continuation/evidence/history/attempt-2/unpacked/commands/1792616392191046541.json": "5155ee3948226ac400259c59dd3107a1c623b1f5ccd43c78418966039ddc0b31",
+    "docs/chess/field-continuation/evidence/history/attempt-3/archive-entries.json": "5f0cfee85ee9d80b52fb468e2a725d81421529ce489d27791a92cbbca423df66",
+    "docs/chess/field-continuation/evidence/history/attempt-3/artifact-api.json": "649fccd4b4b06fce4b5047dcc1b06969f8247a753c9a41cc0285509cb006531b",
+    "docs/chess/field-continuation/evidence/history/attempt-3/artifact.zip": "50692878a5b556a849e0a27b316236f757bad4b50fd1ca99aa94602ea94ee15b",
+    "docs/chess/field-continuation/evidence/history/attempt-3/jobs-api.json": "bdb52eee5640b2e5b0933579029866d4bd47f999e9eaaf6d8e16c8973f3e5acd",
+    "docs/chess/field-continuation/evidence/history/attempt-3/logs.zip": "73a582001a5058add17bfcba34b911f1dd0067efddcac9ab3ac9b1ca1f2e2273",
+    "docs/chess/field-continuation/evidence/history/attempt-3/retention.json": "9f60562ac336ac6b792ead73ba76d4defc107c0e32f92c78b5505c04f70cb376",
+    "docs/chess/field-continuation/evidence/history/attempt-3/run-api.json": "7917e032289cb9c21d242dbb7ff47f9674a58b08fc7bb2f538fa24c45047c9a8",
+    "docs/chess/field-continuation/evidence/history/attempt-3/unpacked/commands/1792616653020095674.json": "6fcfc88530fbcc305505c506bf411d1b8fec249729dae615832a85e0bb260fac",
+    "docs/chess/field-continuation/evidence/history/attempt-4/archive-entries.json": "d1e0b78fa7d4bff8d13d56adb769f0a4156e9a67c7dd3f972554be0cb53f2a69",
+    "docs/chess/field-continuation/evidence/history/attempt-4/artifact-api.json": "047ed8e5079299dddf0699fa3529a483c1e07d579b59d0c1e357d3722c8cb9b9",
+    "docs/chess/field-continuation/evidence/history/attempt-4/artifact.zip": "3c2ad98b511c8809887392079ff1f2588da24e72f7c3f5f28bdbc5aa74f1d888",
+    "docs/chess/field-continuation/evidence/history/attempt-4/jobs-api.json": "ce06ca52d4ea75ec80ea6eb6c8f7cd74ce22f09192d3a6edbfb83b6d6948cc98",
+    "docs/chess/field-continuation/evidence/history/attempt-4/logs.zip": "34337bb744a441e7adf26a1504049b9db2f9391c248f37ee07345d16a2c586ab",
+    "docs/chess/field-continuation/evidence/history/attempt-4/retention.json": "e4142a61b9bf133a7b72da3ebaf1e8f26937fdf6ea4a059b12cf67f2d433a1a8",
+    "docs/chess/field-continuation/evidence/history/attempt-4/run-api.json": "37561daa2eb73b14ee0e0079d02a1d151f97e3aae5deebba2f4c2824871de1da",
+    "docs/chess/field-continuation/evidence/history/attempt-4/unpacked/commands/1792616883394032658.json": "8ff969a7fc06d66238539832265c3e055bde139369f12b21cc75d9d6531e3327",
+    "docs/chess/field-continuation/evidence/history/attempt-5/archive-entries.json": "bfd79a113e19c93883540985e6f8a4ac03a987f563708f6012d96a3ed7f9e8d9",
+    "docs/chess/field-continuation/evidence/history/attempt-5/artifact-api.json": "8ceb30cd42b8150cd039485e6f3d4e3b1ccfc4ea946f0b3f63d00389103f6048",
+    "docs/chess/field-continuation/evidence/history/attempt-5/artifact.zip": "3fb6a2f2a69f70dd718a0248a0f2956d1033461df945df95f1dc81d3b5ef3555",
+    "docs/chess/field-continuation/evidence/history/attempt-5/jobs-api.json": "6c82e329f4dc90a649adfec52c0301297f058e453052e8d7566583d2de1e3ff1",
+    "docs/chess/field-continuation/evidence/history/attempt-5/logs.zip": "2d35fe57561e9354840bf9d8483dec463aa9ed480fea064289483c260becd6ec",
+    "docs/chess/field-continuation/evidence/history/attempt-5/retention.json": "30b68554ba9c5d402719b36ecf7971dd56e29734d113791ebb8dc1385b9c6bf6",
+    "docs/chess/field-continuation/evidence/history/attempt-5/run-api.json": "108a03dbe7f3d7b6ddb3425daedf0598fd51725248b0e8197cc1f552c8633c1a",
+    "docs/chess/field-continuation/evidence/history/attempt-5/unpacked/commands/1792617106223348818.json": "8bdf2186016f7aa991c80b5462a3499c07534dda0664a378e18aaa0c30c0b4c2"
+  },
+  "official_metadata_sha256": {
+    "run-api.json": "1744a3076bc856c61c68a7d873bd11d1c7e07b549b9a64845018ad3971862601",
+    "jobs-api.json": "f2b01e4707d1787ea30c6760b6b5cc7ed97fcb16de0070d6e40496cb0bb2e3c0",
+    "artifact-api.json": "60867f99453dddc6f1ac819c4a6904c808fac85e61b4b529aadfcad46ec73c94",
+    "retention.json": "ec38785b326887cd563c1193baeafc6cdd88f88a7169e3663140204f62f09d35",
+    "archive-entries.json": "dfab0ad752ebbe123ed7ebaf506a3acc6aa4659a3c21fe045c62b615ddfdcd34"
+  },
+  "artifact_sha256": "dd33b4db40acf14ded7972ad7eacc5679e5d7c94f4612e3beda371cda50c6cbc",
+  "logs_sha256": "4b18766676248bcfca058da109fa007702a07a67e289de64ef0afcde43f88e49",
+  "exported_rows_sha256": "dc6050c9bdfaa706d5e4e136a1d3e2b9c2290acdd7df06410110db4d01645328",
+  "remote_root": "/home/runner/work/cryptids/cryptids",
+  "python_executable": "/usr/bin/python3",
+  "permitted_axioms_line": "Permitted axioms: #[propext, Classical.choice, Quot.sound]",
+  "fixture_detail": {
+    "status": "passed",
+    "composed_source_cases": 46875,
+    "raw_pop_cases": 8192,
+    "arbitrary_valid_gap_cases": 5,
+    "binary_machine_cases": 55072,
+    "source_pattern_seeds": 625,
+    "raw_cell_patterns": 8192,
+    "store_values": 5,
+    "return_distances": [
+      0,
+      1,
+      7
+    ],
+    "scan_distances": [
+      0,
+      1,
+      2,
+      7,
+      31
+    ],
+    "visited_controls": 425,
+    "corruption_controls": [
+      {
+        "name": "former-return-port-stops",
+        "rejected": true
+      },
+      {
+        "name": "normal-dispatch-alignment",
+        "rejected": true
+      },
+      {
+        "name": "gap-dispatch",
+        "rejected": true
+      },
+      {
+        "name": "marker-dispatch",
+        "rejected": true
+      },
+      {
+        "name": "loaded-store-gate",
+        "rejected": true
+      },
+      {
+        "name": "main-field-clear",
+        "rejected": true
+      },
+      {
+        "name": "successor-store-port",
+        "rejected": true
+      },
+      {
+        "name": "scan-loop-head",
+        "rejected": true
+      },
+      {
+        "name": "return-prefix-loop",
+        "rejected": true
+      }
+    ],
+    "source_oracle": "return + normal2 + main-pop + ret s003",
+    "raw_invalid_codes_are_source_evidence": false
+  },
+  "retained_unsuccessful_runs": [
+    {
+      "folder": "attempt-1",
+      "run_id": 39673979598,
+      "commit": "1c8db6e318a04f48384d0d718e6714ba0c35e789",
+      "conclusion": "failure"
+    },
+    {
+      "folder": "attempt-2",
+      "run_id": 39674692166,
+      "commit": "adde8407e13bf6e7b690da42c39024e4d24a3e94",
+      "conclusion": "failure"
+    },
+    {
+      "folder": "attempt-3",
+      "run_id": 39675367750,
+      "commit": "bf6223a5476e3c7eafbb694735bc11b801dad25d",
+      "conclusion": "failure"
+    },
+    {
+      "folder": "attempt-4",
+      "run_id": 39676025858,
+      "commit": "caf8bc60a69081a91a69e2c0f8769446a2930b09",
+      "conclusion": "failure"
+    },
+    {
+      "folder": "attempt-5",
+      "run_id": 39676443472,
+      "commit": "a541566b5254c44df692e611be9330e6b6c4cf53",
+      "conclusion": "failure"
+    }
+  ]
+}

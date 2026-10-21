@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "remote_run_id": 39677074188,
+  "computation_commit": "4ee97f0289f7400f822022e67b6399a69715e949",
+  "artifact_sha256": "dd33b4db40acf14ded7972ad7eacc5679e5d7c94f4612e3beda371cda50c6cbc",
+  "logs_sha256": "4b18766676248bcfca058da109fa007702a07a67e289de64ef0afcde43f88e49",
+  "source_sha256": {
+    ".github/workflows/chess_field_continuation.yml": "12bf2068ecaff5aa8d29ea0b700e49ba63c1adff9fdcf2c16627cee81e66b134",
+    "Cryptids/Compilation/FieldContinuation/Certificate.lean": "6ae0a6fdbff18f7d574de1898290ccb44b4fbace19b9f2ccc63948709fe8ed30",
+    "Cryptids/Compilation/FieldContinuation/Graph.lean": "03bf899442d2e5bedeca04d1e1b7e8f24bf022e0b45a512544d324da5e5c6643",
+    "docs/chess/field-continuation/baseline-pins.json": "dd3dc6cb030ad13bf392c3a243d290b385e087ac48c6ea0450600466188b50c6",
+    "lakefile.chess-field-continuation.toml": "eb86a3be68411973f4b0a407a699d0c0a5526f4d27648af433f06d5cacf24c68",
+    "scripts/chess_field_continuation/Audit.lean": "ca538a10f1158e556b69bae2ef9e8df1aebd15579e89529f1c2c7531a80d6f1d",
+    "scripts/chess_field_continuation/Export.lean": "a958ee9e2f83d65b4dc2cd67236407bcded31ee1728ea7a3f2040bbedf223ab6",
+    "scripts/chess_field_continuation/fixtures.py": "c2d3e591a566c707905452bfe81d27c4e4dfba17465674774562ea8ed131bde3",
+    "scripts/chess_field_continuation/verify.py": "119e3888585ef6d5e114cbe9bebb74fe5c39c8f998b93550bec6162f7520ae2c"
+  },
+  "exported_rows_sha256": "dc6050c9bdfaa706d5e4e136a1d3e2b9c2290acdd7df06410110db4d01645328",
+  "phases": [
+    "probe",
+    "proofs",
+    "contracts",
+    "fixtures",
+    "counts"
+  ],
+  "saved_remote_fixture_cases": 55072,
+  "scope": "return-through-main-pop-continuation",
+  "full_chess_machine_constructed": false,
+  "full_chess_state_saving_claimed": false,
+  "local_heavy_computation": false
+}
