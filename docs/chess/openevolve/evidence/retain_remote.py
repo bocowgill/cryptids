@@ -24,6 +24,7 @@ if __name__ == '__main__':
     folder.mkdir(parents=True, exist_ok=True)
     run = api(f'/actions/runs/{run_id}', folder / 'run-api.json')
     assert run['status'] == 'completed' and run['head_branch'] == 'codex/chess-openevolve-pilot'
+    api(f'/actions/runs/{run_id}/jobs', folder / 'jobs-api.json')
     inventory = api(f'/actions/runs/{run_id}/artifacts', folder / 'artifact-api.json')
     artifacts = inventory['artifacts']
     assert len(artifacts) == 1

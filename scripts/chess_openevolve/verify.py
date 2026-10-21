@@ -6,6 +6,8 @@ import importlib.util
 import json
 import os
 import resource
+import selectors
+import signal
 import subprocess
 import sys
 import time
@@ -33,6 +35,7 @@ def metadata():
 def sources():
     paths = ["Cryptids/Optimisation/TerminalBinary.lean", "Cryptids/Chess/Optimisation/OpenEvolve.lean",
              "Cryptids/Semantics/ChessOpenEvolve.lean", ".github/workflows/chess_openevolve_ci.yml",
+             "lakefile.chess-openevolve.toml",
              "artifacts/chess_openevolve/table-map.json", "docs/chess/openevolve/baseline-pins.json"]
     paths += [str(p.relative_to(ROOT)) for p in (ROOT / "scripts/chess_openevolve").glob("*")
               if p.is_file() and p.suffix in (".py", ".lean", ".txt")]
@@ -42,17 +45,36 @@ def sources():
 def run(command, expected="", code=0, timeout=900):
     assert os.environ.get("CHESS_REMOTE") == "1", "Heavy verification is remote-only"
     begin = time.monotonic()
-    result = subprocess.run(command, cwd=ROOT, text=True, stdout=subprocess.PIPE,
-                            stderr=subprocess.STDOUT, timeout=timeout)
-    print(result.stdout, end="", flush=True)
-    record = {"argv": command, "cwd": str(ROOT), "shell": False, "exit": result.returncode,
-              "output": result.stdout, "output_sha256": hashlib.sha256(result.stdout.encode()).hexdigest(),
+    chunks = []
+    timed_out = False
+    with subprocess.Popen(command, cwd=ROOT, stdout=subprocess.PIPE,
+                          stderr=subprocess.STDOUT, start_new_session=True) as process:
+        selector = selectors.DefaultSelector()
+        selector.register(process.stdout, selectors.EVENT_READ)
+        while selector.get_map():
+            if time.monotonic() - begin > timeout:
+                os.killpg(process.pid, signal.SIGKILL)
+                timed_out = True
+            for key, _ in selector.select(1):
+                data = os.read(key.fd, 65536)
+                if data:
+                    chunks.append(data)
+                    sys.stdout.buffer.write(data)
+                    sys.stdout.buffer.flush()
+                else:
+                    selector.unregister(key.fileobj)
+        exit_code = process.wait()
+        selector.close()
+    output = b"".join(chunks).decode("utf-8", errors="replace")
+    record = {"argv": command, "cwd": str(ROOT), "shell": False, "exit": exit_code,
+              "output": output, "output_sha256": hashlib.sha256(output.encode()).hexdigest(),
+              "timed_out": timed_out,
               "elapsed_seconds": time.monotonic() - begin,
               "cumulative_children_peak_rss_kib": resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss}
     logs = WORK / "commands"
     logs.mkdir(parents=True, exist_ok=True)
     (logs / (str(time.time_ns()) + ".json")).write_text(json.dumps(record, indent=2) + "\n")
-    assert result.returncode == code and expected in result.stdout, json.dumps(record)
+    assert not timed_out and exit_code == code and expected in output, json.dumps(record)
     return record
 
 
@@ -73,7 +95,7 @@ def regression():
 
 
 def proofs():
-    checks = [run(["lake", "--wfail", "build", "Cryptids.Semantics.ChessOpenEvolve"],
+    checks = [run(["lake", "--wfail", "-f", "lakefile.chess-openevolve.toml", "build", "Cryptids.Semantics.ChessOpenEvolve"],
                   "Build completed successfully", timeout=1800)]
     audit = ["lake", "env", "lean", "-M6144", "-DwarningAsError=true", "--run",
              "scripts/chess_openevolve/Audit.lean"]

@@ -20,7 +20,7 @@ concurrency:
 
 jobs:
   verify:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 120
     env:
       ELAN_NO_UPDATE_CHECK: '1'
@@ -51,13 +51,18 @@ jobs:
           restore-keys: |
             chess-openevolve-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-
             chess-m7-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-
+      - name: Start fresh pilot evidence after cache restore
+        run: |
+          # Old broad caches may contain transient outputs. Official prior run artifacts
+          # are retained separately; no previous report is an input to this fresh search.
+          rm -rf .lake/chess-openevolve
       - name: Fetch complete pinned Mathlib cache
         run: timeout --signal=TERM --kill-after=10s 1200s lake exe cache get Mathlib
       - name: Check compiler contract remotely
         run: |
           set -o pipefail
           mkdir -p .lake/chess-openevolve
-          timeout --signal=TERM --kill-after=10s 600s lake --wfail build Cryptids.Optimisation.TerminalBinary 2>&1 | tee .lake/chess-openevolve/compiler.log
+          timeout --signal=TERM --kill-after=10s 600s lake --wfail -f lakefile.chess-openevolve.toml build Cryptids.Optimisation.TerminalBinary 2>&1 | tee .lake/chess-openevolve/compiler.log
       - name: Check new paid machine, trust closure and artifact
         run: |
           python3 scripts/chess_openevolve/verify.py --proofs
@@ -88,5 +93,7 @@ jobs:
         if: always()
         continue-on-error: true
         with:
-          path: .lake
+          path: |
+            .lake/packages
+            .lake/build
           key: chess-openevolve-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-${{ github.sha }}
