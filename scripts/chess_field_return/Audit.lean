@@ -37,6 +37,9 @@ def main (args : List String) : IO Unit := do
   for required in #[`ConjectureMachines.Compilation.FieldReturn.source_identity,
       `ConjectureMachines.Compilation.FieldReturn.iteration_refines,
       `ConjectureMachines.Compilation.FieldReturn.return_refines,
+      `ConjectureMachines.Compilation.FieldReturn.return_certificate,
+      `ConjectureMachines.Compilation.FieldReturn.source_return,
+      `ConjectureMachines.Compilation.FieldReturn.decode_boundaries,
       `ConjectureMachines.Compilation.FieldReturn.state_inventory,
       `ConjectureMachines.Compilation.FieldReturn.symbol_roundtrip] do
     unless roots.contains required do

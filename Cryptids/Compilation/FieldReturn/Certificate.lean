@@ -63,6 +63,9 @@ theorem source_step (v : RuntimeModel.Store) (tape : Tape Symbol) :
   cases marker : tape.head.1 <;>
     simp [TM1.step, sourceMachine, sourceLabel, TM2to1.tr, TM1.stepAux,
       RuntimeModel.s000, RuntimeModel.table5, TM2to1.trNormal, marker, continuation]
+  cases v with
+  | none => rfl
+  | some s => cases s <;> rfl
 
 def idx (n : Nat) : Fin 49 := ⟨n % 49, Nat.mod_lt _ (by decide)⟩
 
@@ -98,7 +101,7 @@ theorem run_add {q : Nat} (M : Machine q 2) (a b : Nat) (cfg : Cfg q 2) :
     FlatInit.runFrom M (a + b) cfg =
       (FlatInit.runFrom M a cfg).bind (FlatInit.runFrom M b) := by
   induction a generalizing cfg with
-  | zero => rfl
+  | zero => simp [FlatInit.runFrom]
   | succ a ih =>
     simp only [Nat.succ_add, FlatInit.runFrom, ih, Option.bind_assoc]
 
@@ -139,13 +142,16 @@ theorem marker_run (tape : Tape Bit) :
       some (if tape.nth 12 = 0 then ⟨0, shift .left 13 tape⟩ else ⟨48, tape⟩) := by
   have head : (shift .right 12 tape).head = tape.nth 12 := by
     change (shift .right 12 tape).nth 0 = _
-    simp [shift_right_nth]
+    simpa only [zero_add] using shift_right_nth 12 tape 0
   by_cases marker : tape.nth 12 = 0
   · simp only [marker, ↓reduceIte]
     rw [show (37 : Nat) = 12 + (1 + 24) from rfl, run_add, seek_run, Option.bind_some]
     have branch : step block ⟨12, shift .right 12 tape⟩ =
         some ⟨13, (shift .right 12 tape).move .left⟩ := by
-      simp [step, block, head, marker, Tape.write_self]
+      have row : block.transition 12 (shift .right 12 tape).head =
+          some ((shift .right 12 tape).head, .left, 13) := by
+        simp [block, head, marker]
+      simp only [step, row, Option.map_some, Tape.write_self]
     rw [Nat.add_comm 1, FlatInit.runFrom, branch, Option.bind_some, back_run]
     congr 2
     apply tape_ext_nth
@@ -157,12 +163,17 @@ theorem marker_run (tape : Tape Bit) :
     rw [show (24 : Nat) = 12 + (1 + 11) from rfl, run_add, seek_run, Option.bind_some]
     have branch : step block ⟨12, shift .right 12 tape⟩ =
         some ⟨37, (shift .right 12 tape).move .left⟩ := by
-      simp [step, block, head, marker, Tape.write_self]
+      have row : block.transition 12 (shift .right 12 tape).head =
+          some ((shift .right 12 tape).head, .left, 37) := by
+        simp [block, head, marker]
+      simp only [step, row, Option.map_some, Tape.write_self]
     rw [Nat.add_comm 1, FlatInit.runFrom, branch, Option.bind_some, home_run]
     congr 2
     apply tape_ext_nth
     intro i
-    simp [shift_left_nth, shift_right_nth, Tape.move_left_nth]
+    simp only [shift_left_nth, shift_right_nth, Tape.move_left_nth]
+    congr 1
+    omega
 
 theorem marker_rep (source : Tape Symbol) (binary : Tape Bit)
     (rep : RepresentsTape source binary) :
@@ -174,7 +185,9 @@ theorem move_rep (source : Tape Symbol) (binary : Tape Bit)
     RepresentsTape (source.move .left) (shift .left 13 binary) := by
   intro i j
   rw [shift_left_nth, Tape.move_left_nth]
-  convert rep (i - 1) j using 1 <;> congr 1 <;> omega
+  convert rep (i - 1) j using 1
+  congr 1
+  omega
 
 /-- One complete source return step, including finite store dispatch and decoded return control. -/
 theorem iteration_refines (source : Tape Symbol) (binary : Tape Bit) (v : Fin 5)
@@ -190,8 +203,7 @@ theorem iteration_refines (source : Tape Symbol) (binary : Tape Bit) (v : Fin 5)
     (if binary.nth 12 = 0 then 37 else 24) ⟨0, binary⟩
   rw [marker_run] at lift
   have marker := marker_rep source binary rep
-  cases flag : source.head.1 <;>
-    simp only [flag, Bool.false_eq_true, ↓reduceIte, Bool.true_eq_true] at *
+  cases flag : source.head.1 <;> simp [flag] at marker ⊢
   · exact ⟨by simpa [Routine.liftCfg, marker] using lift,
       move_rep source binary rep, by simpa [flag] using source_step (codeSymbol v) source⟩
   · exact ⟨by simpa [Routine.liftCfg, marker] using lift,
@@ -203,7 +215,7 @@ inductive ReturnPath : Tape Symbol → Nat → Tape Symbol → Prop
   | left (tape) (n) (last) (unmarked : tape.head.1 = false)
       (rest : ReturnPath (tape.move .left) n last) : ReturnPath tape (n + 1) last
 
-/-- Arbitrarily long source return paths execute in the cyclic binary machine, with no hidden store. -/
+/-- Arbitrarily long return paths execute with store held in the finite controls. -/
 theorem return_refines (source last : Tape Symbol) (n : Nat)
     (path : ReturnPath source n last) (binary : Tape Bit) (v : Fin 5)
     (rep : RepresentsTape source binary) :
@@ -225,6 +237,53 @@ theorem return_refines (source last : Tape Symbol) (n : Nat)
     · rw [shiftEq, ← shift_add]
       congr 1
       omega
+
+/-- Ordinary bounded execution of the actual source machine. -/
+def sourceRun : Nat → SourceCfg → Option SourceCfg
+  | 0, cfg => some cfg
+  | n + 1, cfg => (TM1.step sourceMachine cfg).bind (sourceRun n)
+
+theorem source_return (source last : Tape Symbol) (n : Nat)
+    (path : ReturnPath source n last) (v : RuntimeModel.Store) :
+    sourceRun (n + 1) ⟨some sourceLabel, v, source⟩ =
+      some ⟨some continuation, v, last⟩ := by
+  induction path with
+  | here tape marked => simpa [sourceRun, marked] using source_step v tape
+  | left tape n last unmarked rest ih =>
+    change (TM1.step sourceMachine ⟨some sourceLabel, v, tape⟩).bind (sourceRun (n + 1)) = _
+    rw [source_step]
+    simpa [unmarked] using ih
+
+/-- Only entry and continuation boundary controls decode; interior microsteps are private. -/
+def decodeControl (q : Fin 245) : Option (SharedModel.StackLabel × RuntimeModel.Store) :=
+  if (control q).val = 0 then some (sourceLabel, codeSymbol (store q))
+  else if (control q).val = 48 then some (continuation, codeSymbol (store q)) else none
+
+def RepresentsCfg (source : SourceCfg) (binary : Cfg 245 2) : Prop :=
+  (∃ l, source.l = some l ∧ decodeControl binary.state = some (l, source.var)) ∧
+    RepresentsTape source.Tape binary.tape
+
+theorem decode_boundaries (v : Fin 5) :
+    decodeControl (embed v 0) = some (sourceLabel, codeSymbol v) ∧
+      decodeControl (embed v 48) = some (continuation, codeSymbol v) := by
+  fin_cases v <;> exact ⟨rfl, rfl⟩
+
+/-- Complete assembly: both operational executions reach corresponding continuation configurations. -/
+theorem return_certificate (source last : Tape Symbol) (n : Nat)
+    (path : ReturnPath source n last) (binary : Tape Bit) (v : Fin 5)
+    (rep : RepresentsTape source binary) :
+    RepresentsCfg ⟨some sourceLabel, codeSymbol v, source⟩ ⟨embed v 0, binary⟩ ∧
+    ∃ finalBits,
+      sourceRun (n + 1) ⟨some sourceLabel, codeSymbol v, source⟩ =
+        some ⟨some continuation, codeSymbol v, last⟩ ∧
+      FlatInit.runFrom machine (37 * n + 24) ⟨embed v 0, binary⟩ =
+        some ⟨embed v 48, finalBits⟩ ∧
+      RepresentsCfg ⟨some continuation, codeSymbol v, last⟩ ⟨embed v 48, finalBits⟩ ∧
+      finalBits = shift .left (13 * n) binary := by
+  obtain ⟨finalBits, run, represents, shifted⟩ := return_refines source last n path binary v rep
+  refine ⟨⟨⟨sourceLabel, rfl, (decode_boundaries v).1⟩, rep⟩, finalBits,
+    source_return source last n path (codeSymbol v), run, ?_, shifted⟩
+  exact ⟨⟨continuation, rfl, (decode_boundaries v).2⟩, represents⟩
 
 /-- All states are paid: seek/entry, marker dispatch, loop return, marked return and exit ports. -/
 theorem state_inventory : 5 * (12 + 1 + 24 + 11 + 1) = 245 := rfl

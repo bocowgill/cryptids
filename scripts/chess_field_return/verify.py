@@ -17,14 +17,14 @@ sys.path.insert(0, str(ROOT))
 def sha(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 def metadata():
-    pins = json.loads((ROOT / "docs/chess/field-binary/baseline-pins.json").read_text())
+    pins = json.loads((ROOT / "docs/chess/field-return/baseline-pins.json").read_text())
     for name, digest in pins.items():
         assert sha(ROOT / name) == digest, "Frozen input changed: " + name
     print("Field return frozen inputs passed")
     return pins
 def sources():
     paths = [".github/workflows/chess_field_return.yml", "lakefile.chess-field-return.toml",
-             "docs/chess/field-binary/baseline-pins.json"]
+             "docs/chess/field-return/baseline-pins.json"]
     paths += [str(p.relative_to(ROOT)) for base in ["Cryptids/Compilation/FieldReturn", "scripts/chess_field_return"]
               for p in (ROOT/base).glob("*") if p.is_file() and p.suffix in (".lean", ".py")]
     return {p:sha(ROOT/p) for p in sorted(paths)}
@@ -116,6 +116,16 @@ def counts():
     data=json.loads((WORK/"machine.json").read_text())
     assert data["states"]==len(data["rows"])==len(data["ports"])==245
     assert data["inventory"]==[60,5,120,55,5]
+    measured=[0,0,0,0,0]
+    for q,row in enumerate(data["rows"]):
+        c=q%49
+        group=0 if c<12 else 1 if c==12 else 2 if c<37 else 3 if c<48 else 4
+        measured[group]+=1
+        assert all((x is None)==(c==48) for x in row)
+        for bit,x in enumerate(row):
+            if x is not None:
+                assert x[0]==bit and x[2]//49==q//49
+    assert measured==data["inventory"]
     assert len(data["entries"])==5 and len(set(data["entries"]))==5
     assert sum(p is not None for p in data["ports"])==5
     assert all(len(row)==2 for row in data["rows"])
