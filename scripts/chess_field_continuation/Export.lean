@@ -23,7 +23,7 @@ def main (args : List String) : IO Unit := do
     ("rows", Json.arr ((List.finRange 425).map fun q ↦
       Json.arr #[rowJson (machine.transition q 0), rowJson (machine.transition q 1)]).toArray),
     ("ports", Json.arr ((List.finRange 425).map fun q ↦
-      if q.val ≥ 400 && (q.val - 400) % 5 = 4 then toJson ((q.val - 400) / 5)
+      if q.val ≥ 400 ∧ (q.val - 400) % 5 = 4 then toJson ((q.val - 400) / 5)
       else Json.null).toArray)]
   match args with
   | [path] =>

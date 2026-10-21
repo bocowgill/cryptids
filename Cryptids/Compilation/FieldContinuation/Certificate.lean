@@ -312,7 +312,8 @@ theorem composed_certificate (source bottom last : Tape Symbol) (n m : Nat)
         ⟨clearIn (FieldReturn.symbolCode value) 4, finalBits⟩ := by
   obtain ⟨returnedBits, returned, returnedRep⟩ :=
     return_prefix source bottom n returnPath binary v rep
-  obtain ⟨finalBits, popped, poppedRep⟩ := pop_refines bottom last m value flag popPath _ returnedRep
+  obtain ⟨finalBits, popped, poppedRep⟩ :=
+    pop_refines bottom last m value flag popPath _ returnedRep
   refine ⟨⟨Or.inl ⟨v, rfl, rfl, rfl⟩, rep⟩, finalBits, ?_, ?_, ?_⟩
   · rw [show n + m + 3 = (n + 1) + (1 + (m + 1)) by omega,
       sourceRun_add, FieldReturn.source_return source bottom n returnPath,

@@ -13,6 +13,7 @@ namespace ConjectureMachines.Compilation.FieldContinuation
 open Turing FieldBinary
 
 set_option backward.isDefEq.respectTransparency false
+set_option maxHeartbeats 2000000
 
 abbrev readRoutine := readAt 0
 abbrev moveRight := moveCell Dir.right
@@ -143,6 +144,7 @@ theorem routine_transfer {α : Type} (p : Routine α) (encode : Fin p.size → F
     | some row => simp only [plugged, h, Routine.liftRow, Option.map_some]
   have lifted := run_partial p.machine machine encode compatible _ _ _
     (Routine.run_execute p tape)
+  simp only [Routine.liftCfg] at lifted
   rw [FieldReturn.run_add, lifted, Option.bind_some]
   apply two_hop _ (back (p.execute tape).1) _ _ (gates (p.execute tape).1)
   intro b
@@ -176,7 +178,9 @@ theorem scan_rows (q : Fin 39) (b : Bit) : machine.transition (scanIn q) b =
 
 theorem scan_gates (w : Word) (b : Bit) :
     machine.transition (scanBack w) b = some (b, .left, scanDest w) := by
-  by_cases h : wordValue w = 0 <;> simp [scanBack, scanDest, h, machine, markerIn, advanceIn, put]
+  have all : ∀ (w : Word) (b : Bit),
+      machine.transition (scanBack w) b = some (b, .left, scanDest w) := by decide +kernel
+  exact all w b
 
 theorem advance_rows (q : Fin 14) (b : Bit) : machine.transition (advanceIn q) b =
     plugged moveRight.machine moveRight.result (fun _ ↦ 301) advanceIn q b := by
