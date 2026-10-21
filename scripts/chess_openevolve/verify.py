@@ -100,8 +100,9 @@ def regression():
 def proofs():
     checks = [run(["lake", "--wfail", "-f", "lakefile.chess-openevolve.toml", "build", "Cryptids.Semantics.ChessOpenEvolve"],
                   "Build completed successfully", timeout=1800)]
-    audit = ["lake", "env", "lean", "-M6144", "-DwarningAsError=true", "--run",
-             "scripts/chess_openevolve/Audit.lean"]
+    checks += [run(["lake", "--wfail", "-f", "lakefile.chess-openevolve.toml", "build",
+                    "chess_openevolve_audit"], "Build completed successfully")]
+    audit = [str(ROOT / ".lake/build/bin/chess_openevolve_audit")]
     checks += [run(audit, "Chess OpenEvolve foundation audit passed")]
     checks += [run(audit + [flag], expected, 1) for flag, expected in [
         ("--negative-control", "Forbidden axiom: sorryAx"),
