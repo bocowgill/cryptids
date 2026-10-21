@@ -182,16 +182,13 @@ theorem table_compile (h : Fin q) (M : TM0.Machine Bool (Fin q)) :
   apply congrArg Machine.mk
   funext s a
   refine Fin.addCases (fun i ↦ ?_) (fun i ↦ ?_) s
-  · change ((Binary.compile M).transition (Binary.mainState i) a).map _ =
-      (compile h M).transition (mainState i) a
-    rw [Binary.compile_main, compile_main]
+  · simp only [table, compile, Fin.addCases_left, Binary.compile_main]
     cases row : M i (Binary.decodeSymbol a) with
     | none => rfl
     | some v =>
       rcases v with ⟨j, cmd⟩
       cases cmd <;> simp
-  · change ((Binary.compile M).transition (Binary.bounceState (lift h i)) a).map _ =
-      (compile h M).transition (bounceState i) a
-    simp
+  · simp only [table, compile, Fin.addCases_right, Binary.compile_bounce,
+      Option.map_some, remap_main]
 
 end ConjectureMachines.Optimisation.TerminalBinary

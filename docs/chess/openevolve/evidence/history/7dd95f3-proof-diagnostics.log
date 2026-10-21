@@ -1,0 +1,61 @@
+✖ [3254/3254] Building Cryptids.Optimisation.TerminalBinary (1.7s)
+trace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean /home/runner/work/cryptids/cryptids/Cryptids/Optimisation/TerminalBinary.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Optimisation/TerminalBinary.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Optimisation/TerminalBinary.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Optimisation/TerminalBinary.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Optimisation/TerminalBinary.setup.json --json
+warning: Cryptids/Optimisation/TerminalBinary.lean:36:0: automatically included section variable(s) unused in theorem `ConjectureMachines.Optimisation.TerminalBinary.lift_drop`:
+  [NeZero q]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NeZero q] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Cryptids/Optimisation/TerminalBinary.lean:64:0: automatically included section variable(s) unused in theorem `ConjectureMachines.Optimisation.TerminalBinary.related_trCfg`:
+  [NeZero q]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NeZero q] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Cryptids/Optimisation/TerminalBinary.lean:132:33: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+error: Cryptids/Optimisation/TerminalBinary.lean:132:10: Type mismatch: After simplification, term
+  compile_step_write h M i h T b row
+ has type
+  step (compile h M) (trCfg { q := i, Tape := T }) =
+    some
+      { state := if h_1 : True then mainState h else bounceState (drop h h ⋯),
+        tape := Tape.move Dir.right (Tape.write (Binary.encodeSymbol.f b) (Binary.encodeTape T)) }
+but is expected to have type
+  { state := mainState h, tape := Tape.move Dir.right (Tape.write (Binary.encodeSymbol.f b) (Binary.encodeTape T)) } ∈
+    step (compile h M) { state := mainState i, tape := Binary.encodeTape T }
+warning: Cryptids/Optimisation/TerminalBinary.lean:137:33: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+error: Cryptids/Optimisation/TerminalBinary.lean:137:10: Type mismatch: After simplification, term
+  compile_step_write h M i j T b row
+ has type
+  step (compile h M) (trCfg { q := i, Tape := T }) =
+    some
+      { state := bounceState (drop h j jh),
+        tape := Tape.move Dir.right (Tape.write (Binary.encodeSymbol.f b) (Binary.encodeTape T)) }
+but is expected to have type
+  { state := bounceState (drop h j jh),
+      tape := Tape.move Dir.right (Tape.write (Binary.encodeSymbol.f b) (Binary.encodeTape T)) } ∈
+    step (compile h M) { state := mainState i, tape := Binary.encodeTape T }
+warning: Cryptids/Optimisation/TerminalBinary.lean:160:8: automatically included section variable(s) unused in theorem `ConjectureMachines.Optimisation.TerminalBinary.remap_main`:
+  [NeZero q]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NeZero q] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+error: Cryptids/Optimisation/TerminalBinary.lean:165:54: unsolved goals
+q : ℕ
+inst✝ : NeZero q
+h i : Fin q
+⊢ Fin.addCases mainState (writeNext h) (i.addNat q) = writeNext h i
+error: Cryptids/Optimisation/TerminalBinary.lean:178:2: No applicable extensionality theorem found for type
+  Machine (q + (q - 1)) 2
+
+Note: Extensionality theorems can be registered by marking them with the `[ext]` attribute
+Some required targets logged failures:
+- Cryptids.Optimisation.TerminalBinary
+error: build failed

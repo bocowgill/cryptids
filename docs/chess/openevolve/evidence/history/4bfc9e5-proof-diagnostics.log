@@ -1,0 +1,46 @@
+✖ [3254/3254] Building Cryptids.Optimisation.TerminalBinary (1.7s)
+trace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean /home/runner/work/cryptids/cryptids/Cryptids/Optimisation/TerminalBinary.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Optimisation/TerminalBinary.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Optimisation/TerminalBinary.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Optimisation/TerminalBinary.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Optimisation/TerminalBinary.setup.json --json
+error: Cryptids/Optimisation/TerminalBinary.lean:185:4: 'change' tactic failed, pattern
+  Option.map ?m.50 ((Binary.compile M).transition (Binary.mainState i) a) = (compile h M).transition (mainState i) a
+is not definitionally equal to target
+  Option.map
+      (fun x ↦
+        match x with
+        | (b, d, next) => (b, d, remap h next))
+      ((Binary.compile M).transition
+        (Fin.addCases Binary.mainState (fun i ↦ Binary.bounceState (lift h i)) (Fin.castAdd (q - 1) i)) a) =
+    Fin.addCases
+      (fun i ↦
+        Option.map
+          (fun x ↦
+            match x with
+            | (j, cmd) =>
+              match cmd with
+              | TM0.Stmt.move d => (a, d, mainState j)
+              | TM0.Stmt.write b => (Binary.encodeSymbol.f b, Dir.right, writeNext h j))
+          (M i (Binary.decodeSymbol a)))
+      (fun i ↦ some (a, Dir.left, mainState (lift h i))) (Fin.castAdd (q - 1) i)
+error: Cryptids/Optimisation/TerminalBinary.lean:193:4: 'change' tactic failed, pattern
+  Option.map ?m.65 ((Binary.compile M).transition (Binary.bounceState (lift h i)) a) =
+    (compile h M).transition (bounceState i) a
+is not definitionally equal to target
+  Option.map
+      (fun x ↦
+        match x with
+        | (b, d, next) => (b, d, remap h next))
+      ((Binary.compile M).transition
+        (Fin.addCases Binary.mainState (fun i ↦ Binary.bounceState (lift h i)) (Fin.natAdd q i)) a) =
+    Fin.addCases
+      (fun i ↦
+        Option.map
+          (fun x ↦
+            match x with
+            | (j, cmd) =>
+              match cmd with
+              | TM0.Stmt.move d => (a, d, mainState j)
+              | TM0.Stmt.write b => (Binary.encodeSymbol.f b, Dir.right, writeNext h j))
+          (M i (Binary.decodeSymbol a)))
+      (fun i ↦ some (a, Dir.left, mainState (lift h i))) (Fin.natAdd q i)
+Some required targets logged failures:
+- Cryptids.Optimisation.TerminalBinary
+error: build failed

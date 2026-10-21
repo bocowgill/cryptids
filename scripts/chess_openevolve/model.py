@@ -68,6 +68,8 @@ class CpuModel:
         record = {"model": MODEL, "revision": REVISION, "system": system_message,
                   "messages": messages, "rendered_prompt": prompt, "choices": choices,
                   "excluded": sorted(excluded), "response": response,
+                  "input_token_ids": inputs.input_ids[0].tolist(),
+                  "output_token_ids": generated[0, width:].tolist(),
                   "usage": self.last_usage, "seconds": time.monotonic() - begin,
                   "pid": os.getpid(), "remote": True}
         with log.open("a") as handle:

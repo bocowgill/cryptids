@@ -11,5 +11,10 @@
   "39535590629": {
     "commit": "fee3f79bc63b3a2e540ba4a8a1878729cbd27274",
     "disposition": "superseded by proof corrections; no accepted gate"
+  },
+  "39535729096": {
+    "commit": "7dd95f3e395757915cbc508e227badb15f785bce",
+    "overall_conclusion": "failure",
+    "disposition": "Strict proof gate rejected option-membership, row-map and warning defects; no search or acceptance"
   }
 }
