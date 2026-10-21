@@ -191,4 +191,20 @@ theorem table_compile (h : Fin q) (M : TM0.Machine Bool (Fin q)) :
   · simp only [table, compile, Fin.addCases_right, Binary.compile_bounce,
       Option.map_some, remap_main]
 
+omit [NeZero q] in
+/-- Numeric destination rule used by the fixed literal-table artifact. -/
+theorem remap_bounce_value (h j : Fin q) :
+    (remap h (Binary.bounceState j)).val =
+      if j = h then h.val else q + (if j.val < h.val then j.val else j.val - 1) := by
+  rw [remap_bounce]
+  by_cases equal : j = h <;> simp [writeNext, equal, mainState, bounceState, drop]
+
+omit [NeZero q] in
+/-- Numeric surviving-row selector: rows at and after the omitted bounce shift by one. -/
+theorem surviving_bounce_value (h : Fin q) (i : Fin (q - 1)) :
+    (Binary.bounceState (lift h i)).val =
+      if q + i.val < q + h.val then q + i.val else q + i.val + 1 := by
+  simp only [Binary.bounceState, lift, Fin.val_natAdd]
+  split_ifs <;> omega
+
 end ConjectureMachines.Optimisation.TerminalBinary

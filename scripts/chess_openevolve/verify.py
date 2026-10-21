@@ -49,6 +49,9 @@ def run(command, expected="", code=0, timeout=900):
               "output": result.stdout, "output_sha256": hashlib.sha256(result.stdout.encode()).hexdigest(),
               "elapsed_seconds": time.monotonic() - begin,
               "cumulative_children_peak_rss_kib": resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss}
+    logs = WORK / "commands"
+    logs.mkdir(parents=True, exist_ok=True)
+    (logs / (str(time.time_ns()) + ".json")).write_text(json.dumps(record, indent=2) + "\n")
     assert result.returncode == code and expected in result.stdout, json.dumps(record)
     return record
 
