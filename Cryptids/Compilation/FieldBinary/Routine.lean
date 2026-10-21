@@ -16,6 +16,8 @@ charged terminal controls. The compiler uses no tape oracle or uncounted return 
 namespace ConjectureMachines.Compilation.FieldBinary
 open Turing
 
+set_option backward.isDefEq.respectTransparency false
+
 abbrev Bit := Fin 2
 
 inductive Routine (α : Type) where
@@ -40,22 +42,22 @@ def execute : Routine α → Tape Bit → α × Tape Bit
   | .exit value, tape => (value, tape)
   | .next action rest, tape => rest.execute (Init.execute action tape)
   | .read dir zero one, tape =>
-      (if tape.head = 0 then zero else one).execute (tape.move dir)
+      if tape.head = 0 then zero.execute (tape.move dir) else one.execute (tape.move dir)
 
 def steps : Routine α → Tape Bit → Nat
   | .exit _, _ => 0
   | .next action rest, tape => 1 + rest.steps (Init.execute action tape)
   | .read dir zero one, tape =>
-      1 + (if tape.head = 0 then zero else one).steps (tape.move dir)
+      1 + if tape.head = 0 then zero.steps (tape.move dir) else one.steps (tape.move dir)
 
 def liftRow {q r : Nat} (f : Fin q → Fin r)
     (row : Option (Bit × Dir × Fin q)) : Option (Bit × Dir × Fin r) :=
-  row.map (fun (write, dir, next) ↦ (write, dir, f next))
+  row.map (fun (write, dir, dest) ↦ (write, dir, f dest))
 
-def leftState (zero one : Routine α) (q : Fin zero.size) : Fin (size (.read .right zero one)) :=
+def leftState (zero one : Routine α) (q : Fin zero.size) : Fin ((zero.size + one.size) + 1) :=
   (q.castAdd one.size).succ
 
-def rightState (zero one : Routine α) (q : Fin one.size) : Fin (size (.read .right zero one)) :=
+def rightState (zero one : Routine α) (q : Fin one.size) : Fin ((zero.size + one.size) + 1) :=
   (Fin.natAdd zero.size q).succ
 
 /-- Every exit, including duplicate result values, occupies an ordinary state. -/
@@ -153,7 +155,7 @@ theorem result_exit (p : Routine α) (tape : Tape Bit) :
     p.result (p.exitState tape) = some (p.execute tape).1 := by
   induction p generalizing tape with
   | exit value => rfl
-  | next action rest ih => simpa only [result, exitState, Init.caseZero_succ] using ih _
+  | next action rest ih => simpa only [result, exitState, execute, Init.caseZero_succ] using ih _
   | read dir zero one iz io =>
     by_cases bit : tape.head = 0
     · simpa only [exitState, execute, bit, ↓reduceIte, leftState, result,
@@ -166,7 +168,7 @@ theorem exit_stops (p : Routine α) (tape : Tape Bit) (bit : Bit) :
     p.machine.transition (p.exitState tape) bit = none := by
   induction p generalizing tape with
   | exit value => rfl
-  | next action rest ih => simpa only [exitState, next_rows, liftRow, ih, Option.map_none]
+  | next action rest ih => simp only [exitState, next_rows, liftRow, ih, Option.map_none]
   | read dir zero one iz io =>
     by_cases head : tape.head = 0
     · simp only [exitState, head, ↓reduceIte, left_rows, liftRow, iz, Option.map_none]

@@ -74,7 +74,8 @@ def run(command, expected="", code=0, timeout=900):
 
 
 def probe():
-    target = "Pilot" if (ROOT/"Cryptids/Compilation/FieldBinary/Pilot.lean").exists() else "Routine"
+    target = next(name for name in ["Pilot", "Fields", "Routine"]
+                  if (ROOT/("Cryptids/Compilation/FieldBinary/"+name+".lean")).exists())
     checks = [run(["lake", "--wfail", "-f", "lakefile.chess-field-binary.toml", "build",
                    "Cryptids.Compilation.FieldBinary."+target], "Build completed successfully", timeout=900)]
     save("probe", checks)
