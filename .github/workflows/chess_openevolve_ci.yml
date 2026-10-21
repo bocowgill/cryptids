@@ -67,6 +67,15 @@ jobs:
           timeout --signal=TERM --kill-after=10s 600s lake --wfail -f lakefile.chess-openevolve.toml build Cryptids.Optimisation.TerminalBinary 2>&1 | tee .lake/chess-openevolve/compiler.log
       - name: Check new paid machine, trust closure and artifact
         run: |
+          python3 - <<'PY'
+          import json, pathlib, subprocess
+          root = pathlib.Path(subprocess.check_output(['elan', 'which', 'lean'], text=True).strip()).parent.parent
+          path = root / 'lib/lean/Lean/Elab/PreDefinition/Eqns.olean.private'
+          print(json.dumps({'audit_metadata_file': str(path), 'exists': path.is_file(),
+                            'bytes': path.stat().st_size if path.is_file() else None,
+                            'runner_memory': pathlib.Path('/proc/meminfo').read_text().splitlines()[:3],
+                            'native_audit_address_limit_bytes': 17179869184}))
+          PY
           python3 scripts/chess_openevolve/verify.py --proofs
           python3 scripts/chess_openevolve/verify.py --controls
           python3 scripts/chess_openevolve/verify.py --artifact
