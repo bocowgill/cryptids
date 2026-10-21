@@ -1,0 +1,98 @@
+2026-10-21 04:13:11,094 - openevolve.controller - INFO - Logging to /home/runner/work/cryptids/cryptids/.lake/chess-openevolve/search/openevolve/logs/openevolve_20261021_041311.log
+2026-10-21 04:13:11,099 - openevolve.controller - INFO - Set random seed to 1729 for reproducibility
+2026-10-21 04:13:11,099 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: Qwen/Qwen2.5-Coder-0.5B-Instruct (weight: 1.00)
+2026-10-21 04:13:11,100 - openevolve.prompt.sampler - INFO - Initialized prompt sampler
+2026-10-21 04:13:11,101 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-10-21 04:13:11,101 - openevolve.database - INFO - Initialized program database with 0 programs
+2026-10-21 04:13:11,101 - openevolve.evaluator - INFO - Successfully loaded evaluation function from /home/runner/work/cryptids/cryptids/scripts/chess_openevolve/evaluator.py
+2026-10-21 04:13:11,101 - openevolve.evaluator - INFO - Initialized evaluator with /home/runner/work/cryptids/cryptids/scripts/chess_openevolve/evaluator.py
+2026-10-21 04:13:11,101 - openevolve.controller - INFO - Initialized OpenEvolve with /home/runner/work/cryptids/cryptids/scripts/chess_openevolve/seed.py
+2026-10-21 04:13:11,102 - openevolve.evolution_trace - INFO - Evolution tracer initialized: /home/runner/work/cryptids/cryptids/.lake/chess-openevolve/search/openevolve/evolution_trace.jsonl
+2026-10-21 04:13:11,102 - openevolve.controller - INFO - Evolution tracing enabled: /home/runner/work/cryptids/cryptids/.lake/chess-openevolve/search/openevolve/evolution_trace.jsonl
+2026-10-21 04:13:11,102 - openevolve.controller - INFO - Adding initial program to database
+2026-10-21 04:13:14,332 - openevolve.evaluator - INFO - Evaluated program 9023f347-3974-49b1-b86d-e82c93776ce2 in 3.23s: combined_score=0.5000, certified=1.0000, states=392046822.0000
+2026-10-21 04:13:14,332 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 5, 'diversity': 0}
+2026-10-21 04:13:14,333 - openevolve.controller - INFO - Stored artifacts for initial program
+2026-10-21 04:13:14,338 - openevolve.process_parallel - INFO - Initialized process parallel controller with 1 workers
+2026-10-21 04:13:14,339 - openevolve.process_parallel - INFO - Set max None tasks per child
+2026-10-21 04:13:14,339 - openevolve.process_parallel - INFO - Started process pool with 1 processes
+2026-10-21 04:13:14,339 - openevolve.controller - INFO - Using island-based evolution with 1 islands
+2026-10-21 04:13:14,339 - openevolve.database - INFO - Island Status:
+2026-10-21 04:13:14,340 - openevolve.database - INFO -  * Island 0: 1 programs, best=0.5000, avg=0.5000, diversity=0.00, gen=0 (best: 9023f347-3974-49b1-b86d-e82c93776ce2)
+2026-10-21 04:13:14,340 - openevolve.process_parallel - INFO - Starting process-based evolution from iteration 1 for 5 iterations (total: 6)
+2026-10-21 04:13:14,349 - openevolve.process_parallel - INFO - Early stopping disabled
+2026-10-21 04:13:14,353 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-10-21 04:13:14,354 - openevolve.evaluator - INFO - Successfully loaded evaluation function from /home/runner/work/cryptids/cryptids/scripts/chess_openevolve/evaluator.py
+2026-10-21 04:13:14,354 - openevolve.evaluator - INFO - Initialized evaluator with /home/runner/work/cryptids/cryptids/scripts/chess_openevolve/evaluator.py
+2026-10-21 04:13:14,356 - openevolve.llm.ensemble - INFO - Sampled model: Qwen/Qwen2.5-Coder-0.5B-Instruct
+2026-10-21 04:13:18,028 - transformers.configuration_utils - WARNING - `torch_dtype` is deprecated! Use `dtype` instead!
+2026-10-21 04:13:30,585 - openevolve.evaluator - INFO - Evaluated program aaaa8efb-03af-44c6-8d36-c3103c531fc5 in 0.00s: combined_score=0.0000, certified=0.0000, states=0.0000
+2026-10-21 04:13:30,586 - openevolve.llm.ensemble - INFO - Sampled model: Qwen/Qwen2.5-Coder-0.5B-Instruct
+2026-10-21 04:13:30,595 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 0, 'diversity': 5}
+2026-10-21 04:13:30,596 - openevolve.process_parallel - INFO - Iteration 1: Program aaaa8efb-03af-44c6-8d36-c3103c531fc5 (parent: 9023f347-3974-49b1-b86d-e82c93776ce2) completed in 16.23s | tokens: 968 (prompt: 958, completion: 10)
+2026-10-21 04:13:30,596 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0000, certified=0.0000, states=0.0000
+2026-10-21 04:13:30,596 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 1
+2026-10-21 04:13:30,596 - openevolve.database - INFO - Island Status:
+2026-10-21 04:13:30,596 - openevolve.database - INFO -  * Island 0: 2 programs, best=0.5000, avg=0.2500, diversity=26.90, gen=1 (best: 9023f347-3974-49b1-b86d-e82c93776ce2)
+2026-10-21 04:13:30,597 - openevolve.database - INFO - Saved database with 2 programs to /home/runner/work/cryptids/cryptids/.lake/chess-openevolve/search/openevolve/checkpoints/checkpoint_1
+2026-10-21 04:13:30,598 - openevolve.controller - INFO - Saved best program at checkpoint 1 with metrics: combined_score=0.5000, certified=1.0000, states=392046822.0000
+2026-10-21 04:13:30,598 - openevolve.controller - INFO - Saved checkpoint at iteration 1 to /home/runner/work/cryptids/cryptids/.lake/chess-openevolve/search/openevolve/checkpoints/checkpoint_1
+2026-10-21 04:13:38,316 - openevolve.evaluator - INFO - Evaluated program b6cb9625-6b1e-43f8-a638-43164f285901 in 0.00s: combined_score=0.0000, certified=0.0000, states=0.0000
+2026-10-21 04:13:38,317 - openevolve.llm.ensemble - INFO - Sampled model: Qwen/Qwen2.5-Coder-0.5B-Instruct
+2026-10-21 04:13:38,321 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 0, 'diversity': 0}
+2026-10-21 04:13:38,321 - openevolve.process_parallel - INFO - Iteration 2: Program b6cb9625-6b1e-43f8-a638-43164f285901 (parent: 9023f347-3974-49b1-b86d-e82c93776ce2) completed in 7.73s | tokens: 968 (prompt: 958, completion: 10)
+2026-10-21 04:13:38,321 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0000, certified=0.0000, states=0.0000
+2026-10-21 04:13:38,321 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 2
+2026-10-21 04:13:38,321 - openevolve.database - INFO - Island Status:
+2026-10-21 04:13:38,321 - openevolve.database - INFO -  * Island 0: 3 programs, best=0.5000, avg=0.1667, diversity=18.27, gen=2 (best: 9023f347-3974-49b1-b86d-e82c93776ce2)
+2026-10-21 04:13:38,322 - openevolve.database - INFO - Saved database with 3 programs to /home/runner/work/cryptids/cryptids/.lake/chess-openevolve/search/openevolve/checkpoints/checkpoint_2
+2026-10-21 04:13:38,323 - openevolve.controller - INFO - Saved best program at checkpoint 2 with metrics: combined_score=0.5000, certified=1.0000, states=392046822.0000
+2026-10-21 04:13:38,323 - openevolve.controller - INFO - Saved checkpoint at iteration 2 to /home/runner/work/cryptids/cryptids/.lake/chess-openevolve/search/openevolve/checkpoints/checkpoint_2
+2026-10-21 04:13:45,948 - openevolve.evaluator - INFO - Evaluated program 62267ccb-4299-4285-b365-d4ac3c001f7e in 3.60s: combined_score=1.0000, certified=1.0000, states=392046821.0000
+2026-10-21 04:13:45,949 - openevolve.llm.ensemble - INFO - Sampled model: Qwen/Qwen2.5-Coder-0.5B-Instruct
+2026-10-21 04:13:45,949 - openevolve.database - INFO - Island 0 MAP-Elites cell replaced: {'complexity': 0, 'diversity': 0} (fitness: 0.000 -> 1.000)
+2026-10-21 04:13:45,949 - openevolve.database - INFO - New best program 62267ccb-4299-4285-b365-d4ac3c001f7e replaces 9023f347-3974-49b1-b86d-e82c93776ce2 (combined_score: 0.5000 → 1.0000, +0.5000)
+2026-10-21 04:13:45,950 - openevolve.process_parallel - INFO - Iteration 3: Program 62267ccb-4299-4285-b365-d4ac3c001f7e (parent: aaaa8efb-03af-44c6-8d36-c3103c531fc5) completed in 7.63s | tokens: 588 (prompt: 578, completion: 10)
+2026-10-21 04:13:45,950 - openevolve.process_parallel - INFO - Metrics: combined_score=1.0000, certified=1.0000, states=392046821.0000
+2026-10-21 04:13:45,950 - openevolve.process_parallel - INFO - 🌟 New best solution found at iteration 3: 62267ccb-4299-4285-b365-d4ac3c001f7e
+2026-10-21 04:13:45,950 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 3
+2026-10-21 04:13:45,950 - openevolve.database - INFO - Island Status:
+2026-10-21 04:13:45,950 - openevolve.database - INFO -  * Island 0: 3 programs, best=1.0000, avg=0.5000, diversity=17.93, gen=3 (best: 62267ccb-4299-4285-b365-d4ac3c001f7e)
+2026-10-21 04:13:45,951 - openevolve.database - INFO - Saved database with 3 programs to /home/runner/work/cryptids/cryptids/.lake/chess-openevolve/search/openevolve/checkpoints/checkpoint_3
+2026-10-21 04:13:45,951 - openevolve.controller - INFO - Saved best program at checkpoint 3 with metrics: combined_score=1.0000, certified=1.0000, states=392046821.0000
+2026-10-21 04:13:45,951 - openevolve.controller - INFO - Saved checkpoint at iteration 3 to /home/runner/work/cryptids/cryptids/.lake/chess-openevolve/search/openevolve/checkpoints/checkpoint_3
+2026-10-21 04:13:49,989 - openevolve.evaluator - INFO - Evaluated program f17f0c2a-5d00-4928-b853-0b425706c0a3 in 0.00s: combined_score=0.0000, certified=0.0000, states=0.0000
+2026-10-21 04:13:49,990 - openevolve.llm.ensemble - INFO - Sampled model: Qwen/Qwen2.5-Coder-0.5B-Instruct
+2026-10-21 04:13:49,997 - openevolve.process_parallel - INFO - Iteration 4: Program f17f0c2a-5d00-4928-b853-0b425706c0a3 (parent: aaaa8efb-03af-44c6-8d36-c3103c531fc5) completed in 4.04s | tokens: 588 (prompt: 578, completion: 10)
+2026-10-21 04:13:49,997 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0000, certified=0.0000, states=0.0000
+2026-10-21 04:13:49,997 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 4
+2026-10-21 04:13:49,997 - openevolve.database - INFO - Island Status:
+2026-10-21 04:13:49,997 - openevolve.database - INFO -  * Island 0: 4 programs, best=1.0000, avg=0.3750, diversity=13.95, gen=4 (best: 62267ccb-4299-4285-b365-d4ac3c001f7e)
+2026-10-21 04:13:49,998 - openevolve.database - INFO - Saved database with 4 programs to /home/runner/work/cryptids/cryptids/.lake/chess-openevolve/search/openevolve/checkpoints/checkpoint_4
+2026-10-21 04:13:49,999 - openevolve.controller - INFO - Saved best program at checkpoint 4 with metrics: combined_score=1.0000, certified=1.0000, states=392046821.0000
+2026-10-21 04:13:49,999 - openevolve.controller - INFO - Saved checkpoint at iteration 4 to /home/runner/work/cryptids/cryptids/.lake/chess-openevolve/search/openevolve/checkpoints/checkpoint_4
+2026-10-21 04:13:57,806 - openevolve.evaluator - INFO - Evaluated program 2f4f2f7f-b179-4002-be43-6a6e375ec28d in 0.00s: combined_score=0.0000, certified=0.0000, states=0.0000
+2026-10-21 04:13:57,811 - openevolve.process_parallel - INFO - Iteration 5: Program 2f4f2f7f-b179-4002-be43-6a6e375ec28d (parent: 9023f347-3974-49b1-b86d-e82c93776ce2) completed in 7.82s | tokens: 969 (prompt: 959, completion: 10)
+2026-10-21 04:13:57,811 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0000, certified=0.0000, states=0.0000
+2026-10-21 04:13:57,811 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 5
+2026-10-21 04:13:57,812 - openevolve.database - INFO - Island Status:
+2026-10-21 04:13:57,812 - openevolve.database - INFO -  * Island 0: 5 programs, best=1.0000, avg=0.3000, diversity=9.47, gen=5 (best: 62267ccb-4299-4285-b365-d4ac3c001f7e)
+2026-10-21 04:13:57,812 - openevolve.database - INFO - Saved database with 5 programs to /home/runner/work/cryptids/cryptids/.lake/chess-openevolve/search/openevolve/checkpoints/checkpoint_5
+2026-10-21 04:13:57,813 - openevolve.controller - INFO - Saved best program at checkpoint 5 with metrics: combined_score=1.0000, certified=1.0000, states=392046821.0000
+2026-10-21 04:13:57,813 - openevolve.controller - INFO - Saved checkpoint at iteration 5 to /home/runner/work/cryptids/cryptids/.lake/chess-openevolve/search/openevolve/checkpoints/checkpoint_5
+2026-10-21 04:13:57,813 - openevolve.process_parallel - INFO - ✅ Evolution completed - Maximum iterations reached
+2026-10-21 04:13:57,813 - openevolve.process_parallel - INFO - 📊 Total LLM Token Usage (5 calls): total_tokens=4081 (prompt_tokens=4031, completion_tokens=50)
+2026-10-21 04:13:57,814 - openevolve.database - INFO - Saved database with 5 programs to /home/runner/work/cryptids/cryptids/.lake/chess-openevolve/search/openevolve/checkpoints/checkpoint_5
+2026-10-21 04:13:57,814 - openevolve.controller - INFO - Saved best program at checkpoint 5 with metrics: combined_score=1.0000, certified=1.0000, states=392046821.0000
+2026-10-21 04:13:57,815 - openevolve.controller - INFO - Saved checkpoint at iteration 5 to /home/runner/work/cryptids/cryptids/.lake/chess-openevolve/search/openevolve/checkpoints/checkpoint_5
+2026-10-21 04:13:57,815 - openevolve.controller - INFO - Received signal 15, initiating graceful shutdown...
+2026-10-21 04:13:57,815 - openevolve.process_parallel - INFO - Graceful shutdown requested...
+2026-10-21 04:13:58,009 - openevolve.process_parallel - INFO - Stopped process pool
+2026-10-21 04:13:58,010 - openevolve.evolution_trace - INFO - Evolution tracing complete. Total traces: 5
+2026-10-21 04:13:58,010 - openevolve.evolution_trace - INFO - Improvement rate: 20.00%
+2026-10-21 04:13:58,010 - openevolve.evolution_trace - INFO - Best improvements: {'combined_score': 1.0, 'certified': 1.0, 'states': 392046821.0}
+2026-10-21 04:13:58,010 - openevolve.evolution_trace - INFO - Worst declines: {'combined_score': -0.5, 'certified': -1.0, 'states': -392046822.0}
+2026-10-21 04:13:58,010 - openevolve.controller - INFO - Evolution tracer closed
+2026-10-21 04:13:58,010 - openevolve.controller - INFO - Using tracked best program: 62267ccb-4299-4285-b365-d4ac3c001f7e
+2026-10-21 04:13:58,010 - openevolve.controller - INFO - Evolution complete. Best program has metrics: combined_score=1.0000, certified=1.0000, states=392046821.0000
+2026-10-21 04:13:58,011 - openevolve.controller - INFO - Saved best program to /home/runner/work/cryptids/cryptids/.lake/chess-openevolve/search/openevolve/best/best_program.py with program info to /home/runner/work/cryptids/cryptids/.lake/chess-openevolve/search/openevolve/best/best_program_info.json

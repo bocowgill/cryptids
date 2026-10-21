@@ -1,0 +1,21 @@
+{
+  "scope": "read-only primary-source interface inspection; no installed-package or runtime acceptance",
+  "repository": "algorithmicsuperintelligence/openevolve",
+  "commit": "59dfe764b5ab4478ac00214432fcac33bbe2bf4b",
+  "github_blobs": {
+    "openevolve/api.py": "d6402e4b98356b15f16bd9573e03d16b72e721aa",
+    "openevolve/config.py": "4fdab79981abb1499f837e265a51c13736ebbee3",
+    "openevolve/controller.py": "b87fdf809a67264b9f6c7f7959abe7f762bb764a",
+    "openevolve/evaluator.py": "084d1c04ca41b22407c4ecf4227a69539f6379dc",
+    "openevolve/llm/base.py": "1cbf436e95845a30fff030a9dda2420cf9a69e50",
+    "openevolve/llm/ensemble.py": "e62e66e49d303f0349122ca2644aebc0fc5ba0e5"
+  },
+  "findings": [
+    "LLMModelConfig has an init_client callable; ensemble construction invokes it with the model configuration.",
+    "The required custom model methods are async generate and generate_with_context, which the adapter supplies.",
+    "run_evolution creates OpenEvolve and calls its controller; the controller evaluates the baseline and uses ProcessParallelController plus framework checkpoints.",
+    "The configured direct evaluator receives the candidate file path; it imports the supplied evaluator module rather than automatically importing candidate text.",
+    "LLM evaluation feedback defaults off and the pilot explicitly configures no evaluator models."
+  ],
+  "limitation": "Actual installed provenance, successful model generation, evaluations and checkpoint retention remain separate remote evidence obligations."
+}

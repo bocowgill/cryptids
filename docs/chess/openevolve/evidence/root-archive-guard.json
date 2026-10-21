@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "scope": "small saved-archive metadata only; no Lean/model/native/table execution",
+  "run_id": 39542309855,
+  "core_conclusion": "failure",
+  "entries": 61,
+  "positive_failed_archive_authenticated": true,
+  "negative_false_green_claim_rejected": true,
+  "checker_sha256": "624ec4cc9c482779cbd005dde435277808d694da5cadd236365c659d4a46abca",
+  "complete_pilot_acceptance": false
+}

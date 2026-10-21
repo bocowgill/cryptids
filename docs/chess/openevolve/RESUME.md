@@ -53,12 +53,26 @@ That 8GiBAS attempt failed reading toolchain metadata (official archive in
 evidence/history/48c55c9-native-read-failure). A 16GiBAS retry records the file's
 existence and succeeds with identical audit logic.
 
-Current remote retry: CI 39542309855 at e2888bf3d0ac9ff13119d65aa6ae9a66cec51709.
-It pins Ubuntu24.04, caps root Lean at6144MiB via lakefile.chess-openevolve.toml,
-streams command output, clears restored transient reports, and restores only the
-same .lake/packages + .lake/build paths that it saves. Proofs, native audit,
-negative controls, artifact certificate, M7 regression and real model-backed
-OpenEvolve search passed. The frozen M1–M5 baseline is running (started
-2026-10-21T04:13:58Z). Referee R1 construction-only accepted; R2 awaits authentic
-completed current reports. No model API credentials are needed by the public
-remote CPU model.
+Core CI 39542309855 at e2888bf3d0ac9ff13119d65aa6ae9a66cec51709 passed proofs,
+native audit, controls, artifact, M7 regression and actual OpenEvolve search.
+The five phase reports and full official 61-entry archive are in evidence/current.
+There were five real model proposals, six evaluations, 4,081 tokens and a certified
+392,046,821-state best candidate. Search framework time was 46.95 seconds.
+Its whole-run conclusion is FAILURE: the final baseline wrapper reached 3,600 seconds
+after M1–M4/default-build success, during M5 executable verification. Preserve
+that timeout; it is not full baseline acceptance. The narrowed build cache saved
+successfully (2,616,144,454 compressed bytes).
+
+Baseline-only recovery 39548653262 is running at
+c7d3ff318ef8beda1e41f3185013b03ce5f2290b. Its separate orchestration file is
+.github/workflows/chess_openevolve_baseline.yml. It leaves all 17 core computation
+hashes and 192 frozen inputs unchanged and separately seals its own workflow hash.
+It invokes the same actual frozen M6 baseline CLI with a 7,200-second outer bound,
+inside a 180-minute job, using the saved build cache. No search or new proof work
+is repeated. On success retain its official archive in evidence/baseline and
+compose the actual baseline receipt with the five core reports. Each report must
+bind its own official run/head; never relabel the failed core workflow green.
+Referee R1 construction-only accepted; R2 awaits baseline completion and final
+source-bound composition review. The local evidence checker is being adapted for
+that composition and must not claim success before the second archive exists.
+No model API credentials are needed by the public remote CPU model.

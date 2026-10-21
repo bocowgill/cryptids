@@ -6,6 +6,17 @@ actual OpenEvolve search have passed their remote steps. The frozen M1–M5 base
 and independent acceptance of the completed official evidence remain required.
 See [RESUME.md](RESUME.md) for the current remote run.
 
+The [machine-readable results](results.json) record the measured core outcome.
+Core run [39542309855](https://github.com/bocowgill/cryptids/actions/runs/39542309855)
+at `e2888bf3d0ac9ff13119d65aa6ae9a66cec51709` has overall conclusion **failure**:
+its final baseline wrapper timed out after 3,600.15 seconds during M5 executable
+verification. The default build and M1–M4 had passed. The five earlier pilot
+phase reports passed and are retained in the authenticated 61-entry
+[official archive](evidence/current/artifact.zip). The
+[baseline-only recovery](https://github.com/bocowgill/cryptids/actions/runs/39548653262)
+is separate and remains pending; its orchestration hash is sealed independently
+while all 17 core computation hashes and 192 frozen inputs remain identical.
+
 ## Construction
 
 The selected routine lowers a Post write whose destination has no transitions on
@@ -51,6 +62,24 @@ requires an actual Lean check of the universal theorem for the selected compiler
 A timeout or failed proof never produces a certificate. The actual chess count
 and end-to-end theorem are checked separately from the search score.
 
+The completed core search made five model proposals and six evaluations including
+the M7 seed. Proposal order was `(0,1)`, `(1,1)`, `(1,0)`, `(2,1)`, `(2,0)`.
+The third proposal `(1,0)` passed its universal Lean certificate; the other four
+were rejected by operational counterexamples. The seed also passed its certificate.
+The raw prompts show counterexample feedback reaching subsequent proposals.
+There were 4,031 input tokens and 50 output tokens, with zero paid model API calls.
+Framework wall time was 46.95 seconds; its enclosing workflow step took 49 seconds.
+This run exhausts the supplied family and makes no search-efficiency comparison.
+
+The native foundation audit checked 74 roots and 48,724 transitive declarations,
+allowing only `propext`, `Classical.choice` and `Quot.sound`. Its three negative
+controls rejected an unproved axiom, dependence on the open chess conjecture,
+and dependence on a proof generator. Routine controls rejected four malformed
+policies, four semantic corruptions, four map/cost corruptions, a real certificate
+subprocess timeout, and a corrupt Lean proof. Small executable table fixtures
+covered 30 corners; a separate universal theorem covers the singleton terminal
+initial-state edge case.
+
 ## Explicit table representation
 
 The [fixed recipe](../../../artifacts/chess_openevolve/table-map.json) selects rows
@@ -75,9 +104,14 @@ baseline wrapper. Their source maps must agree with the live pilot files and all
 
 All Lean compilation, native execution, fixture runs, model inference and search
 are remote. Local work consists of editing, orchestration and small metadata/hash
-checks. Lean builds use a 6144MiB limit. The native audit uses a separate 16GiB
-virtual-address ceiling and a 900-second timeout; these are different limits.
-The workflow has a 120-minute ceiling. Model proposals are capped at five,
+checks. Pilot strict build targets and admitted-candidate certificate subprocesses
+use a 6144MiB Lean limit. Frozen regression commands retain their original settings.
+The native audit uses a separate 16GiB virtual-address ceiling and a 900-second
+timeout; these are different limits.
+The core workflow has a 120-minute ceiling. Its failed baseline phase had a
+3,600-second outer bound. The baseline-only recovery job has a 180-minute ceiling
+and a 7,200-second bound around the same unchanged frozen baseline CLI.
+Model proposals are capped at five,
 input at 3072 tokens and output at 32 tokens per proposal. No paid model API is
 configured; runner minutes and account billing are separate costs.
 

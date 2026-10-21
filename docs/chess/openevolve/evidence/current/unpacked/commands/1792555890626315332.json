@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-openevolve/corrupt-certificate.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "/home/runner/work/cryptids/cryptids/.lake/chess-openevolve/corrupt-certificate.lean:8:5: error: Tactic `rfl` failed: The left-hand side\n  (StateTransition.eval (step (TerminalBinary.compile h M))\n      { state := 0, tape := Tape.mk\u2081 (List.map Binary.encodeSymbol.f input) }).Dom\nis not definitionally equal to the right-hand side\n  (TM0.eval M input).Dom\n\nq : \u2115\ninst\u271d : NeZero q\nh : Fin q\nM : TM0.Machine Bool (Fin q)\nterminal : \u2200 (b : Bool), M h b = none\ninput : List Bool\n\u22a2 (StateTransition.eval (step (TerminalBinary.compile h M))\n        { state := 0, tape := Tape.mk\u2081 (List.map Binary.encodeSymbol.f input) }).Dom \u2194\n    (TM0.eval M input).Dom\n",
+  "output_sha256": "ecd1fdf5d933ebba321d166b2428c648d52c9c57ed911277229b8b506030dee2",
+  "timed_out": false,
+  "elapsed_seconds": 3.4320442880000144,
+  "cumulative_children_peak_rss_kib": 3626800
+}

@@ -9,6 +9,8 @@ M5 is complete with a verified binary backend and four literal blank-tape small-
 machines (2026-10-20). M6 is complete with the verified 392,046,832-state baseline
 and retained literal table (2026-10-20). M7's first certified reduction is complete:
 392,046,822 states, ten fewer than M6, with the same halting equivalence (2026-10-20).
+An OpenEvolve compiler pilot has passed its new proof and search steps for a
+392,046,821-state candidate; baseline and final evidence acceptance are pending.
 Heavy computation remains remote; outreach remains on hold.
 
 ## 1. Agreed objective and scope
@@ -64,8 +66,10 @@ without running the initial-position evaluator to completion.
 
 The initial tasks authorized the fork, roadmap, source audit, packaging recommendation,
 and the completed definitions-only reference port and freeze. M2–M6 were subsequently
-authorized and completed. The latest instruction authorizes M7 state reduction;
-the first certified strict improvement is complete. Heavy computation remains
+authorized and completed. M7's first certified strict improvement is complete.
+The current instruction authorizes an OpenEvolve pilot using M7 as a regression
+case and targeting one compiler routine for a further certified reduction.
+Heavy computation remains
 remote and the frozen reference stays fixed. The historical
 audit is recorded in
 [docs/chess/m1/AUDIT.md](docs/chess/m1/AUDIT.md), with the proposed module boundaries
@@ -476,6 +480,37 @@ numerical target or claim of minimality. Set further budgets and targets after
 measuring the baseline. SAT/SMT searches must retain their exact encodings and
 instances; bounded failures do not imply global optimality. For consequential
 SAT nonexistence results, retain a checkable UNSAT certificate when practical.
+
+#### OpenEvolve compiler pilot
+
+Goal: connect the real pinned OpenEvolve framework to semantic rejection filters
+and mandatory Lean certificates, using accepted M7 as the fixed regression case.
+Target one compiler routine: binary lowering of writes into a terminal Post
+control. The intended saving is one return state, including the full paid input
+initializer in the 392,046,821-state total. The model orders a supplied finite
+policy family; this pilot makes no autonomous-discovery or scalability claim.
+
+Status: new proof, audit, controls, table certificate, M7 regression and actual
+model-backed search steps passed remotely. The frozen M1–M5 baseline and final
+independent evidence acceptance are pending. See
+[pilot results and scope](docs/chess/openevolve/RESULTS.md).
+
+Acceptance criteria:
+
+- [ ] Keep all 192 accepted M7 computation inputs and the frozen reference fixed;
+  pass the actual M7 regression.
+- [ ] Execute a bounded, genuinely model-backed OpenEvolve run remotely; retain
+  raw proposals, feedback, checkpoints, exact versions and measured costs.
+- [ ] Reject malformed and semantically incorrect policies, corrupt costs and
+  certificates, and actual proof timeouts.
+- [ ] Certify the actual smaller blank machine's unconditional frozen non-draw
+  equivalence, paid initialization and universally justified table recipe.
+- [ ] Pass applicable regressions and independent review of authentic, current
+  source-bound evidence. Preserve unsuccessful attempts and honest limits.
+
+All substantial computation remains remote. Outreach and later milestones remain
+on hold. A new expanded table sweep is outside this integration pilot; the fixed
+recipe is justified universally against the accepted M7 representation.
 
 ## 5. Incremental upstream contribution strategy
 

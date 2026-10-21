@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "lake",
+    "--wfail",
+    "-f",
+    "lakefile.chess-openevolve.toml",
+    "build",
+    "chess_openevolve_audit"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "Build completed successfully (4 jobs).\n",
+  "output_sha256": "aee3d70d3b2c9bacc17719f0f81462902128b1735583320360093bc2f7ae9f37",
+  "timed_out": false,
+  "elapsed_seconds": 0.9899063640000065,
+  "cumulative_children_peak_rss_kib": 897928
+}
