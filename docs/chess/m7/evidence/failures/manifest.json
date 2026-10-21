@@ -1,5 +1,10 @@
 [
   {
+    "file": "fixed-baseline-mathlib-cache.log",
+    "bytes": 48840,
+    "sha256": "d581997d2dfd34db56e45924e4249c7d25a0397b6d5f22039b69770f4d91ec09"
+  },
+  {
     "file": "original-fixed-tls.log",
     "bytes": 10984,
     "sha256": "9493a4200ea67a8f736b1a4759e79905ac6732f09883de456bd8a34a2d8b1c8d"

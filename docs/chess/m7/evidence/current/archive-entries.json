@@ -1,0 +1,62 @@
+{
+  "Cryptids/ChessM7Challenge.lean": {
+    "bytes": 9703895,
+    "sha256": "3f4b07141a6b2770059bd09149e937de21c73f2ed8bf676e17bb2efa54cd4880",
+    "repository_file": "Cryptids/ChessM7Challenge.lean"
+  },
+  "artifacts/chess_m7/challenge.json": {
+    "bytes": 2158812,
+    "sha256": "d63ea9d4ae642e541a20e21d57d60cfc5a8514483bf635f85bcb17ea949ae791",
+    "repository_file": "artifacts/chess_m7/challenge.json"
+  },
+  "artifacts/chess_m7/table-map.json": {
+    "bytes": 366,
+    "sha256": "ecb76aa334014cf5ef038beaa5ec9c3808e8022d0e695847eae6f118a7207140",
+    "repository_file": "artifacts/chess_m7/table-map.json"
+  },
+  ".lake/chess-m7-check/bootstrap.json": {
+    "bytes": 286690,
+    "sha256": "7a6c26ed4c762dd038647ddf24e44ad8d63a650ae4960bb97403ca09889ce20a",
+    "acceptance": "excluded: stale cached proposal-only record"
+  },
+  ".lake/chess-m7-check/candidate-table-manifest.json": {
+    "bytes": 157210,
+    "sha256": "02c783610211d05f02005d8294088abbb1f2735f3cbda812732a076c6bdbb07a",
+    "retained_file": "candidate-table-manifest.json"
+  },
+  ".lake/chess-m7-check/definitions.json": {
+    "bytes": 96787,
+    "sha256": "b2c4a4c0bae4dc8fa6cc9d2b68b619614ae43b9823900327bc244df460eb8000",
+    "retained_file": "definitions.json"
+  },
+  ".lake/chess-m7-check/freeze.json": {
+    "bytes": 19050,
+    "sha256": "b7bf49e80b36f157deab09ed1fb082a17b13f4877801585bda70b44e2b6f8534",
+    "retained_file": "freeze.json"
+  },
+  ".lake/chess-m7-check/full-table-yknoq4au/extract/run.json": {
+    "bytes": 187378,
+    "sha256": "178ca03478bd5659ac85130f9961570b04e000a79b621be60d8414c6f193ec62",
+    "retained_file": "extract-run.json"
+  },
+  ".lake/chess-m7-check/full-table-yknoq4au/independent/run.json": {
+    "bytes": 187453,
+    "sha256": "c8c45c8202cc6ad2a164bfb6b3dd9999b6c7e6d67d3d3be04cc01dca4e6e759e",
+    "retained_file": "independent-run.json"
+  },
+  ".lake/chess-m7-check/proofs.json": {
+    "bytes": 25210,
+    "sha256": "a5751bc9c0ab543899d555cb98266f49ca006c4eb66ba2afad9fd4d60e857db8",
+    "retained_file": "proofs.json"
+  },
+  ".lake/chess-m7-check/table.json": {
+    "bytes": 451345,
+    "sha256": "6cfa7fe8a2f7f8c8695b354a16533e16d181e9d997451d26a9770478df94e427",
+    "retained_file": "table.json"
+  },
+  ".lake/chess-m7-check/target-controls/results.json": {
+    "bytes": 4779,
+    "sha256": "8291707909591e9da71375b09cd39cf060c52978cbca802702db3b561d8019ff",
+    "retained_file": "controls.json"
+  }
+}

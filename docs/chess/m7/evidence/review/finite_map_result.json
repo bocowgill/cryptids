@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "scope": "bounded Python arithmetic and synthetic-table checks; no Lean or chess execution",
+  "parameter_cases": 448,
+  "mapped_old_controls": 7168,
+  "canonical_new_controls": 12768,
+  "interval_segment_checks": 249984,
+  "synthetic_binary_cells": 30016,
+  "frozen_baseline_inputs_matching": 172,
+  "quotient_tool_sha256": "63e6a5a776883fee222f0cba5b68655e7604203f431362c87ecad012976f974c"
+}

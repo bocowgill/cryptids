@@ -1,0 +1,330 @@
+verify	Verify unchanged M1–M5 regression baseline	﻿2026-10-21T00:45:10.3460019Z ##[group]Run python3 scripts/verify_chess_m7.py --baseline
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T00:45:10.3460519Z ^[[36;1mpython3 scripts/verify_chess_m7.py --baseline^[[0m
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T00:45:10.3532307Z shell: /usr/bin/bash -e {0}
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T00:45:10.3532596Z env:
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T00:45:10.3532816Z   ELAN_NO_UPDATE_CHECK: 1
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T00:45:10.3533078Z   LEAN_NUM_THREADS: 1
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T00:45:10.3533323Z ##[endgroup]
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T00:45:10.4437294Z Chess M7 frozen baseline verification passed
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1136319Z Traceback (most recent call last):
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1139562Z   File "/home/runner/work/cryptids/cryptids/scripts/verify_chess_m6.py", line 399, in <module>
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1140641Z     main()
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1140870Z     ~~~~^^
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1141653Z   File "/home/runner/work/cryptids/cryptids/scripts/verify_chess_m6.py", line 386, in main
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1142381Z     baseline()
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1144613Z     ~~~~~~~~^^
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1145104Z   File "/home/runner/work/cryptids/cryptids/scripts/verify_chess_m6.py", line 367, in baseline
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1148310Z     results = [run(["python3", "scripts/verify_chess_m5.py", "--baseline"],
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1148806Z                ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1149461Z                    "Chess M5 baseline verification passed", baseline_warnings=True, timeout=7200),
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1150047Z                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1150729Z   File "/home/runner/work/cryptids/cryptids/scripts/verify_chess_m6.py", line 52, in run
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1151783Z     require(result.returncode == status, f"Unexpected exit: {args}\n{result.stdout}")
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1152367Z     ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1153026Z   File "/home/runner/work/cryptids/cryptids/scripts/verify_chess_m6.py", line 29, in require
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1153631Z     raise RuntimeError(message)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1154128Z RuntimeError: Unexpected exit: ['python3', 'scripts/verify_chess_m5.py', '--baseline']
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1167075Z ✔ [3254/3259] Built Cryptids.Chess.SpecLemmas (914ms)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1167554Z ✔ [3257/3262] Built Cryptids.Propositions (1.9s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1167955Z ✔ [3258/3364] Built Cryptids.Chess (889ms)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1168443Z ✔ [3842/3910] Built Cryptids.Compilation.Games (3.3s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1168908Z ✔ [3843/3910] Built Cryptids.Compilation.Literal (1.8s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1169393Z ✔ [3845/3910] Built Cryptids.Goldbach21 (6.6s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1169877Z ✔ [3848/3911] Built Cryptids.Semantics.Riemann.Gadgets (38s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1170340Z ✔ [3850/3913] Built Cryptids.Semantics.Zf.Gadgets (18s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1170930Z ✔ [3852/3913] Built Mathlib.Topology.Order.IsLocallyClosed (959ms)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1171719Z ✔ [3853/3913] Built Cryptids.Semantics.Zf.Boot (4.4s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1172299Z ✔ [3856/3913] Built Mathlib.MeasureTheory.Function.Floor (1.5s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1172753Z ✔ [3857/3913] Built Cryptids.Riemann120 (12s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1173286Z ✔ [3859/3913] Built Mathlib.NumberTheory.AbelSummation (3.7s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1173788Z ✔ [3862/3916] Built Cryptids.Semantics.Riemann120.Backend (82s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1174300Z ✔ [3864/3916] Built Mathlib.Data.Nat.Nth (1.6s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1174780Z ✔ [3866/3920] Built Cryptids.Riemann104 (14s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1175176Z ✔ [3868/3920] Built Mathlib.Data.Nat.Prime.Nth (961ms)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1175745Z ✔ [3869/3920] Built Cryptids.ReductionSupport.Riemann95.ReferenceLogical95 (7.5s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1176528Z ✔ [3870/3920] Built Cryptids.ReductionSupport.Riemann95.Algorithm95 (1.6s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1177153Z ✔ [3871/3920] Built Cryptids.ReductionSupport.Riemann.WordGuard (1.5s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1177709Z ✔ [3872/3920] Built Cryptids.Riemann95Definition (1.5s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1178167Z ✔ [3874/3921] Built Mathlib.Data.Nat.Prime.Factorial (873ms)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1179199Z ✔ [3875/3921] Built Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt (1.7s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1179775Z ✔ [3876/3922] Built Mathlib.NumberTheory.PrimeCounting (1.5s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1180215Z ✔ [3877/3922] Built Cryptids.Chess.Evaluation (1.7s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1180912Z ✔ [3878/3922] Built Cryptids.ReductionSupport.Riemann95.ReferenceLogicalSemantics95 (1.6s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1181978Z ✔ [3879/3922] Built Cryptids.ReductionSupport.Riemann95.ReferenceProgram95 (1.6s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1182662Z ✔ [3880/3922] Built Cryptids.ReductionSupport.Riemann95.ControllerSchema95 (3.4s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1183501Z ✔ [3881/3922] Built Cryptids.ReductionSupport.Riemann95.FinitePrefix95 (1.7s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1184102Z ✔ [3882/3922] Built Cryptids.ReductionSupport.Riemann95.Auxiliary95 (1.6s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1184601Z ✔ [3883/3922] Built Mathlib.Data.Nat.Choose.Dvd (858ms)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1185160Z ✔ [3885/3922] Built Mathlib.Algebra.Order.Floor.Semifield (1.8s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1185705Z ✔ [3886/3922] Built Mathlib.Algebra.GCDMonoid.FinsetLemmas (1.2s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1186306Z ✔ [3887/3925] Built Cryptids.ReductionSupport.Riemann95.ReferencePermutation95 (1.7s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1187040Z ✔ [3888/3925] Built Cryptids.ReductionSupport.Riemann95.Parser95 (2.3s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1187594Z ✔ [3889/3925] Built Cryptids.ReductionSupport.Riemann95.NoThree95 (1.8s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1188282Z ✔ [3890/3925] Built Cryptids.ReductionSupport.Riemann95.Projection95 (1.6s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1188874Z ✔ [3891/3925] Built Cryptids.ReductionSupport.Riemann95.Auxiliary95Raw (1.6s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1189606Z ✔ [3892/3925] Built Cryptids.ReductionSupport.Riemann95.Auxiliary95Layout (1.5s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1190134Z ✔ [3896/3925] Built Mathlib.NumberTheory.Primorial (1.5s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1190522Z ✔ [3897/3925] Built Mathlib.Data.Int.Log (1.8s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1191000Z ✔ [3898/3925] Built Cryptids.ReductionSupport.Riemann95.ControlStep95 (6.9s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1191957Z ✔ [3900/3925] Built Cryptids.ReductionSupport.Riemann95.Auxiliary95RawReturn (1.0s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1192622Z ✔ [3901/3925] Built Mathlib.Analysis.SpecialFunctions.Log.Base (3.3s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1193232Z ✔ [3902/3925] Built Cryptids.ReductionSupport.Riemann95.WidthSteps95 (6.5s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1193849Z ✔ [3903/3925] Built Cryptids.ReductionSupport.Riemann95.Auxiliary95RawPhysical (4.1s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1194595Z ✔ [3905/3927] Built Cryptids.ReductionSupport.Riemann95.Auxiliary95Return (1.6s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1195114Z ✔ [3906/3927] Built Mathlib.NumberTheory.Chebyshev (7.1s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1195609Z ✔ [3907/3927] Built Cryptids.ReductionSupport.Riemann95.Bounded95 (1.0s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1196277Z ✔ [3908/3927] Built Cryptids.ReductionSupport.Riemann95.PaddingRaw95 (2.5s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1196902Z ✔ [3909/3927] Built Cryptids.ReductionSupport.Riemann95.Auxiliary95Physical (1.7s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1197602Z ✔ [3910/3927] Built Mathlib.NumberTheory.DirichletCharacter.Basic (2.3s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1198141Z ✔ [3911/3929] Built Cryptids.Compilation.Examples (2.1s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1198662Z ✔ [3912/3929] Built Cryptids.ReductionSupport.Riemann95.BoundedUnwind95 (1.0s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1199285Z ✔ [3913/3929] Built Cryptids.ReductionSupport.Riemann95.Auxiliary95Contracts (1.6s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1200009Z ✔ [3914/3929] Built Mathlib.NumberTheory.DirichletCharacter.Bounds (1.2s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1200494Z ✔ [3915/3929] Built Cryptids.Compilation.Tables (506s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1200966Z ✔ [3916/3929] Built Mathlib.NumberTheory.LSeries.Convergence (2.1s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1201794Z ✔ [3917/3929] Built Cryptids.ReductionSupport.Riemann95.PrecreditTrace95 (2.2s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1202482Z ✔ [3918/3931] Built Cryptids.ReductionSupport.Riemann95.Physical95 (1.6s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1202997Z ✔ [3919/3931] Built Cryptids.Compilation (1.8s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1203430Z ✔ [3920/3931] Built Mathlib.NumberTheory.LSeries.Convolution (1.9s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1203974Z ✔ [3921/3931] Built Cryptids.ReductionSupport.Riemann95.StrictExit95 (1.8s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1204735Z ✔ [3922/3932] Built Cryptids.ReductionSupport.Riemann95.Padding95 (1.8s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1205278Z ✔ [3923/3932] Built Cryptids.ReductionSupport.Riemann95.Return95 (4.5s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1205827Z ✔ [3924/3932] Built Cryptids.ReductionSupport.Riemann95.Terminal95 (3.8s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1206372Z ✔ [3925/3934] Built Mathlib.Analysis.Complex.LocallyUniformLimit (2.2s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1206964Z ✔ [3926/3934] Built Cryptids.ReductionSupport.Riemann95.ArithmeticDispatch95 (1.7s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1207711Z ✔ [3927/3934] Built Mathlib.Analysis.Complex.TaylorSeries (2.0s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1208247Z ✔ [3928/3934] Built Cryptids.ReductionSupport.Riemann95.NativeGuard95 (2.1s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1208776Z ✔ [3929/3937] Built Mathlib.NumberTheory.LSeries.Deriv (1.0s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1209244Z ✔ [3930/3937] Built Mathlib.Analysis.Complex.Positivity (1.7s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1209763Z ✔ [3931/3937] Built Cryptids.ReductionSupport.Riemann95.RootNative95 (1.8s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1210281Z ✔ [3932/3937] Built Mathlib.NumberTheory.SmoothNumbers (1.8s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1210764Z ✔ [3933/3937] Built Mathlib.NumberTheory.LSeries.Positivity (1.8s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1211574Z ✔ [3934/3938] Built Cryptids.ReductionSupport.Riemann95.PhysicalTrace95 (1.9s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1212136Z ✔ [3935/3941] Built Mathlib.NumberTheory.SumPrimeReciprocals (1.0s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1212649Z ✔ [3936/3941] Built Mathlib.Analysis.Complex.ExponentialBounds (2.3s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1213152Z ✔ [3937/3941] Built Mathlib.NumberTheory.LSeries.Dirichlet (2.7s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1213633Z ✔ [3938/3943] Built Mathlib.NumberTheory.Harmonic.Defs (875ms)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1214129Z ✔ [3939/3943] Built Mathlib.NumberTheory.Harmonic.EulerMascheroni (1.8s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1214631Z ✔ [3940/3943] Built Mathlib.Analysis.Calculus.FDeriv.Star (2.8s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1215122Z ✔ [3941/3943] Built Mathlib.NumberTheory.Harmonic.GammaDeriv (4.9s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1215600Z ✔ [3942/3948] Built Mathlib.Analysis.Calculus.Deriv.Star (2.3s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1216047Z ✔ [3943/3948] Built Mathlib.Topology.Homotopy.Basic (3.2s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1216476Z ✔ [3944/3949] Built Mathlib.Topology.Homotopy.Equiv (1.4s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1216898Z ✔ [3945/3953] Built Mathlib.Topology.Homotopy.Path (3.2s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1217307Z ✔ [3946/3953] Built Mathlib.Algebra.Module.Card (963ms)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1217746Z ✔ [3947/3953] Built Mathlib.Topology.Homotopy.Contractible (1.3s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1218247Z ✔ [3948/3953] Built Mathlib.SetTheory.Cardinal.CountableCover (1.2s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1218740Z ✔ [3949/3953] Built Mathlib.Analysis.Convex.Contractible (1.3s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1219231Z ✔ [3950/3953] Built Mathlib.Topology.Algebra.Module.Cardinality (1.8s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1219740Z ✔ [3951/3953] Built Mathlib.Analysis.Normed.Module.Connected (2.3s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1220229Z ✔ [3952/3956] Built Mathlib.NumberTheory.Harmonic.ZetaAsymp (11s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1220690Z ✔ [3953/3956] Built Mathlib.Analysis.Complex.Liouville (2.5s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1221312Z ✔ [3954/3959] Built Mathlib.FieldTheory.PolynomialGaloisGroup (3.0s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1221844Z ✔ [3955/3962] Built Mathlib.Analysis.Complex.Polynomial.Basic (2.6s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1222397Z ✔ [3956/3962] Built Mathlib.RingTheory.RootsOfUnity.EnoughRootsOfUnity (1.4s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1222982Z ✔ [3957/3962] Built Mathlib.NumberTheory.DirichletCharacter.GaussSum (1.9s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1223570Z ✔ [3958/3962] Built Mathlib.RingTheory.RootsOfUnity.AlgebraicallyClosed (1.9s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1224213Z ✔ [3959/3967] Built Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar (2.6s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1224741Z ✔ [3960/3968] Built Mathlib.Analysis.Fourier.ZMod (3.3s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1225192Z ✔ [3961/3968] Built Mathlib.NumberTheory.EulerProduct.Basic (2.2s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1225673Z ✔ [3962/3968] Built Mathlib.NumberTheory.LSeries.ZMod (3.7s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1226139Z ✔ [3963/3968] Built Mathlib.NumberTheory.LSeries.SumCoeff (3.7s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1226779Z ✔ [3964/3968] Built Mathlib.NumberTheory.EulerProduct.ExpLog (1.5s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1227329Z ✔ [3965/3989] Built Mathlib.NumberTheory.EulerProduct.DirichletLSeries (3.6s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1227917Z ✔ [3966/3989] Built Mathlib.NumberTheory.LSeries.DirichletContinuation (2.6s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1228534Z ✔ [3967/3989] Built Mathlib.Analysis.Calculus.InverseFunctionTheorem.Analytic (1.6s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1229100Z ✔ [3968/3989] Built Cryptids.Semantics.Riemann120.Program (24s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1229620Z ✔ [3969/3989] Built Cryptids.ReductionSupport.Riemann95.ClockBound95 (1.7s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1230198Z ✔ [3970/3989] Built Cryptids.Zf393 (21s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1230567Z ✔ [3971/3989] Built Cryptids.Semantics.Goldbach (1.7s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1231000Z ✔ [3972/3989] Built Cryptids.Semantics.Riemann.Dispatcher (54s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1231635Z ✔ [3973/3989] Built Mathlib.NumberTheory.LSeries.Nonvanishing (3.1s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1232114Z ✔ [3974/3989] Built Mathlib.Analysis.Analytic.Order (5.0s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1232638Z ✔ [3975/3989] Built Cryptids.Zf380 (30s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1233060Z ✔ [3976/3989] Built Cryptids.Semantics.Riemann.RegisterMachine (34s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1233553Z ✔ [3977/3989] Built Mathlib.NumberTheory.LSeries.ZetaZeros (1.8s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1234081Z ✔ [3978/3989] Built Cryptids.ReductionSupport.Riemann95.Bootstrap95 (2.4s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1234593Z ✔ [3979/3990] Built Cryptids.Semantics.Riemann.Schmidt (7.2s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1235062Z ✔ [3980/3992] Built Cryptids.Semantics.Riemann120.Analytic (12s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1235647Z ✔ [3981/3992] Built Mathlib.Analysis.Meromorphic.Basic (10s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1236149Z ✔ [3982/3993] Built Cryptids.ReductionSupport.Riemann.FiniteStage (1.7s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1236656Z ✔ [3983/3993] Built Mathlib.Algebra.Order.WithTop.Untop0 (1.1s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1237200Z ✔ [3984/3998] Built Cryptids.ReductionSupport.Riemann95.ReferenceBridge95 (7.6s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1237848Z ✔ [3985/3998] Built Mathlib.Topology.LocallyFinsupp (3.0s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1238302Z ✔ [3986/3999] Built Mathlib.Analysis.Meromorphic.Order (10s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1238821Z ✔ [3987/3999] Built Cryptids.ReductionSupport.Riemann95.Initializer95 (1.0s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1239391Z ✔ [3988/4001] Built Cryptids.ReductionSupport.Riemann95.SwapBank95 (1.9s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1239928Z ✔ [3989/4001] Built Mathlib.Analysis.Meromorphic.IsolatedZeros (1.6s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1240422Z ✔ [3990/4001] Built Mathlib.Analysis.Real.Pi.Bounds (2.8s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1240947Z ✔ [3991/4001] Built Cryptids.ReductionSupport.Riemann95.TypedPrewidth95 (4.3s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1241803Z ✔ [3992/4001] Built Mathlib.Analysis.Meromorphic.Divisor (3.5s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1242307Z ✔ [3993/4001] Built Cryptids.ReductionSupport.Riemann95.Stage95 (2.0s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1242823Z ✔ [3994/4001] Built Mathlib.Analysis.Meromorphic.NormalForm (4.8s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1243452Z ✔ [3995/4001] Built Cryptids.ReductionSupport.Riemann95.Witness95 (1.0s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1243972Z ✔ [3996/4001] Built Mathlib.Analysis.Meromorphic.Complex (1.6s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1244380Z ✔ [3997/4001] Built Cryptids.Riemann95 (1.8s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1244840Z ✔ [3998/4001] Built Mathlib.Analysis.SpecialFunctions.Gamma.Digamma (2.4s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1245529Z ✔ [3999/4001] Built Mathlib.NumberTheory.LSeries.RiemannZetaLogDeriv (4.4s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1246075Z ✔ [4000/4002] Built Cryptids.Semantics.Riemann.DigammaBinet (10s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1246712Z ✔ [4001/4008] Built Mathlib.RingTheory.MvPowerSeries.Order (2.6s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1247142Z ✔ [4002/4008] Built Mathlib.Order.GameAdd (1.1s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1247552Z ✔ [4003/4008] Built Mathlib.Data.DFinsupp.WellFounded (1.3s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1248100Z ✔ [4004/4008] Built Mathlib.Data.Finsupp.WellFounded (1.1s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1248582Z ✔ [4005/4012] Built Mathlib.RingTheory.MvPowerSeries.LexOrder (1.5s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1249106Z ✔ [4006/4012] Built Mathlib.Data.Finset.Finsupp (1.1s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1249838Z ✔ [4007/4013] Built Mathlib.RingTheory.MvPowerSeries.NoZeroDivisors (2.0s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1250431Z ✔ [4008/4013] Built Mathlib.Data.Finsupp.Interval (1.2s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1250935Z ✔ [4009/4013] Built Mathlib.RingTheory.MvPowerSeries.Inverse (1.8s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1251791Z ✔ [4010/4013] Built Mathlib.Algebra.MvPolynomial.Coeff (1.7s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1252295Z ✔ [4011/4013] Built Mathlib.RingTheory.MvPowerSeries.Trunc (3.0s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1252795Z ✔ [4012/4017] Built Mathlib.RingTheory.MvPowerSeries.Derivative (1.9s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1253452Z ✔ [4013/4019] Built Mathlib.Topology.Instances.ENat (1.5s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1253949Z ✔ [4014/4019] Built Mathlib.Topology.Algebra.TopologicallyNilpotent (1.3s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1254496Z ✔ [4015/4019] Built Mathlib.RingTheory.MvPowerSeries.PiTopology (1.0s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1255036Z ✔ [4016/4019] Built Mathlib.RingTheory.MvPowerSeries.LinearTopology (1.7s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1255577Z ✔ [4017/4021] Built Mathlib.RingTheory.MvPowerSeries.Evaluation (2.2s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1256116Z ✔ [4018/4025] Built Mathlib.RingTheory.MvPowerSeries.Substitution (4.9s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1256623Z ✔ [4019/4027] Built Mathlib.RingTheory.PowerSeries.Basic (3.9s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1257087Z ✔ [4020/4027] Built Mathlib.RingTheory.PowerSeries.Trunc (1.9s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1257552Z ✔ [4021/4027] Built Mathlib.RingTheory.PowerSeries.Order (2.5s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1258017Z ✔ [4022/4030] Built Mathlib.Algebra.Polynomial.Derivation (2.2s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1258509Z ✔ [4023/4030] Built Mathlib.RingTheory.PowerSeries.PiTopology (1.8s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1259043Z ✔ [4024/4030] Built Mathlib.RingTheory.PowerSeries.NoZeroDivisors (1.3s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1259701Z ✔ [4025/4031] Built Mathlib.RingTheory.PowerSeries.Evaluation (1.8s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1260195Z ✔ [4026/4035] Built Mathlib.RingTheory.PowerSeries.Inverse (2.3s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1260809Z ✔ [4027/4035] Built Mathlib.RingTheory.PowerSeries.Substitution (6.2s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1261580Z ✔ [4028/4038] Built Mathlib.NumberTheory.Padics.PadicNorm (1.5s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1262190Z ✔ [4029/4038] Built Mathlib.Topology.MetricSpace.Ultra.Basic (1.3s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1262698Z ✔ [4030/4038] Built Mathlib.RingTheory.PowerSeries.Derivative (2.1s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1263330Z ✔ [4031/4038] Built Mathlib.Analysis.Calculus.ContDiff.Polynomial (1.5s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1263859Z ✔ [4032/4038] Built Mathlib.NumberTheory.Padics.PadicNumbers (5.9s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1264438Z ✔ [4033/4038] Built Mathlib.RingTheory.PowerSeries.Exp (1.8s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1264894Z ✔ [4034/4038] Built Mathlib.NumberTheory.Bernoulli (6.2s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1265357Z ✔ [4035/4038] Built Mathlib.NumberTheory.BernoulliPolynomials (3.1s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1265826Z ✔ [4036/4042] Built Mathlib.NumberTheory.ZetaValues (3.8s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1266326Z ✔ [4037/4042] Built Mathlib.NumberTheory.LSeries.HurwitzZetaValues (2.7s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1266997Z ✔ [4038/4042] Built Mathlib.MeasureTheory.Integral.IntervalAverage (2.1s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1267569Z ✔ [4039/4042] Built Mathlib.MeasureTheory.Integral.CircleAverage (3.0s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1268078Z ✔ [4040/4044] Built Mathlib.Analysis.Complex.MeanValue (2.1s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1268526Z ✔ [4041/4044] Built Mathlib.Analysis.Complex.Poisson (4.9s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1269111Z ✔ [4042/4047] Built Mathlib.Analysis.Normed.Operator.Conformal (1.8s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1269670Z ✔ [4043/4048] Built Mathlib.Analysis.Calculus.Conformal.NormedSpace (1.7s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1270271Z ✔ [4044/4048] Built Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Basic (5.2s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1270902Z ✔ [4045/4048] Built Mathlib.Analysis.InnerProductSpace.Harmonic.Basic (2.2s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1271682Z ✔ [4046/4050] Built Mathlib.Analysis.Complex.Isometry (2.4s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1272136Z ✔ [4047/4052] Built Mathlib.Analysis.Complex.Conformal (3.2s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1272617Z ✔ [4048/4054] Built Mathlib.Analysis.Analytic.IteratedFDeriv (4.6s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1273394Z ✔ [4049/4054] Built Mathlib.Analysis.Complex.HasPrimitives (3.4s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1273899Z ✔ [4050/4054] Built Mathlib.Analysis.Calculus.FDeriv.Symmetric (7.3s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1274614Z ✔ [4051/4054] Built Mathlib.Analysis.InnerProductSpace.Harmonic.HarmonicContOnCl (2.0s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1275227Z ✔ [4052/4055] Built Mathlib.Analysis.Complex.Harmonic.Analytic (3.8s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1275838Z ✔ [4053/4055] Built Mathlib.Analysis.Complex.Harmonic.Poisson (3.5s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1276350Z ✔ [4054/4058] Built Mathlib.Analysis.Complex.Harmonic.MeanValue (2.1s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1277166Z ✔ [4055/4058] Built Mathlib.Analysis.Calculus.ContDiff.RestrictScalars (2.6s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1277758Z ✔ [4056/4058] Built Mathlib.Analysis.SpecialFunctions.Complex.Analytic (3.0s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1278487Z ✔ [4057/4066] Built Mathlib.Analysis.InnerProductSpace.Harmonic.Constructions (2.1s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1279108Z ✔ [4058/4066] Built Mathlib.Analysis.Meromorphic.TrailingCoefficient (3.5s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1279682Z ✔ [4059/4066] Built Mathlib.Analysis.SpecialFunctions.Log.PosLog (2.3s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1280347Z ✔ [4060/4066] Built Mathlib.Analysis.Meromorphic.FactorizedRational (3.8s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1280932Z ✔ [4061/4066] Built Mathlib.Analysis.SpecialFunctions.Integrability.Log (2.9s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1281773Z ✔ [4062/4067] Built Mathlib.Analysis.SpecialFunctions.Integrals.Log (2.2s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1282371Z ✔ [4063/4069] Built Mathlib.Analysis.SpecialFunctions.Integrals.PosLog (2.3s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1283012Z ✔ [4064/4069] Built Mathlib.Analysis.Normed.Module.Extr (1.3s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1283507Z ✔ [4065/4069] Built Mathlib.Analysis.Complex.JensenFormula (5.6s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1283984Z ✔ [4066/4069] Built Mathlib.Topology.Order.ExtrClosure (992ms)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1284588Z ✔ [4067/4069] Built Cryptids.Semantics.Riemann.VonMangoldtCount (17s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1285068Z ✔ [4068/4078] Built Mathlib.Analysis.Complex.AbsMax (2.0s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1285646Z ✔ [4069/4078] Built Mathlib.Analysis.LocallyConvex.WeakDual (2.5s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1286285Z ✔ [4070/4078] Built Mathlib.Analysis.Normed.Module.RCLike.Extend (3.5s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1286821Z ✔ [4071/4078] Built Cryptids.Semantics.Riemann.WeightedStieltjes (22s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1287339Z ✔ [4072/4080] Built Cryptids.Semantics.Riemann.ExplicitLarge (12s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1287858Z ✔ [4073/4083] Built Mathlib.Analysis.LocallyConvex.HahnBanach (2.4s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1288465Z ✔ [4074/4083] Built Mathlib.Analysis.SumIntegralComparisons (4.3s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1288977Z ✔ [4075/4098] Built Mathlib.Analysis.Normed.Module.HahnBanach (2.1s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1289448Z ✔ [4076/4098] Built Mathlib.NumberTheory.Harmonic.Int (1.3s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1290011Z ✔ [4078/4100] Built Mathlib.NumberTheory.Harmonic.Bounds (1.8s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1290477Z ✔ [4079/4100] Built Mathlib.Analysis.Complex.Schwarz (2.9s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1291018Z ✔ [4080/4100] Built Mathlib.Analysis.SpecialFunctions.Trigonometric.Series (2.0s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1291794Z ✔ [4081/4100] Built Cryptids.Semantics.Riemann120.Bridge (1.8s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1292241Z ✔ [4082/4100] Built Cryptids.Semantics.Zf.Dispatcher (15s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1292752Z ✔ [4083/4100] Built Cryptids.Semantics.Zf.Soundness (2.6s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1293204Z ✔ [4084/4100] Built Cryptids.Semantics.Zf393.Backend (32s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1293578Z ⚠ [4085/4100] Built Challenge (15s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1293887Z warning: Challenge.lean:236:8: declaration uses `sorry`
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1294252Z warning: Challenge.lean:237:8: declaration uses `sorry`
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1294626Z warning: Challenge.lean:239:8: declaration uses `sorry`
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1294974Z warning: Challenge.lean:240:8: declaration uses `sorry`
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1295429Z warning: Challenge.lean:247:8: declaration uses `sorry`
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1295785Z warning: Challenge.lean:249:8: declaration uses `sorry`
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1296137Z warning: Challenge.lean:257:8: declaration uses `sorry`
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1296640Z warning: Challenge.lean:258:8: declaration uses `sorry`
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1296981Z warning: Challenge.lean:260:8: declaration uses `sorry`
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1297328Z warning: Challenge.lean:261:8: declaration uses `sorry`
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1297794Z warning: Challenge.lean:266:8: declaration uses `sorry`
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1298136Z warning: Challenge.lean:268:8: declaration uses `sorry`
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1298478Z warning: Challenge.lean:269:8: declaration uses `sorry`
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1298928Z warning: Challenge.lean:274:8: declaration uses `sorry`
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1299400Z warning: Challenge.lean:277:8: declaration uses `sorry`
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1299741Z warning: Challenge.lean:284:8: declaration uses `sorry`
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1300195Z warning: Challenge.lean:293:8: declaration uses `sorry`
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1300546Z warning: Challenge.lean:294:8: declaration uses `sorry`
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1300890Z warning: Challenge.lean:296:8: declaration uses `sorry`
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1301492Z warning: Challenge.lean:306:8: declaration uses `sorry`
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1301850Z warning: Challenge.lean:307:8: declaration uses `sorry`
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1302207Z warning: Challenge.lean:309:8: declaration uses `sorry`
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1302801Z ✔ [4087/4100] Built Mathlib.Analysis.Complex.BorelCaratheodory (2.4s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1303308Z ✔ [4088/4100] Built Cryptids.Semantics.Zf.RegisterMachine (5.3s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1303811Z ✔ [4089/4100] Built Cryptids.Semantics.Riemann.HorizontalBounds (15s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1304407Z ✔ [4090/4100] Built Cryptids.Semantics.Zf.Subroutines (12s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1304850Z ✔ [4091/4100] Built Cryptids.Semantics.Zf393.Program (15s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1305313Z ✔ [4092/4100] Built Cryptids.Semantics.Riemann.Analytic (4.9s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1305913Z ✔ [4093/4100] Built Cryptids.Semantics.Riemann120.VonMangoldt (113s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1306373Z ✔ [4094/4100] Built Cryptids.Semantics.Zf (1.6s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1306747Z ✔ [4095/4100] Built Cryptids.Semantics.Zf393 (1.7s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1307237Z ✔ [4096/4100] Built Cryptids.Semantics.Riemann (1.9s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1307655Z ✔ [4097/4100] Built Cryptids.Semantics.Riemann120 (1.0s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1308068Z ✔ [4098/4100] Built Cryptids.Semantics.Riemann95 (1.8s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1308415Z ✔ [4099/4100] Built Cryptids (1.0s)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1308799Z Build completed successfully (4100 jobs).
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1309086Z Traceback (most recent call last):
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1309529Z   File "/home/runner/work/cryptids/cryptids/scripts/verify_chess_m5.py", line 291, in <module>
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1310088Z     main()
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1310268Z     ~~~~^^
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1310618Z   File "/home/runner/work/cryptids/cryptids/scripts/verify_chess_m5.py", line 163, in main
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1311112Z     baseline()
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1311477Z     ~~~~~~~~^^
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1311844Z   File "/home/runner/work/cryptids/cryptids/scripts/verify_chess_m5.py", line 146, in baseline
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1312343Z     results[name] = run(*command, warnings=warnings)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1312738Z                     ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1313177Z   File "/home/runner/work/cryptids/cryptids/scripts/verify_chess_m5.py", line 28, in run
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1313780Z     require((p.returncode == 0) == success, f"Unexpected exit {p.returncode}: {args}\n{p.stdout}")
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1314270Z     ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1314781Z   File "/home/runner/work/cryptids/cryptids/scripts/verify_chess_m5.py", line 22, in require
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1315333Z     raise RuntimeError(message)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1315733Z RuntimeError: Unexpected exit 1: ('python3', 'scripts/verify_chess_reference.py')
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1317291Z Chess reference verification failed: Command failed: ('lake', 'env', 'lean', '--root=/home/runner/work/cryptids/cryptids/.lake/chess-reference-check', '-o', '/home/runner/work/cryptids/cryptids/.lake/chess-reference-check/PinnedChessSource.olean', '/home/runner/work/cryptids/cryptids/.lake/chess-reference-check/PinnedChessSource.lean')
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1319754Z /home/runner/work/cryptids/cryptids/.lake/chess-reference-check/PinnedChessSource.lean:1:0: error: object file '/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib.olean' of module Mathlib does not exist
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1320733Z 
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1320742Z 
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.1320746Z 
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.3691462Z Traceback (most recent call last):
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.3697793Z   File "/home/runner/work/cryptids/cryptids/scripts/verify_chess_m7.py", line 233, in <module>
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.3698520Z     main()
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.3698883Z     ~~~~^^
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.3699407Z   File "/home/runner/work/cryptids/cryptids/scripts/verify_chess_m7.py", line 224, in main
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.3700050Z     globals()[name]()
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.3700355Z     ~~~~~~~~~~~~~~~^^
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.3701067Z   File "/home/runner/work/cryptids/cryptids/scripts/verify_chess_m7.py", line 209, in baseline
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.3702144Z     checks = [run(["python3", "scripts/verify_chess_m6.py", "--baseline"],
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.3702722Z               ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.3703350Z                   "Chess M6 baseline verification passed", timeout=10800, baseline=True)]
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.3703996Z                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.3704815Z   File "/home/runner/work/cryptids/cryptids/scripts/verify_chess_m7.py", line 47, in run
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.3705583Z     require(result.returncode == code and expected in result.stdout,
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.3706152Z     ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.3706926Z             f"Wrong result for {argv}: exit={result.returncode}")
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.3707498Z             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.3708219Z   File "/home/runner/work/cryptids/cryptids/scripts/verify_chess_m7.py", line 22, in require
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.3709201Z     raise RuntimeError(message)
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.3709871Z RuntimeError: Wrong result for ['python3', 'scripts/verify_chess_m6.py', '--baseline']: exit=1
+verify	Verify unchanged M1–M5 regression baseline	2026-10-21T01:13:42.4287286Z ##[error]Process completed with exit code 1.

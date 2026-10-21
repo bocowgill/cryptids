@@ -1,9 +1,9 @@
 # M7: quotient duplicate Post controls
 
-Status: implementation and remote verification in progress. The accepted M6
-baseline remains fixed. The proposed first reduction is 392,046,832 to
-392,046,822 states, under the same two-symbol, state-0 blank-tape convention.
-Only completed kernel and exhaustive artifact checks can accept this count.
+Status: first reduction accepted. The frozen M6 baseline remains fixed.
+The certified reduction is 392,046,832 to 392,046,822 states under the same
+two-symbol, state-0 blank-tape convention. Completed kernel, independent target,
+every-row table, regression and review evidence is in [RESULTS.md](RESULTS.md).
 
 ## Construction and proof obligation
 
@@ -19,7 +19,7 @@ proof states that every old step, including exact stopping, commutes with the
 map. `StateTransition.Respects` then gives both halting directions for every
 finite input, without a reachable-state oracle or an assumed chess value.
 
-For `n = 38,893,646` and `k = 5`, the proposed accounting is:
+For `n = 38,893,646` and `k = 5`, the checked accounting is:
 
 | Component | Frozen M6 | M7 candidate |
 |---|---:|---:|
@@ -57,10 +57,10 @@ old rows are identified; ordinary candidate state 0 is still the first paid
 initializer state. The canonical body-state representative of its live root is
 the old encoded root, rather than the old distinguished initial control.
 
-A complete remote extraction must validate the retained compressed/raw parts,
-then compare **every candidate row byte** against an independently reconstructed
-standalone Lean target. The final raw stream hash, exact map, complete part
-manifest, bounded-producer journals and current computation pins will be retained.
+The complete remote extraction validated the retained compressed/raw parts, then
+compared **every candidate row byte** against an independently reconstructed
+standalone Lean target. The raw stream hash, exact map, all 393 ordered ranges,
+producer journals and current computation pins are retained with the results.
 Hashes, bounded fixtures and symbolic table proofs alone cannot close that file
 identity gate. Lean proves mathematical machine semantics; native printing,
 filesystem I/O, hashing and gzip remain the explicit external verification boundary.
@@ -73,8 +73,11 @@ independent review's bounded arithmetic tests. No local Lean/LSP server is start
 
 The workflow has two explicit modes. Without a committed fixed target, it checks
 proofs and proposes snapshot/map artifacts; success in that mode does **not**
-complete M7. Acceptance requires a committed-target run with completed proof,
-independent definition/mutation/sandbox, full-row and baseline reports. Final
-review must match those reports to the current source pins and actual CI artifacts.
+complete M7. Final acceptance composes the completed proof, independent
+definition/mutation/sandbox and full-row component reports with an unchanged
+successful regression wrapper under exactly the same 192 current input hashes.
+The separate setup helper is independently pinned. The original whole core run
+failed later during regression setup; this is preserved, never relabeled green.
+The final review matches all reports to current pins and authenticated CI artifacts.
 
 M7 is authorized; outreach remains on hold. Chess's initial value is not computed.

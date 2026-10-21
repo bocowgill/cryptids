@@ -1,0 +1,134 @@
+{
+  "checks": [
+    {
+      "label": "M7BadProposition-kernel-build",
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "--root=/home/runner/work/cryptids/cryptids/.lake/chess-m7-check/target-controls",
+        "-o",
+        "/home/runner/work/cryptids/cryptids/.lake/chess-m7-check/target-controls/M7BadProposition.olean",
+        "/home/runner/work/cryptids/cryptids/.lake/chess-m7-check/target-controls/M7BadProposition.lean"
+      ],
+      "exit": 0,
+      "expected_marker": "",
+      "output_sha256": "6ba404faf6fb2d93ed179f16d593b8fb7ef3c91b5d42491922a7900d6bcea555"
+    },
+    {
+      "label": "M7BadProposition-exact-comparison",
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "--run",
+        "scripts/CompareChessM7.lean",
+        "M7BadProposition",
+        "/home/runner/work/cryptids/cryptids/.lake/chess-m7-check/target-controls"
+      ],
+      "exit": 1,
+      "expected_marker": "Compiled declaration mismatch: ConjectureMachines.Semantics.ChessM7.statement",
+      "output_sha256": "3c22039c927bc2fad1c091f7214eab2b725442bd51f00b7ea6866aaa8928d310"
+    },
+    {
+      "label": "M7BadTransition-kernel-build",
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "--root=/home/runner/work/cryptids/cryptids/.lake/chess-m7-check/target-controls",
+        "-o",
+        "/home/runner/work/cryptids/cryptids/.lake/chess-m7-check/target-controls/M7BadTransition.olean",
+        "/home/runner/work/cryptids/cryptids/.lake/chess-m7-check/target-controls/M7BadTransition.lean"
+      ],
+      "exit": 0,
+      "expected_marker": "",
+      "output_sha256": "043daf8b02e035b8c38b7f974f18137249e8ff1ed00b22688398a61a97f5877d"
+    },
+    {
+      "label": "M7BadTransition-exact-comparison",
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "--run",
+        "scripts/CompareChessM7.lean",
+        "M7BadTransition",
+        "/home/runner/work/cryptids/cryptids/.lake/chess-m7-check/target-controls"
+      ],
+      "exit": 1,
+      "expected_marker": "Compiled declaration mismatch: Chess.Compilation.Templates.writeDataChunk0000",
+      "output_sha256": "0d4938d7f6c7ba6dfae7fec4a2623b1ec50ca634cda4d052ba84bf23401eaba9"
+    },
+    {
+      "label": "M7BadFrozenInitial-kernel-build",
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "--root=/home/runner/work/cryptids/cryptids/.lake/chess-m7-check/target-controls",
+        "-o",
+        "/home/runner/work/cryptids/cryptids/.lake/chess-m7-check/target-controls/M7BadFrozenInitial.olean",
+        "/home/runner/work/cryptids/cryptids/.lake/chess-m7-check/target-controls/M7BadFrozenInitial.lean"
+      ],
+      "exit": 0,
+      "expected_marker": "",
+      "output_sha256": "fcd058878efcf2863f4c37670c3113308c664009db3d893a42de418f8de631ca"
+    },
+    {
+      "label": "M7BadFrozenInitial-exact-comparison",
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "--run",
+        "scripts/CompareChessM7.lean",
+        "M7BadFrozenInitial",
+        "/home/runner/work/cryptids/cryptids/.lake/chess-m7-check/target-controls"
+      ],
+      "exit": 1,
+      "expected_marker": "Compiled declaration mismatch: Chess.initialPosition",
+      "output_sha256": "03f6e15d68deb50dd1f32b7f36a77fbedd80edaa101eba0a1bff36662e92b09f"
+    },
+    {
+      "label": "M7BadReferenceBridge-kernel-build",
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "--root=/home/runner/work/cryptids/cryptids/.lake/chess-m7-check/target-controls",
+        "-o",
+        "/home/runner/work/cryptids/cryptids/.lake/chess-m7-check/target-controls/M7BadReferenceBridge.olean",
+        "/home/runner/work/cryptids/cryptids/.lake/chess-m7-check/target-controls/M7BadReferenceBridge.lean"
+      ],
+      "exit": 0,
+      "expected_marker": "",
+      "output_sha256": "acb38871046eac41d2472a4ad1ee55b1e4836a19671f0765fb2e029babd8f565"
+    },
+    {
+      "label": "M7BadReferenceBridge-exact-comparison",
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "--run",
+        "scripts/CompareChessM7.lean",
+        "M7BadReferenceBridge",
+        "/home/runner/work/cryptids/cryptids/.lake/chess-m7-check/target-controls"
+      ],
+      "exit": 1,
+      "expected_marker": "Unexpected standalone reference-goal bridge",
+      "output_sha256": "909e7cd91e94f52aac6152029270fe0d9e0f49b9baa1facf3abc146f70075874"
+    }
+  ],
+  "source_sha256": "3f4b07141a6b2770059bd09149e937de21c73f2ed8bf676e17bb2efa54cd4880",
+  "valid_kernel_mutants": 4
+}

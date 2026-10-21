@@ -77,3 +77,63 @@ TLS connection error. Its log is retained in
 [evidence/failures/original-fixed-tls.log](evidence/failures/original-fixed-tls.log).
 The same source revision was retried without a code or toolchain change. This
 network failure does not certify or refute any source theorem.
+
+The original CI retry subsequently passed all steps on the same implementation
+commit `088988f` (attempt 2). Its API metadata, step results and full log archive
+are retained in [evidence/original-ci](evidence/original-ci/manifest.json). M1–M5,
+the original comparator and blank-initializer checks pass. This regression result
+is separate from the M7 wrapper and exact-artifact acceptance.
+
+## Fixed target and complete table
+
+At `088988f`, [run39506528766](https://github.com/bocowgill/cryptids/actions/runs/39506528766)
+passed the current strict proof suite, independent fixed-target/dependency
+comparison, all four kernel-valid semantic mutants and the supported Linux
+sandbox comparator. All 392,046,822 extracted candidate rows matched the standalone
+native reconstruction, and fresh gzip reproduction matched every one of 393
+canonical parts. The exact raw stream hash is
+`47a9730ccdcbdf0983951be91993ce1470b0109e75a347696786b70eda011c81`.
+Extraction took 3,063.87 seconds; independent comparison/reproduction took
+4,173.74 seconds. These are verification costs, not an initial-chess runtime.
+
+That whole workflow nevertheless concluded **failure**. Its subsequent unchanged
+baseline wrapper compiled the original pinned reference, which imports umbrella
+`Mathlib`, after setup had fetched only particular Mathlib module roots. It stopped
+because `Mathlib.olean` did not exist. This setup defect neither invalidates the
+completed source/table checks nor counts as a passing regression suite. The exact
+log is retained in
+[fixed-baseline-mathlib-cache.log](evidence/failures/fixed-baseline-mathlib-cache.log).
+
+The correction is a separate, explicitly pinned remote regression helper at
+`1c3be1c`, fetching the complete pinned Mathlib cache before invoking the unchanged
+baseline wrapper. No production source, fixed target/map, existing checker or
+primary workflow changes. All 192 core computation hashes must agree across the
+completed proof/definition/table reports and the new baseline report. The helper
+workflow hash and exact checkout are recorded separately. This avoids repeating
+two hours of already completed table work merely to repair regression setup.
+Final acceptance still requires its actual successful report, authenticated
+archive and independent seal; the earlier failed whole-run result is retained.
+
+During final evidence review, the referee found a light local metadata-checker
+condition that incorrectly required nonempty rejection markers on successful
+mutant kernel builds. Those records legitimately have empty markers; the rejection
+marker is required only for the exact-comparison rejection. The checker was
+corrected. No remote proof, machine, artifact or control outcome changed.
+
+## Successful regression completion
+
+[Run39527113752](https://github.com/bocowgill/cryptids/actions/runs/39527113752)
+at helper-only commit `1c3be1c` completed successfully. The unchanged baseline
+wrapper took 2,287.08 seconds. All 192 core hashes in its baseline and checkout
+reports exactly match the proof, definition and full-table reports and current
+files. The separately recorded helper workflow hash also matches. Its official
+artifact 12315800109 has SHA-256
+`459319558e2fa81574f9df225868f0d42ac3704b946e42fa6b853513c23ba6e0`;
+the ZIP digest and all three report entries were verified. Actual run/API,
+reports, logs and archive are retained in
+[evidence/regressions](evidence/regressions/run.json).
+
+The complete independent root metadata/hash recheck passed and is retained in
+[root-check.json](evidence/root-check.json). No source or table input changed to
+obtain this passing wrapper. The failed earlier whole core run remains visible;
+successful current component evidence is composed across the recorded runs.

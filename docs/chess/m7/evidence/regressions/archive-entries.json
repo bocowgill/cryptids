@@ -1,0 +1,17 @@
+{
+  "baseline.json": {
+    "bytes": 29514,
+    "sha256": "acaec17006829d71add3ab78c25f7bbf538e88e4a743bdc54916c43c1bfba75d",
+    "retained_file": "baseline.json"
+  },
+  "freeze.json": {
+    "bytes": 19050,
+    "sha256": "b7bf49e80b36f157deab09ed1fb082a17b13f4877801585bda70b44e2b6f8534",
+    "retained_file": "freeze.json"
+  },
+  "regression-checkout.json": {
+    "bytes": 21455,
+    "sha256": "096c171833e5d61715e53215e2c57d579ec1caf9bcbc62430b95b593180fa8e5",
+    "retained_file": "regression-checkout.json"
+  }
+}

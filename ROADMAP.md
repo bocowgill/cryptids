@@ -7,7 +7,9 @@ claims, terminal outcomes, and finite-graph dead-position detection. M4 is compl
 with bounded play, total evaluation, and exact strategic correspondence (2026-10-20).
 M5 is complete with a verified binary backend and four literal blank-tape small-game
 machines (2026-10-20). M6 is complete with the verified 392,046,832-state baseline
-and retained literal table (2026-10-20). M7 is authorized and in progress; outreach remains on hold.
+and retained literal table (2026-10-20). M7's first certified reduction is complete:
+392,046,822 states, ten fewer than M6, with the same halting equivalence (2026-10-20).
+Heavy computation remains remote; outreach remains on hold.
 
 ## 1. Agreed objective and scope
 
@@ -62,8 +64,9 @@ without running the initial-position evaluator to completion.
 
 The initial tasks authorized the fork, roadmap, source audit, packaging recommendation,
 and the completed definitions-only reference port and freeze. M2–M6 were subsequently
-authorized and completed. The latest instruction authorizes M7 state reduction,
-with heavy computation remote and the frozen reference fixed. The historical
+authorized and completed. The latest instruction authorizes M7 state reduction;
+the first certified strict improvement is complete. Heavy computation remains
+remote and the frozen reference stays fixed. The historical
 audit is recorded in
 [docs/chess/m1/AUDIT.md](docs/chess/m1/AUDIT.md), with the proposed module boundaries
 in [PACKAGING.md](docs/chess/m1/PACKAGING.md). The completed M1 reference is recorded
@@ -157,7 +160,7 @@ modules, and the checked solution theorems must have no placeholder dependency.
 | M4 | Prove bounded play and evaluator/strategy equivalence | M3 | Complete: implementation `0e62d56` |
 | M5 | Validate the compilation route on small finite games | M1; can proceed alongside M2–M4 | Complete: implementation `b3f5e29` |
 | M6 | Construct and verify the baseline chess machine | M4, M5 | Complete; 392,046,832 states |
-| M7 | Reduce states while preserving the target theorem | M6 | In progress; first certified strict reduction |
+| M7 | Reduce states while preserving the target theorem | M6 | Complete; first strict reduction to 392,046,822 states |
 
 ### M0 — Fork and planning contract
 
@@ -445,22 +448,26 @@ state-count improvement are tracked separately from this mathematical result.
 
 Goal: improve the established bound without weakening the target proposition.
 
-Status: in progress. The first candidate quotients duplicate initial and halted-store
-Post controls, proposing ten fewer binary states while retaining the complete paid
-initializer. See [M7 design](docs/chess/m7/DESIGN.md), [research records](docs/chess/m7/RESEARCH.md)
-and [independent review](docs/chess/m7/REVIEW.md). Proposed counts are not accepted
-until the current kernel, independent target, all-row and regression checks pass.
+Status: complete for the first strict improvement, **392,046,832 → 392,046,822
+states**. Quotienting duplicate initial and halted-store Post controls saves ten
+binary states while retaining the complete paid initializer and unchanged frozen
+non-draw target. Kernel, independent target/axiom controls, every-row comparison,
+regressions and final adversarial review passed remotely. All 9 acceptance gates
+are met; none remain unmet or abandoned. See [M7 results](docs/chess/m7/RESULTS.md),
+[gate evidence](docs/chess/m7/GATES.md), [research records](docs/chess/m7/RESEARCH.md)
+and [independent review](docs/chess/m7/REVIEW.md). This is one certified strict
+reduction, without a minimality or runtime-speed claim.
 
 Acceptance criteria for each accepted improvement:
 
-- [ ] Freeze and retain the M6 baseline table and proof. Record the candidate's
+- [x] Freeze and retain the M6 baseline table and proof. Record the candidate's
   exact table, generator changes, and before/after state counts under the same
   conventions.
-- [ ] Prove `Halts candidate ↔ Halts baseline`, or prove the same end-to-end chess
+- [x] Prove `Halts candidate ↔ Halts baseline`, or prove the same end-to-end chess
   equivalence directly. Audit all representation and initializer changes.
-- [ ] Prove a strict state-count reduction. Runtime speedup alone does not meet
+- [x] Prove a strict state-count reduction. Runtime speedup alone does not meet
   this milestone; report runtime and proof/build costs separately.
-- [ ] Re-run the applicable build, independent statement/axiom audit, artifact
+- [x] Re-run the applicable build, independent statement/axiom audit, artifact
   identity checks, and regression suite. Keep unsuccessful searches and their
   counterexamples as research records.
 
@@ -582,8 +589,12 @@ recorded in [M5 results](docs/chess/m5/RESULTS.md). M6 is complete: actual sourc
 refinement, paid blank initialization, an explicit 392,046,832-state machine and its
 unconditional frozen non-draw equivalence, full table retention and independent
 verification are recorded in [M6 results](docs/chess/m6/RESULTS.md).
-M7 is now authorized and in progress, with all heavy computation remote. The frozen
-M6 baseline remains fixed. Outreach remains on hold.
+M7's first strict reduction is complete, with the same halting equivalence and
+392,046,822 states. Its authenticated remote component reports share exactly the
+same 192 computation inputs; the successful regression setup helper is pinned
+separately, and the earlier whole-run setup failure is retained honestly. All
+heavy computation ran remotely. The frozen M6 baseline remains fixed and outreach
+remains on hold.
 
 [fork]: https://github.com/bocowgill/cryptids
 [upstream]: https://github.com/google-deepmind/cryptids

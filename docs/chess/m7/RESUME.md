@@ -1,42 +1,65 @@
-# M7 remote verification checkpoint
+# M7 completed checkpoint
 
-M7 is in progress. The generic quotient, actual chess assembly, strict count,
-unconditional non-draw equivalence and paid initializer proofs pass remotely.
-The candidate has 392,046,822 states, ten fewer than frozen M6. Final artifact,
-regression and review acceptance is still open. Do not report M7 complete yet.
+M7's first certified strict reduction is **complete**: 392,046,832 → 392,046,822
+states, saving ten. All 9 acceptance gates are met (7 root, 2 independent review),
+with 0 unmet and 0 abandoned. The unchanged target is halting iff the frozen
+initial position is **not drawn**. Initial chess was not evaluated.
 
-The fixed implementation and standalone target/map are commit
-`088988f81248c3b2270d6d4549dd3ab29296c3a9` on `codex/chess-m7` in
-[the fork](https://github.com/bocowgill/cryptids). Later checkpoint changes are
-documentation and evidence only. The frozen M6 source/proof/table and
-`chess-reference-v1` remain unchanged.
+The implementation and fixed standalone target/map are commit
+`088988f81248c3b2270d6d4549dd3ab29296c3a9`, branch `codex/chess-m7` in
+[the fork](https://github.com/bocowgill/cryptids). Helper-only commit
+`1c3be1cb21ae223794c51f569dd53d12f7991cca` repairs regression setup.
+Subsequent completion changes contain documentation and evidence. All 192 current
+computation hashes match every accepted component report. The 172 frozen M6
+inputs, retained literal payload and `chess-reference-v1` remain unchanged.
 
-Active remote work:
+## Accepted evidence
 
-- [Full committed-target M7 verification](https://github.com/bocowgill/cryptids/actions/runs/39506528766):
-  proof suite passed again; independent definitions/mutants/Linux sandbox and
-  complete candidate-table verification are running. The M1–M5 wrapper follows.
-- [Original Cryptids CI](https://github.com/bocowgill/cryptids/actions/runs/39506528743):
-  the first attempt failed during Lean download with a TLS error; a same-source
-  retry passed setup and frozen-reference comparison and entered regressions.
-- [Completed proof/bootstrap run](https://github.com/bocowgill/cryptids/actions/runs/39503052097):
-  its official archive and proof/export reports are retained in
-  [evidence/bootstrap](evidence/bootstrap/bootstrap-artifact-api.json).
-  This was explicitly a proposal-only run, not final acceptance.
+- [Core run 39506528766](https://github.com/bocowgill/cryptids/actions/runs/39506528766)
+  passed source/generic proofs, independent fixed-target/dependency comparison,
+  four kernel-valid semantic mutants, supported Linux sandbox comparison and
+  every-row/gzip identity. All 392,046,822 candidate rows in 393 ranges matched.
+  Its whole workflow concluded **failure** when later regression setup lacked
+  umbrella `Mathlib.olean`. The actual failure remains retained; successful
+  component checks are not relabeled as an overall green run.
+- [Regression completion 39527113752](https://github.com/bocowgill/cryptids/actions/runs/39527113752)
+  passed after fetching complete pinned Mathlib, then running the unchanged
+  baseline wrapper. All 192 computation inputs match the earlier completed
+  components exactly. The helper workflow and its exact checkout are pinned
+  separately. No repeated full table sweep was required.
+- [Original CI 39506528743](https://github.com/bocowgill/cryptids/actions/runs/39506528743)
+  attempt 2 passed every step on the implementation revision. The initial
+  Lean-download/TLS failure is retained with the successful retry.
+- The [root metadata/hash recheck](evidence/root-check.json) and
+  [independent review](REVIEW.md) accepted the actual evidence and current pins.
+  The [final seal](evidence/review/seal.json) SHA-256 is
+  `c278b3cf7a66d94a6950b315c9402c9f76597ffca9939b30112249824fa192c4`.
+  Root independently rechecked the seal's 192 core, 45 durable evidence, four
+  reviewer, helper and review-report hashes.
 
-To resume, inspect the two active runs before starting anything new. Download the
-completed M7 evidence and official artifact ZIP; verify GitHub's digest and every
-extracted entry, all current source pins, every critical step and all 393 complete
-range records. Keep the raw full reports, source/executable pins and table manifest
-under `docs/chess/m7/evidence/`. Final independent review and a separate root
-recheck must close all acceptance gates before updating the results and roadmap.
-The preliminary review currently withholds final acceptance.
+Official ZIPs, saved API digests/metadata, reports, raw logs, producer journals,
+manifest, failed attempts and review programs are committed under
+[evidence](evidence/README.md); GitHub artifact retention is not required to keep
+the result. The fixed table is recoverable from M6 literal parts plus the M7
+numeric map/extractor, independently of a chess compiler.
+
+## Picking up later
+
+Read [RESULTS.md](RESULTS.md), [results.json](results.json), [DESIGN.md](DESIGN.md)
+and [RESEARCH.md](RESEARCH.md). The baseline remains available separately; do not
+edit its source or literal payload for an optimization experiment. The completed
+reduction proves universal exact step/stop simulation, both halting directions
+and unchanged paid startup. Future reductions require new explicit candidates
+and new evidence; no global optimality or practical runtime claim was established.
+
+The retained evidence can be rechecked locally with the lightweight command:
+
+```sh
+python3 docs/chess/m7/evidence/check_evidence.py
+```
 
 All Lean/Lake/LSP/LeanProbe/native/full-table computation must remain remote.
-No local heavy build or sweep was started. Do not repeat completed expensive
-checks without a relevant change, failure or deliberate reproduction request.
-Outreach, new issues/PRs and maintainer messages remain on hold. No initial chess
-value was computed and no minimum-state claim is made.
-
-See [design](DESIGN.md), [results and reproduction](RESULTS.md),
-[failed-attempt history](RESEARCH.md) and [independent review](REVIEW.md).
+No local heavy build or sweep was started. No remote verification job remains
+pending for this result. Do not repeat expensive completed checks without a
+relevant change, failure or deliberate reproduction request. Further research,
+new issues/PRs and maintainer outreach remain on hold pending user direction.
