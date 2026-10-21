@@ -60,12 +60,15 @@ theorem source_step (v : RuntimeModel.Store) (tape : Tape Symbol) :
     TM1.step sourceMachine ⟨some sourceLabel, v, tape⟩ =
       some (if tape.head.1 then ⟨some continuation, v, tape⟩ else
         ⟨some sourceLabel, v, tape.move .left⟩) := by
-  cases marker : tape.head.1 <;>
-    simp [TM1.step, sourceMachine, sourceLabel, TM2to1.tr, TM1.stepAux,
-      RuntimeModel.s000, RuntimeModel.table5, TM2to1.trNormal, marker, continuation]
   cases v with
-  | none => rfl
-  | some s => cases s <;> rfl
+  | none =>
+    cases marker : tape.head.1 <;>
+      simp [TM1.step, sourceMachine, sourceLabel, TM2to1.tr, TM1.stepAux,
+        RuntimeModel.s000, RuntimeModel.table5, TM2to1.trNormal, marker, continuation]
+  | some value =>
+    cases value <;> cases marker : tape.head.1 <;>
+      simp [TM1.step, sourceMachine, sourceLabel, TM2to1.tr, TM1.stepAux,
+        RuntimeModel.s000, RuntimeModel.table5, TM2to1.trNormal, marker, continuation]
 
 def idx (n : Nat) : Fin 49 := ⟨n % 49, Nat.mod_lt _ (by decide)⟩
 
@@ -142,7 +145,8 @@ theorem marker_run (tape : Tape Bit) :
       some (if tape.nth 12 = 0 then ⟨0, shift .left 13 tape⟩ else ⟨48, tape⟩) := by
   have head : (shift .right 12 tape).head = tape.nth 12 := by
     change (shift .right 12 tape).nth 0 = _
-    simpa only [zero_add] using shift_right_nth 12 tape 0
+    convert shift_right_nth 12 tape 0 using 1
+    norm_num
   by_cases marker : tape.nth 12 = 0
   · simp only [marker, ↓reduceIte]
     rw [show (37 : Nat) = 12 + (1 + 24) from rfl, run_add, seek_run, Option.bind_some]
@@ -198,15 +202,18 @@ theorem iteration_refines (source : Tape Symbol) (binary : Tape Bit) (v : Fin 5)
     FlatInit.runFrom machine (if source.head.1 then 24 else 37) ⟨embed v 0, binary⟩ =
       some ⟨embed v out, bits⟩ ∧ RepresentsTape target bits ∧
       TM1.step sourceMachine ⟨some sourceLabel, codeSymbol v, source⟩ =
-        some ⟨some (if source.head.1 then continuation else sourceLabel), codeSymbol v, target⟩ := by
+        some ⟨some (if source.head.1 then continuation else sourceLabel),
+          codeSymbol v, target⟩ := by
   have lift := Routine.run_lift block machine (embed v) (block_rows v)
     (if binary.nth 12 = 0 then 37 else 24) ⟨0, binary⟩
   rw [marker_run] at lift
   have marker := marker_rep source binary rep
-  cases flag : source.head.1 <;> simp [flag] at marker ⊢
-  · exact ⟨by simpa [Routine.liftCfg, marker] using lift,
+  cases flag : source.head.1
+  · simp only [Bool.false_eq_true, ↓reduceIte] at marker ⊢
+    exact ⟨by simpa [Routine.liftCfg, marker] using lift,
       move_rep source binary rep, by simpa [flag] using source_step (codeSymbol v) source⟩
-  · exact ⟨by simpa [Routine.liftCfg, marker] using lift,
+  · simp only [↓reduceIte] at marker ⊢
+    exact ⟨by simpa [Routine.liftCfg, marker] using lift,
       rep, by simpa [flag] using source_step (codeSymbol v) source⟩
 
 /-- The source has exactly n unmarked cells before its first marker to the left. -/
@@ -268,7 +275,7 @@ theorem decode_boundaries (v : Fin 5) :
       decodeControl (embed v 48) = some (continuation, codeSymbol v) := by
   fin_cases v <;> exact ⟨rfl, rfl⟩
 
-/-- Complete assembly: both operational executions reach corresponding continuation configurations. -/
+/-- Both operational executions reach corresponding continuation configurations. -/
 theorem return_certificate (source last : Tape Symbol) (n : Nat)
     (path : ReturnPath source n last) (binary : Tape Bit) (v : Fin 5)
     (rep : RepresentsTape source binary) :
