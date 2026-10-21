@@ -60,25 +60,25 @@ def machine : Machine 425 2 where
       match FieldReturn.machine.transition ⟨q.val, h⟩ bit with
       | some (write, dir, dest) => some (write, dir, returnIn dest)
       | none => some (bit, .right, 245)
-    else if q.val = 245 then some (bit, .left, scanIn 0)
+    else if at245 : q.val = 245 then some (bit, .left, scanIn 0)
     else if h : q.val < 285 then
       plugged readRoutine.machine readRoutine.result scanBack scanIn
         (take q 246 39 (by omega) h) bit
-    else if q.val = 285 then some (bit, .left, markerIn 0)
-    else if q.val = 286 then some (bit, .left, advanceIn 0)
+    else if at285 : q.val = 285 then some (bit, .left, markerIn 0)
+    else if at286 : q.val = 286 then some (bit, .left, advanceIn 0)
     else if h : q.val < 301 then
       plugged moveRight.machine moveRight.result (fun _ ↦ 301) advanceIn
         (take q 287 14 (by omega) h) bit
-    else if q.val = 301 then some (bit, .left, scanIn 0)
+    else if at301 : q.val = 301 then some (bit, .left, scanIn 0)
     else if h : q.val < 339 then
       plugged markerRoutine.machine markerRoutine.result markerBack markerIn
         (take q 302 37 (by omega) h) bit
-    else if q.val = 339 then some (bit, .left, retreatIn 0)
-    else if q.val = 340 then some (bit, .left, clearIn 0 4)
+    else if at339 : q.val = 339 then some (bit, .left, retreatIn 0)
+    else if at340 : q.val = 340 then some (bit, .left, clearIn 0 4)
     else if h : q.val < 355 then
       plugged moveLeft.machine moveLeft.result (fun _ ↦ 355) retreatIn
         (take q 341 14 (by omega) h) bit
-    else if q.val = 355 then some (bit, .left, previousIn 0)
+    else if at355 : q.val = 355 then some (bit, .left, previousIn 0)
     else if h : q.val < 395 then
       plugged readRoutine.machine readRoutine.result previousBack previousIn
         (take q 356 39 (by omega) h) bit
@@ -140,10 +140,10 @@ theorem routine_transfer {α : Type} (p : Routine α) (encode : Fin p.size → F
     rw [rows]
     cases h : p.machine.transition q bit with
     | none => exact False.elim (present h)
-    | some row => rfl
-  have prefix := run_partial p.machine machine encode compatible _ _ _
+    | some row => simp only [plugged, h, Routine.liftRow, Option.map_some]
+  have lifted := run_partial p.machine machine encode compatible _ _ _
     (Routine.run_execute p tape)
-  rw [FieldReturn.run_add, prefix, Option.bind_some]
+  rw [FieldReturn.run_add, lifted, Option.bind_some]
   apply two_hop _ (back (p.execute tape).1) _ _ (gates (p.execute tape).1)
   intro b
   change machine.transition (encode (p.exitState tape)) b = _
@@ -189,7 +189,8 @@ theorem advance_gate (b : Bit) : machine.transition 301 b = some (b, .left, scan
 theorem marker_rows (q : Fin 37) (b : Bit) : machine.transition (markerIn q) b =
     plugged markerRoutine.machine markerRoutine.result markerBack markerIn q b := by
   have all : ∀ (q : Fin 37) (b : Bit), machine.transition (markerIn q) b =
-      plugged markerRoutine.machine markerRoutine.result markerBack markerIn q b := by decide +kernel
+      plugged markerRoutine.machine markerRoutine.result markerBack markerIn q b := by
+    decide +kernel
   exact all q b
 
 theorem marker_gates (flag : Bool) (b : Bit) :
@@ -208,7 +209,8 @@ theorem retreat_gate (b : Bit) : machine.transition 355 b =
 theorem previous_rows (q : Fin 39) (b : Bit) : machine.transition (previousIn q) b =
     plugged readRoutine.machine readRoutine.result previousBack previousIn q b := by
   have all : ∀ (q : Fin 39) (b : Bit), machine.transition (previousIn q) b =
-      plugged readRoutine.machine readRoutine.result previousBack previousIn q b := by decide +kernel
+      plugged readRoutine.machine readRoutine.result previousBack previousIn q b := by
+    decide +kernel
   exact all q b
 
 theorem previous_gates (w : Word) (b : Bit) :
