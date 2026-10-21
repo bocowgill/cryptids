@@ -1,5 +1,8 @@
 name: Chess OpenEvolve broader search
 on:
+  push:
+    branches: ['codex/chess-openevolve-pilot']
+    paths: ['.github/workflows/chess_openevolve_wide.yml']
   workflow_dispatch:
     inputs:
       stage:
@@ -50,7 +53,7 @@ jobs:
       - name: Probe compiler proof
         run: python3 scripts/chess_openevolve_wide/verify.py --probe
       - name: Install pinned search runtime
-        if: inputs.stage != 'probe'
+        if: inputs.stage == 'search' || inputs.stage == 'full'
         run: |
           python3 -m venv .lake/chess-openevolve-wide/venv
           .lake/chess-openevolve-wide/venv/bin/pip install torch==2.8.0 --index-url https://download.pytorch.org/whl/cpu
@@ -58,7 +61,7 @@ jobs:
           .lake/chess-openevolve-wide/venv/bin/pip install --no-deps 'git+https://github.com/algorithmicsuperintelligence/openevolve.git@59dfe764b5ab4478ac00214432fcac33bbe2bf4b'
           .lake/chess-openevolve-wide/venv/bin/pip freeze > .lake/chess-openevolve-wide/dependencies.txt
       - name: Broad model search
-        if: inputs.stage != 'probe'
+        if: inputs.stage == 'search' || inputs.stage == 'full'
         run: timeout --signal=TERM --kill-after=15s 2400s .lake/chess-openevolve-wide/venv/bin/python scripts/chess_openevolve_wide/verify.py --search
       - name: Full acceptance
         if: inputs.stage == 'full'
