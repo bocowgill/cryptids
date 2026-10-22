@@ -9,8 +9,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 WORK = ROOT / '.lake/chess-table-proof-20261022'
 TARGETS = {
+    'primitives': ['Cryptids.Compilation.TableSeed.Format', 'Cryptids.Compilation.TableSeed.Geometry',
+                   'Cryptids.Compilation.TableSeed.Scan'],
     'format': 'Cryptids.Compilation.TableSeed.Format',
     'controller': 'Cryptids.Compilation.TableSeed.Controller',
+    'geometry': 'Cryptids.Compilation.TableSeed.Geometry',
     'blocks': 'Cryptids.Compilation.TableSeed.Blocks',
     'scan': 'Cryptids.Compilation.TableSeed.Scan',
     'correct': 'Cryptids.Compilation.TableSeed.Correct',
@@ -49,8 +52,11 @@ def main():
                     source_sha256={p: runner.sha(ROOT / p) for p in sorted(set(paths))},
                     frozen_source_sha256=pins)
     (WORK / 'source-manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
+    targets = TARGETS[args.target]
+    if isinstance(targets, str):
+        targets = [targets]
     command = ['lake', '--wfail', '-f', 'lakefile.chess-table-proof-20261022.toml',
-               'build', TARGETS[args.target]]
+               'build'] + targets
     check = runner.run(command, 'Build completed successfully', timeout=1200)
     report = dict(manifest, status='passed', target=args.target, checks=[check],
                   scope='Focused strict named Lean build only; universal/full-machine gates remain separate',
