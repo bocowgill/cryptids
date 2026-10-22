@@ -9,6 +9,10 @@ The user's personal hard stop is16:25. Prefer an earlier useful stopping point.
 
 ## Remote jobs
 
+- `39839073884`: active final bounded chunk-proof trial 13, source
+  `c04fba3ee1443a9b734ca0a8a45543d3d06e8ab3`. Ordinary kernel proofs of
+  small map chunks compose through named child theorem constants. Full source
+  review complete; no runtime success assumed. All caps/obligations unchanged.
 - `39836604660`: completed/failure map-isolation trial 12 at
   `9585998b9402acbc86523fae7d62ea6e56402b66`. Source reviewed/frozen; all eight
   data stages share the same120s and every original obligation remains.
@@ -104,3 +108,8 @@ all caps remain. No active remote jobs. Account usage83%at19:07.
 pilot is the final substantive launch planned before a complete checkpoint/pause.
 Root source review found no blocker; independent worker review is finishing.
 Only a small affordable source repair may follow; larger new work is deferred.
+
+19:20 UTC: sourcec04fba3 pushed and finaltrial13 launched. Leaf2.1 and its reviewer
+returned; wave complete. One prelaunch API spelling repair uses the pinned
+`Bool.and_eq_true_iff.mpr`. Root will retain the exact outcome then checkpoint
+and pause, allowing only a small necessary source repair within the reserve.

@@ -114,13 +114,15 @@ representation tuning without measured progress. Full current ranking is in
 
 ## Next concrete actions
 
-1. Finish the one authorized source-only chunk-proof revision in leaf2.1,
-   wave `map-chunk-proof`. Named map subtrees of at most 1,024 leaves retain exact
+1. Retain **trial 13, run39839073884**, launched at source
+   `c04fba3ee1443a9b734ca0a8a45543d3d06e8ab3`. The source-reviewed frozen
+   chunk-proof revision uses named map subtrees of at most 1,024 leaves with exact
    raw data/midpoint shape; local ordinary-kernel proofs compose using child
    theorem constants, avoiding one global count/cache/range reduction. Keep
    exact statements, full-private audits and the shared 120s Data budget plus
-   1200s/6GiB total. See `round-03/CHUNK-PROOF-OPTION.md`. Root dispatch requires
-   source review; no memory or actual-row improvement is assumed.
+   1200s/6GiB total. See `round-03/CHUNK-PROOF-OPTION.md`. Smoke has24 audited
+   roots, MapPrelude6 and final MapChecks6/Data19. No memory or actual-row
+   improvement is assumed before its exact remote result.
 2. If a small proof/source repair is needed, make one bounded exact-source retry.
    If the underlying memory obstruction persists, choose a structurally different
    certificate rather than raising the cap.
