@@ -87,8 +87,10 @@ class Driver:
                        "address_space_limit": None, "memory_enforcement": "sampled resident memory"},
             "source_states": N, "quotient_states": K, "requested_sample_states": [64, 512, 4096],
             "map_representation": "literal_nat_balanced_tree_with_kernel_range_certificate",
+            "map_native_code_generation": False,
             "stages": [], "generated_files": {}, "completed_positive_sample_states": 0,
             "completed_positive_unique_rows": 0, "complete_typed_candidate_data_checked": False,
+            "template_smoke_checked": False,
             "audited_modules": [],
             "negative_control": {"status": "not_run"},
         }
@@ -512,46 +514,83 @@ theorem lookup_lt_of_allBelow (tree : Balanced.RowTree Nat) (bound fallback : Na
 '''
 
 
+HEARTBEATS = ("set_option maxHeartbeats 0 in\n"
+              "-- The driver bounds literal-data elaboration and kernel checking by wall time and RSS.\n")
+
+
+def generate_smoke(driver):
+    # Reuse the production loaders, generic proof and scoped-option prefix.
+    # These small literals check templates only and count as no actual-body rows.
+    driver.emit("smoke-map.txt", "0\n1\n0\n1\n")
+    driver.emit("smoke-quotient.rows", "0R1 ---\n--- 1L0\n")
+    smoke = header([MODULE + ".Loaders", "Cryptids.Chess.Optimisation.FieldSelective",
+                    "Cryptids.Compilation.LocalCertificate"]) + MAP_BOUNDS
+    smoke += HEARTBEATS + f'''noncomputable def smokeMapTree : Balanced.RowTree Nat :=
+  load_body_map% "{PREFIX}/smoke-map.txt"
+'''
+    smoke += HEARTBEATS + f'''def smokeQuotientTree :
+    Balanced.RowTree (List (Option (Fin 2 × Dir × Fin 2))) :=
+  load_balanced_rows% "{PREFIX}/smoke-quotient.rows"
+'''
+    for name, proposition in (
+            ("smoke_map_count", "smokeMapTree.count = 4"),
+            ("smoke_map_valid", "smokeMapTree.WellFormed"),
+            ("smoke_map_bounded", "mapAllBelow smokeMapTree 2 = true"),
+            ("smoke_quotient_count", "smokeQuotientTree.count = 2"),
+            ("smoke_quotient_valid", "smokeQuotientTree.WellFormed")):
+        smoke += HEARTBEATS + f"theorem {name} : {proposition} := by decide +kernel\n"
+    smoke += '''theorem smoke_lookup_lt (index : Nat) : smokeMapTree.lookup index 0 < 2 :=
+  lookup_lt_of_allBelow smokeMapTree 2 0 smoke_map_bounded (by decide) index
+noncomputable def smokeClassMap (s : Fin 4) : Fin 2 := Fin.ofNat 2 (smokeMapTree.lookup s.val 0)
+theorem smokeClassMap_val (s : Fin 4) :
+    (smokeClassMap s).val = smokeMapTree.lookup s.val 0 := by
+  change (smokeMapTree.lookup s.val 0) % 2 = smokeMapTree.lookup s.val 0
+  exact Nat.mod_eq_of_lt (smoke_lookup_lt s.val)
+def smokeQuotient : Machine 2 2 := Balanced.ofTree smokeQuotientTree
+'''
+    smoke += HEARTBEATS + "theorem smoke_entry : smokeClassMap 0 = 0 := by decide +kernel\n"
+    smoke += HEARTBEATS + '''theorem smoke_row :
+    smokeQuotient.transition (smokeClassMap 0) 0 = some (0, Dir.right, 1) := by decide +kernel
+'''
+    roots = ["smoke_map_count", "smoke_map_valid", "smoke_map_bounded", "smoke_lookup_lt",
+             "smokeClassMap_val", "smoke_quotient_count", "smoke_quotient_valid",
+             "smoke_entry", "smoke_row"]
+    driver.emit("TemplateSmoke.lean", smoke + audit_and_end(
+        driver, "TemplateSmoke", roots, "Body certificate template smoke checked"))
+
+
 def generate(driver, selected):
     # Source text is generated only after the import-time remote guard.
     driver.emit("Loaders.lean", LOADERS)
     driver.emit("Audit.lean", AUDIT)
+    generate_smoke(driver)
     driver.emit("MapData.lean", header([MODULE + ".Loaders"]) +
-                "-- Wall and RSS limits bound this complete typed-data elaboration.\n" +
-                "set_option maxHeartbeats 0 in\n" +
-                'def mapTree : Balanced.RowTree Nat :=\n' +
+                HEARTBEATS +
+                'noncomputable def mapTree : Balanced.RowTree Nat :=\n' +
                 f'  load_body_map% "{PREFIX}/class-map.txt"\n' +
                 audit_and_end(driver, "MapData", ["mapTree"], "Complete body class map loaded"))
     driver.emit("QuotientData.lean", header([MODULE + ".Loaders"]) +
-                "-- Wall and RSS limits bound this complete typed-data elaboration.\n" +
-                "set_option maxHeartbeats 0 in\n" +
+                HEARTBEATS +
                 f'def quotientTree : Balanced.RowTree (List (Option (Fin 2 × Dir × Fin {K}))) :=\n' +
                 f'  load_balanced_rows% "{PREFIX}/quotient.rows"\n' +
                 audit_and_end(driver, "QuotientData", ["quotientTree"], "Complete body quotient rows loaded"))
     data = header([MODULE + ".MapData", MODULE + ".QuotientData",
                    "Cryptids.Chess.Optimisation.FieldSelective", "Cryptids.Compilation.LocalCertificate"])
     data += MAP_BOUNDS
-    data += f'''def classMap (s : Fin {N}) : Fin {K} :=
+    data += f'''noncomputable def classMap (s : Fin {N}) : Fin {K} :=
   Fin.ofNat {K} (mapTree.lookup s.val 0)
 def quotient : Machine {K} 2 := Balanced.ofTree quotientTree
--- Each kernel computation remains bounded by the driver's wall and RSS limits.
-set_option maxHeartbeats 0 in
-theorem map_count : mapTree.count = {N} := by decide +kernel
-set_option maxHeartbeats 0 in
-theorem map_valid : mapTree.WellFormed := by decide +kernel
-set_option maxHeartbeats 0 in
-theorem map_bounded : mapAllBelow mapTree {K} = true := by decide +kernel
+{HEARTBEATS}theorem map_count : mapTree.count = {N} := by decide +kernel
+{HEARTBEATS}theorem map_valid : mapTree.WellFormed := by decide +kernel
+{HEARTBEATS}theorem map_bounded : mapAllBelow mapTree {K} = true := by decide +kernel
 theorem map_lookup_lt (index : Nat) : mapTree.lookup index 0 < {K} :=
   lookup_lt_of_allBelow mapTree {K} 0 map_bounded (by decide) index
 theorem classMap_val (s : Fin {N}) : (classMap s).val = mapTree.lookup s.val 0 := by
   change (mapTree.lookup s.val 0) % {K} = mapTree.lookup s.val 0
   exact Nat.mod_eq_of_lt (map_lookup_lt s.val)
-set_option maxHeartbeats 0 in
-theorem quotient_count : quotientTree.count = {K} := by decide +kernel
-set_option maxHeartbeats 0 in
-theorem quotient_valid : quotientTree.WellFormed := by decide +kernel
-set_option maxHeartbeats 0 in
-theorem entry : classMap 0 = 0 := by decide +kernel
+{HEARTBEATS}theorem quotient_count : quotientTree.count = {K} := by decide +kernel
+{HEARTBEATS}theorem quotient_valid : quotientTree.WellFormed := by decide +kernel
+{HEARTBEATS}theorem entry : classMap 0 = 0 := by decide +kernel
 def RowAt (s : Fin {N}) (b : Fin 2) : Prop :=
   (Chess.Optimisation.FieldSelective.body.toMachine.transition s b).map
     (fun (write, dir, next) ↦ (write, dir, classMap next)) =
@@ -567,7 +606,7 @@ def RowAt (s : Fin {N}) (b : Fin 2) : Prop :=
             for bit in (0, 1):
                 name = f"row_{count}_{state}_{bit}"
                 names.append(name)
-                parts.append("set_option maxHeartbeats 0 in\n" +
+                parts.append(HEARTBEATS +
                              f"theorem {name} : RowAt {state} {bit} := by decide +kernel\n")
         parts.append(audit_and_end(driver, f"Rows{count}", names,
                                    f"Body kernel rows checked: {count} states, {2 * count} rows"))
@@ -611,6 +650,8 @@ def main():
         selected = select_states(driver)
         generate(driver, selected)
         driver.run("Loaders", 60, "Body certificate loaders checked")
+        driver.run("TemplateSmoke", 60, "Body certificate template smoke checked")
+        driver.summary["template_smoke_checked"] = True
         driver.run("MapData", 240, "Complete body class map loaded")
         driver.run("QuotientData", 180, "Complete body quotient rows loaded")
         driver.run("Data", 120, "Complete body certificate data checked")

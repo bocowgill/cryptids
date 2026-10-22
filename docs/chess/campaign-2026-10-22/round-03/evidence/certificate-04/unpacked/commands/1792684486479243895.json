@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_body_20261022/certificate_pilot.py",
+    "--lakefile",
+    "lakefile.chess-body-certificate-20261022.toml",
+    "--output",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-body-certificate-20261022",
+    "--seconds",
+    "1200",
+    "--memory-gib",
+    "6"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "Bounded body kernel certificate pilot stopped: MapData: Lean source/proof failure; inspect retained log\n",
+  "output_sha256": "88d87af7cc5938dc04b549a9f72ef7ce071a5df12620bee4a6ebbb03ac7829ef",
+  "timed_out": false,
+  "timeout_seconds": 1260,
+  "elapsed_seconds": 138.471135537,
+  "cumulative_children_peak_rss_kib": 4922952
+}

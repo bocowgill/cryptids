@@ -1,9 +1,10 @@
 # Bounded concrete quotient certificate scalability pilot
 
-Status: the third remote run stopped at the sampled 6-GiB memory ceiling while
-building the complete finite-valued map. A raw-natural map representation with
-complete kernel range and lookup-identity proofs is ready for the next bounded
-run. Zero actual-body row proofs have passed. This
+Status: the fourth remote run loaded the complete raw-natural map below the
+sampled memory ceiling, but its strict build failed because the scoped heartbeat
+comment preceded the option instead of following `in`. Every generated occurrence
+is repaired, with a small remote template check before the next full-data load.
+Zero actual-body row proofs have passed. This
 experiment tests the cost of ordinary Lean kernel certificates for the measured
 114,487-state quotient. A pass covers only the requested sample, never all
 573,802 old states or a new accepted chess machine. The current seed proof
@@ -87,6 +88,46 @@ typed quotient, actual-body row predicate, sample sizes, negative control,
 external audits and 20-minute/6-GiB limits stay unchanged. Earlier receipts and
 generated sources remain unchanged.
 
+## Fourth remote attempt and comment-placement repair
+
+Run `39808462055`, commit `3b4d91ae524a2fd7e1cd0aa2fc48427d92b697d1`, passed
+`Loaders` in 5.658 seconds. The raw-natural `MapData` reached its loaded banner,
+then failed the strict build after 131.674 seconds solely on the heartbeat
+comment linter. Its sampled combined peak was 5,983,715,328 bytes, with no
+resource stop; total elapsed time was 138.432 seconds and driver peak RSS was
+126,724 KiB. The produced `.olean` was 42,291,176 bytes. The
+[saved log](evidence/certificate-04/unpacked/MapData.log) and
+[summary](evidence/certificate-04/unpacked/certificate-summary.json) remain
+unchanged. No full-data pass, external audit, actual row or negative control
+completed. This measures a map-load attempt, not end-to-end proof scalability.
+
+The current Mathlib rule in
+`Mathlib/Tactic/Linter/DeprecatedSyntaxLinter.lean` reads the trailing comments
+on the scoped command's `in` token. A comment before `set_option` does not count.
+Every generated scoped option now uses one shared prefix with an ordinary
+explanatory `--` comment immediately after `in`, before its declaration. No
+linter is disabled. This applies to map, quotient, data, sample-row and smoke
+declarations.
+
+Before the expensive map build, `TemplateSmoke` now checks the same loaders,
+generic range proof, scoped-option prefix and finite conversion on a four-entry
+map and two-row quotient. It uses the actual data imports/options and checks
+counts, caches, range, lookup identity, entry and one literal table row, followed
+by the same full-private dependency audit. Its build and audit share 60 seconds
+inside the unchanged 1,200-second global budget. These smoke checks contribute
+zero actual-body rows and do not replace any complete-data or sample requirement.
+
+The same retry marks only the proof witnesses `mapTree` and `classMap` (and
+their smoke counterparts) as `noncomputable def`. Lean's current
+`Elab/PreDefinition/Main.lean` sends these declarations to `addNonRec`;
+`Elab/PreDefinition/Basic.lean` still creates the regular safe definition with
+its full body and kernel-checks it through `addDecl`, but skips `compileDecl`.
+Thus the kernel can reduce the literal map for every count, range, identity
+and row proof, and the full-private audit still reads its body. This avoids
+generating native code for the 573,802-leaf proof witness. The quotient tree
+and quotient machine remain executable ordinary definitions. The cost benefit
+of skipping map code generation is not yet measured.
+
 ## Root-owned runner interface
 
 Prebuild these accepted dependencies using the root-owned lakefile, outside the
@@ -147,6 +188,9 @@ propose ordinary constructor expressions. The quotient loader still uses
 `boundedFinExpr`; its finite values are checked by the kernel. Map bounds are
 established by a complete separate kernel computation. Neither a file hash nor
 the native generator is a proof of a row relation.
+
+Only the map tree and its lookup wrapper suppress native code generation via
+`noncomputable`; their transparent safe kernel definitions are retained.
 
 Separate modules measure full-map loading, full-quotient loading, and complete
 cache/census checks. The final data module proves with `decide +kernel`:
@@ -237,6 +281,7 @@ honestly recorded as unrun, and the pilot stops.
 | Stage | Maximum seconds | Purpose |
 |---|---:|---|
 | `Loaders` | 60 | Typed-data elaborator setup |
+| `TemplateSmoke` | 60 | Small production-template checks and dependency audit; zero actual-body rows |
 | `MapData` | 240 | Complete natural-valued map and dependency audit |
 | `QuotientData` | 180 | Complete typed quotient and dependency audit |
 | `Data` | 120 | Full counts, caches, map range/lookup identity, entry and actual-body predicate |
@@ -286,6 +331,11 @@ scoped options and precise failure classification. No local test, import,
 generation or Lean execution was performed. Remote kernel validation is still
 required. The third run established a real map-build memory obstruction; the
 raw-natural fallback received separate implementation, range/identity proof,
-independent static API, and scope/retention review passes. An import or data-loading
+independent static API, and scope/retention review passes. The fourth run's
+comment-placement failure prompted direct linter-source inspection, a common
+commented option prefix, and the bounded remote template stage. A source audit
+of Lean's declaration elaborator confirmed that making map witnesses
+noncomputable skips native compilation while retaining safe kernel definitions.
+An import or data-loading
 obstruction is useful evidence of this representation's cost, not permission
 to bypass the kernel or claim the 459,315-state reduction accepted.
