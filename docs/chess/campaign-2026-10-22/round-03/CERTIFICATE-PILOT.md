@@ -1,8 +1,9 @@
 # Bounded concrete quotient certificate scalability pilot
 
-Status: trial 10 passed the packed quotient's complete build and full-private
-audit, then hit the sampled 6-GiB RSS limit in the combined `Data` module. The
-authorized module split is implemented and awaits remote verification.
+Status: trial 11 again passed complete packed quotient loading/audit, but the
+map-only `MapChecks` module exceeded the sampled 6-GiB RSS cap. The authorized
+minimal isolation of generic setup, count, cache and range checks is implemented
+and awaits remote verification.
 Zero actual-body row proofs have passed. This
 experiment tests the cost of ordinary Lean kernel certificates for the measured
 114,487-state quotient. A pass covers only the requested sample, never all
@@ -456,7 +457,8 @@ The trial-10 generated `Data` module imports both complete literal datasets,
 `FieldSelective` and `LocalCertificate`, then checks every map and quotient
 count/cache/range obligation in that combined environment. Only `RowAt` needs
 the actual accepted body; the concrete data theorems need no chess definitions.
-The authorized source implementation now uses this split:
+Trial 11 used the following first split; the next section records its outcome
+and the authorized finer isolation of `MapChecks`:
 
 - `MapChecks` imports only `MapData` and proves the unchanged map count,
   well-formedness, complete range, lookup bound, exact `classMap` value and entry.
@@ -489,6 +491,58 @@ that distinction and retains partial proof progress; it does not guarantee a
 fit or authorize raising any limit. No accepted file or new pin has changed.
 Only the owned remote generator, report and ledger were edited; no local
 generation, Lean, model, count or audit execution was performed.
+
+## Trial 11: map-only checks still exceed memory
+
+Run `39834919606`, commit `e054e37c6e4c421e3834b0ecaecf89b47ba2db4a`, is retained
+under `evidence/certificate-11/unpacked/`. The
+[source manifest](evidence/certificate-11/unpacked/source-manifest.json) binds
+driver SHA256 `4c30c28f43d6a2fda43794219331b5a37e3d2c3bf838afc126b23c39a7751f93`
+and the new `accepted-769344-pins.json`. The accepted dependency setup passed
+in 5.393 seconds according to its
+[command receipt](evidence/certificate-11/unpacked/commands/1792695169319028843.json),
+following the root-owned cache repair; this is setup cost, not proof progress.
+
+The [pilot summary](evidence/certificate-11/unpacked/certificate-summary.json)
+records packed quotient build success in 63.905 seconds at peak combined RSS
+4,220,174,336 bytes, then full-private audit success in 2.735 seconds at
+4,121,210,880 bytes. The complete map build/audit and expanded smoke also passed.
+`MapChecks`, importing only `MapData`, was then killed after 20.693 seconds at
+6,456,770,560 bytes, above the 6,442,450,944-byte cap. Its receipt reports exit -9,
+`process_group_memory_budget`, no successful banner and no `.olean`.
+The [log](evidence/certificate-11/unpacked/MapChecks.log) contains only replayed
+loader and map messages, so it does not identify which declaration was active.
+
+The shared data group stopped after 20.698 seconds with no completed substage.
+Total driver elapsed time was 150.814 seconds and driver peak RSS was 125,676 KiB.
+No map check audit, quotient invariant stage, combined-data stage, actual-body
+row proof or deliberate false-row control completed. Both actual-body counters
+remain zero and the complete-data flag remains false. The failure shows that a
+map-only environment can exceed the limit; simultaneous quotient/chess imports
+are not necessary for this obstruction. It does not distinguish generic setup
+from the first concrete count/cache/range normalization.
+
+The authorized minimal isolation now adds:
+
+- `MapPrelude`, importing `MapData`, with the unchanged generic `MAP_BOUNDS`
+  declarations and noncomputable `classMap`. Its three-root full-private audit
+  covers `mapAllBelow`, `lookup_lt_of_allBelow` and `classMap`. It performs no
+  complete literal count/cache/range reduction.
+- `MapCount`, `MapValid` and `MapBounded`, each importing only `MapPrelude`,
+  containing exactly its original concrete `decide +kernel` theorem, and each
+  requiring its own one-root audit. They do not import each other's concrete
+  proofs, isolating each reduction from accumulated preceding proof modules.
+- `MapChecks`, importing those three modules, proving the unchanged lookup
+  bound, exact `classMap` value and entry, then auditing the same six-root union.
+
+The resulting eight stages—`MapPrelude`, `MapCount`, `MapValid`, `MapBounded`,
+`MapChecks`, `QuotientChecks`, `Data`, `BodyRelation`—all share the original
+120-second data deadline, including every build, audit and receipt. Final Data
+still audits nineteen roots, and the exact actual-body predicate, samples,
+negative control and global/RSS limits are unchanged. No representation or
+accepted source changes. This revision seeks an attributable first obstruction;
+additional audit overhead is charged to the same budget and may itself exhaust
+it. All generated sources and failed-stage receipts remain retained.
 
 ## Root-owned runner interface
 
@@ -575,7 +629,8 @@ quotient subtrees and assembled tree remain executable, transparent
 receipt are retained alongside the full input, shard data and generated source.
 
 Separate modules measure full-map loading, full-quotient loading, and complete
-cache/census checks. `MapChecks` and `QuotientChecks` prove with `decide +kernel`:
+cache/census checks. The isolated map modules and `QuotientChecks` prove with
+`decide +kernel`:
 
 ```
 mapTree.count = 573802
@@ -684,7 +739,7 @@ honestly recorded as unrun, and the pilot stops.
 | `TemplateSmoke` | 60 | Small production-template checks and dependency audit; zero actual-body rows |
 | `MapData` | 240 | Complete natural-valued map and dependency audit |
 | `QuotientData` | 180 | Complete packed quotient and dependency audit |
-| `MapChecks` → `QuotientChecks` → `Data` → `BodyRelation` | 120 shared | Separate map/Q proofs, thin assembly and exact actual-body predicate, each with full-private audit |
+| `MapPrelude` through `BodyRelation` (8 stages) | 120 shared | Isolated generic/map checks, Q proofs, thin assembly and exact actual-body predicate, each with full-private audit |
 | `Rows64` | 120 | 128 actual-body row proofs and dependency audit |
 | `Negative` | 45 | Kernel refusal of one false actual row |
 | `Rows512` | 180 | 1,024 actual-body row proofs and dependency audit |
@@ -694,7 +749,7 @@ The 1,200-second global wall limit includes input validation, depth selection,
 generation, auditor compilation, all builds, external audits and diagnostics.
 The smoke-only decision test uses a smaller 300-second global limit. Each stage is further capped by the
 remaining global budget. Three seconds are reserved for final diagnostics.
-The four replacement data stages share one deadline, including every build,
+The eight replacement data stages share one deadline, including every build,
 audit and intervening receipt; they do not each receive 120 seconds. The
 summary retains the group's exact required/completed stage lists and elapsed
 time, including the failed stage when a resource obstruction occurs.
@@ -771,6 +826,12 @@ boundaries; complete root/census preservation; independent targeted reviews of
 Lean visibility/closure and shared-budget failure behavior; and retention/report
 consistency. Both independent reviewers found no blocking issue. The source is
 frozen and ready for root-owned remote verification, with no local execution.
+The subsequent map-isolation revision completed four source passes: retained
+trial-11 receipt diagnosis; exact declaration/proposition relocation; narrow
+independent verification of visibility, roots and the common deadline; and final
+retention/report consistency. The existing reviewer found no blocking issue.
+All eight data stages still consume the same 120-second allowance. This source
+is frozen for the next bounded remote checkpoint; no local execution occurred.
 An import or data-loading
 obstruction is useful evidence of this representation's cost, not permission
 to bypass the kernel or claim the 459,315-state reduction accepted.

@@ -100,8 +100,9 @@ class Driver:
             "completed_positive_unique_rows": 0, "complete_typed_candidate_data_checked": False,
             "template_smoke_checked": False,
             "data_stage_group": {"wall_seconds": 120,
-                                 "required_stages": ["MapChecks", "QuotientChecks", "Data",
-                                                     "BodyRelation"],
+                                 "required_stages": ["MapPrelude", "MapCount", "MapValid",
+                                                     "MapBounded", "MapChecks", "QuotientChecks",
+                                                     "Data", "BodyRelation"],
                                  "completed_stages": []},
             "audited_modules": [],
             "negative_control": {"status": "not_run"},
@@ -268,6 +269,10 @@ class Driver:
         group["started_after_seconds"] = started - self.start
         self.checkpoint()
         stages = (
+            ("MapPrelude", "Body class map prelude checked"),
+            ("MapCount", "Complete body class map count checked"),
+            ("MapValid", "Complete body class map caches checked"),
+            ("MapBounded", "Complete body class map range checked"),
             ("MapChecks", "Complete body class map checks passed"),
             ("QuotientChecks", "Complete packed quotient checks passed"),
             ("Data", "Complete body certificate data assembled"),
@@ -905,13 +910,27 @@ def generate(driver, selected):
                 quotient_declarations(driver, "quotient", "quotient-packed.rows", K, K,
                                       QUOTIENT_CHUNK_STATES) +
                 audit_and_end(driver, "QuotientData", ["quotientTree"], "Complete body quotient rows loaded"))
-    map_checks = header([MODULE + ".MapData"]) + MAP_BOUNDS
-    map_checks += f'''noncomputable def classMap (s : Fin {N}) : Fin {K} :=
+    map_prelude = header([MODULE + ".MapData"]) + MAP_BOUNDS
+    map_prelude += f'''noncomputable def classMap (s : Fin {N}) : Fin {K} :=
   Fin.ofNat {K} (mapTree.lookup s.val 0)
-{HEARTBEATS}theorem map_count : mapTree.count = {N} := by decide +kernel
-{HEARTBEATS}theorem map_valid : mapTree.WellFormed := by decide +kernel
-{HEARTBEATS}theorem map_bounded : mapAllBelow mapTree {K} = true := by decide +kernel
-theorem map_lookup_lt (index : Nat) : mapTree.lookup index 0 < {K} :=
+'''
+    driver.emit("MapPrelude.lean", map_prelude + audit_and_end(
+        driver, "MapPrelude", ["mapAllBelow", "lookup_lt_of_allBelow", "classMap"],
+        "Body class map prelude checked"))
+    # Independent modules isolate the first count/cache/range reduction. None
+    # imports another concrete map proof, and every one is separately audited.
+    for stem, name, proposition, banner in (
+            ("MapCount", "map_count", f"mapTree.count = {N}",
+             "Complete body class map count checked"),
+            ("MapValid", "map_valid", "mapTree.WellFormed",
+             "Complete body class map caches checked"),
+            ("MapBounded", "map_bounded", f"mapAllBelow mapTree {K} = true",
+             "Complete body class map range checked")):
+        source = header([MODULE + ".MapPrelude"]) + HEARTBEATS
+        source += f"theorem {name} : {proposition} := by decide +kernel\n"
+        driver.emit(stem + ".lean", source + audit_and_end(driver, stem, [name], banner))
+    map_checks = header([MODULE + ".MapCount", MODULE + ".MapValid", MODULE + ".MapBounded"])
+    map_checks += f'''theorem map_lookup_lt (index : Nat) : mapTree.lookup index 0 < {K} :=
   lookup_lt_of_allBelow mapTree {K} 0 map_bounded (by decide) index
 theorem classMap_val (s : Fin {N}) : (classMap s).val = mapTree.lookup s.val 0 := by
   change (mapTree.lookup s.val 0) % {K} = mapTree.lookup s.val 0
