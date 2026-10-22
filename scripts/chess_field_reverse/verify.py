@@ -138,9 +138,18 @@ def counts():
     assert detail['complete_body_rows_checked']==2*detail['body_states']
     assert detail['complete_prefix_rows_verified'] is True
     assert detail['complete_prefix_rows_checked']==2*detail['initializer_states']
+    assert detail['complete_full_rows_verified'] is True
     assert detail['complete_full_rows_checked']==2*detail['states']
+    assert detail['initializer_edges_verified'] is True
+    assert detail['initializer_states']==detail['initializer']['bits']+1
+    assert detail['initializer']['physical_head']==1-detail['initializer']['bits']
+    assert detail['initializer']['normalized_head']==0
     assert detail['initializer_states'] < 3675880
-    assert len(detail['mutation_controls'])>=15
+    assert [c['name'] for c in detail['mutation_controls']]==[
+        'dispatch','store','frame','initializer','initializer_physical_head',
+        'undercount','packed_offset','body_write','body_bounce','body_missing_halt',
+        'body_order','body_truncation','prefix_write','prefix_direction',
+        'prefix_final_turn','prefix_truncation']
     assert all(c['passed'] is True and c['rejected'] is True for c in detail['mutation_controls'])
     save('counts',[],detail=detail,export_sha256=sha(WORK/'machine-export.json'),
          body_rows_sha256=sha(WORK/'body-rows.jsonl'),
