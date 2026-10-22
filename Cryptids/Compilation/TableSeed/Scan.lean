@@ -117,4 +117,102 @@ theorem nonempty_gap_payload_reverse_guard (letters : List Seed.Letter) (gap : N
       Option.bind_some]
     exact payload_reverse_guard letters 0 (by decide)
 
+/-- A left scanner reaches A's left guard in exactly the guarded-prefix length.
+
+The preceding left move belongs to the caller's paid path. Both exterior frames are arbitrary.
+-/
+theorem left_marker {q : Nat} (M : Machine q 2) (scanner : Fin 4 → Fin q) (exit : Fin q)
+    (rows : Seed.Scan.Rows M scanner exit .left) (bits : List (Fin 2))
+    (safe : Seed.Scan.scanWord (bits ++ [0]) 0 = some 0)
+    (left right : ListBlank (Fin 2)) :
+    FlatInit.runFrom M (bits.length + 5)
+      ⟨scanner 0,
+        (Tape.mk' (ListBlank.append (bits ++ Seed.marker.reverse) left) right).move .left⟩ =
+      some ⟨exit, Tape.mk' left (ListBlank.append (Seed.marker ++ bits.reverse) right)⟩ := by
+  let scanBits := bits ++ [0, 1, 1, 1, 1]
+  have start :
+      (Tape.mk' (ListBlank.append (bits ++ Seed.marker.reverse) left) right).move .left =
+        Seed.Scan.mkLeft (ListBlank.append scanBits (left.cons 0)) right := by
+    simp [scanBits, Seed.marker, ListBlank.append_assoc, ListBlank.append, Seed.Scan.mkLeft,
+      Tape.mk', Tape.move]
+  have read : Seed.Scan.Reads .left
+      (Seed.Scan.mkLeft (ListBlank.append scanBits (left.cons 0)) right)
+      ((bits ++ [0]) ++ [1, 1, 1, 1]) := by
+    simpa only [scanBits, List.append_assoc, List.cons_append, List.nil_append] using
+      Seed.Scan.reads_left scanBits (left.cons 0) right
+  have traversed := Seed.Scan.run_safe_fourOnes M scanner exit .left rows (bits ++ [0])
+    (Seed.Scan.mkLeft (ListBlank.append scanBits (left.cons 0)) right) safe read
+  have shifted :
+      shift .left ((bits ++ [0]).length + 4)
+          (Seed.Scan.mkLeft (ListBlank.append scanBits (left.cons 0)) right) =
+        Tape.mk' left (ListBlank.append (Seed.marker ++ bits.reverse) right) := by
+    simpa [scanBits, Seed.marker, List.reverse_append, List.append_assoc, ListBlank.append_assoc,
+      ListBlank.append] using Seed.Scan.shift_left_prefix scanBits (left.cons 0) right
+  rw [shifted] at traversed
+  simpa only [start, List.length_append, List.length_cons, List.length_nil, Nat.add_zero,
+    Nat.add_assoc] using traversed
+
+/-- A right scanner exits at B's final zero, after reading its fourth one.
+
+This contract ends at B+5. The five paid return moves belong to the caller's subsequent path.
+-/
+theorem right_marker {q : Nat} (M : Machine q 2) (scanner : Fin 4 → Fin q) (exit : Fin q)
+    (rows : Seed.Scan.Rows M scanner exit .right) (bits : List (Fin 2))
+    (safe : Seed.Scan.scanWord (bits ++ [0]) 0 = some 0)
+    (left right : ListBlank (Fin 2)) :
+    FlatInit.runFrom M (bits.length + 5)
+      ⟨scanner 0, Tape.mk' left (ListBlank.append (bits ++ Seed.marker) right)⟩ =
+      some ⟨exit,
+        Tape.mk' (ListBlank.append (bits ++ [0, 1, 1, 1, 1]).reverse left) (right.cons 0)⟩ := by
+  let scanBits := bits ++ [0, 1, 1, 1, 1]
+  have start : Tape.mk' left (ListBlank.append (bits ++ Seed.marker) right) =
+      Tape.mk' left (ListBlank.append scanBits (right.cons 0)) := by
+    simp [scanBits, Seed.marker, ListBlank.append_assoc, ListBlank.append]
+  have read : Seed.Scan.Reads .right (Tape.mk' left (ListBlank.append scanBits (right.cons 0)))
+      ((bits ++ [0]) ++ [1, 1, 1, 1]) := by
+    simpa only [scanBits, List.append_assoc, List.cons_append, List.nil_append] using
+      Seed.Scan.reads_right scanBits left (right.cons 0)
+  have traversed := Seed.Scan.run_safe_fourOnes M scanner exit .right rows (bits ++ [0])
+    (Tape.mk' left (ListBlank.append scanBits (right.cons 0))) safe read
+  have shifted :
+      shift .right ((bits ++ [0]).length + 4)
+          (Tape.mk' left (ListBlank.append scanBits (right.cons 0))) =
+        Tape.mk' (ListBlank.append scanBits.reverse left) (right.cons 0) := by
+    simpa [scanBits, Nat.add_assoc] using Seed.Scan.shift_right_prefix scanBits left (right.cons 0)
+  rw [shifted] at traversed
+  simpa only [start, List.length_append, List.length_cons, List.length_nil, Nat.add_zero,
+    Nat.add_assoc] using traversed
+
+/-- Compact output and an arbitrary gap can be scanned left without entering unread input. -/
+theorem payload_left_marker {q : Nat} (M : Machine q 2) (scanner : Fin 4 → Fin q)
+    (exit : Fin q) (rows : Seed.Scan.Rows M scanner exit .left)
+    (letters : List Seed.Letter) (gap : Nat) (left right : ListBlank (Fin 2)) :
+    FlatInit.runFrom M (gap + 3 * letters.length + 5)
+      ⟨scanner 0, (Tape.mk'
+        (ListBlank.append
+          (List.replicate gap 0 ++ (Seed.payload letters).reverse ++ Seed.marker.reverse) left)
+        right).move .left⟩ =
+      some ⟨exit, Tape.mk' left (ListBlank.append
+        (Seed.marker ++ Seed.payload letters ++ List.replicate gap 0) right)⟩ := by
+  have result := left_marker M scanner exit rows
+    (List.replicate gap 0 ++ (Seed.payload letters).reverse)
+    (gap_payload_reverse_guard letters gap) left right
+  simpa [List.reverse_append, List.append_assoc] using result
+
+/-- Compact output and its gap can be scanned right, stopping at B+5 before the paid return. -/
+theorem payload_right_marker {q : Nat} (M : Machine q 2) (scanner : Fin 4 → Fin q)
+    (exit : Fin q) (rows : Seed.Scan.Rows M scanner exit .right)
+    (letters : List Seed.Letter) (gap : Nat) (left right : ListBlank (Fin 2)) :
+    FlatInit.runFrom M (3 * letters.length + gap + 5)
+      ⟨scanner 0, Tape.mk' left
+        (ListBlank.append (Seed.payload letters ++ List.replicate gap 0 ++ Seed.marker) right)⟩ =
+      some ⟨exit, Tape.mk'
+        (ListBlank.append
+          ([1, 1, 1, 1, 0] ++ List.replicate gap 0 ++ (Seed.payload letters).reverse) left)
+        (right.cons 0)⟩ := by
+  have result := right_marker M scanner exit rows
+    (Seed.payload letters ++ List.replicate gap 0)
+    (payload_gap_guard letters gap 0 (by decide)) left right
+  simpa [List.reverse_append, List.append_assoc] using result
+
 end ConjectureMachines.Compilation.TableSeed.Scan
