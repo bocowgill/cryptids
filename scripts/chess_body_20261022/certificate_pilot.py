@@ -82,8 +82,8 @@ class Driver:
             "new_accepted_machine": False, "run_id": os.environ.get("GITHUB_RUN_ID"),
             "commit": os.environ.get("GITHUB_SHA"), "driver_source": info(Path(__file__)),
             "limits": {"wall_seconds": args.seconds, "process_group_rss_bytes": args.memory_gib << 30,
-                       "child_address_space_bytes": (args.memory_gib << 30) - (512 << 20),
-                       "driver_rss_bytes": 512 << 20, "rss_sampling_seconds": 0.1},
+                       "driver_rss_bytes": 512 << 20, "rss_sampling_seconds": 0.1,
+                       "address_space_limit": None, "memory_enforcement": "sampled resident memory"},
             "source_states": N, "quotient_states": K, "requested_sample_states": [64, 512, 4096],
             "stages": [], "generated_files": {}, "completed_positive_sample_states": 0,
             "negative_control": {"status": "not_run"},
@@ -145,9 +145,7 @@ class Driver:
                 for path in base.glob(stem + ".*"):
                     if path.is_file():
                         path.unlink()
-        child_as = (self.args.memory_gib << 30) - (512 << 20)
-        command = [shutil.which("prlimit"), f"--as={child_as}", "--",
-                   "lake", "--wfail", "-f", str(self.args.lakefile), "build", module]
+        command = ["lake", "--wfail", "-f", str(self.args.lakefile), "build", module]
         log_path = self.args.output / (stem + ".log")
         started, peak, cause = time.monotonic(), 0, None
         self.summary["active_command"] = {"argv": command, "cwd": str(ROOT), "shell": False,
@@ -172,6 +170,9 @@ class Driver:
             exit_code = self.child.wait()
         self.child = None
         output = log_path.read_text(errors="replace")
+        lower = output.lower()
+        if exit_code != 0 and ("failed to create thread" in lower or "pthread_create" in lower):
+            cause = cause or "runtime_thread_resource"
         receipt = {"module": module, "argv": command, "cwd": str(ROOT), "shell": False,
                    "exit": exit_code, "timeout_seconds": limit, "resource_stop": cause,
                    "elapsed_seconds": time.monotonic() - started, "peak_group_plus_driver_rss_bytes": peak,
@@ -183,6 +184,13 @@ class Driver:
         self.summary["stages"].append(receipt)
         self.summary.pop("active_command", None)
         self.checkpoint()
+        scaling = cause or any(word in lower for word in
+                              ("out of memory", "memory exhausted", "maximum memory", "bad_alloc",
+                               "resource temporarily unavailable", "timeout", "heartbeats",
+                               "recursion depth", "stack overflow"))
+        if (cause or exit_code != 0) and scaling:
+            # A runtime resource failure is never a successful negative control.
+            raise Obstruction(stem + ": " + str(cause or "Lean resource/scaling failure"))
         if negative:
             # addDecl(..., true) must reach the kernel and reject its false term.
             # Timeout, missing imports and tactic failures do not count.
@@ -191,11 +199,6 @@ class Driver:
                     "negative control did not produce the required kernel type mismatch")
             self.summary["negative_control"] = {"status": "kernel_rejected", "receipt": stem}
         elif cause or exit_code != 0:
-            lower = output.lower()
-            scaling = cause or any(word in lower for word in
-                                  ("memory", "timeout", "heartbeats", "recursion depth", "stack overflow"))
-            if scaling:
-                raise Obstruction(stem + ": " + str(cause or "Lean resource/scaling failure"))
             raise RuntimeError(stem + ": Lean source/proof failure; inspect retained log")
         else:
             require(banner and banner in output, stem + ": success banner missing")
@@ -487,7 +490,6 @@ def main():
             "Linux and bounded resource settings required")
     args.output.mkdir(parents=True, exist_ok=True)
     require(args.lakefile.is_file(), "root-owned lakefile missing")
-    require(shutil.which("prlimit") is not None, "Linux prlimit launcher missing")
     driver = Driver(args)
     try:
         load_candidate(driver)

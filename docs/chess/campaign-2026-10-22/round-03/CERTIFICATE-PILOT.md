@@ -1,11 +1,42 @@
 # Bounded concrete quotient certificate scalability pilot
 
-Status: source drafted and statically reviewed; remote execution pending. This
+Status: the first remote run stopped before Lean elaboration with a runtime
+thread-creation obstruction; the resource-launcher repair is ready for a bounded
+rerun. This
 experiment tests the cost of ordinary Lean kernel certificates for the measured
 114,487-state quotient. A pass covers only the requested sample, never all
 573,802 old states or a new accepted chess machine. The current seed proof
 remains the primary route; this experiment targets the additional measured
 459,315-state opportunity.
+
+## First remote attempt and bounded repair
+
+Run `39800616921`, commit `9b85ea9f54c1ad4c0a2bd7a4888e0784f7a63353`, validated
+the pinned finite input, selected the samples and retained every generated
+source/data file. The `Loaders` process then exited with signal 6 after 17.628
+seconds. Its entire 132-byte log reports:
+
+```
+libc++abi: terminating due to uncaught exception of type lean::exception: failed to create thread: Resource temporarily unavailable
+```
+
+The [saved summary](evidence/certificate-01-diagnostics/certificate-summary.json)
+reports 884,957,184 bytes peak combined process-group-plus-driver RSS and 126,640
+KiB driver peak RSS, with 19.329 seconds total elapsed. No data module or actual
+row theorem was checked, and the negative control was not run. The generated
+sample metadata measured maximum actual pure load/branch depth four.
+
+The first launcher imposed a 5.5-GiB virtual-address-space cap. The failure is
+consistent with that cap preventing Lean runtime thread reservations despite
+modest resident memory; it does not measure the kernel certificate's scaling.
+The accepted dependencies had prebuilt without that launcher. The repair
+removes `prlimit`/`RLIMIT_AS` entirely while preserving the same wall limits,
+512-MiB driver RSS watchdog, sampled 6-GiB combined RSS ceiling and process-group
+termination. Thread-creation failures now receive an explicit
+`runtime_thread_resource` resource classification, including during negative
+controls. The original retained summary's `failed` label is preserved unchanged;
+this report records the corrected diagnosis. No source-proof failure was
+observed, and the generated Lean templates remain unchanged for the rerun.
 
 ## Root-owned runner interface
 
@@ -27,7 +58,7 @@ CHESS_REMOTE=1 GITHUB_ACTIONS=true python scripts/chess_body_20261022/certificat
 ```
 
 The ordinary `Cryptids` Lean library suffices; no new library stanza is needed.
-Linux `prlimit` must be installed. The driver generates modules only in the
+The driver invokes `lake` directly and generates modules only in the
 remote ephemeral checkout, below
 `Cryptids/Chess/Optimisation/BodyCertificatePilot/`. The local worker authors only
 the Python generator/driver, this report and its leaf ledger. No local import,
@@ -145,11 +176,10 @@ honestly recorded as unrun, and the pilot stops.
 The 1,200-second global wall limit includes input validation, depth selection,
 generation, all stages and diagnostics. Each stage is further capped by the
 remaining global budget. Three seconds are reserved for final diagnostics.
-`prlimit` caps child address space at 5.5 GiB for the default 6-GiB setting.
 A 0.1-second watchdog covers driver RSS during every phase, with a 512-MiB driver
 allowance; child stages also sample combined process-group-plus-driver RSS and
 stop above 6 GiB. Resident-memory enforcement is sampled, not an instantaneous
-cgroup cap. No global driver address-space cap prevents diagnostic writes. The
+cgroup cap. There is no child or driver virtual-address-space cap. The
 root may additionally impose an outer cgroup limit. All children run in a new
 process group and are killed on budget exhaustion.
 
@@ -174,6 +204,8 @@ Four passes cover complete stage/output implementation; API direction and typed
 data honesty; independent static Lean/resource review; and failure/retention
 polish. The review confirmed the actual-body predicate and bounded-expression
 loaders, and prompted full-phase driver RSS coverage and race-safe child
-termination. Remote validation is still required. An import or data-loading
+termination. The first remote attempt exposed a launcher configuration
+obstruction before elaboration; the repair changes only resource launching and
+failure classification. Remote kernel validation is still required. An import or data-loading
 obstruction is useful evidence of this representation's cost, not permission
 to bypass the kernel or claim the 459,315-state reduction accepted.

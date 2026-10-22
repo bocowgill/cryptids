@@ -94,3 +94,5 @@ external seal and parent replay. Model advisory is not human approval or proof
 execution by the reviewer. All local work is source/savedmetadata/hash inspection.
 
 Acceptance checkpoint: C1–C6 now VERIFIED by complete remote run39797909133 iteration4 at780ad59 and final source/advisory/parent replay. C7 final commit/push remains pending rootG6. All earlier source-ready and pending notices above are historical. Exact acceptedcount998176; cumulativegoal saving1906447. G7costrankings refreshed.
+
+C7/rootG6 VERIFIED: acceptancerecorda2110e2 successfully pushed to fork. All35round02gates now met; no active leases or waves. Goalcontinues with round03/04.

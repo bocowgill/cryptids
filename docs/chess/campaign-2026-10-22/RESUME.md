@@ -43,7 +43,7 @@ The reviewer/seal are model advisory/provenance anchors, not human approval.
 - Prioritize large complete-machine savings; update
   `STATE-COUNTS-AND-OPPORTUNITIES.md` each major checkpoint. Small work must unlock
   an explicit large payoff. Separate accepted savings from finite measurements.
-- Latest account snapshot71%used/29%remaining. No numerical goal token budget,
+- Latest account snapshot73%used/27%remaining. No numerical goal token budget,
   no reset credit consumed. Continue useful bounded work and checkpoint often.
 
 ## Current primary route: whole-body quotient
@@ -99,8 +99,8 @@ model or experiment has been dispatched for this architectural scout.
 
 ## Immediate continuation
 
-1. Finish committing/pushing round02accepted evidence and refreshed ledgers;
-   close rootG6 only after actualpush. Preserve all accepted bytes thereafter.
+1. Accepted round02checkpointa2110e2 is pushed; all35gates are met and leases
+   released. Preserve all accepted bytes; finish the final ledger checkpoint.
 2. Inspect run39800616921's official result/artifact. Retain failures as evidence,
    repair ordinary sourceerrors boundedly, or reconsider representation ifkernel
    loading/row evaluation is too expensive. Continue toward full quotient only
@@ -110,7 +110,7 @@ model or experiment has been dispatched for this architectural scout.
 
 Workspace`/Users/bocowgill/.codex/worktrees/6ba9/cryptids`, branch
 `codex/chess-openevolve-pilot`. **Origin is upstream**; push explicitly to
-`git@github.com:bocowgill/cryptids.git`. Latest pushedcheckpoint9b85ea9;
+`git@github.com:bocowgill/cryptids.git`. Acceptedcheckpointa2110e2 is pushed;
 inspectgitstatus and history for subsequent checkpoints. Do not revert worker edits.
 
 Ignored active ledgers`.unlazy/chess-goal-20261022-r02`,r03,r04; copy snapshots

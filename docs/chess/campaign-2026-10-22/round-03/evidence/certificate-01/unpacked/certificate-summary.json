@@ -1,0 +1,143 @@
+{
+  "candidate_input": {
+    "class-map.u32le": {
+      "bytes": 2295208,
+      "sha256": "1602a0791ca45ba104952058c361f7296c62b7d6e4e599c98f197875a915f022"
+    },
+    "class-sizes.u32le": {
+      "bytes": 457948,
+      "sha256": "243d372e90acaad65f77added63d658e686b66978c5ad52cd21fd1f44f24acf0"
+    },
+    "quotient-rows.jsonl": {
+      "bytes": 5186063,
+      "sha256": "f41436a39c7aa35e74f3266c697d78b39e7bdf2e6d2810719d801e9d5e588531"
+    },
+    "representatives.u32le": {
+      "bytes": 457948,
+      "sha256": "da1ad64b6e8df18884e4439955d8a0ce870513cc1b6eab146fef4ad5e3325142"
+    }
+  },
+  "classification": "FINITE_PARTIAL_KERNEL_SCALABILITY_PILOT",
+  "commit": "9b85ea9f54c1ad4c0a2bd7a4888e0784f7a63353",
+  "completed_positive_sample_states": 0,
+  "driver_peak_rss_kib": 126640,
+  "driver_source": {
+    "bytes": 24840,
+    "sha256": "69564940846a83a309e4372178b4d34e104e2a19ceaf13f045c9933de38a7dd5"
+  },
+  "elapsed_seconds": 19.329333303,
+  "full_quotient_certified": false,
+  "generated_files": {
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/Data.lean": {
+      "bytes": 1636,
+      "sha256": "d3210d72b3697174ab0285583e79cc98ea7af4c23b38f1318760e91f23ee51c5"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/Loaders.lean": {
+      "bytes": 2643,
+      "sha256": "157f38facc759fd856bbeccf6904ca7c0b033e08f9730d8d92a5b46ad0c415ca"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/MapData.lean": {
+      "bytes": 639,
+      "sha256": "30476533e627e8c17bbb916838294b2f75e9f699bf0263ff09fef4e8a5d84fa2"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/Negative.lean": {
+      "bytes": 836,
+      "sha256": "cb916f8ab1b82e319f460e910ee3f7d85d315da01d29af5d2670fd3a1adfa18e"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/QuotientData.lean": {
+      "bytes": 690,
+      "sha256": "c80a51705bfe6fa2a29513bdb36ba580fbbc0c648211643f7be9ce0b30fbfbfe"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows4096.lean": {
+      "bytes": 1005032,
+      "sha256": "d560afd6dcd05d63aceaf3f731ced683671feda4a3d4f78bb0f0fdd5be40a630"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows512.lean": {
+      "bytes": 123557,
+      "sha256": "0b86ba65f8d76be846cacedd41e33922993c06b8b3827e4f7ebc4fce72d5ba4f"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean": {
+      "bytes": 15159,
+      "sha256": "20e16dfcf7aebf6bf77f3d4a55b4ca50cdf2d4000f7d10d156788403c035f7de"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/class-map.txt": {
+      "bytes": 3411569,
+      "sha256": "8463c78132c9704aadbb6732a1a87d0adeccf3385b9dc02cb9359299048da1b3"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient.rows": {
+      "bytes": 1838705,
+      "sha256": "7d2c41988d997c0f7a22c863e6ad2539180b7658de0879ee6c48626a80d44de7"
+    }
+  },
+  "limits": {
+    "child_address_space_bytes": 5905580032,
+    "driver_rss_bytes": 536870912,
+    "process_group_rss_bytes": 6442450944,
+    "rss_sampling_seconds": 0.1,
+    "wall_seconds": 1200
+  },
+  "negative_control": {
+    "status": "not_run"
+  },
+  "new_accepted_machine": false,
+  "obstruction": {
+    "later_stages_not_attempted": true,
+    "message": "Loaders: Lean source/proof failure; inspect retained log",
+    "stage": "Loaders",
+    "type": "RuntimeError"
+  },
+  "partial_certificate_only": true,
+  "quotient_states": 114487,
+  "requested_sample_states": [
+    64,
+    512,
+    4096
+  ],
+  "run_id": "39800616921",
+  "selection": {
+    "maximum_actual_pure_depth": 4,
+    "nested_sizes": [
+      64,
+      512,
+      4096
+    ],
+    "sampling_is_not_universal_coverage": true,
+    "snapshot": {
+      "bytes": 12552292,
+      "sha256": "592ea3c892d0e9d5a6db6ce31e3f590bde7973774bdc9a70cfe46cb6996cd39e"
+    }
+  },
+  "source_states": 573802,
+  "stage": "Loaders",
+  "stages": [
+    {
+      "argv": [
+        "/usr/bin/prlimit",
+        "--as=5905580032",
+        "--",
+        "lake",
+        "--wfail",
+        "-f",
+        "lakefile.chess-body-certificate-20261022.toml",
+        "build",
+        "Cryptids.Chess.Optimisation.BodyCertificatePilot.Loaders"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "elapsed_seconds": 17.628448536999997,
+      "exit": -6,
+      "expected_banner": "Body certificate loaders checked",
+      "expected_banner_found": false,
+      "log": "Loaders.log",
+      "log_info": {
+        "bytes": 132,
+        "sha256": "8359249f494db5081050f585a4c9d589f4edb85f31252481b841f195761fd4f1"
+      },
+      "module": "Cryptids.Chess.Optimisation.BodyCertificatePilot.Loaders",
+      "peak_group_plus_driver_rss_bytes": 884957184,
+      "resource_stop": null,
+      "shell": false,
+      "timeout_seconds": 60
+    }
+  ],
+  "status": "failed"
+}
