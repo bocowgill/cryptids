@@ -13,7 +13,7 @@ The user's personal hard stop is16:25. Prefer an earlier useful stopping point.
   build, foundation audit/negative controls, actual full-row export, independent
   static input/writer/toy fixtures/corruptions, and M2–M7 regressions. Deadline60min;
   no full quadratic chess startup execution. All heavy work is remote.
-- `39830984315`: ACTIVE packed-Nat quotient trial10 atfe8656c; unchanged1200s/6GiB
+- `39830984315`: completed/failure packed-Nat quotient trial10 atfe8656c; unchanged1200s/6GiB
   driver cap. Complete range/fidelity audit added; all actual-row obligations remain.
 - `39829682430`: completed/success diagnostic full01 at93389ce; all20commands,
   fullrows/fixtures/audits/regressions passed. Retained official full-01. Superseded
@@ -53,3 +53,10 @@ review otherwise passed. Final advisory/seal await corrected complete evidence.
 18:37UTC acceptance: finalreview, coordinatorseal,52hostilemetadata controls and
 portable replay passed. Accepted machine769344, saving228832; fullallocation and
 newimmutablepins saved. Trial10 quotient39830984315 remains active/experimental.
+
+18:42UTC trial10: packed Q loading passed53.650s/4,268,597,248bytes, full-private
+audit passed2.628s/4,223,442,944bytes. Combined Data hit6GiB after16.412s at
+6,456,266,752bytes. Total123.342s; zero actualrows and no negativecontrol. Official
+certificate-10 retained. Separate thin-data/fidelity facts from heavy chess imports
+is under source-only review; no larger cap or new accepted saving. All jobs finished.
+Root updated next pilot wrapper to validate all3116accepted769344pins.

@@ -77,13 +77,17 @@ Trial 09, run 39825520233 at `fc16528`, passed full raw-map build/audit but the
 typed executable quotient exceeded 6 GiB after 142.458 seconds. A produced olean
 is not a successful stage. Official `round-03/evidence/certificate-09` is retained.
 
-**Trial 10 is active:** run **39830984315**, source
+**Trial 10 completed with a narrower memory obstruction:** run **39830984315**, source
 `fe8656cdd316bf64e1317bf8a8aaa64c71e9450f`. The packed-Nat representation removes
 per-row dependent Fin proof data while preserving complete range/decoder fidelity,
 original readable rows, independent full inverse comparison, all actual-row
 checks, meaningful negative controls and the original **1,200 seconds / 6 GiB**
-caps. Only source review has passed. Inspect its genuine result before changing
-anything; do not assume a memory or proof improvement.
+caps. Packed Q now compiles in 53.650 seconds at 4,268,597,248 bytes and its full-private
+audit passes. Combined `Data` then exceeds 6 GiB after 16.412 seconds at
+6,456,266,752 bytes. No actual rows or negative control ran. Official
+`round-03/evidence/certificate-10` is retained. A thin data/fidelity module that
+avoids the heavy chess imports during global range checks is under source review.
+The next pilot wrapper now verifies all 3,116 new accepted pins.
 
 If concrete row normalization is the next obstruction, use `round-03/FAST-ROW-OPTION.md`
 and `PROOF-OPTIONS.md` for structural local-slot certificates. Reconsider repeated
@@ -92,8 +96,9 @@ representation tuning without measured progress. Full current ranking is in
 
 ## Next concrete actions
 
-1. Retain and inspect trial 10's official result. Give exact diagnostics to the
-   existing quotient worker; preserve all earlier failures and original caps.
+1. Review the proposed thin-data split against trial 10's precise combined-memory
+   obstruction. Preserve all earlier failures and original caps. A standalone
+   data pass alone does not establish actual-row scalability.
 2. If a small proof/source repair is needed, make one bounded exact-source retry.
    If the underlying memory obstruction persists, choose a structurally different
    certificate rather than raising the cap.

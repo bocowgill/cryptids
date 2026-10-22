@@ -22,7 +22,7 @@ def main():
     spec.loader.exec_module(runner)
     runner.WORK = WORK
     WORK.mkdir(parents=True, exist_ok=True)
-    pin_path = 'docs/chess/campaign-2026-10-22/accepted-998176-pins.json'
+    pin_path = 'docs/chess/campaign-2026-10-22/accepted-769344-pins.json'
     pins = json.loads((ROOT / pin_path).read_text())
     for name, digest in pins.items():
         assert runner.sha(ROOT / name) == digest, 'Accepted source/evidence changed: ' + name

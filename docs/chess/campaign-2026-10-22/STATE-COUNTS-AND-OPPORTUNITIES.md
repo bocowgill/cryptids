@@ -24,7 +24,7 @@ is **228,832**, with all decoder and bridge costs included.
 
 | Rank | Route | Plausible absolute saving | Proof difficulty | Implementation effort | Next decision |
 |---|---|---:|---|---|---|
-| 1 | Certify the measured whole-body quotient | **459,315**; prospective complete machine **310,029** | High: concrete kernel scalability and all actual transition rows | Bounded packed-data pilot in progress; generic quotient theorem exists | Determine whether packed executable rows remove the measured memory obstruction; retain the 1,200-second / 6-GiB caps |
+| 1 | Certify the measured whole-body quotient | **459,315**; prospective complete machine **310,029** | High: concrete kernel scalability and all actual transition rows | Packed Q now passes; combined data still exceeds 6 GiB | Test thin global data proofs before importing chess; retain 1,200-second / 6-GiB caps |
 | 2 | Structural certificates for store and suffix sharing if literal quotient proofs stall | Within the same 459,315; not additive | High: successor closure and a scalable universal partition proof | High, but potentially much smaller certificates | Use the first actual-row obstruction to choose local-slot proofs; do not repeat failed literal loading without a new mechanism |
 | 3 | Dictionary or grammar compression of the remaining packet | Measured dictionaries save 12,611–19,546 payload bits before lookup controls; net saving unproved | High: decoder, complete cleanup and exact original-input identity | Moderate to high | Defer until a fully paid controller estimate shows substantial net benefit |
 | 4 | Replace specialized interpreter controls with program-as-data interpretation | No defensible net estimate | Very high: new interpreter refinement and all overhead | High | Require an explicit whole-machine design and bounded net-saving pilot before implementation |
@@ -61,3 +61,9 @@ A failed proof attempt is not a disproof; a finite partition is not a kernel
 certificate. Promote a new best only after complete full-machine acceptance.
 No major launches after 19:45 UTC; begin shutdown at 20:00; save and pause by
 20:15 UTC (4:15 p.m. Eastern), or earlier if usage requires graceful wind-down.
+
+Trial 10 outcome: packed Q compilation and full-private audit pass. The combined
+Data module still exceeds 6 GiB before any actual-row proof. This is measured
+progress in table representation, not a certified state reduction. The next
+source review targets separating global data facts from the large chess imports;
+eventual complete row certification must still survive their combined environment.
