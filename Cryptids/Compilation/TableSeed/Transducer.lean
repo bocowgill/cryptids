@@ -156,8 +156,10 @@ theorem operand_run (tag : Fin 7) (side : Fin 2) (value : Fin 8192)
       emitLetter (.operandCons tag side) :: out, fieldBits value ++ raw, gap⟩
       ⟨afterOperand tag side, W value.val ++ out, raw, gap + 13⟩ := by
     have unseen : decide ((0 : Nat) ≠ 0) = false := rfl
+    have zeroPosition (bound : (0 : Nat) < 13) : (⟨0, bound⟩ : Fin 13) = 0 :=
+      Fin.ext rfl
     simpa only [emitTarget, emitLetter, operandBoundary, Nat.zero_lt_succ, ↓reduceDIte,
-      unseen, W_zero, consLetter, List.singleton_append, fieldBits_value,
+      unseen, zeroPosition, W_zero, consLetter, List.singleton_append, fieldBits_value,
       fieldBits_length] using rest
   exact first.trans ready
 
