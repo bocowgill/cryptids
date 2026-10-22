@@ -911,3 +911,22 @@ their resource cost remain unverified.
 An import or data-loading
 obstruction is useful evidence of this representation's cost, not permission
 to bypass the kernel or claim the 459,315-state reduction accepted.
+
+## Trial 13 retained outcome and wind-down
+
+Official completed/failure run39839073884 at
+c04fba3ee1443a9b734ca0a8a45543d3d06e8ab3 is retained in evidence/certificate-13.
+DriverSHA8cc0dfedf85117e4dbf41cc2c2f47da2548bb92fed500277a2c463838de883a5.
+Complete chunked map_count kernel build passes47.695s at2,836,414,464bytes;
+full-private audit passes2.839s,1root/5,212dependencies/noaxioms. MapPrelude also
+passes. MapValid exhausts the remaining61.702s of the shared120s data group,
+observed61.782s/2,756,288,512bytes, exit-9/stage_wall_budget. This is not a memory
+failure or evidence validity alone exceeds120s. Logs replay dependencies only;
+no validity theorem/chunk completion credited. Total256.468s,driver128268KiB.
+Full data=false, actualrows0, negative unrun, G2 remains open. Accepted769344 fixed.
+Parent checked exact source,3116frozenpins,13logs,1200generatedfiles,archive hashes.
+Source frozen. Next resume task is bounded durable validity-batch timing markers,
+not a cap increase; module+audit must pass before proof credit. Current target
+build products are intentionally deleted for fresh checking; dependencies replay
+from cache. No local proof/model execution. Campaign stops now at a useful point
+before16:15Eastern and in response to local memory pressure; no further launch.

@@ -1,0 +1,34 @@
+2026-10-22T14:13:12.025Z dispatch body-pilot opened: leaf-1.1
+2026-10-22T14:13:57.527Z dispatch body-pilot started leaf-1.1 as /root/goal_body_quotient_pilot
+2026-10-22T14:13:57.569Z dispatch body-pilot sealed
+2026-10-22T14:28:08.465Z dispatch body-pilot returned leaf-1.1
+2026-10-22T14:34:28.506Z dispatch proof-scout opened: leaf-1.2
+2026-10-22T14:35:03.807Z dispatch proof-scout started leaf-1.2 as /root/goal_body_proof_scout
+2026-10-22T14:35:03.852Z dispatch proof-scout sealed
+2026-10-22T14:41:42.309Z dispatch proof-scout returned leaf-1.2
+2026-10-22T14:43:25.949Z dispatch certificate-pilot opened: leaf-2.1
+2026-10-22T14:43:54.406Z dispatch certificate-pilot started leaf-2.1 as /root/goal_body_quotient_pilot
+2026-10-22T14:43:54.454Z dispatch certificate-pilot sealed
+2026-10-22T15:00:32.846Z dispatch certificate-pilot returned leaf-2.1
+2026-10-22T17:46:02.277Z dispatch resume-quotient opened: leaf-2.1
+2026-10-22T17:46:36.867Z dispatch resume-quotient started leaf-2.1 as /root/goal_body_quotient_pilot
+2026-10-22T17:46:36.911Z dispatch resume-quotient sealed
+2026-10-22T17:48:26.341Z dispatch resume-quotient returned leaf-2.1
+2026-10-22T18:08:40.316Z dispatch quotient-representation opened: leaf-2.1
+2026-10-22T18:09:08.083Z dispatch quotient-representation started leaf-2.1 as /root/goal_body_quotient_pilot
+2026-10-22T18:09:08.128Z dispatch quotient-representation sealed
+2026-10-22T18:23:12.433Z dispatch quotient-representation returned leaf-2.1
+2026-10-22T18:44:18.609Z dispatch thin-data opened: leaf-2.1
+2026-10-22T18:44:18.654Z dispatch thin-data started leaf-2.1 as /root/goal_body_quotient_pilot
+2026-10-22T18:44:18.698Z dispatch thin-data sealed
+2026-10-22T18:48:22.833Z dispatch thin-data returned leaf-2.1
+2026-10-22T18:58:28.470Z dispatch map-isolation opened: leaf-2.1
+2026-10-22T18:58:46.724Z dispatch map-isolation started leaf-2.1 as /root/goal_body_quotient_pilot
+2026-10-22T18:58:46.772Z dispatch map-isolation sealed
+2026-10-22T19:01:39.353Z dispatch map-isolation returned leaf-2.1
+2026-10-22T19:09:34.522Z dispatch map-chunk-proof opened: leaf-2.1
+2026-10-22T19:09:55.348Z dispatch map-chunk-proof started leaf-2.1 as /root/goal_body_quotient_pilot
+2026-10-22T19:09:55.443Z dispatch map-chunk-proof sealed
+2026-10-22T19:19:13.195Z dispatch map-chunk-proof returned leaf-2.1
+
+2026-10-22T19:35:13.483469+00:00 WIND-DOWN: Research stopped for user deadline and local memory pressure. Evidence retained; all remote jobs complete and leases released. Final Git checkpoint and goal pause follow. No further launch.

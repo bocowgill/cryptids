@@ -1,0 +1,7 @@
+# Whole-body quotient opportunity
+OWNS: docs/chess/campaign-2026-10-22/round-03/**
+
+- [x] G1: A bounded remote pilot measures a complete exact body partition and independently checks every source row, or retains a precise incomplete obstruction.
+  EVIDENCE: Official completed successful run 39795919458 at 8cd145e0f7f13a23e50a87bac376ac0b5dc036dd, retained round-03/evidence/pilot-final. Artifact 12433517194 SHA256 86d4e8c30744e0707cebfe838d7542b70a41e53666965897deb876b36cf82bcd; retained summary reports 573802 source states /1147604 source rows and114487 quotient states /228974 quotient rows, exact total surjection and both-bit commuting transitions, missing-row reflection, meaningful goldens and hostile controls. Bounded pilot21.027s/287416KiB. This closes the finite measurement gate only: actual-body Lean rows remain zero and the later certificate leaf2.1:G2 remains open.
+- [x] G2: The report ranks absolute full-machine savings and certification effort against the live campaign costs without claiming a new accepted machine.
+  EVIDENCE: Parent reviewed STATE-COUNTS-AND-OPPORTUNITIES.md against the accepted round04 RESULTS and retained finite quotient summary on2026-10-22. Accepted769344 and complete paid breakdown are separate from prospective459315 saving/310029 full machine. Literal certificate memory, structural alternatives, proof effort and implementation effort are ranked. IMPORT-BOUNDARY.md records failure-stage-specific next decisions without asserting success. Historical pinned reports remain unchanged.

@@ -1,0 +1,11 @@
+{
+  "scope": "File-byte preservation only; no Lean, simulation, model or mathematical counting",
+  "checked_at_utc": "2026-10-22T19:26:16.747936+00:00",
+  "source_commit": "096a5980b878c8322dba1b5523818e610a358189",
+  "accepted_states": 769344,
+  "accepted_checkpoint": "100ed94",
+  "pin_manifest_sha256": "43942091ac61ca4d93001fb259eb8e0694bbc499e5279658ac10d3836f166102",
+  "entries": 3116,
+  "mismatches": [],
+  "phase": "wind-down preparation; final remote pilot remains active"
+}

@@ -1,0 +1,14 @@
+{
+  "prepared_at_utc": "2026-10-22T19:35:13.483469+00:00",
+  "reason": "User deadline and local memory pressure; useful final pilot checkpoint",
+  "remote_in_progress": 0,
+  "remote_queued": 0,
+  "remote_waiting": 0,
+  "recent_branch_runs_completed": 40,
+  "campaign_leases": [],
+  "workers": "Returned; latest quotient worker and both reviewers confirmed completed",
+  "accepted_states": 769344,
+  "research_complete": false,
+  "goal_pause_api": "Final action after checkpoint commit/push; see final chat confirmation",
+  "local_memory_note": "Codex renderer about2.6GiB RSS and backend about1.4GiB; shared app processes not killed"
+}

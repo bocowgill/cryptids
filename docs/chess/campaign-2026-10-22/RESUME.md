@@ -1,19 +1,16 @@
-# Chess compression campaign — live checkpoint, 2026-10-22
+# Chess campaign — shutdown checkpoint, October 22, 2026
 
-The user resumed the existing goal from `fc16528`. The goal is active and the
-optimization objective remains open. The previous pause snapshot is immutable
-in `pause-2026-10-22/`. Latest account usage observation: 86% consumed at 19:16 UTC;
-usage is shared across the account and may change independently of this task.
+Research has stopped at a useful checkpoint, before the user's 4:15 p.m. Eastern
+hard deadline. The user also reported local memory pressure, so perform no further
+research, launches, or large local inspections in this session. All remote runs
+are complete and campaign leases are released. This disk snapshot precedes the
+final commit/push and goal-pause API call; the final chat response confirms those.
+A time/resource stop is not successful completion or proof of optimality.
+Resume the existing goal only when the user requests it; do not create a new goal.
 
-## Hard wind-down
-
-Finish a graceful checkpoint and pause **by October 22, 2026, 4:15 p.m. Eastern
-(20:15 UTC)**. The user's personal hard stop is 4:25 p.m. Stop substantial launches
-by 19:45 UTC; begin shutdown at 20:00. Stop workers and remote jobs, retain their
-results/diagnostics, update this handoff, commit and push a clean checkpoint,
-then mark the existing goal paused. If usage approaches exhaustion first, prioritize
-this same handoff. A time or resource stop is not successful completion or a proof
-of optimality. Do not reset usage or create a replacement goal.
+Latest usage observation: 88% consumed at 19:22:27 UTC. The account is shared.
+The fresh shutdown packet is `pause-deadline-2026-10-22/`; earlier pause and
+accepted snapshots remain immutable.
 
 ## Latest accepted machine
 
@@ -67,81 +64,60 @@ a reviewed ten-step resource-counter correction.
 - Root owns Git/network/dispatch/retention. Workers use disjoint files. Existing
   workers are idle unless named as active in `ACTIVE-RUN.md`.
 
-## Highest-priority unfinished route
+## Experimental route and exact stopping point
 
-The finite whole-body quotient has 114,487 states versus the accepted 573,802-state
-body. Its prospective saving is **459,315** and the complete machine with the
-accepted initializer would have **310,029** states. **No actual-body quotient row
-has yet been kernel-certified.** The generic quotient theorem and finite evidence
-do not close the concrete certificate.
+The finite whole-body quotient has 114,487 states versus the accepted
+573,802-state body. Its prospective saving is **459,315**, giving a prospective
+complete machine of **310,029**. This reduction is **not certified or accepted**.
+Zero actual-body quotient transition rows have been kernel-certified.
 
-Trial 09, run 39825520233 at `fc16528`, passed full raw-map build/audit but the
-typed executable quotient exceeded 6 GiB after 142.458 seconds. A produced olean
-is not a successful stage. Official `round-03/evidence/certificate-09` is retained.
+Final trial 13: completed/failure run **39839073884**, source
+`c04fba3ee1443a9b734ca0a8a45543d3d06e8ab3`, retained in
+`round-03/evidence/certificate-13/`. Its named chunk proof establishes complete
+`map_count = 573802` by ordinary kernel checking and full-private audit:
+one root, 5,212 dependencies, no axioms. Build: 47.695s, peak 2,836,414,464 bytes;
+audit: 2.839s. The previous whole-map count exceeded 6 GiB in trial 12.
 
-**Trial 10 completed with a narrower memory obstruction:** run **39830984315**, source
-`fe8656cdd316bf64e1317bf8a8aaa64c71e9450f`. The packed-Nat representation removes
-per-row dependent Fin proof data while preserving complete range/decoder fidelity,
-original readable rows, independent full inverse comparison, all actual-row
-checks, meaningful negative controls and the original **1,200 seconds / 6 GiB**
-caps. Packed Q now compiles in 53.650 seconds at 4,268,597,248 bytes and its full-private
-audit passes. Combined `Data` then exceeds 6 GiB after 16.412 seconds at
-6,456,266,752 bytes. No actual rows or negative control ran. Official
-`round-03/evidence/certificate-10` is retained. A thin data/fidelity split that
-avoids heavy chess imports during global range checks passed source review and
-completed remotely as **trial 11, run 39834919606**, at
-`e054e37c6e4c421e3834b0ecaecf89b47ba2db4a`. Its four replacement build/audit
-stages share the original 120-second Data budget. **MapChecks alone exceeded
-6 GiB after 20.693 seconds at 6,456,770,560 bytes**, before any stage in that
-group passed. Both literal datasets again built and passed private audits.
-This rules out chess imports as the sole cause, but does not identify which
-map invariant triggered the allocation. Official `certificate-11` is retained;
-actual-body row credit remains zero and the negative control remains unrun.
-The next pilot wrapper now verifies all 3,116 new accepted pins.
+MapValid then exhausted its **remaining 61.702 seconds** of the unchanged shared
+120-second data allowance (observed 61.782s, peak 2,756,288,512 bytes). This is a
+time obstruction, not a memory failure, and does not show validity needs more
+than 120 seconds. Logs contain replayed dependencies only: no validity theorem
+or individual chunk completion receives credit. Only MapPrelude and MapCount
+completed; complete data=false, actual rows=0, negative unrun. Total 256.468s.
+All original proof obligations and 1,200s/6GiB global limits remain.
 
-**Trial 12 identifies global count normalization:** completed/failure run
-**39836604660**, source `9585998b9402acbc86523fae7d62ea6e56402b66`, official
-`certificate-12`. The generic MapPrelude build and full-private audit pass
-(4.155s/2,478,567,424 bytes;3.343s/4,177,084,416 bytes). MapCount alone is killed
-after20.701s at6,456,549,376 bytes over the unchanged6GiB cap. One Data-group
-stage completed; complete data=false, actual rows=0, negative unrun. This justifies
-testing compositional chunk proofs rather than a body-import refactor.
+Parent metadata checks bind the exact source commit, all 3,116 accepted pins,
+13 stage logs, 1,200 generated files and both official archives. Accepted machine
+and every frozen file remain unchanged. No additional reduction is claimed.
 
-If concrete row normalization is the next obstruction, use `round-03/FAST-ROW-OPTION.md`
-and `PROOF-OPTIONS.md` for structural local-slot certificates. Reconsider repeated
-representation tuning without measured progress. Full current ranking is in
-`STATE-COUNTS-AND-OPPORTUNITIES.md`.
+## Next concrete task after user resumes
 
-## Next concrete actions
+1. Add bounded durable timing markers between validity chunk batches in the
+   experimental driver, then run one reviewed remote pilot under the unchanged
+   shared data budget. Markers are diagnostics only until build and audit pass.
+   Preserve fresh target checking; cached dependency replay is intentional.
+2. Use the resulting timing evidence to select a smaller compositional proof or
+   structural certificate. Do not simply raise caps or repeat an identical run.
+   Read `round-03/CHUNK-PROOF-OPTION.md`, `FAST-ROW-OPTION.md`, `PROOF-OPTIONS.md`
+   and the ranked `STATE-COUNTS-AND-OPPORTUNITIES.md` before changing direction.
+3. Complete cache/range/codec/body relations, actual-row pilot and meaningful
+   negative before any full quotient certificate. A later acceptance must cover
+   every original transition, the complete blank-tape machine and all full-machine
+   verification gates. Partial proof progress never changes the accepted count.
 
-1. Retain **trial 13, run39839073884**, launched at source
-   `c04fba3ee1443a9b734ca0a8a45543d3d06e8ab3`. The source-reviewed frozen
-   chunk-proof revision uses named map subtrees of at most 1,024 leaves with exact
-   raw data/midpoint shape; local ordinary-kernel proofs compose using child
-   theorem constants, avoiding one global count/cache/range reduction. Keep
-   exact statements, full-private audits and the shared 120s Data budget plus
-   1200s/6GiB total. See `round-03/CHUNK-PROOF-OPTION.md`. Smoke has24 audited
-   roots, MapPrelude6 and final MapChecks6/Data19. No memory or actual-row
-   improvement is assumed before its exact remote result.
-2. If a small proof/source repair is needed, make one bounded exact-source retry.
-   If the underlying memory obstruction persists, choose a structurally different
-   certificate rather than raising the cap.
-3. Any quotient success is partial until every original transition is certified,
-   the complete blank-tape machine is linked and all acceptance gates are repeated.
-4. Maintain a pushed checkpoint and obey the hard wind-down above.
+Historical failures 09–13 remain retained. Trial 09: typed quotient memory;
+10: packed quotient passes, combined Data memory; 11: isolated MapChecks memory;
+12: isolated MapCount memory; 13: chunked MapCount passes, MapValid shared time.
+Remote cache repair reduced unchanged dependency setup from 645.964s to 5.393s.
 
-At 86% usage this is the final substantive pilot planned for the current window.
-Retain its outcome and wind down at that useful checkpoint; allow only a small,
-clearly bounded source repair if necessary and affordable. Larger follow-on
-representation or actual-row work belongs in the next resumed round.
+## Resume logistics and local memory
 
 Workspace `/Users/bocowgill/.codex/worktrees/6ba9/cryptids`, branch
-`codex/chess-openevolve-pilot`. **Origin is upstream: do not push origin.** Use
-`git@github.com:bocowgill/cryptids.git`, the same branch, for authorized checkpoints.
-No upstream communication is authorized.
-
-Remote setup improvement for the next pilot: the body workflow now restores the
-fresh accepted table cache and saves subsequent body caches. Trial 10 spent
-645.964 seconds rebuilding unchanged base modules; this infrastructure repair
-changes no proof, source requirement, machine count or resource cap. Trial 11
-measured the same base build at 5.393 seconds with the repaired cache.
+`codex/chess-openevolve-pilot`. Origin is upstream: **never push origin**.
+Authorized checkpoint remote: `git@github.com:bocowgill/cryptids.git`, same branch.
+No outreach. Keep tool output compact, avoid loading huge generated source or
+agent histories into chat, and use bounded metadata summaries. The local process
+snapshot during shutdown showed the Codex renderer at about 2.6 GiB RSS and its
+backend at about 1.4 GiB; these are shared app processes and were not killed.
+After this checkpoint the user can quit/reopen the app to release its memory.
+Do not restart or terminate unrelated user applications.

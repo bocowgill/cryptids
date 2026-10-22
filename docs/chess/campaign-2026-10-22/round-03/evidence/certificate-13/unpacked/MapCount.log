@@ -1,0 +1,9 @@
+ℹ [3255/3258] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.Loaders
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/Loaders.lean:47:0: Body certificate loaders checked
+ℹ [3256/3258] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.MapData
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/MapData.lean:13322:0: Complete body class map loaded
+ℹ [3257/3258] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.MapPrelude
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/MapPrelude.lean:56:0: Body class map prelude checked
+ℹ [3258/3258] Built Cryptids.Chess.Optimisation.BodyCertificatePilot.MapCount (45s)
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/MapCount.lean:15367:0: Complete body class map count checked
+Build completed successfully (3258 jobs).

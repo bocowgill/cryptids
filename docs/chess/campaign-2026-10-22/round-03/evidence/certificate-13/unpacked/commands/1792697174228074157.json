@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_body_20261022/certificate_pilot.py",
+    "--lakefile",
+    "lakefile.chess-body-certificate-20261022.toml",
+    "--output",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-body-certificate-20261022",
+    "--seconds",
+    "1200",
+    "--memory-gib",
+    "6"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "Bounded body kernel certificate pilot stopped: MapValid: stage_wall_budget\n",
+  "output_sha256": "2ccd8acc5bf64b73874cdba05a253b1318e87f8bc365cd694fbe599435b67263",
+  "timed_out": false,
+  "timeout_seconds": 1260,
+  "elapsed_seconds": 256.525231564,
+  "cumulative_children_peak_rss_kib": 3863604
+}

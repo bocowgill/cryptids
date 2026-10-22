@@ -1,0 +1,20 @@
+{
+  "scope": "Retained metadata/source-byte checks only; no local model, count or Lean execution",
+  "checked_at_utc": "2026-10-22T19:33:32.312404+00:00",
+  "run_id": 39839073884,
+  "commit": "c04fba3ee1443a9b734ca0a8a45543d3d06e8ab3",
+  "source_manifest_matched_git_commit": true,
+  "accepted_pin_census": 3116,
+  "stage_logs_matched": 13,
+  "generated_file_hashes_matched": 1200,
+  "archive_hashes_matched": true,
+  "completed_data_stages": [
+    "MapPrelude",
+    "MapCount"
+  ],
+  "first_failed_stage": "MapValid",
+  "resource_stop": "stage_wall_budget",
+  "remaining_validity_seconds": 61.70158980900004,
+  "actual_body_rows_certified": 0,
+  "accepted_states_unchanged": 769344
+}
