@@ -20,6 +20,8 @@ and proves both directions of halting equivalence from arbitrary configurations.
 namespace ConjectureMachines.Optimisation.SelectiveBinary
 open Turing StateTransition ConjectureMachines.Compilation
 
+set_option backward.isDefEq.respectTransparency false
+
 variable {q r : Nat}
 
 /-- Main controls retain the original numeric indices. -/
@@ -192,6 +194,8 @@ theorem table_compile [NeZero q] (M : TM0.Machine Bool (Fin q))
     table returnAt findReturn (Binary.compile M) = compile M returnAt findReturn := by
   apply congrArg Machine.mk
   funext s a
+  change (table returnAt findReturn (Binary.compile M)).transition s a =
+    (compile M returnAt findReturn).transition s a
   refine Fin.addCases (fun i ↦ ?_) (fun k ↦ ?_) s
   · simp only [table, decode_main, Binary.compile_main, compile_main]
     cases row : M i (Binary.decodeSymbol a) with
