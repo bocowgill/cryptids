@@ -9,9 +9,11 @@ The user's personal hard stop is16:25. Prefer an earlier useful stopping point.
 
 ## Remote jobs
 
-- `39836604660`: active map-isolation trial 12 at
+- `39836604660`: completed/failure map-isolation trial 12 at
   `9585998b9402acbc86523fae7d62ea6e56402b66`. Source reviewed/frozen; all eight
   data stages share the same120s and every original obligation remains.
+  MapPrelude build/audit pass; MapCount alone hits6GiB after20.701s. Official
+  `certificate-12` retained. Zero actual-body row credit.
 - `39834919606`: completed/failure thin-data trial 11 at `e054e37c6e4c421e3834b0ecaecf89b47ba2db4a`.
   MapChecks, QuotientChecks, Data and BodyRelation each require their full-private
   audit and share the previous 120-second Data allowance. Total limits remain
@@ -90,3 +92,10 @@ No representation rewrite is authorized. Base setup improved to5.393s.
 19:03 UTC: trial12 dispatched. Leaf2.1 source frozen; independent source scout
 is inspecting reusable chunk-proof patterns only, conditional on a concrete
 normalization obstruction. No further implementation or remote route authorized.
+
+19:10 UTC: trial12 isolates global count normalization after successful generic
+prelude/audit. Authorize one bounded named-map-chunk proof revision, leaf2.1,
+wave `map-chunk-proof`; source edits only pending review/root dispatch. All
+count/cache/range proofs compose child theorem constants instead of globally
+unfolding the literal tree. Existing proofs, complete audits, exact data and
+all caps remain. No active remote jobs. Account usage83%at19:07.

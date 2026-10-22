@@ -24,7 +24,7 @@ is **228,832**, with all decoder and bridge costs included.
 
 | Rank | Route | Plausible absolute saving | Proof difficulty | Implementation effort | Next decision |
 |---|---|---:|---|---|---|
-| 1 | Certify the measured whole-body quotient | **459,315**; prospective complete machine **310,029** | High: concrete kernel scalability and all actual transition rows | Packed Q passes; even separate map invariants exceed 6 GiB | Isolate count/cache/range normalization under the original shared 120-second Data and 1,200-second / 6-GiB total caps |
+| 1 | Certify the measured whole-body quotient | **459,315**; prospective complete machine **310,029** | High: concrete kernel scalability and all actual transition rows | Packed Q passes; isolated full-map count exceeds 6 GiB | Test named chunk proofs composed from child theorems under the original shared 120-second Data and 1,200-second / 6-GiB total caps |
 | 2 | Structural certificates for store and suffix sharing if literal quotient proofs stall | Within the same 459,315; not additive | High: successor closure and a scalable universal partition proof | High, but potentially much smaller certificates | Use the first actual-row obstruction to choose local-slot proofs; do not repeat failed literal loading without a new mechanism |
 | 3 | Dictionary or grammar compression of the remaining packet | Measured dictionaries save 12,611–19,546 payload bits before lookup controls; net saving unproved | High: decoder, complete cleanup and exact original-input identity | Moderate to high | Defer until a fully paid controller estimate shows substantial net benefit |
 | 4 | Replace specialized interpreter controls with program-as-data interpretation | No defensible net estimate | Very high: new interpreter refinement and all overhead | High | Require an explicit whole-machine design and bounded net-saving pilot before implementation |
@@ -74,3 +74,9 @@ Thus chess imports are not the sole cause. The first failing invariant remains
 unknown; a small isolated count/cache/range experiment is authorized before
 selecting packed-word data or a structural proof certificate. No body import
 refactor is justified by this new failure. Accepted savings remain unchanged.
+
+Trial12 passes generic MapPrelude and audit, then MapCount alone exceeds6GiB
+after20.701s. This identifies global count normalization as a measured obstacle.
+The next bounded source revision follows the repository's existing named chunk
+proof pattern. Its memory and runtime benefit remain unmeasured; no actual rows
+or full quotient have been certified. See `round-03/CHUNK-PROOF-OPTION.md`.

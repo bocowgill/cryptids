@@ -1,0 +1,14 @@
+{
+  "scope": "Retained metadata/source-byte checks only; no local model, count or Lean execution",
+  "run_id": 39836604660,
+  "commit": "9585998b9402acbc86523fae7d62ea6e56402b66",
+  "source_manifest_matched_git_commit": true,
+  "accepted_pin_census": 3116,
+  "stage_logs_matched": 11,
+  "completed_data_stages": [
+    "MapPrelude"
+  ],
+  "first_failed_stage": "MapCount",
+  "actual_body_rows_certified": 0,
+  "accepted_states_unchanged": 769344
+}

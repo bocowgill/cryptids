@@ -2,7 +2,7 @@
 
 The user resumed the existing goal from `fc16528`. The goal is active and the
 optimization objective remains open. The previous pause snapshot is immutable
-in `pause-2026-10-22/`. Latest account usage observation: 79% consumed at 18:57 UTC;
+in `pause-2026-10-22/`. Latest account usage observation: 83% consumed at 19:07 UTC;
 usage is shared across the account and may change independently of this task.
 
 ## Hard wind-down
@@ -99,6 +99,14 @@ map invariant triggered the allocation. Official `certificate-11` is retained;
 actual-body row credit remains zero and the negative control remains unrun.
 The next pilot wrapper now verifies all 3,116 new accepted pins.
 
+**Trial 12 identifies global count normalization:** completed/failure run
+**39836604660**, source `9585998b9402acbc86523fae7d62ea6e56402b66`, official
+`certificate-12`. The generic MapPrelude build and full-private audit pass
+(4.155s/2,478,567,424 bytes;3.343s/4,177,084,416 bytes). MapCount alone is killed
+after20.701s at6,456,549,376 bytes over the unchanged6GiB cap. One Data-group
+stage completed; complete data=false, actual rows=0, negative unrun. This justifies
+testing compositional chunk proofs rather than a body-import refactor.
+
 If concrete row normalization is the next obstruction, use `round-03/FAST-ROW-OPTION.md`
 and `PROOF-OPTIONS.md` for structural local-slot certificates. Reconsider repeated
 representation tuning without measured progress. Full current ranking is in
@@ -106,12 +114,13 @@ representation tuning without measured progress. Full current ranking is in
 
 ## Next concrete actions
 
-1. Inspect and retain **trial 12, run39836604660**, active at source
-   `9585998b9402acbc86523fae7d62ea6e56402b66`. The source-reviewed isolation has
-   an audited generic prelude, separately measured count/cache/range proofs,
-   then the same complete map union and later stages. All eight replacements
-   still share the original 120-second Data budget.
-   A standalone data pass alone does not establish actual-row scalability.
+1. Finish the one authorized source-only chunk-proof revision in leaf2.1,
+   wave `map-chunk-proof`. Named map subtrees of at most1,024 leaves retain exact
+   raw data/midpoint shape; local ordinary-kernel proofs compose using child
+   theorem constants, avoiding one global count/cache/range reduction. Keep
+   exact statements, full-private audits and the shared120s Data budget plus
+   1200s/6GiB total. See `round-03/CHUNK-PROOF-OPTION.md`. Root dispatch requires
+   source review; no memory or actual-row improvement is assumed.
 2. If a small proof/source repair is needed, make one bounded exact-source retry.
    If the underlying memory obstruction persists, choose a structurally different
    certificate rather than raising the cap.
