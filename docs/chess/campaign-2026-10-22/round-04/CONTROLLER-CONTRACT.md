@@ -88,3 +88,5 @@ and 2D allocations, complete fixture/control counts, resource bounds and explici
 `universal_proof: false`, `new_accepted_machine: false`. Report complete candidate
 totals `747662+D` and conditional `288347+D`, and prospective saving `250514-D`.
 Count the retained 216-state expander and both one-state bridges in those totals.
+Required binding keys are `controller_sha256`, `controller_states`, and
+`transition_rows`; the root wrapper checks these against the unchanged table.

@@ -77,7 +77,12 @@ Do not raise the budget: the source-reviewed next representation uses rawNat
 balanced leaves, a complete kernel range certificate, and universal lookup
 identity to ensure Fin.ofNat preserves every measured class. Typed quotient,
 actualRowAt, strict audits, negativecontrol and limits remain unchanged.
-Root is checkpointing and dispatching this one bounded representation pilot.
+RawNat pilot39808462055 at3b4d91a completed with a strict style failure:
+MapData reached its loadedbanner in131.674seconds, peak5983715328bytes, but the
+maxHeartbeats explanation must follow the scoped option rather than precede it.
+No successful data+audit or row proof yet. Official certificate-04 evidence is
+retained. Worker is repairing every generated explanation placement and adding
+a cheap preflight if appropriate; the same budgets and proof obligations remain.
 All attempts retain full map/table/generated sources. Driver1200seconds/6GiB
 sampledRSS; prebuild900secondscap. If a true loading/row scaling obstruction
 appears, reconsider literal certificates before a million-row commitment.
@@ -114,7 +119,7 @@ Root authorized a bounded physicalcontroller pilot after packetidentitypassed.
 geometry andeverychargedcontrol. Leaf2.1 goal_seed_controller owns newcontroller.py
 andCONTROLLER.md; leaf2.2 goal_selective_fixtures owns independent
 controller_fixtures.py andCONTROLLER-FIXTURES.md. Wavecontroller-pilot sealed;
-bothsourceworkers active. Root owns newcontrollerworkflow/controller_verify.py,
+both source workers have returned reviewed complete implementations. Root owns newcontrollerworkflow/controller_verify.py,
 pins,git,dispatch,retention. ALL construction/counting/simulation remoteonly.
 Combined600seconds/4GiB; D≤50000; nofullquadraticchesssimulation. Universaldecoder
 proof andfullmachineacceptance remain separate futuregates. Firstnewworkflow
