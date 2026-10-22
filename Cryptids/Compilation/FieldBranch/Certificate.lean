@@ -38,7 +38,7 @@ theorem source_step (v : RuntimeModel.Store) (tape : Tape Symbol) :
     cases marker : tape.head.1 <;>
       simp [TM1.step, FieldReturn.sourceMachine, sourceLabel, TM2to1.tr, TM1.stepAux,
         RuntimeModel.s003, RuntimeModel.s001, RuntimeModel.s002, RuntimeModel.table5,
-        TM2to1.trNormal, marker, target, pushLabel, SharedModel.pushFn, FieldReturn.symbolCode]
+        TM2to1.trNormal, marker, target, FieldReturn.symbolCode]
   | some value =>
     cases value <;> cases marker : tape.head.1 <;>
       simp [TM1.step, FieldReturn.sourceMachine, sourceLabel, TM2to1.tr, TM1.stepAux,
