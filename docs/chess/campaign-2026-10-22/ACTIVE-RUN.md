@@ -39,3 +39,9 @@ checks/audits/negative controls. Source edits only until root dispatch. It targe
 
 Keep all frozen and accepted sources/evidence fixed, local work lightweight, and
 outreach on hold. Accepted count never changes on component/proof progress alone.
+
+18:22UTC update: full01 run39829682430 completed/success and official packet
+retained under round04/evidence/full-01. Fresh independent review found ten
+boundary steps omitted from the resource counter (no semantic/count defect).
+Fix1c8334a charges them; final full run39830779431 at1c8334a is active. Source
+review otherwise passed. Final advisory/seal await corrected complete evidence.

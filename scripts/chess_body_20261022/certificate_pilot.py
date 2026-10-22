@@ -95,7 +95,7 @@ class Driver:
             "audit_execution": "compiled_lean_executable",
             "map_representation": "literal_nat_balanced_tree_with_kernel_range_certificate",
             "map_native_code_generation": False,
-            "quotient_representation": "executable_noinline_midpoint_subtrees",
+            "quotient_representation": "packed_nat_pairs_executable_noinline_midpoint_subtrees",
             "stages": [], "generated_files": {}, "completed_positive_sample_states": 0,
             "completed_positive_unique_rows": 0, "complete_typed_candidate_data_checked": False,
             "template_smoke_checked": False,
@@ -306,7 +306,7 @@ def load_candidate(driver):
     require(counts == sizes and minima == reps and all(counts) and mapping[0] == 0,
             "class surjection/census/representative/entry")
     driver.emit("class-map.txt", "\n".join(map(str, mapping)) + "\n")
-    lines, cells = [], []
+    lines, cells, packed_lines, packed_cells = [], [], [], []
     with (source / "quotient-rows.jsonl").open("rb") as stream:
         for index, raw in enumerate(stream):
             record = json.loads(raw)
@@ -315,15 +315,48 @@ def load_candidate(driver):
             row = record[2]
             if row is None:
                 cells.append("---")
+                packed_cells.append("0")
             else:
                 require(len(row) == 3 and all(type(x) is int for x in row) and row[0] in (0, 1) and
                         row[1] in (-1, 1) and 0 <= row[2] < K, "quotient row domain")
                 cells.append(str(row[0]) + ("R" if row[1] == 1 else "L") + str(row[2]))
+                packed_cells.append(str(1 + 4 * row[2] + 2 * int(row[1] == 1) + row[0]))
             if index % 2:
                 lines.append(" ".join(cells))
+                packed_lines.append(" ".join(packed_cells))
                 cells = []
+                packed_cells = []
     require(len(lines) == K and not cells, "quotient complete census")
     driver.emit("quotient.rows", "\n".join(lines) + "\n")
+    driver.emit("quotient-packed.rows", "\n".join(packed_lines) + "\n")
+    # Independently reread the emitted numeric file and invert each code against
+    # the pinned JSON, rather than comparing two views of the encoding loop.
+    checked = 0
+    with (ROOT / PREFIX / "quotient-packed.rows").open() as packed, \
+            (source / "quotient-rows.jsonl").open() as original:
+        for state, line in enumerate(packed):
+            pair = line.split()
+            require(state < K and len(pair) == 2, "packed state/column census")
+            for bit, token in enumerate(pair):
+                require(token.isascii() and token.isdecimal(), "packed natural literal")
+                code = int(token)
+                require(0 <= code <= 4 * K, "packed transition bound")
+                if code == 0:
+                    decoded = None
+                else:
+                    destination, flags = divmod(code - 1, 4)
+                    decoded = [flags % 2, 1 if flags >= 2 else -1, destination]
+                record = json.loads(next(original))
+                require(record == [state, bit, decoded], "packed row differs from pinned JSON")
+                checked += 1
+        require(checked == 2 * K and next(original, None) is None, "packed complete row census")
+    driver.summary["quotient_packing"] = {
+        "encoding": "0=halt; 1+4*destination+2*direction+write; left=0,right=1",
+        "maximum_code": 4 * K, "independent_inverse_rows_checked": checked,
+        "source": metadata["quotient-rows.jsonl"],
+        "packed": info(ROOT / PREFIX / "quotient-packed.rows"),
+        "human_readable": info(ROOT / PREFIX / "quotient.rows"),
+    }
     driver.summary["candidate_input"] = metadata
 
 
@@ -399,7 +432,7 @@ def select_states(driver):
 
 
 LOADERS = r'''module
-public import Cryptids.Compilation.BalancedTable
+public import Cryptids.Chess.Optimisation.BodyCertificatePilot.Packed
 
 meta section
 namespace Chess.Optimisation.BodyCertificatePilot.Generator
@@ -419,6 +452,29 @@ elab "load_body_map% " path:str : term <= expectedType? => do
       let some value := text.toNat? | throwError "Malformed map integer"
       entries := entries.push (mkNatLit value)
   TableSyntax.balancedRowsExpr elemType entries 0 entries.size
+
+elab "load_packed_rows% " path:str : term <= expectedType? => do
+  let expected ← instantiateMVars expectedType?
+  unless expected.isAppOfArity ``Compilation.Balanced.RowTree 1 do
+    throwError "Expected packed row tree"
+  let rowType := expected.getAppArgs[0]!
+  unless rowType.isAppOfArity ``Prod 2 &&
+      rowType.getAppArgs[0]!.isConstOf ``Nat && rowType.getAppArgs[1]!.isConstOf ``Nat do
+    throwError "Expected pairs of literal natural codes"
+  let natType := Lean.mkConst ``Nat
+  let pair := mkApp2 (Lean.mkConst ``Prod.mk [Level.zero, Level.zero]) natType natType
+  let content ← liftM (m := IO) (IO.FS.readFile path.getString)
+  let mut entries : Array Expr := #[]
+  for raw in content.splitOn "\n" do
+    let line := raw.trimAscii.toString
+    if !line.isEmpty then
+      match (line.splitOn " ").filter (fun cell ↦ !cell.isEmpty) with
+      | [first, second] =>
+          let some a := first.toNat? | throwError "Malformed first packed code"
+          let some b := second.toNat? | throwError "Malformed second packed code"
+          entries := entries.push (mkApp2 pair (mkNatLit a) (mkNatLit b))
+      | _ => throwError "Expected exactly two packed natural codes"
+  TableSyntax.balancedRowsExpr rowType entries 0 entries.size
 end Chess.Optimisation.BodyCertificatePilot.Generator
 end
 run_cmd Lean.logInfo "Body certificate loaders checked"
@@ -542,6 +598,146 @@ HEARTBEATS = ("set_option maxHeartbeats 0 in\n"
               "-- The driver bounds literal-data elaboration and kernel checking by wall time and RSS.\n")
 
 
+PACKED = r'''def packedDirCode : Dir → Nat
+  | .left => 0
+  | .right => 1
+
+def packedEncode {q : Nat} : Option (Fin 2 × Dir × Fin q) → Nat
+  | none => 0
+  | some (write, direction, next) =>
+      (4 * next.val + 2 * packedDirCode direction + write.val) + 1
+
+def packedDecode (q : Nat) [NeZero q] : Nat → Option (Fin 2 × Dir × Fin q)
+  | 0 => none
+  | payload + 1 =>
+      some (Fin.ofNat 2 payload,
+        if (payload / 2) % 2 = 0 then Dir.left else Dir.right,
+        Fin.ofNat q (payload / 4))
+
+theorem packed_decode_none_iff (q : Nat) [NeZero q] (code : Nat) :
+    packedDecode q code = none ↔ code = 0 := by
+  cases code <;> simp [packedDecode]
+
+theorem packed_payload_lt (q payload : Nat) (bounded : payload + 1 ≤ 4 * q) :
+    payload / 4 < q := by
+  omega
+
+theorem packed_destination_val (q : Nat) [NeZero q] (payload : Nat)
+    (bounded : payload + 1 ≤ 4 * q) :
+    (Fin.ofNat q (payload / 4)).val = payload / 4 := by
+  exact Nat.mod_eq_of_lt (packed_payload_lt q payload bounded)
+
+theorem packed_encode_decode (q : Nat) [NeZero q] (code : Nat)
+    (bounded : code ≤ 4 * q) : packedEncode (packedDecode q code) = code := by
+  cases code with
+  | zero => rfl
+  | succ payload =>
+      have destination := packed_payload_lt q payload bounded
+      by_cases direction : (payload / 2) % 2 = 0
+      · simp only [packedDecode, ite_eq_left direction, packedEncode, packedDirCode]
+        change (4 * ((payload / 4) % q) + 2 * 0 + payload % 2) + 1 = payload + 1
+        rw [Nat.mod_eq_of_lt destination]
+        omega
+      · simp only [packedDecode, ite_eq_right direction, packedEncode, packedDirCode]
+        change (4 * ((payload / 4) % q) + 2 * 1 + payload % 2) + 1 = payload + 1
+        rw [Nat.mod_eq_of_lt destination]
+        omega
+
+theorem packed_decode_encode (q : Nat) [NeZero q]
+    (instruction : Option (Fin 2 × Dir × Fin q)) :
+    packedDecode q (packedEncode instruction) = instruction := by
+  cases instruction with
+  | none => rfl
+  | some instruction =>
+      rcases instruction with ⟨write, direction, next⟩
+      let payload := 4 * next.val + 2 * packedDirCode direction + write.val
+      have write_bound := write.isLt
+      have direction_bound : packedDirCode direction < 2 := by
+        cases direction <;> decide
+      have write_value : payload % 2 = write.val := by
+        dsimp only [payload]
+        omega
+      have direction_value : (payload / 2) % 2 = packedDirCode direction := by
+        dsimp only [payload]
+        omega
+      have destination_value : payload / 4 = next.val := by
+        dsimp only [payload]
+        omega
+      have write_equal : Fin.ofNat 2 payload = write := by
+        apply Fin.ext
+        exact write_value
+      have destination_equal : Fin.ofNat q (payload / 4) = next := by
+        apply Fin.ext
+        change (payload / 4) % q = next.val
+        rw [destination_value, Nat.mod_eq_of_lt next.isLt]
+      have direction_equal :
+          (if (payload / 2) % 2 = 0 then Dir.left else Dir.right) = direction := by
+        rw [direction_value]
+        cases direction <;> rfl
+      change some (Fin.ofNat 2 payload,
+        if (payload / 2) % 2 = 0 then Dir.left else Dir.right,
+        Fin.ofNat q (payload / 4)) = some (write, direction, next)
+      rw [write_equal, direction_equal, destination_equal]
+
+def packedAllBounded : Balanced.RowTree (Nat × Nat) → Nat → Bool
+  | .empty, _ => true
+  | .leaf row, bound => decide (row.1 ≤ bound) && decide (row.2 ≤ bound)
+  | .branch _ left right, bound =>
+      packedAllBounded left bound && packedAllBounded right bound
+
+theorem packed_lookup_bound (tree : Balanced.RowTree (Nat × Nat)) (bound : Nat)
+    (bounded : packedAllBounded tree bound = true) (index : Nat) :
+    (tree.lookup index (0, 0)).1 ≤ bound ∧ (tree.lookup index (0, 0)).2 ≤ bound := by
+  induction tree generalizing index with
+  | empty => exact ⟨Nat.zero_le _, Nat.zero_le _⟩
+  | leaf row =>
+      have both : decide (row.1 ≤ bound) = true ∧ decide (row.2 ≤ bound) = true := by
+        simpa only [packedAllBounded, Bool.and_eq_true] using bounded
+      simp only [Balanced.RowTree.lookup]
+      split
+      · exact ⟨of_decide_eq_true both.1, of_decide_eq_true both.2⟩
+      · exact ⟨Nat.zero_le _, Nat.zero_le _⟩
+  | branch leftCount left right ihl ihr =>
+      have both : packedAllBounded left bound = true ∧
+          packedAllBounded right bound = true := by
+        simpa only [packedAllBounded, Bool.and_eq_true] using bounded
+      simp only [Balanced.RowTree.lookup]
+      split
+      · apply ihl
+        exact both.1
+      · apply ihr
+        exact both.2
+
+def packedCodeAt {q : Nat} (tree : Balanced.RowTree (Nat × Nat))
+    (state : Fin q) (bit : Fin 2) : Nat :=
+  let row := tree.lookup state.val (0, 0)
+  if bit.val = 0 then row.1 else row.2
+
+def packedMachine (q : Nat) [NeZero q] (tree : Balanced.RowTree (Nat × Nat)) :
+    Machine q 2 := ⟨fun state bit ↦ packedDecode q (packedCodeAt tree state bit)⟩
+
+theorem packed_code_bound {q : Nat} (tree : Balanced.RowTree (Nat × Nat)) (bound : Nat)
+    (bounded : packedAllBounded tree bound = true) (state : Fin q) (bit : Fin 2) :
+    packedCodeAt tree state bit ≤ bound := by
+  have both := packed_lookup_bound tree bound bounded state.val
+  unfold packedCodeAt
+  split
+  · exact both.1
+  · exact both.2
+
+theorem packed_transition_fidelity (q : Nat) [NeZero q]
+    (tree : Balanced.RowTree (Nat × Nat)) (bounded : packedAllBounded tree (4 * q) = true)
+    (state : Fin q) (bit : Fin 2) :
+    packedEncode ((packedMachine q tree).transition state bit) =
+      packedCodeAt tree state bit :=
+  packed_encode_decode q _ (packed_code_bound tree (4 * q) bounded state bit)
+'''
+
+PACKED_ROOTS = ["packed_decode_none_iff", "packed_payload_lt", "packed_destination_val",
+                "packed_encode_decode", "packed_decode_encode", "packed_lookup_bound",
+                "packed_code_bound", "packed_transition_fidelity"]
+
+
 def quotient_declarations(driver, stem, rows_name, states, state_bound, chunk_limit):
     """Preserve the loader's midpoint tree while bounding each executable definition.
 
@@ -554,7 +750,7 @@ def quotient_declarations(driver, stem, rows_name, states, state_bound, chunk_li
     require(states > 0 and len(lines) == states and 1 <= chunk_limit <= QUOTIENT_CHUNK_STATES,
             "quotient chunk input census or limit")
     require(all(line.endswith("\n") for line in lines), "quotient chunk line termination")
-    row_tree = f"Balanced.RowTree (List (Option (Fin 2 × Dir × Fin {state_bound})))"
+    row_tree = "Balanced.RowTree (Nat × Nat)"
     declarations, chunks = [], []
 
     def subtree(start, length):
@@ -566,7 +762,7 @@ def quotient_declarations(driver, stem, rows_name, states, state_bound, chunk_li
                            "binary_rows": 2 * length, "path": str(PREFIX / filename),
                            "info": info(ROOT / PREFIX / filename)})
             declarations.append(HEARTBEATS + f"@[noinline] def {name} :\n    {row_tree} :=\n" +
-                                f'  load_balanced_rows%\n    "{PREFIX}/{filename}"\n')
+                                f'  load_packed_rows%\n    "{PREFIX}/{filename}"\n')
             return name
         # This is exactly balancedRowsExpr's split, including odd lengths.
         left_count = length // 2
@@ -588,6 +784,7 @@ def quotient_declarations(driver, stem, rows_name, states, state_bound, chunk_li
             "quotient chunk concatenation differs from complete source")
     manifest = {"source": {"path": str(PREFIX / rows_name), "info": info(source_path)},
                 "states": states, "binary_rows": 2 * states, "destination_bound": state_bound,
+                "representation": "packed_nat_pairs", "maximum_code": 4 * state_bound,
                 "chunk_limit_states": chunk_limit, "chunk_count": len(chunks),
                 "split_rule": "left_count = floor(subtree_state_count / 2)",
                 "exact_concatenation_checked": True,
@@ -607,19 +804,21 @@ def generate_smoke(driver):
     # These small literals check templates only and count as no actual-body rows.
     driver.emit("smoke-map.txt", "0\n1\n0\n1\n")
     driver.emit("smoke-quotient.rows", "0R1 ---\n--- 1L0\n")
+    driver.emit("smoke-packed.rows", "7 0\n0 2\n")
     smoke = header([MODULE + ".Loaders", "Cryptids.Chess.Optimisation.FieldSelective",
                     "Cryptids.Compilation.LocalCertificate"]) + MAP_BOUNDS
     smoke += HEARTBEATS + f'''noncomputable def smokeMapTree : Balanced.RowTree Nat :=
   load_body_map% "{PREFIX}/smoke-map.txt"
 '''
     # Force two separate executable chunks even for this two-state table.
-    smoke += quotient_declarations(driver, "smokeQuotient", "smoke-quotient.rows", 2, 2, 1)
+    smoke += quotient_declarations(driver, "smokeQuotient", "smoke-packed.rows", 2, 2, 1)
     for name, proposition in (
             ("smoke_map_count", "smokeMapTree.count = 4"),
             ("smoke_map_valid", "smokeMapTree.WellFormed"),
             ("smoke_map_bounded", "mapAllBelow smokeMapTree 2 = true"),
             ("smoke_quotient_count", "smokeQuotientTree.count = 2"),
-            ("smoke_quotient_valid", "smokeQuotientTree.WellFormed")):
+            ("smoke_quotient_valid", "smokeQuotientTree.WellFormed"),
+            ("smoke_quotient_bounded", "packedAllBounded smokeQuotientTree 8 = true")):
         smoke += HEARTBEATS + f"theorem {name} : {proposition} := by decide +kernel\n"
     smoke += '''theorem smoke_lookup_lt (index : Nat) : smokeMapTree.lookup index 0 < 2 :=
   lookup_lt_of_allBelow smokeMapTree 2 0 smoke_map_bounded (by decide) index
@@ -628,21 +827,35 @@ theorem smokeClassMap_val (s : Fin 4) :
     (smokeClassMap s).val = smokeMapTree.lookup s.val 0 := by
   change (smokeMapTree.lookup s.val 0) % 2 = smokeMapTree.lookup s.val 0
   exact Nat.mod_eq_of_lt (smoke_lookup_lt s.val)
-def smokeQuotient : Machine 2 2 := Balanced.ofTree smokeQuotientTree
+def smokeQuotient : Machine 2 2 := packedMachine 2 smokeQuotientTree
+theorem smoke_quotient_fidelity (state : Fin 2) (bit : Fin 2) :
+    packedEncode (smokeQuotient.transition state bit) =
+      packedCodeAt smokeQuotientTree state bit :=
+  packed_transition_fidelity 2 smokeQuotientTree smoke_quotient_bounded state bit
 '''
     smoke += HEARTBEATS + "theorem smoke_entry : smokeClassMap 0 = 0 := by decide +kernel\n"
     smoke += HEARTBEATS + '''theorem smoke_row :
     smokeQuotient.transition (smokeClassMap 0) 0 = some (0, Dir.right, 1) ∧
     smokeQuotient.transition (smokeClassMap 1) 1 = some (1, Dir.left, 0) := by decide +kernel
 '''
+    smoke += HEARTBEATS + '''theorem smoke_codec_boundaries :
+    packedDecode 2 0 = none ∧
+    packedDecode 2 1 = some (0, Dir.left, 0) ∧
+    packedDecode 2 8 = some (1, Dir.right, 1) ∧
+    packedAllBounded (.leaf (8, 0)) 8 = true ∧
+    packedAllBounded (.leaf (9, 0)) 8 = false := by decide +kernel
+'''
     roots = ["smoke_map_count", "smoke_map_valid", "smoke_map_bounded", "smoke_lookup_lt",
              "smokeClassMap_val", "smoke_quotient_count", "smoke_quotient_valid",
-             "smoke_entry", "smoke_row"]
+             "smoke_quotient_bounded", "smoke_quotient_fidelity", "smoke_codec_boundaries",
+             "smoke_entry", "smoke_row"] + PACKED_ROOTS
     driver.emit("TemplateSmoke.lean", smoke + audit_and_end(
         driver, "TemplateSmoke", roots, "Body certificate template smoke checked"))
 
 
 def generate_setup(driver):
+    driver.emit("Packed.lean", header(["Cryptids.Compilation.BalancedTable"]) + PACKED +
+                "\nend " + NS + "\n")
     driver.emit("Loaders.lean", LOADERS)
     driver.emit("Audit.lean", AUDIT)
     generate_smoke(driver)
@@ -657,7 +870,7 @@ def generate(driver, selected):
                 f'  load_body_map% "{PREFIX}/class-map.txt"\n' +
                 audit_and_end(driver, "MapData", ["mapTree"], "Complete body class map loaded"))
     driver.emit("QuotientData.lean", header([MODULE + ".Loaders"]) +
-                quotient_declarations(driver, "quotient", "quotient.rows", K, K,
+                quotient_declarations(driver, "quotient", "quotient-packed.rows", K, K,
                                       QUOTIENT_CHUNK_STATES) +
                 audit_and_end(driver, "QuotientData", ["quotientTree"], "Complete body quotient rows loaded"))
     data = header([MODULE + ".MapData", MODULE + ".QuotientData",
@@ -665,7 +878,7 @@ def generate(driver, selected):
     data += MAP_BOUNDS
     data += f'''noncomputable def classMap (s : Fin {N}) : Fin {K} :=
   Fin.ofNat {K} (mapTree.lookup s.val 0)
-def quotient : Machine {K} 2 := Balanced.ofTree quotientTree
+def quotient : Machine {K} 2 := packedMachine {K} quotientTree
 {HEARTBEATS}theorem map_count : mapTree.count = {N} := by decide +kernel
 {HEARTBEATS}theorem map_valid : mapTree.WellFormed := by decide +kernel
 {HEARTBEATS}theorem map_bounded : mapAllBelow mapTree {K} = true := by decide +kernel
@@ -676,6 +889,14 @@ theorem classMap_val (s : Fin {N}) : (classMap s).val = mapTree.lookup s.val 0 :
   exact Nat.mod_eq_of_lt (map_lookup_lt s.val)
 {HEARTBEATS}theorem quotient_count : quotientTree.count = {K} := by decide +kernel
 {HEARTBEATS}theorem quotient_valid : quotientTree.WellFormed := by decide +kernel
+{HEARTBEATS}theorem quotient_bounded :
+    packedAllBounded quotientTree (4 * {K}) = true := by decide +kernel
+theorem quotient_code_bound (state : Fin {K}) (bit : Fin 2) :
+    packedCodeAt quotientTree state bit ≤ 4 * {K} :=
+  packed_code_bound quotientTree (4 * {K}) quotient_bounded state bit
+theorem quotient_fidelity (state : Fin {K}) (bit : Fin 2) :
+    packedEncode (quotient.transition state bit) = packedCodeAt quotientTree state bit :=
+  packed_transition_fidelity {K} quotientTree quotient_bounded state bit
 {HEARTBEATS}theorem entry : classMap 0 = 0 := by decide +kernel
 def RowAt (s : Fin {N}) (b : Fin 2) : Prop :=
   (Chess.Optimisation.FieldSelective.body.toMachine.transition s b).map
@@ -684,7 +905,8 @@ def RowAt (s : Fin {N}) (b : Fin 2) : Prop :=
 '''
     driver.emit("Data.lean", data + audit_and_end(driver, "Data",
         ["map_count", "map_valid", "map_bounded", "map_lookup_lt", "classMap_val",
-         "quotient_count", "quotient_valid", "entry", "RowAt"],
+         "quotient_count", "quotient_valid", "quotient_bounded", "quotient_code_bound",
+         "quotient_fidelity", "entry", "RowAt"] + PACKED_ROOTS,
         "Complete body certificate data checked"))
     for count in (64, 512, 4096):
         parts, names = [header([MODULE + ".Data"])], []
@@ -726,7 +948,7 @@ def main():
     parser.add_argument("--seconds", type=int, default=1200)
     parser.add_argument("--memory-gib", type=int, default=6)
     parser.add_argument("--smoke-only", action="store_true",
-                        help="Stop after compiled auditor and complete nine-root template smoke audit")
+                        help="Stop after compiled auditor and complete packed-codec template smoke audit")
     args = parser.parse_args()
     require(sys.platform == "linux" and 10 <= args.seconds <= 1200 and 2 <= args.memory_gib <= 6,
             "Linux and bounded resource settings required")

@@ -1,12 +1,9 @@
 # Bounded concrete quotient certificate scalability pilot
 
-Status: the user resumed this work from checkpoint `fc16528` on 2026-10-22.
-The root is rerunning the unchanged formatting repair under the original
-1,200-second/6-GiB limits. Trial 07 stopped on strict long-line warnings;
-trial 08 was cancelled at the user's pause request and retained only a source
-manifest. The preceding full trial successfully loaded and audited the complete
-map, then stopped on a recursion-depth error in the executable quotient
-declaration. Zero actual-body row proofs have passed. This
+Status: resumed trial 09 passed its two-chunk smoke and complete map build/audit,
+then hit the sampled 6-GiB RSS limit compiling the full typed quotient. The
+authorized packed-natural quotient is implemented in the remote-only generator
+and awaits remote verification. Zero actual-body row proofs have passed. This
 experiment tests the cost of ordinary Lean kernel certificates for the measured
 114,487-state quotient. A pass covers only the requested sample, never all
 573,802 old states or a new accepted chess machine. The accepted full-machine
@@ -313,7 +310,106 @@ The root is rerunning that unchanged bounded driver before any further design
 change. All generation, Lean, model, count and audit execution remains remote
 only. The current leaf retains zero actual-body row proofs, an open G2 gate
 and a conditional 459,315-state saving. The driver stays fixed while awaiting
-the resumed run's retained diagnostics.
+the resumed run's retained diagnostics. That run is recorded next.
+
+## Trial 09: full typed quotient memory stop
+
+Run `39825520233`, commit `fc16528caeaf909e9bfb2b0239ced8f352d6bf3d`, used the
+unchanged formatting repair. Its [retained summary](evidence/certificate-09/unpacked/certificate-summary.json)
+records the two-chunk template build and nine-root full-private audit passing,
+followed by the complete raw-natural map build in 22.259 seconds at peak
+combined RSS 3,234,848,768 bytes and map audit in 3.237 seconds at 4,275,249,152
+bytes. The map's later complete range/count/cache certificates were not reached.
+
+The 128-shard executable typed `QuotientData` process was killed after 142.458
+seconds when sampled combined RSS reached 6,486,990,848 bytes, above the
+6,442,450,944-byte ceiling. The receipt records exit -9 and
+`process_group_memory_budget`. The produced 94,802,768-byte `.olean` is not a
+successful build or audit. Its [log](evidence/certificate-09/unpacked/QuotientData.log)
+contains only replayed loader messages, with no quotient success banner.
+Total driver elapsed time was 188.792 seconds, with driver peak RSS 127,420 KiB.
+The full chunk manifest and exact concatenation receipt remain retained.
+
+This is a genuine representation-stage memory obstruction under the unchanged
+limits. No quotient audit, complete-data pass, actual-body row proof or
+deliberately false row check completed. The result does not isolate allocation
+by compiler phase or establish that per-cell finite proofs alone caused the
+peak. It motivates testing a smaller constructor representation; it supplies no
+new accepted state saving.
+
+## Authorized bounded representation: packed natural rows
+
+The source implementation replaces each typed two-cell leaf by `Nat × Nat`,
+retaining exactly 114,487 state leaves,
+the same midpoint boundaries, at-most-1,024-state executable `@[noinline]`
+subtrees and global destination bound. Encode a halt as zero and a nonhalting
+cell as `1 + 4 * destination + 2 * direction + write`, with left direction zero
+and right direction one. Each code is at most `4 * 114487`. This removes the
+per-cell `Option`, nested transition products and repeated dependent `Fin`
+bound proofs from the large literal; shared decoding constructs the typed
+transition only at lookup. Lower memory use remains a hypothesis.
+
+The implementation and required proof obligations are:
+
+1. Retain the current pinned JSON and human-readable `quotient.rows`; also emit
+   a two-natural-per-line packed file. Independently decode every emitted pair
+   back to the original JSON row, checking exact census, bit order, halts,
+   directions, writes and destinations. Retain its manifest, hashes and exact
+   shard concatenation. These are computational fidelity checks, not kernel
+   proofs of the actual body relation.
+2. Add a generated loader for `Balanced.RowTree (Nat × Nat)` that proposes only
+   `Prod.mk` and `mkNatLit` expressions through `balancedRowsExpr`. Keep the
+   current chunk assembly, strict formatting, executability and actual subtree
+   counts. No accepted loader or source file changes.
+3. Define an executable decoder: zero returns `none`; for payload `code - 1`,
+   write is `Fin.ofNat 2 payload`, direction is left exactly when
+   `(payload / 2) % 2 = 0`, and destination is
+   `Fin.ofNat 114487 (payload / 4)`. Select the first or second code by the
+   binary input, then decode, yielding the same `Machine 114487 2` interface.
+4. Kernel-prove generic encode/decode fidelity, including that decoding is
+   `none` exactly at zero, that a bounded code round-trips unchanged, that
+   decoding an encoded typed transition returns that transition, and that
+   positive bounded codes have destination value
+   `(code - 1) / 4 < 114487`. Prove a structural lookup bound from a recursive
+   all-pairs range predicate with zero-pair fallback. Require complete concrete
+   count/cache/range checks by `decide +kernel` before any actual-body row proof.
+   Derive for every quotient state and both bits that re-encoding its decoded
+   transition returns the raw code at that position. This universal fidelity
+   theorem, rather than sampled codec checks, prevents modulo conversion from
+   concealing invalid destinations. It does not identify an external file with
+   the actual accepted body; the unchanged `RowAt` obligations supply that link.
+5. Exercise the same two-chunk smoke with halt/write/direction/destination
+   boundaries and the new generic fidelity proofs before full data. Add all new
+   mathematical claims to the exact audit-root manifests and preserve full
+   private closure auditing. Keep actual `RowAt`, sample sizes, class map,
+   false-row kernel control and partial-certificate status unchanged.
+
+This route targets the observed data representation obstruction with a small
+generated loader and a reusable arithmetic decoder. The structural alternative
+in `PROOF-OPTIONS.md` could eventually compress both data and the full row proof,
+but requires deriving a structural description of this measured partition and
+proving every class's transition consistency. The local-slot plan in
+`FAST-ROW-OPTION.md` addresses expensive normalization of actual-body rows; none
+has yet been attempted, so it does not directly address the current literal
+loading failure. Packed data is the smaller next experiment; structural
+certification remains the alternative if complete data still does not fit or
+the first actual-row proofs expose a separate bottleneck.
+
+Generated `Packed.lean` contains the shared executable codec and eight generic
+range/fidelity theorems. `Loaders` imports it, so its strict build occurs within
+the existing 60-second setup stage. `TemplateSmoke` and `Data` each name exactly
+20 required audit roots: their concrete obligations plus all eight generic
+theorems. The smoke also kernel-checks code zero (halt), code one (nonhalting),
+the valid maximum code eight for two states, and rejection of code nine by the
+range predicate. Its ordinary two-chunk transitions and zero actual-body-row
+census remain. The compiled full-private auditor and its standard-axiom rules
+are unchanged.
+
+The experiment keeps the original 180-second quotient stage,
+1,200-second total budget, sampled 6-GiB combined RSS cap and 512-MiB driver
+watchdog. Stop at the first obstruction, retain all diagnostics, and do not
+raise a cap. Root owns remote dispatch; no heavy launch is
+authorized after 19:45 UTC and the work deadline is 20:15 UTC.
 
 ## Root-owned runner interface
 
@@ -374,21 +470,22 @@ Default input is the official retained packet
 hard-pinned to the successful finite pilot. The driver verifies the exact
 573,802-word map, 114,487 representatives and class sizes, total surjection,
 canonical minima, entry zero, and all 228,974 quotient rows. It writes the full
-map as integers and the full quotient as two-column transition cells; no
+map as integers and the full quotient as both readable cells and packed natural
+pairs. The independently reread packed file must invert to every original JSON
+row in exact order. No
 sampled map or reduced quotient is substituted.
 The separate smoke-only decision mode does not claim or perform these full-data
 checks; it uses only the retained four-entry/two-row template literals.
 
 The generated map loader calls the existing generic
 `TableSyntax.balancedRowsExpr` with `mkNatLit` leaves, producing
-`mapTree : Balanced.RowTree Nat`. The existing `load_balanced_rows%` loader constructs quotient
-subtrees of at most 1,024 states, each as a
-`Balanced.RowTree (List (Option (Fin 2 × Dir × Fin 114487)))`. A balanced assembly
-uses the original midpoint splits and actual subtree counts. Both loaders
-propose ordinary constructor expressions. The quotient loader still uses
-`boundedFinExpr`; its finite values are checked by the kernel. Map bounds are
-established by a complete separate kernel computation. Neither a file hash nor
-the native generator is a proof of a row relation.
+`mapTree : Balanced.RowTree Nat`. The generated `load_packed_rows%` loader
+constructs quotient subtrees of at most 1,024 states as
+`Balanced.RowTree (Nat × Nat)`, using only literal naturals and pair constructors
+through the same generic builder. A balanced assembly uses the original
+midpoint splits and actual subtree counts. The map and quotient bounds are
+established by complete separate kernel computations. Neither a file hash nor
+the generator is a proof of the actual-body row relation.
 
 Only the map tree and its lookup wrapper suppress native code generation via
 `noncomputable`; their transparent safe kernel definitions are retained. The
@@ -405,6 +502,7 @@ mapTree.WellFormed
 mapAllBelow mapTree 114487 = true
 quotientTree.count = 114487
 quotientTree.WellFormed
+packedAllBounded quotientTree (4 * 114487) = true
 classMap 0 = 0
 ```
 
@@ -420,7 +518,13 @@ map. These complete range and identity proofs are required audit roots.
 The raw map lookup's fallback is zero. The checked complete count and cache
 validity establish the intended full-range tree layout; missing or shifted
 input cannot be excused by a sampled lookup. The quotient uses
-`Balanced.ofTree quotientTree`. All data and mathematical proof roots undergo
+`packedMachine 114487 quotientTree`, selecting the input bit's natural code and
+decoding it into an ordinary typed transition. Its complete pair-range proof
+gives `quotient_code_bound` for every quotient state and bit. `quotient_fidelity`
+then proves universally that re-encoding that transition returns exactly the
+selected raw code. The generic decoder preserves zero/halts and all four
+write/direction combinations, and its destination modulo is the identity under
+the proved bound. All data and mathematical proof roots undergo
 a transitive dependency audit allowing only the repository's standard
 `propext`, `Classical.choice` and `Quot.sound` axioms. Unsafe, partial, open-chess
 conjecture, or generator dependencies are rejected. No new axiom, admitted proof
@@ -438,7 +542,9 @@ passed exact root count; missing and duplicate roots fail. Generated `.olean`
 and `.olean.private` build products remain available for this audit. The build
 and external audit share the original stage time allowance and global resource
 limits. Only their joint success advances the checked-data or positive-row
-census. `Loaders` contains setup elaborators and has no mathematical claim roots.
+census. `Loaders` contains setup elaborators and imports the shared `Packed`
+theorems, whose explicit mathematical roots are audited through both smoke and
+complete-data modules.
 
 ## Exact actual-body claims and representative samples
 
@@ -487,11 +593,11 @@ honestly recorded as unrun, and the pilot stops.
 | Stage | Maximum seconds | Purpose |
 |---|---:|---|
 | `AuditExecutable` | 120 | Compile the Lean-only native full-private auditor once |
-| `Loaders` | 60 | Typed-data elaborator setup |
+| `Loaders` | 60 | Packed codec proofs and literal-data elaborator setup |
 | `TemplateSmoke` | 60 | Small production-template checks and dependency audit; zero actual-body rows |
 | `MapData` | 240 | Complete natural-valued map and dependency audit |
-| `QuotientData` | 180 | Complete typed quotient and dependency audit |
-| `Data` | 120 | Full counts, caches, map range/lookup identity, entry and actual-body predicate |
+| `QuotientData` | 180 | Complete packed quotient and dependency audit |
+| `Data` | 120 | Full counts/caches, map identity, packed range/fidelity, entry and actual-body predicate |
 | `Rows64` | 120 | 128 actual-body row proofs and dependency audit |
 | `Negative` | 45 | Kernel refusal of one false actual row |
 | `Rows512` | 180 | 1,024 actual-body row proofs and dependency audit |
@@ -550,6 +656,19 @@ The fifth run established that the small templates compile and isolated the
 interpreted audit's memory obstruction. The compiled-auditor repair follows
 the accepted executable mechanism, retains the exact closure checks, and is
 limited first to the small smoke decision test.
+The packed-quotient revision received four static passes: implementation and
+data-census review; codec/range proof and generated-layout review; independent
+read-only adversarial reviews of Lean/API soundness and data/audit provenance;
+and final retention, stage-budget and reporting review. No blocking finding
+remained. Earlier nine-root smoke success does not verify the new 20-root
+codec smoke. The driver, report and this leaf's ledger are source-ready for the
+root-owned remote checkpoint, with all new proof compilation and representation
+cost still unverified.
+Root review caught deprecated conditional rewrite aliases. Direct inspection of
+the pinned Lean `Init/Core.lean` confirms that both `if_pos` and `if_neg` are
+deprecated aliases; the codec now uses `ite_eq_left` and `ite_eq_right`, matching
+existing verified source usage. This source-only repair changes no proposition
+or bound. The driver is frozen for the next remote checkpoint.
 An import or data-loading
 obstruction is useful evidence of this representation's cost, not permission
 to bypass the kernel or claim the 459,315-state reduction accepted.
