@@ -1,4 +1,5 @@
 name: Chess whole-body quotient pilot
+# First non-skipped push registers this fork-only bounded workflow.
 on:
   push:
     branches: ['codex/chess-openevolve-pilot']
