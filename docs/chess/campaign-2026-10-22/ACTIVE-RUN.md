@@ -9,10 +9,12 @@ The user's personal hard stop is16:25. Prefer an earlier useful stopping point.
 
 ## Remote jobs
 
-- `39834919606`: active thin-data trial 11 at `e054e37c6e4c421e3834b0ecaecf89b47ba2db4a`.
+- `39834919606`: completed/failure thin-data trial 11 at `e054e37c6e4c421e3834b0ecaecf89b47ba2db4a`.
   MapChecks, QuotientChecks, Data and BodyRelation each require their full-private
   audit and share the previous 120-second Data allowance. Total limits remain
-  1,200 seconds / 6 GiB. No runtime or actual-row success is assumed.
+  1,200 seconds / 6 GiB. Both literal datasets build/audit passed; MapChecks
+  alone hit 6 GiB after 20.693 seconds. No actual-row success. Official packet
+  retained in `round-03/evidence/certificate-11`.
 - `39830779431`: completed/success final complete structured-machine acceptance at1c8334a. Strict
   build, foundation audit/negative controls, actual full-row export, independent
   static input/writer/toy fixtures/corruptions, and M2–M7 regressions. Deadline60min;
@@ -75,3 +77,9 @@ Latest usage70%used at18:44UTC; accepted checkpoint100ed94 and trial10b243220 pu
 18:52 UTC: trial 11 dispatched after both independent source reviews. Latest
 account usage is 76% consumed. No new major route starts while this bounded
 attempt is unresolved; preserve a shutdown reserve before the hard deadline.
+
+18:59 UTC: no active remote jobs after trial 11. Account usage79% at18:57.
+Leaf2.1 has one authorized map-isolation source revision, wave `map-isolation`.
+It separates generic prelude/count/cache/range and final map union while keeping
+the same120s Data budget,1200s/6GiB total, exact actual-row obligations and audits.
+No representation rewrite is authorized. Base setup improved to5.393s.

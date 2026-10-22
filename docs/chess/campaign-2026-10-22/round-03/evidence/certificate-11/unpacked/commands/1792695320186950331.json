@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_body_20261022/certificate_pilot.py",
+    "--lakefile",
+    "lakefile.chess-body-certificate-20261022.toml",
+    "--output",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-body-certificate-20261022",
+    "--seconds",
+    "1200",
+    "--memory-gib",
+    "6"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "Bounded body kernel certificate pilot stopped: MapChecks: process_group_memory_budget\n",
+  "output_sha256": "a96e2c9227b016de7afaf24e733b3135a5d49373e854ac1d80ae0dcc0c2c4242",
+  "timed_out": false,
+  "timeout_seconds": 1260,
+  "elapsed_seconds": 150.867642418,
+  "cumulative_children_peak_rss_kib": 3854600
+}

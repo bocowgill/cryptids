@@ -2,7 +2,7 @@
 
 The user resumed the existing goal from `fc16528`. The goal is active and the
 optimization objective remains open. The previous pause snapshot is immutable
-in `pause-2026-10-22/`. Latest account usage observation: 76% consumed at 18:52 UTC;
+in `pause-2026-10-22/`. Latest account usage observation: 79% consumed at 18:57 UTC;
 usage is shared across the account and may change independently of this task.
 
 ## Hard wind-down
@@ -89,9 +89,14 @@ audit passes. Combined `Data` then exceeds 6 GiB after 16.412 seconds at
 6,456,266,752 bytes. No actual rows or negative control ran. Official
 `round-03/evidence/certificate-10` is retained. A thin data/fidelity split that
 avoids heavy chess imports during global range checks passed source review and
-is running remotely as **trial 11, run 39834919606**, at
+completed remotely as **trial 11, run 39834919606**, at
 `e054e37c6e4c421e3834b0ecaecf89b47ba2db4a`. Its four replacement build/audit
-stages share the original 120-second Data budget. No runtime success is assumed.
+stages share the original 120-second Data budget. **MapChecks alone exceeded
+6 GiB after 20.693 seconds at 6,456,770,560 bytes**, before any stage in that
+group passed. Both literal datasets again built and passed private audits.
+This rules out chess imports as the sole cause, but does not identify which
+map invariant triggered the allocation. Official `certificate-11` is retained;
+actual-body row credit remains zero and the negative control remains unrun.
 The next pilot wrapper now verifies all 3,116 new accepted pins.
 
 If concrete row normalization is the next obstruction, use `round-03/FAST-ROW-OPTION.md`
@@ -101,8 +106,10 @@ representation tuning without measured progress. Full current ranking is in
 
 ## Next concrete actions
 
-1. Retain and inspect trial 11's exact official result against trial 10's
-   combined-memory obstruction. Preserve all earlier failures and original caps.
+1. Finish the authorized source-only map-isolation revision: audited generic
+   prelude, then separately measured count/cache/range proofs, followed by the
+   same complete map union and later stages. Every replacement still shares
+   the original 120-second Data budget. Root dispatch follows source review.
    A standalone data pass alone does not establish actual-row scalability.
 2. If a small proof/source repair is needed, make one bounded exact-source retry.
    If the underlying memory obstruction persists, choose a structurally different
@@ -119,4 +126,5 @@ No upstream communication is authorized.
 Remote setup improvement for the next pilot: the body workflow now restores the
 fresh accepted table cache and saves subsequent body caches. Trial 10 spent
 645.964 seconds rebuilding unchanged base modules; this infrastructure repair
-changes no proof, source requirement, machine count or resource cap.
+changes no proof, source requirement, machine count or resource cap. Trial 11
+measured the same base build at 5.393 seconds with the repaired cache.

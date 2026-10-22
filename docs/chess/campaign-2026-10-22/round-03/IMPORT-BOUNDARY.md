@@ -36,3 +36,23 @@ complete length/range/lookup fidelity and original byte identity, and ordinary
 kernel arithmetic must be tested before adopting it. No packed-word source,
 proof, memory improvement or machine saving is claimed. Do not start this route
 until the current split identifies the next real obstruction.
+
+## Trial 11 decision map
+
+Independent source review supplies the following conditional decisions. These are
+unmeasured alternatives, not new proof credit or authorization to widen the caps.
+Always distinguish a module build from its required private-closure audit, and
+classify source errors separately from memory or time stops.
+
+| First failed stage | Evidence available before failure | Smallest justified next test |
+|---|---|---|
+| MapChecks | Both literal datasets loaded and audited; map invariants remain incomplete | Measure count, cache and range facts separately under the same shared budget; chess imports are absent |
+| QuotientChecks | Complete map invariants and entry audited; quotient invariants remain incomplete | Isolate quotient count, cache and range facts; consider packed words only with evidence of literal residency |
+| Data union | Each dataset's invariants audited separately; combined environment fails without chess | A smaller packed-word representation addresses this stage; a thin body cannot |
+| BodyRelation union | Complete combined data and audit fit; adding the exact body or relation fails | An imports-only control distinguishes import residency from relation elaboration or audit traversal |
+| Rows64 | All data invariants and exact body relation audited | Test structural local-slot proofs for the same 64 states and both bits, keeping exact RowAt and caps |
+
+Packed words require exact extraction, ordering, range and padding proofs, and
+their arithmetic lookup can cost more than the present tree. A thin body requires
+a certified equality bridge to the accepted machine; an alias importing the old
+body retains its dependency cost. Neither change has been implemented or measured.
