@@ -60,12 +60,13 @@ def graphSyntax {labels total : Nat} (rows : Vector (Syntax labels) labels)
     (layout : Layout rows total) (q : Fin labels) (i : Fin (rows.get q).size) :
     graphNode rows layout (graphIndex rows layout q i) =
       TemplateGraph.mapNode (graphIndex rows layout q) ((rows.get q).nodeAt i) := by
-  simp only [graphNode, decode_graphIndex, graphNodeSlot]
+  exact congrArg (graphNodeSlot rows layout) (decode_graphIndex rows layout q i)
 
 @[simp] theorem graphSyntax_index {labels total : Nat} (rows : Vector (Syntax labels) labels)
     (layout : Layout rows total) (q : Fin labels) (i : Fin (rows.get q).size) :
     graphSyntax rows layout (graphIndex rows layout q i) = (rows.get q).subAt i := by
-  simp only [graphSyntax, decode_graphIndex]
+  exact congrArg (fun slot : Slot rows ↦ (rows.get slot.1).subAt slot.2)
+    (decode_graphIndex rows layout q i)
 
 /-- Local postorder descent remains strict after encoding in any ordered layout. -/
 theorem graphNode_below {labels total : Nat} (rows : Vector (Syntax labels) labels)
