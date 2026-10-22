@@ -25,7 +25,8 @@ attribute [local irreducible] Compilation.Input.bits
 def syntaxRows : Vector (Syntax 4042) 4042 := Vector.ofFn fun q ↦ lower (Snapshot.program q)
 
 theorem syntaxRows_get (q : Fin 4042) : syntaxRows.get q = lower (Snapshot.program q) := by
-  simp [syntaxRows, Vector.get, Fin.cast]
+  change (Vector.ofFn (fun q : Fin 4042 ↦ lower (Snapshot.program q)))[q.val] = _
+  exact Vector.getElem_ofFn q.isLt
 
 theorem fits (q : Fin 4042) : (syntaxRows.get q).size ≤ 1024 := by
   rw [syntaxRows_get]
@@ -57,23 +58,28 @@ def binaryInput : List Bool := Codec.input sourceInput
 
 def bits : Array (Fin 2) := (binaryInput.map Compilation.Binary.encodeSymbol).toArray
 
-theorem sourceInput_length : sourceInput.length = 141380 := by
-  have length : (TM2to1.trInit (Γ := fun _ : K' ↦ Γ') .main Compilation.Input.stack).length =
-      max 1 Compilation.Input.stack.length := by
-    simp only [TM2to1.trInit, List.length_cons, List.length_tail, List.length_map,
-      List.length_reverse]
-    omega
-  rw [Compilation.Input.stack_length] at length
-  exact length
+theorem source_length (values : List Γ') :
+    (TM2to1.trInit (Γ := fun _ : K' ↦ Γ') .main values).length = max 1 values.length := by
+  simp only [TM2to1.trInit, List.length_cons, List.length_tail, List.length_map,
+    List.length_reverse]
+  omega
 
-theorem binaryInput_length : binaryInput.length = 1837940 := by
-  rw [binaryInput, Codec.input_length, sourceInput_length]
+theorem sourceInput_length : sourceInput.length = 141380 :=
+  (source_length Compilation.Input.stack).trans
+    (congrArg (max 1) Compilation.Input.stack_length)
 
-theorem bits_size : bits.size = 1837940 := by
-  simp only [bits, List.size_toArray, List.length_map, binaryInput_length]
+theorem binaryInput_length : binaryInput.length = 1837940 :=
+  (Codec.input_length sourceInput).trans (congrArg (13 * ·) sourceInput_length)
+
+theorem mapped_size (input : List Bool) :
+    (input.map Compilation.Binary.encodeSymbol).toArray.size = input.length := by
+  simp only [List.size_toArray, List.length_map]
+
+theorem bits_size : bits.size = 1837940 :=
+  (mapped_size binaryInput).trans binaryInput_length
 
 theorem bits_toList : bits.toList = binaryInput.map Compilation.Binary.encodeSymbol := by
-  simp only [bits, List.toList_toArray]
+  exact List.toList_toArray _
 
 attribute [local irreducible] bits
 
@@ -138,13 +144,10 @@ theorem rowBody_eq : rowBody = body := by
   rw [binaryRows_eq]
 
 /-- Independent three-range initializer around the independently assembled body. -/
-def rowGenerated : BundledMachine 2 :=
-  ⟨rowBody.states + 2 * bits.size, paidRows bits rowBody⟩
+def rowGenerated : BundledMachine 2 := paidBundle bits rowBody
 
-theorem rowGenerated_eq : rowGenerated = generated := by
-  unfold rowGenerated
-  rw [paidRows_eq, rowBody_eq]
-  rfl
+theorem rowGenerated_eq : rowGenerated = generated :=
+  (paidBundle_eq bits rowBody).trans (congrArg (FlatInit.initialise bits) rowBody_eq)
 
 theorem rowGenerated_states : rowGenerated.states = 45065962 :=
   (congrArg BundledMachine.states rowGenerated_eq).trans generated_states

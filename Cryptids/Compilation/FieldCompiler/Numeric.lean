@@ -76,4 +76,14 @@ theorem paidRows_eq (bits : Array (Fin 2)) (body : BundledMachine 2) :
     · simp only [write, restore, ↓reduceDIte, FlatInit.actionAt, Option.getD_none]
     · simp only [write, restore, ↓reduceDIte, FlatInit.bodyState]
 
+def paidBundle (bits : Array (Fin 2)) (body : BundledMachine 2) : BundledMachine 2 :=
+  ⟨body.states + 2 * bits.size, paidRows bits body⟩
+
+/-- Prove the dependent bundle equality before instantiating a large concrete input. -/
+theorem paidBundle_eq (bits : Array (Fin 2)) (body : BundledMachine 2) :
+    paidBundle bits body = FlatInit.initialise bits body := by
+  unfold paidBundle
+  rw [paidRows_eq]
+  rfl
+
 end ConjectureMachines.Compilation.FieldCompiler
