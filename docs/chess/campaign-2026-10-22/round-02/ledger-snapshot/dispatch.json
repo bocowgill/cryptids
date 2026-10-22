@@ -58,6 +58,41 @@
       },
       "returned": {},
       "sealedAt": "2026-10-22T13:42:33.950Z"
+    },
+    "scanner-proof": {
+      "leaves": [
+        "leaf-2.2"
+      ],
+      "state": "sealed",
+      "openedAt": "2026-10-22T13:47:30.195Z",
+      "started": {
+        "leaf-2.2": {
+          "handle": "/root/goal_seed_scan",
+          "at": "2026-10-22T13:48:09.707Z"
+        }
+      },
+      "returned": {},
+      "sealedAt": "2026-10-22T13:48:09.752Z"
+    },
+    "universal-proof": {
+      "leaves": [
+        "leaf-2.3",
+        "leaf-2.4"
+      ],
+      "state": "sealed",
+      "openedAt": "2026-10-22T13:51:38.770Z",
+      "started": {
+        "leaf-2.3": {
+          "handle": "/root/goal_seed_expander",
+          "at": "2026-10-22T13:52:55.209Z"
+        },
+        "leaf-2.4": {
+          "handle": "/root/goal_seed_codec",
+          "at": "2026-10-22T13:52:55.259Z"
+        }
+      },
+      "returned": {},
+      "sealedAt": "2026-10-22T13:52:55.301Z"
     }
   }
 }

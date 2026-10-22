@@ -98,8 +98,11 @@ expansion, actual Lean row identity, full composition and acceptance remain open
 The accepted best remains **2,411,743**. First serialization/setup failures are
 retained in `pilot-01` and `link-infra-01`.
 
-Current remote linker proof session: **39788567168**, starts at `619a4cd`; inspect
-status/artifacts before retrying. No other accepted round's job is active.
+Generic linker proof passed run **39788567168** iteration2 at `99836fb`;
+complete retained packet is `round-02/evidence/link-final`. No linker job remains active.
+Current remote controller proof session: **39790380235**, starts at `5b52ca0`;
+first check found one Format length-arithmetic proof error, now repaired for recheck.
+Inspect status/artifacts before retrying. No other accepted round's job is active.
 Worker `/root/goal_seed_machine` owns new `Seed/{Format,Controller,Blocks}.lean`;
 source adviser `/root/goal_initializer_route` owns `round-02/PROOF-PLAN.md`.
 The plan uses a ListBlank zipper invariant and word-wise marker scans; universal
@@ -122,3 +125,8 @@ the final committed/pushed checkpoint. All proof,
 native, checker and fresh-review leaves passed, and all launch waves are complete.
 Release ownership after parent verification and preserve the final tracked ledger
 snapshot. No remote job remains active from this round.
+
+Active universal proof owners: goal_seed_scan (Scan.lean), goal_seed_expander
+(Expander.lean), goal_seed_codec (ChessCodec.lean). All execute Lean remotely via
+root. Fixed blocks and generic scanner drafts are ready for a remote components
+check; no universal expansion or new best is claimed yet.

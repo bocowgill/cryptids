@@ -1,4 +1,4 @@
-# Round02 contract revision2: three-bit seed and certified expander
+# Round02 contract revision3: three-bit seed and certified expander
 
 Start from accepted2411743-state FieldSelective body/prefix, checkpointd79ae92,
 with all29round01gates met and finalledger checkpoint18e8474. Overallgoalcontinues.
@@ -57,3 +57,9 @@ Source-only proof architecture leaf1.3 active (goal_initializer_route).
 Exact Lean format/controller/fixedblock leaf2.1 active (goal_seed_machine), following
 verified finite pilot216states/432rows/465fixtures/14corruptions. Root owns native
 Lean row export/compare. Universal scans/loop/cleanup remain next dependency.
+
+Proof drafting wave: leaf2.3 actualloop/cleanup and leaf2.4 codecidentity READY
+on parent-reviewed stable Format/Controller interface plus measured pilot;
+strict compilation ofthose dependencies is independently inprogress. This is
+readinessfor source drafting, not verifiedLeanacceptance. Finalparentgates require
+all strict builds on oneexactcompletecandidate; no component is trustedbyassumption.

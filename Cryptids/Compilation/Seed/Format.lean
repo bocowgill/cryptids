@@ -5,6 +5,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 module
 
 public import Cryptids.Compilation.FlatInit
+public import Cryptids.Compilation.FieldBinary.Fields
 
 /-! # The three-bit seed and the thirteen-bit output cell
 
@@ -45,6 +46,10 @@ def loopTape (out todo : List Letter) : Tape Bit :=
       marker.reverse))
     (ListBlank.mk (marker ++ payload todo ++ [0, 0, 0]))
 
+/-- Complete output tape with the sole bottom marker at offset twelve, also for empty input. -/
+def markedOutput (letters : List Letter) : Tape Bit :=
+  FieldBinary.shift .left 12 ((FieldBinary.shift .right 12 (Tape.mk₁ (output letters))).write 1)
+
 @[simp] theorem word_zero : word 0 = [1, 0, 0] := rfl
 @[simp] theorem word_one : word 1 = [0, 1, 0] := rfl
 @[simp] theorem word_two : word 2 = [1, 1, 0] := rfl
@@ -80,7 +85,9 @@ def loopTape (out todo : List Letter) : Tape Bit :=
 
 @[simp] theorem seed_length (letters : List Letter) :
     (seed letters).length = 16 + 3 * letters.length := by
-  simp [seed, Nat.add_assoc, Nat.add_comm, Nat.add_left_comm]
+  simp only [seed, List.length_append, marker_length, List.length_cons, List.length_nil,
+    payload_length]
+  omega
 
 @[simp] theorem payload_append (first second : List Letter) :
     payload (first ++ second) = payload first ++ payload second := by

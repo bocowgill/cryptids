@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "lake",
+    "--wfail",
+    "-f",
+    "lakefile.chess-seed-20261022.toml",
+    "build",
+    "Cryptids.Compilation.SeedLink"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "\u2714 [3813/3813] Built Cryptids.Compilation.SeedLink (2.1s)\nBuild completed successfully (3813 jobs).\n",
+  "output_sha256": "ccc248dab0f702a8828b12b7d9f0dd179149e53b4923e6de3abf1eee859f1b4f",
+  "timed_out": false,
+  "timeout_seconds": 1800,
+  "elapsed_seconds": 5.087485990000005,
+  "cumulative_children_peak_rss_kib": 1756568
+}

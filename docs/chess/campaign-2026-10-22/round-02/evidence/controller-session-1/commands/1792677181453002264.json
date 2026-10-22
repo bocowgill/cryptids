@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "lake",
+    "--wfail",
+    "-f",
+    "lakefile.chess-seed-20261022.toml",
+    "build",
+    "Cryptids.Compilation.Seed.Controller",
+    "chess_seed_controller_export"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "\u2716 [7610/7616] Building Cryptids.Compilation.Seed.Format (5.6s)\ntrace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean -M6144 /home/runner/work/cryptids/cryptids/Cryptids/Compilation/Seed/Format.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Compilation/Seed/Format.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Compilation/Seed/Format.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Compilation/Seed/Format.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Compilation/Seed/Format.setup.json --json\nerror: Cryptids/Compilation/Seed/Format.lean:82:55: unsolved goals\nletters : List Letter\n\u22a2 1 + (3 + (3 * letters.length + 12)) = 3 * letters.length + 16\nSome required targets logged failures:\n- Cryptids.Compilation.Seed.Format\nerror: build failed\n",
+  "output_sha256": "6095fa6aab78d746e87e9c920fa9e28ebf0bf15b744101cbfbdea0951868613f",
+  "timed_out": false,
+  "timeout_seconds": 1800,
+  "elapsed_seconds": 9.651430212000008,
+  "cumulative_children_peak_rss_kib": 1697428
+}
