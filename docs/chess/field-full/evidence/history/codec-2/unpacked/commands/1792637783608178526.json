@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "lake",
+    "--wfail",
+    "-f",
+    "lakefile.chess-field-full.toml",
+    "build",
+    "Cryptids.Compilation.FieldCompiler.Codec"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "\u2716 [3849/3849] Building Cryptids.Compilation.FieldCompiler.Codec (3.0s)\ntrace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean -M6144 /home/runner/work/cryptids/cryptids/Cryptids/Compilation/FieldCompiler/Codec.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Compilation/FieldCompiler/Codec.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Compilation/FieldCompiler/Codec.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Compilation/FieldCompiler/Codec.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Compilation/FieldCompiler/Codec.setup.json --json\nerror: Cryptids/Compilation/FieldCompiler/Codec.lean:31:4: Type mismatch: After simplification, term\n  from_to_bool (left.nth i)\n has type\n  @Eq Bit (fromBool (toBool (left.nth i))) (left.nth i)\nbut is expected to have type\n  @Eq Bit (boolMap.f (bitMap.f (left.nth i))) (left.nth i)\nerror: Cryptids/Compilation/FieldCompiler/Codec.lean:34:4: Type mismatch: After simplification, term\n  from_to_bool (right.nth i)\n has type\n  @Eq Bit (fromBool (toBool (right.nth i))) (right.nth i)\nbut is expected to have type\n  @Eq Bit (boolMap.f (bitMap.f (right.nth i))) (right.nth i)\nerror: Cryptids/Compilation/FieldCompiler/Codec.lean:51:83: unsolved goals\nsymbol : Symbol\nj : Fin 13\n\u22a2 [encodeCell (FieldReturn.symbolCell symbol) 0, encodeCell (FieldReturn.symbolCell symbol) 1,\n        encodeCell (FieldReturn.symbolCell symbol) 2, encodeCell (FieldReturn.symbolCell symbol) 3,\n        encodeCell (FieldReturn.symbolCell symbol) 4, encodeCell (FieldReturn.symbolCell symbol) 5,\n        encodeCell (FieldReturn.symbolCell symbol) 6, encodeCell (FieldReturn.symbolCell symbol) 7,\n        encodeCell (FieldReturn.symbolCell symbol) 8, encodeCell (FieldReturn.symbolCell symbol) 9,\n        encodeCell (FieldReturn.symbolCell symbol) 10, encodeCell (FieldReturn.symbolCell symbol) 11,\n        encodeCell (FieldReturn.symbolCell symbol) 12][\u2191j] =\n    encodeCell (FieldReturn.symbolCell symbol) j\nSome required targets logged failures:\n- Cryptids.Compilation.FieldCompiler.Codec\nerror: build failed\n",
+  "output_sha256": "f8aaf25c5bd146066b0d5c24e892f00585826cee56bc3af935698a1742b9ac0b",
+  "timed_out": false,
+  "elapsed_seconds": 7.249501676000023,
+  "cumulative_children_peak_rss_kib": 1784220
+}

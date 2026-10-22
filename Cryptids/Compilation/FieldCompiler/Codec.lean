@@ -50,7 +50,7 @@ def cellBits (symbol : Symbol) : List Bit :=
 theorem cellBits_getI (symbol : Symbol) (j : Fin 13) :
     (cellBits symbol).getI j.val = encodeCell (FieldReturn.symbolCell symbol) j := by
   rw [List.getI_eq_getElem (cellBits symbol) (by simp)]
-  simp [cellBits]
+  simp only [cellBits, List.getElem_ofFn]
 
 /-- The finite binary initializer emits exactly one complete block per source symbol. -/
 def bitInput : List Symbol → List Bit
