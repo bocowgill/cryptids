@@ -2,7 +2,7 @@
 
 The user resumed the existing goal from `fc16528`. The goal is active and the
 optimization objective remains open. The previous pause snapshot is immutable
-in `pause-2026-10-22/`. Latest account usage observation: 70% consumed at 18:44 UTC;
+in `pause-2026-10-22/`. Latest account usage observation: 76% consumed at 18:52 UTC;
 usage is shared across the account and may change independently of this task.
 
 ## Hard wind-down
@@ -87,8 +87,11 @@ checks, meaningful negative controls and the original **1,200 seconds / 6 GiB**
 caps. Packed Q now compiles in 53.650 seconds at 4,268,597,248 bytes and its full-private
 audit passes. Combined `Data` then exceeds 6 GiB after 16.412 seconds at
 6,456,266,752 bytes. No actual rows or negative control ran. Official
-`round-03/evidence/certificate-10` is retained. A thin data/fidelity module that
-avoids the heavy chess imports during global range checks is under source review.
+`round-03/evidence/certificate-10` is retained. A thin data/fidelity split that
+avoids heavy chess imports during global range checks passed source review and
+is running remotely as **trial 11, run 39834919606**, at
+`e054e37c6e4c421e3834b0ecaecf89b47ba2db4a`. Its four replacement build/audit
+stages share the original 120-second Data budget. No runtime success is assumed.
 The next pilot wrapper now verifies all 3,116 new accepted pins.
 
 If concrete row normalization is the next obstruction, use `round-03/FAST-ROW-OPTION.md`
@@ -98,9 +101,9 @@ representation tuning without measured progress. Full current ranking is in
 
 ## Next concrete actions
 
-1. Review the proposed thin-data split against trial 10's precise combined-memory
-   obstruction. Preserve all earlier failures and original caps. A standalone
-   data pass alone does not establish actual-row scalability.
+1. Retain and inspect trial 11's exact official result against trial 10's
+   combined-memory obstruction. Preserve all earlier failures and original caps.
+   A standalone data pass alone does not establish actual-row scalability.
 2. If a small proof/source repair is needed, make one bounded exact-source retry.
    If the underlying memory obstruction persists, choose a structurally different
    certificate rather than raising the cap.

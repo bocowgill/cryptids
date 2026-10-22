@@ -9,6 +9,10 @@ The user's personal hard stop is16:25. Prefer an earlier useful stopping point.
 
 ## Remote jobs
 
+- `39834919606`: active thin-data trial 11 at `e054e37c6e4c421e3834b0ecaecf89b47ba2db4a`.
+  MapChecks, QuotientChecks, Data and BodyRelation each require their full-private
+  audit and share the previous 120-second Data allowance. Total limits remain
+  1,200 seconds / 6 GiB. No runtime or actual-row success is assumed.
 - `39830779431`: completed/success final complete structured-machine acceptance at1c8334a. Strict
   build, foundation audit/negative controls, actual full-row export, independent
   static input/writer/toy fixtures/corruptions, and M2–M7 regressions. Deadline60min;
@@ -67,3 +71,7 @@ that pinned-toolchain cache fallback and saves subsequent body cache; Lake stric
 source checking and all proof audits remain. This reduces repeated setup, not any
 machine states or proof obligations. The data-split pilot is under source review.
 Latest usage70%used at18:44UTC; accepted checkpoint100ed94 and trial10b243220 pushed.
+
+18:52 UTC: trial 11 dispatched after both independent source reviews. Latest
+account usage is 76% consumed. No new major route starts while this bounded
+attempt is unresolved; preserve a shutdown reserve before the hard deadline.

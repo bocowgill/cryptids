@@ -40,7 +40,8 @@ Trial 09 passed complete map loading and its safe audit, then the typed executab
 quotient exceeded 6 GiB. Trial 10, run 39830984315 at `fe8656c`, uses packed numeric
 transition pairs, complete range and decoder-fidelity obligations, and an
 independent inverse comparison with every pinned original quotient row. This
-removes per-row dependent proof data; its memory benefit is still a hypothesis.
+removes per-row dependent proof data; its standalone build and audit now fit
+under 6 GiB, while the combined Data module still exceeds that cap.
 All original actual-row goals, negatives and caps remain. See `ACTIVE-RUN.md` and
 `round-03/CERTIFICATE-PILOT.md` for the latest result.
 
@@ -65,5 +66,5 @@ No major launches after 19:45 UTC; begin shutdown at 20:00; save and pause by
 Trial 10 outcome: packed Q compilation and full-private audit pass. The combined
 Data module still exceeds 6 GiB before any actual-row proof. This is measured
 progress in table representation, not a certified state reduction. The next
-source review targets separating global data facts from the large chess imports;
+bounded trial 11 separates global data facts from the large chess imports;
 eventual complete row certification must still survive their combined environment.
