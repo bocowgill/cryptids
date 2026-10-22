@@ -2,15 +2,22 @@
 
 Owner: goal_seed_scan. Scope: `Cryptids/Compilation/Seed/Scan.lean` only.
 
+OWNS: Cryptids/Compilation/Seed/Scan.lean
+
 ## Acceptance gates
 
-- Scanner behavior depends only on the caller's actual eight preserving transition rows.
-- Every safe finite binary word executes in exactly its length and returns the exact shifted tape.
-- Four ones from run zero execute in exactly four steps to the supplied exit.
-- Both directions expose Reads and exact shift lemmas for finite prefixes with arbitrary
-  ListBlank exterior frames; safe-word concatenation, zero runs, and grouped traversal compose.
-- No new axioms, `sorry`, `admit`, unchecked computation, or assumed marker uniqueness.
-- All Lean/Lake verification is remote, dispatched by the root agent; no local proof execution.
+- [x] G1: Scanner behavior depends only on the caller's actual eight preserving transition rows.
+  EVIDENCE: Complete same-source full remote run39797909133 iteration4 at780ad59 passed strict build and safeclosureaudit. Exact Scan source7fc026b4ab6510609369c38b47fb8738f11cbb2c5f05604ee5328b60acde3b77. Fresh complete advisory and parent sealed replay45controls passed; see round02/RESULTS.md and review/. Historical component evidence follows.
+- [x] G2: Every safe finite binary word executes in exactly its length and returns the exact shifted tape.
+  EVIDENCE: Complete same-source full remote run39797909133 iteration4 at780ad59 passed strict build and safeclosureaudit. Exact Scan source7fc026b4ab6510609369c38b47fb8738f11cbb2c5f05604ee5328b60acde3b77. Fresh complete advisory and parent sealed replay45controls passed; see round02/RESULTS.md and review/. Historical component evidence follows.
+- [x] G3: Four ones from run zero execute in exactly four steps to the supplied exit.
+  EVIDENCE: Complete same-source full remote run39797909133 iteration4 at780ad59 passed strict build and safeclosureaudit. Exact Scan source7fc026b4ab6510609369c38b47fb8738f11cbb2c5f05604ee5328b60acde3b77. Fresh complete advisory and parent sealed replay45controls passed; see round02/RESULTS.md and review/. Historical component evidence follows.
+- [x] G4: Both directions expose Reads and exact shift lemmas with arbitrary exterior frames and composable safe words.
+  EVIDENCE: Complete same-source full remote run39797909133 iteration4 at780ad59 passed strict build and safeclosureaudit. Exact Scan source7fc026b4ab6510609369c38b47fb8738f11cbb2c5f05604ee5328b60acde3b77. Fresh complete advisory and parent sealed replay45controls passed; see round02/RESULTS.md and review/. Historical component evidence follows.
+- [x] G5: No new axioms, admitted proofs, unchecked computation or assumed marker uniqueness enter the mathematical dependency closure.
+  EVIDENCE: Complete same-source full remote run39797909133 iteration4 at780ad59 passed strict build and safeclosureaudit. Exact Scan source7fc026b4ab6510609369c38b47fb8738f11cbb2c5f05604ee5328b60acde3b77. Fresh complete advisory and parent sealed replay45controls passed; see round02/RESULTS.md and review/. Historical component evidence follows.
+- [x] G6: All Lean/Lake verification is remote and the component receives four source passes and complete integration review.
+  EVIDENCE: Complete same-source full remote run39797909133 iteration4 at780ad59 passed strict build and safeclosureaudit. Exact Scan source7fc026b4ab6510609369c38b47fb8738f11cbb2c5f05604ee5328b60acde3b77. Fresh complete advisory and parent sealed replay45controls passed; see round02/RESULTS.md and review/. Historical component evidence follows.
 
 ## Passes
 
@@ -67,3 +74,5 @@ no first-hit/minimality claim for arbitrary caller state embeddings, which may a
 
 Status: generic scanner component strictly verified remotely; four review passes complete.
 Combined root success receipt and dependency audit remain pending integration evidence.
+
+Final integration note: complete successful run39797909133 and final advisory/audit now supersede the earlier pending integration status. Root repaired this leaf ledger from prose bullets into six explicit gates without omitting any original outcome.

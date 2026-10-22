@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-seed-20261022/MissingTurn.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "/home/runner/work/cryptids/cryptids/.lake/chess-seed-20261022/MissingTurn.lean:3:72: error: Tactic `decide` proved that the proposition\n  424157 = 424156\nis false\n",
+  "output_sha256": "1f819fead10a4557b895b0fa686a9e11a0fbc13490ff14cd559ab4711494e7fd",
+  "timed_out": false,
+  "timeout_seconds": 300,
+  "elapsed_seconds": 3.717904522000026,
+  "cumulative_children_peak_rss_kib": 4450600
+}

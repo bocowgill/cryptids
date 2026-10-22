@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-seed-20261022/UnpaidBridge.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "/home/runner/work/cryptids/cryptids/.lake/chess-seed-20261022/UnpaidBridge.lean:3:59: error: Tactic `decide` proved that the proposition\n  574019 = 574018\nis false\n",
+  "output_sha256": "872bb7b27c13887f4aaf4f1a8d80cb7c45d6defa47deb03aef8d06d4f4ecbb15",
+  "timed_out": false,
+  "timeout_seconds": 300,
+  "elapsed_seconds": 3.7234242270000095,
+  "cumulative_children_peak_rss_kib": 4450600
+}

@@ -1,18 +1,18 @@
 # Complete paid seed expansion reduction
 OWNS: docs/chess/campaign-2026-10-22/round-02/**
 
-- [ ] G1: Accepted baseline and frozen original specification remain exact.
-  EVIDENCE: pending pinned baseline source inventory
-- [ ] G2: Universal finite-input expander correctness, exact cleanup and termination are proved in Lean without new axioms.
-  EVIDENCE: pending remote strict proof and foundation audit
-- [ ] G3: Complete binary blank machine has original halting equivalence and strict fully paid state reduction.
-  EVIDENCE: pending full composition and exact count
-- [ ] G4: Full actual transition export, independent reconstruction, full static input identity, execution fixtures, hostile controls and prior regressions pass remotely.
-  EVIDENCE: pending exact same-source full evidence
-- [ ] G5: Fresh complete-candidate review and sealed parent metadata replay pass.
-  EVIDENCE: pending complete final candidate
+- [x] G1: Accepted baseline and frozen original specification remain exact.
+  EVIDENCE: Parent full-packet review: run39797909133 iteration4 at780ad59, exact source hashes bound; strict full build, safe audit and complete native/regression checks passed. Fresh advisory review/REPORT.md and externally sealed parent replay45controls plus copiedchecker/seal portability passed; see round02/RESULTS.md and review/*receipts.json. Earlier pending evidence below is historical and superseded by this complete receipt.
+- [x] G2: Universal finite-input expander correctness, exact cleanup and termination are proved in Lean without new axioms.
+  EVIDENCE: Parent full-packet review: run39797909133 iteration4 at780ad59, exact source hashes bound; strict full build, safe audit and complete native/regression checks passed. Fresh advisory review/REPORT.md and externally sealed parent replay45controls plus copiedchecker/seal portability passed; see round02/RESULTS.md and review/*receipts.json. Earlier pending evidence below is historical and superseded by this complete receipt.
+- [x] G3: Complete binary blank machine has original halting equivalence and strict fully paid state reduction.
+  EVIDENCE: Parent full-packet review: run39797909133 iteration4 at780ad59, exact source hashes bound; strict full build, safe audit and complete native/regression checks passed. Fresh advisory review/REPORT.md and externally sealed parent replay45controls plus copiedchecker/seal portability passed; see round02/RESULTS.md and review/*receipts.json. Earlier pending evidence below is historical and superseded by this complete receipt.
+- [x] G4: Full actual transition export, independent reconstruction, full static input identity, execution fixtures, hostile controls and prior regressions pass remotely.
+  EVIDENCE: Parent full-packet review: run39797909133 iteration4 at780ad59, exact source hashes bound; strict full build, safe audit and complete native/regression checks passed. Fresh advisory review/REPORT.md and externally sealed parent replay45controls plus copiedchecker/seal portability passed; see round02/RESULTS.md and review/*receipts.json. Earlier pending evidence below is historical and superseded by this complete receipt.
+- [x] G5: Fresh complete-candidate review and sealed parent metadata replay pass.
+  EVIDENCE: Parent full-packet review: run39797909133 iteration4 at780ad59, exact source hashes bound; strict full build, safe audit and complete native/regression checks passed. Fresh advisory review/REPORT.md and externally sealed parent replay45controls plus copiedchecker/seal portability passed; see round02/RESULTS.md and review/*receipts.json. Earlier pending evidence below is historical and superseded by this complete receipt.
 - [ ] G6: All findings, failures, proofs, artifacts, active jobs and next task are committed/pushed in a clean recoverable checkpoint.
   EVIDENCE: pending final handoff
 
-- [ ] G7: Every major checkpoint records complete state costs and ranks large reduction opportunities by absolute savings, proof difficulty and implementation effort.
-  EVIDENCE: live STATE-COUNTS-AND-OPPORTUNITIES.md; refresh on final checkpoint
+- [x] G7: Every major checkpoint records complete state costs and ranks large reduction opportunities by absolute savings, proof difficulty and implementation effort.
+  EVIDENCE: Parent full-packet review: run39797909133 iteration4 at780ad59, exact source hashes bound; strict full build, safe audit and complete native/regression checks passed. Fresh advisory review/REPORT.md and externally sealed parent replay45controls plus copiedchecker/seal portability passed; see round02/RESULTS.md and review/*receipts.json. Earlier pending evidence below is historical and superseded by this complete receipt. State-count table and ranked full-machine priorities refreshed after acceptance.

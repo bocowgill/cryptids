@@ -1,8 +1,10 @@
 # Round 02 sealed metadata replay contract
 
-Status: source drafted and reviewed; successful full-machine remote packet,
-fresh complete independent advisory, external acceptance seal and actual positive
-replay remain pending. This document does not accept a new chess machine.
+Status: source drafted and reviewed; successful full-machine run39797909133,
+session4 at780ad59e871a47d76726a5c81800af3e48bda188, is retained in
+`round-02/evidence/final`. Its metadata matches this contract. Revised fresh
+complete advisory, external acceptance seal and actual positive replay remain
+pending. This document does not accept a new chess machine.
 
 The checker is `scripts/chess_seed_20261022/check_saved_evidence.py`. It reads
 saved metadata and hashes. It never imports or invokes Lean, Lake, the compiler,
@@ -20,7 +22,11 @@ the exact fields. These commands print templates with placeholders; they cannot
 create an accepted seal from a packet's own assertions.
 
 The review binds the complete candidate's computation and workflow commits,
-source manifest, archive, theorem/count claim and exact advisory narrative bytes.
+source manifest, archive, theorem/count claim, exact checker and advisory narrative bytes.
+Its mandatory `checker_sha256` must equal both the actual checker hash and the
+separate seal's `checker_sha256`. An advisory for earlier checker bytes cannot
+authorize a modified checker. The hostile `review_checker_hash` test checks this
+binding separately from the seal's own checker-hash check.
 The separate seal binds that review, the final checker, the frozen pin manifest,
 the official archives and each retained API/inventory file. Both explicitly say
 that the advisory is not human approval and is not formal verification by its

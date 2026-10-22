@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-seed-20261022/BadSaving.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "/home/runner/work/cryptids/cryptids/.lake/chess-seed-20261022/BadSaving.lean:3:133: error: Tactic `decide` proved that the proposition\n  2411743 - 998176 = 1413568\nis false\n",
+  "output_sha256": "2b75ba3ee2edd5ed98007391e7a5867dccd6cd8704f0cd282a8541addf8f27e7",
+  "timed_out": false,
+  "timeout_seconds": 300,
+  "elapsed_seconds": 3.711758348000103,
+  "cumulative_children_peak_rss_kib": 4450600
+}

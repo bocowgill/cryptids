@@ -292,6 +292,9 @@ def validate_seal(seal, snapshot, packet):
     for key in ('run_id', 'artifact_id', 'artifact_bytes', 'logs_bytes'):
         positive_int(seal[key], 'invalid sealed number: ' + key)
     need(seal['checker_sha256'] == snapshot['checker_sha256'], 'sealed checker hash changed')
+    hex_hash(snapshot['review']['checker_sha256'], 'invalid independent review checker hash')
+    need(snapshot['review']['checker_sha256'] == snapshot['checker_sha256'] == seal['checker_sha256'],
+         'independent review checker hash changed')
     need(seal['baseline_pins_sha256'] == snapshot['baseline_sha256'], 'sealed baseline pin hash changed')
     need(set(seal['metadata_sha256']) == set(META), 'sealed metadata inventory changed')
     for name in META:
@@ -659,6 +662,7 @@ an evidence file, or grant authority to altered evidence.
     add('narrative_content', 'snapshot', 'independent review narrative hash changed', lambda x: x.__setitem__('narrative_raw', x['narrative_raw'] + b'\ncorrupted advisory narrative\n'))
     add('review_run', 'snapshot', 'independent review report identity/authority', lambda x: x['review'].__setitem__('run_id', 1))
     add('checker_hash', 'seal', 'sealed checker hash changed', lambda x: x.__setitem__('checker_sha256', '0' * 64))
+    add('review_checker_hash', 'snapshot', 'independent review checker hash changed', lambda x: x['review'].__setitem__('checker_sha256', '0' * 64))
     add('metadata_hash', 'seal', 'sealed metadata hash changed', lambda x: x['metadata_sha256'].__setitem__('run-api.json', '0' * 64))
     add('artifact_hash', 'seal', 'sealed archive identity changed', lambda x: x.__setitem__('artifact_sha256', '0' * 64))
     add('source_manifest_hash', 'seal', 'sealed source manifest hash changed', lambda x: x.__setitem__('source_manifest_sha256', '0' * 64))
@@ -791,6 +795,7 @@ def describe_review():
     return dict(schema='chess-seed-review-v1', status='passed', verdict='correct',
         review_kind='independent-model-advisory', claim=CLAIM, run_id='<integer accepted run ID>',
         workflow_commit='<40 hex workflow commit>', computation_commit='<40 hex checked source commit>',
+        checker_sha256='<SHA-256 of the exact checker reviewed; must equal the seal and actual checker>',
         source_manifest_sha256='<SHA-256 of exact accepted source-manifest.json>',
         narrative_path='<repository-relative durable advisory REPORT.md>',
         narrative_sha256='<SHA-256 of exact narrative file bytes>',

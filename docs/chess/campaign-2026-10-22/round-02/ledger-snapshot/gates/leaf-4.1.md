@@ -1,9 +1,9 @@
 # Fresh complete seed candidate advisory
 OWNS: docs/chess/campaign-2026-10-22/round-02/review/REPORT.md, docs/chess/campaign-2026-10-22/round-02/review/report.json
 
-- [ ] G1: Fresh independent source review covers the complete universal proof, literal controller, exact input, paid composition and original halting equivalence.
-  EVIDENCE: pending complete final source review
-- [ ] G2: Final successful same-source remote build, safe audit, exact table, all controls/regressions and official retained provenance support the complete candidate without unresolved findings.
-  EVIDENCE: pending successful full remote packet
-- [ ] G3: Advisory report binds exact final source/artifact/checker/narrative hashes, with honest model-only scope and no automatic acceptance seal.
-  EVIDENCE: pending final source-bound advisory and parent replay
+- [x] G1: Fresh independent source review covers the complete universal proof, literal controller, exact input, paid composition and original halting equivalence.
+  EVIDENCE: complete fresh source read and four adversarial passes recorded in review/REPORT.md, supported by two read-only subreviews. Final 21 computation-source hashes match the reviewed bytes and successful manifest; all 2762 frozen files match. No unresolved mathematical or evidence finding remains. R02-REVIEW-01 repaired and freshly reviewed at checker SHA256 5e148cacf6a852cc899eaf1fff3e6fb7ad5d5f4451e1fbe53e982a7461465557.
+- [x] G2: Final successful same-source remote build, safe audit, exact table, all controls/regressions and official retained provenance support the complete candidate without unresolved findings.
+  EVIDENCE: official final packet from successful run39797909133 iteration4, computation780ad59e871a47d76726a5c81800af3e48bda188, workflow7e32af8294ca8052c88852518508c0e6ecd5bcf4. All20 unique commands/54 phase receipts; audit9865roots59707dependencies,3 audit negatives,5 false contracts,1996352 actual rows,88 composed/465 controller fixtures,34 corruptions and prior regressions. Source/metadata/hash-only reviewer checks passed; no local machine or Lean execution.
+- [x] G3: Advisory report binds exact final source/artifact/checker/narrative hashes, with honest model-only scope and no automatic acceptance seal.
+  EVIDENCE: review/report.json passed advisory SHA256 636832606549e5d4adeca10160f7f2364c9758ced4ea53d33a8a72e0e8c8f7b9; narrative SHA256 6624e99f4f9e08b23ce69323fde852e7d1b7e12d37a0891f385ed2a6fa9faf52. Complete source/artifact/checker/narrative bindings included. External seal and complete sealed positive/hostile replay remain separate parent-owned campaign gates, not reviewer-issued approval.

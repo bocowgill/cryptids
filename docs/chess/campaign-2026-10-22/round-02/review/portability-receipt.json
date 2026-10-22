@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "python3",
+    "/private/tmp/chess-seed-replay-_448dure/checker.py",
+    "--root",
+    "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+    "--evidence",
+    "/Users/bocowgill/.codex/worktrees/6ba9/cryptids/docs/chess/campaign-2026-10-22/round-02/evidence/final",
+    "--seal",
+    "/private/tmp/chess-seed-replay-_448dure/seal.json"
+  ],
+  "cwd": "/private/tmp/chess-seed-replay-_448dure",
+  "shell": false,
+  "exit": 0,
+  "expected": "Seed sealed evidence review passed",
+  "matched": true,
+  "output_sha256": "3f77e67b4bcabcead15000198985825cbb14ebea9bfe8574881ed11a5da3c20a",
+  "checker_sha256": "5e148cacf6a852cc899eaf1fff3e6fb7ad5d5f4451e1fbe53e982a7461465557",
+  "seal_sha256": "ae82970a0b5fb3d3c5fcfe00a38780d8fa4e1bb2d31457c4faee9b326b4d3ca0",
+  "scope": "Metadata and hashes only; no machine execution, recount or Lean"
+}

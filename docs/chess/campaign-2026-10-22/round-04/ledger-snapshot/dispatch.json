@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "waves": {
+    "seed-architecture": {
+      "leaves": [
+        "leaf-1.1"
+      ],
+      "state": "sealed",
+      "openedAt": "2026-10-22T15:01:25.376Z",
+      "started": {
+        "leaf-1.1": {
+          "handle": "/root/goal_initializer_route",
+          "at": "2026-10-22T15:01:50.910Z"
+        }
+      },
+      "returned": {},
+      "sealedAt": "2026-10-22T15:01:50.957Z"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "python3",
+    "scripts/chess_seed_20261022/check_saved_evidence.py",
+    "--root",
+    ".",
+    "--evidence",
+    "docs/chess/campaign-2026-10-22/round-02/evidence/final",
+    "--seal",
+    "docs/chess/campaign-2026-10-22/round-02/review/seal.json",
+    "--self-test"
+  ],
+  "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+  "shell": false,
+  "exit": 0,
+  "expected": "Seed sealed evidence controls passed",
+  "matched": true,
+  "output_sha256": "de3b2ed6d7c3c9e8bb7b6d091d7d7a7d43fac9d734167b1fb382da41d2b0bc09",
+  "corruption_control_count": 45,
+  "scope": "Parent metadata/hash replay; no machine computation or Lean"
+}

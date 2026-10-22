@@ -45,7 +45,7 @@
       "leaves": [
         "leaf-2.1"
       ],
-      "state": "sealed",
+      "state": "complete",
       "openedAt": "2026-10-22T14:43:25.940Z",
       "started": {
         "leaf-2.1": {
@@ -53,8 +53,13 @@
           "at": "2026-10-22T14:43:54.396Z"
         }
       },
-      "returned": {},
-      "sealedAt": "2026-10-22T14:43:54.447Z"
+      "returned": {
+        "leaf-2.1": {
+          "at": "2026-10-22T15:00:32.827Z"
+        }
+      },
+      "sealedAt": "2026-10-22T14:43:54.447Z",
+      "completedAt": "2026-10-22T15:00:32.827Z"
     }
   }
 }

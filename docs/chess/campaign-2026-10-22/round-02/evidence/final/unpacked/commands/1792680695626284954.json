@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-seed-20261022/UnpaidController.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "/home/runner/work/cryptids/cryptids/.lake/chess-seed-20261022/UnpaidController.lean:3:65: error: Tactic `decide` proved that the proposition\n  998176 = 997960\nis false\n",
+  "output_sha256": "42adbef2b85bb726d40ee512a32b5c0848523ce1403a405cbfd4927b95780066",
+  "timed_out": false,
+  "timeout_seconds": 300,
+  "elapsed_seconds": 3.8559168880000243,
+  "cumulative_children_peak_rss_kib": 4450600
+}

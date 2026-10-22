@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "prlimit",
+    "--stack=67108864",
+    "--",
+    "lake",
+    "env",
+    "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_seed_export",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-seed-20261022/machine-export.json"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "[chess-seed-export] replaying the complete paid writer\n[chess-seed-export] executing bounded complete generic startup fixtures\n[chess-seed-export] exporting every actual row, including both bits and all body halts\n[chess-seed-export] complete state 0/998176\n[chess-seed-export] complete state 65536/998176\n[chess-seed-export] complete state 131072/998176\n[chess-seed-export] complete state 196608/998176\n[chess-seed-export] complete state 262144/998176\n[chess-seed-export] complete state 327680/998176\n[chess-seed-export] complete state 393216/998176\n[chess-seed-export] complete state 458752/998176\n[chess-seed-export] complete state 524288/998176\n[chess-seed-export] complete state 589824/998176\n[chess-seed-export] complete state 655360/998176\n[chess-seed-export] complete state 720896/998176\n[chess-seed-export] complete state 786432/998176\n[chess-seed-export] complete state 851968/998176\n[chess-seed-export] complete state 917504/998176\n[chess-seed-export] complete state 983040/998176\nSeed complete native export passed\n",
+  "output_sha256": "d2765ac54826da3c4ada2a19405cb6516ce5464ac961bf0c83c164d5fa5fdb4b",
+  "timed_out": false,
+  "timeout_seconds": 1200,
+  "elapsed_seconds": 32.18511594500001,
+  "cumulative_children_peak_rss_kib": 4450600
+}

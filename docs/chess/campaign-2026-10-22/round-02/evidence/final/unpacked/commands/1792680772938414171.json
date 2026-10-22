@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "--run",
+    "scripts/RunChessM5.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "ok: White maximizes\nok: Black minimizes\nok: draw\nok: favorable line is not forced\nok: White serialization\nok: Black serialization\nok: draw serialization\nok: refutation serialization\nok: empty input rejected\nok: underflow rejected\nok: surplus values remain surplus\nok: nested min/max\nok: White wrapper halts within runPrefix\nok: Black wrapper halts within runPrefix\nok: draw runPrefix remains live\nok: refutation runPrefix remains live\nChess M5 fixtures passed: 16 assertions\n",
+  "output_sha256": "823d7b26a48391da2d843db8bf110350dd53354b1cba80d128589f463201ff7d",
+  "timed_out": false,
+  "timeout_seconds": 600,
+  "elapsed_seconds": 2.038011499999925,
+  "cumulative_children_peak_rss_kib": 4450600
+}
