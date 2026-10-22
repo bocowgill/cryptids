@@ -82,6 +82,7 @@ def run(command, expected="", code=0, timeout=900):
 
 TARGETS={
  'core':['Cryptids.Compilation.FieldCompiler.Operations'],
+ 'routines':['Cryptids.Compilation.FieldCompiler.RoutineSemantics'],
  'codec':['Cryptids.Compilation.FieldCompiler.Codec'],
  'graph':['Cryptids.Compilation.FieldCompiler.Graph'],
  'snapshot':['Cryptids.Compilation.FieldCompiler.Snapshot'],
