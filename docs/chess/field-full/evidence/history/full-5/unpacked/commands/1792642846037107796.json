@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_field_full/verify.py",
+    "--coverage"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "Full field compiler snapshot source generated: /home/runner/work/cryptids/cryptids/.lake/chess-field-full/generated/Snapshot.lean\nBuild completed successfully (3853 jobs).\nFull field compiler frozen inputs passed\nFull field compiler coverage passed\n",
+  "output_sha256": "becf0998d5dfdb68c87e378c44e943dc09c515dc24e037af23f198fe3b6afe70",
+  "timed_out": false,
+  "timeout_seconds": 1800,
+  "elapsed_seconds": 12.736449651000044,
+  "cumulative_children_peak_rss_kib": 2030440
+}

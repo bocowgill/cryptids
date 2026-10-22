@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_field_full/generate_snapshot.py",
+    "--output",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-field-full/generated/Snapshot.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "Full field compiler snapshot source generated: /home/runner/work/cryptids/cryptids/.lake/chess-field-full/generated/Snapshot.lean\n",
+  "output_sha256": "14b04b1e25a2f12a0e9f5315320e396319577dbcd0766f67cbca3df4e5ee9705",
+  "timed_out": false,
+  "timeout_seconds": 120,
+  "elapsed_seconds": 10.41453807900001,
+  "cumulative_children_peak_rss_kib": 27140
+}

@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "--run",
+    "scripts/chess_m7/Fixtures.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "M7 quotient fixtures passed: 34 row corners and universal input equivalence\n",
+  "output_sha256": "b4833d60683711249b210871967627a98c97ef1b122ccea6572661e880190f62",
+  "timed_out": false,
+  "timeout_seconds": 600,
+  "elapsed_seconds": 3.2242952469999864,
+  "cumulative_children_peak_rss_kib": 4450952
+}

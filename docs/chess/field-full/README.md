@@ -1,5 +1,10 @@
 # Complete field-aware chess compiler
 
+**Accepted result: 45,065,962 states, saving 345,425,680 states.** The complete
+binary blank-tape machine and original halting equivalence passed remote proof,
+native and regression checks, independent advisory review and parent evidence
+replays. See [RESULTS.md](RESULTS.md) and [RESUME.md](RESUME.md).
+
 This campaign replaces the complete interpreter backend and its paid input encoding.
 The acceptance target is a closed binary blank-tape machine with fewer than
 390,491,642 states and the unchanged theorem
@@ -53,7 +58,7 @@ fixtures, paid initialization, complete allocation and prior chess regressions.
 Local `--metadata` checks hashes only.
 
 Development attempts, including failures, are retained in `evidence/history/`.
-Only a completed same-source full verification, independent advisory review and
-sealed evidence replay can establish the final accepted count. Component passes
-and the candidate's proposed numerical equalities do not by themselves certify
-a replacement of the accepted full machine.
+The accepted packet in `evidence/current/` is the successful same-source full
+run39722113405 at270d3e6. Its independent advisory and sealed metadata-only checker
+are in `evidence/review/`; parent replay receipts are retained alongside it.
+The checker validates saved evidence without running Lean or a machine locally.

@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "--run",
+    "scripts/RunChessM3.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "Chess M3 fixtures passed: 55 assertions\n",
+  "output_sha256": "ab2a1acd3d1b3731d62578406f2be979a7e3d533886faaa7bdd3ccb8426cd53c",
+  "timed_out": false,
+  "timeout_seconds": 600,
+  "elapsed_seconds": 6.929818628999982,
+  "cumulative_children_peak_rss_kib": 4450952
+}

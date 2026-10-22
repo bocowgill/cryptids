@@ -1,0 +1,102 @@
+{
+  "schema": "chess-field-full-root-phase-replay-v1",
+  "status": "passed",
+  "computation_commit": "270d3e6aeb7258e1c9871077cf3e8e4f7d9fc53d",
+  "remote_run_id": 39722113405,
+  "local_heavy_computation": false,
+  "checks": {
+    "G1": {
+      "argv": [
+        "python3",
+        "scripts/chess_field_full/verify.py",
+        "--metadata"
+      ],
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": false,
+      "exit": 0,
+      "matched": "Full field compiler frozen inputs passed",
+      "output_sha256": "9ea7c80739b04627579ffccf9f39833f0f78c8bf6687e1f5aad4f8f259160f1f",
+      "local_metadata_only": true
+    },
+    "G2": {
+      "argv": [
+        "/usr/bin/python3",
+        "scripts/chess_field_full/verify.py",
+        "--semantics"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "shell": false,
+      "exit": 0,
+      "timed_out": false,
+      "timeout_seconds": 1800,
+      "output_sha256": "24a0dc5bfb2655c406301f4bb3ea9eeff24eff4bf35da71b88fa4b5ad194aaa8",
+      "elapsed_seconds": 4.68272832400001,
+      "matched": "Full field compiler semantics passed",
+      "remote_run_id": 39722113405
+    },
+    "G3": {
+      "argv": [
+        "/usr/bin/python3",
+        "scripts/chess_field_full/verify.py",
+        "--coverage"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "shell": false,
+      "exit": 0,
+      "timed_out": false,
+      "timeout_seconds": 1800,
+      "output_sha256": "becf0998d5dfdb68c87e378c44e943dc09c515dc24e037af23f198fe3b6afe70",
+      "elapsed_seconds": 15.371445429000005,
+      "matched": "Full field compiler coverage passed",
+      "remote_run_id": 39722113405
+    },
+    "G4": {
+      "argv": [
+        "/usr/bin/python3",
+        "scripts/chess_field_full/verify.py",
+        "--machine"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "shell": false,
+      "exit": 0,
+      "timed_out": false,
+      "timeout_seconds": 1800,
+      "output_sha256": "5f0aa7c0ac8a337d1fba2e50517ac2cc5541f221f6c73e90c930a09137c0724f",
+      "elapsed_seconds": 2.823523055999999,
+      "matched": "Full field chess machine passed",
+      "remote_run_id": 39722113405
+    },
+    "G5": {
+      "argv": [
+        "/usr/bin/python3",
+        "scripts/chess_field_full/verify.py",
+        "--counts"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "shell": false,
+      "exit": 0,
+      "timed_out": false,
+      "timeout_seconds": 120,
+      "output_sha256": "a33b20d6da56a3340df449deb51385da7cc5e71def690c83751747faadde748f",
+      "elapsed_seconds": 0.10068101500002058,
+      "matched": "Full field chess reduction passed",
+      "remote_run_id": 39722113405
+    },
+    "G6": {
+      "argv": [
+        "/usr/bin/python3",
+        "scripts/chess_field_full/verify.py",
+        "--regressions"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "shell": false,
+      "exit": 0,
+      "timed_out": false,
+      "timeout_seconds": 1800,
+      "output_sha256": "df0a86656a0c30ffae1f056379170a617c545e2525cca05217c3eacef48bfc37",
+      "elapsed_seconds": 99.12632556099999,
+      "matched": "Full field chess regressions passed",
+      "remote_run_id": 39722113405
+    }
+  }
+}

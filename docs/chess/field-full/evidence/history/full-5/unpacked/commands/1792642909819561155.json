@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "--run",
+    "scripts/RunChessM2.lean",
+    "--rules"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "Rule fixtures passed: 164 assertions\n",
+  "output_sha256": "b88113d30dd97a990afda580d6f46c8a9d4c339160e64aa8db6fc8df668ea2dc",
+  "timed_out": false,
+  "timeout_seconds": 600,
+  "elapsed_seconds": 3.318842846999985,
+  "cumulative_children_peak_rss_kib": 4450956
+}

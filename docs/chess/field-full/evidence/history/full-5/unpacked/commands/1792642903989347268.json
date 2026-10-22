@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_field_full/fixtures.py"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "Full field independent fixtures passed: 202100 source cases; 202126 actual native rows; 5 rejected mutations\n",
+  "output_sha256": "e4dea30e645daeef79c32f89d14682a2bc23aa6fe6c3415e037bda4a2d07bac2",
+  "timed_out": false,
+  "timeout_seconds": 900,
+  "elapsed_seconds": 14.904552297999999,
+  "cumulative_children_peak_rss_kib": 4450956
+}

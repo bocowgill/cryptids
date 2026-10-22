@@ -1,0 +1,152 @@
+{
+  "schema": "chess-field-full-root-review-replay-v1",
+  "status": "passed",
+  "run_id": 39722113405,
+  "computation_commit": "270d3e6aeb7258e1c9871077cf3e8e4f7d9fc53d",
+  "local_heavy_computation": false,
+  "seal_sha256": "6b1dfe5293f3b44f57f39ae523f76c8217a141b9b0bce511353e63b6265055f8",
+  "checks": [
+    {
+      "label": "positive",
+      "argv": [
+        "python3",
+        "/Users/bocowgill/.codex/worktrees/6ba9/cryptids/docs/chess/field-full/evidence/review/check_saved_evidence.py"
+      ],
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": false,
+      "exit": 0,
+      "expected_exit": 0,
+      "matched": "Complete field compiler independent retained-evidence review passed",
+      "output_sha256": "8f8a691761d6ba30369284b871cdbfce24c3234c99ec6de73b2ba1ec6217a2d9",
+      "output_tail": "3da3acfda851a009dd6ad044e3\",\n    \"scripts/chess_field_full/fixtures.py\": \"f768263509e21d582f8835dd4303f988e435d8f0fd84d23b63abdae06bb8a1b1\",\n    \"scripts/chess_field_full/generate_snapshot.py\": \"cda01ce012b74e1eeab087da268993b72a2a0031fc88a0dd4157ee967e8c4b20\",\n    \"scripts/chess_field_full/verify.py\": \"167d7628d18e52cb66b0fd3750ae8edca54b95901121c2021e09cb62dbf4d720\"\n  },\n  \"status\": \"passed\",\n  \"unique_command_receipts\": 31\n}\nComplete field compiler independent retained-evidence review passed\n"
+    },
+    {
+      "label": "source",
+      "argv": [
+        "python3",
+        "/Users/bocowgill/.codex/worktrees/6ba9/cryptids/docs/chess/field-full/evidence/review/check_saved_evidence.py",
+        "--negative",
+        "source"
+      ],
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": false,
+      "exit": 1,
+      "expected_exit": 1,
+      "matched": "phase computation/frozen source binding changed",
+      "output_sha256": "ffaa5f7a9436c371059de7c3f8134f07184a5bd3f7c89a54ccfd236bea86e924",
+      "output_tail": "Complete field compiler independent review rejected: phase computation/frozen source binding changed: semantics\n"
+    },
+    {
+      "label": "entry",
+      "argv": [
+        "python3",
+        "/Users/bocowgill/.codex/worktrees/6ba9/cryptids/docs/chess/field-full/evidence/review/check_saved_evidence.py",
+        "--negative",
+        "entry"
+      ],
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": false,
+      "exit": 1,
+      "expected_exit": 1,
+      "matched": "archive entry mismatch",
+      "output_sha256": "aaa3dae2e2a4fbac2638425c618ac9dc19893a5b44b35e047853c4f390a3d3ed",
+      "output_tail": "Complete field compiler independent review rejected: archive entry mismatch: BadBranch.lean\n"
+    },
+    {
+      "label": "claim",
+      "argv": [
+        "python3",
+        "/Users/bocowgill/.codex/worktrees/6ba9/cryptids/docs/chess/field-full/evidence/review/check_saved_evidence.py",
+        "--negative",
+        "claim"
+      ],
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": false,
+      "exit": 1,
+      "expected_exit": 1,
+      "matched": "saved fixture/count claim changed",
+      "output_sha256": "c2408f456212e1d614625c8f471f5c25734a12c6112cd890426c1fb21e40906d",
+      "output_tail": "Complete field compiler independent review rejected: saved fixture/count claim changed\n"
+    },
+    {
+      "label": "receipt",
+      "argv": [
+        "python3",
+        "/Users/bocowgill/.codex/worktrees/6ba9/cryptids/docs/chess/field-full/evidence/review/check_saved_evidence.py",
+        "--negative",
+        "receipt"
+      ],
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": false,
+      "exit": 1,
+      "expected_exit": 1,
+      "matched": "standalone/phase command receipt inventory or content changed",
+      "output_sha256": "dfadde51b96009e5194949e42ae32cd6d626bc86177e7371bff111c3c79d7088",
+      "output_tail": "Complete field compiler independent review rejected: standalone/phase command receipt inventory or content changed\n"
+    },
+    {
+      "label": "missing-phase",
+      "argv": [
+        "python3",
+        "/Users/bocowgill/.codex/worktrees/6ba9/cryptids/docs/chess/field-full/evidence/review/check_saved_evidence.py",
+        "--negative",
+        "missing-phase"
+      ],
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": false,
+      "exit": 1,
+      "expected_exit": 1,
+      "matched": "missing verification phase",
+      "output_sha256": "4143b90a69732824cf24ca6f895b01d41e11897d3334975bce367fc22e04137e",
+      "output_tail": "Complete field compiler independent review rejected: missing verification phase\n"
+    },
+    {
+      "label": "seal",
+      "argv": [
+        "python3",
+        "/Users/bocowgill/.codex/worktrees/6ba9/cryptids/docs/chess/field-full/evidence/review/check_saved_evidence.py",
+        "--negative",
+        "seal"
+      ],
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": false,
+      "exit": 1,
+      "expected_exit": 1,
+      "matched": "review seal mismatch",
+      "output_sha256": "93305cdf0a2514eed5802ccfea461596f486d20bbe8a18ad01e8f3f22aea82c1",
+      "output_tail": "Complete field compiler independent review rejected: review seal mismatch: check_saved_evidence.py\n"
+    },
+    {
+      "label": "portable-copy",
+      "argv": [
+        "python3",
+        "/var/folders/x0/yprf51qx0bnfqznnx840nwbw0000gn/T/chess-field-review-ogb1bgx_/review/check_saved_evidence.py",
+        "--root",
+        "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+        "--evidence",
+        "/Users/bocowgill/.codex/worktrees/6ba9/cryptids/docs/chess/field-full/evidence/current"
+      ],
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": false,
+      "exit": 0,
+      "expected_exit": 0,
+      "matched": "Complete field compiler independent retained-evidence review passed",
+      "output_sha256": "8f8a691761d6ba30369284b871cdbfce24c3234c99ec6de73b2ba1ec6217a2d9",
+      "output_tail": "3da3acfda851a009dd6ad044e3\",\n    \"scripts/chess_field_full/fixtures.py\": \"f768263509e21d582f8835dd4303f988e435d8f0fd84d23b63abdae06bb8a1b1\",\n    \"scripts/chess_field_full/generate_snapshot.py\": \"cda01ce012b74e1eeab087da268993b72a2a0031fc88a0dd4157ee967e8c4b20\",\n    \"scripts/chess_field_full/verify.py\": \"167d7628d18e52cb66b0fd3750ae8edca54b95901121c2021e09cb62dbf4d720\"\n  },\n  \"status\": \"passed\",\n  \"unique_command_receipts\": 31\n}\nComplete field compiler independent retained-evidence review passed\n"
+    },
+    {
+      "label": "prior-accepted-review",
+      "argv": [
+        "python3",
+        "docs/chess/field-branch/evidence/review/check_saved_evidence.py"
+      ],
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": false,
+      "exit": 0,
+      "expected_exit": 0,
+      "matched": "passed",
+      "output_sha256": "07d94f85de36b6dce223550f94d8e8f94dfaf5111ab5cdabdb7b7b6258af67d6",
+      "output_tail": ".lean\": \"7be2a13b491ab834e49ada052e5d9ee5e2302503040ba98708527317d216a637\",\n    \"scripts/chess_field_branch/Export.lean\": \"fc305bd372d7c3dd395f6b2125cca8aae38f6c6f58decb39113fb86d9bd04b1c\",\n    \"scripts/chess_field_branch/fixtures.py\": \"b47693db3e2a93faae66779b85bd7e5a0f2b4561cd4081e639386ecd5bc5ef7e\",\n    \"scripts/chess_field_branch/verify.py\": \"a08d16cc690544b446692ab3cee942078614b65a1da5b1f8ebfb4ff58ff5000b\"\n  },\n  \"status\": \"passed\"\n}\nField branch independent retained-evidence review passed\n"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-field-full/Unpaid.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "/home/runner/work/cryptids/cryptids/.lake/chess-field-full/Unpaid.lean:3:83: error: Tactic `decide` proved that the proposition\n  45065962 = 41390082\nis false\n",
+  "output_sha256": "72b77120f80f30594de96b9f376afe1687169b72918bcaf243f5fc9aff8dc4f5",
+  "timed_out": false,
+  "timeout_seconds": 300,
+  "elapsed_seconds": 3.8887173329999882,
+  "cumulative_children_peak_rss_kib": 4450664
+}

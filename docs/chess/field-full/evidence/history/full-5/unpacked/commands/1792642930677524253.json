@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "--run",
+    "scripts/chess_m6/SharedFixtures.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "Paired normalized opcode 0: 2307 exact steps, equal final tape/store\nPaired normalized opcode 1: 3856 exact steps, equal final tape/store\nPaired normalized opcode 2: 5564 exact steps, equal final tape/store\nShared fixtures passed: 12 kernel assertions, 3 paired executions\n(interpreter) unknown declaration 'main'\n",
+  "output_sha256": "298797bda3d5ff49ef4d0252b51b3353d937a009519c3cf698377f7070365a84",
+  "timed_out": false,
+  "timeout_seconds": 600,
+  "elapsed_seconds": 3.6402059540000096,
+  "cumulative_children_peak_rss_kib": 4450956
+}

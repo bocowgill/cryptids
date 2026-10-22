@@ -1,0 +1,112 @@
+{
+  "schema": "chess-field-full-review-v1",
+  "status": "passed",
+  "review_kind": "independent-model-advisory",
+  "reviewer": "fresh-context full_referee / leaf-3.1",
+  "formal_verification_by_reviewer": false,
+  "human_approval": false,
+  "local_heavy_computation": false,
+  "review_gates": {
+    "R1": "passed",
+    "R2": "passed"
+  },
+  "run_id": 39722113405,
+  "computation_commit": "270d3e6aeb7258e1c9871077cf3e8e4f7d9fc53d",
+  "claim": {
+    "formal_machine": "ConjectureMachines.Machines.chess_field_aware",
+    "formal_theorem": "ConjectureMachines.Semantics.ChessFieldAware.halts_iff_not_draw",
+    "statement": "Halts chess_field_aware iff NOT (WhiteCanAvoidLoss AND BlackCanAvoidLoss)",
+    "blank_tape": true,
+    "symbols": 2,
+    "states": 45065962,
+    "body_states": 41390082,
+    "initializer_states": 3675880,
+    "input_bits": 1837940,
+    "source_cells": 141380,
+    "previous_states": 390491642,
+    "saved_states": 345425680,
+    "full_chess_machine_constructed": true,
+    "unconditional_chess_equivalence": true
+  },
+  "source_sha256": {
+    ".github/workflows/chess_field_full.yml": "068d91497c115ed78ba28d0696eebde8544999fa1e07a18163a0dc3ac3b4e1c5",
+    "Cryptids/Chess/Optimisation/FieldAware.lean": "9e2635a71f9fec9efa620ff0279cac5e6aa0a3f8db8bc1eeaccd19ea6d7cfce0",
+    "Cryptids/Compilation/FieldCompiler/Bounds.lean": "5c974c346b1b0a8a22229459c835367f2ebe288f6b8ab419ef222c5ac5320f6a",
+    "Cryptids/Compilation/FieldCompiler/Codec.lean": "ddb7403915f458ac63f9cc1a9835910dc42c4af91148adcf5bedc206a15fa171",
+    "Cryptids/Compilation/FieldCompiler/Graph.lean": "4045458bf39c5b137eee0c42de3388fba04796d329117871eae74c2578b3fe3f",
+    "Cryptids/Compilation/FieldCompiler/Numeric.lean": "aefce00ed466cd2fe62de971d6a852f039e6b2d574b222f474ec550addcf6de3",
+    "Cryptids/Compilation/FieldCompiler/Operations.lean": "adf6530f6d4d2f2428ea68eb7e2206b3975643ef39da2dac2005c4da3f640e5c",
+    "Cryptids/Compilation/FieldCompiler/RoutineSemantics.lean": "cecda048c9683e4d175aee71117add0b99e5e1dac9eac040a39aca8436f0b0e3",
+    "Cryptids/Compilation/FieldCompiler/Semantics.lean": "c106bd10d765b3d1a53d05b664450afd830d6d8503dc1316d0f8a5e3d0c3af46",
+    "Cryptids/Compilation/FieldCompiler/Snapshot.lean": "b9853271fdc327eef9f69986cd2edc4f6f154a9ed355ffc16125840525a6cc5b",
+    "Cryptids/Compilation/FieldCompiler/Syntax.lean": "9b215750333e836d42c1f6f1bef07eb6f6b14e5de0ad1c9b7138f9b56e9fae84",
+    "Cryptids/Semantics/ChessFieldAware.lean": "8e718988d28e1dfdb83f6341f0400e9fe99a5bca826aeac69c9ba3db593ff910",
+    "docs/chess/field-full/baseline-pins.json": "d4a4c07611318da84010300c151679dc7b0d8a3306046aee6a4c06291b1f5a8b",
+    "lakefile.chess-field-full.toml": "c7e70bd361b73d8a466075b5aab50076c7da453c33098778f72189a313e1c884",
+    "scripts/chess_field_full/Audit.lean": "ef9739fd946a120ea8c750a7d06cb7b39018d52fe402af8b11a9a183061f92a9",
+    "scripts/chess_field_full/Export.lean": "2b52e981ab9c6ced353a9bf6989e93b7ba223b3da3acfda851a009dd6ad044e3",
+    "scripts/chess_field_full/fixtures.py": "f768263509e21d582f8835dd4303f988e435d8f0fd84d23b63abdae06bb8a1b1",
+    "scripts/chess_field_full/generate_snapshot.py": "cda01ce012b74e1eeab087da268993b72a2a0031fc88a0dd4157ee967e8c4b20",
+    "scripts/chess_field_full/verify.py": "167d7628d18e52cb66b0fd3750ae8edca54b95901121c2021e09cb62dbf4d720"
+  },
+  "source_review": "No unclosed mathematical gap found in the universal compiler, tape relation, paid construction, exact count or unchanged chess theorem. Final strict remote kernel/native evidence is the formal/operational evidence; the reviewer performed source and metadata review only.",
+  "findings": [],
+  "development_run_dispositions": {
+    "failure": 19,
+    "success": 9,
+    "cancelled": 1
+  },
+  "local_replays": {
+    "status": "passed",
+    "metadata_only": true,
+    "positive": {
+      "exit": 0,
+      "output_sha256": "8f8a691761d6ba30369284b871cdbfce24c3234c99ec6de73b2ba1ec6217a2d9"
+    },
+    "negative_controls": [
+      {
+        "mode": "source",
+        "reason": "Complete field compiler independent review rejected: phase computation/frozen source binding changed: semantics",
+        "exit": 1,
+        "output_sha256": "ffaa5f7a9436c371059de7c3f8134f07184a5bd3f7c89a54ccfd236bea86e924"
+      },
+      {
+        "mode": "entry",
+        "reason": "Complete field compiler independent review rejected: archive entry mismatch: BadBranch.lean",
+        "exit": 1,
+        "output_sha256": "aaa3dae2e2a4fbac2638425c618ac9dc19893a5b44b35e047853c4f390a3d3ed"
+      },
+      {
+        "mode": "claim",
+        "reason": "Complete field compiler independent review rejected: saved fixture/count claim changed",
+        "exit": 1,
+        "output_sha256": "c2408f456212e1d614625c8f471f5c25734a12c6112cd890426c1fb21e40906d"
+      },
+      {
+        "mode": "receipt",
+        "reason": "Complete field compiler independent review rejected: standalone/phase command receipt inventory or content changed",
+        "exit": 1,
+        "output_sha256": "dfadde51b96009e5194949e42ae32cd6d626bc86177e7371bff111c3c79d7088"
+      },
+      {
+        "mode": "missing-phase",
+        "reason": "Complete field compiler independent review rejected: missing verification phase",
+        "exit": 1,
+        "output_sha256": "4143b90a69732824cf24ca6f895b01d41e11897d3334975bce367fc22e04137e"
+      },
+      {
+        "mode": "seal",
+        "reason": "Complete field compiler independent review rejected: review seal mismatch: check_saved_evidence.py",
+        "exit": 1,
+        "output_sha256": "93305cdf0a2514eed5802ccfea461596f486d20bbe8a18ad01e8f3f22aea82c1"
+      }
+    ],
+    "copied_directory": {
+      "status": "passed",
+      "identical_positive_output": true,
+      "exit": 0,
+      "output_sha256": "8f8a691761d6ba30369284b871cdbfce24c3234c99ec6de73b2ba1ec6217a2d9"
+    }
+  },
+  "root_acceptance_and_independent_replay": "separate; pending root"
+}

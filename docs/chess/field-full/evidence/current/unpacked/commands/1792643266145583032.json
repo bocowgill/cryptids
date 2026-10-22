@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_field_full/verify.py",
+    "--counts"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "Full field compiler frozen inputs passed\nFull field chess reduction passed\n",
+  "output_sha256": "a33b20d6da56a3340df449deb51385da7cc5e71def690c83751747faadde748f",
+  "timed_out": false,
+  "timeout_seconds": 120,
+  "elapsed_seconds": 0.10068101500002058,
+  "cumulative_children_peak_rss_kib": 4450952
+}

@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-field-full/BadStore.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "/home/runner/work/cryptids/cryptids/.lake/chess-field-full/BadStore.lean:3:78: error: Tactic `decide` proved that the proposition\n  FieldReturn.symbolCode (some Turing.PartrecToTM2.\u0393'.bit1) = 3\nis false\n",
+  "output_sha256": "1725687f3476e72801e82ae677595b032c004e1418efb941defb22ca9de80765",
+  "timed_out": false,
+  "timeout_seconds": 300,
+  "elapsed_seconds": 3.808355616,
+  "cumulative_children_peak_rss_kib": 4450664
+}
