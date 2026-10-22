@@ -30,6 +30,7 @@ NS = "Chess.Optimisation.BodyCertificatePilot"
 AUDIT_TARGET = "chess_body_certificate_audit"
 AUDIT_EXE = ROOT / ".lake/build/bin" / AUDIT_TARGET
 N, K, MAIN = 573802, 114487, 533341
+MAP_CHUNK_STATES = 1024
 QUOTIENT_CHUNK_STATES = 1024
 INPUT = ROOT / "docs/chess/campaign-2026-10-22/round-03/evidence/pilot-final/unpacked"
 SNAPSHOT = ROOT / "docs/chess/campaign-2026-10-22/round-01/evidence/final/unpacked/machine-export.json"
@@ -93,7 +94,7 @@ class Driver:
             "requested_scope": "compiled_audit_smoke_only" if args.smoke_only else "full_bounded_pilot",
             "requested_sample_states": [] if args.smoke_only else [64, 512, 4096],
             "audit_execution": "compiled_lean_executable",
-            "map_representation": "literal_nat_balanced_tree_with_kernel_range_certificate",
+            "map_representation": "named_literal_nat_midpoint_subtrees_with_composed_kernel_proofs",
             "map_native_code_generation": False,
             "quotient_representation": "packed_nat_pairs_executable_noinline_midpoint_subtrees",
             "stages": [], "generated_files": {}, "completed_positive_sample_states": 0,
@@ -628,7 +629,24 @@ theorem lookup_lt_of_allBelow (tree : Balanced.RowTree Nat) (bound fallback : Na
       · apply ihr
         exact both.2
 
+theorem map_count_branch (left right : Balanced.RowTree Nat) (nl nr : Nat)
+    (hl : left.count = nl) (hr : right.count = nr) :
+    (Balanced.RowTree.branch nl left right).count = nl + nr :=
+  congrArg₂ Nat.add hl hr
+
+theorem map_valid_branch (left right : Balanced.RowTree Nat) (nl : Nat)
+    (hc : left.count = nl) (hl : left.WellFormed) (hr : right.WellFormed) :
+    (Balanced.RowTree.branch nl left right).WellFormed :=
+  ⟨hc.symm, hl, hr⟩
+
+theorem map_bounded_branch (left right : Balanced.RowTree Nat) (nl bound : Nat)
+    (hl : mapAllBelow left bound = true) (hr : mapAllBelow right bound = true) :
+    mapAllBelow (Balanced.RowTree.branch nl left right) bound = true :=
+  Bool.and_eq_true_iff.mpr ⟨hl, hr⟩
+
 '''
+
+MAP_BRANCH_ROOTS = ["map_count_branch", "map_valid_branch", "map_bounded_branch"]
 
 
 HEARTBEATS = ("set_option maxHeartbeats 0 in\n"
@@ -775,6 +793,108 @@ PACKED_ROOTS = ["packed_decode_none_iff", "packed_payload_lt", "packed_destinati
                 "packed_code_bound", "packed_transition_fidelity"]
 
 
+def map_declarations(driver, stem, rows_name, states, bound, chunk_limit):
+    """Name exact midpoint subtrees so later proofs can compose checked children.
+
+    The map remains a noncomputable proof witness. Every raw leaf is retained;
+    no projection of a giant tree or global tree-equality proof is introduced.
+    """
+    source_path = ROOT / PREFIX / rows_name
+    source_bytes = source_path.read_bytes()
+    lines = source_bytes.decode("utf-8").splitlines(keepends=True)
+    require(states > 0 and len(lines) == states and 1 <= chunk_limit <= MAP_CHUNK_STATES,
+            "map chunk input census or limit")
+    require(all(line.endswith("\n") for line in lines), "map chunk line termination")
+    declarations, chunks, nodes = [], [], []
+
+    def subtree(start, length):
+        node = {"start": start, "states": length}
+        if length <= chunk_limit:
+            name = f"{stem}Chunk_{start:06d}"
+            filename = f"{stem}-chunks/{start:06d}-{length:04d}.map"
+            driver.emit(filename, "".join(lines[start:start + length]))
+            chunks.append({"definition": NS + "." + name, "start": start, "states": length,
+                           "path": str(PREFIX / filename), "info": info(ROOT / PREFIX / filename)})
+            declarations.append(HEARTBEATS + f"noncomputable def {name} :\n" +
+                                "    Balanced.RowTree Nat :=\n" +
+                                f'  load_body_map%\n    "{PREFIX}/{filename}"\n')
+            node.update(name=name, kind="chunk")
+        else:
+            # Exactly balancedRowsExpr's midpoint, including every odd length.
+            left_count = length // 2
+            left = subtree(start, left_count)
+            right = subtree(start + left_count, length - left_count)
+            name = f"{stem}Node_{start:06d}_{length:06d}"
+            declarations.append(HEARTBEATS + f"noncomputable def {name} :\n" +
+                                "    Balanced.RowTree Nat :=\n" +
+                                f"  .branch {left_count}\n    {left}\n    {right}\n")
+            node.update(name=name, kind="branch", left=left, right=right,
+                        left_count=left_count, right_count=length - left_count)
+        nodes.append(node)
+        return name
+
+    root = subtree(0, states)
+    next_start = 0
+    for chunk in chunks:
+        require(chunk["start"] == next_start and 0 < chunk["states"] <= chunk_limit,
+                "map chunk interval gap, overlap or bound")
+        next_start += chunk["states"]
+    concatenated = b"".join((ROOT / chunk["path"]).read_bytes() for chunk in chunks)
+    require(next_start == states and concatenated == source_bytes,
+            "map chunk concatenation differs from complete source")
+    manifest = {"source": {"path": str(PREFIX / rows_name), "info": info(source_path)},
+                "states": states, "raw_value_bound": bound, "representation": "literal_nat",
+                "chunk_limit_states": chunk_limit, "chunk_count": len(chunks),
+                "node_count": len(nodes), "root_definition": NS + "." + root,
+                "split_rule": "left_count = floor(subtree_state_count / 2)",
+                "exact_concatenation_checked": True,
+                "concatenated_sha256": hashlib.sha256(concatenated).hexdigest(),
+                "chunks": chunks, "postorder_nodes": nodes}
+    manifest_name = stem + "-chunks.json"
+    driver.emit(manifest_name, json.dumps(manifest, indent=2, sort_keys=True) + "\n")
+    driver.summary.setdefault("map_layouts", {})[stem] = {
+        key: value for key, value in manifest.items() if key not in ("chunks", "postorder_nodes")}
+    driver.summary["map_layouts"][stem]["manifest"] = info(ROOT / PREFIX / manifest_name)
+    declarations.append(HEARTBEATS + f"noncomputable def {stem}Tree :\n" +
+                        f"    Balanced.RowTree Nat :=\n  {root}\n")
+    return "".join(declarations), nodes
+
+
+def map_proofs(nodes, tree_name, kind, bound, root_theorem):
+    """Only chunk leaves normalize; every internal proof names child theorems."""
+    require(kind in ("count", "valid", "bounded") and nodes, "map proof kind or empty nodes")
+
+    def proposition(name, states):
+        if kind == "count":
+            return f"{name}.count = {states}"
+        if kind == "valid":
+            return f"{name}.WellFormed"
+        return f"mapAllBelow {name} {bound} = true"
+
+    proofs = []
+    for node in nodes:
+        name = node["name"]
+        declaration = HEARTBEATS + f"theorem {name}_{kind} :\n"
+        declaration += "    " + proposition(name, node["states"]) + " :=\n"
+        if node["kind"] == "chunk":
+            declaration += "  by decide +kernel\n"
+        else:
+            left, right = node["left"], node["right"]
+            nl, nr = node["left_count"], node["right_count"]
+            declaration += f"  map_{kind}_branch\n    {left}\n    {right}\n"
+            if kind == "count":
+                declaration += f"    {nl} {nr}\n    {left}_count\n    {right}_count\n"
+            elif kind == "valid":
+                declaration += f"    {nl}\n    {left}_count\n    {left}_valid\n    {right}_valid\n"
+            else:
+                declaration += f"    {nl} {bound}\n    {left}_bounded\n    {right}_bounded\n"
+        proofs.append(declaration)
+    root = nodes[-1]
+    proofs.append(HEARTBEATS + f"theorem {root_theorem} :\n    " +
+                  proposition(tree_name, root["states"]) + f" :=\n  {root['name']}_{kind}\n")
+    return "".join(proofs)
+
+
 def quotient_declarations(driver, stem, rows_name, states, state_bound, chunk_limit):
     """Preserve the loader's midpoint tree while bounding each executable definition.
 
@@ -844,15 +964,15 @@ def generate_smoke(driver):
     driver.emit("smoke-packed.rows", "7 0\n0 2\n")
     smoke = header([MODULE + ".Loaders", "Cryptids.Chess.Optimisation.FieldSelective",
                     "Cryptids.Compilation.LocalCertificate"]) + MAP_BOUNDS
-    smoke += HEARTBEATS + f'''noncomputable def smokeMapTree : Balanced.RowTree Nat :=
-  load_body_map% "{PREFIX}/smoke-map.txt"
-'''
+    # Force four leaf chunks and three named internal nodes through the exact
+    # production map/proof helpers; these are still zero actual-body rows.
+    map_source, map_nodes = map_declarations(driver, "smokeMap", "smoke-map.txt", 4, 2, 1)
+    smoke += map_source
+    for kind in ("count", "valid", "bounded"):
+        smoke += map_proofs(map_nodes, "smokeMapTree", kind, 2, "smoke_map_" + kind)
     # Force two separate executable chunks even for this two-state table.
     smoke += quotient_declarations(driver, "smokeQuotient", "smoke-packed.rows", 2, 2, 1)
     for name, proposition in (
-            ("smoke_map_count", "smokeMapTree.count = 4"),
-            ("smoke_map_valid", "smokeMapTree.WellFormed"),
-            ("smoke_map_bounded", "mapAllBelow smokeMapTree 2 = true"),
             ("smoke_quotient_count", "smokeQuotientTree.count = 2"),
             ("smoke_quotient_valid", "smokeQuotientTree.WellFormed"),
             ("smoke_quotient_bounded", "packedAllBounded smokeQuotientTree 8 = true")):
@@ -882,10 +1002,15 @@ theorem smoke_quotient_fidelity (state : Fin 2) (bit : Fin 2) :
     packedAllBounded (.leaf (8, 0)) 8 = true ∧
     packedAllBounded (.leaf (9, 0)) 8 = false := by decide +kernel
 '''
+    smoke += HEARTBEATS + '''theorem smoke_map_controls :
+    mapAllBelow (.leaf 2) 2 = false ∧
+    ¬ (Balanced.RowTree.branch 2 (.leaf (0 : Nat)) (.leaf 1)).WellFormed :=
+  by decide +kernel
+'''
     roots = ["smoke_map_count", "smoke_map_valid", "smoke_map_bounded", "smoke_lookup_lt",
              "smokeClassMap_val", "smoke_quotient_count", "smoke_quotient_valid",
              "smoke_quotient_bounded", "smoke_quotient_fidelity", "smoke_codec_boundaries",
-             "smoke_entry", "smoke_row"] + PACKED_ROOTS
+             "smoke_entry", "smoke_row", "smoke_map_controls"] + PACKED_ROOTS + MAP_BRANCH_ROOTS
     driver.emit("TemplateSmoke.lean", smoke + audit_and_end(
         driver, "TemplateSmoke", roots, "Body certificate template smoke checked"))
 
@@ -901,10 +1026,9 @@ def generate_setup(driver):
 def generate(driver, selected):
     # Source text is generated only after the import-time remote guard.
     generate_setup(driver)
+    map_source, map_nodes = map_declarations(driver, "map", "class-map.txt", N, K, MAP_CHUNK_STATES)
     driver.emit("MapData.lean", header([MODULE + ".Loaders"]) +
-                HEARTBEATS +
-                'noncomputable def mapTree : Balanced.RowTree Nat :=\n' +
-                f'  load_body_map% "{PREFIX}/class-map.txt"\n' +
+                map_source +
                 audit_and_end(driver, "MapData", ["mapTree"], "Complete body class map loaded"))
     driver.emit("QuotientData.lean", header([MODULE + ".Loaders"]) +
                 quotient_declarations(driver, "quotient", "quotient-packed.rows", K, K,
@@ -915,19 +1039,22 @@ def generate(driver, selected):
   Fin.ofNat {K} (mapTree.lookup s.val 0)
 '''
     driver.emit("MapPrelude.lean", map_prelude + audit_and_end(
-        driver, "MapPrelude", ["mapAllBelow", "lookup_lt_of_allBelow", "classMap"],
+        driver, "MapPrelude", ["mapAllBelow", "lookup_lt_of_allBelow", "classMap"] + MAP_BRANCH_ROOTS,
         "Body class map prelude checked"))
-    # Independent modules isolate the first count/cache/range reduction. None
-    # imports another concrete map proof, and every one is separately audited.
-    for stem, name, proposition, banner in (
-            ("MapCount", "map_count", f"mapTree.count = {N}",
+    # Each root depends transitively on every checked chunk through named child
+    # theorem constants. Validity additionally imports certified child counts.
+    for stem, kind, banner in (
+            ("MapCount", "count",
              "Complete body class map count checked"),
-            ("MapValid", "map_valid", "mapTree.WellFormed",
+            ("MapValid", "valid",
              "Complete body class map caches checked"),
-            ("MapBounded", "map_bounded", f"mapAllBelow mapTree {K} = true",
+            ("MapBounded", "bounded",
              "Complete body class map range checked")):
-        source = header([MODULE + ".MapPrelude"]) + HEARTBEATS
-        source += f"theorem {name} : {proposition} := by decide +kernel\n"
+        imports = [MODULE + ".MapPrelude"]
+        if kind == "valid":
+            imports.append(MODULE + ".MapCount")
+        name = "map_" + kind
+        source = header(imports) + map_proofs(map_nodes, "mapTree", kind, K, name)
         driver.emit(stem + ".lean", source + audit_and_end(driver, stem, [name], banner))
     map_checks = header([MODULE + ".MapCount", MODULE + ".MapValid", MODULE + ".MapBounded"])
     map_checks += f'''theorem map_lookup_lt (index : Nat) : mapTree.lookup index 0 < {K} :=

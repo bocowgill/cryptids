@@ -99,3 +99,8 @@ wave `map-chunk-proof`; source edits only pending review/root dispatch. All
 count/cache/range proofs compose child theorem constants instead of globally
 unfolding the literal tree. Existing proofs, complete audits, exact data and
 all caps remain. No active remote jobs. Account usage83%at19:07.
+
+19:16 UTC: account usage read succeeded at86% consumed. Current named chunk-proof
+pilot is the final substantive launch planned before a complete checkpoint/pause.
+Root source review found no blocker; independent worker review is finishing.
+Only a small affordable source repair may follow; larger new work is deferred.

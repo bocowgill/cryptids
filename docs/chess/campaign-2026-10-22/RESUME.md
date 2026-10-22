@@ -2,7 +2,7 @@
 
 The user resumed the existing goal from `fc16528`. The goal is active and the
 optimization objective remains open. The previous pause snapshot is immutable
-in `pause-2026-10-22/`. Latest account usage observation: 83% consumed at 19:07 UTC;
+in `pause-2026-10-22/`. Latest account usage observation: 86% consumed at 19:16 UTC;
 usage is shared across the account and may change independently of this task.
 
 ## Hard wind-down
@@ -115,10 +115,10 @@ representation tuning without measured progress. Full current ranking is in
 ## Next concrete actions
 
 1. Finish the one authorized source-only chunk-proof revision in leaf2.1,
-   wave `map-chunk-proof`. Named map subtrees of at most1,024 leaves retain exact
+   wave `map-chunk-proof`. Named map subtrees of at most 1,024 leaves retain exact
    raw data/midpoint shape; local ordinary-kernel proofs compose using child
    theorem constants, avoiding one global count/cache/range reduction. Keep
-   exact statements, full-private audits and the shared120s Data budget plus
+   exact statements, full-private audits and the shared 120s Data budget plus
    1200s/6GiB total. See `round-03/CHUNK-PROOF-OPTION.md`. Root dispatch requires
    source review; no memory or actual-row improvement is assumed.
 2. If a small proof/source repair is needed, make one bounded exact-source retry.
@@ -127,6 +127,11 @@ representation tuning without measured progress. Full current ranking is in
 3. Any quotient success is partial until every original transition is certified,
    the complete blank-tape machine is linked and all acceptance gates are repeated.
 4. Maintain a pushed checkpoint and obey the hard wind-down above.
+
+At 86% usage this is the final substantive pilot planned for the current window.
+Retain its outcome and wind down at that useful checkpoint; allow only a small,
+clearly bounded source repair if necessary and affordable. Larger follow-on
+representation or actual-row work belongs in the next resumed round.
 
 Workspace `/Users/bocowgill/.codex/worktrees/6ba9/cryptids`, branch
 `codex/chess-openevolve-pilot`. **Origin is upstream: do not push origin.** Use

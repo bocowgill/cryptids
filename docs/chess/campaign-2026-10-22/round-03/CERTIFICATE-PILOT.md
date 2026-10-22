@@ -1,9 +1,9 @@
 # Bounded concrete quotient certificate scalability pilot
 
-Status: trial 11 again passed complete packed quotient loading/audit, but the
-map-only `MapChecks` module exceeded the sampled 6-GiB RSS cap. The authorized
-minimal isolation of generic setup, count, cache and range checks is implemented
-and awaits remote verification.
+Status: trial 12 passed generic map setup and its audit, then the isolated
+whole-map count proof exceeded the sampled 6-GiB RSS cap. The authorized
+revision composes complete map invariants from checked small chunks and named
+child theorem constants. Its runtime behavior remains unverified.
 Zero actual-body row proofs have passed. This
 experiment tests the cost of ordinary Lean kernel certificates for the measured
 114,487-state quotient. A pass covers only the requested sample, never all
@@ -522,7 +522,7 @@ map-only environment can exceed the limit; simultaneous quotient/chess imports
 are not necessary for this obstruction. It does not distinguish generic setup
 from the first concrete count/cache/range normalization.
 
-The authorized minimal isolation now adds:
+The isolation tested in trial 12 added:
 
 - `MapPrelude`, importing `MapData`, with the unchanged generic `MAP_BOUNDS`
   declarations and noncomputable `classMap`. Its three-root full-private audit
@@ -543,6 +543,67 @@ negative control and global/RSS limits are unchanged. No representation or
 accepted source changes. This revision seeks an attributable first obstruction;
 additional audit overhead is charged to the same budget and may itself exhaust
 it. All generated sources and failed-stage receipts remain retained.
+
+## Trial 12: whole-map count normalization isolated
+
+Run `39836604660`, commit `9585998b9402acbc86523fae7d62ea6e56402b66`, is retained
+under `evidence/certificate-12/unpacked/`. Its
+[summary](evidence/certificate-12/unpacked/certificate-summary.json) binds driver
+SHA256 `950ff15dd557580f417bc87c15615443753ae5c432aa97f68e1705798f83b3c7`.
+`MapPrelude` built in 4.155 seconds at peak combined RSS 2,478,567,424 bytes.
+Its full-private audit passed in 3.343 seconds at 4,177,084,416 bytes, covering
+three roots and 316 dependencies with only `propext` encountered.
+
+The isolated `MapCount` build was killed after 20.701 seconds at 6,456,549,376
+bytes, above the unchanged 6,442,450,944-byte ceiling. Its receipt records
+exit -9 and `process_group_memory_budget`, without its own banner, `.olean`
+or audit. The [log](evidence/certificate-12/unpacked/MapCount.log) contains only
+replayed imports. Generic map setup has passed; the isolated global count
+kernel normalization is now the measured obstruction. This does not determine
+which internal evaluator allocation dominates that normalization.
+
+The shared data group elapsed 28.318 seconds and completed only `MapPrelude`.
+Total driver elapsed was 157.756 seconds, with driver peak RSS 125,624 KiB.
+There is no complete-data result, no actual-body row proof and no deliberate
+false-row result. All prior receipts remain unchanged.
+
+The authorized next revision changes only map data naming and invariant proof
+composition. `map_declarations` recursively uses the original floor-midpoint
+split until each subtree has at most 1,024 leaves. It emits noncomputable named
+literal chunks, named internal nodes with exact left counts, and the `mapTree`
+root alias. Re-reading all emitted shards must reconstruct the entire original
+map text byte for byte. A retained `map-chunks.json` records every interval,
+node, child, cached count, source hash and shard hash. The original raw values,
+leaf order and complete tree shape remain intact. The byte identity and
+manifest bounds are provenance checks; the separate kernel proofs establish
+the complete raw range and cache invariants.
+
+`MapPrelude` adds three ordinary constructor lemmas: structural counts compose
+by addition; cache validity uses the proved left count and both child validity
+theorems; raw bounds compose by Boolean conjunction. Its audit now requires
+six explicit roots. `MapCount`, `MapValid` and `MapBounded` each prove their
+small literal chunks with `decide +kernel`, then apply those constructor lemmas
+to named child theorem constants at every internal node. `MapValid` imports
+`MapCount` for the certified child counts. The final `map_count`, `map_valid`
+and `map_bounded` statements are unchanged and refer to the root theorem;
+there is no final whole-map `decide` or giant tree-equality proof. The raw bound
+remains 114,487, independent of chunk length. Each root's full-private audit
+traverses the complete child proof closure.
+
+The production map declaration/proof helpers also generate the four-entry
+smoke with four forced one-leaf chunks and three named internal nodes. It keeps
+all earlier smoke claims and adds explicit out-of-range-leaf and incorrect-cache
+checks, giving 24 exact audit roots including the three constructor lemmas.
+This remains zero actual-body rows. Final `MapChecks` still audits six roots;
+`Data` still audits nineteen. Quotient data and proofs, actual `RowAt`, all row
+samples and the deliberate false actual-row control are unchanged.
+
+All eight data builds, their audits and intervening receipts still share one
+120-second allowance, inside the original 1,200-second and sampled 6-GiB limits.
+The complete-data flag still requires every stage. Named composition is a
+testable way to avoid whole-map reduction; it is not a measured memory saving.
+Accumulated declarations, auditing or a later quotient/integration stage may
+still stop this bounded pilot. No additional optimization route is included.
 
 ## Root-owned runner interface
 
@@ -613,24 +674,28 @@ The separate smoke-only decision mode does not claim or perform these full-data
 checks; it uses only the retained four-entry/two-row template literals.
 
 The generated map loader calls the existing generic
-`TableSyntax.balancedRowsExpr` with `mkNatLit` leaves, producing
-`mapTree : Balanced.RowTree Nat`. The generated `load_packed_rows%` loader
+`TableSyntax.balancedRowsExpr` with `mkNatLit` leaves for each named map chunk.
+Named midpoint internal nodes assemble `mapTree : Balanced.RowTree Nat`.
+The generated `load_packed_rows%` loader
 constructs quotient subtrees of at most 1,024 states as
 `Balanced.RowTree (Nat × Nat)`, using only literal naturals and pair constructors
 through the same generic builder. A balanced assembly uses the original
-midpoint splits and actual subtree counts. The map and quotient bounds are
-established by complete separate kernel computations. Neither a file hash nor
+midpoint splits and actual subtree counts. Complete map bounds compose
+kernel-checked chunk results; quotient bounds use their existing complete
+kernel computation. Neither a file hash nor
 the generator is a proof of the actual-body row relation.
 
-Only the map tree and its lookup wrapper suppress native code generation via
+Only map chunks, internal nodes, the root and its lookup wrapper suppress
+native code generation via
 `noncomputable`; their transparent safe kernel definitions are retained. The
 quotient subtrees and assembled tree remain executable, transparent
 `@[noinline] def` declarations. Their manifest and exact byte-concatenation
 receipt are retained alongside the full input, shard data and generated source.
 
 Separate modules measure full-map loading, full-quotient loading, and complete
-cache/census checks. The isolated map modules and `QuotientChecks` prove with
-`decide +kernel`:
+cache/census checks. The map modules prove the following map invariants by
+chunk kernel decisions and named theorem composition; `QuotientChecks` retains
+its original complete `decide +kernel` checks:
 
 ```
 mapTree.count = 573802
@@ -832,6 +897,17 @@ independent verification of visibility, roots and the common deadline; and final
 retention/report consistency. The existing reviewer found no blocking issue.
 All eight data stages still consume the same 120-second allowance. This source
 is frozen for the next bounded remote checkpoint; no local execution occurred.
+The chunk-proof revision completed four source passes: exact midpoint/data
+provenance; constructor proofs and child-constant composition; the existing
+independent reviewer's narrow API/closure/budget review; and final retained
+receipt, root-census and reporting consistency. That reviewer caught an
+unapplied `Bool.and_eq_true` API use. Inspection of the pinned v4.35.0-rc4
+`Init/Data/Bool.lean` confirmed the correct implicit-argument lemma; the source
+now uses `Bool.and_eq_true_iff.mpr`. The reviewer found no remaining static
+blocker after that repair. Only the three owned files changed; no local
+generation, Lean, Python import, model, count or test execution occurred.
+Source is frozen for root-owned remote validation; the new chunk proofs and
+their resource cost remain unverified.
 An import or data-loading
 obstruction is useful evidence of this representation's cost, not permission
 to bypass the kernel or claim the 459,315-state reduction accepted.
