@@ -11,6 +11,7 @@ Run generation and all Lean checking on the authorized remote worker.
 import argparse
 from pathlib import Path
 import re
+import textwrap
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -92,7 +93,7 @@ theorem correct_lookup (tree : Balanced.RowTree Entry) (checked : Correct tree) 
   | empty => rfl
   | leaf row =>
     by_cases h : i = 0
-    · simpa only [Balanced.RowTree.lookup, h, ↓reduceIte] using checked
+    · simpa only [Correct, Balanced.RowTree.lookup, h, ↓reduceIte] using checked
     · simp only [Balanced.RowTree.lookup, h, ↓reduceIte, source]
   | branch count left right ihl ihr =>
     obtain ⟨cl, cr⟩ := checked
@@ -300,6 +301,17 @@ def paired_tree(tree):
                   lambda m: f"(op{m[1]}, SharedModel.row{m[1]})", tree)
 
 
+def format_lean(source):
+    """Wrap generated terms at whitespace without changing the proposed data."""
+    lines = []
+    for line in source.splitlines():
+        indent = line[:len(line) - len(line.lstrip())]
+        lines.extend(textwrap.wrap(line, width=100, subsequent_indent=indent + "  ",
+                                   break_long_words=False, break_on_hyphens=False)
+                     if len(line) > 100 else [line])
+    return "\n".join(lines) + "\n"
+
+
 def generate(source):
     row_names = re.findall(r"^def (row\d{4}) : Stmt :=", source, re.M)
     expected = [f"row{i:04d}" for i in range(4042)]
@@ -335,7 +347,7 @@ def generate(source):
     output.append("    project Prod.fst SharedModel.entries :=\n")
     output.append(f"  {correspondence}\n")
     output.append(FOOTER)
-    return "".join(output)
+    return format_lean("".join(output))
 
 
 def main():

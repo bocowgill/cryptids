@@ -23,6 +23,7 @@ theorem from_to_bool (bit : Bit) : fromBool (toBool bit) = bit := by
 
 theorem map_bit_roundtrip (tape : Tape Bit) : (tape.map bitMap).map boolMap = tape := by
   rcases tape with ⟨head, left, right⟩
+  simp only [Tape.map]
   congr 1
   · exact from_to_bool head
   · apply ListBlank.ext
@@ -48,7 +49,7 @@ def cellBits (symbol : Symbol) : List Bit :=
 
 theorem cellBits_getI (symbol : Symbol) (j : Fin 13) :
     (cellBits symbol).getI j.val = encodeCell (FieldReturn.symbolCell symbol) j := by
-  rw [List.getI_eq_getElem (by simpa using j.isLt)]
+  rw [List.getI_eq_getElem (cellBits symbol) (by simp)]
   simp [cellBits]
 
 /-- The finite binary initializer emits exactly one complete block per source symbol. -/
@@ -81,7 +82,7 @@ theorem bitInput_getI (values : List Symbol) (n : Nat) (j : Fin 13) :
     cases n with
     | zero =>
       simp only [bitInput, Nat.mul_zero, zero_add, List.getI_cons_zero]
-      rw [List.getI_append _ _ _ (by simpa using j.isLt)]
+      rw [List.getI_append _ _ _ (by simp)]
       exact cellBits_getI symbol j
     | succ n =>
       rw [bitInput, List.getI_append_right _ _ _ (by simp only [cellBits_length]; omega)]
@@ -98,7 +99,9 @@ theorem mk₁_nth_nat {Γ : Type} [Inhabited Γ] (values : List Γ) (n : Nat) :
 theorem mk₁_nth_neg {Γ : Type} [Inhabited Γ] (values : List Γ) (i : Int) (neg : i < 0) :
     (Tape.mk₁ values).nth i = default := by
   cases i with
-  | ofNat n => omega
+  | ofNat n =>
+    simp only [Int.ofNat_eq_natCast] at neg
+    omega
   | negSucc n => rfl
 
 /-- Every integer tape coordinate is derived from the actual finite initializer. -/
@@ -107,6 +110,7 @@ theorem bitInput_rep (values : List Symbol) :
   intro i j
   cases i with
   | ofNat n =>
+    simp only [Int.ofNat_eq_natCast]
     have index : 13 * (n : Int) + (j.val : Int) = ((13 * n + j.val : Nat) : Int) := by
       omega
     rw [index, mk₁_nth_nat, mk₁_nth_nat, bitInput_getI]
@@ -115,6 +119,7 @@ theorem bitInput_rep (values : List Symbol) :
       have := j.isLt
       omega
     rw [mk₁_nth_neg _ _ bitNeg, mk₁_nth_neg _ _ (by omega), symbolCell_blank, encode_blank]
+    rfl
 
 theorem input_map (values : List Symbol) :
     (Tape.mk₁ (input values)).map boolMap = Tape.mk₁ (bitInput values) := by
@@ -138,7 +143,8 @@ theorem local_rep (source : Tape Symbol) (bits : Tape Bit)
 /-- Updating any source coordinate agrees with the corresponding finite cell update. -/
 theorem symbolCell_update (symbol : Symbol) (field : Fin 4) (value : Fin 5) :
     FieldReturn.symbolCell
-      (symbol.1, Function.update symbol.2 (FieldReturn.stackAt field) (FieldReturn.codeSymbol value)) =
+      (symbol.1, Function.update symbol.2 (FieldReturn.stackAt field)
+        (FieldReturn.codeSymbol value)) =
     updateCell (FieldReturn.symbolCell symbol) field value := by
   apply Prod.ext
   · rfl
