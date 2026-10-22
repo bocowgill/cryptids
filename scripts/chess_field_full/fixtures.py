@@ -245,7 +245,8 @@ def validate_native_samples(model):
     count = len(model.bits)
     for state in (0, 1, count // 2, count - 1, count, count + 1, model.prefix - 1,
                   model.prefix, model.prefix + model.post_states - 1,
-                  model.prefix + model.post_states, model.states - 1):
+                  model.prefix + model.post_states, model.prefix + model.halt_state,
+                  model.prefix + model.post_states + model.halt_state, model.states - 1):
         require((state, 0) in seen and (state, 1) in seen,
                 ("missing numeric boundary/initializer probes", state))
     return len(data["samples"]), len(seen)

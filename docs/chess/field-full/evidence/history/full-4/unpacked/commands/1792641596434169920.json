@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "prlimit",
+    "--stack=67108864",
+    "--",
+    "lake",
+    "env",
+    "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_field_full_export",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-field-full/machine.json"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": -9,
+  "output": "",
+  "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "timed_out": true,
+  "timeout_seconds": 900,
+  "elapsed_seconds": 900.995226868,
+  "cumulative_children_peak_rss_kib": 4437712
+}

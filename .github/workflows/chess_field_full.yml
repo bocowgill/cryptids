@@ -9,7 +9,7 @@ on:
       target:
         description: Focused compiler/proof target
         type: choice
-        options: [core, routines, codec, graph, snapshot, semantics, machine, full]
+        options: [core, routines, codec, graph, snapshot, semantics, machine, profile, full]
         default: core
 permissions:
   contents: read

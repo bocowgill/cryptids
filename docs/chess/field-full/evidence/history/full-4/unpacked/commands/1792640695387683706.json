@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-field-full/BadInitializer.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "/home/runner/work/cryptids/cryptids/.lake/chess-field-full/BadInitializer.lean:3:133: error: Tactic `decide` proved that the proposition\n  (FlatInit.initialise #[0, 1]\n        { states := 1, neZeroStates := \u22ef, toMachine := { transition := fun x x_1 => none } }).states =\n    1\nis false\n",
+  "output_sha256": "ba6b733c13cc29d23b3df4ce3440f91dddfce7789a23572e49830a5620be9d39",
+  "timed_out": false,
+  "timeout_seconds": 300,
+  "elapsed_seconds": 4.263536768999984,
+  "cumulative_children_peak_rss_kib": 4437712
+}

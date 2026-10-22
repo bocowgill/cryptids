@@ -184,6 +184,7 @@ TARGETS={
  'snapshot':['Cryptids.Compilation.FieldCompiler.Snapshot'],
  'semantics':['Cryptids.Compilation.FieldCompiler.Semantics','Cryptids.Compilation.FieldCompiler.Numeric'],
  'machine':['Cryptids.Semantics.ChessFieldAware'],
+ 'profile':['chess_field_full_export'],
  'full':['Cryptids.Semantics.ChessFieldAware','chess_field_full_audit','chess_field_full_export']}
 
 def main():
@@ -203,6 +204,10 @@ def main():
         if args.target=='snapshot':checks.append(regenerate())
         checks.append(run(['lake','--wfail','-f','lakefile.chess-field-full.toml','build']+TARGETS[args.target],
                     'Build completed successfully',timeout=1800))
+        if args.target=='profile':
+            checks.append(run(['prlimit','--stack=67108864','--','lake','env',
+                str(ROOT/'.lake/build/bin/chess_field_full_export'),
+                str(WORK/'machine.json')],'Full field machine export passed',timeout=180))
         save(args.target,checks)
         print('Full field compiler '+args.target+' passed')
     for flag,target in [('semantics','semantics'),('coverage','snapshot'),('machine','machine')]:

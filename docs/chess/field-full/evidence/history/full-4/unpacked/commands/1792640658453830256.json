@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "prlimit",
+    "--as=17179869184",
+    "--",
+    "lake",
+    "env",
+    "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_field_full_audit"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "Audited 8870 FieldAware foundation roots and 58451 dependencies\nMeta certificate generator roots outside safe roots: 0\nCompiler artifacts outside safe roots: #[ConjectureMachines.Compilation.FieldCompiler.emit._unsafe_rec, ConjectureMachines.Compilation.FieldCompiler.Codec.bitInput._unsafe_rec, ConjectureMachines.Compilation.FieldCompiler.Snapshot.Correct._unsafe_rec, ConjectureMachines.Compilation.FieldCompiler.Snapshot.project._unsafe_rec, ConjectureMachines.Compilation.FieldCompiler.Syntax.meaning._unsafe_rec, ConjectureMachines.Compilation.FieldCompiler.Syntax.nodeAt._unsafe_rec, ConjectureMachines.Compilation.FieldCompiler.Syntax.size._unsafe_rec, ConjectureMachines.Compilation.FieldCompiler.Syntax.subAt._unsafe_rec]\nPermitted axioms: #[propext, Classical.choice, Quot.sound]\nChess FieldAware foundation audit passed\n",
+  "output_sha256": "c05857b90b2141c48876862d934707a191ef1eefaf3ea85ac8c51d301a78af7f",
+  "timed_out": false,
+  "timeout_seconds": 600,
+  "elapsed_seconds": 6.86588703999999,
+  "cumulative_children_peak_rss_kib": 3966792
+}

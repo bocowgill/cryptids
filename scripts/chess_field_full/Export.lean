@@ -17,6 +17,11 @@ abbrev GlobalNode := BoolGraph.Node (4042 * 1024) 5 4042
 
 def num (n : Nat) : Json := toJson n
 
+def stage (message : String) : IO Unit := do
+  let output ← IO.getStdout
+  output.putStrLn ("[field-full-export] " ++ message)
+  output.flush
+
 def direction (dir : Dir) : Json := toJson (if dir = .right then (1 : Int) else -1)
 
 def boolNum (bit : Bool) : Nat := if bit then 1 else 0
@@ -103,6 +108,7 @@ def replayInitializer (count : Nat) : IO Json := do
   let mut head : Int := 0
   let mut state : Fin 45065962 := 0
   for tick in [:2 * count] do
+    if tick % 262144 = 0 then stage s!"initializer step {tick}/{2 * count}"
     unless 0 ≤ head ∧ head.toNat < tape.size do
       throw (IO.userError s!"Actual initializer left its charged tape frame at step {tick}")
     let index := head.toNat
@@ -127,10 +133,12 @@ end ChessFieldFullExport
 open ChessFieldFullExport
 
 def main (args : List String) : IO Unit := do
+  stage "main entered"
   let [path] := args | throw (IO.userError "Provide the output JSON path")
   let bits := Chess.Optimisation.FieldAware.bits
   let paidOffset := 2 * bits.size
   let postCount := postStatesOf Chess.Optimisation.FieldAware.post
+  stage s!"input ready: bits={bits.size}; beginning literal rows and actual samples"
   let mut operations : Array Json := #[]
   let mut syntaxRowsJson : Array Json := #[]
   let mut entries : Array Nat := #[]
@@ -162,8 +170,14 @@ def main (args : List String) : IO Unit := do
         (some entry, value)).val
       samples ← pushSamples Chess.Optimisation.FieldAware.machine
         Chess.Optimisation.FieldAware.rowMachine (paidOffset + postCount + encoded) samples
+    if (label.val + 1) % 64 = 0 then
+      stage s!"rows complete: {label.val + 1}/4042; native sample pairs={samples.size}"
+  stage "all literal rows and per-label samples complete"
+  let haltCode := (CompactPost.encode Chess.Optimisation.FieldAware.getter
+    (none, (0 : Fin 5))).val
   for state in [0, 1, bits.size / 2, bits.size - 1, bits.size, bits.size + 1,
       paidOffset - 1, paidOffset, paidOffset + postCount - 1, paidOffset + postCount,
+      paidOffset + haltCode, paidOffset + postCount + haltCode,
       paidOffset + Chess.Optimisation.FieldAware.body.states - 1] do
     samples ← pushSamples Chess.Optimisation.FieldAware.machine
       Chess.Optimisation.FieldAware.rowMachine state samples
@@ -180,9 +194,10 @@ def main (args : List String) : IO Unit := do
     ("initial_raw", num (CompactPost.rawEncode (some initial, (0 : Fin 5))).val),
     ("initial_encoded", num (CompactPost.encode Chess.Optimisation.FieldAware.getter
       (some initial, (0 : Fin 5))).val),
-    ("halt_encoded", num (CompactPost.encode Chess.Optimisation.FieldAware.getter
-      (none, (0 : Fin 5))).val), ("body_entry", num paidOffset)]
+    ("halt_encoded", num haltCode), ("body_entry", num paidOffset)]
+  stage "beginning complete actual-machine initializer replay"
   let initializer ← replayInitializer bits.size
+  stage "actual initializer replay complete; assembling source and bit strings"
   let payload := Json.mkObj [
     ("schema", toJson "chess-field-full-v1"), ("metadata", metadata),
     ("operations", Json.arr operations), ("syntax", Json.arr syntaxRowsJson),
@@ -190,5 +205,9 @@ def main (args : List String) : IO Unit := do
     ("samples", Json.arr samples), ("bits", toJson (bitsString bits)),
     ("source_cells", toJson (String.ofList (source.flatMap cellChars))),
     ("initializer", initializer)]
-  IO.FS.writeFile path payload.compress
+  stage "payload assembled; serialization begins"
+  let serialized := payload.compress
+  stage "serialization complete; writing artifact"
+  IO.FS.writeFile path serialized
+  stage "artifact written"
   IO.println "Full field machine export passed"

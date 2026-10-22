@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_field_full/verify.py",
+    "--semantics"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "Build completed successfully (3853 jobs).\nFull field compiler frozen inputs passed\nFull field compiler semantics passed\n",
+  "output_sha256": "24a0dc5bfb2655c406301f4bb3ea9eeff24eff4bf35da71b88fa4b5ad194aaa8",
+  "timed_out": false,
+  "timeout_seconds": 1800,
+  "elapsed_seconds": 4.596605183999998,
+  "cumulative_children_peak_rss_kib": 4446120
+}
