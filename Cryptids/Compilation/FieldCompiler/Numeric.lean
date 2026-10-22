@@ -47,7 +47,7 @@ theorem binaryRows_eq {q : Nat} [NeZero q] (M : TM0.Machine Bool (Fin q)) :
       omega
     rw [← same, Binary.compile_bounce]
     simp only [binaryRows, Binary.bounceState, Fin.val_natAdd,
-      show ¬ q + i.val < q by omega, ↓reduceDIte]
+      show ¬ q + i.val < q by omega, ↓reduceDIte, Nat.add_sub_cancel_left]
     rfl
 
 /-- Three direct numeric ranges: write, restore the head, and offset every body row. -/
