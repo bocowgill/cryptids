@@ -565,14 +565,15 @@ def quotient_declarations(driver, stem, rows_name, states, state_bound, chunk_li
             chunks.append({"definition": NS + "." + name, "start": start, "states": length,
                            "binary_rows": 2 * length, "path": str(PREFIX / filename),
                            "info": info(ROOT / PREFIX / filename)})
-            declarations.append(HEARTBEATS + f"@[noinline] def {name} : {row_tree} :=\n" +
-                                f'  load_balanced_rows% "{PREFIX}/{filename}"\n')
+            declarations.append(HEARTBEATS + f"@[noinline] def {name} :\n    {row_tree} :=\n" +
+                                f'  load_balanced_rows%\n    "{PREFIX}/{filename}"\n')
             return name
         # This is exactly balancedRowsExpr's split, including odd lengths.
         left_count = length // 2
         left = subtree(start, left_count)
         right = subtree(start + left_count, length - left_count)
-        return f"(Balanced.RowTree.branch {left_count} {left} {right})"
+        return (f"(Balanced.RowTree.branch {left_count}\n  " +
+                left.replace("\n", "\n  ") + "\n  " + right.replace("\n", "\n  ") + ")")
 
     assembled = subtree(0, states)
     # Independently reread every emitted shard in recorded order: exact byte
@@ -596,7 +597,8 @@ def quotient_declarations(driver, stem, rows_name, states, state_bound, chunk_li
     driver.summary.setdefault("quotient_layouts", {})[stem] = {
         key: value for key, value in manifest.items() if key != "chunks"}
     driver.summary["quotient_layouts"][stem]["manifest"] = info(ROOT / PREFIX / manifest_name)
-    declarations.append(HEARTBEATS + f"@[noinline] def {stem}Tree : {row_tree} :=\n  {assembled}\n")
+    declarations.append(HEARTBEATS + f"@[noinline] def {stem}Tree :\n    {row_tree} :=\n  " +
+                        assembled.replace("\n", "\n  ") + "\n")
     return "".join(declarations)
 
 

@@ -1,10 +1,10 @@
 # Bounded concrete quotient certificate scalability pilot
 
-Status: the full trial successfully loaded and audited the complete map, then
-stopped on a recursion-depth error in the executable quotient declaration.
-There was no sampled RSS stop. The authorized bounded executable-chunk
-representation is now implemented in the remote-only driver and awaits remote
-verification. Zero actual-body row proofs have passed. This
+Status: the first trial of the chunked quotient stopped on strict long-line
+warnings in the template smoke. Its formatting repair is source-ready and
+awaits remote verification. The preceding full trial successfully loaded and
+audited the complete map, then stopped on a recursion-depth error in the
+executable quotient declaration. Zero actual-body row proofs have passed. This
 experiment tests the cost of ordinary Lean kernel certificates for the measured
 114,487-state quotient. A pass covers only the requested sample, never all
 573,802 old states or a new accepted chess machine. The accepted full-machine
@@ -271,6 +271,27 @@ smoke-only mode exercises the same two-chunk template. Source inspection covered
 the split/loader identity, retained-data census, executable/kernel behavior and
 unchanged runner limits. An independent read-only reviewer found no blocking
 static issue. No local generation, execution or Lean verification was performed.
+
+## Trial 07: generated formatting failure
+
+Run `39819548458`, commit `176c71ccdf737dd96a6499382ef332db7a933c66`, stopped
+solely on strict long-line warnings at generated `TemplateSmoke.lean` lines
+45, 46, 49 and 50: the chunk declaration types and loader paths exceeded the
+100-character limit. The [retained log](evidence/certificate-live-07/unpacked/TemplateSmoke.log)
+contains no semantic proof error; its later smoke banner does not establish a
+successful build. The smoke stage exited one after 4.645 seconds with peak
+combined RSS 3,101,892,608 bytes and no resource stop. Total elapsed time was
+15.938 seconds. The [summary](evidence/certificate-live-07/unpacked/certificate-summary.json)
+records no successful smoke audit, complete-data checks, actual-body row proofs
+or negative control. This is a source-formatting failure, not new scalability
+evidence.
+
+The repair places each declaration's type and each loader's unchanged string
+literal on separate continuation lines. It also recursively line-breaks the
+assembled branches, including the complete 128-shard expression. These changes
+preserve all names, types, literal paths, terms, data and limits. No linter is
+disabled. Only the generator source and this report were edited locally; the
+new formatting has not been generated or executed locally.
 
 ## Root-owned runner interface
 
