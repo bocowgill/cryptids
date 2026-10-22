@@ -1,0 +1,49 @@
+{
+  "schema": "chess-goal-bounce-census-v1",
+  "status": "passed",
+  "certifies_new_machine": false,
+  "evidence_scope": "Complete finite census of previously certified binary transition rows; proposed smaller counts still require new universal Lean construction and full validation.",
+  "commit": "5af89c69ed69e0bf0a3d7a710a2bbc3eac7ac0a4",
+  "run_id": "39775667430",
+  "census_source_sha256": "c4d9dae48edbdc69dd8d5e36d3c616ab82afe8a6d66fc833f87eb30d49d2790e",
+  "frozen_artifact_sha256": {
+    "machine-export.json": "3c9ad4e5c7c979e17d2a4e26ff0310fbaa27ab2aee6f948295650ca7a40a45a4",
+    "body-rows.jsonl": "64337bda276a0b178e29318f7d7023b504adee4a1c1438465b416130cb111b65"
+  },
+  "baseline_states": 2904623,
+  "post_states": 533341,
+  "initializer_states": 1837941,
+  "body_rows_checked": 2133364,
+  "row_kinds": {
+    "write_rows": 145190,
+    "halt_rows": 2,
+    "move_rows": 921490,
+    "bounce_rows": 1066682
+  },
+  "distinct_write_destinations": 40461,
+  "syntax_write_nodes": 4050,
+  "structural_return_slots": 40461,
+  "structural_candidate_full_states": 2411743,
+  "unused_bounce_states": 492880,
+  "selective_bounce_candidate_body_states": 573802,
+  "selective_bounce_candidate_full_states": 2411743,
+  "write_destinations_by_target_node_tag": {
+    "4": 5595,
+    "3": 2925,
+    "0": 31390,
+    "shared_halt": 1,
+    "5": 5,
+    "2": 545
+  },
+  "node_tag_key": {
+    "0": "move",
+    "1": "write",
+    "2": "load",
+    "3": "branch",
+    "4": "go",
+    "5": "halt"
+  },
+  "unconditional_move_controls": 442725,
+  "write_destinations_with_unconditional_move": 32385,
+  "write_destination_list_sha256": "b2934bda1899e26ef8d20cc8be97624e39e9f5e6180a73fc44108f836c5b11aa"
+}

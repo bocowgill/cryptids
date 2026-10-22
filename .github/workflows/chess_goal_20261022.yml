@@ -1,29 +1,77 @@
 name: Chess compression goal research
-# Register this focused, remote-only campaign workflow on the fork branch.
+# Remote-only verification; subsequent source checkpoints use explicit dispatch.
 on:
   push:
     branches: ['codex/chess-openevolve-pilot']
     paths: ['.github/workflows/chess_goal_20261022.yml']
   workflow_dispatch:
+    inputs:
+      target:
+        description: Focused compiler/proof target
+        type: choice
+        options: [census, generic, syntax, graph, machine, full]
+        default: census
 permissions:
   contents: read
 concurrency:
-  group: chess-goal-20261022-${{ github.ref }}
+  group: chess-goal-20261022-${{ github.ref }}-${{ inputs.target || 'census' }}
   cancel-in-progress: false
 jobs:
-  census:
+  verify:
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
+    timeout-minutes: 45
     env:
+      ELAN_NO_UPDATE_CHECK: '1'
+      LEAN_NUM_THREADS: '1'
       CHESS_REMOTE: '1'
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
       - name: Complete accepted-body return census
+        if: ${{ inputs.target == 'census' || !inputs.target }}
         run: python3 scripts/chess_goal_20261022/census.py
+      - uses: leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6
+        if: ${{ inputs.target && inputs.target != 'census' }}
+        with:
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'false'
+          use-github-cache: 'false'
+      - uses: actions/cache/restore@caa296126883cff596d87d8935842f9db880ef25
+        if: ${{ inputs.target && inputs.target != 'census' }}
+        with:
+          path: |
+            .lake/packages
+            .lake/build
+          key: chess-goal-20261022-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-${{ github.sha }}
+          restore-keys: |
+            chess-goal-20261022-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-
+            chess-field-reverse-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-
+            chess-field-packed-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-
+            chess-field-full-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-
+            chess-field-branch-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-
+            chess-field-continuation-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-
+            chess-field-return-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-
+            chess-field-binary-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-
+            chess-openevolve-wide-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-
+      - name: Fetch pinned Mathlib cache
+        if: ${{ inputs.target && inputs.target != 'census' }}
+        run: timeout --signal=TERM --kill-after=10s 900s lake exe cache get Mathlib
+      - name: Remote compiler verification
+        if: ${{ inputs.target && inputs.target != 'census' }}
+        run: python3 scripts/chess_goal_20261022/verify.py --target "${{ inputs.target }}"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
-          name: chess-goal-census-${{ github.sha }}
+          name: chess-goal-${{ inputs.target || 'census' }}-${{ github.sha }}
           include-hidden-files: true
           path: .lake/chess-goal-20261022/**
           retention-days: 30
+      - uses: actions/cache/save@5a3ec84eff668545956fd18022155c47e93e2684
+        if: ${{ always() && inputs.target && inputs.target != 'census' }}
+        with:
+          path: |
+            .lake/packages
+            .lake/build
+          key: chess-goal-20261022-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-${{ github.sha }}

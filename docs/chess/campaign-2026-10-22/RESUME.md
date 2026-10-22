@@ -37,5 +37,15 @@ This is a proposed allocation, not yet a certified or measured smaller machine.
 Remote census prepared in scripts/chess_goal_20261022/census.py and its dedicated
 workflow. It checks every accepted body row, measures exact required return slots,
 and compares the conservative structural count. No Lean or census runs locally.
-Active remote jobs: none yet; next commit/push and register the focused workflow.
+Remote census39775667430 succeeded at source5af89c69ed69e0bf0a3d7a710a2bbc3eac7ac0a4.
+Retained under round-01/evidence/census-39775667430, including logs and run metadata.
+It checked all2133364 body rows: W4050, required returns40461 exactly equal the
+structural allocation1+5*(4042+4050). Proposed full2411743, saving492880. This is
+finite evidence, NOT a new certified machine. Best accepted remains2904623.
+Usage now49% used/51% remaining. No resetcredit consumed.
+
+Generic SelectiveBinary source drafted, first strict remote build is next. Syntax
+return allocator worker active; abstract graph coverage and concrete integration
+remain. Workflow supports focused generic/syntax/graph/machine checks, and refuses
+full acceptance until its runner is implemented. Remote jobs: none active now.
 Local git branch codex/chess-openevolve-pilot.
