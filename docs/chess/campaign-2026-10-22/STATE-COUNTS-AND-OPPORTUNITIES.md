@@ -50,8 +50,8 @@ Their order combines absolute opportunity with the cost of obtaining evidence.
 
 | Priority | Whole-machine mechanism | Absolute opportunity | Proof difficulty | Implementation effort | Next decision test |
 |---|---|---|---|---|---|
-| 1 | Certify the complete exact interpreter quotient | 459,315 measured finite states; candidate full 538,861 | Generic LocalCertificate proof exists; concrete kernel scalability is being measured | Bounded full-data and representative-row pilot, then literal or structural certificate | Complete map build/audit passed39816362847; QuotientData hit recursion-depth failure before rows. Next bounded test: noinline executable row shards, unchanged time/memory caps |
-| 2 | Encode structured source-table rows before expanding the exact old input | 228,832 measured prospective full saving; D=21,682; full candidate769,344 | High: complete decoder, exact word reconstruction and tape cleanup; existing SeedLink/expander reusable | Complete packet identity and physical controller pilot passed; universal arithmetic/tape proof pending | Format, framed Scan, exact typed control/all43,364 rows/28 corruptions and physical geometry passed; verify paid blocks and source-graph induction, then compose universal execution |
+| 1 | Certify the complete exact interpreter quotient | 459,315 measured finite states; candidate full 538,861 | Generic LocalCertificate proof exists; concrete kernel scalability is being measured | Bounded full-data and representative-row pilot, then literal or structural certificate | Complete map build/audit passed39816362847; QuotientData hit recursion-depth failure before rows. Trial07 stopped only on generated formatting; repaired shard trial39822945066 active with unchanged time/memory caps |
+| 2 | Encode structured source-table rows before expanding the exact old input | 228,832 measured prospective full saving; D=21,682; full candidate769,344 | High: complete decoder, exact word reconstruction and tape cleanup; existing SeedLink/expander reusable | Complete packet identity and physical controller pilot passed; universal arithmetic/tape proof pending | Format, framed Scan, exact typed control/all43,364 rows/28 corruptions and physical geometry passed; Complete paid Blocks, exact chess codec and row/literal semantic induction passed; join final packet path to physical execution, then full-machine acceptance |
 | 3 | Structural proof of store/suffix sharing if literal quotient certification scales poorly | Within measured459,315;339,898same-node equivalences are diagnostics, not a closed subquotient | High: successor closure through loads/branches/jumps | High, possibly much smaller proof data | Use actual pilot obstruction; avoid a second literal route with the same scaling problem |
 | 4 | Fixed two-bit or pair packing of the seed | Two-bit141,380gross payload states; five-bit-pair70,684seed bits before controller delta | Medium to high: framing, odd inputs, cleanup and exact codec | Moderate if expander contracts transfer | Compare fully paid result against structured-table compression before choosing |
 | 5 | Replace the specialized interpreter by program-as-data or apply dictionary/grammar compression | No defensible net count yet; all stored program/dictionary/decoder states must be charged | Very high for a new interpreter; high for a generic decoder | High | Require an explicit whole-machine design and bounded end-to-end pilot |
@@ -208,3 +208,33 @@ are in first remote checks (39818051349 / 39818061113). They unlock the same
 pursued for its own sake. Ranked priorities remain quotient first by absolute
 saving, structured initializer in parallel by shrinking proof obligations, then
 structural certificate alternatives if the concrete quotient stalls.
+
+
+## Major proof checkpoint: 17:28 UTC
+
+The **998,176-state accepted machine** is unchanged. The **769,344-state**
+structured-initializer candidate still needs final semantic composition and full
+acceptance. Its exact173641packetbits/173642writerstates now pass Lean through
+the frozen source's existing certificates. Every paid decoder read/emission/
+finish contract and controller correspondence also passes. These verified small
+components unlock the already-measured **228,832 full-machine saving**.
+
+The larger **459,315-state quotient opportunity** remains first by absolute
+saving. Trial07 failed only on generated formatting before any large-data stage;
+trial08 (39822945066) repairs formatting while preserving all terms, paths and
+resource limits. No new scalability claim or accepted savings follows. Rank and
+candidate totals remain unchanged; final proof difficulty is still higher for
+concrete quotient certification than the now-shrinking initializer proof chain.
+
+
+## User-requested pause: 2026-10-22
+
+**Campaign paused; no jobs may restart without an explicit resume.** All four
+remaining remote checks are completed/cancelled, and the final branch inventory
+has no active runs. Accepted count and all opportunity rankings above are unchanged.
+
+Trial08 was cancelled with only a source manifest retained; it has no interpretable
+scalability outcome. The conditional `Correct` physical-path lift passed its uploaded
+strict check before cancellation. The final `Transducer.packet_run` source is saved
+but unverified, and full-machine composition/acceptance remains outstanding.
+See `RESUME.md` and `pause-2026-10-22/manifest.json` for exact restart state.

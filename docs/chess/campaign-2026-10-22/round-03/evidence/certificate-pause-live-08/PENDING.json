@@ -1,0 +1,12 @@
+{
+  "status": "UPLOADED_DIAGNOSTICS_ONLY",
+  "run_id": 39822945066,
+  "artifact_id": 12445842226,
+  "artifact_name": "chess-body-certificate-3b8e7844085ee35bc11f2b5ac1be36d0768da3f7",
+  "artifact_sha256": "53624cda04e8b9c496e5ff0d82709618551e1cee6a322db3d47c6877d82497e9",
+  "computation_commit": "3b8e7844085ee35bc11f2b5ac1be36d0768da3f7",
+  "observed_run_status": "completed",
+  "final_run_logs_and_provenance_required": true,
+  "new_accepted_machine": false,
+  "local_model_execution": false
+}

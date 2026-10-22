@@ -1,0 +1,50 @@
+2026-10-22T15:01:25.387Z dispatch seed-architecture opened: leaf-1.1
+2026-10-22T15:01:50.918Z dispatch seed-architecture started leaf-1.1 as /root/goal_initializer_route
+2026-10-22T15:01:50.965Z dispatch seed-architecture sealed
+2026-10-22T15:17:28.365Z dispatch seed-architecture returned leaf-1.1
+2026-10-22T15:17:28.481Z dispatch packet-census opened: leaf-1.2
+2026-10-22T15:17:56.570Z dispatch packet-census started leaf-1.2 as /root/goal_initializer_route
+2026-10-22T15:17:56.616Z dispatch packet-census sealed
+2026-10-22T15:45:14.111Z dispatch packet-census returned leaf-1.2
+2026-10-22T15:45:14.271Z dispatch controller-pilot opened: leaf-2.1, leaf-2.2
+2026-10-22T15:45:54.910Z dispatch controller-pilot started leaf-2.1 as /root/goal_seed_controller
+2026-10-22T15:45:54.962Z dispatch controller-pilot started leaf-2.2 as /root/goal_selective_fixtures
+2026-10-22T15:45:55.006Z dispatch controller-pilot sealed
+2026-10-22T15:50:31.546Z dispatch decoder-proof-plan opened: leaf-1.3
+2026-10-22T15:50:31.594Z dispatch decoder-proof-plan started leaf-1.3 as /root/goal_initializer_route
+2026-10-22T15:50:31.637Z dispatch decoder-proof-plan sealed
+2026-10-22T15:57:13.880Z dispatch controller-pilot returned leaf-2.1
+2026-10-22T16:03:09.871Z dispatch controller-pilot returned leaf-2.2
+2026-10-22T16:15:04.767Z dispatch decoder-proof-plan returned leaf-1.3
+2026-10-22T16:15:04.890Z dispatch decoder-foundations opened: leaf-3.1, leaf-3.2
+2026-10-22T16:15:39.508Z dispatch decoder-foundations started leaf-3.1 as /root/goal_seed_codec
+2026-10-22T16:15:39.549Z dispatch decoder-foundations started leaf-3.2 as /root/goal_seed_machine
+2026-10-22T16:15:39.589Z dispatch decoder-foundations sealed
+2026-10-22T16:20:08.866Z dispatch decoder-geometry opened: leaf-3.3, leaf-3.4
+2026-10-22T16:20:46.437Z dispatch decoder-geometry started leaf-3.3 as /root/goal_seed_controller
+2026-10-22T16:20:46.478Z dispatch decoder-geometry started leaf-3.4 as /root/goal_seed_scan
+2026-10-22T16:20:46.518Z dispatch decoder-geometry sealed
+2026-10-22T16:28:17.412Z dispatch decoder-correspondence opened: leaf-3.5
+2026-10-22T16:29:14.239Z dispatch decoder-correspondence started leaf-3.5 as /root/goal_seed_native
+2026-10-22T16:29:14.284Z dispatch decoder-correspondence sealed
+2026-10-22T16:33:54.749Z dispatch decoder-geometry returned leaf-3.3
+2026-10-22T16:33:54.826Z dispatch decoder-correspondence returned leaf-3.5
+2026-10-22T16:44:12.149Z dispatch decoder-blocks opened: leaf-3.6
+2026-10-22T16:44:40.832Z dispatch decoder-blocks started leaf-3.6 as /root/goal_seed_controller
+2026-10-22T16:44:40.878Z dispatch decoder-blocks sealed
+2026-10-22T16:47:58.390Z dispatch decoder-semantics opened: leaf-3.7
+2026-10-22T16:48:27.377Z dispatch decoder-semantics started leaf-3.7 as /root/goal_seed_expander
+2026-10-22T16:48:27.422Z dispatch decoder-semantics sealed
+2026-10-22T16:54:58.254Z dispatch decoder-foundations returned leaf-3.1
+2026-10-22T16:54:58.339Z dispatch decoder-geometry returned leaf-3.4
+2026-10-22T17:02:48.573Z dispatch decoder-chess-codec opened: leaf-3.8
+2026-10-22T17:03:04.317Z dispatch decoder-chess-codec started leaf-3.8 as /root/goal_seed_codec
+2026-10-22T17:03:04.362Z dispatch decoder-chess-codec sealed
+2026-10-22T17:25:46.598Z dispatch decoder-physical-lift opened: leaf-3.9
+2026-10-22T17:25:46.641Z dispatch decoder-chess-codec returned leaf-3.8
+2026-10-22T17:26:03.617Z dispatch decoder-physical-lift started leaf-3.9 as /root/goal_seed_scan
+2026-10-22T17:26:03.660Z dispatch decoder-physical-lift sealed
+2026-10-22T17:27:20.654Z dispatch decoder-foundations returned leaf-3.2
+2026-10-22T17:27:58.060Z dispatch decoder-blocks returned leaf-3.6
+2026-10-22T17:33:48.058Z dispatch decoder-semantics returned leaf-3.7
+2026-10-22T17:33:48.118Z dispatch decoder-physical-lift returned leaf-3.9

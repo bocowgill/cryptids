@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "waves": {
+    "body-pilot": {
+      "leaves": [
+        "leaf-1.1"
+      ],
+      "state": "complete",
+      "openedAt": "2026-10-22T14:13:12.016Z",
+      "started": {
+        "leaf-1.1": {
+          "handle": "/root/goal_body_quotient_pilot",
+          "at": "2026-10-22T14:13:57.520Z"
+        }
+      },
+      "returned": {
+        "leaf-1.1": {
+          "at": "2026-10-22T14:28:08.459Z"
+        }
+      },
+      "sealedAt": "2026-10-22T14:13:57.564Z",
+      "completedAt": "2026-10-22T14:28:08.459Z"
+    },
+    "proof-scout": {
+      "leaves": [
+        "leaf-1.2"
+      ],
+      "state": "complete",
+      "openedAt": "2026-10-22T14:34:28.499Z",
+      "started": {
+        "leaf-1.2": {
+          "handle": "/root/goal_body_proof_scout",
+          "at": "2026-10-22T14:35:03.796Z"
+        }
+      },
+      "returned": {
+        "leaf-1.2": {
+          "at": "2026-10-22T14:41:42.302Z"
+        }
+      },
+      "sealedAt": "2026-10-22T14:35:03.845Z",
+      "completedAt": "2026-10-22T14:41:42.302Z"
+    },
+    "certificate-pilot": {
+      "leaves": [
+        "leaf-2.1"
+      ],
+      "state": "complete",
+      "openedAt": "2026-10-22T14:43:25.940Z",
+      "started": {
+        "leaf-2.1": {
+          "handle": "/root/goal_body_quotient_pilot",
+          "at": "2026-10-22T14:43:54.396Z"
+        }
+      },
+      "returned": {
+        "leaf-2.1": {
+          "at": "2026-10-22T15:00:32.827Z"
+        }
+      },
+      "sealedAt": "2026-10-22T14:43:54.447Z",
+      "completedAt": "2026-10-22T15:00:32.827Z"
+    }
+  }
+}

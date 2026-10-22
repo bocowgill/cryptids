@@ -1,0 +1,44 @@
+{
+  "executed-workflow.yml": {
+    "bytes": 12233,
+    "sha256": "f070325e7c520a4fe59d4db361d737f53042e23816ce8a5ddb38985c78ec1ee9",
+    "crc32": 657702452,
+    "compressed_bytes": 1616,
+    "compression": 8
+  },
+  "session-binding.json": {
+    "bytes": 400,
+    "sha256": "93324030e950f99fa7fc9a30dbfefe75435f878ae1c6a62f74473a26c429c115",
+    "crc32": 242426292,
+    "compressed_bytes": 213,
+    "compression": 8
+  },
+  "commands/1792689713576884872.json": {
+    "bytes": 1084,
+    "sha256": "42e0c2d14a142d701b1790021916f5d95a68f9eba5a92fb8f1b61dab2ab59aa8",
+    "crc32": 3499783625,
+    "compressed_bytes": 541,
+    "compression": 8
+  },
+  "session-result.json": {
+    "bytes": 125,
+    "sha256": "9c5ada5c5d174271011e12e94c2b8d5de308593b1c92d1a8fbe0b2dfd0e91341",
+    "crc32": 735818335,
+    "compressed_bytes": 101,
+    "compression": 8
+  },
+  "source-manifest.json": {
+    "bytes": 446580,
+    "sha256": "35cc1d2f788204b1f57f46685438fac81b7cf99f17028be2221643249c557c92",
+    "crc32": 2366223870,
+    "compressed_bytes": 121078,
+    "compression": 8
+  },
+  "transducer.json": {
+    "bytes": 447955,
+    "sha256": "0391bacfc548826293b6eda8811a51dc68a10afbd27558453db0be7d1527ed2b",
+    "crc32": 3435253148,
+    "compressed_bytes": 121788,
+    "compression": 8
+  }
+}

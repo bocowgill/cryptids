@@ -1,0 +1,9 @@
+# Complete exact quotient pilot
+OWNS: scripts/chess_body_20261022/pilot.py, docs/chess/campaign-2026-10-22/round-03/PILOT.md, .unlazy/chess-goal-20261022-r03/gates/leaf-1.1.md
+
+- [x] G1: Full bounded partition, independent universal row checker, literal golden cases, negative controls and complete exports are implemented without local execution.
+  EVIDENCE: source implemented in scripts/chess_body_20261022/pilot.py; four-pass source review documented in round-03/PILOT.md. Independent static reviewer found no blocking defect; both suggested semantic negative controls added. No local code/import/model/count/fixture execution. This manual source gate makes no execution-pass claim.
+- [x] G2: Exact-source remote pilot passes all checks and retains measured complete counts, or records its precise resource/representation obstruction.
+  CHECK: CHESS_REMOTE=1 GITHUB_ACTIONS=true python scripts/chess_body_20261022/pilot.py --output .lake/chess-body-20261022 --seconds 600 --memory-gib 6
+  EXPECT: Whole-body exact quotient pilot passed
+  EVIDENCE: root-owned run 39795919458 at 8cd145e0f7f13a23e50a87bac376ac0b5dc036dd; raw artifact 12433517194 retained under docs/chess/campaign-2026-10-22/round-03/evidence/pilot-01-diagnostics/. Command receipt commands/1792679329317693480.json: cwd /home/runner/work/cryptids/cryptids, shell false, exit 0, timed_out false, exact EXPECT banner present, output SHA256 7202024ec3d7f6a5eb60d2acb9d07bf7f7cef797e6175a155ed41c9b05eaca6e. Summary status passed: body 573802→114487, saving 459315, all 1147604 source rows and 228974 quotient rows checked, three goldens and thirteen rejected hostile controls, 21.027 seconds and 287416 KiB peak RSS. Pilot SHA256 ce4d5bd05ce6fb246e60d98a21cb791ad7acea40a4a029d71d884ca1f42f0bc3. Both leaf gates met; official GitHub API retention/seal remains root-owned and pending at this reporting checkpoint. Finite experimental evidence only; no Lean/new accepted machine claim.

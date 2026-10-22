@@ -319,4 +319,41 @@ theorem reversed_rows_run (rows : List Row) (out : List Letter) (raw : List Bit)
         raw, gap + (rows.reverse.flatMap rowBits).length⟩ := by
   simpa only [rows_reverse] using rows_run rows.reverse out raw gap
 
+/-- The paid entry block leaves exactly this suffix unread after the fixed header. -/
+def packetRaw (pre : List Letter) (rows : List Row) (post : List Letter) : List Bit :=
+  Seed.payload post.reverse ++ [0, 0, 0] ++ rows.reverse.flatMap rowBits ++
+    [1, 1, 1] ++ Seed.payload pre.reverse ++ [0, 0, 0]
+
+theorem packet_eq_header_raw (pre : List Letter) (rows : List Row) (post : List Letter) :
+    packet pre rows post = header ++ packetRaw pre rows post := by
+  simp only [packet, packetRaw, List.append_assoc]
+
+/-- Every valid packet follows the actual controller graph to its finishing entry.
+The final gap records every consumed bit; physical block execution is lifted separately. -/
+theorem packet_run (pre : List Letter) (rows : List Row) (post : List Letter) :
+    Path ⟨.read (.literal 0 0), [], packetRaw pre rows post, 1⟩
+      ⟨.finish, letters pre rows post, [], 1 + (packetRaw pre rows post).length⟩ := by
+  let tailPre := Seed.payload pre.reverse ++ [0, 0, 0]
+  let tailRows := rows.reverse.flatMap rowBits ++ ([1, 1, 1] ++ tailPre)
+  let gapPost := 1 + (Seed.payload post.reverse).length
+  let gapRows := gapPost + 3 + (rows.reverse.flatMap rowBits).length
+  let outRows := rows.flatMap rowLetters ++ (separatorLetter :: post)
+  have postRun := reversed_literals_run 0 post [] ([0, 0, 0] ++ tailRows) 1
+  simp only [List.append_nil] at postRun
+  have postStop := readTrace_path [0, 0, 0] _ _ (literal_stop_decode 0)
+    post tailRows gapPost
+  have delimiter := emit_path .delimiter post tailRows (gapPost + 3)
+  have rowsRun := reversed_rows_run rows (separatorLetter :: post)
+    ([1, 1, 1] ++ tailPre) (gapPost + 3)
+  have rowsStop := readTrace_path [1, 1, 1] _ _ tag_stop_decode
+    outRows tailPre gapRows
+  have preRun := reversed_literals_run 1 pre outRows [0, 0, 0] (gapRows + 3)
+  have preStop := readTrace_path [0, 0, 0] _ _ (literal_stop_decode 1)
+    (pre ++ outRows) [] (gapRows + 3 + (Seed.payload pre.reverse).length)
+  have combined := (((((postRun.trans postStop).trans delimiter).trans rowsRun).trans
+    rowsStop).trans preRun).trans preStop
+  simpa only [packetRaw, tailPre, tailRows, gapPost, gapRows, outRows, letters,
+    List.append_assoc, List.singleton_append, List.length_append, List.length_cons,
+    List.length_nil, Nat.add_zero, Nat.add_assoc] using combined
+
 end ConjectureMachines.Compilation.TableSeed.Transducer

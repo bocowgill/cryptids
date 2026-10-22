@@ -1,0 +1,1715 @@
+{
+  "kind": "user-requested-pause",
+  "recorded_utc": "2026-10-22T17:40:48.940551+00:00",
+  "source_baseline": "721ab7423d47146c446c51e6e601593c0f9e46d0",
+  "branch": "codex/chess-openevolve-pilot",
+  "accepted_states": 998176,
+  "accepted_saving_this_goal": 1906447,
+  "new_acceptance": false,
+  "active_branch_runs": [],
+  "stopped_runs": [
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-22T17:30:57Z",
+      "databaseId": 39823380010,
+      "headSha": "721ab7423d47146c446c51e6e601593c0f9e46d0",
+      "status": "completed",
+      "workflowName": "Chess structured decoder proofs"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-22T17:28:08Z",
+      "databaseId": 39822945066,
+      "headSha": "3b8e7844085ee35bc11f2b5ac1be36d0768da3f7",
+      "status": "completed",
+      "workflowName": "Chess quotient certificate scalability pilot"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-22T16:19:34Z",
+      "databaseId": 39813062294,
+      "headSha": "f882aa8a0703a774e39f7c038cd1f2c14b3116a0",
+      "status": "completed",
+      "workflowName": "Cryptids CI"
+    },
+    {
+      "conclusion": "cancelled",
+      "createdAt": "2026-10-22T16:19:34Z",
+      "databaseId": 39813062323,
+      "headSha": "f882aa8a0703a774e39f7c038cd1f2c14b3116a0",
+      "status": "completed",
+      "workflowName": "Chess M6 construction checks"
+    }
+  ],
+  "unverified_source": "Cryptids/Compilation/TableSeed/Transducer.lean: final packetRaw, packet_eq_header_raw, packet_run",
+  "conditional_checked_source": "Cryptids/Compilation/TableSeed/Correct.lean: source-path premise remains explicit",
+  "ledger_note": "Correct uploaded pass discovered after worker ledger snapshot; review/gate reconciliation deferred.",
+  "hash_scope": "Current TableSeed sources, experimental scripts, new retained evidence, pause metadata and ledger snapshots, canonical handoff and accepted pin manifest; excludes this manifest.",
+  "files": [
+    {
+      "path": "Cryptids/Compilation/TableSeed/Blocks.lean",
+      "bytes": 26601,
+      "sha256": "133b6036667edf1f5bd82ffcd67018ff15d70f1daf16fd212ec8bd9ea74afe01"
+    },
+    {
+      "path": "Cryptids/Compilation/TableSeed/ChessCodec.lean",
+      "bytes": 5810,
+      "sha256": "63f41f7bac001988fc60688ef291f275cc10e603eb10c54663670ada1595ad7e"
+    },
+    {
+      "path": "Cryptids/Compilation/TableSeed/Controller.lean",
+      "bytes": 30883,
+      "sha256": "4b47de45c12f80b0fe6135c1c1df1bd1d17c681fee4fa00d8319b38edad12942"
+    },
+    {
+      "path": "Cryptids/Compilation/TableSeed/Correct.lean",
+      "bytes": 2926,
+      "sha256": "3839f6e4c8b69166fce45310881f812444bbe032be3829134ec94a45ee808799"
+    },
+    {
+      "path": "Cryptids/Compilation/TableSeed/Format.lean",
+      "bytes": 9264,
+      "sha256": "7e55858fff8c88367f8dd7fa922d0f6032944fd78876482fcd05e1430ad5f5a0"
+    },
+    {
+      "path": "Cryptids/Compilation/TableSeed/Geometry.lean",
+      "bytes": 4461,
+      "sha256": "f99d86ac1f95adfb1fe87ec20a7e3cac8ec41b03c7a2d1a947379af4162304c1"
+    },
+    {
+      "path": "Cryptids/Compilation/TableSeed/Scan.lean",
+      "bytes": 11559,
+      "sha256": "a1768db7f1ad55a9aedf05e3896fa90f4afddb3baf753d83a0f532a97839034c"
+    },
+    {
+      "path": "Cryptids/Compilation/TableSeed/Transducer.lean",
+      "bytes": 19038,
+      "sha256": "4e02a764c2975f400e685f64c79aec1c21593d1a92ee3eefcaa1f14cf3c45014"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/RESUME.md",
+      "bytes": 10096,
+      "sha256": "08c1cb6e89b69466420e8bb1cc7ae3a360fa231194f13b76f6e614a1fe088d9b"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/STATE-COUNTS-AND-OPPORTUNITIES.md",
+      "bytes": 16471,
+      "sha256": "0457a8a6348b3cc2f92bb6d7dd41ebe0b1a0b2f74a8c6fce38a2163fc8963774"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/accepted-998176-pins.json",
+      "bytes": 437777,
+      "sha256": "3d0d7851cc3474cdceda3e8e1e1873e0b09c55540d4eec5ec74b5f7f56a8928d"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/pause-2026-10-22/README.md",
+      "bytes": 1801,
+      "sha256": "9af66206ab093f4bc835a6129b6df54f935bb82799fda7f5822541e85203e083"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/pause-2026-10-22/correct-artifacts.json",
+      "bytes": 788,
+      "sha256": "6b1b60105c13f2136c494abc2efc211cf7fa8e9533c39dcb5992b88e2811b2e2"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/pause-2026-10-22/correct-run-final.json",
+      "bytes": 12114,
+      "sha256": "7cfcd61d5f6b33d056db10f62c8aac2f9872a49f634176f15868ace6ec8fbbe3"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/pause-2026-10-22/correct-run.json",
+      "bytes": 12109,
+      "sha256": "7f319c3276e5d8e5b91a1f808a348a32d16dd0074dff7d968995330cb15c2fa3"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/pause-2026-10-22/ledgers/round-03/GATES.md",
+      "bytes": 524,
+      "sha256": "81359a7d3b35344f25148cdcce6b894786859437cb7cf528c79186e2eaa852ca"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/pause-2026-10-22/ledgers/round-03/PLAN.md",
+      "bytes": 3218,
+      "sha256": "0cf89a778df5f46610bb6ce0f0452a3c8f83edd7ce7c69cd99e97fcd40589f08"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/pause-2026-10-22/ledgers/round-03/dispatch.json",
+      "bytes": 1543,
+      "sha256": "aef43b7e5dd8ac88a30c44a17d61c97ab751aac78acf7982ad9b620114c3e5b1"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/pause-2026-10-22/ledgers/round-03/gates/leaf-1.1.md",
+      "bytes": 1954,
+      "sha256": "94419d10a6cbd0f7966689cb5ae2954160cad87917b714e819e3f4a63e1f9a8f"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/pause-2026-10-22/ledgers/round-03/gates/leaf-1.2.md",
+      "bytes": 703,
+      "sha256": "f311f7e22eb49af0c17534ca6d574873a5fa6e815c1dc5a618569fb7de0a743e"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/pause-2026-10-22/ledgers/round-03/gates/leaf-2.1.md",
+      "bytes": 7912,
+      "sha256": "3234aa97f764b389fa9d4470fb5c95aa53f412f1b927280c30316bfa669e9006"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/pause-2026-10-22/ledgers/round-03/status.log",
+      "bytes": 848,
+      "sha256": "efdafeeb97fc6a195240ec424509f61533a1efce1327c247b1745da58ceef871"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/pause-2026-10-22/ledgers/round-04/GATES.md",
+      "bytes": 1631,
+      "sha256": "879fb643318f24f0ee37fb406f6b3f0cf39b5c8ae63daf25461bfe4baf47e442"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/pause-2026-10-22/ledgers/round-04/PLAN.md",
+      "bytes": 7650,
+      "sha256": "d22f4d4bb541aa412c1da76b2b45d4847abeff6c6d88615fd3c674bbfdd6698e"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/pause-2026-10-22/ledgers/round-04/dispatch.json",
+      "bytes": 6228,
+      "sha256": "c1da3a2dc3a0ca3bf58ca792afbe5c69a256d2ed4eed1ac43e31c879a8444904"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/pause-2026-10-22/ledgers/round-04/gates/leaf-1.1.md",
+      "bytes": 2069,
+      "sha256": "f66091f25e543851ecab972b2d6bf692aa76e74b0a24c99650b24e0318382543"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/pause-2026-10-22/ledgers/round-04/gates/leaf-1.2.md",
+      "bytes": 2793,
+      "sha256": "32ca89a6cd09d4c82c4671c87ee5e8d865e3837e4300dcb2a201c25285429275"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/pause-2026-10-22/ledgers/round-04/gates/leaf-1.3.md",
+      "bytes": 676,
+      "sha256": "5381944e694d1d6ecc6ae509907089cef52d1687f5284c822688924564c29aee"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/pause-2026-10-22/ledgers/round-04/gates/leaf-2.1.md",
+      "bytes": 2346,
+      "sha256": "43599e6b4c18d3970fe09ae31c090ab9de9fc3fe1553ad27457d11895cb3555e"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/pause-2026-10-22/ledgers/round-04/gates/leaf-2.2.md",
+      "bytes": 2463,
+      "sha256": "eff82db53dbfe13ac859989e159090d8c0c557075d83ae9300f51e0a1463f21b"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/pause-2026-10-22/ledgers/round-04/gates/leaf-3.1.md",
+      "bytes": 4513,
+      "sha256": "a86b4124fcfaa7b1d8b9f4a29c05477903d82fb35700668f2e21ca4b077cfc29"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/pause-2026-10-22/ledgers/round-04/gates/leaf-3.2.md",
+      "bytes": 5985,
+      "sha256": "cf7928309be2b4aa777882478476b2ed7849fd8635dad725f0fa4f4cd288c66a"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/pause-2026-10-22/ledgers/round-04/gates/leaf-3.3.md",
+      "bytes": 2719,
+      "sha256": "c8a5c72c1a33f02069aad004cb8b2c19022920483b973a9d06740d8f8840c5f4"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/pause-2026-10-22/ledgers/round-04/gates/leaf-3.4.md",
+      "bytes": 5288,
+      "sha256": "0756b96cad1865b097b58de1f9ecc74f224c8fc7199a6e8db2d0ae24c5ddeb18"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/pause-2026-10-22/ledgers/round-04/gates/leaf-3.5.md",
+      "bytes": 2999,
+      "sha256": "0dd346bad974196f74f301011d8a5219ab5cec0c83def5da6145106324345b32"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/pause-2026-10-22/ledgers/round-04/gates/leaf-3.6.md",
+      "bytes": 3501,
+      "sha256": "b595473eac21d5b57d35a3dacaf66f73c5fc695d4956395c4f095330f00d0b0f"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/pause-2026-10-22/ledgers/round-04/gates/leaf-3.7.md",
+      "bytes": 2301,
+      "sha256": "82da8ce7a9109ce1e1a0d0c4e679a2e57b1f6fe592345c5bda89adb53a126c5b"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/pause-2026-10-22/ledgers/round-04/gates/leaf-3.8.md",
+      "bytes": 4310,
+      "sha256": "af6a6c35002124bf64b691829d6e918c8cf6ac29bfa55e83e75575d7d883948f"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/pause-2026-10-22/ledgers/round-04/gates/leaf-3.9.md",
+      "bytes": 3194,
+      "sha256": "84b22ec28151888b281d9344ff0c3f05066c09e3e13fad2179417e62ba604b7d"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/pause-2026-10-22/ledgers/round-04/status.log",
+      "bytes": 3802,
+      "sha256": "ce739ad282e7c2b240f35190035b7d0e6870e3dc3d30f6d0e49f5d81ef180cef"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/pause-2026-10-22/pre-pause-resume.md",
+      "bytes": 15164,
+      "sha256": "6975062891826d61528be72ad127e3bd9ac3f8114c5f8b6a3de89b74bd9883bc"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/pause-2026-10-22/quotient-artifacts.json",
+      "bytes": 783,
+      "sha256": "452fd327b13e039fe2407b6b55fcd977b58b65abe923348518f47eab1c86b27f"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/pause-2026-10-22/quotient-run-final.json",
+      "bytes": 12148,
+      "sha256": "269069542dd53b1327d2b3aba726c1dceeb795c6f6ae5320e087faf9149d5bd7"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/pause-2026-10-22/quotient-run.json",
+      "bytes": 12148,
+      "sha256": "269069542dd53b1327d2b3aba726c1dceeb795c6f6ae5320e087faf9149d5bd7"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/pause-2026-10-22/recent-runs-final.json",
+      "bytes": 21038,
+      "sha256": "377a684696bba0684af714abaf4de07c689cadad3e536100abbdea1be7a2c640"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/pause-2026-10-22/recent-runs.json",
+      "bytes": 21017,
+      "sha256": "3ebafbb3b030ac64892444e54957a1adc1564acab0bd617070ffde90e7c8aaa8"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/PENDING.json",
+      "bytes": 497,
+      "sha256": "c152e0eed37cf50625a57fbe958f0b498bbc5f4689e6c7bf75efbf894cc1bbb4"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/archive-entries.json",
+      "bytes": 44822,
+      "sha256": "e7da93a066c26dbb83cd6cd6e253c52cc1f8c175bebb1ec7a595acbf9f5be96a"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/artifact-api.json",
+      "bytes": 752,
+      "sha256": "a59041eda590b076037a24b2dc5059ff36920b17f2f5f27ed60e7536e95dd1b8"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/artifact.zip",
+      "bytes": 1655369,
+      "sha256": "097b4d340a126ba4778318a2fe444eacf8b37559aea7e1c45a4c87607e2ce344"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/run-api-pending.json",
+      "bytes": 12151,
+      "sha256": "04a011818624a3f4ade89df95582b434e5771a34c4b26f46ff37745b32ae8321"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/AuditExecutable.log",
+      "bytes": 256,
+      "sha256": "99f0b72ecb607e5d3518fe0540727499f8ea7b22b0ff594b8bed35fbaa3cee92"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/Loaders.log",
+      "bytes": 235,
+      "sha256": "1a03775395e324601d67e1dd690c5d8db05cefd97b8d3b949d534f28c1a9a3c1"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/TemplateSmoke.log",
+      "bytes": 4149,
+      "sha256": "5d527b5c4130b880ac76eefd17077cd0cb11db02ba8d93a4b2304cae5e907c33"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/certificate-summary.json",
+      "bytes": 38350,
+      "sha256": "7024d310eb43e59c7d345f9fd01fa592a9c31540b739a3cf1ad297cf1ae0b68d"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/commands/1792689450284451842.json",
+      "bytes": 8616,
+      "sha256": "dc7a8254018716ed0fbb74d71d2731b38a4d0611610712f6843cfabd8ad6c284"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/commands/1792689466268593849.json",
+      "bytes": 755,
+      "sha256": "f96208ae94a2ea64d8dc1462b5cb3fa82944389e6d064d842586c713627af2f2"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/Audit.lean",
+      "bytes": 3029,
+      "sha256": "9d2a7db1fd5d82bbdadf4f6e0db0571af956741f42a89c3086c61414d52512df"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/Data.lean",
+      "bytes": 3558,
+      "sha256": "12b8e6cbf8961ac495c80c9dc95d50d2eba40a23bfe840fc8c93537a81c2dce4"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/Data.roots",
+      "bytes": 461,
+      "sha256": "a74212c42016b64a45246f53efc2c0c24aa99041e483639701daa7073e5930fd"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/Loaders.lean",
+      "bytes": 1024,
+      "sha256": "37477fb7ee21f4fddef2b379394b21ac5f83191f5dded4c52189676c56ed3672"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/MapData.lean",
+      "bytes": 667,
+      "sha256": "c4ebc4fa7e71dbb0987112b780bf605ab1ccc25581ed280f00ef21ea0ecefee9"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/MapData.roots",
+      "bytes": 48,
+      "sha256": "062296dadaca8a74ae23e16e743270f2ab40b5b599456d24acec2ee77f4ca0da"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/Negative.lean",
+      "bytes": 836,
+      "sha256": "cb916f8ab1b82e319f460e910ee3f7d85d315da01d29af5d2670fd3a1adfa18e"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/QuotientData.lean",
+      "bytes": 49187,
+      "sha256": "737460531a0010ab6420edcffe19fcadfc9de4f3377c6be8bf1c97dd57bae05b"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/QuotientData.roots",
+      "bytes": 53,
+      "sha256": "acc8e1d6a905cc9d994e3f391fab169dfb43bd3830480a03efc5f14a8c47f5b0"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows4096.lean",
+      "bytes": 1489334,
+      "sha256": "7965475df6efb2ed1d5a59124dd19f4597d155a2ef4cf780e38c0b9a5a4854f7"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows4096.roots",
+      "bytes": 474116,
+      "sha256": "973723a3f714ac63d8784d5492512fb581289deb231942271569409a93d70f4b"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows512.lean",
+      "bytes": 185225,
+      "sha256": "e38528cba4a5955065f32fe6e2a4152a947fcf717a14e3502a1df360547c174d"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows512.roots",
+      "bytes": 58094,
+      "sha256": "e15f1f29307d718eab3552162c6379693b6ffcf615f12bc2a862c530ea3b0b8f"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean",
+      "bytes": 23103,
+      "sha256": "08882b6f6dd0b82392167e752e751cc61b5d66f306e7fdca738303c6bf02af92"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.roots",
+      "bytes": 6986,
+      "sha256": "03ecc828784a3044bb4a1e8673fba75a3bbf7e569a669130ffc02d4a366b4a45"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/TemplateSmoke.lean",
+      "bytes": 4869,
+      "sha256": "5212ba5cf6d124621150355972a1b002e808229ea4976afb4639064eeef461ad"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/TemplateSmoke.roots",
+      "bytes": 508,
+      "sha256": "6c2648ac7701555d1315961162f5829725e0ba0b7585a450143e50fbecf96500"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/class-map.txt",
+      "bytes": 3411569,
+      "sha256": "8463c78132c9704aadbb6732a1a87d0adeccf3385b9dc02cb9359299048da1b3"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks.json",
+      "bytes": 51640,
+      "sha256": "81cedd817a28b91be245518e53235de4d36fda71a1aaffe37d3215a5c55fbc3f"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/000000-0894.rows",
+      "bytes": 13140,
+      "sha256": "db491afb1b09b5fde69a2e16310b3b80b5072a76d186f64a28f6166f44fd9955"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/000894-0894.rows",
+      "bytes": 12734,
+      "sha256": "b6967f52f1e47c706bb2f10d1101560797e7680a01b83f30c25ddad8d97db4b7"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/001788-0894.rows",
+      "bytes": 12958,
+      "sha256": "c00c55c5f39c04fbaa025ba2e9f4aac4f7d05fbaabb42ed7f477d45804f51448"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/002682-0895.rows",
+      "bytes": 12924,
+      "sha256": "3639fac3c81fe161ada948d35e982a803d6f7c5681d6b154b0d533b86217ca0b"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/003577-0894.rows",
+      "bytes": 13022,
+      "sha256": "a2058c847a82fe1bbcc5c36b16a74b6a7fda14363886cb6f4ceac3769db9146e"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/004471-0895.rows",
+      "bytes": 12908,
+      "sha256": "352c64b5c3ebded8e28bc4f585e353e13179c511d30e697afd09d65ec9657d82"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/005366-0894.rows",
+      "bytes": 12912,
+      "sha256": "4c8f000d4a6888ee100951534a07825482ed6a45bcb50759620ee9dd14175dc9"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/006260-0895.rows",
+      "bytes": 12918,
+      "sha256": "24b63dcc66a29b0ebf4cd2d79c21f0cd0e174c58a58051dbd0e4d06559dfb005"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/007155-0894.rows",
+      "bytes": 12978,
+      "sha256": "41071ec3c2d3fcd09f4092e32976367bef0bcdf92e625be3ca2d7949ab1abd3d"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/008049-0894.rows",
+      "bytes": 12936,
+      "sha256": "1ac26992b0fdb40b566181a92ab1a45e6c01ffa8bad5239c1e5f00c862a9d0f3"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/008943-0894.rows",
+      "bytes": 13066,
+      "sha256": "c9c893a7470a1a00d533de1a327aa5671610834c1a7730bb7e98d09bfb883e54"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/009837-0895.rows",
+      "bytes": 14276,
+      "sha256": "ac738a7c6c58aadc77629577f8e5b1df696369dde8dfda88726157b13f6f66f0"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/010732-0894.rows",
+      "bytes": 14460,
+      "sha256": "e15e6ee4a520d6531292506e4b7f836f5938ccd609bdf746035800cf5b00d2f0"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/011626-0895.rows",
+      "bytes": 14472,
+      "sha256": "f11d47b3ff5795091621222baf3e30650216b8fb1833f89b456511b06a8ab695"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/012521-0894.rows",
+      "bytes": 14510,
+      "sha256": "7e40681213dad34d6315c1a659ee113ff48e41086726a987b5a77b30e3c68f6c"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/013415-0895.rows",
+      "bytes": 14524,
+      "sha256": "045cfd4bec63e9eb5204b965a71c0eec29829f811278107dc37b89aba92d7465"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/014310-0894.rows",
+      "bytes": 14514,
+      "sha256": "8076cb0f3541beef1d41b6700b5bbe0c10ea03aaf634ffa4daceb6fca19d99bc"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/015204-0894.rows",
+      "bytes": 14556,
+      "sha256": "04d140f962e287be5d0915a97228d874ea0e6eb55dc84328203a538fc8e22850"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/016098-0894.rows",
+      "bytes": 14558,
+      "sha256": "6371a4c200390dd7d92960bd3453356d0104edfb6606087f676ab3073efd7dbc"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/016992-0895.rows",
+      "bytes": 14566,
+      "sha256": "48ac11a12c86e527219cd3fc217457e7b5f71db7fa308dea149e87660a7a899f"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/017887-0894.rows",
+      "bytes": 14568,
+      "sha256": "edef8c179d3d443297c32019ba3033c02cd121b271c9eda36f3c94a195765cd9"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/018781-0895.rows",
+      "bytes": 14548,
+      "sha256": "bb945ed09302ab210c52eca30845d75fc2c17958e1003480375d41f2aeb7543a"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/019676-0894.rows",
+      "bytes": 14444,
+      "sha256": "e33c75cafc15ba33913dc9b9344e2d402b2c6473fb88fc2ee651762f4a925366"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/020570-0895.rows",
+      "bytes": 14536,
+      "sha256": "c2d2df1b100affff664997af247ff7491b5621b898e9003a0de22eb87db8c695"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/021465-0894.rows",
+      "bytes": 14510,
+      "sha256": "8dc6498b770af3709c9ea08c0b6e247b2335f1ad2a70e5ee204cd5ecec304f8f"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/022359-0895.rows",
+      "bytes": 14488,
+      "sha256": "54ccc50e3f2228b4f25b6f654a824f8ff56b4de9ce491f2ca436e7b556be318d"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/023254-0894.rows",
+      "bytes": 14516,
+      "sha256": "750e0d4b03d09445d079fe6a5aa3c77df44fc332c65f86f88f25f266c21f87ef"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/024148-0895.rows",
+      "bytes": 14554,
+      "sha256": "31df84c37451cd15308dc05176055ca90df1bfa59e709c7f0995903631e83f80"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/025043-0894.rows",
+      "bytes": 14526,
+      "sha256": "5174e7537c6849cea29d1793eaba03c30f838f5898b010085c0ea6289281017c"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/025937-0895.rows",
+      "bytes": 14478,
+      "sha256": "dfce310852f2e54e8a1cacc371c7a3b91027da607d602babf3341ff3010df0d6"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/026832-0894.rows",
+      "bytes": 14536,
+      "sha256": "078e96a50dd05922b4a1833e6f2913a1f43d1c82566fc6a559ed46e71eb29449"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/027726-0895.rows",
+      "bytes": 14476,
+      "sha256": "b2942674f5af77e808f5c9ac0290eed8b4295bb792df350f7992cd686965ab9a"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/028621-0894.rows",
+      "bytes": 14500,
+      "sha256": "759e835eda673aa32847a9840ab3295a8264552698ffed04ac6c99014d3003b7"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/029515-0894.rows",
+      "bytes": 14458,
+      "sha256": "18ef8a40799d54ab056e911aaf9b3be24e67ebb9180841013ff881b3718eda26"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/030409-0894.rows",
+      "bytes": 14514,
+      "sha256": "ea6f9d2d258f59cbb057fae6227dae47b7e205f5776647f17a7ca6e280c43259"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/031303-0895.rows",
+      "bytes": 14468,
+      "sha256": "6ef5fe7f230634162c0cdada4cbcfa0b8040deb31a23d44636d44be0d90897e5"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/032198-0894.rows",
+      "bytes": 14488,
+      "sha256": "95343e85adfef58c741b34b4cbcb16e8724213ffb22eebe0f041dbc68d6ab874"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/033092-0895.rows",
+      "bytes": 14566,
+      "sha256": "d4718455144f8b69763357ecfdca193792d09ccf37de24893ab462dc6d53b700"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/033987-0894.rows",
+      "bytes": 14468,
+      "sha256": "9e2ea6786264d09c572ce2581ae1a679f2ecfa0bea807fad375045f8b606fccc"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/034881-0895.rows",
+      "bytes": 14572,
+      "sha256": "7518612b1842f4d00da6494a6d65b011e21303c94ebc12d1e1700c9671386aa5"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/035776-0894.rows",
+      "bytes": 14538,
+      "sha256": "ab2e6037d13ec8913305a9940657acd3378862f35dfbb9eed71f1e9c41fc5160"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/036670-0895.rows",
+      "bytes": 14564,
+      "sha256": "986acba601a56d7ed7fdc1f95623af93cc67167449e73c40da398eaf6fc37652"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/037565-0894.rows",
+      "bytes": 14566,
+      "sha256": "b47334af72823985963ce42ba9861574e84399324f6a393024c7c5524321a11b"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/038459-0895.rows",
+      "bytes": 14526,
+      "sha256": "066d2bb89d176ecfffa39b6f90499be4c97afe0bde311447018edc1342830971"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/039354-0894.rows",
+      "bytes": 14530,
+      "sha256": "9866d514f6dcba8cf7d80bce9ea33e641959b41d97e1fafcd7d515a7e6acede7"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/040248-0895.rows",
+      "bytes": 14466,
+      "sha256": "a15e7e301478c7c2e8347ab288999d51d1dadb3ec27907ca154097eb82379cbf"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/041143-0894.rows",
+      "bytes": 14496,
+      "sha256": "506c448bf5851c3166d9e68c0cca5c4a497e23330361541a6fe8fccc18162a9f"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/042037-0895.rows",
+      "bytes": 14542,
+      "sha256": "5085d1c41cd9d39a9ad3db9a8ebe43eb4b1a11450290d4acb74d3401b7e91c33"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/042932-0894.rows",
+      "bytes": 14504,
+      "sha256": "5ffcd723300f527c23cc8032a8a14655432855c2d352d2807fc52ff8b8f5524d"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/043826-0894.rows",
+      "bytes": 14494,
+      "sha256": "fdb68289927c56ff173b2538c9b9d822e98db2dbc34eb5d3711dfc5b209669d8"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/044720-0894.rows",
+      "bytes": 14516,
+      "sha256": "5e92f4f3a9875eae7faf3d9fab7cdb758d56d9a41c567cbf4ae24ee110e6ba89"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/045614-0895.rows",
+      "bytes": 14416,
+      "sha256": "b2843da5e361ebbd52f2ba310ed8c527501c4670b99433e4429881d472effa0f"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/046509-0894.rows",
+      "bytes": 14328,
+      "sha256": "b2185b29943aaff73796b83d753aef8c3e09cf2af925edf9c39ca003f9dbe9fd"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/047403-0895.rows",
+      "bytes": 14354,
+      "sha256": "15b1a7591c0530cc3d05937ce60dac888b27d47ee0b1e35fb1ee0ed34e7ae4cb"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/048298-0894.rows",
+      "bytes": 14344,
+      "sha256": "29c8bca8da56ed9879ec79f8b94e52f191f22a634d0ae3b44cbb119022b12bfd"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/049192-0895.rows",
+      "bytes": 14354,
+      "sha256": "63ebede5888b5bc192735050feacfad6de9bee48cc39d0afbff88a1b78a91687"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/050087-0894.rows",
+      "bytes": 14308,
+      "sha256": "b5a97023d5dc08e8beb3f6338d8b40db3a870539763e184d4b2f6c2f1cf494bf"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/050981-0895.rows",
+      "bytes": 14354,
+      "sha256": "44326423b5898029312bd4a06dcb53bdd4b7d98f2a81b4ec9dbadf82738baa08"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/051876-0894.rows",
+      "bytes": 14328,
+      "sha256": "b5a8d68b5297cd2dfcde0d7aa669e17864f7b1c0bae340ca58e263ab94c9b0b1"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/052770-0895.rows",
+      "bytes": 14360,
+      "sha256": "b652972797f3742c416b247ec266d2b4cb76513ef27ce00181876066dc4b7cc1"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/053665-0894.rows",
+      "bytes": 14322,
+      "sha256": "a29179d9394a895c09841a83dadd53e8a14780b449e947f0053ed0078e87b2de"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/054559-0895.rows",
+      "bytes": 14354,
+      "sha256": "10960da3e062dfd2899ace768e9bc818f25991d0cf9a7e439db13adaa44a7fde"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/055454-0894.rows",
+      "bytes": 14304,
+      "sha256": "9440950d5ebb9cf5cf88ffe3c1f8ddee0a1daaee6bf915c3885e78b5973b213a"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/056348-0895.rows",
+      "bytes": 14334,
+      "sha256": "c03856bdcd2e8bd01ce75a35b569b6cb808f4bb20519cc2a60caf2cf7f1bb2ea"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/057243-0894.rows",
+      "bytes": 14334,
+      "sha256": "8d70388997f94241955523e9c9de36663cd7243ce25bf81ec18a574b309e0e5d"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/058137-0894.rows",
+      "bytes": 14336,
+      "sha256": "1cbd3e17f15fb4756464329ce2acbb39f3c1a2f3dbefee002ba81044276aac83"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/059031-0894.rows",
+      "bytes": 14376,
+      "sha256": "2dd32162d64d7d19daa1cbce11db60bf6951eed57bf8a9f6afb636de272d081c"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/059925-0895.rows",
+      "bytes": 14382,
+      "sha256": "8b5f95c6e51234ee2cf77f22020340e217e7f9f6829f462c84ec120ba4f886d9"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/060820-0894.rows",
+      "bytes": 14346,
+      "sha256": "17cc055123118894c7dcc0f3ebf59da75174924bdf7f6ce4e189a351ec80ac06"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/061714-0895.rows",
+      "bytes": 14366,
+      "sha256": "379b66c14d6dd6b4f6a532a453cbda00b31d0c81913166c7283a1f87a37ae1f5"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/062609-0894.rows",
+      "bytes": 14376,
+      "sha256": "a4bc85527728cb2e69809accf23f55bc26c47380a8b3ec13d4ab7cf3af934086"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/063503-0895.rows",
+      "bytes": 14374,
+      "sha256": "ed5749d89f39bae02d2892e9bff5c242160e979a4914b1371ce52fb5c9b9951f"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/064398-0894.rows",
+      "bytes": 14376,
+      "sha256": "81b914713b5aa1d723499df44593f7d324d0f440498f036155fd8f6d878994e0"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/065292-0895.rows",
+      "bytes": 14382,
+      "sha256": "ed5c74e3feb634b037dab1fdbe61be10d5e9504312795a274225a58c65095941"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/066187-0894.rows",
+      "bytes": 14378,
+      "sha256": "1ff9c1ecd269112c970805f73480d47446772a89595b44609ec3a9ac195c91b7"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/067081-0895.rows",
+      "bytes": 14386,
+      "sha256": "78f218d4f533c34036fd97db140c9f3c6330a07a9d9feddc04a5695c9114253e"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/067976-0894.rows",
+      "bytes": 14378,
+      "sha256": "4a5326b0a6c1ff6ae02b0874180dadd4bf71fdb7251853c340844d047dd41625"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/068870-0895.rows",
+      "bytes": 14386,
+      "sha256": "0c2740df17bceec580812df6e689edfbdb7cca186b92ca432837bc8afdb30cca"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/069765-0894.rows",
+      "bytes": 14372,
+      "sha256": "4851281e8e004f9816af6b21d6bc0ad82b3b1a1f681b41d1cfcd454814078c6e"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/070659-0895.rows",
+      "bytes": 14390,
+      "sha256": "a19a5e2ab788c9e91cbd6a423836154e899f3f8dd5dea14327a6c3f011d64234"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/071554-0894.rows",
+      "bytes": 14368,
+      "sha256": "7f199bca897f0cd65647efedc1d031cd6bd7423da23a2eb161bcf21d06bb06fc"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/072448-0894.rows",
+      "bytes": 14370,
+      "sha256": "8fb3a0035c81554026b831f8e179bb6ed8ade17997de946077a98eb1a76ca9ba"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/073342-0894.rows",
+      "bytes": 14366,
+      "sha256": "a366a916301628c66009b856821de757b657c8102c8416a0604e912fd78c03fa"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/074236-0895.rows",
+      "bytes": 14374,
+      "sha256": "d5a5f41fdb2fc90a111bb65d6c89165246409a1f9800f16814b47c92d6bb732d"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/075131-0894.rows",
+      "bytes": 14360,
+      "sha256": "7ab0599e6800718b83363443de603639f2c246e5c8f61cc473eff79972fc2863"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/076025-0895.rows",
+      "bytes": 14392,
+      "sha256": "248964ed0116423aacfc8467fcbc9388497f52cf55e43c0c8ed7a99083f72060"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/076920-0894.rows",
+      "bytes": 14346,
+      "sha256": "395bb17392653005f1558c6c92649898f0a59e140fa6b154ef1f6dddb5eeb12b"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/077814-0895.rows",
+      "bytes": 14390,
+      "sha256": "7a8848603c65b778ac9f92787c41809f8e00b95e45fe2ae1033856279e2d711f"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/078709-0894.rows",
+      "bytes": 14348,
+      "sha256": "257558526315f32f455092bf546f227201545fd7f7499d833bedb21b9bd7fccc"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/079603-0895.rows",
+      "bytes": 14380,
+      "sha256": "1e110610bb02d6463db2bf7eeb0dd0bda66fcadad98d90272bc611b472b04c5a"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/080498-0894.rows",
+      "bytes": 14366,
+      "sha256": "9eaed1d41c4b51e02597c0b0c380da53372858d67fff87cea2b9aaa117c9e295"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/081392-0895.rows",
+      "bytes": 14388,
+      "sha256": "4f8630c874f34478ed5e15e1c569c66a8a22dfa09c0c463df43572fc3ade7031"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/082287-0894.rows",
+      "bytes": 14360,
+      "sha256": "357625174f68e5cf1ffafd5f6afdbe6e07e4bb8527c05213dc0e3aeb2b622b4c"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/083181-0895.rows",
+      "bytes": 14368,
+      "sha256": "9614fb07f278a7f17bb1dd559d98c024cfd982efcb2c02bd9241a0320c582090"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/084076-0894.rows",
+      "bytes": 14374,
+      "sha256": "e1615b802082b89645cfed1678efa18f658e0ca5df55e5d5b644e8212b704ccc"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/084970-0895.rows",
+      "bytes": 14376,
+      "sha256": "3200b4e1d378090dd0ee1e8963258c69ed8060054eb05bbd7ba1164cd221a4e6"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/085865-0894.rows",
+      "bytes": 14392,
+      "sha256": "4a23214d3990c4d493b589ed0605753d23909990eb0b7ef5f9e986cd3b0e6c33"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/086759-0894.rows",
+      "bytes": 14368,
+      "sha256": "f1fa36330361574a872b12c114c29812c645a5bff4df3b62fcf9f7e4912c71f7"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/087653-0894.rows",
+      "bytes": 14366,
+      "sha256": "8628cb25a171142c754016cec33625570a5a804cdfa36a067edc77b40dbde5ec"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/088547-0895.rows",
+      "bytes": 14366,
+      "sha256": "f4a9bb3d6619fa4b9eea01b338fa74169c9df334127aace92a32061c5c706813"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/089442-0894.rows",
+      "bytes": 14352,
+      "sha256": "3ebfc17b299aea3bcdcd0da0413fae139f44de69ad4c7a743c803da11331f6ba"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/090336-0895.rows",
+      "bytes": 14370,
+      "sha256": "1c9cff34cd6d8e8ea9df734d7d7dd006eb15a2e65f65a72fb1b3273fd296dd92"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/091231-0894.rows",
+      "bytes": 14382,
+      "sha256": "75546844210dad3ae557e474e5479bb083f31b351eb65d4c032afbf491d6f413"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/092125-0895.rows",
+      "bytes": 14382,
+      "sha256": "762e3b420c4e4be5d79176e2c634aba8fafa8ecf8ff4aca2ed6cb702b483362c"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/093020-0894.rows",
+      "bytes": 14368,
+      "sha256": "499368cba57f37302086d1cc1d6873cd848faac2d54c010e9fea84718ee05583"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/093914-0895.rows",
+      "bytes": 14400,
+      "sha256": "d14c772d1efa6236e275b2a553ea71c34e2c60e378941c574f92c47adfb1d4e3"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/094809-0894.rows",
+      "bytes": 14362,
+      "sha256": "60a34d30e93793eb59fd15c0e489280a7131245d73d714eac1a21abba38b7659"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/095703-0895.rows",
+      "bytes": 14392,
+      "sha256": "1c167bc3dc5ef549d14f12b5b081f753a76ee0b11876d4eb9d8d2e899a554579"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/096598-0894.rows",
+      "bytes": 14358,
+      "sha256": "11fa0dea0adc158b514003bbd4a47db6e5c37adbce345f8239ccad1eaa17fda9"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/097492-0895.rows",
+      "bytes": 14394,
+      "sha256": "934f48d6e29bf0170ede079aaaf9cafecd27405cc8cae6101e08396fb52a9656"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/098387-0894.rows",
+      "bytes": 14356,
+      "sha256": "5897fed2b98dd5af53bd5d1b9480aa6e941fbe8d6e625be0b29d76b95b6d5553"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/099281-0895.rows",
+      "bytes": 14733,
+      "sha256": "9d126fc28fda58c232bc1e898c90301d1d38538badb264c89147740770fc1e1d"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/100176-0894.rows",
+      "bytes": 16040,
+      "sha256": "0a4c522fb84a96faa623940d856ee5ccd37c60cf4c6f5e2da171f37bbc27e3a6"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/101070-0894.rows",
+      "bytes": 16046,
+      "sha256": "e882ed2c80446546e1789b69adc10fc1da542d57d068695ac14cbf6b63cfeaf5"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/101964-0894.rows",
+      "bytes": 16056,
+      "sha256": "39e1056cd5b201172fda69b387c8297458f00aebda5541f9acaaaa5cf0cd21c1"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/102858-0895.rows",
+      "bytes": 16046,
+      "sha256": "596197030a51d834f2ea026b6127809739c49b61e4344150c970ed94e65e29aa"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/103753-0894.rows",
+      "bytes": 16052,
+      "sha256": "5d1781c43a738ad9970b0e5cef74ff5d75d6cec7c3c44a821a1aafb448f3b608"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/104647-0895.rows",
+      "bytes": 16078,
+      "sha256": "1c1a1993055fdad302abb59451a0503af28b105a5de4675280ba81400e6e73ed"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/105542-0894.rows",
+      "bytes": 16046,
+      "sha256": "2caa532fa58dbfda6016ecec03794b206771be774b5b4c5e2e8a456ca533bfdd"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/106436-0895.rows",
+      "bytes": 12390,
+      "sha256": "ea2e79de19104509fc3d890f73e2425f7b5e920227dc009a3d2326eea7055429"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/107331-0894.rows",
+      "bytes": 13534,
+      "sha256": "cb9ac232ceaa055a6b286660be5b063734bee300fb0d1c68473531ff1684f8b8"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/108225-0895.rows",
+      "bytes": 14320,
+      "sha256": "80b0a5629ea44234b1e31d6562ee93a7c589f9faa9cf2ab4c0e8bfaa1dedad89"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/109120-0894.rows",
+      "bytes": 14304,
+      "sha256": "385e0577e038caecf6638cb7e845a91e2522d9aff4b0cb1097b8335caf79c10b"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/110014-0895.rows",
+      "bytes": 14320,
+      "sha256": "ed18c176c90a71e6465e85408910b42dcd7acbe349b706f951e9de50f35a9ff2"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/110909-0894.rows",
+      "bytes": 14304,
+      "sha256": "2c05325a0f9f00cbd19943268d6dd2b96f5edd06c3a661872ccc5b46553f75bb"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/111803-0895.rows",
+      "bytes": 14320,
+      "sha256": "66dd8faab1848def1107f35a2d7a039e2a3e9cae1c4b315f6c8634ca7809d839"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/112698-0894.rows",
+      "bytes": 14304,
+      "sha256": "e32b94625431ea58cc3f165606a55fa5bf18fd4a8850aa1fa346b797c8c7984d"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient-chunks/113592-0895.rows",
+      "bytes": 14992,
+      "sha256": "134c3b6ecc42b962758c5bc908d881d571ed732a396c89a182bbaa11683d26d9"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient.rows",
+      "bytes": 1838705,
+      "sha256": "7d2c41988d997c0f7a22c863e6ad2539180b7658de0879ee6c48626a80d44de7"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/smoke-map.txt",
+      "bytes": 8,
+      "sha256": "e4749bc7f4f9360cf6a2e56321b815c8de72808a8ee756a48722cc9b287ddc24"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/smoke-quotient.rows",
+      "bytes": 16,
+      "sha256": "9cf063c5b38fbeee723e221f55fcf558989c106d98ff9cd409dde9271a7f7c1a"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/smokeQuotient-chunks.json",
+      "bytes": 1341,
+      "sha256": "28f4220d3728d8bb7024197077002bf882e6d2e9fe9de8e982d7190597f7b0f2"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/smokeQuotient-chunks/000000-0001.rows",
+      "bytes": 8,
+      "sha256": "814b8b2d9872199927d2392b7c68993e400d71ca0d3c5d99e177013791887dad"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/smokeQuotient-chunks/000001-0001.rows",
+      "bytes": 8,
+      "sha256": "12379029b295a6d342711ded720fc0bd8b30dc321bc3782d88fe768a67770eb8"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/selection.json",
+      "bytes": 715367,
+      "sha256": "edfd0aea09c76be82ebac53f73ebb3b9c997831ce2234e8890f2ad5e323498c0"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-live-07/unpacked/source-manifest.json",
+      "bytes": 444579,
+      "sha256": "9a1de8206c35cd159ab54f04475881e6d97f276e23018d31cd0f616b219c1d75"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-pause-live-08/PENDING.json",
+      "bytes": 497,
+      "sha256": "76df8c9c693e97350dac22bf1195f2d74ba07441e89d9cef232708686e2d89ae"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-pause-live-08/archive-entries.json",
+      "bytes": 217,
+      "sha256": "24033aa88b397a588ef6bd61c683baa9113d1519de62fbfd45be34bb619af06a"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-pause-live-08/artifact-api.json",
+      "bytes": 751,
+      "sha256": "b0aa9fecbef73eeb3ddd4eff0c459d00a91a1bbbcffc5556ac2d1e222946c224"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-pause-live-08/artifact.zip",
+      "bytes": 120421,
+      "sha256": "53624cda04e8b9c496e5ff0d82709618551e1cee6a322db3d47c6877d82497e9"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-pause-live-08/run-api-pending.json",
+      "bytes": 12148,
+      "sha256": "269069542dd53b1327d2b3aba726c1dceeb795c6f6ae5320e087faf9149d5bd7"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-pause-live-08/unpacked/source-manifest.json",
+      "bytes": 444579,
+      "sha256": "7ccd1b1374fa3e6dcb69a8f8b2712a9028b705e4030437ca7298f13be34a7426"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/checkpoints/decoder-composition-1728/README.md",
+      "bytes": 823,
+      "sha256": "7349e4311b2ff7c17a6bbf68ca0a12b00597234f58f9917866b5c11599c821b0"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/checkpoints/decoder-composition-1728/ledger/GATES.md",
+      "bytes": 1631,
+      "sha256": "879fb643318f24f0ee37fb406f6b3f0cf39b5c8ae63daf25461bfe4baf47e442"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/checkpoints/decoder-composition-1728/ledger/PLAN.md",
+      "bytes": 7097,
+      "sha256": "1fe0183629819768d5b6f4226eb9af200839df55105cabe04112535b6005106d"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/checkpoints/decoder-composition-1728/ledger/dispatch.json",
+      "bytes": 5962,
+      "sha256": "075fd75a368f80f08a932d86aa66ab3c6e4fec7fda0d27a6ffec3ac84e183fa8"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/checkpoints/decoder-composition-1728/ledger/gates/leaf-1.1.md",
+      "bytes": 2069,
+      "sha256": "f66091f25e543851ecab972b2d6bf692aa76e74b0a24c99650b24e0318382543"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/checkpoints/decoder-composition-1728/ledger/gates/leaf-1.2.md",
+      "bytes": 2793,
+      "sha256": "32ca89a6cd09d4c82c4671c87ee5e8d865e3837e4300dcb2a201c25285429275"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/checkpoints/decoder-composition-1728/ledger/gates/leaf-1.3.md",
+      "bytes": 676,
+      "sha256": "5381944e694d1d6ecc6ae509907089cef52d1687f5284c822688924564c29aee"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/checkpoints/decoder-composition-1728/ledger/gates/leaf-2.1.md",
+      "bytes": 2346,
+      "sha256": "43599e6b4c18d3970fe09ae31c090ab9de9fc3fe1553ad27457d11895cb3555e"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/checkpoints/decoder-composition-1728/ledger/gates/leaf-2.2.md",
+      "bytes": 2463,
+      "sha256": "eff82db53dbfe13ac859989e159090d8c0c557075d83ae9300f51e0a1463f21b"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/checkpoints/decoder-composition-1728/ledger/gates/leaf-3.1.md",
+      "bytes": 4513,
+      "sha256": "a86b4124fcfaa7b1d8b9f4a29c05477903d82fb35700668f2e21ca4b077cfc29"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/checkpoints/decoder-composition-1728/ledger/gates/leaf-3.2.md",
+      "bytes": 5985,
+      "sha256": "cf7928309be2b4aa777882478476b2ed7849fd8635dad725f0fa4f4cd288c66a"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/checkpoints/decoder-composition-1728/ledger/gates/leaf-3.3.md",
+      "bytes": 2719,
+      "sha256": "c8a5c72c1a33f02069aad004cb8b2c19022920483b973a9d06740d8f8840c5f4"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/checkpoints/decoder-composition-1728/ledger/gates/leaf-3.4.md",
+      "bytes": 5288,
+      "sha256": "0756b96cad1865b097b58de1f9ecc74f224c8fc7199a6e8db2d0ae24c5ddeb18"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/checkpoints/decoder-composition-1728/ledger/gates/leaf-3.5.md",
+      "bytes": 2999,
+      "sha256": "0dd346bad974196f74f301011d8a5219ab5cec0c83def5da6145106324345b32"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/checkpoints/decoder-composition-1728/ledger/gates/leaf-3.6.md",
+      "bytes": 3501,
+      "sha256": "b595473eac21d5b57d35a3dacaf66f73c5fc695d4956395c4f095330f00d0b0f"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/checkpoints/decoder-composition-1728/ledger/gates/leaf-3.7.md",
+      "bytes": 823,
+      "sha256": "19cf87bfd9a3d241d192674add8f36b77df74330cb51eb4e4da207f96954edf4"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/checkpoints/decoder-composition-1728/ledger/gates/leaf-3.8.md",
+      "bytes": 4310,
+      "sha256": "af6a6c35002124bf64b691829d6e918c8cf6ac29bfa55e83e75575d7d883948f"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/checkpoints/decoder-composition-1728/ledger/gates/leaf-3.9.md",
+      "bytes": 2336,
+      "sha256": "13d8eeecb64867b267d5b68c5dbd7350858f1d340da0d9ef4c67326d3608bd21"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/checkpoints/decoder-composition-1728/ledger/status.log",
+      "bytes": 3658,
+      "sha256": "2486171043276843294b90f8981e43b3779e69d3c9af30a6574ceeb86ce68582"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/blocks-final-live-01/PENDING.json",
+      "bytes": 504,
+      "sha256": "d5959339300c6aa917aafccef68f9704d9f670e9713f9fd12124ff1f904cdf67"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/blocks-final-live-01/archive-entries.json",
+      "bytes": 1266,
+      "sha256": "80095a2adbc6f9841d5c3d79b07a674248191a818973388b5c800ab6c4859d9d"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/blocks-final-live-01/artifact-api.json",
+      "bytes": 756,
+      "sha256": "f8c1912637a5e51d0c96c32cd63fb3e1d4368583f8d81e8d41368b131047c0c3"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/blocks-final-live-01/artifact.zip",
+      "bytes": 245786,
+      "sha256": "8130aef9e57d95d1bff8af6781ee0a8e02e47b7624aeaa0a655b487ea8fd2df1"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/blocks-final-live-01/run-api-pending.json",
+      "bytes": 12105,
+      "sha256": "21afb6a6996a55c1bbec58395712788a0bf191808c76a327a68f5c94ea8f5357"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/blocks-final-live-01/unpacked/blocks.json",
+      "bytes": 447462,
+      "sha256": "316609666940025e47919f469b1506b589ad4c450c337a9e907f6cab302a6338"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/blocks-final-live-01/unpacked/commands/1792689764607181854.json",
+      "bytes": 595,
+      "sha256": "443ce7ca098bbb368c5b78fa2053a2ead5561aaca16a32bf5efad897c75e2edc"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/blocks-final-live-01/unpacked/executed-workflow.yml",
+      "bytes": 12233,
+      "sha256": "f070325e7c520a4fe59d4db361d737f53042e23816ce8a5ddb38985c78ec1ee9"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/blocks-final-live-01/unpacked/session-binding.json",
+      "bytes": 396,
+      "sha256": "cf93f95f01529e6ba883992c5bfe574cae1e3cbca760d934608eaba0fc6752b2"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/blocks-final-live-01/unpacked/session-result.json",
+      "bytes": 121,
+      "sha256": "4bbacb1f0f7bf96f3f474292e9ed8646e105c31f25696f13aaab2046de15c858"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/blocks-final-live-01/unpacked/source-manifest.json",
+      "bytes": 446580,
+      "sha256": "09ce976cff7876041826035d3001c65827f307b805e1aabffe2c2601f12cf22b"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/codec-complete-live-01/PENDING.json",
+      "bytes": 504,
+      "sha256": "48b1133c0f4f69d985c92f13cf27c74b0401200e2cd0257246c36b6afc493ba5"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/codec-complete-live-01/archive-entries.json",
+      "bytes": 1064,
+      "sha256": "73e259c7160ae96b6485452b0b9350609b4c0f7d61dc563f5a12e60d4bb766fd"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/codec-complete-live-01/artifact-api.json",
+      "bytes": 756,
+      "sha256": "3b4320aa3e489e47a167355a28eb73a3105fe44a5049e773e74aba1fe956a0a8"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/codec-complete-live-01/artifact.zip",
+      "bytes": 124617,
+      "sha256": "7b93f8567f82a526c4deb46b9968a2a717123eac506571ef8fff707e99a7ba8f"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/codec-complete-live-01/run-api-pending.json",
+      "bytes": 12105,
+      "sha256": "b6e7bb066c4cd57f315520dd4fb1f604d18e51adc191d0327811135e441d6f71"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/codec-complete-live-01/unpacked/commands/1792689332352759497.json",
+      "bytes": 3286,
+      "sha256": "949ab9c5cd10d45503c28bc2c253006e88c318e18b43741eab877109c3750bf5"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/codec-complete-live-01/unpacked/executed-workflow.yml",
+      "bytes": 12233,
+      "sha256": "f070325e7c520a4fe59d4db361d737f53042e23816ce8a5ddb38985c78ec1ee9"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/codec-complete-live-01/unpacked/session-binding.json",
+      "bytes": 395,
+      "sha256": "db087bf9e6cadbbb7091320c3d64b0bd39cde36bf2b39a17ca1f5cb75e3814b1"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/codec-complete-live-01/unpacked/session-result.json",
+      "bytes": 120,
+      "sha256": "442f206ff57bfc9a3c428061780a95de6c6ee8ff67c8b2b8518bddfced80758c"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/codec-complete-live-01/unpacked/source-manifest.json",
+      "bytes": 446580,
+      "sha256": "280754b1f28d8b0c8f2f0da4dc159375c71584c51ee98dceec9307f5a1dc727a"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/codec-complete-live-02/PENDING.json",
+      "bytes": 504,
+      "sha256": "e39aaa86da4d3f3e22bc60f9abc9f2482fe874204ecb1e28cb51016580d295e3"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/codec-complete-live-02/archive-entries.json",
+      "bytes": 2573,
+      "sha256": "bcabdc39ba465e2e057af0db75f4d5124af11bb45d1acb850b0f9288615e20f0"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/codec-complete-live-02/artifact-api.json",
+      "bytes": 756,
+      "sha256": "a8439038df9637f79d205645f6b9fdbce207ec2b6335c43a4afefb0893623d1b"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/codec-complete-live-02/artifact.zip",
+      "bytes": 371325,
+      "sha256": "3ff47d45851e08cb0a2a8568a292de32ad18f497c9764b76b0295b512f224648"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/codec-complete-live-02/run-api-pending.json",
+      "bytes": 12105,
+      "sha256": "b6e7bb066c4cd57f315520dd4fb1f604d18e51adc191d0327811135e441d6f71"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/codec-complete-live-02/unpacked/codec.json",
+      "bytes": 447951,
+      "sha256": "18cc0a6d304de4ba76fc37d073f2a4272bbf0e9584ac69e7218ca1f8b8407789"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/codec-complete-live-02/unpacked/commands/1792689540829846274.json",
+      "bytes": 1085,
+      "sha256": "573f76b53ad90f7869e12870d6ae2ec2f8346bafe33d342f24b5036a75f34641"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/codec-complete-live-02/unpacked/executed-workflow.yml",
+      "bytes": 12233,
+      "sha256": "f070325e7c520a4fe59d4db361d737f53042e23816ce8a5ddb38985c78ec1ee9"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/codec-complete-live-02/unpacked/history/850908e067d362c632222a24b8742f083027c540/commands/1792689332352759497.json",
+      "bytes": 3286,
+      "sha256": "949ab9c5cd10d45503c28bc2c253006e88c318e18b43741eab877109c3750bf5"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/codec-complete-live-02/unpacked/history/850908e067d362c632222a24b8742f083027c540/executed-workflow.yml",
+      "bytes": 12233,
+      "sha256": "f070325e7c520a4fe59d4db361d737f53042e23816ce8a5ddb38985c78ec1ee9"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/codec-complete-live-02/unpacked/history/850908e067d362c632222a24b8742f083027c540/session-binding.json",
+      "bytes": 395,
+      "sha256": "db087bf9e6cadbbb7091320c3d64b0bd39cde36bf2b39a17ca1f5cb75e3814b1"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/codec-complete-live-02/unpacked/history/850908e067d362c632222a24b8742f083027c540/session-result.json",
+      "bytes": 120,
+      "sha256": "442f206ff57bfc9a3c428061780a95de6c6ee8ff67c8b2b8518bddfced80758c"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/codec-complete-live-02/unpacked/history/850908e067d362c632222a24b8742f083027c540/source-manifest.json",
+      "bytes": 446580,
+      "sha256": "280754b1f28d8b0c8f2f0da4dc159375c71584c51ee98dceec9307f5a1dc727a"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/codec-complete-live-02/unpacked/session-binding.json",
+      "bytes": 395,
+      "sha256": "1994a4a435a75520f88fccdd9a6328237a075731b1d33742d141c34bf5f9ee9f"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/codec-complete-live-02/unpacked/session-result.json",
+      "bytes": 120,
+      "sha256": "917f77e300666d2a0876246e30025d81cb5d0405f1fd6118b9995a97ee57006c"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/codec-complete-live-02/unpacked/source-manifest.json",
+      "bytes": 446580,
+      "sha256": "a56e68cb54b9184debafee9ca9cf66fc6eacef4781a30ae6d7394c41524abd78"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/controller-final-live-01/PENDING.json",
+      "bytes": 502,
+      "sha256": "f65c49047384cbcf9908628cf9bdb66f5a698c64c865a9545ec8e70f936976d5"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/controller-final-live-01/archive-entries.json",
+      "bytes": 2140,
+      "sha256": "8a08c68b4bbb2aea3844c9f7bb86681741e7d35f763b5c03ecec28ec957dc1fd"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/controller-final-live-01/artifact-api.json",
+      "bytes": 756,
+      "sha256": "90df17ff3a7d50ed563d6c9a5c203e87bc54fabcdb1475581fb30c3a61017228"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/controller-final-live-01/artifact.zip",
+      "bytes": 415927,
+      "sha256": "1b646b4c8a9a328de58114b41511bc9b21b3f2cded59fc1327e49c483ad41474"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/controller-final-live-01/run-api-pending.json",
+      "bytes": 12108,
+      "sha256": "a02fcfcc47f6e395284cdc89c203003ca0c033084df99cee60fed1c919e166c0"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/controller-final-live-01/unpacked/commands/1792689731593550222.json",
+      "bytes": 794,
+      "sha256": "83c0608a703acc194c9b98dd6940b5d4108ec57c41d71759aaa6970cbde6c6f9"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/controller-final-live-01/unpacked/commands/1792689732766011513.json",
+      "bytes": 590,
+      "sha256": "34e6a64361ddb041152d7ed1283e18ddddc9bbed3090a030df45904ed5312ddb"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/controller-final-live-01/unpacked/commands/1792689736793716931.json",
+      "bytes": 471,
+      "sha256": "116132399b8db80bb9ae97ff00e2f1c9750e0541250bab4440033e4c72d0e761"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/controller-final-live-01/unpacked/controller-compare.json",
+      "bytes": 5186,
+      "sha256": "b36d081672f074493ee69fb07c49496bc95306ba3f904b6df9244b9bef760020"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/controller-final-live-01/unpacked/controller-lean.json",
+      "bytes": 932904,
+      "sha256": "638476757b62c8a4b2bf06868ee97de18349f82e4cd0810e12345183a642c823"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/controller-final-live-01/unpacked/controller.json",
+      "bytes": 454403,
+      "sha256": "79dadbed05c7e4ffb5406e118cb25b7c232d6268e8e7a5c2100f0d625aa98629"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/controller-final-live-01/unpacked/executed-workflow.yml",
+      "bytes": 12233,
+      "sha256": "f070325e7c520a4fe59d4db361d737f53042e23816ce8a5ddb38985c78ec1ee9"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/controller-final-live-01/unpacked/session-binding.json",
+      "bytes": 400,
+      "sha256": "00c71924caec6ee24046f3f1c01812fd51ac028a6d9f1a835b9cc5304c2eb079"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/controller-final-live-01/unpacked/session-result.json",
+      "bytes": 125,
+      "sha256": "b982df88afbe122840fea44aec92015ba1c8353d976f4ab626a55e1ddc0bbd7b"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/controller-final-live-01/unpacked/source-manifest.json",
+      "bytes": 446580,
+      "sha256": "7e183d5971b2d579b847028332d123e0abd459e569a5b6cf168ed6bc8c5ea7ea"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/correct-pause-live-01/PENDING.json",
+      "bytes": 502,
+      "sha256": "ac1b955f2435a51a4522a2a25d8260aa4b9d4e6211775f23a2b058b04ac4038a"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/correct-pause-live-01/archive-entries.json",
+      "bytes": 1269,
+      "sha256": "44f1e3927d9f8964727ae565acf34b5fd346ad7eeff77ea01ca6d7c58ba4ca98"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/correct-pause-live-01/artifact-api.json",
+      "bytes": 756,
+      "sha256": "0bac063da903647a3f206125cc27185efa600f787dbf3325ed8c86ded51f52bc"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/correct-pause-live-01/artifact.zip",
+      "bytes": 246301,
+      "sha256": "4f50a5832e16e1899461860895df966bed6d13d9b838c4ebf887fe9b40ecebe4"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/correct-pause-live-01/run-api-pending.json",
+      "bytes": 12114,
+      "sha256": "7cfcd61d5f6b33d056db10f62c8aac2f9872a49f634176f15868ace6ec8fbbe3"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/correct-pause-live-01/unpacked/commands/1792690408529178339.json",
+      "bytes": 1154,
+      "sha256": "b95eb4a87fac915e45bf56c176430f5859ab19c625264a0ed8fe4a23e3783afe"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/correct-pause-live-01/unpacked/correct.json",
+      "bytes": 448141,
+      "sha256": "0e8cbe55b65c6fd748aa9ee115ebd968eb16e370aef57347cb0ee688ef42f976"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/correct-pause-live-01/unpacked/executed-workflow.yml",
+      "bytes": 12233,
+      "sha256": "f070325e7c520a4fe59d4db361d737f53042e23816ce8a5ddb38985c78ec1ee9"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/correct-pause-live-01/unpacked/session-binding.json",
+      "bytes": 397,
+      "sha256": "62ebae3ea217e2a1d3d5e4f5fa7f1e2aab37e2bc0ab334c1e731b93ce3fb4be1"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/correct-pause-live-01/unpacked/session-result.json",
+      "bytes": 122,
+      "sha256": "e3f8c1eed97859d7191f6fd91f1095f347e89a7fe5df6f51eb632cd5aa3ec0f9"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/correct-pause-live-01/unpacked/source-manifest.json",
+      "bytes": 446699,
+      "sha256": "caad3ead560a65728c1a6cf380cb59e393c229ba748d14891407217a51d3938b"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/transducer-compose-live-01/PENDING.json",
+      "bytes": 502,
+      "sha256": "665c07556731f9822458b993368808cc6b4bb6b7cbbc163e212f7b8c20b95d0e"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/transducer-compose-live-01/archive-entries.json",
+      "bytes": 1272,
+      "sha256": "a0c4062c86acf2bcd4d872755794d1a9a424e0f6a268f20d1c1e741fce420279"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/transducer-compose-live-01/artifact-api.json",
+      "bytes": 756,
+      "sha256": "a3be4a0a3201787379ab4f59611c074291aff0c710acd6d0a995e07b0038052e"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/transducer-compose-live-01/artifact.zip",
+      "bytes": 246167,
+      "sha256": "e8490a67fadf2a7f12242d64ed4ea8079df693f605bf2e43369694fbf82e081b"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/transducer-compose-live-01/run-api-pending.json",
+      "bytes": 12108,
+      "sha256": "26c12fdb80bd03e0ed63edf3fb707ff51b047f9672e157abc1df3c6b95b78651"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/transducer-compose-live-01/unpacked/commands/1792689713576884872.json",
+      "bytes": 1084,
+      "sha256": "42e0c2d14a142d701b1790021916f5d95a68f9eba5a92fb8f1b61dab2ab59aa8"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/transducer-compose-live-01/unpacked/executed-workflow.yml",
+      "bytes": 12233,
+      "sha256": "f070325e7c520a4fe59d4db361d737f53042e23816ce8a5ddb38985c78ec1ee9"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/transducer-compose-live-01/unpacked/session-binding.json",
+      "bytes": 400,
+      "sha256": "93324030e950f99fa7fc9a30dbfefe75435f878ae1c6a62f74473a26c429c115"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/transducer-compose-live-01/unpacked/session-result.json",
+      "bytes": 125,
+      "sha256": "9c5ada5c5d174271011e12e94c2b8d5de308593b1c92d1a8fbe0b2dfd0e91341"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/transducer-compose-live-01/unpacked/source-manifest.json",
+      "bytes": 446580,
+      "sha256": "35cc1d2f788204b1f57f46685438fac81b7cf99f17028be2221643249c557c92"
+    },
+    {
+      "path": "docs/chess/campaign-2026-10-22/round-04/evidence/transducer-compose-live-01/unpacked/transducer.json",
+      "bytes": 447955,
+      "sha256": "0391bacfc548826293b6eda8811a51dc68a10afbd27558453db0be7d1527ed2b"
+    },
+    {
+      "path": "scripts/chess_body_20261022/certificate_pilot.py",
+      "bytes": 39170,
+      "sha256": "d75109fb1d4c8f30aca47d431ed50d588342d6f9ae65b554f9ba526b11dc4b46"
+    },
+    {
+      "path": "scripts/chess_body_20261022/certificate_verify.py",
+      "bytes": 3371,
+      "sha256": "c53f6b491574f1325a1444f44461d1820161228ffd6522e332759082f9c237c7"
+    },
+    {
+      "path": "scripts/chess_body_20261022/pilot.py",
+      "bytes": 33593,
+      "sha256": "ce4d5bd05ce6fb246e60d98a21cb791ad7acea40a4a029d71d884ca1f42f0bc3"
+    },
+    {
+      "path": "scripts/chess_body_20261022/verify.py",
+      "bytes": 2179,
+      "sha256": "ea87b4b604711941b44913a8ac892dc1c33dc3e808db79b63231c81ffd1d5c33"
+    },
+    {
+      "path": "scripts/chess_goal_20261022/Audit.lean",
+      "bytes": 7290,
+      "sha256": "991d4c4daf2161cc845340071fafcea2d88ae0e6f056a491f35cef2649e7010f"
+    },
+    {
+      "path": "scripts/chess_goal_20261022/Export.lean",
+      "bytes": 19873,
+      "sha256": "b6b5d68e3c2add67d1fb077ec95e251c51c7b2dc696e7dea75eb4144fe4f1589"
+    },
+    {
+      "path": "scripts/chess_goal_20261022/census.py",
+      "bytes": 5446,
+      "sha256": "c4d9dae48edbdc69dd8d5e36d3c616ab82afe8a6d66fc833f87eb30d49d2790e"
+    },
+    {
+      "path": "scripts/chess_goal_20261022/check_saved_evidence.py",
+      "bytes": 56548,
+      "sha256": "260552c1fcc84034cee703dff1f5b5a1405d429d843cea09cbc4696ac2a866a5"
+    },
+    {
+      "path": "scripts/chess_goal_20261022/fixtures.py",
+      "bytes": 49769,
+      "sha256": "0fc850ecf29db51d04d8e6a19bafe47e9ef021496fb72e9fa846c7761218e674"
+    },
+    {
+      "path": "scripts/chess_goal_20261022/retain.py",
+      "bytes": 4714,
+      "sha256": "4cee06ddd94dec0dae041da38d4aae90d43051dddad2463b4ab99a23b86fd561"
+    },
+    {
+      "path": "scripts/chess_goal_20261022/session.py",
+      "bytes": 4451,
+      "sha256": "0b48fb7742d11fe0020942d40a9021a212ee4ee0bc4ca2b70bc8ef8352451247"
+    },
+    {
+      "path": "scripts/chess_goal_20261022/verify.py",
+      "bytes": 9311,
+      "sha256": "fff58c9cbfb40e09f30c65085d7b6a22c3320fc8fa18f1165b1cb1bb8753d800"
+    },
+    {
+      "path": "scripts/chess_table_seed_20261022/ControllerExport.lean",
+      "bytes": 2433,
+      "sha256": "03c00aaa97028093639bf7ff32f762611873acaacacc2a4e9fee647a191a7e99"
+    },
+    {
+      "path": "scripts/chess_table_seed_20261022/controller.py",
+      "bytes": 18771,
+      "sha256": "60ac31fb4474b225af657e1321f1a848e93d529fb47263cb0cb1f8721558f220"
+    },
+    {
+      "path": "scripts/chess_table_seed_20261022/controller_compare.py",
+      "bytes": 10575,
+      "sha256": "118ceec3fcdd2256fcc6b7c67eb440b5f141ecd88549c589ac150b795f1cb0ad"
+    },
+    {
+      "path": "scripts/chess_table_seed_20261022/controller_fixtures.py",
+      "bytes": 26059,
+      "sha256": "a5e6fb8c98a24fd14c71363570b4909e3fc748d639ac0ca04433d32061a52493"
+    },
+    {
+      "path": "scripts/chess_table_seed_20261022/controller_verify.py",
+      "bytes": 6374,
+      "sha256": "25e2cee291b97a3de297ce6b4dc735afd7e369db76607f540012d4fe3bdfdb8f"
+    },
+    {
+      "path": "scripts/chess_table_seed_20261022/pilot.py",
+      "bytes": 31284,
+      "sha256": "53d5ed7dde33efdc74f92c954e1f46e9a1bff8fd03e46a5f439d427103f7f3d5"
+    },
+    {
+      "path": "scripts/chess_table_seed_20261022/proof_session.py",
+      "bytes": 5241,
+      "sha256": "643821401464cdaf746b1d49aba31062af2111b40267a88d6dc9d826045e2522"
+    },
+    {
+      "path": "scripts/chess_table_seed_20261022/proof_verify.py",
+      "bytes": 4538,
+      "sha256": "9526fe84def03979e7eef3cf735cae06c5a1716b2a1879abda9c678aa30036ca"
+    },
+    {
+      "path": "scripts/chess_table_seed_20261022/retain_live.py",
+      "bytes": 2282,
+      "sha256": "d0b8249abe0be131455256d23bf01ebcc8231658e170768e2cc9bb089dde54ef"
+    },
+    {
+      "path": "scripts/chess_table_seed_20261022/verify.py",
+      "bytes": 2194,
+      "sha256": "9754a3b985f55fadf118877eb9fc422013b6fbbeaebd12a7ed73c9e64c2132a0"
+    }
+  ]
+}
