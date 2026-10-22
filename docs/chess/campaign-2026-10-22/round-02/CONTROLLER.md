@@ -1,6 +1,6 @@
 # Three-bit seed expander: finite binary pilot
 
-Status: **source complete; corrected remote run pending**. This is a
+Status: **remote finite pilot passed**. This is a
 `FINITE_UNVERIFIED_PILOT`, not a new Lean-certified chess machine. The accepted
 complete machine remains 2,411,743 states and its unchanged body has 573,802
 states. No model, Python import, prototype execution, Lean invocation, or fixture
@@ -9,8 +9,21 @@ was run locally while preparing this source.
 The implementation is [pilot.py](../../../../../scripts/chess_seed_20261022/pilot.py).
 Its runtime guard requires both `CHESS_REMOTE=1` and `GITHUB_ACTIONS=true`, including
 when imported. All output goes to `.lake/chess-seed-20261022`. The root-owned
-workflow supplies execution and retained evidence; this document makes no claim
-that the proposed fixtures have passed before that receipt exists.
+workflow ran the corrected source successfully in
+[run 39788561190](https://github.com/bocowgill/cryptids/actions/runs/39788561190), at
+commit `619a4cde330b15ea16bc1cdbdea7f581b4658629`. The
+[runner receipt](evidence/pilot-02/unpacked/pilot-run.json) records exit zero,
+no timeout, and the final success banner. The
+[pilot summary](evidence/pilot-02/unpacked/pilot-summary.json) records 216 states,
+432 rows, 28 blocks, 465 positive fixtures, and 14 rejected corruption controls.
+The root checked all eight artifact hashes and source hashes before retaining
+the evidence at checkpoint `99836fb`.
+
+The measured finite controller gives the **prospective complete count 998,176**
+under `997959 + D + H`, with `D=216` and `H=1`. This arithmetic composition is
+not a new full-machine certificate. Universal expansion, Lean row identity,
+the instantiated paid startup and linker, and chess halting equivalence remain
+open.
 
 The first remote attempt, run `39787968426` at commit `b1dc8ea`, stopped before
 simulation because fixed-block operation tuples became lists during JSON
@@ -42,8 +55,8 @@ numeric destinations, both symbol rows, and the unique successful terminal.
 The simulator uses the reloaded JSONL rows, not block constructors or callbacks.
 
 The complete source allocation is exposed by the following finite blocks.
-These are source-derived dimensions; `counts.json` will record the measured
-allocation after remote execution.
+Remote export confirmed their total of 216 paid states and both rows for every
+state; [counts.json](evidence/pilot-02/unpacked/counts.json) retains the census.
 
 | Block family | Copies | States per copy | Runtime head contract |
 | --- | ---: | ---: | --- |
@@ -115,7 +128,7 @@ Lean proofs. The source-derived transition count to first `done` is
 `16*n*n + 83*n + 62`; the pilot checks it only on finite fixtures. Runtime steps
 are not states and are never used as the paid allocation count.
 
-## Independent checks prepared for the remote run
+## Independent checks completed remotely
 
 The frozen native input is pinned to the accepted round01 export SHA-256
 `592ea3c892d0e9d5a6db6ce31e3f590bde7973774bdc9a70cfe46cb6996cd39e`.
@@ -126,7 +139,14 @@ It writes the complete 424,156-bit seed, decodes every three-bit record with
 numeric positional weights, and compares the entire reconstructed 1,837,940-bit
 target to the accepted native bit string. The seed is saved as ASCII zero/one
 bytes without a newline, including all three charged trailing zeros. The seed
-byte count and SHA-256 are reported explicitly.
+byte count and SHA-256 are reported explicitly in
+[static-input.json](evidence/pilot-02/unpacked/static-input.json). All 424,156
+seed bytes were retained with SHA-256
+`2946c43c229df7c2468d45f72ac385e20188aeafc1a4af74309a5d563d8befe1`.
+The decoded target matched all 1,837,940 accepted bits and the unchanged hash
+`a537828df795044398b0eb71c0f9091da6a3d2e01511bac338b8581b04fda9fa`.
+The observed histogram is 1 `.consₗ`, 17,858 `.cons`, 56,973 `.bit0`, and 66,548
+`.bit1`; the actual final stack symbol is `.cons`.
 
 The expected output function independently reverses the input stack, constructs
 four fields per cell, encodes each field arithmetically, and adds the bottom
@@ -137,7 +157,7 @@ instrumentation and do not affect transitions. Equality of complete sparse
 support checks every nonblank cell and both infinite zero exteriors, as well as
 the exact physical head.
 
-The prepared positive cases include empty input, all four singletons, all
+The 465 passing positive fixtures include empty input, all four singletons, all
 ordered pairs and triples, and longer cases for repeated `001`, repeated `110`,
 both alternating orders, zero-ending codes, delimiters at both ends, an odd
 mixed length, and the actual final stack symbol. Each case runs at origins
@@ -145,13 +165,14 @@ mixed length, and the actual final stack symbol. Each case runs at origins
 origins, and both error-state rows are checked directly. Full chess startup is
 never simulated: `run_fixture` rejects inputs longer than 256 symbols.
 
-Fourteen focused negative controls run after all positive fixtures. They corrupt
+Fourteen focused negative controls passed after all positive fixtures. They corrupt
 B's overlapping marker rewrite, A's shift direction, an emitted main-field bit,
 B cleanup, A cleanup, the bottom flag, final head restoration, the scanner
 counter, parser accumulation, state accounting, and invalid-code termination.
 The remaining controls add far-left and far-right residue and corrupt the
-recorded step count. Each must fail the same applicable checker that accepted
-the positive construction.
+recorded step count. Each was rejected by the same applicable checker that
+accepted the positive construction; the complete reasons are retained in
+[negative-controls.json](evidence/pilot-02/unpacked/negative-controls.json).
 
 Remote artifacts are `controller.json`, `controller-rows.jsonl`, `seed-bits.txt`,
 `target-bits.txt`, `static-input.json`, `fixtures.json`, `negative-controls.json`,
@@ -170,10 +191,11 @@ right preserving the bit, then moves left preserving the bit into body state
 zero. Neither the seed fixture nor the arithmetic formula is a certified
 blank-tape initialization theorem.
 
-The remote census must compute D from the actual allocation rather than trusting
-a hand total. `counts.json` reports exact finite-controller allocation and the
-symbolic complete candidate, including the strict-reduction and optional
-sub-million bounds. Every such output is labeled `FINITE_UNVERIFIED_PILOT`.
+The remote census computed `D=216` from the actual allocation rather than
+trusting a hand total. `counts.json` reports 424,157 paid writer states and the
+symbolic complete candidate 998,176, a prospective saving of 1,413,567 from the
+accepted machine. Both strict reduction and the optional sub-million bound
+hold arithmetically. Every such output is labeled `FINITE_UNVERIFIED_PILOT`.
 Required subsequent work remains universal expansion and cleanup in Lean,
 termination, exact numeric controller rows, the paid writer and protected
 success linker, full-machine export, and the chess halting equivalence.
