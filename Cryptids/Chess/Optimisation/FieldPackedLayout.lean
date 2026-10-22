@@ -45,7 +45,7 @@ def empty : Block where
     { toFun := fun s ↦ Fin.elim0 s.1
       invFun := Fin.elim0
       left_inv := fun s ↦ Fin.elim0 s.1
-      right_inv := Fin.elim0 }
+      right_inv := fun i ↦ Fin.elim0 i }
   code_val := fun q ↦ Fin.elim0 q
 
 def single (n : Nat) : Block where
@@ -86,13 +86,19 @@ def appendCode (a b : Block) :
 theorem appendCode_val (a b : Block) (q : Fin (a.rows + b.rows))
     (i : Fin (appendSize a b q)) :
     (appendCode a b ⟨q, i⟩).val = appendOffset a b q + i.val := by
-  revert i
-  refine Fin.addCases (fun q i ↦ ?_) (fun q i ↦ ?_) q
-  · simpa [appendCode, splitSlots, appendSize, appendOffset, Equiv.sigmaCongrLeft]
-      using a.code_val q ⟨i.val, by simpa [appendSize] using i.isLt⟩
-  · simpa [appendCode, splitSlots, appendSize, appendOffset, Equiv.sigmaCongrLeft,
-      Nat.add_assoc] using
-      congrArg (a.nodes + ·) (b.code_val q ⟨i.val, by simpa [appendSize] using i.isLt⟩)
+  suffices ∀ s : Σ q : Fin (a.rows + b.rows), Fin (appendSize a b q),
+      (appendCode a b s).val = appendOffset a b s.1 + s.2.val from this ⟨q, i⟩
+  intro s
+  obtain ⟨t, rfl⟩ := (splitSlots a b).symm.surjective s
+  rcases t with ⟨r, j⟩ | ⟨r, j⟩
+  · simp only [appendCode, Equiv.trans_apply, Equiv.apply_symm_apply,
+      Equiv.sumCongr_apply, Sum.map_inl, finSumFinEquiv_apply_left, Fin.val_castAdd]
+    simpa [splitSlots, Equiv.sigmaCongrLeft, Equiv.sumSigmaDistrib, appendOffset]
+      using a.code_val r j
+  · simp only [appendCode, Equiv.trans_apply, Equiv.apply_symm_apply,
+      Equiv.sumCongr_apply, Sum.map_inr, finSumFinEquiv_apply_right, Fin.val_natAdd]
+    simpa [splitSlots, Equiv.sigmaCongrLeft, Equiv.sumSigmaDistrib, appendOffset,
+      Nat.add_assoc] using congrArg (a.nodes + ·) (b.code_val r j)
 
 /-- Combining blocks adds their exact cardinalities; all branch fields are data. -/
 def append (a b : Block) : Block where
@@ -129,7 +135,7 @@ theorem ofTree_rows {α : Type} (weight : α → Nat) (tree : Balanced.RowTree �
 theorem ofTree_size {α : Type} (weight : α → Nat) (tree : Balanced.RowTree α)
     (valid : tree.WellFormed) (fallback : α) (q : Fin (ofTree weight tree).rows) :
     (ofTree weight tree).size q = weight (tree.lookup q.val fallback) := by
-  induction tree generalizing q with
+  induction tree with
   | empty => exact Fin.elim0 q
   | leaf row =>
     have zero : q.val = 0 := by have := q.isLt; change q.val < 1 at this; omega
@@ -140,15 +146,13 @@ theorem ofTree_size {α : Type} (weight : α → Nat) (tree : Balanced.RowTree �
     refine Fin.addCases (fun r ↦ ?_) (fun r ↦ ?_) q
     · have before : r.val < count := by
         have := r.isLt
-        rw [ofTree_rows] at this
+        have total := ofTree_rows weight left
         omega
       simpa only [append_size_left, Balanced.RowTree.lookup, Fin.val_castAdd,
         before, ↓reduceIte] using ihl vl r
-    · have after : ¬(ofTree weight left).rows + r.val < count := by
-        rw [ofTree_rows]
-        omega
+    · have after : ¬(ofTree weight left).rows + r.val < (ofTree weight left).rows := by omega
       simpa only [append_size_right, Balanced.RowTree.lookup, Fin.val_natAdd,
-        after, ↓reduceIte, cache, ← ofTree_rows weight left, Nat.add_sub_cancel_left]
+        cache, ← ofTree_rows weight left, after, ↓reduceIte, Nat.add_sub_cancel_left]
         using ihr vr r
 
 /-- The exact node total is also the ordinary sum of every leaf weight. -/
@@ -160,18 +164,19 @@ theorem ofTree_nodes {α : Type} (weight : α → Nat) (tree : Balanced.RowTree 
 theorem ofTree_offset {α : Type} (weight : α → Nat) (tree : Balanced.RowTree α)
     (q : Fin (ofTree weight tree).rows) :
     (ofTree weight tree).offset q = ((tree.flatten.map weight).take q.val).sum := by
-  induction tree generalizing q with
+  induction tree with
   | empty => exact Fin.elim0 q
   | leaf row =>
-    have zero : q.val = 0 := by have := q.isLt; change q.val < 1 at this; omega
-    simp [ofTree, single, zero, Balanced.RowTree.flatten]
+    simp [ofTree, single, Balanced.RowTree.flatten]
   | branch count left right ihl ihr =>
     change (append (ofTree weight left) (ofTree weight right)).offset q = _
     refine Fin.addCases (fun r ↦ ?_) (fun r ↦ ?_) q
     · have before : r.val ≤ (left.flatten.map weight).length := by
         have := r.isLt
-        rw [ofTree_rows, Balanced.RowTree.count_eq_length] at this
-        simpa only [List.length_map] using Nat.le_of_lt this
+        have total := ofTree_rows weight left
+        have length_eq := Balanced.RowTree.count_eq_length left
+        simp only [List.length_map]
+        omega
       simpa only [append, appendOffset, finSumFinEquiv_symm_apply_castAdd,
         Sum.elim_inl, Fin.val_castAdd, Balanced.RowTree.flatten, List.map_append,
         List.take_append_of_le_length before] using ihl r
@@ -206,6 +211,17 @@ def sourceSlots : FieldPacking.Slot FieldAware.syntaxRows ≃
     (Σ q : Fin packed.rows, Fin (packed.size q)) :=
   Equiv.sigmaCongr (finCongr packed_rows.symm) (fun q ↦ finCongr (packed_size q).symm)
 
+theorem sourceSlots_fst (q : Fin 4042) (i : Fin (FieldAware.syntaxRows.get q).size) :
+    (sourceSlots ⟨q, i⟩).1 = row q := by
+  apply Fin.ext
+  simp only [sourceSlots, Equiv.sigmaCongr, Equiv.trans_apply,
+    Equiv.sigmaCongrRight_apply, Equiv.sigmaCongrLeft_apply, finCongr_apply, Fin.val_cast, row]
+
+theorem sourceSlots_snd_val (q : Fin 4042) (i : Fin (FieldAware.syntaxRows.get q).size) :
+    (sourceSlots ⟨q, i⟩).2.val = i.val := by
+  simp only [sourceSlots, Equiv.sigmaCongr, Equiv.trans_apply,
+    Equiv.sigmaCongrRight_apply, Equiv.sigmaCongrLeft_apply, finCongr_apply, Fin.val_cast]
+
 /-- Exact padding-free allocation for all4042source labels. -/
 def layout : FieldPacking.Layout FieldAware.syntaxRows 106668 where
   code := (sourceSlots.trans packed.code).trans (finCongr packed_nodes)
@@ -236,26 +252,27 @@ theorem weights_get (q : Fin 4042) :
   change (Snapshot.entries.flatten.map
     (fun row : Snapshot.Entry ↦ (lower row.1).size)).getD q.val
       ((lower (Op.halt : Op 4042)).size) = _
-  rw [List.getD_map, ← Balanced.RowTree.lookup_eq_getD Snapshot.entries
-    Snapshot.entries_wellFormed]
+  rw [List.getD_map Snapshot.entries.flatten (.halt, .halt)
+      (fun row : Snapshot.Entry ↦ (lower row.1).size),
+    ← Balanced.RowTree.lookup_eq_getD Snapshot.entries Snapshot.entries_wellFormed]
   rw [FieldAware.syntaxRows_get]
   rfl
 
 /-- Ordinary prefix arithmetic for independent numeric reconstructions. -/
-def prefix (count : Nat) : Nat := (weights.take count).sum
+def prefixSum (count : Nat) : Nat := (weights.take count).sum
 
-theorem offset_eq_prefix (q : Fin 4042) : offset q = prefix q.val :=
+theorem offset_eq_prefix (q : Fin 4042) : offset q = prefixSum q.val :=
   Block.ofTree_offset _ Snapshot.entries (row q)
 
-theorem prefix_zero : prefix 0 = 0 := by simp [prefix]
+theorem prefix_zero : prefixSum 0 = 0 := by simp [prefixSum]
 
 theorem prefix_succ (q : Fin 4042) :
-    prefix (q.val + 1) = prefix q.val + (FieldAware.syntaxRows.get q).size := by
+    prefixSum (q.val + 1) = prefixSum q.val + (FieldAware.syntaxRows.get q).size := by
   exact (List.sum_take_succ weights q.val (by rw [weights_length]; exact q.isLt)).trans
-    (congrArg (prefix q.val + ·) (weights_get q))
+    (congrArg (prefixSum q.val + ·) (weights_get q))
 
 /-- The final prefix is the exact total of all4042rows. -/
-theorem prefix_end : prefix 4042 = 106668 := by
+theorem prefix_end : prefixSum 4042 = 106668 := by
   change (weights.take 4042).sum = _
   rw [← weights_length, List.take_length]
   exact (Block.ofTree_nodes _ Snapshot.entries).symm.trans packed_nodes
@@ -278,9 +295,10 @@ def index (q : Fin 4042) (i : Fin (FieldAware.syntaxRows.get q).size) : Fin 1066
 theorem code_val (q : Fin 4042) (i : Fin (FieldAware.syntaxRows.get q).size) :
     (layout.code ⟨q, i⟩).val = offset q + i.val := by
   change ((finCongr packed_nodes) (packed.code (sourceSlots ⟨q, i⟩))).val = _
-  simpa only [finCongr_apply, Fin.val_cast, sourceSlots, Equiv.sigmaCongr,
-    Equiv.trans_apply, Equiv.sigmaCongrRight_apply, Equiv.sigmaCongrLeft_apply,
-    row, offset] using packed.code_val (row q) ⟨i.val, by simpa [packed_size] using i.isLt⟩
+  simp only [finCongr_apply, Fin.val_cast]
+  change (packed.code ⟨(sourceSlots ⟨q, i⟩).1, (sourceSlots ⟨q, i⟩).2⟩).val = _
+  rw [packed.code_val, sourceSlots_fst, sourceSlots_snd_val]
+  rfl
 
 theorem index_val (q : Fin 4042) (i : Fin (FieldAware.syntaxRows.get q).size) :
     (index q i).val = offset q + i.val := code_val q i
