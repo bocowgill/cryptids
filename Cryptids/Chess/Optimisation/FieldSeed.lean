@@ -44,7 +44,8 @@ theorem expander_reaches :
       ⟨Seed.done, Tape.mk₁ FieldSelective.bits.toList⟩ := by
   have result := Seed.seed_reaches Seed.ChessCodec.letters
   rw [Seed.ChessCodec.output_eq] at result
-  simpa only [bits, Seed.ChessCodec.bits_toList, Seed.entry, Seed.encode] using result
+  have entry_zero : Seed.entry = (0 : Fin 216) := by decide +kernel
+  simpa only [bits, Seed.ChessCodec.bits_toList, entry_zero] using result
 
 theorem linked_halts_input :
     Init.HaltsOn linked.toMachine (Tape.mk₁ bits.toList) ↔
