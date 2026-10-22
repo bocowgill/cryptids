@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "prlimit",
+    "--as=17179869184",
+    "--",
+    "lake",
+    "env",
+    "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_field_packed_audit",
+    "--negative-control-open"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "uncaught exception: The open chess conjecture is a dependency\n",
+  "output_sha256": "d01e128e5cd5c4c162ea9389dc4ee82198a07c89ec08e1d8952c202a2fcd97bb",
+  "timed_out": false,
+  "timeout_seconds": 600,
+  "elapsed_seconds": 3.3069158170000037,
+  "cumulative_children_peak_rss_kib": 3931800
+}

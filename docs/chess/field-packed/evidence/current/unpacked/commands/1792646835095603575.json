@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_field_packed/verify.py",
+    "--counts"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "Packed field frozen inputs passed\nPacked field frozen inputs passed\nPacked full chess reduction passed\n",
+  "output_sha256": "c61f681a454b2b18a84d012aab4d680f38e7ccf5edc0af3837d76d7b399383b1",
+  "timed_out": false,
+  "timeout_seconds": 120,
+  "elapsed_seconds": 2.9316396080000118,
+  "cumulative_children_peak_rss_kib": 4431100
+}

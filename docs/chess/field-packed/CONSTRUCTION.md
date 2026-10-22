@@ -1,7 +1,7 @@
 # Exact removal of graph padding
 
-This describes the candidate construction. Complete remote acceptance is recorded
-separately in RESULTS.md when all proof, native and evidence gates have passed.
+This describes the certified construction. Complete remote acceptance and sealed
+evidence replays are recorded in RESULTS.md.
 
 The target remains
 
@@ -68,9 +68,9 @@ to the actual machine, universally including missing transitions. The independen
 Python recipe is additional finite implementation evidence, not the universal
 halting proof.
 
-## Accounting to be certified
+## Certified accounting
 
-| Allocation | Candidate controls |
+| Allocation | Controls |
 |---|---:|
 | Actual syntax nodes, before store expansion | 106,668 |
 | Every node at all five stores | 533,340 |
@@ -90,9 +90,9 @@ its binary return control are retained, including their actual transitions.
 The initializer contains the same literal input as the accepted machine and
 pays both controls per bit. There is no free preloaded tape or external input.
 
-The proposed saving is 4,032,340 padding nodes times five stores times two binary
-controls: 40,323,400 states. Full acceptance requires both the Lean count theorem
-and the separate remote allocation derivation from every actual exported row.
+The certified saving is 4,032,340 padding nodes times five stores times two binary
+controls: 40,323,400 states. Both the Lean count theorem and the separate remote
+allocation derivation from every actual exported row passed.
 
 ## Evidence boundary
 

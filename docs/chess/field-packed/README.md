@@ -1,8 +1,12 @@
 # Padding-free complete chess machine
 
-Campaign in progress. The acceptance target is a complete binary blank-tape chess
-machine below the accepted 45,065,962 states, with the unchanged theorem
+Completed: the complete binary blank-tape chess machine has **4,742,562 states**,
+saving **40,323,400** from the accepted 45,065,962 states, with the unchanged theorem
 `Halts machine ↔ ¬(WhiteCanAvoidLoss ∧ BlackCanAvoidLoss)`.
+
+See [RESULTS.md](RESULTS.md) for every charged state and the successful remote run,
+[CONSTRUCTION.md](CONSTRUCTION.md) for the proof mechanism, and
+[the sealed advisory](evidence/review/review.md) for the independent model review.
 
 Every previously tracked file is fixed under `baseline-pins.json`, including the
 frozen chess specification, toolchain, accepted field compiler and evidence. All
@@ -45,3 +49,13 @@ Local-safe frozen-hash check:
 ```sh
 python3 scripts/chess_field_packed/verify.py --metadata
 ```
+
+Local-safe complete retained-evidence replay:
+
+```sh
+python3 docs/chess/field-packed/evidence/review/check_saved_evidence.py --self-test
+```
+
+The parent replay passed the positive case, all six individual evidence-tampering
+controls, a copied-directory invocation, the previous accepted evidence checker
+and the frozen-file check. No machine runs during this metadata-only replay.

@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-field-packed/BadPadding.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "/home/runner/work/cryptids/cryptids/.lake/chess-field-packed/BadPadding.lean:3:94: error: Tactic `decide` proved that the proposition\n  106668 = 4139008\nis false\n",
+  "output_sha256": "6810a785b6d61c17f53e938e97da00a5186ccd35936fab59d0e43b3a83b512a0",
+  "timed_out": false,
+  "timeout_seconds": 300,
+  "elapsed_seconds": 3.8306625289999943,
+  "cumulative_children_peak_rss_kib": 4423152
+}

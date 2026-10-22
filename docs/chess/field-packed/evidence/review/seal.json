@@ -1,0 +1,21 @@
+{
+  "computation_commit": "7c43454a01201ea122f9769ec751c0582aacc692",
+  "formal_verification_by_reviewer": false,
+  "human_approval": false,
+  "local_heavy_computation": false,
+  "review_files_sha256": {
+    "check_saved_evidence.py": "e527167840d377e614c61db6c0636c1bf3df7b773f856ebdb75497d6b5946c7a",
+    "construction-binding.json": "4594a4583fd2de22109e6c73a1f5966cf92bd052c205a9ac8618fe4103d59141",
+    "receipt.json": "e3c91f8495e9c6ac7a38b54c5252d2e34280ce842e8db163a1c52da23b5a6ece",
+    "review.json": "3d5be54df2c65c43264cd7534123447b88d72c8438cccb00bac24b2df6b2bbfb",
+    "review.md": "ce8055a15ea1bd22b696222fb1dff0f8b6782d6dac4135394e27a788b96fe8b8"
+  },
+  "review_gates": {
+    "R1": "passed",
+    "R2": "passed"
+  },
+  "review_kind": "independent-model-advisory",
+  "run_id": 39727629533,
+  "schema": "chess-field-packed-review-v1",
+  "status": "passed"
+}

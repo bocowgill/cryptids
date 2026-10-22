@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_field_packed/verify.py",
+    "--target",
+    "graph"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "Build completed successfully (3853 jobs).\nPacked field frozen inputs passed\nPacked field frozen inputs passed\nPacked field graph passed\n",
+  "output_sha256": "2189b5c2aeafe083280b4e0ef8d7b53673bcb1b475a95f1288fa0ca054e6590c",
+  "timed_out": false,
+  "timeout_seconds": 1800,
+  "elapsed_seconds": 5.342363837999983,
+  "cumulative_children_peak_rss_kib": 927512
+}

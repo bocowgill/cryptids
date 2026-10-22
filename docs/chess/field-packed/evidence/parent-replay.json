@@ -1,0 +1,190 @@
+{
+  "schema": "chess-field-packed-parent-replay-v1",
+  "status": "passed",
+  "run_id": 39727629533,
+  "computation_commit": "7c43454a01201ea122f9769ec751c0582aacc692",
+  "metadata_only": true,
+  "local_heavy_computation": false,
+  "promoted_exact_files_sha256": {
+    "seal.json": "3adac25e909c1c2afaf13ecee0347f9de38c000ad1ba2d2f1d8d8e4e3a17ce8e",
+    "construction-binding.json": "4594a4583fd2de22109e6c73a1f5966cf92bd052c205a9ac8618fe4103d59141",
+    "check_saved_evidence.py": "e527167840d377e614c61db6c0636c1bf3df7b773f856ebdb75497d6b5946c7a",
+    "review.md": "ce8055a15ea1bd22b696222fb1dff0f8b6782d6dac4135394e27a788b96fe8b8",
+    "review.json": "3d5be54df2c65c43264cd7534123447b88d72c8438cccb00bac24b2df6b2bbfb",
+    "receipt.json": "e3c91f8495e9c6ac7a38b54c5252d2e34280ce842e8db163a1c52da23b5a6ece"
+  },
+  "checks": [
+    {
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/bocowgill/.codex/worktrees/6ba9/cryptids/docs/chess/field-packed/evidence/review/check_saved_evidence.py"
+      ],
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": false,
+      "exit": 0,
+      "expected_exit": 0,
+      "expected_token": "Packed sealed evidence review passed",
+      "matched": true,
+      "elapsed_seconds": 1.166681708,
+      "output_sha256": "21466cdf6811b4ad6c53cbcd66166b9ec7d89bebc6b614f6b93b5eca333df763"
+    },
+    {
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/bocowgill/.codex/worktrees/6ba9/cryptids/docs/chess/field-packed/evidence/review/check_saved_evidence.py",
+        "--self-test"
+      ],
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": false,
+      "exit": 0,
+      "expected_exit": 0,
+      "expected_token": "Packed sealed evidence controls passed",
+      "matched": true,
+      "elapsed_seconds": 6.057161875,
+      "output_sha256": "ae0b7b15a10dc84c7963823e0476c56bea43738c2c4d83ffb8fc018b655f5dc2"
+    },
+    {
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/bocowgill/.codex/worktrees/6ba9/cryptids/docs/chess/field-packed/evidence/review/check_saved_evidence.py",
+        "--negative",
+        "source"
+      ],
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": false,
+      "exit": 1,
+      "expected_exit": 1,
+      "expected_token": "Packed sealed evidence rejected:",
+      "matched": true,
+      "elapsed_seconds": 0.9707227500000002,
+      "output_sha256": "0c43e4cbb3bda388290fa261eca8dd5a0f15b21e05090994d531728e114c892d"
+    },
+    {
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/bocowgill/.codex/worktrees/6ba9/cryptids/docs/chess/field-packed/evidence/review/check_saved_evidence.py",
+        "--negative",
+        "entry"
+      ],
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": false,
+      "exit": 1,
+      "expected_exit": 1,
+      "expected_token": "Packed sealed evidence rejected:",
+      "matched": true,
+      "elapsed_seconds": 0.9422447090000006,
+      "output_sha256": "a4861612dd3c1a4064e6169d7dfed39873688b6301fd450dbae3e697711a6fdc"
+    },
+    {
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/bocowgill/.codex/worktrees/6ba9/cryptids/docs/chess/field-packed/evidence/review/check_saved_evidence.py",
+        "--negative",
+        "claim"
+      ],
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": false,
+      "exit": 1,
+      "expected_exit": 1,
+      "expected_token": "Packed sealed evidence rejected:",
+      "matched": true,
+      "elapsed_seconds": 0.033219584000001134,
+      "output_sha256": "807bb3d1d5088a5629720fb4e738351d02bf3a2671389018ec0e9af0f2a412bb"
+    },
+    {
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/bocowgill/.codex/worktrees/6ba9/cryptids/docs/chess/field-packed/evidence/review/check_saved_evidence.py",
+        "--negative",
+        "receipt"
+      ],
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": false,
+      "exit": 1,
+      "expected_exit": 1,
+      "expected_token": "Packed sealed evidence rejected:",
+      "matched": true,
+      "elapsed_seconds": 0.9578760420000005,
+      "output_sha256": "e1301c5f55a6206c19e72c687d16beb520986a80855a7c6ff7ffa4ccc1aab7fd"
+    },
+    {
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/bocowgill/.codex/worktrees/6ba9/cryptids/docs/chess/field-packed/evidence/review/check_saved_evidence.py",
+        "--negative",
+        "missing-phase"
+      ],
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": false,
+      "exit": 1,
+      "expected_exit": 1,
+      "expected_token": "Packed sealed evidence rejected:",
+      "matched": true,
+      "elapsed_seconds": 0.9684515410000003,
+      "output_sha256": "fed2a80859195370cd8c01a0464ca76a8a12bddbbd6719c2be7af3d52c422988"
+    },
+    {
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/bocowgill/.codex/worktrees/6ba9/cryptids/docs/chess/field-packed/evidence/review/check_saved_evidence.py",
+        "--negative",
+        "seal"
+      ],
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": false,
+      "exit": 1,
+      "expected_exit": 1,
+      "expected_token": "Packed sealed evidence rejected:",
+      "matched": true,
+      "elapsed_seconds": 0.03284104200000115,
+      "output_sha256": "d6d178cf2c8255ad508ed3b25bcc6925dea8e19581fcc67170edc8d0b3a1f680"
+    },
+    {
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/var/folders/x0/yprf51qx0bnfqznnx840nwbw0000gn/T/chess-packed-parent-portability-t5tdj5my/review/check_saved_evidence.py",
+        "--root",
+        "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+        "--evidence",
+        "/Users/bocowgill/.codex/worktrees/6ba9/cryptids/docs/chess/field-packed/evidence/current"
+      ],
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": false,
+      "exit": 0,
+      "expected_exit": 0,
+      "expected_token": "Packed sealed evidence review passed",
+      "matched": true,
+      "elapsed_seconds": 1.1917371659999993,
+      "output_sha256": "21466cdf6811b4ad6c53cbcd66166b9ec7d89bebc6b614f6b93b5eca333df763"
+    },
+    {
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "docs/chess/field-full/evidence/review/check_saved_evidence.py"
+      ],
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": false,
+      "exit": 0,
+      "expected_exit": 0,
+      "expected_token": "Complete field compiler independent retained-evidence review passed",
+      "matched": true,
+      "elapsed_seconds": 0.2557555830000009,
+      "output_sha256": "8f8a691761d6ba30369284b871cdbfce24c3234c99ec6de73b2ba1ec6217a2d9"
+    },
+    {
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/chess_field_packed/verify.py",
+        "--metadata"
+      ],
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": false,
+      "exit": 0,
+      "expected_exit": 0,
+      "expected_token": "Packed field frozen inputs passed",
+      "matched": true,
+      "elapsed_seconds": 0.7532850839999998,
+      "output_sha256": "ee8fc4e89ecd36cc88278cfb99aa4ab5684a2d4b630532db289a8aa6c178f3cb"
+    }
+  ]
+}

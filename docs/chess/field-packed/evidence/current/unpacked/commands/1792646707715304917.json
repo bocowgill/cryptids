@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-field-packed/BadFrame.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "/home/runner/work/cryptids/cryptids/.lake/chess-field-packed/BadFrame.lean:3:83: error: Tactic `decide` proved that the proposition\n  FieldBinary.updateCell (false, fun x => 0) 0 4 = (false, fun x => 4)\nis false\n",
+  "output_sha256": "d5b95471900d3e63fbfba4e84415d92b208b184b6cf7b228c95dfb6cd0196bde",
+  "timed_out": false,
+  "timeout_seconds": 300,
+  "elapsed_seconds": 3.8354098990000125,
+  "cumulative_children_peak_rss_kib": 4428524
+}
