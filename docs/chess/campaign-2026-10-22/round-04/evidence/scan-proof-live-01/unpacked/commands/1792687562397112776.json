@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "lake",
+    "--wfail",
+    "-f",
+    "lakefile.chess-table-proof-20261022.toml",
+    "build",
+    "Cryptids.Compilation.TableSeed.Scan"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "\u2714 [3817/3817] Built Cryptids.Compilation.TableSeed.Scan (5.4s)\nBuild completed successfully (3817 jobs).\n",
+  "output_sha256": "dded3aa9f790e4a576677e1415653b0e91480573759d0d3cdd8b233a42d2a02a",
+  "timed_out": false,
+  "timeout_seconds": 1200,
+  "elapsed_seconds": 10.466243193999986,
+  "cumulative_children_peak_rss_kib": 1749348
+}

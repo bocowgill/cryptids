@@ -17,6 +17,7 @@ TARGETS = {
     'geometry': 'Cryptids.Compilation.TableSeed.Geometry',
     'blocks': 'Cryptids.Compilation.TableSeed.Blocks',
     'scan': 'Cryptids.Compilation.TableSeed.Scan',
+    'transducer': 'Cryptids.Compilation.TableSeed.Transducer',
     'correct': 'Cryptids.Compilation.TableSeed.Correct',
     'codec': 'Cryptids.Compilation.TableSeed.ChessCodec',
     'machine': 'Cryptids.Semantics.ChessTableSeed',

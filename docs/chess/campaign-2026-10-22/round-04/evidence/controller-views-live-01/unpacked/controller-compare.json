@@ -1,0 +1,182 @@
+{
+  "status": "passed",
+  "complete_row_equality": true,
+  "classification": "FINITE_EXACT_CONTROLLER_CORRESPONDENCE_ONLY",
+  "universal_proof": false,
+  "new_accepted_machine": false,
+  "actual_sha256": "638476757b62c8a4b2bf06868ee97de18349f82e4cd0810e12345183a642c823",
+  "pilot_sha256": "c812768bac296d8520f64b7df4a33de47e7c067c79594bef48e7b536e359e09f",
+  "pilot_file": "docs/chess/campaign-2026-10-22/round-04/evidence/controller-01/unpacked/controller.json",
+  "actual_file": "controller-lean.json",
+  "allocation": {
+    "states": 21682,
+    "rows": 43364,
+    "blocks": 4626,
+    "missing_rows": 2,
+    "entry": 0,
+    "done": 21680,
+    "error": 21681,
+    "all_states_paid": true
+  },
+  "comparison": {
+    "states": 21682,
+    "rows": 43364,
+    "missing_rows": 2,
+    "all_rows_equal": true,
+    "unique_state_symbol_order": true,
+    "entry": 0,
+    "done": 21680,
+    "error": 21681
+  },
+  "positive_controls_ran_first": true,
+  "negative_controls": [
+    {
+      "name": "header_states",
+      "rejected": true,
+      "reason": "('Actual controller header mismatch', 'states')"
+    },
+    {
+      "name": "header_allocated_states",
+      "rejected": true,
+      "reason": "('Actual controller header mismatch', 'allocated_states')"
+    },
+    {
+      "name": "header_rows_count",
+      "rejected": true,
+      "reason": "('Actual controller header mismatch', 'rows_count')"
+    },
+    {
+      "name": "header_entry",
+      "rejected": true,
+      "reason": "('Actual controller header mismatch', 'entry')"
+    },
+    {
+      "name": "header_done",
+      "rejected": true,
+      "reason": "('Actual controller header mismatch', 'done')"
+    },
+    {
+      "name": "header_error",
+      "rejected": true,
+      "reason": "('Actual controller header mismatch', 'error')"
+    },
+    {
+      "name": "header_missing_rows",
+      "rejected": true,
+      "reason": "('Actual controller header mismatch', 'missing_rows')"
+    },
+    {
+      "name": "header_entry_type",
+      "rejected": true,
+      "reason": "('Actual controller header mismatch', 'entry')"
+    },
+    {
+      "name": "header_actual_numeric_rows_equal_type",
+      "rejected": true,
+      "reason": "('Actual controller header mismatch', 'actual_numeric_rows_equal')"
+    },
+    {
+      "name": "truncated_row",
+      "rejected": true,
+      "reason": "Actual controller complete row count"
+    },
+    {
+      "name": "extra_row",
+      "rejected": true,
+      "reason": "Actual controller complete row count"
+    },
+    {
+      "name": "duplicate_row",
+      "rejected": true,
+      "reason": "('Actual row order/uniqueness mismatch', 1)"
+    },
+    {
+      "name": "wrong_state_id",
+      "rejected": true,
+      "reason": "('Actual row order/uniqueness mismatch', 0)"
+    },
+    {
+      "name": "wrong_bit_id",
+      "rejected": true,
+      "reason": "('Actual row order/uniqueness mismatch', 0)"
+    },
+    {
+      "name": "boolean_state_id",
+      "rejected": true,
+      "reason": "('Actual row order/uniqueness mismatch', 0)"
+    },
+    {
+      "name": "write_bit",
+      "rejected": true,
+      "reason": "('Actual/pilot row mismatch', 0, 0)"
+    },
+    {
+      "name": "direction",
+      "rejected": true,
+      "reason": "('Actual/pilot row mismatch', 0, 0)"
+    },
+    {
+      "name": "destination",
+      "rejected": true,
+      "reason": "('Actual/pilot row mismatch', 0, 0)"
+    },
+    {
+      "name": "unpaid_destination",
+      "rejected": true,
+      "reason": "Destination outside paid controls"
+    },
+    {
+      "name": "nonbinary_write",
+      "rejected": true,
+      "reason": "Binary write required"
+    },
+    {
+      "name": "boolean_write",
+      "rejected": true,
+      "reason": "Binary write required"
+    },
+    {
+      "name": "stay_move",
+      "rejected": true,
+      "reason": "Unit direction required"
+    },
+    {
+      "name": "early_halt",
+      "rejected": true,
+      "reason": "('Actual/pilot row mismatch', 0, 0)"
+    },
+    {
+      "name": "done_has_transition",
+      "rejected": true,
+      "reason": "('Actual/pilot row mismatch', 21680, 0)"
+    },
+    {
+      "name": "error_accidental_halt",
+      "rejected": true,
+      "reason": "('Actual/pilot row mismatch', 21681, 0)"
+    },
+    {
+      "name": "error_wrong_direction",
+      "rejected": true,
+      "reason": "('Actual/pilot row mismatch', 21681, 1)"
+    },
+    {
+      "name": "wrong_scope",
+      "rejected": true,
+      "reason": "('Actual controller header mismatch', 'scope')"
+    },
+    {
+      "name": "duplicate_json_key",
+      "rejected": true,
+      "reason": "('Duplicate JSON object key', 'states')"
+    }
+  ],
+  "negative_control_count": 28,
+  "all_negative_controls_rejected": true,
+  "source_sha256": {
+    "scripts/chess_table_seed_20261022/controller_compare.py": "118ceec3fcdd2256fcc6b7c67eb440b5f141ecd88549c589ac150b795f1cb0ad",
+    "scripts/chess_table_seed_20261022/ControllerExport.lean": "03c00aaa97028093639bf7ff32f762611873acaacacc2a4e9fee647a191a7e99",
+    "Cryptids/Compilation/TableSeed/Controller.lean": "59d426c6ed0bb037d166e281e87d2b495f54a66cb3c5da7c4b65a5a4231bfabf"
+  },
+  "scope": "Every actual Lean row agrees with the exact retained pilot; no universal run claim"
+}

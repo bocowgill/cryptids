@@ -1,0 +1,424 @@
+{
+  "audit_execution": "compiled_lean_executable",
+  "audited_modules": [
+    {
+      "full_private_environment": true,
+      "module": "Cryptids.Chess.Optimisation.BodyCertificatePilot.TemplateSmoke",
+      "required_roots": 9
+    },
+    {
+      "full_private_environment": true,
+      "module": "Cryptids.Chess.Optimisation.BodyCertificatePilot.MapData",
+      "required_roots": 1
+    }
+  ],
+  "auditor_executable": {
+    "info": {
+      "bytes": 118591176,
+      "sha256": "9d815f916dc156b36a44a967165e2d256e0459d97df27c5dd8621b6088e27eed"
+    },
+    "path": "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_body_certificate_audit",
+    "source": {
+      "bytes": 3029,
+      "sha256": "9d2a7db1fd5d82bbdadf4f6e0db0571af956741f42a89c3086c61414d52512df"
+    }
+  },
+  "candidate_input": {
+    "class-map.u32le": {
+      "bytes": 2295208,
+      "sha256": "1602a0791ca45ba104952058c361f7296c62b7d6e4e599c98f197875a915f022"
+    },
+    "class-sizes.u32le": {
+      "bytes": 457948,
+      "sha256": "243d372e90acaad65f77added63d658e686b66978c5ad52cd21fd1f44f24acf0"
+    },
+    "quotient-rows.jsonl": {
+      "bytes": 5186063,
+      "sha256": "f41436a39c7aa35e74f3266c697d78b39e7bdf2e6d2810719d801e9d5e588531"
+    },
+    "representatives.u32le": {
+      "bytes": 457948,
+      "sha256": "da1ad64b6e8df18884e4439955d8a0ce870513cc1b6eab146fef4ad5e3325142"
+    }
+  },
+  "classification": "FINITE_PARTIAL_KERNEL_SCALABILITY_PILOT",
+  "commit": "c0be393f574c785ba0e352df98f3f78f1ed2c20d",
+  "complete_typed_candidate_data_checked": false,
+  "completed_positive_sample_states": 0,
+  "completed_positive_unique_rows": 0,
+  "driver_peak_rss_kib": 126964,
+  "driver_source": {
+    "bytes": 35427,
+    "sha256": "f55dd45b9b3b951cf7e371debe4bc3a323140e9118e4f98ccec3f5897bd3bc9a"
+  },
+  "elapsed_seconds": 167.51562629,
+  "full_quotient_certified": false,
+  "generated_files": {
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/Audit.lean": {
+      "bytes": 3029,
+      "sha256": "9d2a7db1fd5d82bbdadf4f6e0db0571af956741f42a89c3086c61414d52512df"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/Data.lean": {
+      "bytes": 3558,
+      "sha256": "12b8e6cbf8961ac495c80c9dc95d50d2eba40a23bfe840fc8c93537a81c2dce4"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/Data.roots": {
+      "bytes": 461,
+      "sha256": "a74212c42016b64a45246f53efc2c0c24aa99041e483639701daa7073e5930fd"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/Loaders.lean": {
+      "bytes": 1024,
+      "sha256": "37477fb7ee21f4fddef2b379394b21ac5f83191f5dded4c52189676c56ed3672"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/MapData.lean": {
+      "bytes": 667,
+      "sha256": "c4ebc4fa7e71dbb0987112b780bf605ab1ccc25581ed280f00ef21ea0ecefee9"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/MapData.roots": {
+      "bytes": 48,
+      "sha256": "062296dadaca8a74ae23e16e743270f2ab40b5b599456d24acec2ee77f4ca0da"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/Negative.lean": {
+      "bytes": 836,
+      "sha256": "cb916f8ab1b82e319f460e910ee3f7d85d315da01d29af5d2670fd3a1adfa18e"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/QuotientData.lean": {
+      "bytes": 708,
+      "sha256": "fdf88399101a2a1b4cb7f482b195dffb6aff3aa2d5675b40d49076e6208e8bee"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/QuotientData.roots": {
+      "bytes": 53,
+      "sha256": "acc8e1d6a905cc9d994e3f391fab169dfb43bd3830480a03efc5f14a8c47f5b0"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows4096.lean": {
+      "bytes": 1489334,
+      "sha256": "7965475df6efb2ed1d5a59124dd19f4597d155a2ef4cf780e38c0b9a5a4854f7"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows4096.roots": {
+      "bytes": 474116,
+      "sha256": "973723a3f714ac63d8784d5492512fb581289deb231942271569409a93d70f4b"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows512.lean": {
+      "bytes": 185225,
+      "sha256": "e38528cba4a5955065f32fe6e2a4152a947fcf717a14e3502a1df360547c174d"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows512.roots": {
+      "bytes": 58094,
+      "sha256": "e15f1f29307d718eab3552162c6379693b6ffcf615f12bc2a862c530ea3b0b8f"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean": {
+      "bytes": 23103,
+      "sha256": "08882b6f6dd0b82392167e752e751cc61b5d66f306e7fdca738303c6bf02af92"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.roots": {
+      "bytes": 6986,
+      "sha256": "03ecc828784a3044bb4a1e8673fba75a3bbf7e569a669130ffc02d4a366b4a45"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/TemplateSmoke.lean": {
+      "bytes": 4129,
+      "sha256": "657788c17ea5635ccdd78c293dc828427f2556900e3f737408ed4588db537a1c"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/TemplateSmoke.roots": {
+      "bytes": 508,
+      "sha256": "6c2648ac7701555d1315961162f5829725e0ba0b7585a450143e50fbecf96500"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/class-map.txt": {
+      "bytes": 3411569,
+      "sha256": "8463c78132c9704aadbb6732a1a87d0adeccf3385b9dc02cb9359299048da1b3"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient.rows": {
+      "bytes": 1838705,
+      "sha256": "7d2c41988d997c0f7a22c863e6ad2539180b7658de0879ee6c48626a80d44de7"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/smoke-map.txt": {
+      "bytes": 8,
+      "sha256": "e4749bc7f4f9360cf6a2e56321b815c8de72808a8ee756a48722cc9b287ddc24"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/smoke-quotient.rows": {
+      "bytes": 16,
+      "sha256": "9cf063c5b38fbeee723e221f55fcf558989c106d98ff9cd409dde9271a7f7c1a"
+    }
+  },
+  "limits": {
+    "address_space_limit": null,
+    "audit_allocator_limit_bytes": null,
+    "driver_rss_bytes": 536870912,
+    "memory_enforcement": "sampled resident memory",
+    "process_group_rss_bytes": 6442450944,
+    "rss_sampling_seconds": 0.1,
+    "wall_seconds": 1200
+  },
+  "map_native_code_generation": false,
+  "map_representation": "literal_nat_balanced_tree_with_kernel_range_certificate",
+  "negative_control": {
+    "status": "not_run"
+  },
+  "new_accepted_machine": false,
+  "obstruction": {
+    "later_stages_not_attempted": true,
+    "message": "QuotientData: Lean resource/scaling failure",
+    "stage": "QuotientData",
+    "type": "Obstruction"
+  },
+  "partial_certificate_only": true,
+  "quotient_states": 114487,
+  "requested_sample_states": [
+    64,
+    512,
+    4096
+  ],
+  "requested_scope": "full_bounded_pilot",
+  "run_id": "39816362847",
+  "selection": {
+    "maximum_actual_pure_depth": 4,
+    "nested_sizes": [
+      64,
+      512,
+      4096
+    ],
+    "sampling_is_not_universal_coverage": true,
+    "snapshot": {
+      "bytes": 12552292,
+      "sha256": "592ea3c892d0e9d5a6db6ce31e3f590bde7973774bdc9a70cfe46cb6996cd39e"
+    }
+  },
+  "source_states": 573802,
+  "stage": "QuotientData",
+  "stages": [
+    {
+      "argv": [
+        "lake",
+        "--wfail",
+        "-f",
+        "lakefile.chess-body-certificate-20261022.toml",
+        "build",
+        "chess_body_certificate_audit"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "elapsed_seconds": 9.927366687000017,
+      "executable": {
+        "info": {
+          "bytes": 118591176,
+          "sha256": "9d815f916dc156b36a44a967165e2d256e0459d97df27c5dd8621b6088e27eed"
+        },
+        "path": "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_body_certificate_audit"
+      },
+      "exit": 0,
+      "expected_banner": "Build completed successfully",
+      "expected_banner_found": true,
+      "kind": "auditor_build",
+      "log": "AuditExecutable.log",
+      "log_info": {
+        "bytes": 256,
+        "sha256": "9b97bbf2bac8aaa96f19702336c98543d648bb9b2cede9afef09c48a4a532444"
+      },
+      "module": "Cryptids.Chess.Optimisation.BodyCertificatePilot.Audit",
+      "olean": {
+        "bytes": 341824,
+        "sha256": "8e6c81a2c9598c92344257a5f5665ce7c0083a980a21db2dc22b9e7f9c62bc47"
+      },
+      "peak_group_plus_driver_rss_bytes": 2473230336,
+      "resource_stop": null,
+      "shell": false,
+      "timeout_seconds": 120
+    },
+    {
+      "argv": [
+        "lake",
+        "--wfail",
+        "-f",
+        "lakefile.chess-body-certificate-20261022.toml",
+        "build",
+        "Cryptids.Chess.Optimisation.BodyCertificatePilot.Loaders"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "elapsed_seconds": 9.01539040299997,
+      "exit": 0,
+      "expected_banner": "Body certificate loaders checked",
+      "expected_banner_found": true,
+      "kind": "kernel_build",
+      "log": "Loaders.log",
+      "log_info": {
+        "bytes": 235,
+        "sha256": "bb2046a34ae7032fed700d1188fac6f999077ccbbf9bd14a15881ad9f76a61e0"
+      },
+      "module": "Cryptids.Chess.Optimisation.BodyCertificatePilot.Loaders",
+      "olean": {
+        "bytes": 72176,
+        "sha256": "41ee0947d68ad63de671080d7b280c84935807f5b0b17b4c63bd737dfbf84506"
+      },
+      "peak_group_plus_driver_rss_bytes": 2472542208,
+      "resource_stop": null,
+      "shell": false,
+      "timeout_seconds": 60
+    },
+    {
+      "argv": [
+        "lake",
+        "--wfail",
+        "-f",
+        "lakefile.chess-body-certificate-20261022.toml",
+        "build",
+        "Cryptids.Chess.Optimisation.BodyCertificatePilot.TemplateSmoke"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "elapsed_seconds": 7.195617599999991,
+      "exit": 0,
+      "expected_banner": "Body certificate template smoke checked",
+      "expected_banner_found": true,
+      "kind": "kernel_build",
+      "log": "TemplateSmoke.log",
+      "log_info": {
+        "bytes": 915,
+        "sha256": "9b71a008ce235a2470970c764c1bd6a392fa82e990c5a7dc5cd52be787de1b83"
+      },
+      "module": "Cryptids.Chess.Optimisation.BodyCertificatePilot.TemplateSmoke",
+      "olean": {
+        "bytes": 47448,
+        "sha256": "c11bbd12bb8bb6c12b4987a27bb33d378f7bd3ee83353709697e12a7c079d3cc"
+      },
+      "peak_group_plus_driver_rss_bytes": 3043516416,
+      "resource_stop": null,
+      "shell": false,
+      "timeout_seconds": 60
+    },
+    {
+      "argv": [
+        "lake",
+        "--wfail",
+        "-f",
+        "lakefile.chess-body-certificate-20261022.toml",
+        "env",
+        "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_body_certificate_audit",
+        "Cryptids.Chess.Optimisation.BodyCertificatePilot.TemplateSmoke",
+        "Cryptids/Chess/Optimisation/BodyCertificatePilot/TemplateSmoke.roots",
+        "9"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "elapsed_seconds": 10.634485472999984,
+      "executable": {
+        "info": {
+          "bytes": 118591176,
+          "sha256": "9d815f916dc156b36a44a967165e2d256e0459d97df27c5dd8621b6088e27eed"
+        },
+        "path": "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_body_certificate_audit",
+        "source": {
+          "bytes": 3029,
+          "sha256": "9d2a7db1fd5d82bbdadf4f6e0db0571af956741f42a89c3086c61414d52512df"
+        }
+      },
+      "exit": 0,
+      "expected_banner": "Body full-private kernel root audit passed",
+      "expected_banner_found": true,
+      "kind": "full_private_audit",
+      "log": "TemplateSmokeAudit.log",
+      "log_info": {
+        "bytes": 186,
+        "sha256": "8eb2a77e9cc5dfaf4d786eb37f774d6d8313cedd2f6bc806f920c8fbd6a9a339"
+      },
+      "module": "Cryptids.Chess.Optimisation.BodyCertificatePilot.TemplateSmoke",
+      "peak_group_plus_driver_rss_bytes": 4841246720,
+      "resource_stop": null,
+      "shell": false,
+      "timeout_seconds": 52.802126821
+    },
+    {
+      "argv": [
+        "lake",
+        "--wfail",
+        "-f",
+        "lakefile.chess-body-certificate-20261022.toml",
+        "build",
+        "Cryptids.Chess.Optimisation.BodyCertificatePilot.MapData"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "elapsed_seconds": 25.832390759999953,
+      "exit": 0,
+      "expected_banner": "Complete body class map loaded",
+      "expected_banner_found": true,
+      "kind": "kernel_build",
+      "log": "MapData.log",
+      "log_info": {
+        "bytes": 421,
+        "sha256": "5b9842a1d907e0daa6831e130d40306d95666641e4267c1e4a570096d18b9735"
+      },
+      "module": "Cryptids.Chess.Optimisation.BodyCertificatePilot.MapData",
+      "olean": {
+        "bytes": 42290088,
+        "sha256": "91810d1f3e7354a5c29b15b22ba0f6b5ce80075ebf8d75337f685aa38b67d2b4"
+      },
+      "peak_group_plus_driver_rss_bytes": 3185684480,
+      "resource_stop": null,
+      "shell": false,
+      "timeout_seconds": 240
+    },
+    {
+      "argv": [
+        "lake",
+        "--wfail",
+        "-f",
+        "lakefile.chess-body-certificate-20261022.toml",
+        "env",
+        "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_body_certificate_audit",
+        "Cryptids.Chess.Optimisation.BodyCertificatePilot.MapData",
+        "Cryptids/Chess/Optimisation/BodyCertificatePilot/MapData.roots",
+        "1"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "elapsed_seconds": 3.2416340379999724,
+      "executable": {
+        "info": {
+          "bytes": 118591176,
+          "sha256": "9d815f916dc156b36a44a967165e2d256e0459d97df27c5dd8621b6088e27eed"
+        },
+        "path": "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_body_certificate_audit",
+        "source": {
+          "bytes": 3029,
+          "sha256": "9d2a7db1fd5d82bbdadf4f6e0db0571af956741f42a89c3086c61414d52512df"
+        }
+      },
+      "exit": 0,
+      "expected_banner": "Body full-private kernel root audit passed",
+      "expected_banner_found": true,
+      "kind": "full_private_audit",
+      "log": "MapDataAudit.log",
+      "log_info": {
+        "bytes": 172,
+        "sha256": "bef75a901c3c3c6fa309dea867f1a009bc2b1891ffdb34ed5ed806bfecb17b8f"
+      },
+      "module": "Cryptids.Chess.Optimisation.BodyCertificatePilot.MapData",
+      "peak_group_plus_driver_rss_bytes": 4179472384,
+      "resource_stop": null,
+      "shell": false,
+      "timeout_seconds": 214.13476633200003
+    },
+    {
+      "argv": [
+        "lake",
+        "--wfail",
+        "-f",
+        "lakefile.chess-body-certificate-20261022.toml",
+        "build",
+        "Cryptids.Chess.Optimisation.BodyCertificatePilot.QuotientData"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "elapsed_seconds": 99.60244435999999,
+      "exit": 1,
+      "expected_banner": "Complete body quotient rows loaded",
+      "expected_banner_found": true,
+      "kind": "kernel_build",
+      "log": "QuotientData.log",
+      "log_info": {
+        "bytes": 2581,
+        "sha256": "5f96b3d5e48f17a9d7bbb9bacb8c77823f751d5715468701b99ff95ccd544c0c"
+      },
+      "module": "Cryptids.Chess.Optimisation.BodyCertificatePilot.QuotientData",
+      "peak_group_plus_driver_rss_bytes": 5940023296,
+      "resource_stop": null,
+      "shell": false,
+      "timeout_seconds": 180
+    }
+  ],
+  "status": "bounded_obstruction",
+  "template_smoke_checked": true
+}

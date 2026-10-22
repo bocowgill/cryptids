@@ -1,0 +1,3 @@
+Audited 9 required roots and 700 dependencies from Cryptids.Chess.Optimisation.BodyCertificatePilot.TemplateSmoke
+Permitted axioms: #[propext]
+Body full-private kernel root audit passed

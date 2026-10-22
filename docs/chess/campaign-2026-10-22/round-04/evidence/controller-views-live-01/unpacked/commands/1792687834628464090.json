@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "lake",
+    "--wfail",
+    "-f",
+    "lakefile.chess-table-proof-20261022.toml",
+    "build",
+    "Cryptids.Compilation.TableSeed.Controller",
+    "chess_table_controller_export"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "\u2714 [7618/7622] Built Cryptids.Compilation.TableSeed.Controller (7.0s)\n\u2714 [7619/7622] Built Cryptids.Compilation.TableSeed.Controller:c.o (1.3s)\n\u2714 [7620/7622] Built scripts.chess_table_seed_20261022.ControllerExport (10s)\n\u2714 [7621/7622] Built scripts.chess_table_seed_20261022.ControllerExport:c.o (240ms)\n\u2714 [7622/7622] Built chess_table_controller_export:exe (3.1s)\nBuild completed successfully (7622 jobs).\n",
+  "output_sha256": "acc6b35ea02d869788e2ee8860945135dd5908b853f99e83b3fa20ea099b34ab",
+  "timed_out": false,
+  "timeout_seconds": 1200,
+  "elapsed_seconds": 30.50835142599999,
+  "cumulative_children_peak_rss_kib": 4256252
+}

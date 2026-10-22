@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_table_controller_export",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-table-proof-20261022/controller-lean.json"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "Table seed actual controller export passed\n",
+  "output_sha256": "761080e208ffc4efd862a54b70d4c3fde02158f0655ea4fb4eae2dbd23df74f1",
+  "timed_out": false,
+  "timeout_seconds": 300,
+  "elapsed_seconds": 0.9770930580000083,
+  "cumulative_children_peak_rss_kib": 4256252
+}

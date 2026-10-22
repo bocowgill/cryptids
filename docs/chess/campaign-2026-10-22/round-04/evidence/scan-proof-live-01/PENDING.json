@@ -1,0 +1,12 @@
+{
+  "status": "UPLOADED_DIAGNOSTICS_ONLY",
+  "run_id": 39816368927,
+  "artifact_id": 12442073450,
+  "artifact_name": "chess-table-proof-session-1-c0be393f574c785ba0e352df98f3f78f1ed2c20d",
+  "artifact_sha256": "6445b93a686c55db3f1f7e92974a32fede0225e4005a8a2c0879313496679817",
+  "computation_commit": "c0be393f574c785ba0e352df98f3f78f1ed2c20d",
+  "observed_run_status": "in_progress",
+  "final_run_logs_and_provenance_required": true,
+  "new_accepted_machine": false,
+  "local_model_execution": false
+}

@@ -1,0 +1,9 @@
+{
+  "commit": "37c1b72f74e83df5dd46e48a5d2b189548dd1010",
+  "initial_workflow_commit": "37c1b72f74e83df5dd46e48a5d2b189548dd1010",
+  "run_id": "39816975477",
+  "branch": "refs/heads/codex/chess-openevolve-pilot",
+  "target": "controller",
+  "prior_commit": "37c1b72f74e83df5dd46e48a5d2b189548dd1010",
+  "executed_workflow_sha256": "63fb4d9a2f7437dc542b85eea5143f2855825d836387db7d773225042864921d"
+}

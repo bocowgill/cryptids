@@ -1,0 +1,9 @@
+{
+  "commit": "c0be393f574c785ba0e352df98f3f78f1ed2c20d",
+  "initial_workflow_commit": "c0be393f574c785ba0e352df98f3f78f1ed2c20d",
+  "run_id": "39816368927",
+  "branch": "refs/heads/codex/chess-openevolve-pilot",
+  "target": "scan",
+  "prior_commit": "c0be393f574c785ba0e352df98f3f78f1ed2c20d",
+  "executed_workflow_sha256": "63fb4d9a2f7437dc542b85eea5143f2855825d836387db7d773225042864921d"
+}
