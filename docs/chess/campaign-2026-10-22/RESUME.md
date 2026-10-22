@@ -106,10 +106,11 @@ representation tuning without measured progress. Full current ranking is in
 
 ## Next concrete actions
 
-1. Finish the authorized source-only map-isolation revision: audited generic
-   prelude, then separately measured count/cache/range proofs, followed by the
-   same complete map union and later stages. Every replacement still shares
-   the original 120-second Data budget. Root dispatch follows source review.
+1. Inspect and retain **trial 12, run39836604660**, active at source
+   `9585998b9402acbc86523fae7d62ea6e56402b66`. The source-reviewed isolation has
+   an audited generic prelude, separately measured count/cache/range proofs,
+   then the same complete map union and later stages. All eight replacements
+   still share the original 120-second Data budget.
    A standalone data pass alone does not establish actual-row scalability.
 2. If a small proof/source repair is needed, make one bounded exact-source retry.
    If the underlying memory obstruction persists, choose a structurally different

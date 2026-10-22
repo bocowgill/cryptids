@@ -9,6 +9,9 @@ The user's personal hard stop is16:25. Prefer an earlier useful stopping point.
 
 ## Remote jobs
 
+- `39836604660`: active map-isolation trial 12 at
+  `9585998b9402acbc86523fae7d62ea6e56402b66`. Source reviewed/frozen; all eight
+  data stages share the same120s and every original obligation remains.
 - `39834919606`: completed/failure thin-data trial 11 at `e054e37c6e4c421e3834b0ecaecf89b47ba2db4a`.
   MapChecks, QuotientChecks, Data and BodyRelation each require their full-private
   audit and share the previous 120-second Data allowance. Total limits remain
@@ -83,3 +86,7 @@ Leaf2.1 has one authorized map-isolation source revision, wave `map-isolation`.
 It separates generic prelude/count/cache/range and final map union while keeping
 the same120s Data budget,1200s/6GiB total, exact actual-row obligations and audits.
 No representation rewrite is authorized. Base setup improved to5.393s.
+
+19:03 UTC: trial12 dispatched. Leaf2.1 source frozen; independent source scout
+is inspecting reusable chunk-proof patterns only, conditional on a concrete
+normalization obstruction. No further implementation or remote route authorized.
