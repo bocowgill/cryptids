@@ -19,7 +19,7 @@ def sha(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 def metadata():
-    pins=json.loads((ROOT/'docs/chess/field-full/baseline-pins.json').read_text())
+    pins=json.loads((ROOT/'docs/chess/field-packed/baseline-pins.json').read_text())
     for name,digest in pins.items():
         assert sha(ROOT/name)==digest, 'Frozen input changed: '+name
     print('Packed field frozen inputs passed')
@@ -27,7 +27,7 @@ def metadata():
 
 def sources():
     names=['.github/workflows/chess_field_packed.yml','lakefile.chess-field-packed.toml',
-           'docs/chess/field-full/baseline-pins.json']
+           'docs/chess/field-packed/baseline-pins.json']
     for base in ['Cryptids/Compilation/FieldPacking','scripts/chess_field_packed']:
         names += [str(p.relative_to(ROOT)) for p in (ROOT/base).rglob('*')
                   if p.is_file() and p.suffix in ('.lean','.py')]
