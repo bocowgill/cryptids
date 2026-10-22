@@ -141,7 +141,7 @@
       "leaves": [
         "leaf-3.2"
       ],
-      "state": "sealed",
+      "state": "complete",
       "openedAt": "2026-10-22T14:31:01.248Z",
       "started": {
         "leaf-3.2": {
@@ -149,8 +149,28 @@
           "at": "2026-10-22T14:31:29.124Z"
         }
       },
+      "returned": {
+        "leaf-3.2": {
+          "at": "2026-10-22T14:41:42.251Z"
+        }
+      },
+      "sealedAt": "2026-10-22T14:31:29.170Z",
+      "completedAt": "2026-10-22T14:41:42.251Z"
+    },
+    "fresh-review": {
+      "leaves": [
+        "leaf-4.1"
+      ],
+      "state": "sealed",
+      "openedAt": "2026-10-22T14:50:27.984Z",
+      "started": {
+        "leaf-4.1": {
+          "handle": "/root/goal_seed_review",
+          "at": "2026-10-22T14:50:52.378Z"
+        }
+      },
       "returned": {},
-      "sealedAt": "2026-10-22T14:31:29.170Z"
+      "sealedAt": "2026-10-22T14:50:52.427Z"
     }
   }
 }

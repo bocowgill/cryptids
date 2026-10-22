@@ -21,3 +21,21 @@ and resourceusage ifboundedrunfails. Compare fullcounts using both acceptedwrite
 Proofdifficulty and certificateimplementationcost are partofreport: sourceordinal
 classcounts are finite evidence, notLean/newbest. Fullcompile/refinement integration
 will be a laterdecisionaftermeasuredpayoff and currentseedproofcheckpoint.
+
+Leaf1.2 is a bounded source-only reconnaissance of existing exact-row quotient
+and literal certificate machinery. Ready from accepted sources, independent of
+the queued pilot. Own PROOF-OPTIONS.md only, no Lean changes/execution. Identify
+reusable theorems, map/table proof requirements, likely certificate bottlenecks
+and structural alternatives. Do not infer net savings before measured pilot.
+
+Measured pilot passed:114487quotientstates,459315prospectivesaving,21seconds;
+independent every-row certificate, all paid body controls, saved command exit0.
+Leaf2.1 READY for a bounded certification scalability pilot using that exact data
+and source-scout LocalCertificate API. Own certificate_pilot.py/CERTIFICATE-PILOT.md.
+All generation/build/Lean/measurement REMOTE ONLY. Load complete map+Q data, then
+try representative64/512/4096old states across main/return/entry/halt/deep paths;
+both bits, mapped exact rows against actual FieldSelective body. Ordinary kernel
+proof terms only. Stop on data loading failure or first scaling obstruction,
+retain exact generated sources, sizes/time/memory/error and negative controls.
+Bound entire pilot20minutes/6GiB, each stage bounded; do not extrapolate partial
+proof to full quotient or accept a new machine. Currentseedfullproof staysprimary.

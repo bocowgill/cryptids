@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "scope": "Saved remote metadata and byte hashes only; no machine/model/proof execution or local recount",
+  "run_id": 39795919458,
+  "computation_commit": "8cd145e0f7f13a23e50a87bac376ac0b5dc036dd",
+  "artifact_sha256": "86d4e8c30744e0707cebfe838d7542b70a41e53666965897deb876b36cf82bcd",
+  "source_hashes_matched": true,
+  "frozen_hashes_matched": true,
+  "certificate_file_hashes_matched": true,
+  "command_exit": 0,
+  "command_output_sha256": "7202024ec3d7f6a5eb60d2acb9d07bf7f7cef797e6175a155ed41c9b05eaca6e",
+  "saved_remote_quotient_states": 114487,
+  "saved_remote_saving": 459315,
+  "new_accepted_machine": false
+}

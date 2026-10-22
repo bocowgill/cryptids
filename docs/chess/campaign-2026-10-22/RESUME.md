@@ -31,14 +31,16 @@ No round-01 job remains active. Preserve all accepted sources and evidence.
   Small proof components currently unlock the 1,413,567-state seed reduction.
 - Use bounded pilots; retain failed routes and reconsider growing costs without
   better prospects. No micro-optimization of the 216-state controller now.
-- Latest usage snapshot: **66% used / 34% remaining**. No numeric goal token budget,
+- Latest usage snapshot: **68% used / 32% remaining**. No numeric goal token budget,
   no reset credit consumed. Check usage periodically and checkpoint throughout.
 
 ## Round 02 — current primary route
 
 Experimental full count **998,176** =424,157 paid writer +216 expander +1 bridge
 +573,802 accepted interpreter body. Prospective additional saving **1,413,567**.
-**Not accepted yet.** No completed universal/full-machine Lean certificate yet.
+**Not accepted yet.** Universal proof and the full wrapper/public theorem have
+passed named strict builds. Full native/audit/regression evidence and final
+advisory/sealed replay remain pending.
 
 The writer installs three-bit stack symbols between two guarded markers. The
 controller expands each to the old thirteen-bit cell, erases all temporary data,
@@ -66,11 +68,24 @@ identity, full actual table comparison and small native composition fixtures.
 
 ### Current remote run / source
 
-**Run39795117911**, bounded `chess_seed_20261022.yml` session target `machine`,
-initial source **cc5731e**. Last observed queued. Inspect status/artifacts before
-starting another job. It checks universal components and the complete FieldSeed
-wrapper/public ChessSeed theorem. A failure opens a five-minute source-repair
-window, up to eight iterations. Preserve exact computation/workflow identities.
+**Run39797909133**, bounded `chess_seed_20261022.yml` session target `full`,
+initial source **7e32af8**. Iteration1 passed Expander/Codec but found the wrapper
+entry-state equality; iteration2 required a more explicit finite equality;
+iteration3 at**80c2dd6** passed the complete FieldSeed/ChessSeed proofs and found
+two native-exporter typing errors. Those are repaired and pushed at**780ad59**
+for iteration4. Inspect uploaded artifacts as well as status; GitHub status has
+lagged behind actual execution. Each failure opens a five-minute repair window,
+up to eight iterations. Preserve exact computation/workflow identities.
+
+Previous machine-only run39795117911 is completed failure. Its last iteration4
+at92b8204 is officially retained in `round-02/evidence/machine-session-4/`; all
+of those Expander/Codec errors are now repaired. No job from that session is active.
+
+At14:34UTC GitHub's incident API reported Actions Results incidentq29p76qtnkyk,
+investigating delays since14:18UTC in workflow/step results and repository updates.
+Link https://stspg.io/44w94j036yc8 . Both jobs still showed queued with no runner
+assigned. Do not duplicate/cancel them merely for the delayed status. Continue
+source/evidence preparation, then inspect actual artifacts when service recovers.
 
 Root owns `FieldSeed.lean`, `Semantics/ChessSeed.lean`, runner/workflow/audit,
 git/network/remote jobs. Agents own:
@@ -85,8 +100,10 @@ git/network/remote jobs. Agents own:
 
 Root full runner/audit and native checks are drafted for remote execution. Native
 source includes all1,996,352rows,88complete startup cases,465controller cases and
-34corruption controls; these new checks have not executed yet. Worker
-goal_seed_evidence is drafting the separate new metadata-only sealed checker.
+34corruption controls; complete same-source receipts are pending. Worker
+goal_seed_evidence has drafted the separate metadata-only sealed checker;
+goal_seed_review is performing the fresh complete-candidate advisory, pending
+the final successful packet before any approval.
 Acceptance remains: strict complete
 build, safe axiom closure, full table/count/input/fixtures and hostile controls,
 prior regressions, fresh complete advisory, sealed metadata checker and parent
@@ -96,26 +113,40 @@ replay, then a committed/pushed result. No count is accepted before all pass.
 
 Worker goal_body_quotient_pilot owns `scripts/chess_body_20261022/pilot.py` and
 `round-03/PILOT.md`; root owns remote-only verify.py/workflow. Source review is
-complete; **run39795919458** is queued at **8cd145e**. It analyzes the entire
-already accepted573,802-state body,
+complete; **run39795919458** completed successfully at **8cd145e**. It analyzed
+the entire already accepted573,802-state body,
 including both transitions of every allocated state, by exact output-labelled
 bisimulation. Bound600seconds/6GiB including independent serialized certificate
-checks and hostile controls. No Lean quotient claim or new accepted count.
-Retain map, representatives, full quotient rows, state-family costs and certificate
-size to rank whether structural sharing is worth formalizing next.
+checks and hostile controls. Measured quotient **114,487states**, prospective
+saving **459,315**, in21.027seconds/287,416KiB. The full certificate occupies
+8,397,167bytes. No Lean quotient claim or new accepted count. The official ZIP,
+APIs/logs/source manifest/all files are retained in `round-03/evidence/pilot-final/`;
+root's metadata/hash replay passed in `round-03/evidence/parent-pilot-replay.json`.
+
+`round-03/PROOF-OPTIONS.md` identifies existing LocalCertificate.Rows/respects:
+use old→class map; no new generic simulation theorem is necessary. Next bounded
+pilot tests full data loading and64/512/4096representative old-state kernel
+certificates, both bits, within20minutes/6GiB. Worker goal_body_quotient_pilot
+owns new certificate_pilot.py/CERTIFICATE-PILOT.md; root owns separate workflow,
+lakefile and certificate_verify.py. Source drafting only, not dispatched yet.
+Restricting the measured partition to store-only pairs is not known to preserve
+successors; do not promote its diagnostic339,898saving into a separate quotient.
 
 ## Recovery and orchestration
 
 Workspace `/Users/bocowgill/.codex/worktrees/6ba9/cryptids`, branch
 `codex/chess-openevolve-pilot`, fork `bocowgill/cryptids`. **Origin is upstream.**
 Push explicitly to `git@github.com:bocowgill/cryptids.git`; never push upstream.
-Latest pushed proof source `cc5731e`; inspect git status for subsequent root/worker
+Latest pushed computation source `780ad59`; inspect git status for subsequent root/worker
 changes before committing. Do not discard concurrent edits.
+Full native/audit/runner source is in the active `full` session. Do not duplicate
+it; inspect exact new artifacts and repair within its window. All accepted
+baseline and successful finite-pilot source files remain fixed.
 
 Ignored active ledgers `.unlazy/chess-goal-20261022-r02` and `...-r03`; copy their
 snapshots to dated tracked docs at major checkpoints. Source-ready is not verified.
-Native worker wave is sealed; returned source workers must be recorded as returned
-before parent verification. Returned means scheduler completion, not proof pass.
+Native/evidence/source-scout waves are returned; fresh-review and certificate-pilot
+waves are active. Returned means scheduler completion, not proof pass.
 
 Metadata-only official retention command:
 `python3 scripts/chess_goal_20261022/retain.py --run ID --artifact EXACTNAME --output FRESH_FOLDER`.

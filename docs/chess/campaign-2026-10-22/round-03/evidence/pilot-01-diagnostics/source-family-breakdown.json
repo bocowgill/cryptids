@@ -1,0 +1,306 @@
+{
+  "additive_saving_breakdown": {
+    "additional_main_return_merges": 1200,
+    "within_main": 426798,
+    "within_return": 31317
+  },
+  "class_membership_counts": {
+    "main_only": 105343,
+    "mixed": 1200,
+    "return_only": 7944
+  },
+  "class_size_histogram": {
+    "1": 36318,
+    "2": 9351,
+    "3": 4573,
+    "4": 4697,
+    "5": 40342,
+    "6": 5508,
+    "7": 624,
+    "8": 1660,
+    "9": 535,
+    "10": 1478,
+    "11": 265,
+    "12": 101,
+    "13": 433,
+    "14": 5,
+    "15": 945,
+    "16": 63,
+    "17": 72,
+    "18": 334,
+    "19": 14,
+    "20": 3713,
+    "21": 8,
+    "22": 17,
+    "23": 60,
+    "24": 614,
+    "25": 1108,
+    "26": 73,
+    "27": 56,
+    "28": 47,
+    "29": 2,
+    "30": 636,
+    "31": 1,
+    "32": 1,
+    "34": 1,
+    "35": 81,
+    "36": 10,
+    "38": 1,
+    "39": 2,
+    "40": 129,
+    "41": 4,
+    "42": 2,
+    "45": 130,
+    "46": 1,
+    "50": 353,
+    "52": 1,
+    "53": 25,
+    "54": 65,
+    "56": 1,
+    "57": 1,
+    "60": 3,
+    "64": 1,
+    "75": 17,
+    "80": 5
+  },
+  "classes_touched_by_main": 106543,
+  "classes_touched_by_return": 9144,
+  "interpretation_limit": "cross-node sharing can include repeated suffixes; syntax cause is not established",
+  "largest_classes": [
+    {
+      "class": 2265,
+      "main_members": 80,
+      "representative": 14011,
+      "return_members": 0,
+      "size": 80
+    },
+    {
+      "class": 19735,
+      "main_members": 80,
+      "representative": 144696,
+      "return_members": 0,
+      "size": 80
+    },
+    {
+      "class": 20173,
+      "main_members": 80,
+      "representative": 150126,
+      "return_members": 0,
+      "size": 80
+    },
+    {
+      "class": 22218,
+      "main_members": 80,
+      "representative": 166686,
+      "return_members": 0,
+      "size": 80
+    },
+    {
+      "class": 41427,
+      "main_members": 80,
+      "representative": 316751,
+      "return_members": 0,
+      "size": 80
+    },
+    {
+      "class": 3227,
+      "main_members": 75,
+      "representative": 21061,
+      "return_members": 0,
+      "size": 75
+    },
+    {
+      "class": 3228,
+      "main_members": 75,
+      "representative": 21066,
+      "return_members": 0,
+      "size": 75
+    },
+    {
+      "class": 3229,
+      "main_members": 75,
+      "representative": 21071,
+      "return_members": 0,
+      "size": 75
+    },
+    {
+      "class": 3230,
+      "main_members": 75,
+      "representative": 21076,
+      "return_members": 0,
+      "size": 75
+    },
+    {
+      "class": 3231,
+      "main_members": 75,
+      "representative": 21081,
+      "return_members": 0,
+      "size": 75
+    },
+    {
+      "class": 3232,
+      "main_members": 75,
+      "representative": 21086,
+      "return_members": 0,
+      "size": 75
+    },
+    {
+      "class": 3233,
+      "main_members": 75,
+      "representative": 21091,
+      "return_members": 0,
+      "size": 75
+    },
+    {
+      "class": 3234,
+      "main_members": 75,
+      "representative": 21096,
+      "return_members": 0,
+      "size": 75
+    },
+    {
+      "class": 3235,
+      "main_members": 75,
+      "representative": 21101,
+      "return_members": 0,
+      "size": 75
+    },
+    {
+      "class": 3236,
+      "main_members": 75,
+      "representative": 21106,
+      "return_members": 0,
+      "size": 75
+    },
+    {
+      "class": 3237,
+      "main_members": 75,
+      "representative": 21111,
+      "return_members": 0,
+      "size": 75
+    },
+    {
+      "class": 3238,
+      "main_members": 75,
+      "representative": 21116,
+      "return_members": 0,
+      "size": 75
+    },
+    {
+      "class": 21601,
+      "main_members": 75,
+      "representative": 161546,
+      "return_members": 0,
+      "size": 75
+    },
+    {
+      "class": 21602,
+      "main_members": 75,
+      "representative": 161551,
+      "return_members": 0,
+      "size": 75
+    },
+    {
+      "class": 21603,
+      "main_members": 75,
+      "representative": 161556,
+      "return_members": 0,
+      "size": 75
+    },
+    {
+      "class": 107020,
+      "main_members": 0,
+      "representative": 536452,
+      "return_members": 75,
+      "size": 75
+    },
+    {
+      "class": 108969,
+      "main_members": 0,
+      "representative": 548227,
+      "return_members": 75,
+      "size": 75
+    },
+    {
+      "class": 21945,
+      "main_members": 64,
+      "representative": 164446,
+      "return_members": 0,
+      "size": 64
+    },
+    {
+      "class": 2269,
+      "main_members": 60,
+      "representative": 14036,
+      "return_members": 0,
+      "size": 60
+    },
+    {
+      "class": 21608,
+      "main_members": 60,
+      "representative": 161581,
+      "return_members": 0,
+      "size": 60
+    },
+    {
+      "class": 41440,
+      "main_members": 60,
+      "representative": 316821,
+      "return_members": 0,
+      "size": 60
+    },
+    {
+      "class": 21950,
+      "main_members": 42,
+      "representative": 164461,
+      "return_members": 15,
+      "size": 57
+    },
+    {
+      "class": 10762,
+      "main_members": 56,
+      "representative": 76626,
+      "return_members": 0,
+      "size": 56
+    },
+    {
+      "class": 597,
+      "main_members": 54,
+      "representative": 3031,
+      "return_members": 0,
+      "size": 54
+    },
+    {
+      "class": 2653,
+      "main_members": 54,
+      "representative": 16521,
+      "return_members": 0,
+      "size": 54
+    },
+    {
+      "class": 3582,
+      "main_members": 54,
+      "representative": 25871,
+      "return_members": 0,
+      "size": 54
+    },
+    {
+      "class": 3676,
+      "main_members": 54,
+      "representative": 26821,
+      "return_members": 0,
+      "size": 54
+    }
+  ],
+  "remaining_main_saving_across_nodes": 86900,
+  "same_node_store_only_saving": 339898,
+  "source_main_states": 533341,
+  "source_return_states": 40461,
+  "within_node_five_store_distinct_class_histogram": {
+    "1": 74414,
+    "2": 5385,
+    "3": 6295,
+    "4": 13497,
+    "5": 7077
+  }
+}

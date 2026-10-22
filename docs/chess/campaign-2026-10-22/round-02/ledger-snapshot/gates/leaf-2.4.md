@@ -28,3 +28,12 @@ unfolds the generic helper before conversion, uses direct equality transitivity 
 schedule and exact output, and locally protects the frozen data definitions from unfolding.
 Receipt: `docs/chess/campaign-2026-10-22/round-02/evidence/proofs-session-1-diagnostics/commands/1792678380255457094.json`.
 These repairs are not yet accepted; the next remote strict recheck is required.
+
+Machine session 4 (`39795117911`, iteration 4 at `92b8204`) cleared the generic codec
+conversion but retained the kernel-memory failure specifically at `paid_writer_states`.
+Local irreducibility does not constrain kernel reduction. The new repair moves the complete
+schedule/count equality composition into `counted_schedule`, quantified over an arbitrary
+array and numerical count, and instantiates that opaque theorem with `bits_size`. The concrete
+theorem no longer builds an equality-transport term around the concrete schedule projection.
+Receipt directory: `docs/chess/campaign-2026-10-22/round-02/evidence/machine-session-4-diagnostics/commands/`.
+Remote verification of this repair is pending.

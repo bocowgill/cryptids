@@ -83,3 +83,12 @@ and exact success/failure controls, paid998176count and full1996352rows receipts
 fresh independent model advisory and externally supplied parent seal. No self-seal.
 Large streams hash only locally; no machine recount, simulation, generator, Lean,
 fixture execution or imports. Retain hostile metadata self-tests and portability.
+
+Leaf4.1 fresh complete-candidate advisory READY for independent source examination:
+all universal proofs and the full wrapper/public theorem now have named strict
+build success at80c2dd6, while exporter final elaboration/full execution is pending.
+No passed advisory until a successful same-source complete remote packet exists.
+Own review/REPORT.md and report.json only. Read all new proof/native/checker sources,
+then review exact final bytes and complete retained evidence. Root alone supplies
+external seal and parent replay. Model advisory is not human approval or proof
+execution by the reviewer. All local work is source/savedmetadata/hash inspection.

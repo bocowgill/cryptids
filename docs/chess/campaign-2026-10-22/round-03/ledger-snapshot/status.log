@@ -2,3 +2,10 @@
 2026-10-22T14:13:57.527Z dispatch body-pilot started leaf-1.1 as /root/goal_body_quotient_pilot
 2026-10-22T14:13:57.569Z dispatch body-pilot sealed
 2026-10-22T14:28:08.465Z dispatch body-pilot returned leaf-1.1
+2026-10-22T14:34:28.506Z dispatch proof-scout opened: leaf-1.2
+2026-10-22T14:35:03.807Z dispatch proof-scout started leaf-1.2 as /root/goal_body_proof_scout
+2026-10-22T14:35:03.852Z dispatch proof-scout sealed
+2026-10-22T14:41:42.309Z dispatch proof-scout returned leaf-1.2
+2026-10-22T14:43:25.949Z dispatch certificate-pilot opened: leaf-2.1
+2026-10-22T14:43:54.406Z dispatch certificate-pilot started leaf-2.1 as /root/goal_body_quotient_pilot
+2026-10-22T14:43:54.454Z dispatch certificate-pilot sealed

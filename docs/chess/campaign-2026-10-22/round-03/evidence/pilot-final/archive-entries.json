@@ -1,0 +1,198 @@
+{
+  "certificate-manifest.json": {
+    "bytes": 1176,
+    "sha256": "b323417c5addf40a28a4435c3f48684eb36e054b4517dcb8f291d689e751c7c5",
+    "crc32": 1307283686,
+    "compressed_bytes": 624,
+    "compression": 8
+  },
+  "class-sizes.u32le": {
+    "bytes": 457948,
+    "sha256": "243d372e90acaad65f77added63d658e686b66978c5ad52cd21fd1f44f24acf0",
+    "crc32": 2033682382,
+    "compressed_bytes": 7716,
+    "compression": 8
+  },
+  "class-map.u32le": {
+    "bytes": 2295208,
+    "sha256": "1602a0791ca45ba104952058c361f7296c62b7d6e4e599c98f197875a915f022",
+    "crc32": 1365356626,
+    "compressed_bytes": 318135,
+    "compression": 8
+  },
+  "commands/1792679329317693480.json": {
+    "bytes": 1342,
+    "sha256": "9a718a3c70c85c7fa0fdd07da0e665b8319d8a7b7d1c8125a14c46018f1d8499",
+    "crc32": 513403654,
+    "compressed_bytes": 596,
+    "compression": 8
+  },
+  "goldens/both_symbols_write_direction_and_partial_halt/certificate-manifest.json": {
+    "bytes": 1134,
+    "sha256": "f581d406ea04ba846cc1ec6482544ec6cf1267d4a64cbea7788042e3bb39c043",
+    "crc32": 3405921201,
+    "compressed_bytes": 598,
+    "compression": 8
+  },
+  "goldens/both_symbols_write_direction_and_partial_halt/class-sizes.u32le": {
+    "bytes": 24,
+    "sha256": "d133b53637cc8c00cbbc8a5e2fab655fe9a2c277b97b3c15c491fae58a406de6",
+    "crc32": 1581680492,
+    "compressed_bytes": 8,
+    "compression": 8
+  },
+  "goldens/both_symbols_write_direction_and_partial_halt/class-map.u32le": {
+    "bytes": 28,
+    "sha256": "f371f2959ab5555feef3acf945ea88e7f220994ba8500432d51c387afbca2ce6",
+    "crc32": 1372008056,
+    "compressed_bytes": 22,
+    "compression": 8
+  },
+  "goldens/both_symbols_write_direction_and_partial_halt/quotient-rows.jsonl": {
+    "bytes": 157,
+    "sha256": "863a11345e08413c40db41c4a9e6e03ad961e53950fd6a6a61577b784c1bcd62",
+    "crc32": 3612431110,
+    "compressed_bytes": 71,
+    "compression": 8
+  },
+  "goldens/both_symbols_write_direction_and_partial_halt/representatives.u32le": {
+    "bytes": 24,
+    "sha256": "4c5f47d710f7f2844efb9e8c831e5dfd2b0d4b141d1cb1420dbc5a8cbbf83cea",
+    "crc32": 1527994189,
+    "compressed_bytes": 20,
+    "compression": 8
+  },
+  "goldens/both_symbols_write_direction_and_partial_halt/source-rows.jsonl": {
+    "bytes": 185,
+    "sha256": "f96a7ebf93ae72b59eb1c597902cf02ff45f33a7526257ed9623372638d23d32",
+    "crc32": 995574672,
+    "compressed_bytes": 77,
+    "compression": 8
+  },
+  "goldens/cycle_self_loop_and_unreachable_halt/certificate-manifest.json": {
+    "bytes": 1129,
+    "sha256": "31e413ea17c18577a23d6d67a70a8c568c5f63a0a6983d3707e2a7b9c5bf6839",
+    "crc32": 2113512664,
+    "compressed_bytes": 598,
+    "compression": 8
+  },
+  "goldens/cycle_self_loop_and_unreachable_halt/class-map.u32le": {
+    "bytes": 16,
+    "sha256": "741939ccb979df0dbf391a6548f88fd9d1873aa3fb996f1df39abc6a66df7025",
+    "crc32": 1409756208,
+    "compressed_bytes": 8,
+    "compression": 8
+  },
+  "goldens/cycle_self_loop_and_unreachable_halt/class-sizes.u32le": {
+    "bytes": 8,
+    "sha256": "f5bd7cea475f5b00862f9725fe5d6fffe54dc86724895171eac28345106ef72f",
+    "crc32": 1393672175,
+    "compressed_bytes": 10,
+    "compression": 8
+  },
+  "goldens/cycle_self_loop_and_unreachable_halt/quotient-rows.jsonl": {
+    "bytes": 51,
+    "sha256": "a5ce0902e5b409b2178ec817e451e9aced3daabba2ad9503e9ca5e3f7c7a7067",
+    "crc32": 3432402297,
+    "compressed_bytes": 36,
+    "compression": 8
+  },
+  "goldens/cycle_self_loop_and_unreachable_halt/representatives.u32le": {
+    "bytes": 8,
+    "sha256": "9ae4c9d0864c30005acac91f21015f39e35691a056d606a097c8cf8380275a17",
+    "crc32": 2006413447,
+    "compressed_bytes": 10,
+    "compression": 8
+  },
+  "goldens/cycle_self_loop_and_unreachable_halt/source-rows.jsonl": {
+    "bytes": 109,
+    "sha256": "c38b5b788e9bfd9f1b33daf24188a9ab0ae65207fa3fa8dce39b78a439416102",
+    "crc32": 97922645,
+    "compressed_bytes": 53,
+    "compression": 8
+  },
+  "goldens/delayed_distinction_and_equivalent_suffix/certificate-manifest.json": {
+    "bytes": 1134,
+    "sha256": "024635e90510eb6da29971a02da9c43afaf129120da74ddb9f9e970e0fada00f",
+    "crc32": 221794073,
+    "compressed_bytes": 601,
+    "compression": 8
+  },
+  "goldens/delayed_distinction_and_equivalent_suffix/class-map.u32le": {
+    "bytes": 28,
+    "sha256": "5014428f894d509975677368d9c0383e5b35bc3e52f9877533f96f28577e3b3f",
+    "crc32": 3474337214,
+    "compressed_bytes": 22,
+    "compression": 8
+  },
+  "goldens/delayed_distinction_and_equivalent_suffix/class-sizes.u32le": {
+    "bytes": 20,
+    "sha256": "f6163685634824034cbb1450836111e3fc38c54fc623e60878ec7f9352f32b72",
+    "crc32": 1312974800,
+    "compressed_bytes": 12,
+    "compression": 8
+  },
+  "goldens/delayed_distinction_and_equivalent_suffix/quotient-rows.jsonl": {
+    "bytes": 134,
+    "sha256": "8986f8d220041148e8fc2525777ebc429c8b9953ffcc5d8cd07b623c0c418ae3",
+    "crc32": 2772439519,
+    "compressed_bytes": 61,
+    "compression": 8
+  },
+  "goldens/delayed_distinction_and_equivalent_suffix/representatives.u32le": {
+    "bytes": 20,
+    "sha256": "e528f4309e1413e6bc35aea5d8db8519384d2fcc33f9dd5d1126d73f104cf92a",
+    "crc32": 1282081847,
+    "compressed_bytes": 18,
+    "compression": 8
+  },
+  "goldens/delayed_distinction_and_equivalent_suffix/source-rows.jsonl": {
+    "bytes": 190,
+    "sha256": "0a8fd6f1491d79366c7a139e4f4d1dabf2c999059e1cc0888e995d483f51aeda",
+    "crc32": 667432672,
+    "compressed_bytes": 72,
+    "compression": 8
+  },
+  "pilot-run.json": {
+    "bytes": 429906,
+    "sha256": "641b08387d9b69df2fa7ca1523c2bf8163fca144600fb2beb41e0826d4b82fc7",
+    "crc32": 1243574793,
+    "compressed_bytes": 114960,
+    "compression": 8
+  },
+  "pilot-summary.json": {
+    "bytes": 17121,
+    "sha256": "b256632ea3acbc035eb4c65c3be8a3549cef4db209b433d98c814f8df1908661",
+    "crc32": 3363941412,
+    "compressed_bytes": 3510,
+    "compression": 8
+  },
+  "quotient-rows.jsonl": {
+    "bytes": 5186063,
+    "sha256": "f41436a39c7aa35e74f3266c697d78b39e7bdf2e6d2810719d801e9d5e588531",
+    "crc32": 137121703,
+    "compressed_bytes": 852599,
+    "compression": 8
+  },
+  "representatives.u32le": {
+    "bytes": 457948,
+    "sha256": "da1ad64b6e8df18884e4439955d8a0ce870513cc1b6eab146fef4ad5e3325142",
+    "crc32": 3428966346,
+    "compressed_bytes": 306536,
+    "compression": 8
+  },
+  "source-family-breakdown.json": {
+    "bytes": 5859,
+    "sha256": "377c969e40079dd43844d1f5c50fe584dfd089f33fd7964a0d95aab7ce59bb66",
+    "crc32": 3042402806,
+    "compressed_bytes": 1032,
+    "compression": 8
+  },
+  "source-manifest.json": {
+    "bytes": 409973,
+    "sha256": "475141e961e9dba3d2f298a44e84fe38df96a31baca09cd83f70444dff363818",
+    "crc32": 3237202450,
+    "compressed_bytes": 110883,
+    "compression": 8
+  }
+}

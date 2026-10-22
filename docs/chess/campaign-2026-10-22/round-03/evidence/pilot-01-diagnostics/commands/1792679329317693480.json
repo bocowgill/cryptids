@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_body_20261022/pilot.py",
+    "--output",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-body-20261022",
+    "--seconds",
+    "600",
+    "--memory-gib",
+    "6"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "{\"phase\": \"literal_goldens\", \"elapsed_seconds\": 0.002}\n{\"phase\": \"load_pinned_complete_source\", \"elapsed_seconds\": 0.006}\n{\"phase\": \"bounded_partition\", \"elapsed_seconds\": 3.227}\n{\"phase\": \"export_complete_certificate\", \"elapsed_seconds\": 6.192, \"candidate_classes\": 114487, \"partition_stability_checked\": false}\n{\"phase\": \"independent_every_old_row_check\", \"elapsed_seconds\": 6.751}\n{\"phase\": \"hostile_controls_after_positive\", \"elapsed_seconds\": 10.875}\n{\"phase\": \"whole_machine_accounting_and_source_families\", \"elapsed_seconds\": 20.85}\n{\"phase\": \"complete\", \"elapsed_seconds\": 21.027, \"partition_stability_checked\": true, \"certificate_rows_checked\": 1147604, \"hostile_controls_rejected\": 12}\nWhole-body exact quotient pilot passed\n",
+  "output_sha256": "7202024ec3d7f6a5eb60d2acb9d07bf7f7cef797e6175a155ed41c9b05eaca6e",
+  "timed_out": false,
+  "timeout_seconds": 660,
+  "elapsed_seconds": 21.076888452,
+  "cumulative_children_peak_rss_kib": 287416
+}

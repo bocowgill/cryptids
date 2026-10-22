@@ -6,14 +6,15 @@ No experimental estimate changes the accepted best.
 
 ## Counts at this checkpoint
 
-| Component | Goal starting machine, accepted | Round 01, accepted | Round 02, experimental composition |
-|---|---:|---:|---:|
-| Paid input writer, including final turn | 1,837,941 | 1,837,941 | 424,157 |
-| Complete seed expander | — | — | 216 |
-| Additional expander/body bridge | — | — | 1 |
-| Interpreter main controls | 533,341 | 533,341 | 533,341 |
-| Interpreter return controls | 533,341 | 40,461 | 40,461 |
-| **Complete machine** | **2,904,623** | **2,411,743** | **998,176** |
+| Component | Goal starting machine, accepted | Round 01, accepted | Round 02, experimental composition | Round 03, measured quotient plus experimental seed |
+|---|---:|---:|---:|---:|
+| Paid input writer, including final turn | 1,837,941 | 1,837,941 | 424,157 | 424,157 |
+| Complete seed expander | — | — | 216 | 216 |
+| Additional expander/body bridge | — | — | 1 | 1 |
+| Interpreter main controls | 533,341 | 533,341 | 533,341 | 105,343 main-only classes |
+| Interpreter return controls | 533,341 | 40,461 | 40,461 | 7,944 return-only classes |
+| Classes shared across main and return controls | — | — | — | 1,200 |
+| **Complete machine** | **2,904,623** | **2,411,743** | **998,176** | **538,861 prospective** |
 
 **Accepted full-machine saving during this goal: 492,880 states.** Round 01 is
 sealed at `d79ae92`, with its completed ledger checkpoint `18e8474`.
@@ -36,6 +37,22 @@ same 1,413,567-state reduction. Their payoff is not a small local saving. Do not
 start shaving a few states from the 216-state controller while this larger
 certificate is unfinished.
 
+**Round 03 measured finite opportunity: 459,315 additional body states.** Remote
+run39795919458 at8cd145e completed the exact whole-body partition in21.027seconds,
+peak287,416KiB, and independently checked all1,147,604old rows against228,974
+quotient rows. It retained a114,487-state table, complete map/representatives,
+12full-certificate hostile controls and one deliberately overmerged golden.
+The certificate data occupy8,397,167bytes. Official completed run/API/log/ZIP
+retention is now saved under round-03/evidence/pilot-final; parent metadata/hash
+replay passed. Earlier raw diagnostics remain preserved separately.
+
+This is not a Lean certificate or an accepted full-machine saving. With the
+accepted writer alone its prospective full count is1,952,428; with the experimental
+seed prefix it is538,861. Savings attribution is339,898same-node store sharing,
+86,900sharing across main nodes,31,317within returns and1,200cross-family sharing.
+These categories are diagnostics of the complete stable partition, not separately
+proved optimizations; restricting to one category can break successor closure.
+
 ## Ranked next opportunities
 
 The estimates below are explicit research hypotheses, not measured savings.
@@ -44,8 +61,8 @@ Their order combines absolute opportunity with the cost of obtaining evidence.
 | Priority | Whole-machine mechanism | Absolute opportunity | Proof difficulty | Implementation effort | Next decision test |
 |---|---|---|---|---|---|
 | 1 | Finish three-bit seed expansion and exact paid composition | 1,413,567 additional states at the measured current design | High: universal marker/cleanup/termination; linker already checked | Existing implementation; focused proof integration remains | Complete strict remote component proofs, then full machine/table/audit/review |
-| 2 | Share equivalent interpreter controls, including store-independent copies and repeated graph suffixes | Unmeasured; investigate tens to hundreds of thousands within the 573,802-state body | Medium if an exact row quotient is compactly certifiable; higher if the map needs a structural compiler proof | Bounded table pilot first, then one structural implementation | Minimize the entire retained body under exact write/direction/halting-preserving equivalence; report actual class count and certificate size |
-| 3 | Eliminate most five-store control duplication architecturally | Gross main-control opportunity up to 426,672 before paying replacement memory/dispatch costs; no net estimate yet | High: change interpreter representation and refine all instructions | High | Use the body pilot to identify dead-store blocks; prefer a structural proof over adding a new memory mechanism if it captures comparable savings |
+| 2 | Certify complete exact interpreter quotient | 459,315 measured finite states; prospective body114,487 | Generic proof already exists in LocalCertificate; concrete map/table certificate scalability unmeasured | Bounded certificate-loading and row-proof pilot, then choose literal or structural certificate | Load complete data and certify representative64/512/4096state chunks remotely, including negative controls and resource measurements |
+| 3 | Structural compiler proof of store and suffix sharing, if literal certification scales poorly | Within the measured459,315;339,898same-node store equivalences identified, but no isolated closed subquotient proved | High: preserve successor closure through loads, branches and jumps | High, potentially much smaller proof data | Use measured partition patterns; pursue only if it reduces certification cost while retaining substantial whole-machine savings |
 | 4 | Further compress the paid seed | Two-bit payload would save 141,380 gross payload states before framing/controller changes; a concrete five-bit-pair proposal saves 70,684 seed bits before the controller delta | Medium to high: framing, odd inputs, decoder, cleanup and codec identity | Moderate if existing expander contracts transfer | Bounded protocol/table pilot with all extra controls charged; do not count seed bytes alone |
 | 5 | Replace the large specialized interpreter with a smaller program-as-data interpreter | Could remove a substantial fraction of 573,802 body states, but added program data/initializer may offset it; no defensible net number yet | Very high: new complete interpreter and compiler refinement | Very high | Require an explicit counted whole-machine design and a small end-to-end pilot before committing a campaign round |
 

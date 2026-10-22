@@ -1,0 +1,20 @@
+{
+  "id": 12433342975,
+  "node_id": "MDg6QXJ0aWZhY3QxMjQzMzM0Mjk3NQ==",
+  "name": "chess-seed-session-4-92b820484901f16249861674150c828459141b80",
+  "size_in_bytes": 116621,
+  "url": "https://api.github.com/repos/bocowgill/cryptids/actions/artifacts/12433342975",
+  "archive_download_url": "https://api.github.com/repos/bocowgill/cryptids/actions/artifacts/12433342975/zip",
+  "expired": false,
+  "digest": "sha256:0a0b450c9a025e9a0017efe527506f728448b56977bd2ded51d7325db0e89659",
+  "created_at": "2026-10-22T14:33:43Z",
+  "updated_at": "2026-10-22T14:33:43Z",
+  "expires_at": "2026-11-21T14:33:42Z",
+  "workflow_run": {
+    "id": 39795117911,
+    "repository_id": 1426408147,
+    "head_repository_id": 1426408147,
+    "head_branch": "codex/chess-openevolve-pilot",
+    "head_sha": "cc5731ee5648dcbdda376fd6106496a80d4473da"
+  }
+}

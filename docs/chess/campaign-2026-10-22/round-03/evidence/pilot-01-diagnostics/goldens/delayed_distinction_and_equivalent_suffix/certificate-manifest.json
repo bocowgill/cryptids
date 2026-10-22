@@ -1,0 +1,32 @@
+{
+  "artifacts": {
+    "class-map.u32le": {
+      "bytes": 28,
+      "sha256": "5014428f894d509975677368d9c0383e5b35bc3e52f9877533f96f28577e3b3f"
+    },
+    "class-sizes.u32le": {
+      "bytes": 20,
+      "sha256": "f6163685634824034cbb1450836111e3fc38c54fc623e60878ec7f9352f32b72"
+    },
+    "quotient-rows.jsonl": {
+      "bytes": 134,
+      "sha256": "8986f8d220041148e8fc2525777ebc429c8b9953ffcc5d8cd07b623c0c418ae3"
+    },
+    "representatives.u32le": {
+      "bytes": 20,
+      "sha256": "e528f4309e1413e6bc35aea5d8db8519384d2fcc33f9dd5d1126d73f104cf92a"
+    }
+  },
+  "binary_format": "headerless unsigned 32-bit little-endian; one word per source state or class",
+  "canonical_order": "classes ordered by least original standalone body index",
+  "classification": "FINITE_EXPERIMENTAL_PILOT",
+  "entry_class": 0,
+  "format_version": 1,
+  "quotient_rows": 10,
+  "quotient_states": 5,
+  "row_format": "jsonl:[standalone_class,bit,null-or-[write,direction,standalone_class]]",
+  "source_offset": 0,
+  "source_rows": 14,
+  "source_sha256": "0a8fd6f1491d79366c7a139e4f4d1dabf2c999059e1cc0888e995d483f51aeda",
+  "source_states": 7
+}

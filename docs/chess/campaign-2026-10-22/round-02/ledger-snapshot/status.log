@@ -29,3 +29,7 @@
 2026-10-22T14:31:29.131Z dispatch evidence-replay started leaf-3.2 as /root/goal_seed_evidence
 2026-10-22T14:31:29.176Z dispatch evidence-replay sealed
 2026-10-22T14:32:49.436Z dispatch full-native returned leaf-3.1
+2026-10-22T14:41:42.260Z dispatch evidence-replay returned leaf-3.2
+2026-10-22T14:50:27.994Z dispatch fresh-review opened: leaf-4.1
+2026-10-22T14:50:52.386Z dispatch fresh-review started leaf-4.1 as /root/goal_seed_review
+2026-10-22T14:50:52.433Z dispatch fresh-review sealed
