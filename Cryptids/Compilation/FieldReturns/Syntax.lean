@@ -118,6 +118,10 @@ theorem targets_nodup {n : Nat} (p : Syntax n) : (targets p).Nodup :=
 def targetAt {n : Nat} (p : Syntax n) (i : Fin (1 + writeCount p)) : Fin p.size :=
   (targets p).get (i.cast (targets_length p).symm)
 
+/-- The first paid slot is always the row entry. -/
+theorem targetAt_zero {n : Nat} (p : Syntax n) :
+    targetAt p ⟨0, by omega⟩ = p.root := rfl
+
 /-- Partial executable inverse. Missing slots have no assigned return control. -/
 def findTarget {n : Nat} (p : Syntax n) (i : Fin p.size) :
     Option (Fin (1 + writeCount p)) :=
@@ -140,6 +144,11 @@ theorem findTarget_targetAt {n : Nat} (p : Syntax n) (i : Fin (1 + writeCount p)
   have index : (targets p).idxOf (targetAt p i) = i.val :=
     List.get_idxOf (targets_nodup p) (i.cast (targets_length p).symm)
   simp only [findTarget, index, i.isLt, ↓reduceDIte]
+
+theorem targetAt_injective {n : Nat} (p : Syntax n) : Function.Injective (targetAt p) := by
+  intro i j same
+  have equal := congrArg (findTarget p) same
+  simpa only [findTarget_targetAt, Option.some.injEq] using equal
 
 theorem root_covered {n : Nat} (p : Syntax n) :
     (findTarget p p.root).map (targetAt p) = some p.root :=
