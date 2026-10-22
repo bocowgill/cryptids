@@ -147,7 +147,7 @@ theorem scan_right_marker (bits : List Bit) (safe : Scan.scanWord bits 0 = some 
           (Tape.mk' (ListBlank.append scanBits.reverse left) (right.cons 0)) =
         Tape.mk' (ListBlank.append bits.reverse left) (ListBlank.append marker right) := by
     simp [actions_backB, Init.executeList, Init.execute, scanBits, List.reverse_append,
-      ListBlank.append_assoc, ListBlank.append, marker, List.replicate_succ]
+      ListBlank.append, marker, List.replicate_succ]
   rw [backGeometry] at returned
   have first : FlatInit.runFrom machine (bits.length + 5)
       ⟨encode (.seekB 0), Tape.mk' left (ListBlank.append (bits ++ marker) right)⟩ =
@@ -207,7 +207,8 @@ theorem read_letter_run (letter : Letter) (left right : ListBlank Bit) :
         Tape.mk' (ListBlank.append marker.reverse left)
           (ListBlank.append (word letter) right)⟩ := by
     simpa only [ListBlank.append_assoc] using skipped
-  rw [show 9 = 6 + 3 by decide, run_add]
+  change FlatInit.runFrom machine (6 + 3) _ = _
+  rw [run_add]
   rw [first, Option.bind_some]
   simpa only [ListBlank.append_assoc, List.reverse_append] using parsed
 
@@ -232,9 +233,11 @@ theorem read_stop_run (left right : ListBlank Bit) :
       some ⟨encode (.parse 0),
         Tape.mk' (ListBlank.append marker.reverse left) (ListBlank.append [0, 0, 0] right)⟩ := by
     simpa only [ListBlank.append_assoc] using skipped
-  rw [show 9 = 6 + 3 by decide, run_add]
+  change FlatInit.runFrom machine (6 + 3) _ = _
+  rw [run_add]
   rw [first, Option.bind_some]
-  simpa only [ListBlank.append_assoc, List.reverse_append] using parsed
+  have reversed : ([0, 0, 0] : List Bit).reverse = [0, 0, 0] := rfl
+  simpa only [ListBlank.append_assoc, List.reverse_append, reversed] using parsed
 
 /-- One letter is consumed, a cell is prepended, and the cleared gap grows by three. -/
 theorem loop_once_gap (out : List Letter) (letter : Letter) (todo : List Letter) (gap : Nat) :

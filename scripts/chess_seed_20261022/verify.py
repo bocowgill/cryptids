@@ -30,7 +30,8 @@ def main():
              'lakefile.chess-seed-20261022.toml', 'Cryptids/Compilation/SeedLink.lean',
              'Cryptids/Chess/Optimisation/FieldSeed.lean', 'Cryptids/Semantics/ChessSeed.lean']
     paths.extend(str(p.relative_to(ROOT)) for p in (ROOT / 'scripts/chess_seed_20261022').rglob('*')
-                 if p.is_file() and p.suffix in ('.py', '.lean'))
+                 if p.is_file() and p.suffix in ('.py', '.lean')
+                 and p.name != 'check_saved_evidence.py')
     paths.extend(str(p.relative_to(ROOT)) for p in (ROOT / 'Cryptids/Compilation/Seed').glob('*.lean'))
     manifest = dict(commit=os.environ.get('GITHUB_SHA'), run_id=os.environ.get('GITHUB_RUN_ID'),
                     workflow_commit=os.environ.get('CHESS_WORKFLOW_SHA', os.environ.get('GITHUB_SHA')),

@@ -114,10 +114,15 @@ theorem writer_states : bits.size + 1 = 424157 := by
 
 attribute [local irreducible] bits
 
+/-- Count the existing writer symbolically before substituting a concrete seed array. -/
+theorem counted_schedule (values : Array Bit) (count : Nat) (size : values.size = count) :
+    (Chess.Optimisation.OpenEvolveWide.schedule values).size = count + 1 :=
+  (Chess.Optimisation.OpenEvolveWide.schedule_size values).trans (congrArg (· + 1) size)
+
 /-- The existing paid reverse writer has exactly the stated number of controls. -/
 theorem paid_writer_states :
     (Chess.Optimisation.OpenEvolveWide.schedule bits).size = 424157 :=
-  (Chess.Optimisation.OpenEvolveWide.schedule_size bits).trans writer_states
+  counted_schedule bits 424156 bits_size
 
 /-- The exact tape expected by the accepted complete selective chess body. -/
 theorem output_eq :
