@@ -1,0 +1,170 @@
+{
+  "Loaders.log": {
+    "bytes": 235,
+    "sha256": "f022bde81bd4e6c8e21c969faed237dad4ec2200dc40e82d41a1310fa30e9361",
+    "crc32": 3587182883,
+    "compressed_bytes": 163,
+    "compression": 8
+  },
+  "MapData.log": {
+    "bytes": 189,
+    "sha256": "957a3b1bc870edc981ed31134d6c6f1c228e2a64cd9bea552f5594af9c1a76dc",
+    "crc32": 2935280336,
+    "compressed_bytes": 130,
+    "compression": 8
+  },
+  "certificate-summary.json": {
+    "bytes": 7274,
+    "sha256": "2e4fa97b31780c2929739de4ffa358572e1a8b83f35d538c8354e4d09f6a4bd3",
+    "crc32": 4020753490,
+    "compressed_bytes": 2494,
+    "compression": 8
+  },
+  "commands/1792683471883244452.json": {
+    "bytes": 1101,
+    "sha256": "b714ee96592ed6de3af4e1de43d879f4077a31524c6cc4d540a282d449358fc0",
+    "crc32": 2936819444,
+    "compressed_bytes": 547,
+    "compression": 8
+  },
+  "commands/1792683653315128834.json": {
+    "bytes": 724,
+    "sha256": "cadcff8eff3c4bc4095dac6fac1a56f08cd905ece1756ae4105c4609ec6af014",
+    "crc32": 2212526028,
+    "compressed_bytes": 388,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/Audit.lean": {
+    "bytes": 3029,
+    "sha256": "9d2a7db1fd5d82bbdadf4f6e0db0571af956741f42a89c3086c61414d52512df",
+    "crc32": 1238549105,
+    "compressed_bytes": 1202,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/Data.lean": {
+    "bytes": 1512,
+    "sha256": "0961fcafd46bb08778ca1fbba2c7c86b22e811ac6f2915c9344b4c8d98a72577",
+    "crc32": 1330804300,
+    "compressed_bytes": 579,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/Data.roots": {
+    "bytes": 302,
+    "sha256": "c734af272b6bb844ca10050783cf5544cd62f3ada59dd86fec8137cc3199ce56",
+    "crc32": 437842675,
+    "compressed_bytes": 88,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/Loaders.lean": {
+    "bytes": 1088,
+    "sha256": "552e84a486d3b857d931a7f82f3326ca937b08158db78416b5afa1270f8c7378",
+    "crc32": 1260262302,
+    "compressed_bytes": 562,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/MapData.lean": {
+    "bytes": 641,
+    "sha256": "aaad0d8ab64455cd9c68d3ed4d6c224cac05ed9a7107c6c42effdff069fa5c53",
+    "crc32": 918601371,
+    "compressed_bytes": 350,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/MapData.roots": {
+    "bytes": 48,
+    "sha256": "062296dadaca8a74ae23e16e743270f2ab40b5b599456d24acec2ee77f4ca0da",
+    "crc32": 887711073,
+    "compressed_bytes": 50,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/Negative.lean": {
+    "bytes": 836,
+    "sha256": "cb916f8ab1b82e319f460e910ee3f7d85d315da01d29af5d2670fd3a1adfa18e",
+    "crc32": 1982615638,
+    "compressed_bytes": 456,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/QuotientData.lean": {
+    "bytes": 687,
+    "sha256": "68345d8dc21f3f07a961f8887ec4d210129ca6494f41b5167e59502bd7bfbf8f",
+    "crc32": 2299124642,
+    "compressed_bytes": 377,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/QuotientData.roots": {
+    "bytes": 53,
+    "sha256": "acc8e1d6a905cc9d994e3f391fab169dfb43bd3830480a03efc5f14a8c47f5b0",
+    "crc32": 2268976826,
+    "compressed_bytes": 55,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows4096.lean": {
+    "bytes": 768438,
+    "sha256": "aebed6365489ff49cd17228303f67f2fe5042592128ba81c415310ef68ffa18d",
+    "crc32": 2744610357,
+    "compressed_bytes": 57662,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows4096.roots": {
+    "bytes": 474116,
+    "sha256": "973723a3f714ac63d8784d5492512fb581289deb231942271569409a93d70f4b",
+    "crc32": 2329661813,
+    "compressed_bytes": 28431,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows512.lean": {
+    "bytes": 95113,
+    "sha256": "4e3fdbd4dd99399486b68f11099faa8382c83d8089b8a342236bcfc9204d2a6d",
+    "crc32": 255845258,
+    "compressed_bytes": 7542,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows512.roots": {
+    "bytes": 58094,
+    "sha256": "e15f1f29307d718eab3552162c6379693b6ffcf615f12bc2a862c530ea3b0b8f",
+    "crc32": 3181754407,
+    "compressed_bytes": 3603,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean": {
+    "bytes": 11839,
+    "sha256": "fbfd10ecbf973c0221f6f29dd9839ef2423d332d997fae352fb2798b9de712f5",
+    "crc32": 3595599704,
+    "compressed_bytes": 1125,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.roots": {
+    "bytes": 6986,
+    "sha256": "03ecc828784a3044bb4a1e8673fba75a3bbf7e569a669130ffc02d4a366b4a45",
+    "crc32": 1781578162,
+    "compressed_bytes": 467,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/class-map.txt": {
+    "bytes": 3411569,
+    "sha256": "8463c78132c9704aadbb6732a1a87d0adeccf3385b9dc02cb9359299048da1b3",
+    "crc32": 281973601,
+    "compressed_bytes": 295255,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/quotient.rows": {
+    "bytes": 1838705,
+    "sha256": "7d2c41988d997c0f7a22c863e6ad2539180b7658de0879ee6c48626a80d44de7",
+    "crc32": 3193398607,
+    "compressed_bytes": 549788,
+    "compression": 8
+  },
+  "selection.json": {
+    "bytes": 715367,
+    "sha256": "edfd0aea09c76be82ebac53f73ebb3b9c997831ce2234e8890f2ad5e323498c0",
+    "crc32": 2096752393,
+    "compressed_bytes": 30659,
+    "compression": 8
+  },
+  "source-manifest.json": {
+    "bytes": 410130,
+    "sha256": "6e32b746873c534c646babd92ceeb399c39225d04f0cb5478f58e599dc29b7a3",
+    "crc32": 3578071850,
+    "compressed_bytes": 110966,
+    "compression": 8
+  }
+}

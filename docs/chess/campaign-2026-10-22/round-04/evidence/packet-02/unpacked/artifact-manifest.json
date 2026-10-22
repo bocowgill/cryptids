@@ -1,0 +1,42 @@
+{
+  "counts.json": {
+    "bytes": 94634,
+    "sha256": "4d589739e280eb3be3fd486dd55d247aa1c4dc002422d9c7483709ef09592e29"
+  },
+  "decoded-seed.bits": {
+    "bytes": 424156,
+    "sha256": "2946c43c229df7c2468d45f72ac385e20188aeafc1a4af74309a5d563d8befe1"
+  },
+  "decoded-symbols.u8": {
+    "bytes": 141380,
+    "sha256": "3a148a738a015a5fa45ba469a7e6dc84a14b37b5b215c704cac257d097d8e773"
+  },
+  "fixtures.json": {
+    "bytes": 51379,
+    "sha256": "e65068f0fbef039716922137cc9ce19c29a54604c6a3420acae9aea82f7862f7"
+  },
+  "hostile-controls.json": {
+    "bytes": 3480,
+    "sha256": "9459452a9365b4d48e8f16770b5ab360a1d0ab778e7b34b4b662e951fbf5b28c"
+  },
+  "packet-source-manifest.json": {
+    "bytes": 2343,
+    "sha256": "339b96992b160316a0f4f1b4529c93b4e00af4598fbd9187d814ea83eca9af8a"
+  },
+  "packet.bin": {
+    "bytes": 21706,
+    "sha256": "79099d16fcf3f0f36ba84836d080dabe812f49966f2bf937fa7f38dbddbcda84"
+  },
+  "packet.bits": {
+    "bytes": 173641,
+    "sha256": "ab1f8764749765bfb0d44b22a999d7907345d2648bf478092a276cf8df71c2d8"
+  },
+  "source-input.json": {
+    "bytes": 259517,
+    "sha256": "81211018fb63850c544e2ea7c336163215fee1b4e0f2b391ff00304ced258c4c"
+  },
+  "source-symbols.u8": {
+    "bytes": 141380,
+    "sha256": "3a148a738a015a5fa45ba469a7e6dc84a14b37b5b215c704cac257d097d8e773"
+  }
+}

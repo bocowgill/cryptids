@@ -86,6 +86,7 @@ class Driver:
                        "driver_rss_bytes": 512 << 20, "rss_sampling_seconds": 0.1,
                        "address_space_limit": None, "memory_enforcement": "sampled resident memory"},
             "source_states": N, "quotient_states": K, "requested_sample_states": [64, 512, 4096],
+            "map_representation": "literal_nat_balanced_tree_with_kernel_range_certificate",
             "stages": [], "generated_files": {}, "completed_positive_sample_states": 0,
             "completed_positive_unique_rows": 0, "complete_typed_candidate_data_checked": False,
             "audited_modules": [],
@@ -383,15 +384,14 @@ elab "load_body_map% " path:str : term <= expectedType? => do
   unless expected.isAppOfArity ``Compilation.Balanced.RowTree 1 do
     throwError "Expected map tree"
   let elemType := expected.getAppArgs[0]!
-  unless elemType.isAppOfArity ``Fin 1 do throwError "Expected bounded map values"
-  let bound := elemType.getAppArgs[0]!
+  unless elemType.isConstOf ``Nat do throwError "Expected literal Nat map values"
   let content ← liftM (m := IO) (IO.FS.readFile path.getString)
   let mut entries : Array Expr := #[]
   for raw in content.splitOn "\n" do
     let text := raw.trimAscii.toString
     if !text.isEmpty then
       let some value := text.toNat? | throwError "Malformed map integer"
-      entries := entries.push (TableSyntax.boundedFinExpr bound value)
+      entries := entries.push (mkNatLit value)
   TableSyntax.balancedRowsExpr elemType entries 0 entries.size
 end Chess.Optimisation.BodyCertificatePilot.Generator
 end
@@ -482,6 +482,36 @@ def audit_and_end(driver, stem, names, banner):
     return ("\nend " + NS + "\nrun_cmd Lean.logInfo " + json.dumps(banner) + "\n")
 
 
+MAP_BOUNDS = r'''-- Check every raw leaf; no modulo conversion can conceal an out-of-range value.
+def mapAllBelow : Balanced.RowTree Nat → Nat → Bool
+  | .empty, _ => true
+  | .leaf value, bound => decide (value < bound)
+  | .branch _ left right, bound => mapAllBelow left bound && mapAllBelow right bound
+
+theorem lookup_lt_of_allBelow (tree : Balanced.RowTree Nat) (bound fallback : Nat)
+    (bounded : mapAllBelow tree bound = true) (fallback_lt : fallback < bound)
+    (index : Nat) : tree.lookup index fallback < bound := by
+  induction tree generalizing index with
+  | empty => exact fallback_lt
+  | leaf value =>
+      have value_lt : value < bound := of_decide_eq_true bounded
+      simp only [Balanced.RowTree.lookup]
+      split
+      · exact value_lt
+      · exact fallback_lt
+  | branch leftCount left right ihl ihr =>
+      have both : mapAllBelow left bound = true ∧ mapAllBelow right bound = true := by
+        simpa only [mapAllBelow, Bool.and_eq_true] using bounded
+      simp only [Balanced.RowTree.lookup]
+      split
+      · apply ihl
+        exact both.1
+      · apply ihr
+        exact both.2
+
+'''
+
+
 def generate(driver, selected):
     # Source text is generated only after the import-time remote guard.
     driver.emit("Loaders.lean", LOADERS)
@@ -489,7 +519,7 @@ def generate(driver, selected):
     driver.emit("MapData.lean", header([MODULE + ".Loaders"]) +
                 "-- Wall and RSS limits bound this complete typed-data elaboration.\n" +
                 "set_option maxHeartbeats 0 in\n" +
-                f'def mapTree : Balanced.RowTree (Fin {K}) :=\n' +
+                'def mapTree : Balanced.RowTree Nat :=\n' +
                 f'  load_body_map% "{PREFIX}/class-map.txt"\n' +
                 audit_and_end(driver, "MapData", ["mapTree"], "Complete body class map loaded"))
     driver.emit("QuotientData.lean", header([MODULE + ".Loaders"]) +
@@ -500,13 +530,22 @@ def generate(driver, selected):
                 audit_and_end(driver, "QuotientData", ["quotientTree"], "Complete body quotient rows loaded"))
     data = header([MODULE + ".MapData", MODULE + ".QuotientData",
                    "Cryptids.Chess.Optimisation.FieldSelective", "Cryptids.Compilation.LocalCertificate"])
-    data += f'''def classMap (s : Fin {N}) : Fin {K} := mapTree.lookup s.val 0
+    data += MAP_BOUNDS
+    data += f'''def classMap (s : Fin {N}) : Fin {K} :=
+  Fin.ofNat {K} (mapTree.lookup s.val 0)
 def quotient : Machine {K} 2 := Balanced.ofTree quotientTree
 -- Each kernel computation remains bounded by the driver's wall and RSS limits.
 set_option maxHeartbeats 0 in
 theorem map_count : mapTree.count = {N} := by decide +kernel
 set_option maxHeartbeats 0 in
 theorem map_valid : mapTree.WellFormed := by decide +kernel
+set_option maxHeartbeats 0 in
+theorem map_bounded : mapAllBelow mapTree {K} = true := by decide +kernel
+theorem map_lookup_lt (index : Nat) : mapTree.lookup index 0 < {K} :=
+  lookup_lt_of_allBelow mapTree {K} 0 map_bounded (by decide) index
+theorem classMap_val (s : Fin {N}) : (classMap s).val = mapTree.lookup s.val 0 := by
+  change (mapTree.lookup s.val 0) % {K} = mapTree.lookup s.val 0
+  exact Nat.mod_eq_of_lt (map_lookup_lt s.val)
 set_option maxHeartbeats 0 in
 theorem quotient_count : quotientTree.count = {K} := by decide +kernel
 set_option maxHeartbeats 0 in
@@ -519,7 +558,8 @@ def RowAt (s : Fin {N}) (b : Fin 2) : Prop :=
   quotient.transition (classMap s) b
 '''
     driver.emit("Data.lean", data + audit_and_end(driver, "Data",
-        ["map_count", "map_valid", "quotient_count", "quotient_valid", "entry", "RowAt"],
+        ["map_count", "map_valid", "map_bounded", "map_lookup_lt", "classMap_val",
+         "quotient_count", "quotient_valid", "entry", "RowAt"],
         "Complete body certificate data checked"))
     for count in (64, 512, 4096):
         parts, names = [header([MODULE + ".Data"])], []

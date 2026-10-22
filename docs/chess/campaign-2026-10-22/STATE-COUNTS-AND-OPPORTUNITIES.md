@@ -97,21 +97,23 @@ audit/importvisibility and stylelint errors after133.9s/6015852544sampledRSSbyte
 No actual rows reached. Repairingfull-private-importaudit and diagnostic
 classification before treating this as a proof-scaling measurement.
 
-Third certificate attempt 39806307575 is running at 992129b. It loads private
-proof bodies in a separate audit, preserves the standard axiom whitelist, and
-shares the original stage budgets between build and audit. If memory prevents
-the typed map from loading, the first bounded representation alternative is a
-raw-Nat balanced map plus a complete kernel range certificate. This removes
-per-leaf Fin proof terms; its actual memory effect has not been measured.
+Third certificate attempt 39806307575 at 992129b hit the actual 6-GiB map-loading
+ceiling: 172.434 seconds, sampled peak 6,447,697,920 bytes, zero audits or row
+proofs. The source-reviewed bounded alternative uses a raw-Nat balanced map plus
+a complete kernel range certificate and universal conversion-identity theorem.
+This removes per-leaf Fin proof terms without changing the actual RowAt target;
+its memory effect has not yet been measured. Keep the same resource limits.
 
 ## Structured initializer measurement
 
 Remote run 39806575742 at 3a4626e passed the complete finite packet census in
 1.585 seconds, peak 74,372 KiB. It checked all 5,952 rows, 141,380 source symbols,
 and 424,156 accepted seed bits, plus 136 positive fixtures and 17 corruptions.
-Evidence is retained in `round-04/evidence/packet-01`. A follow-up hardens parser
-boundaries and timeout cleanup; the accepted source hashes already protect the
-identity of the actual input in this first run.
+Evidence is retained in `round-04/evidence/packet-01`. The hardened replay
+39807083846 at 6b2e120 also passed: 1.991 seconds, 74,268 KiB, 136 fixtures and
+19 corruptions. `packet-02` and `parent-packet-replay.json` retain exact evidence
+and parent source/artifact hash checks. A bounded physical-controller pilot is
+now authorized; separate workers own the complete table and independent checker.
 
 | Proposed component | Paid allocation or status |
 |---|---:|

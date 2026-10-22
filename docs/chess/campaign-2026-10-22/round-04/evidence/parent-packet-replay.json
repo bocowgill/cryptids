@@ -1,0 +1,10 @@
+{
+  "scope": "Saved metadata/hash replay only; no local model execution",
+  "run_id": 39807083846,
+  "commit": "6b2e1209f7730b8e717ac29c972ce5d170262877",
+  "artifact_sha256": "93c3143e7cefba946352631ebf33b96567498f746f9919aeb60111a3d4cf05d4",
+  "source_manifest_sha256": "03c5cfad15ace7c668d6aa0e6d54198c6bbcbd6cc54e7081c43bca52522a3a21",
+  "summary_sha256": "707d2f1cbfad10df1ffc6facf7297e763ae9c42ab6dd1f11d9960f796ee0f049",
+  "status": "passed",
+  "accepted_machine_unchanged": true
+}

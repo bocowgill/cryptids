@@ -43,7 +43,7 @@ The reviewer/seal are model advisory/provenance anchors, not human approval.
 - Prioritize large complete-machine savings; update
   `STATE-COUNTS-AND-OPPORTUNITIES.md` each major checkpoint. Small work must unlock
   an explicit large payoff. Separate accepted savings from finite measurements.
-- Latest account snapshot73%used/27%remaining. No numerical goal token budget,
+- Latest account snapshot77%used/23%remaining. No numerical goal token budget,
   no reset credit consumed. Continue useful bounded work and checkpoint often.
 
 ## Current primary route: whole-body quotient
@@ -60,7 +60,7 @@ metadata replay`round-03/evidence/parent-pilot-replay.json`. Preserve sourcepilo
 The339898same-node store diagnostic is part of the GLOBALstablepartition;
 restricting it alone may break successor closure. Do not claim an isolated saving.
 
-Two bounded certificate attempts are complete, both failures before row proofs.
+Three bounded certificate attempts are complete, all failures before row proofs.
 Run39800616921 at9b85ea9 failed Lean thread creation under a5.5GiBvirtual-address
 cap; sampledRSS885MB. Official evidence`round03/evidence/certificate-01`.
 Run39802757781 at1fa449d removed that cap. Loaders passed5.65s; MapData failed
@@ -70,18 +70,22 @@ Its broadresourceclassifier incorrectly matched that warning. This is not a
 successful data build or measured row-proof cost. Official evidence
 `round-03/evidence/certificate-02/`.
 
-Worker is repairing the audit to use an external full-private-import environment
-like accepted audits, retaining the same permitted axioms and all root checks;
-fixing the generatedstylewarning and narrowing resourceclassification. No remote
-job currently active. Root will source-review and dispatch one bounded rerun.
+Run39806307575 at992129b repaired the audit/style issues, but full Fin-map loading
+hit the genuine6GiB sampledRSS limit after172.434seconds, peak6447697920bytes.
+No audit or actualrow proof ran. Official evidence`round-03/evidence/certificate-03`.
+Do not raise the budget: the source-reviewed next representation uses rawNat
+balanced leaves, a complete kernel range certificate, and universal lookup
+identity to ensure Fin.ofNat preserves every measured class. Typed quotient,
+actualRowAt, strict audits, negativecontrol and limits remain unchanged.
+Root is checkpointing and dispatching this one bounded representation pilot.
 All attempts retain full map/table/generated sources. Driver1200seconds/6GiB
 sampledRSS; prebuild900secondscap. If a true loading/row scaling obstruction
 appears, reconsider literal certificates before a million-row commitment.
 `round-03/FAST-ROW-OPTION.md` records an exact local-slot/proved-fast-accessor
 alternative if actual-body row normalization later proves slow; no new proof yet.
 
-Workergoal_body_quotient_pilot owns certificate_pilot.py/CERTIFICATE-PILOT.md,
-repairing the audit/import and diagnostic issues after the second run. Root owns workflow/lakefile/certificate_verify.py.
+Workergoal_body_quotient_pilot owns certificate_pilot.py/CERTIFICATE-PILOT.md;
+rawNat fallback source review is complete. Root owns workflow/lakefile/certificate_verify.py.
 `round-03/PROOF-OPTIONS.md` explains reuse of LocalCertificate.Rows/respects:
 oldbody→quotientclass map, both missing transitions preserved; no injectivity
 needed and no new generic simulation theorem required. Actual-body identity still
@@ -91,33 +95,41 @@ GitHub Actions Results incidentq29p76qtnkyk began14:18UTC, causing status to lag
 actualexecution. Inspect artifacts alongside status. Do not duplicate/cancel a
 job solely because it saysqueued. Incident https://stspg.io/44w94j036yc8 .
 
-## Source-only next initializer reconnaissance
+## Structured initializer pilot
 
-Workergoal_initializer_route owns`round-04/SEED-ARCHITECTURE.md` and leaf1.1.
-It examines the remaining424157-state writer, behind the larger measuredbody
-saving. Early source finding: the inputtable is5952three-word rows; bounded
-children suggest29bits/row before framing. A source-derived gross250518table
-payload margin exists before decoder/framing; net saving is unknown.
-Require exact decoder/tape/input proofs, all runtime controls counted, comparison
-with2bit/pair packing, a bounded remote decision test and stopcriteria. The source scout is complete. Newleaf1.2 is drafting a bounded remote-only
-packetcensus script to encode/decode everybit, compare against acceptedseed, and
-measurearity/dictionary scores. No controller or universalproof yet. Root owns
-newworkflow/verify.py and frozenaccepted-998176-pins.json (2983files); do notlaunch
-workflow until worker source is reviewed. Candidate173641packetbits and250514-D
-net saving remain symbolic; Dunknown, initialdecoderbudget50000. Acceptedmachine
-checkpointa2110e2 and completed35gatecheckpoint1fa449d are pushed.
+The fixed29 source-table packet passed complete independent finite identity:
+initialrun39806575742 at3a4626e and hardenedrun39807083846 at6b2e120. Bothofficial
+packets are retained in round04/evidence/packet-01 andpacket-02. Patchedrun took
+1.991seconds/74268KiB, with136fixtures19corruptions, every5952row/141380symbol and
+424156acceptedseedbit reconstructed from173641packetbits. Parentmetadata replay
+passed current source hashes,2983acceptedpins,ZIPs,allartifacts andcommandreceipt:
+`round-04/evidence/parent-packet-replay.json`.
+
+Candidate total is747662+D with acceptedbody, or288347+D conditionalonquotient
+certification; net250514-D. Dunknown. Arityonly saves494databits; dictionaries
+d4/6/8 save18453/19546/12611beforelookupcontrols. Defer these small extensions.
+
+Root authorized a bounded physicalcontroller pilot after packetidentitypassed.
+`round-04/CONTROLLER-CONTRACT.md` defines complete JSONtable/schema/CLI, exacttape
+geometry andeverychargedcontrol. Leaf2.1 goal_seed_controller owns newcontroller.py
+andCONTROLLER.md; leaf2.2 goal_selective_fixtures owns independent
+controller_fixtures.py andCONTROLLER-FIXTURES.md. Wavecontroller-pilot sealed;
+bothsourceworkers active. Root owns newcontrollerworkflow/controller_verify.py,
+pins,git,dispatch,retention. ALL construction/counting/simulation remoteonly.
+Combined600seconds/4GiB; D≤50000; nofullquadraticchesssimulation. Universaldecoder
+proof andfullmachineacceptance remain separate futuregates. Firstnewworkflow
+registrationcommit mustomit[skip ci]; laterupdates requiremanualdispatch.
 
 ## Immediate continuation
 
-1. Accepted round02checkpointa2110e2 is pushed; all35gates are met and leases
-   released. Preserve all accepted bytes; finish the final ledger checkpoint.
-2. Inspect the next corrected body certificate pilot after source-review/dispatch.
-   The two prior failures are retained. Retain failures as evidence,
-   repair ordinary sourceerrors boundedly, or reconsider representation ifkernel
-   loading/row evaluation is too expensive. Continue toward full quotient only
-   after its costs justify doing so.
-3. Review and launch bounded round04packetcensus when source-ready; no controller
-   implementation until complete independentpacketidentity and measurements pass.
+1. Accepted round02checkpointa2110e2 andfinalledger1fa449d are pushed; all35gates
+   aremet andleasesreleased. Preserve all acceptedbytes andnew2983-entrypinset.
+2. Dispatch/retain the rawNat bodycertificatepilot. Threepriorfailures are fixed
+   evidence; the third is a real memoryobstruction. Reconsider representation
+   orstructuralproof ifthis bounded alternative also fails without improvedcost.
+3. Reviewbothcontrollerpilotworkers and integrate their agreedinterfaces; launch
+   boundedremoteconstruction+independentfixtures onlyafter source-ready. Retain
+   exacttable/allocation/geometryresults; noacceptedreductionfromfiniteevidence.
 4. Check account usage periodically; maintain clean handoff before exhaustion.
 
 Workspace`/Users/bocowgill/.codex/worktrees/6ba9/cryptids`, branch

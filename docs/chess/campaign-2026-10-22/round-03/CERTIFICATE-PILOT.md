@@ -1,9 +1,9 @@
 # Bounded concrete quotient certificate scalability pilot
 
-Status: the second remote run passed the loader stage, then failed the full-map
-stage because its inline audit could not see private proof bodies and a scoped
-option style rule was violated. The external full-private audit repair is ready
-for a bounded rerun. Zero actual-body row proofs have passed. This
+Status: the third remote run stopped at the sampled 6-GiB memory ceiling while
+building the complete finite-valued map. A raw-natural map representation with
+complete kernel range and lookup-identity proofs is ready for the next bounded
+run. Zero actual-body row proofs have passed. This
 experiment tests the cost of ordinary Lean kernel certificates for the measured
 114,487-state quotient. A pass covers only the requested sample, never all
 573,802 old states or a new accepted chess machine. The current seed proof
@@ -64,6 +64,29 @@ style warning as a resource failure. The original
 its `bounded_obstruction` label, is preserved unchanged. The corrected diagnosis
 is an audit/style source failure, with no demonstrated memory-limit failure.
 
+## Third remote attempt and raw-natural map fallback
+
+Run `39806307575`, commit `992129b47399c2d00dd553d37e6c66d8d852bc63`, passed
+`Loaders` in 7.193 seconds, then reached a genuine sampled resident-memory stop
+in `MapData` after 172.434 seconds. The observed combined peak was 6,447,697,920
+bytes, exceeding the 6,442,450,944-byte ceiling. Total elapsed time was 181.381
+seconds and driver peak RSS was 126,800 KiB. The
+[saved summary](evidence/certificate-03/unpacked/certificate-summary.json)
+records exit -9 and `process_group_memory_budget`. It also records an
+87,171,056-byte `.olean` produced before termination; a produced file is not a
+successful build or audit. No external audit, quotient load, complete-data
+certificate, actual-body row proof or negative control completed.
+
+The authorized fallback changes only the map representation. Instead of
+573,802 leaves containing separate finite-value bounds, the generic tree
+builder receives literal natural numbers. The complete raw-range certificate
+and universal lookup identity below preserve the exact retained map; modulo
+cannot silently repair malformed map entries. This is intended to reduce
+expression allocation, but its memory and proof cost remain unmeasured. The
+typed quotient, actual-body row predicate, sample sizes, negative control,
+external audits and 20-minute/6-GiB limits stay unchanged. Earlier receipts and
+generated sources remain unchanged.
+
 ## Root-owned runner interface
 
 Prebuild these accepted dependencies using the root-owned lakefile, outside the
@@ -116,13 +139,14 @@ canonical minima, entry zero, and all 228,974 quotient rows. It writes the full
 map as integers and the full quotient as two-column transition cells; no
 sampled map or reduced quotient is substituted.
 
-The generated map loader calls the existing
-`TableSyntax.boundedFinExpr` and generic `balancedRowsExpr`; each leaf has type
-`Fin 114487`. The existing `load_balanced_rows%` loader constructs the quotient
+The generated map loader calls the existing generic
+`TableSyntax.balancedRowsExpr` with `mkNatLit` leaves, producing
+`mapTree : Balanced.RowTree Nat`. The existing `load_balanced_rows%` loader constructs the quotient
 as a `Balanced.RowTree (List (Option (Fin 2 × Dir × Fin 114487)))`. Both loaders
-propose ordinary constructor expressions. The kernel checks the finite bound
-proofs on every loaded value. Neither a file hash nor the native generator is
-a proof of a row relation.
+propose ordinary constructor expressions. The quotient loader still uses
+`boundedFinExpr`; its finite values are checked by the kernel. Map bounds are
+established by a complete separate kernel computation. Neither a file hash nor
+the native generator is a proof of a row relation.
 
 Separate modules measure full-map loading, full-quotient loading, and complete
 cache/census checks. The final data module proves with `decide +kernel`:
@@ -130,12 +154,22 @@ cache/census checks. The final data module proves with `decide +kernel`:
 ```
 mapTree.count = 573802
 mapTree.WellFormed
+mapAllBelow mapTree 114487 = true
 quotientTree.count = 114487
 quotientTree.WellFormed
 classMap 0 = 0
 ```
 
-The map lookup's fallback is typed zero. The checked complete count and cache
+`mapAllBelow` recursively checks every leaf against 114,487. Its generic
+induction theorem proves that every lookup stays below the bound when the
+fallback does. Consequently the data module proves
+`mapTree.lookup index 0 < 114487` for every natural index. It defines
+`classMap s := Fin.ofNat 114487 (mapTree.lookup s.val 0)` and proves for every
+old state `s` that `(classMap s).val = mapTree.lookup s.val 0`, using
+`Nat.mod_eq_of_lt`. Thus the modulo constructor does not change the measured
+map. These complete range and identity proofs are required audit roots.
+
+The raw map lookup's fallback is zero. The checked complete count and cache
 validity establish the intended full-range tree layout; missing or shifted
 input cannot be excused by a sampled lookup. The quotient uses
 `Balanced.ofTree quotientTree`. All data and mathematical proof roots undergo
@@ -203,9 +237,9 @@ honestly recorded as unrun, and the pilot stops.
 | Stage | Maximum seconds | Purpose |
 |---|---:|---|
 | `Loaders` | 60 | Typed-data elaborator setup |
-| `MapData` | 240 | Complete typed map and dependency audit |
+| `MapData` | 240 | Complete natural-valued map and dependency audit |
 | `QuotientData` | 180 | Complete typed quotient and dependency audit |
-| `Data` | 120 | Full counts, caches, entry identity and actual-body predicate |
+| `Data` | 120 | Full counts, caches, map range/lookup identity, entry and actual-body predicate |
 | `Rows64` | 120 | 128 actual-body row proofs and dependency audit |
 | `Negative` | 45 | Kernel refusal of one false actual row |
 | `Rows512` | 180 | 1,024 actual-body row proofs and dependency audit |
@@ -250,6 +284,8 @@ issue and unscoped option warning; source review now checks the external
 full-private import API, explicit audit process options, shared stage budgets,
 scoped options and precise failure classification. No local test, import,
 generation or Lean execution was performed. Remote kernel validation is still
-required. An import or data-loading
+required. The third run established a real map-build memory obstruction; the
+raw-natural fallback received separate implementation, range/identity proof,
+independent static API, and scope/retention review passes. An import or data-loading
 obstruction is useful evidence of this representation's cost, not permission
 to bypass the kernel or claim the 459,315-state reduction accepted.
