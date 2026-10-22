@@ -44,8 +44,24 @@ structural allocation1+5*(4042+4050). Proposed full2411743, saving492880. This i
 finite evidence, NOT a new certified machine. Best accepted remains2904623.
 Usage now49% used/51% remaining. No resetcredit consumed.
 
-Generic SelectiveBinary source drafted, first strict remote build is next. Syntax
-return allocator worker active; abstract graph coverage and concrete integration
-remain. Workflow supports focused generic/syntax/graph/machine checks, and refuses
-full acceptance until its runner is implemented. Remote jobs: none active now.
-Local git branch codex/chess-openevolve-pilot.
+Source drafts now exist for generic SelectiveBinary, FieldReturns.Syntax/Graph,
+FieldSelectiveLayout, full FieldSelective and its public theorem. Candidate full2411743
+has NOT passed strict Lean yet. Current complete source commitbc2e490. Remote machine
+run39777697376 is checking this commit. Generic retry39777234132 failed on tactic
+transparency in two proofs; repair assigned to goal_selective_binary. Earlier syntax
+and graph errors were repaired beforebc2e490, waiting on machinecheck confirmation.
+
+Native Export.lean, independent fixtures.py, Audit.lean, newlakefile and fullremote
+runner drafted in scripts/chess_goal_20261022/. Only source review has occurred;
+no newnativeartifact or fixturepass exists. Root must inspect and commit these,
+then run full acceptance after component/machineproofs pass. Account51%used/49%remaining.
+No resets or outreach. ALL heavy work remainsremote. Failedremoteevidence retained.
+
+Next concrete tasks:
+1. Collect machine39777697376 diagnostics, finish genericrepair, push/runmachine again.
+2. Strict fullrun builds audit/export, checks forbiddenaxiom controls and falsecounts,
+   exports everyactualprefix/bodyrow, independently replays202100sourcecases and27
+   corruptions, checks all4823486fullrows, and reruns acceptedM2-M7regressions.
+3. Fresh independent fullcandidate review and sealedpacket replay before acceptance.
+4. Only then update best count and pursue nextcompressionround; goal staysactive.
+Local branch codex/chess-openevolve-pilot; push explicitfork URL (origin is upstream).

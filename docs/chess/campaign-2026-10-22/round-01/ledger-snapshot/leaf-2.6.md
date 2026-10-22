@@ -1,0 +1,9 @@
+# Independent selective fixtures
+OWNS: scripts/chess_goal_20261022/fixtures.py, .unlazy/chess-goal-20261022-r01/gates/leaf-2.6.md
+
+Scope: Independent numeric reconstruction of all selective rows, all source cases, initializer, hostile controls and exact accounting. Only local source edits; execution remote by root.
+
+- [x] G1: Complete source and four-pass review against agreed extraction format.
+  EVIDENCE: scripts/chess_goal_20261022/fixtures.py is a new copy of the frozen reverse oracle adapted to selective returns. Source-only four passes: (1) complete independent tree traversal/ranking, numeric row reconstruction, all source cases and prefix/body coverage; (2) expert review checked parent-before-child write-target order, left-before-right branches, encoded shared halt, per-store rank, every paid control and source boundary; (3) defect review added seven layout and four actual return-row corruption controls, retained all sixteen previous controls, and required exact full Post write support after exhaustive rows; (4) polish removed duplicate boundary sample requirement and kept finite evidence separate from universal proof. Read-only explorer /root/goal_selective_fixtures/fixture_source_review independently checked source ordering, raw/encoded swap, exporter schema, complete coverage and mutations, finding no substantive mismatch. No Python import, model, fixture, count, compiler or Lean execution occurred locally. Parent review remains required.
+- [ ] G2: Remote actual-artifact full validation passes on exact source.
+  EVIDENCE: pending actual remote exporter and fixture run. Banner is `Selective independent fixtures passed:`. Full checker must produce 202100 source cases, six generic initializer edges, complete prefix/body rows and all27 rejected mutations before this gate can be met.

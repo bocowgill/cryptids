@@ -1,0 +1,129 @@
+{
+  "schema": 1,
+  "waves": {
+    "source-1": {
+      "leaves": [
+        "leaf-1.1",
+        "leaf-1.2"
+      ],
+      "state": "complete",
+      "openedAt": "2026-10-22T11:56:06.268Z",
+      "started": {
+        "leaf-1.1": {
+          "handle": "/root/goal_binary_route",
+          "at": "2026-10-22T11:56:43.737Z"
+        },
+        "leaf-1.2": {
+          "handle": "/root/goal_body_route",
+          "at": "2026-10-22T11:56:43.824Z"
+        }
+      },
+      "returned": {
+        "leaf-1.1": {
+          "at": "2026-10-22T12:06:21.831Z"
+        },
+        "leaf-1.2": {
+          "at": "2026-10-22T12:07:46.073Z"
+        }
+      },
+      "sealedAt": "2026-10-22T11:56:43.907Z",
+      "completedAt": "2026-10-22T12:07:46.073Z"
+    },
+    "implementation-1": {
+      "leaves": [
+        "leaf-2.1",
+        "leaf-2.2"
+      ],
+      "state": "complete",
+      "openedAt": "2026-10-22T12:06:58.689Z",
+      "started": {
+        "leaf-2.1": {
+          "handle": "/root/goal_selective_binary",
+          "at": "2026-10-22T12:07:16.351Z"
+        },
+        "leaf-2.2": {
+          "handle": "/root/goal_return_syntax",
+          "at": "2026-10-22T12:07:42.906Z"
+        }
+      },
+      "returned": {
+        "leaf-2.1": {
+          "at": "2026-10-22T12:15:31.019Z"
+        },
+        "leaf-2.2": {
+          "at": "2026-10-22T12:15:31.104Z"
+        }
+      },
+      "sealedAt": "2026-10-22T12:07:42.996Z",
+      "completedAt": "2026-10-22T12:15:31.104Z"
+    },
+    "graph-1": {
+      "leaves": [
+        "leaf-2.3"
+      ],
+      "state": "complete",
+      "openedAt": "2026-10-22T12:11:11.995Z",
+      "started": {
+        "leaf-2.3": {
+          "handle": "/root/goal_return_graph",
+          "at": "2026-10-22T12:11:42.873Z"
+        }
+      },
+      "returned": {
+        "leaf-2.3": {
+          "at": "2026-10-22T12:15:31.187Z"
+        }
+      },
+      "sealedAt": "2026-10-22T12:11:42.968Z",
+      "completedAt": "2026-10-22T12:15:31.187Z"
+    },
+    "concrete-1": {
+      "leaves": [
+        "leaf-2.4"
+      ],
+      "state": "complete",
+      "openedAt": "2026-10-22T12:13:58.389Z",
+      "started": {
+        "leaf-2.4": {
+          "handle": "/root/goal_selective_chess",
+          "at": "2026-10-22T12:14:32.499Z"
+        }
+      },
+      "returned": {
+        "leaf-2.4": {
+          "at": "2026-10-22T12:21:59.729Z"
+        }
+      },
+      "sealedAt": "2026-10-22T12:14:32.590Z",
+      "completedAt": "2026-10-22T12:21:59.729Z"
+    },
+    "native-1": {
+      "leaves": [
+        "leaf-2.5",
+        "leaf-2.6"
+      ],
+      "state": "complete",
+      "openedAt": "2026-10-22T12:16:28.224Z",
+      "started": {
+        "leaf-2.5": {
+          "handle": "/root/goal_selective_export",
+          "at": "2026-10-22T12:16:48.049Z"
+        },
+        "leaf-2.6": {
+          "handle": "/root/goal_selective_fixtures",
+          "at": "2026-10-22T12:17:20.782Z"
+        }
+      },
+      "returned": {
+        "leaf-2.5": {
+          "at": "2026-10-22T12:21:59.814Z"
+        },
+        "leaf-2.6": {
+          "at": "2026-10-22T12:21:59.898Z"
+        }
+      },
+      "sealedAt": "2026-10-22T12:17:20.909Z",
+      "completedAt": "2026-10-22T12:21:59.898Z"
+    }
+  }
+}
