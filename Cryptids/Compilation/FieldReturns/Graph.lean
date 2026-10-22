@@ -43,7 +43,8 @@ theorem trAux_write_covered {n k labels : Nat} (g : LazyGraph.Graph n k labels)
       (table.read bit value) written command
   | branch table left right =>
     rw [LazyGraph.trAux_branch g bit i left right value table row] at command ⊢
-    cases table.read bit value <;> simp only [Bool.false_eq_true, ↓reduceIte] at command ⊢
+    cases test : table.read bit value <;>
+      simp only [test, Bool.false_eq_true, ↓reduceIte] at command ⊢
     · exact trAux_write_covered g P write_child entry halt bit right value written command
     · exact trAux_write_covered g P write_child entry halt bit left value written command
   | goto table =>

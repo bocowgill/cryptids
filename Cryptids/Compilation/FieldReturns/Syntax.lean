@@ -67,7 +67,7 @@ theorem root_notMem_writeTargets {n : Nat} (p : Syntax n) :
 private theorem castSucc_injective (n : Nat) :
     Function.Injective (Fin.castSucc : Fin n → Fin (n + 1)) := by
   intro a b h
-  exact Fin.ext (congrArg Fin.val h)
+  exact Fin.ext (congrArg (fun x : Fin (n + 1) ↦ x.val) h)
 
 /-- Tree occurrence slots are distinct, even if their syntax subtrees are equal. -/
 theorem writeTargets_nodup {n : Nat} (p : Syntax n) : (writeTargets p).Nodup := by
@@ -86,7 +86,7 @@ theorem writeTargets_nodup {n : Nat} (p : Syntax n) : (writeTargets p).Nodup := 
     apply List.Nodup.append
     · apply List.Nodup.map _ ihp
       intro a b h
-      exact Fin.ext (congrArg Fin.val h)
+      exact Fin.ext (congrArg (fun x : Fin (p.size + q.size + 1) ↦ x.val) h)
     · apply List.Nodup.map _ ihq
       intro a b h
       apply Fin.ext
@@ -134,7 +134,7 @@ theorem targetAt_findTarget {n : Nat} (p : Syntax n) (i : Fin p.size)
     (member : i ∈ targets p) : (findTarget p i).map (targetAt p) = some i := by
   have bound : (targets p).idxOf i < 1 + writeCount p := by
     simpa only [targets_length] using List.idxOf_lt_length_iff.mpr member
-  simp only [findTarget, dif_pos bound, Option.map_some, targetAt]
+  simp only [findTarget, dite_eq_left bound, Option.map_some, targetAt]
   congr 1
   exact List.idxOf_get _
 
@@ -174,8 +174,8 @@ theorem write_child_mem {n : Nat} (p : Syntax n) (i : Fin p.size)
       cases same
     · intro same
       simp only [Syntax.nodeAt, Fin.lastCases_castSucc] at same
-      obtain ⟨old, same, rfl⟩ := mapNode_write _ _ _ _ same
-      exact List.mem_map.mpr ⟨old, ih j _ _ same, rfl⟩
+      obtain ⟨old, primitive, rfl⟩ := mapNode_write _ _ _ _ same
+      exact List.mem_map.mpr ⟨old, ih j _ _ primitive, rfl⟩
   | write t p ih =>
     revert same
     refine Fin.lastCases ?_ (fun j ↦ ?_) i
@@ -185,8 +185,8 @@ theorem write_child_mem {n : Nat} (p : Syntax n) (i : Fin p.size)
       exact List.mem_cons_self ..
     · intro same
       simp only [Syntax.nodeAt, Fin.lastCases_castSucc] at same
-      obtain ⟨old, same, rfl⟩ := mapNode_write _ _ _ _ same
-      exact List.mem_cons_of_mem _ (List.mem_map.mpr ⟨old, ih j _ _ same, rfl⟩)
+      obtain ⟨old, primitive, rfl⟩ := mapNode_write _ _ _ _ same
+      exact List.mem_cons_of_mem _ (List.mem_map.mpr ⟨old, ih j _ _ primitive, rfl⟩)
   | branch t p q ihp ihq =>
     revert same
     refine Fin.lastCases ?_ (fun j ↦ ?_) i
@@ -197,12 +197,12 @@ theorem write_child_mem {n : Nat} (p : Syntax n) (i : Fin p.size)
       induction j using Fin.addCases with
       | left j =>
         simp only [Syntax.nodeAt, Fin.lastCases_castSucc, Fin.addCases_left] at same
-        obtain ⟨old, same, rfl⟩ := mapNode_write _ _ _ _ same
-        exact List.mem_append_left _ (List.mem_map.mpr ⟨old, ihp j _ _ same, rfl⟩)
+        obtain ⟨old, primitive, rfl⟩ := mapNode_write _ _ _ _ same
+        exact List.mem_append_left _ (List.mem_map.mpr ⟨old, ihp j _ _ primitive, rfl⟩)
       | right j =>
         simp only [Syntax.nodeAt, Fin.lastCases_castSucc, Fin.addCases_right] at same
-        obtain ⟨old, same, rfl⟩ := mapNode_write _ _ _ _ same
-        exact List.mem_append_right _ (List.mem_map.mpr ⟨old, ihq j _ _ same, rfl⟩)
+        obtain ⟨old, primitive, rfl⟩ := mapNode_write _ _ _ _ same
+        exact List.mem_append_right _ (List.mem_map.mpr ⟨old, ihq j _ _ primitive, rfl⟩)
   | go t => cases same
   | halt => cases same
 
