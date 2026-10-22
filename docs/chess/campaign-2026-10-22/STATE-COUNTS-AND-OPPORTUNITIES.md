@@ -153,3 +153,19 @@ The decoder pilot removes a large category of paid source-table bits. Do not
 shave its small paths for their own sake before the complete228,832saving is
 certified. Additional dictionary extensions remain deferred until a bounded
 net-saving test justifies their lookup and proof overhead.
+
+
+Checkpoint after body attempt5: run39812361401 atfabb9f4 completed with a
+bounded memory obstruction in the external full-private audit of TemplateSmoke.
+The tiny kernel module itself passed in8.113seconds, but interpreted `lean --run`
+audit reached6,477,537,280bytes after12.100seconds; no large map or actual body
+row was checked. Evidence certificate-05 is retained/committed at8500f41.
+A separate300second/6GiB compiled-auditor smoke test is being prepared before
+any further full-data retry. It retains exact full-private closure and permits
+no new proof/saving claim. This targets interpreter overhead, not a larger cap.
+
+Decoder proof source checkpoints: f882aa8 first Format block;8500f41 adds small
+complete header geometry and compact-word scan bounds. Remote format run39813062936
+and primitives repair session39813644432 are in progress. Typed Controller source
+is under construction. Geometry/Scan source leaves are intentionally partial
+modules with no placeholders; their complete universal leaf gates remain open.

@@ -45,7 +45,10 @@ theorem numWord_bit (bit : Bool) (value : Num) (guard : value ≠ 0 ∨ bit = tr
   cases bit with
   | false =>
     cases value with
-    | zero => simp at guard
+    | zero =>
+      rcases guard with nonzero | one
+      · exact (nonzero rfl).elim
+      · cases one
     | pos value => rfl
   | true => cases value <;> rfl
 
@@ -80,10 +83,43 @@ def fixedBits : Nat → Nat → List Bit
 def readValue (initial : Nat) (bits : List Bit) : Nat :=
   bits.foldl (fun value bit ↦ Nat.bit (decide (bit = 1)) value) initial
 
+@[simp] theorem bitValue_decide (bit : Bool) : decide (bitValue bit = 1) = bit := by
+  cases bit <;> rfl
+
+@[simp] theorem fixedBits_length (width value : Nat) : (fixedBits width value).length = width := by
+  induction width generalizing value with
+  | zero => rfl
+  | succ width ih =>
+    simp only [fixedBits, List.length_append, List.length_cons, List.length_nil, ih]
+
+theorem readValue_append (initial : Nat) (first second : List Bit) :
+    readValue initial (first ++ second) = readValue (readValue initial first) second := by
+  simp only [readValue, List.foldl_append]
+
+/-- Fixed-width digits recover their supplied value whenever it fits in the field. -/
+theorem fixedBits_value (width value : Nat) (bound : value < 2 ^ width) :
+    readValue 0 (fixedBits width value) = value := by
+  induction width generalizing value with
+  | zero =>
+    simp only [pow_zero] at bound
+    have zero : value = 0 := by omega
+    subst value
+    rfl
+  | succ width ih =>
+    have halfBound : value / 2 < 2 ^ width := by
+      rw [pow_succ] at bound
+      omega
+    rw [fixedBits, readValue_append, ih (value / 2) halfBound]
+    simp only [readValue, List.foldl_cons, List.foldl_nil, bitValue_decide]
+    exact Nat.bit_bodd_div2 value
+
 /-- Row tags use the opposite order from the fixed-width operands. -/
 def tagBits (tag : Fin 7) : List Bit := (fixedBits 3 tag.val).reverse
 
 def fieldBits (value : Fin 8192) : List Bit := fixedBits 13 value.val
+
+theorem fieldBits_value (value : Fin 8192) : readValue 0 (fieldBits value) = value.val :=
+  fixedBits_value 13 value.val value.isLt
 
 def rowBits (row : Row) : List Bit :=
   tagBits row.tag ++ fieldBits row.right ++ fieldBits row.left

@@ -1,0 +1,16 @@
+{
+  "commands/1792686178001193971.json": {
+    "bytes": 3068,
+    "sha256": "6a1f7f5a4acd633b8bcea83fea162fcb8374ac73f17c5f4a52ac23424e87ada0",
+    "crc32": 4133771930,
+    "compressed_bytes": 913,
+    "compression": 8
+  },
+  "source-manifest.json": {
+    "bytes": 445311,
+    "sha256": "7ce726a28e93c4628f855bfd7960ad71187cfe7b01f10eb952fc4657f3c07ef2",
+    "crc32": 794465696,
+    "compressed_bytes": 120561,
+    "compression": 8
+  }
+}

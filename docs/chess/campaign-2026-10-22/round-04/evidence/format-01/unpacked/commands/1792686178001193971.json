@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "lake",
+    "--wfail",
+    "-f",
+    "lakefile.chess-table-proof-20261022.toml",
+    "build",
+    "Cryptids.Compilation.TableSeed.Format"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "\u2139 [3913/3941] Replayed Cryptids.Chess.Compilation.SourceCertificate\ninfo: Cryptids/Chess/Compilation/SourceCertificate.lean:226:0: Source certificate: 7076 checked lemmas, 7037 cache hits\ninfo: Cryptids/Chess/Compilation/SourceCertificate.lean:230:0: Literal row certificate: 5952 checked rows in 186 chunks\n\u2139 [3921/3941] Replayed Cryptids.Chess.Compilation.Input\ninfo: Cryptids/Chess/Compilation/Input.lean:128:0: Checked 186 literal row chunks: 141042 stack symbols\n\u2716 [3941/3941] Building Cryptids.Compilation.TableSeed.Format (6.0s)\ntrace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean -M6144 /home/runner/work/cryptids/cryptids/Cryptids/Compilation/TableSeed/Format.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Compilation/TableSeed/Format.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Compilation/TableSeed/Format.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Compilation/TableSeed/Format.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Compilation/TableSeed/Format.setup.json --json\nerror: Cryptids/Compilation/TableSeed/Format.lean:48:11: unsolved goals\ncase false.zero\nguard : \u00acNum.zero = 0\n\u22a2 numWord ((bif false then Num.bit1 else Num.bit0) Num.zero) = bitLetter false :: numWord Num.zero\nSome required targets logged failures:\n- Cryptids.Compilation.TableSeed.Format\nerror: build failed\n",
+  "output_sha256": "1117569b60d1d80fc09ca8b66bd0ea9e57c1d97ced5d6242238222a50803105a",
+  "timed_out": false,
+  "timeout_seconds": 1200,
+  "elapsed_seconds": 10.276317546000001,
+  "cumulative_children_peak_rss_kib": 1983564
+}

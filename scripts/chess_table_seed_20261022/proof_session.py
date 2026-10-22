@@ -44,8 +44,9 @@ def main():
     if args.mode == 'sync':
         workflow = STATE / 'executed-workflow.yml'
         if args.first:
-            workflow.write_text(git('show', os.environ['GITHUB_SHA'] +
-                                   ':.github/workflows/chess_table_proof_20261022.yml') + '\n')
+            workflow.write_bytes(subprocess.check_output(
+                ['git', 'show', os.environ['GITHUB_SHA'] +
+                 ':.github/workflows/chess_table_proof_20261022.yml'], cwd=ROOT, timeout=30))
         if not args.first and result_path.exists():
             last = json.loads(result_path.read_text())
             if last['exit'] == 0:
@@ -67,11 +68,25 @@ def main():
                 print('No new source checkpoint within five minutes; session stops recoverably')
                 return
         commit = git('rev-parse', 'HEAD')
-        # Only a disposable remote evidence directory is cleared. Prior iteration
-        # artifacts were uploaded before reaching this step; compiled caches remain.
+        # Preserve every previous iteration before clearing the working packet.
+        # Uploads may fail transiently; subsequent artifacts carry this history.
+        history = STATE / 'iterations'
         if WORK.exists():
+            if any(WORK.iterdir()):
+                retained = history / before
+                retained.mkdir(parents=True, exist_ok=True)
+                for source in WORK.iterdir():
+                    if source.name == 'history':
+                        continue
+                    destination = retained / source.name
+                    if source.is_dir():
+                        shutil.copytree(source, destination, dirs_exist_ok=True)
+                    else:
+                        shutil.copy2(source, destination)
             shutil.rmtree(WORK)
         WORK.mkdir(parents=True)
+        if history.exists():
+            shutil.copytree(history, WORK / 'history')
         binding = dict(commit=commit, initial_workflow_commit=os.environ.get('GITHUB_SHA'),
                        run_id=os.environ.get('GITHUB_RUN_ID'), branch=BRANCH,
                        target=args.target, prior_commit=before,
