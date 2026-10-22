@@ -1,8 +1,8 @@
-# Active chess compression goal — checkpoint 2026-10-22 17:03 UTC
+# Active chess compression goal — checkpoint 2026-10-22 17:10 UTC
 
 The Codex goal is **ACTIVE**. Continue focused rounds; a resource stop or one
-successful reduction does not complete it. Latest usage snapshot: 90% used,
-10% remaining; ordinary usage allowed. No numerical goal budget was requested,
+successful reduction does not complete it. Latest usage snapshot: 93% used,
+7% remaining; ordinary usage allowed. No numerical goal budget was requested,
 and no reset credit has been consumed. Leave resets to the user.
 
 ## Accepted machine: 998,176 states
@@ -153,6 +153,33 @@ remains necessary: use unchanged `scripts/chess_goal_20261022/retain.py` into a
 Workspace `/Users/bocowgill/.codex/worktrees/6ba9/cryptids`; branch
 `codex/chess-openevolve-pilot`. **Origin is upstream.** Push explicitly to
 `git@github.com:bocowgill/cryptids.git`, branch `codex/chess-openevolve-pilot`.
-Latest pushed checkpoint at this writing: `684f6b6`. Inspect later commits before
+Latest source checkpoint at this writing: `850908e` (check push completion). Inspect later commits before
 resuming. Active ignored ledgers live under `.unlazy/chess-goal-20261022-r03/`
 and `r04/`; tracked snapshots are refreshed at major checkpoints.
+
+
+### Continuation at 17:10 UTC
+
+- Chunked executable quotient driver/report committed `176c71c`; full bounded
+  trial **39819548458** active. Transparent `@[noinline]` midpoint shards, at most
+  1,024 states each, preserve every original row and global destination bound.
+  Retain exact shard concatenation and manifest; two-chunk smoke precedes full
+  data. All previous time/memory/audit/negative-control requirements stay fixed.
+- First Blocks session 39818051349 ended its five-minute repair wait. Retained
+  iteration 2 shows only final trailing-zero tape equality and one unused-simp
+  warning. Repairs committed `b327eba`; replacement **39819776303** active.
+  Controller's read-state bridge passed as dependency in the first session.
+  Emit-state bridge is now in the source and awaits this replacement build.
+- Transducer session **39818061113** reached iteration 5 at `733a2fe`: prefix,
+  operand suffix and finite parser/tag traces compile; one Fin-zero equality
+  remains. Small repair committed `850908e`. Artifacts through iteration 5 are
+  retained in `transducer-proof-live-05`, including prior failed iterations.
+- New leaf 3.8 `goal_seed_codec` owns `TableSeed/ChessCodec.lean`. Complete source
+  committed `5acb1ff`; exact pre/rows/post identity and 173,641/173,642 counts use
+  existing certified topology, table size and literal word lengths. No global
+  table normalization. Four source passes complete; strict **39819742050** is
+  active. G1 met, G2 pending. New `decoder-chess-codec` wave is sealed.
+- Final completed-run evidence for Format now retained in `format-proof-final`.
+  Independent source re-review of session retention/raw workflow bytes found no
+  unresolved truthfulness flaw. Live artifacts remain explicitly provisional.
+- No new full-machine reduction is accepted; ranking and target counts unchanged.

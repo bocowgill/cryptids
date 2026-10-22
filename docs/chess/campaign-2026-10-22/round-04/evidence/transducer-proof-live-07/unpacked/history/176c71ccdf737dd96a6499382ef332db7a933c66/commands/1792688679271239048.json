@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "lake",
+    "--wfail",
+    "-f",
+    "lakefile.chess-table-proof-20261022.toml",
+    "build",
+    "Cryptids.Compilation.TableSeed.Transducer"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "\u2139 [3910/3944] Replayed Cryptids.Chess.Compilation.SourceCertificate\ninfo: Cryptids/Chess/Compilation/SourceCertificate.lean:226:0: Source certificate: 7076 checked lemmas, 7037 cache hits\ninfo: Cryptids/Chess/Compilation/SourceCertificate.lean:230:0: Literal row certificate: 5952 checked rows in 186 chunks\n\u2139 [3921/3944] Replayed Cryptids.Chess.Compilation.Input\ninfo: Cryptids/Chess/Compilation/Input.lean:128:0: Checked 186 literal row chunks: 141042 stack symbols\n\u2716 [3944/3944] Building Cryptids.Compilation.TableSeed.Transducer (5.1s)\ntrace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean -M6144 /home/runner/work/cryptids/cryptids/Cryptids/Compilation/TableSeed/Transducer.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Compilation/TableSeed/Transducer.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Compilation/TableSeed/Transducer.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Compilation/TableSeed/Transducer.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Compilation/TableSeed/Transducer.setup.json --json\nerror: Cryptids/Compilation/TableSeed/Transducer.lean:159:4: Type mismatch: After simplification, term\n  rest\n has type\n  Path\n    { entry := Entry.read (ReadCtx.operand tag side \u27e80, \u22ef\u27e9 false), out := 1 :: out, raw := fieldBits value ++ raw,\n      gap := gap }\n    { entry := afterOperand tag side, out := W \u2191value ++ out, raw := raw, gap := gap + 13 }\nbut is expected to have type\n  Path\n    { entry := Entry.read (ReadCtx.operand tag side 0 false), out := 1 :: out, raw := fieldBits value ++ raw,\n      gap := gap }\n    { entry := afterOperand tag side, out := W \u2191value ++ out, raw := raw, gap := gap + 13 }\nSome required targets logged failures:\n- Cryptids.Compilation.TableSeed.Transducer\nerror: build failed\n",
+  "output_sha256": "c0d1bbaaa7e4b94b7935adb422a2e02b372380f2b5d5bb84d4169a5e0658b234",
+  "timed_out": false,
+  "timeout_seconds": 1200,
+  "elapsed_seconds": 7.4260700429999815,
+  "cumulative_children_peak_rss_kib": 2225040
+}

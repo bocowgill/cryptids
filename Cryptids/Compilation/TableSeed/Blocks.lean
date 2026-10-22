@@ -404,4 +404,103 @@ theorem finish_frame (out : List Letter) (gap : Nat) :
   rw [show 3 * out.length + gap + 35 = 11 + ((gap + 3 * out.length + 5) + 19) by omega,
     run_add, erase, Option.bind_some, run_add, seek, Option.bind_some, header]
 
+/-- Unconditional arbitrary-frame read contract for the actual allocated controller. -/
+theorem read_run (context : ReadCtx) (bit : Bit) (left right : ListBlank Bit) :
+    FlatInit.runFrom machine 15
+      ⟨encode (readState context 0),
+        Tape.mk' left (ListBlank.append Seed.marker (right.cons bit))⟩ =
+      some ⟨encode (entryState (consumeEntry (readTarget context bit))),
+        Tape.mk' (left.cons 0) (ListBlank.append Seed.marker right)⟩ :=
+  read_run_of_rows context (controlRow_readState context) bit left right
+
+/-- One actual read preserves all output, consumes exactly one bit, and advances B. -/
+theorem read_frame (context : ReadCtx) (out : List Letter) (bit : Bit) (raw : List Bit)
+    (gap : Nat) :
+    FlatInit.runFrom machine 15
+      ⟨encode (entryState (.read context)), frameTape out (bit :: raw) gap⟩ =
+      some ⟨encode (entryState (consumeEntry (readTarget context bit))),
+        frameTape out raw (gap + 1)⟩ :=
+  read_frame_of_rows context (controlRow_readState context) out bit raw gap
+
+/-- One actual emission prepends its compact code and returns to B with the unread suffix intact. -/
+theorem emit_frame (context : EmitCtx) (out : List Letter) (raw : List Bit) (gap : Nat) :
+    FlatInit.runFrom machine (6 * out.length + 2 * gap + 40)
+      ⟨encode (entryState (.emit context)), frameTape out raw gap⟩ =
+      some ⟨encode (entryState (emitTarget context)),
+        frameTape (emitLetter context :: out) raw gap⟩ := by
+  let letter := emitLetter context
+  let atA := Tape.mk' (ListBlank.mk [])
+    (ListBlank.mk (Seed.marker ++ Seed.payload out ++ List.replicate gap 0 ++
+      Seed.marker ++ raw))
+  let atOutput := Tape.mk' (ListBlank.mk Seed.marker.reverse)
+    (ListBlank.mk (Seed.payload (letter :: out) ++ List.replicate gap 0 ++
+      Seed.marker ++ raw))
+  let finalLeft := ListBlank.mk
+    (List.replicate gap 0 ++ (Seed.payload (letter :: out)).reverse ++ Seed.marker.reverse)
+  let atBEnd := Tape.mk' (ListBlank.append [1, 1, 1, 1, 0] finalLeft)
+    ((ListBlank.mk raw).cons 0)
+  have depart : FlatInit.runFrom machine 1
+      ⟨encode (entryState (.emit context)), frameTape out raw gap⟩ =
+      some ⟨encode (emitState context 1), (frameTape out raw gap).move .left⟩ := by
+    simp [FlatInit.runFrom, entryState, step_control, controlRow_emitState, emitRow]
+  have seekA : FlatInit.runFrom machine (gap + 3 * out.length + 5)
+      ⟨encode (emitState context 1), (frameTape out raw gap).move .left⟩ =
+      some ⟨encode (emitState context 5), atA⟩ := by
+    have scanned := Scan.payload_left_marker machine (emitLeftScanner context)
+      (encode (emitState context 5)) (emit_left_rows context (controlRow_emitState context))
+      out gap (ListBlank.mk []) (ListBlank.mk (Seed.marker ++ raw))
+    simpa [emitLeftScanner, frameTape, atA, ListBlank.append_mk,
+      List.append_assoc] using scanned
+  have prepend : FlatInit.runFrom machine 21 ⟨encode (emitState context 5), atA⟩ =
+      some ⟨encode (emitState context 26), atOutput⟩ := by
+    have written := emit_middle_run_of_rows context (controlRow_emitState context)
+      (ListBlank.mk [])
+      (ListBlank.mk (Seed.payload out ++ List.replicate gap 0 ++ Seed.marker ++ raw))
+    have blank : ListBlank.append (List.replicate 3 (0 : Bit)) (ListBlank.mk []) =
+        ListBlank.mk [] := by
+      rw [ListBlank.append_mk, List.append_nil, Seed.mk_zeros]
+    rw [blank] at written
+    simpa [atA, atOutput, letter, Seed.payload_cons, ListBlank.append_mk,
+      List.append_assoc] using written
+  have seekB : FlatInit.runFrom machine (3 * (out.length + 1) + gap + 5)
+      ⟨encode (emitState context 26), atOutput⟩ =
+      some ⟨encode (emitState context 30), atBEnd⟩ := by
+    have scanned := Scan.payload_right_marker machine (emitRightScanner context)
+      (encode (emitState context 30)) (emit_right_rows context (controlRow_emitState context))
+      (letter :: out) gap (ListBlank.mk Seed.marker.reverse) (ListBlank.mk raw)
+    simpa [emitRightScanner, atOutput, atBEnd, finalLeft, ListBlank.append_mk,
+      List.append_assoc] using scanned
+  have back : FlatInit.runFrom machine 5 ⟨encode (emitState context 30), atBEnd⟩ =
+      some ⟨encode (entryState (emitTarget context)),
+        frameTape (emitLetter context :: out) raw gap⟩ := by
+    simpa [atBEnd, finalLeft, frameTape, letter, ListBlank.append_mk] using
+      emit_back_run_of_rows context (controlRow_emitState context) finalLeft (ListBlank.mk raw)
+  rw [show 6 * out.length + 2 * gap + 40 =
+      1 + ((gap + 3 * out.length + 5) + (21 + ((3 * (out.length + 1) + gap + 5) + 5)))
+      by omega,
+    run_add, depart, Option.bind_some, run_add, seekA, Option.bind_some,
+    run_add, prepend, Option.bind_some, run_add, seekB, Option.bind_some, back]
+
+theorem entry_reaches (raw : List Bit) :
+    Reaches (step machine) ⟨entry, Tape.mk₁ (Seed.marker ++ [0] ++ Seed.marker ++ raw)⟩
+      ⟨encode (entryState (.read (.literal 0 0))), frameTape [] raw 1⟩ :=
+  FlatInit.runFrom_reaches _ _ _ _ (entry_run raw)
+
+theorem read_reaches (context : ReadCtx) (out : List Letter) (bit : Bit) (raw : List Bit)
+    (gap : Nat) :
+    Reaches (step machine)
+      ⟨encode (entryState (.read context)), frameTape out (bit :: raw) gap⟩
+      ⟨encode (entryState (consumeEntry (readTarget context bit))), frameTape out raw (gap + 1)⟩ :=
+  FlatInit.runFrom_reaches _ _ _ _ (read_frame context out bit raw gap)
+
+theorem emit_reaches (context : EmitCtx) (out : List Letter) (raw : List Bit) (gap : Nat) :
+    Reaches (step machine) ⟨encode (entryState (.emit context)), frameTape out raw gap⟩
+      ⟨encode (entryState (emitTarget context)), frameTape (emitLetter context :: out) raw gap⟩ :=
+  FlatInit.runFrom_reaches _ _ _ _ (emit_frame context out raw gap)
+
+theorem finish_reaches (out : List Letter) (gap : Nat) :
+    Reaches (step machine) ⟨encode (entryState .finish), frameTape out [] gap⟩
+      ⟨done, Tape.mk₁ (Seed.seed out)⟩ :=
+  FlatInit.runFrom_reaches _ _ _ _ (finish_frame out gap)
+
 end ConjectureMachines.Compilation.TableSeed.Blocks

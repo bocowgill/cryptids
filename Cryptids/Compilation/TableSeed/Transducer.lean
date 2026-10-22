@@ -250,4 +250,73 @@ theorem tag_emit_trace (tag : Fin 7) :
       some (W tag.val, .read (.tag 0)) := by
   fin_cases tag <;> rfl
 
+theorem literal_run (phase : Fin 2) (letter : Letter)
+    (out : List Letter) (raw : List Bit) (gap : Nat) :
+    Path ⟨.read (.literal phase 0), out, Seed.word letter ++ raw, gap⟩
+      ⟨.read (.literal phase 0), letter :: out, raw, gap + (Seed.word letter).length⟩ := by
+  have read := readTrace_path (Seed.word letter) _ _ (literal_decode phase letter) out raw gap
+  exact read.trans (emit_path (.literal phase letter) out raw
+    (gap + (Seed.word letter).length))
+
+/-- Literal phases consume every supplied code and prepend their letters in read order. -/
+theorem literals_run (phase : Fin 2) (values : List Letter)
+    (out : List Letter) (raw : List Bit) (gap : Nat) :
+    Path ⟨.read (.literal phase 0), out, Seed.payload values ++ raw, gap⟩
+      ⟨.read (.literal phase 0), values.foldl (fun acc letter ↦ letter :: acc) out,
+        raw, gap + (Seed.payload values).length⟩ := by
+  induction values generalizing out gap with
+  | nil =>
+    simpa only [Seed.payload_nil, List.nil_append, List.foldl_nil,
+      List.length_nil, Nat.add_zero] using
+      (ReflTransGen.refl : Path ⟨.read (.literal phase 0), out, raw, gap⟩
+        ⟨.read (.literal phase 0), out, raw, gap⟩)
+  | cons letter values ih =>
+    have first := literal_run phase letter out (Seed.payload values ++ raw) gap
+    have rest := ih (out := letter :: out) (gap := gap + (Seed.word letter).length)
+    simpa only [Seed.payload_cons, List.append_assoc, List.foldl_cons,
+      List.length_append, Nat.add_assoc] using first.trans rest
+
+theorem reversed_literals_run (phase : Fin 2) (values : List Letter)
+    (out : List Letter) (raw : List Bit) (gap : Nat) :
+    Path ⟨.read (.literal phase 0), out, Seed.payload values.reverse ++ raw, gap⟩
+      ⟨.read (.literal phase 0), values ++ out,
+        raw, gap + (Seed.payload values.reverse).length⟩ := by
+  simpa only [literals_reverse] using literals_run phase values.reverse out raw gap
+
+/-- Every bounded triple is processed right, left, then tag, producing its original word order. -/
+theorem row_run (row : Row) (out : List Letter) (raw : List Bit) (gap : Nat) :
+    Path ⟨.read (.tag 0), out, rowBits row ++ raw, gap⟩
+      ⟨.read (.tag 0), rowLetters row ++ out, raw, gap + (rowBits row).length⟩ := by
+  have parsed := readTrace_path (tagBits row.tag) _ _ (tag_decode row.tag)
+    out (fieldBits row.right ++ (fieldBits row.left ++ raw)) gap
+  simp only [tagBits_length] at parsed
+  have rightRun := operand_run row.tag 0 row.right out
+    (fieldBits row.left ++ raw) (gap + 3)
+  have leftRun := operand_run row.tag 1 row.left (W row.right.val ++ out)
+    raw (gap + 3 + 13)
+  have tagged := emitTrace_path (tagWidth row.tag + 1) _ _ (W row.tag.val)
+    (tag_emit_trace row.tag) (W row.left.val ++ (W row.right.val ++ out))
+    raw (gap + 3 + 13 + 13)
+  have combined := ((parsed.trans rightRun).trans leftRun).trans tagged
+  simpa only [rowBits, rowLetters, List.append_assoc, List.length_append,
+    tagBits_length, fieldBits_length, Nat.add_assoc] using combined
+
+theorem rows_run (rows : List Row) (out : List Letter) (raw : List Bit) (gap : Nat) :
+    Path ⟨.read (.tag 0), out, rows.flatMap rowBits ++ raw, gap⟩
+      ⟨.read (.tag 0), rows.foldl (fun acc row ↦ rowLetters row ++ acc) out,
+        raw, gap + (rows.flatMap rowBits).length⟩ := by
+  induction rows generalizing out gap with
+  | nil => exact .refl
+  | cons row rows ih =>
+    have first := row_run row out (rows.flatMap rowBits ++ raw) gap
+    have rest := ih (out := rowLetters row ++ out) (gap := gap + (rowBits row).length)
+    simpa only [List.flatMap_cons, List.append_assoc, List.foldl_cons,
+      List.length_append, Nat.add_assoc] using first.trans rest
+
+theorem reversed_rows_run (rows : List Row) (out : List Letter) (raw : List Bit) (gap : Nat) :
+    Path ⟨.read (.tag 0), out, rows.reverse.flatMap rowBits ++ raw, gap⟩
+      ⟨.read (.tag 0), rows.flatMap rowLetters ++ out,
+        raw, gap + (rows.reverse.flatMap rowBits).length⟩ := by
+  simpa only [rows_reverse] using rows_run rows.reverse out raw gap
+
 end ConjectureMachines.Compilation.TableSeed.Transducer
