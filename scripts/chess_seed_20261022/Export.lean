@@ -33,9 +33,9 @@ def rowJson {states : Nat} (row : Option (Fin 2 × Dir × Fin states)) : Json :=
 /-- Six-byte records in implicit state/bit order; write two is the canonical halt sentinel. -/
 def record {states : Nat} (buffer : ByteArray)
     (row : Option (Fin 2 × Dir × Fin states)) : IO ByteArray := do
-  let (write, direction, next) := match row with
+  let (write, direction, next) : Nat × Nat × Nat := match row with
     | none => (2, 0, 0)
-    | some (write, dir, next) => (write.val, if dir = .right then 1 else 0, next.val)
+    | some (write, dir, next) => (write.val, if dir = Dir.right then 1 else 0, next.val)
   unless next < 4294967296 do throw (IO.userError "Destination does not fit u32")
   let buffer := buffer.push write.toUInt8
   let buffer := buffer.push direction.toUInt8
@@ -132,7 +132,10 @@ def fixture (letters : List Seed.Letter) : IO Json := do
   let radius := 128 + 32 * n
   let mut tape := Array.replicate (2 * radius + 1) (0 : Fin 2)
   let mut head : Int := 0
-  let mut state : Fin (statesOf actual) := 0
+  let initial ← if positive : 0 < statesOf actual then
+    pure (⟨0, positive⟩ : Fin (statesOf actual))
+    else throw (IO.userError "Small complete fixture has no entry state")
+  let mut state := initial
   let mut low : Int := 0
   let mut high : Int := 0
   for _ in [:steps] do
