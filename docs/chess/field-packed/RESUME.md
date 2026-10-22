@@ -16,13 +16,16 @@ and native validators have disjoint workers. Root handles assembly, audit,
 verification dispatch, retained evidence and final integration. A fresh full
 candidate referee remains to be dispatched after the complete proof is ready.
 
-Current computation checkpoint8bc8076153b51f3ac279788dd3a310538e954bb3.
+Current computation checkpoint23beb0097de61b2234c8bcb0865ab9b37aced6c5.
 Interface initial run39724650129 passed. Graph39724652002 failed only two
 dependent projection simp rewrites; repaired through congrArg of the complete
 dependent Slot, rerun39725164233 passed strictly. Layout39724981625 found
 dependent transport/simplification and reserved-keyword errors; these are repaired
-in the current source. Machine39725820189 now checks the complete repaired layout
-and named machine/proof/count assembly. It is still pending.
+in subsequent source checkpoints. Machine39725820189 failed on four remaining
+transport proofs; machine39726560849 failed only the two append numeric projection
+proofs. The layout worker is replacing inverse-cast simplification with a proof
+through the equivalence's transport-free forward projection. Neither failed run
+is acceptance, and the named machine module has not yet been reached.
 Official development packets are retained under `evidence/history/`.
 
 The first focused graph/interface verifier accidentally read the older570-file

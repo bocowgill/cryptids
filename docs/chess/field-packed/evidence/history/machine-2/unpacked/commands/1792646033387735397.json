@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "lake",
+    "--wfail",
+    "-f",
+    "lakefile.chess-field-packed.toml",
+    "build",
+    "Cryptids.Semantics.ChessFieldPacked"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "\u2139 [3909/3933] Replayed Cryptids.Chess.Compilation.SourceCertificate\ninfo: Cryptids/Chess/Compilation/SourceCertificate.lean:226:0: Source certificate: 7076 checked lemmas, 7037 cache hits\ninfo: Cryptids/Chess/Compilation/SourceCertificate.lean:230:0: Literal row certificate: 5952 checked rows in 186 chunks\n\u2139 [3920/3933] Replayed Cryptids.Chess.Compilation.Input\ninfo: Cryptids/Chess/Compilation/Input.lean:128:0: Checked 186 literal row chunks: 141042 stack symbols\n\u2716 [3931/3933] Building Cryptids.Chess.Optimisation.FieldPackedLayout (62s)\ntrace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean -M6144 /home/runner/work/cryptids/cryptids/Cryptids/Chess/Optimisation/FieldPackedLayout.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Chess/Optimisation/FieldPackedLayout.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Chess/Optimisation/FieldPackedLayout.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Chess/Optimisation/FieldPackedLayout.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Chess/Optimisation/FieldPackedLayout.setup.json --json\nerror: Cryptids/Chess/Optimisation/FieldPackedLayout.lean:102:4: Type mismatch: After simplification, term\n  a.code_val r j\n has type\n  \u2191(a.code \u27e8r, j\u27e9) = a.offset r + \u2191j\nbut is expected to have type\n  \u2191(a.code \u27e8r, j\u27e9) = a.offset r + \u2191(\u22ef \u25b8 j)\nerror: Cryptids/Chess/Optimisation/FieldPackedLayout.lean:106:4: Type mismatch: After simplification, term\n  congrArg (fun x \u21a6 a.nodes + x) (b.code_val r j)\n has type\n  \u2191(b.code \u27e8r, j\u27e9) = b.offset r + \u2191j\nbut is expected to have type\n  \u2191(b.code \u27e8r, j\u27e9) = b.offset r + \u2191(\u22ef \u25b8 j)\nSome required targets logged failures:\n- Cryptids.Chess.Optimisation.FieldPackedLayout\nerror: build failed\n",
+  "output_sha256": "a8b4b59f1f28ca1dd6b0186c08c4bbe8906b505c7c77e140d1f520f26691f673",
+  "timed_out": false,
+  "timeout_seconds": 1800,
+  "elapsed_seconds": 66.23172999600001,
+  "cumulative_children_peak_rss_kib": 4156072
+}

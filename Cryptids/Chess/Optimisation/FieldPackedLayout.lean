@@ -24,10 +24,13 @@ open ConjectureMachines.Compilation FieldCompiler
 set_option backward.isDefEq.respectTransparency false
 set_option maxRecDepth 16384
 
-/-- Transporting a finite bound preserves the underlying numeric local index. -/
-@[simp] theorem transport_val {α : Type} {size : α → Nat} {a b : α}
-    (same : a = b) (i : Fin (size a)) : (same ▸ i : Fin (size b)).val = i.val := by
-  cases same
+/-- The inverse preserves numeric indices because the forward sigma map does so. -/
+theorem sigmaCongrLeft_symm_val {α β : Type} (e : α ≃ β) (size : β → Nat)
+    (s : Σ b : β, Fin (size b)) :
+    ((Equiv.sigmaCongrLeft e).symm s).2.val = s.2.val := by
+  obtain ⟨t, rfl⟩ :=
+    (Equiv.sigmaCongrLeft (β := fun b ↦ Fin (size b)) e).surjective s
+  rw [Equiv.symm_apply_apply]
   rfl
 
 /-- A contiguous block of rows, together with its actual finite allocation. -/
@@ -84,6 +87,19 @@ def splitSlots (a b : Block) :
     (finSumFinEquiv.symm : Fin (a.rows + b.rows) ≃ Fin a.rows ⊕ Fin b.rows)).trans
     (Equiv.sumSigmaDistrib (fun s ↦ Fin (Sum.elim a.size b.size s)))
 
+/-- Inverse splitting preserves the local index, without reducing its dependent cast. -/
+theorem splitSlots_symm_val (a b : Block)
+    (t : (Σ q : Fin a.rows, Fin (a.size q)) ⊕ (Σ q : Fin b.rows, Fin (b.size q))) :
+    ((splitSlots a b).symm t).2.val =
+      Sum.elim (fun s ↦ s.2.val) (fun s ↦ s.2.val) t := by
+  rcases t with ⟨r, j⟩ | ⟨r, j⟩
+  · exact sigmaCongrLeft_symm_val
+      (finSumFinEquiv.symm : Fin (a.rows + b.rows) ≃ Fin a.rows ⊕ Fin b.rows)
+      (Sum.elim a.size b.size) ⟨Sum.inl r, j⟩
+  · exact sigmaCongrLeft_symm_val
+      (finSumFinEquiv.symm : Fin (a.rows + b.rows) ≃ Fin a.rows ⊕ Fin b.rows)
+      (Sum.elim a.size b.size) ⟨Sum.inr r, j⟩
+
 def appendCode (a b : Block) :
     (Σ q : Fin (a.rows + b.rows), Fin (appendSize a b q)) ≃
       Fin (a.nodes + b.nodes) :=
@@ -99,10 +115,12 @@ theorem appendCode_val (a b : Block) (q : Fin (a.rows + b.rows))
   rcases t with ⟨r, j⟩ | ⟨r, j⟩
   · simp only [appendCode, Equiv.trans_apply, Equiv.apply_symm_apply,
       Equiv.sumCongr_apply, Sum.map_inl, finSumFinEquiv_apply_left, Fin.val_castAdd]
+    rw [splitSlots_symm_val]
     simpa [splitSlots, Equiv.sigmaCongrLeft, Equiv.sumSigmaDistrib, appendOffset]
       using a.code_val r j
   · simp only [appendCode, Equiv.trans_apply, Equiv.apply_symm_apply,
       Equiv.sumCongr_apply, Sum.map_inr, finSumFinEquiv_apply_right, Fin.val_natAdd]
+    rw [splitSlots_symm_val]
     simpa [splitSlots, Equiv.sigmaCongrLeft, Equiv.sumSigmaDistrib, appendOffset,
       Nat.add_assoc] using congrArg (a.nodes + ·) (b.code_val r j)
 
