@@ -57,10 +57,10 @@ theorem nodes_letters (nodes : List CodeDAG.Node)
       Runtime.trList_append, List.map_append, ih]
 
 /-- The separator is the existing original-stack symbol, in the original position. -/
-theorem mapped_input (prefix table suffix : List Γ') :
-    prefix.map Seed.ofSymbol ++ table.map Seed.ofSymbol ++ [separatorLetter] ++
+theorem mapped_input (initialWords table suffix : List Γ') :
+    initialWords.map Seed.ofSymbol ++ table.map Seed.ofSymbol ++ [separatorLetter] ++
         suffix.map Seed.ofSymbol =
-      (prefix ++ table ++ Γ'.consₗ :: suffix).map Seed.ofSymbol := by
+      (initialWords ++ table ++ Γ'.consₗ :: suffix).map Seed.ofSymbol := by
   simp only [List.map_append, List.map_cons, Seed.ofSymbol, separatorLetter,
     List.append_assoc, List.cons_append, List.nil_append]
 
