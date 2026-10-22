@@ -99,11 +99,8 @@ def rowBody : BundledMachine 2 :=
     FieldSelectiveLayout.findReturn FieldPacked.rowBody.toMachine⟩
 
 theorem rowBody_eq : rowBody = body := by
-  unfold rowBody
-  rw [FieldPacked.rowBody_eq]
-  unfold FieldPacked.body
-  rw [SelectiveBinary.table_compile]
-  rfl
+  unfold rowBody FieldPacked.rowBody body
+  rw [FieldCompiler.binaryRows_eq, SelectiveBinary.table_compile]
 
 theorem rowGenerated_states :
     (ReverseInit.Schedule.initialise actions rowBody).states = 2411743 := by
