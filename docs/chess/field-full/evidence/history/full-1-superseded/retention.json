@@ -1,0 +1,8 @@
+{
+  "run_id": 39716423648,
+  "commit": "b029ec54a1e11d1bccf02bbc95550fcad89283bf",
+  "conclusion": "cancelled",
+  "artifact_sha256": "d700b4f060a44f9c70de50833a64b5efda6cdc757acf9a612e91dfbda5c9eba4",
+  "logs_sha256": "d41899062de8e248ba4bfea019e2834cfe15ed5e79321fd4ee66ccaf78aafbe2",
+  "entries": 3
+}

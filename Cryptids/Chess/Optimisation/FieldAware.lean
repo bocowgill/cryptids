@@ -68,8 +68,12 @@ theorem sourceInput_length : sourceInput.length = 141380 :=
   (source_length Compilation.Input.stack).trans
     (congrArg (max 1) Compilation.Input.stack_length)
 
+theorem counted_length (values : List SharedModel.Symbol) (count : Nat)
+    (length : values.length = count) : (Codec.input values).length = 13 * count :=
+  (Codec.input_length values).trans (congrArg (13 * ·) length)
+
 theorem binaryInput_length : binaryInput.length = 1837940 :=
-  (Codec.input_length sourceInput).trans (congrArg (13 * ·) sourceInput_length)
+  counted_length sourceInput 141380 sourceInput_length
 
 theorem mapped_size (input : List Bool) :
     (input.map Compilation.Binary.encodeSymbol).toArray.size = input.length := by
@@ -79,7 +83,7 @@ theorem bits_size : bits.size = 1837940 :=
   (mapped_size binaryInput).trans binaryInput_length
 
 theorem bits_toList : bits.toList = binaryInput.map Compilation.Binary.encodeSymbol := by
-  exact List.toList_toArray _
+  exact List.toList_toArray
 
 attribute [local irreducible] bits
 

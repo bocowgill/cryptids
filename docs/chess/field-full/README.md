@@ -22,9 +22,9 @@ the blank tails and all neighboring cells.
 
 `FieldCompiler.lower` compiles moves, field writes, field loads, pure store loads,
 marker tests, absence tests, store branches, store-dependent jumps and halt.
-`Semantics.lower_refines` preserves the complete next control, store and tape for
-every operation. `Semantics.respects` gives a nonempty simulation path and exact
-stopping; `halts_input` supplies both termination directions on arbitrary finite
+The `lower_refines` theorem in `Semantics.lean` preserves the complete next control,
+store and tape for every operation. Its `respects` theorem gives a nonempty
+simulation path and exact stopping; `halts_input` supplies both termination directions on arbitrary finite
 input, without a reachability assumption.
 
 `FieldCompiler.Graph` assigns a fully paid 1,024-node block to every source label.
