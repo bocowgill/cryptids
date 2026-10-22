@@ -77,7 +77,7 @@ def rowJson {states : Nat} (row : Option (Fin 2 × Dir × Fin states)) : Json :=
 
 def statesOf {states : Nat} (_ : Machine states 2) : Nat := states
 
-def postStatesOf {states : Nat} (_ : TM0.Machine Bool (Fin states)) : Nat := states
+def postStatesOf {states : Nat} [NeZero states] (_ : TM0.Machine Bool (Fin states)) : Nat := states
 
 def pushSamples {states : Nat} (first second : Machine states 2)
     (state : Nat) (samples : Array Json) : IO (Array Json) := do
