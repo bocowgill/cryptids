@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "lake",
+    "--wfail",
+    "-f",
+    "lakefile.chess-table-proof-20261022.toml",
+    "build",
+    "Cryptids.Compilation.TableSeed.Controller",
+    "chess_table_controller_export"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "\u26a0 [7618/7622] Building Cryptids.Compilation.TableSeed.Controller (2.4s)\ntrace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean -M6144 /home/runner/work/cryptids/cryptids/Cryptids/Compilation/TableSeed/Controller.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Compilation/TableSeed/Controller.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Compilation/TableSeed/Controller.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Compilation/TableSeed/Controller.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Compilation/TableSeed/Controller.setup.json --json\nwarning: Cryptids/Compilation/TableSeed/Controller.lean:219:100: This line exceeds the 100 character limit, please shorten it!\n\nNote: This linter can be disabled with `set_option linter.style.longLine false`\n\u2714 [7619/7622] Built Cryptids.Compilation.TableSeed.Controller:c.o (797ms)\n\u2714 [7620/7622] Built scripts.chess_table_seed_20261022.ControllerExport (8.7s)\n\u2714 [7621/7622] Built scripts.chess_table_seed_20261022.ControllerExport:c.o (127ms)\n\u2714 [7622/7622] Built chess_table_controller_export:exe (2.2s)\nSome required targets logged failures:\n- Cryptids.Compilation.TableSeed.Controller\nerror: build failed\n",
+  "output_sha256": "a6efb5a3f07adc712162d3ab9c345058e238be7d9c60ef5c940793a3971968cd",
+  "timed_out": false,
+  "timeout_seconds": 1200,
+  "elapsed_seconds": 16.858520121000026,
+  "cumulative_children_peak_rss_kib": 4260932
+}

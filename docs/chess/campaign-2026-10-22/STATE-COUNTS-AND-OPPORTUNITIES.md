@@ -50,8 +50,8 @@ Their order combines absolute opportunity with the cost of obtaining evidence.
 
 | Priority | Whole-machine mechanism | Absolute opportunity | Proof difficulty | Implementation effort | Next decision test |
 |---|---|---|---|---|---|
-| 1 | Certify the complete exact interpreter quotient | 459,315 measured finite states; candidate full 538,861 | Generic LocalCertificate proof exists; concrete kernel scalability is being measured | Bounded full-data and representative-row pilot, then literal or structural certificate | Fifth bounded run39812361401 tests the repaired template and skips unnecessary native compilation of proof-only map witnesses; no actual rows certified yet |
-| 2 | Encode structured source-table rows before expanding the exact old input | 228,832 measured prospective full saving; D=21,682; full candidate769,344 | High: complete decoder, exact word reconstruction and tape cleanup; existing SeedLink/expander reusable | Complete packet identity and physical controller pilot passed; universal arithmetic/tape proof pending | Prove original-word recurrence and exact typed control, then framed read/emit/cleanup and full composition; every control paid |
+| 1 | Certify the complete exact interpreter quotient | 459,315 measured finite states; candidate full 538,861 | Generic LocalCertificate proof exists; concrete kernel scalability is being measured | Bounded full-data and representative-row pilot, then literal or structural certificate | Compiled-auditor smoke39815643692 passed27.433s/4.82GB; full unchanged-budget certificate trial39816362847 now running; no actual rows certified yet |
+| 2 | Encode structured source-table rows before expanding the exact old input | 228,832 measured prospective full saving; D=21,682; full candidate769,344 | High: complete decoder, exact word reconstruction and tape cleanup; existing SeedLink/expander reusable | Complete packet identity and physical controller pilot passed; universal arithmetic/tape proof pending | Original-word/field foundation, exacttypedcontrol/all43364rows/28corruptions and physical action geometry passed; finish framed actual-machine primitives and universalphasecomposition |
 | 3 | Structural proof of store/suffix sharing if literal quotient certification scales poorly | Within measured459,315;339,898same-node equivalences are diagnostics, not a closed subquotient | High: successor closure through loads/branches/jumps | High, possibly much smaller proof data | Use actual pilot obstruction; avoid a second literal route with the same scaling problem |
 | 4 | Fixed two-bit or pair packing of the seed | Two-bit141,380gross payload states; five-bit-pair70,684seed bits before controller delta | Medium to high: framing, odd inputs, cleanup and exact codec | Moderate if expander contracts transfer | Compare fully paid result against structured-table compression before choosing |
 | 5 | Replace the specialized interpreter by program-as-data or apply dictionary/grammar compression | No defensible net count yet; all stored program/dictionary/decoder states must be charged | Very high for a new interpreter; high for a generic decoder | High | Require an explicit whole-machine design and bounded end-to-end pilot |
@@ -169,3 +169,23 @@ complete header geometry and compact-word scan bounds. Remote format run39813062
 and primitives repair session39813644432 are in progress. Typed Controller source
 is under construction. Geometry/Scan source leaves are intentionally partial
 modules with no placeholders; their complete universal leaf gates remain open.
+
+
+## Major proof checkpoint:16:43UTC
+
+Accepted998176 and accepted cumulative saving1906447 remain unchanged.
+Controller correspondence is now checked: session39814488598iteration4 atfb199ee
+strictly built the actual Lean control and compared every43364row against the
+pinned pilot;28corruptions rejected. All21682controls remainpaid. Geometry's
+consume/prepend/header arbitrary-frame equalities passed9b50904. OriginalW and
+fixed-width value proofs passed; finalformat/framedScan checks continue. These are
+proof dependencies of the228832fullsaving, not accepted intermediate reductions.
+
+Compiled full-private audit smoke39815643692 passed in27.433seconds; audit itself
+7.088seconds,4821213184bytes,9roots700dependencies,propextonly. This removes the
+interpreted-audit obstruction under the original6GiBcap. Full bounded body trial
+39816362847 now tests rawNat map/typedquotient and increasing actualrow coverage.
+It has1200seconds/6GiB; exactkernelnegative after64states; stopatfirstobstruction.
+No full map or actual-row proof has yet passed. Uploaded artifacts are retained
+with explicit PENDING provenance while GitHub status is delayed; final API/log
+retention remains a gate before any accepted machine.

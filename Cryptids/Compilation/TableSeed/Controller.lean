@@ -496,6 +496,32 @@ def controlRow : Control → Bit → Option (Bit × Dir × Control)
   | .done, _ => none
   | .error, bit => some (bit, .right, .error)
 
+/-- Selecting a tag region does not change its local physical row. -/
+theorem controlRow_tagControl (tag : Fin 7) (index : Nat)
+    (bound : index < tagSize tag) (bit : Bit) :
+    controlRow (tagControl tag index bound) bit = tagRow tag ⟨index, bound⟩ bit := by
+  fin_cases tag <;> rfl
+
+theorem literalRow_read (phase : Fin 2) (parser : Fin 7) (position : Fin 7)
+    (bit : Bit) :
+    literalRow phase ⟨7 * parser.val + position.val, by omega⟩ bit =
+      readRow (.literal phase parser) position bit := by
+  have bound : 7 * parser.val + position.val < 49 := by omega
+  have quotient : (7 * parser.val + position.val) / 7 = parser.val := by omega
+  have remainder : (7 * parser.val + position.val) % 7 = position.val := by omega
+  simp only [literalRow, bound, ↓reduceDIte, quotient, remainder]
+
+theorem literalRow_emit (phase : Fin 2) (letter : Letter) (position : Fin 35)
+    (bit : Bit) :
+    literalRow phase ⟨49 + 35 * letter.val + position.val, by omega⟩ bit =
+      emitRow (.literal phase letter) position bit := by
+  have bound : ¬49 + 35 * letter.val + position.val < 49 := by omega
+  have quotient : (49 + 35 * letter.val + position.val - 49) / 35 = letter.val := by
+    omega
+  have remainder : (49 + 35 * letter.val + position.val - 49) % 35 = position.val := by
+    omega
+  simp only [literalRow, bound, ↓reduceDIte, quotient, remainder]
+
 def machine : Machine 21682 2 where
   transition state bit := (controlRow (decode state) bit).map
     (fun (write, dir, next) ↦ (write, dir, encode next))

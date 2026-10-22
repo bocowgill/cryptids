@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_table_seed_20261022/controller_compare.py"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "Table seed actual controller comparison passed\n",
+  "output_sha256": "ecf5769528eb4bf6dfd4ce7bbd97c2577047b378648f20017ad8bd14574f356a",
+  "timed_out": false,
+  "timeout_seconds": 300,
+  "elapsed_seconds": 2.115168878000077,
+  "cumulative_children_peak_rss_kib": 4296632
+}

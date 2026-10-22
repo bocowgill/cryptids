@@ -1,10 +1,9 @@
 # Bounded concrete quotient certificate scalability pilot
 
-Status: the first compiled-auditor smoke run failed at an unavailable allocator
-helper during compilation. That optional call is removed; the mandatory sampled
-6-GiB combined RSS limit and 300-second smoke budget remain. The next decision
-test still stops after auditing the same nine-root smoke module. Zero actual-body
-row proofs have passed. This
+Status: the compiled-auditor smoke passed in 27.433 seconds. Its full-private
+audit checked nine roots and 700 dependencies, using only `propext`, below the
+6-GiB sampled RSS cap. The full pilot is authorized with the same fixed driver
+and original 1,200-second/6-GiB budget. Zero actual-body row proofs have passed. This
 experiment tests the cost of ordinary Lean kernel certificates for the measured
 114,487-state quotient. A pass covers only the requested sample, never all
 573,802 old states or a new accepted chess machine. The accepted full-machine
@@ -151,10 +150,10 @@ the source frontend environment in the auditing process. It preserves
 `importModules ... {} 0`, full private proof bodies, all nine smoke roots and
 the existing dependency traversal and three-axiom whitelist. There is no
 interpreted or public-only fallback. The native auditing process is bounded by
-the existing sampled 6-GiB combined RSS cap. Whether this removes enough memory overhead is the
-question for the next bounded test, not an established result.
+the existing sampled 6-GiB combined RSS cap. The subsequent smoke result below
+measures this audit path; complete-map and body-row costs remain open.
 
-The next run uses `--smoke-only --seconds 300`. It generates only the auditor,
+The separate decision test uses `--smoke-only --seconds 300`. It generates only the auditor,
 loaders, smoke sources, exact nine-root manifest and tiny literal data; it does
 not read or generate the full measured map, select body states or build any
 body-row sample. Auditor compilation has a 120-second stage cap, followed by
@@ -186,6 +185,38 @@ compilation retains the root-owned lakefile's `-M6144` setting. The exact nine
 roots, full-private imports, whitelist, executable identity checks and distinct
 smoke-only success gate are unchanged. The failed receipt remains unchanged.
 
+## Compiled-auditor smoke passed
+
+Run `39815643692`, commit `fb199eeeee42b86d1e3085357014f37fe3621721`, completed
+with `status: smoke_passed` and the distinct compiled-audit smoke success marker.
+Raw evidence is retained at `/tmp/chess-body-smoke-39815643692/`, with official
+packet retention handled by the root runner. Total elapsed time was 27.433
+seconds, and driver peak RSS was 25,256 KiB.
+
+| Stage | Seconds | Peak combined RSS, bytes |
+|---|---:|---:|
+| Compile auditor | 6.484 | 2,465,046,528 |
+| Loaders | 6.176 | 2,433,961,984 |
+| Template kernel build | 7.388 | 3,004,153,856 |
+| Compiled full-private audit | 7.088 | 4,821,213,184 |
+
+Every stage exited zero without a resource stop. The exact nine-root manifest
+was audited through 700 dependencies, and the only permitted axiom encountered
+was `propext`. The native binary was 118,591,176 bytes, SHA-256
+`9d815f916dc156b36a44a967165e2d256e0459d97df27c5dd8621b6088e27eed`.
+Its retained 3,029-byte audit source has SHA-256
+`9d2a7db1fd5d82bbdadf4f6e0db0571af956741f42a89c3086c61414d52512df`.
+The unchanged 35,427-byte driver source has SHA-256
+`f55dd45b9b3b951cf7e371debe4bc3a323140e9118e4f98ccec3f5897bd3bc9a`.
+
+This confirms the compiled audit path can check the small production-template
+module within the cap. The complete candidate-data flag remains false, both
+actual-body row counters remain zero, and the deliberately false body-row
+control remains unrun. The result is not a full quotient certificate or a new
+accepted machine. On this evidence the root authorized the unchanged full
+pilot, with the original 1,200-second and 6-GiB limits; its partial-row gate
+remains open. The driver is fixed for that run.
+
 ## Root-owned runner interface
 
 Prebuild these accepted dependencies using the root-owned lakefile, outside the
@@ -213,8 +244,9 @@ name = "chess_body_certificate_audit"
 root = "Cryptids.Chess.Optimisation.BodyCertificatePilot.Audit"
 ```
 
-The next decision run adds `--smoke-only` and uses `--seconds 300` instead of
-1,200. The root-owned verifier binds the accepted `accepted-998176-pins.json`
+Smoke-only mode adds `--smoke-only` and uses `--seconds 300` instead of 1,200.
+The authorized full run omits that flag and keeps the command above. The
+root-owned verifier binds the accepted `accepted-998176-pins.json`
 checkpoint. The driver invokes `lake` directly and generates modules only in the
 remote ephemeral checkout, below
 `Cryptids/Chess/Optimisation/BodyCertificatePilot/`. The local worker authors only
