@@ -34,12 +34,12 @@ def bounceState (i : Fin r) : Fin (q + r) := Fin.natAdd q i
     (bounceState (q := q) i).val = q + i.val := rfl
 
 /-- Every actual Post write must have a return whose decoded destination is exact. -/
-def WriteCoverage (M : TM0.Machine Bool (Fin q))
+def WriteCoverage [NeZero q] (M : TM0.Machine Bool (Fin q))
     (returnAt : Fin r → Fin q) (findReturn : Fin q → Option (Fin r)) : Prop :=
   ∀ i a j b, M i a = some (j, .write b) → (findReturn j).map returnAt = some j
 
 /-- A missing lookup is explicit. Coverage rules it out for every actual source write. -/
-def compile (M : TM0.Machine Bool (Fin q))
+def compile [NeZero q] (M : TM0.Machine Bool (Fin q))
     (returnAt : Fin r → Fin q) (findReturn : Fin q → Option (Fin r)) :
     Machine (q + r) 2 where
   transition s a := Fin.addCases
@@ -70,7 +70,7 @@ theorem decode_bounce_val (returnAt : Fin r → Fin q) (k : Fin r) :
   rw [decode_bounce]
   rfl
 
-theorem compile_main (M : TM0.Machine Bool (Fin q))
+theorem compile_main [NeZero q] (M : TM0.Machine Bool (Fin q))
     (returnAt : Fin r → Fin q) (findReturn : Fin q → Option (Fin r))
     (i : Fin q) (a : Fin 2) :
     (compile M returnAt findReturn).transition (mainState i) a =
@@ -80,7 +80,7 @@ theorem compile_main (M : TM0.Machine Bool (Fin q))
             (Binary.encodeSymbol b, .right, bounceState k)) := by
   simp only [compile, mainState, Fin.addCases_left]
 
-@[simp] theorem compile_bounce (M : TM0.Machine Bool (Fin q))
+@[simp] theorem compile_bounce [NeZero q] (M : TM0.Machine Bool (Fin q))
     (returnAt : Fin r → Fin q) (findReturn : Fin q → Option (Fin r))
     (k : Fin r) (a : Fin 2) :
     (compile M returnAt findReturn).transition (bounceState k) a =
@@ -88,7 +88,7 @@ theorem compile_main (M : TM0.Machine Bool (Fin q))
   simp only [compile, bounceState, Fin.addCases_right]
 
 /-- Every retained row, including each missing row, is exactly its decoded original row. -/
-theorem rows (M : TM0.Machine Bool (Fin q))
+theorem rows [NeZero q] (M : TM0.Machine Bool (Fin q))
     (returnAt : Fin r → Fin q) (findReturn : Fin q → Option (Fin r))
     (coverage : WriteCoverage M returnAt findReturn) :
     LocalCertificate.Rows (compile M returnAt findReturn) (Binary.compile M) (decode returnAt) := by
@@ -113,7 +113,7 @@ theorem rows (M : TM0.Machine Bool (Fin q))
       Binary.compile_bounce]
 
 /-- Exact one-step agreement retains the entire tape and its head position. -/
-theorem step_decode (M : TM0.Machine Bool (Fin q))
+theorem step_decode [NeZero q] (M : TM0.Machine Bool (Fin q))
     (returnAt : Fin r → Fin q) (findReturn : Fin q → Option (Fin r))
     (coverage : WriteCoverage M returnAt findReturn) (c : Cfg (q + r) 2) :
     (step (compile M returnAt findReturn) c).map (LocalCertificate.decodeCfg (decode returnAt)) =
@@ -121,7 +121,7 @@ theorem step_decode (M : TM0.Machine Bool (Fin q))
   LocalCertificate.step_decode _ _ _ (rows M returnAt findReturn coverage) c
 
 /-- Both termination directions hold from every retained state on every tape. -/
-theorem haltsFrom (M : TM0.Machine Bool (Fin q))
+theorem haltsFrom [NeZero q] (M : TM0.Machine Bool (Fin q))
     (returnAt : Fin r → Fin q) (findReturn : Fin q → Option (Fin r))
     (coverage : WriteCoverage M returnAt findReturn) (c : Cfg (q + r) 2) :
     (eval (step (compile M returnAt findReturn)) c).Dom ↔
@@ -187,7 +187,7 @@ def table (returnAt : Fin r → Fin q) (findReturn : Fin q → Option (Fin r))
     (remap findReturn next).map fun target ↦ (b, d, target)
 
 /-- The independent reindexing and compiler agree. Semantic correctness additionally uses coverage. -/
-theorem table_compile (M : TM0.Machine Bool (Fin q))
+theorem table_compile [NeZero q] (M : TM0.Machine Bool (Fin q))
     (returnAt : Fin r → Fin q) (findReturn : Fin q → Option (Fin r)) :
     table returnAt findReturn (Binary.compile M) = compile M returnAt findReturn := by
   apply congrArg Machine.mk
