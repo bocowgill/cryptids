@@ -87,7 +87,7 @@ TARGETS={
  'codec':['Cryptids.Compilation.FieldCompiler.Codec'],
  'graph':['Cryptids.Compilation.FieldCompiler.Graph'],
  'snapshot':['Cryptids.Compilation.FieldCompiler.Snapshot'],
- 'semantics':['Cryptids.Compilation.FieldCompiler.Semantics'],
+ 'semantics':['Cryptids.Compilation.FieldCompiler.Semantics','Cryptids.Compilation.FieldCompiler.Numeric'],
  'machine':['Cryptids.Chess.Optimisation.FieldAware'],
  'full':['Cryptids.Chess.Optimisation.FieldAware']}
 

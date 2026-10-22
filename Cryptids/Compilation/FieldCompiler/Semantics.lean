@@ -26,18 +26,18 @@ theorem lower_refines {n : Nat} (op : Op n) (v : Store)
   cases op with
   | move dir next =>
     refine ⟨shift dir 13 bits, ?_, Codec.move_rep tape bits rep dir⟩
-    simp only [lower, emit_stepAux, moveCell_execute, Prod.fst, Prod.snd, go_stepAux,
+    simp only [lower, emit_stepAux, moveCell_execute, go_stepAux,
       source, TM1.stepAux]
   | write field value next =>
     refine ⟨written (fieldOffset field) (encodeWord (value (FieldReturn.symbolCode v))) bits,
       ?_, Codec.write_rep tape bits rep field (value (FieldReturn.symbolCode v))⟩
     simp only [lower, select5_stepAux, emit_stepAux, writeAt_execute,
-      Prod.fst, Prod.snd, go_stepAux, source, TM1.stepAux]
+      go_stepAux, source, TM1.stepAux]
   | load field value next =>
     have read := Codec.read_rep tape bits rep field
-    simp only [readAt_execute, Prod.fst, Prod.snd] at read
+    simp only [readAt_execute] at read
     refine ⟨bits, ?_, rep⟩
-    simp only [lower, emit_stepAux, readAt_execute, Prod.fst, Prod.snd,
+    simp only [lower, emit_stepAux, readAt_execute,
       Syntax.meaning, TM1.stepAux, table_read, go_stepAux, source,
       FieldReturn.code_roundtrip, read.1]
   | pureLoad value next =>
@@ -45,23 +45,28 @@ theorem lower_refines {n : Nat} (op : Op n) (v : Store)
     simp only [lower, Syntax.meaning, TM1.stepAux, table_read, go_stepAux, source,
       FieldReturn.code_roundtrip]
   | marker yes no =>
-    refine ⟨bits, ?_, rep⟩
-    simp only [lower, emit_stepAux, FieldContinuation.marker_execute, Prod.fst, Prod.snd,
-      Codec.marker_rep tape bits rep, go_stepAux, source, TM1.stepAux]
-    cases tape.head.1 <;> rfl
+    refine ⟨bits, ?_, ?_⟩
+    · simp only [lower, emit_stepAux, FieldContinuation.marker_execute,
+        Codec.marker_rep tape bits rep, go_stepAux, source, TM1.stepAux]
+      cases tape.head.1 <;> rfl
+    · cases flag : tape.head.1 <;> simpa [source, TM1.stepAux, flag] using rep
   | absent field yes no =>
     have read := Codec.read_rep tape bits rep field
-    simp only [readAt_execute, Prod.fst, Prod.snd] at read
-    refine ⟨bits, ?_, rep⟩
-    simp only [lower, emit_stepAux, readAt_execute, Prod.fst, Prod.snd, read.1,
-      go_stepAux, source, TM1.stepAux]
-    cases tape.head.2 (FieldReturn.stackAt field) with
-    | none => rfl
-    | some symbol => cases symbol <;> rfl
+    simp only [readAt_execute] at read
+    refine ⟨bits, ?_, ?_⟩
+    · simp only [lower, emit_stepAux, readAt_execute, read.1,
+        go_stepAux, source, TM1.stepAux]
+      cases tape.head.2 (FieldReturn.stackAt field) with
+      | none => rfl
+      | some symbol => cases symbol <;> rfl
+    · cases fieldValue : tape.head.2 (FieldReturn.stackAt field) <;>
+        simpa [source, TM1.stepAux, fieldValue] using rep
   | branch test yes no =>
-    refine ⟨bits, ?_, rep⟩
-    simp only [lower, Syntax.meaning, TM1.stepAux, table_read, go_stepAux, source]
-    cases test (FieldReturn.symbolCode v) <;> rfl
+    refine ⟨bits, ?_, ?_⟩
+    · simp only [lower, Syntax.meaning, TM1.stepAux, table_read, go_stepAux, source]
+      cases test (FieldReturn.symbolCode v) <;> rfl
+    · cases flag : test (FieldReturn.symbolCode v) <;>
+        simpa [source, TM1.stepAux, flag] using rep
   | jump target =>
     exact ⟨bits, by simp only [lower, go_stepAux, source, TM1.stepAux], rep⟩
   | halt => exact ⟨bits, rfl, rep⟩
