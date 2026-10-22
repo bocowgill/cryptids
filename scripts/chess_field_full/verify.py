@@ -143,8 +143,9 @@ def accepted_regressions():
       ('scripts/chess_m6/SharedFixtures.lean','Shared fixtures passed:',[]),
       ('scripts/chess_m7/Fixtures.lean','M7 quotient fixtures passed',[]),
       ('scripts/chess_openevolve/Fixtures.lean','Terminal binary fixtures passed',[])]:
-        checks.append(run(['lake','env','lean','-M6144','-DwarningAsError=true',
-                           '--run',name]+args,expected,timeout=600))
+        mode=[] if name=='scripts/chess_m6/SharedFixtures.lean' else ['--run']
+        checks.append(run(['lake','env','lean','-M6144','-DwarningAsError=true']+
+                          mode+[name]+args,expected,timeout=600))
     return checks
 
 def regenerate():

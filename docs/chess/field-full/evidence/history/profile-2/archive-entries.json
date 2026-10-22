@@ -1,0 +1,18 @@
+{
+  "commands/1792642611020384017.json": {
+    "bytes": 1334,
+    "sha256": "9b5f7288a6127351c911c5e6254e374afbbbc8c00ec16d2391b10f1601472e15"
+  },
+  "commands/1792642614521290306.json": {
+    "bytes": 6536,
+    "sha256": "41c2addf96a272b2a9da825969a635f1db1dfed020f83d78d8661d8b9fed4370"
+  },
+  "machine-export.json": {
+    "bytes": 15317327,
+    "sha256": "87c93fb00418901ca33a6f6b05956c11ce885fb86bc3b8f359ff9daefea0011a"
+  },
+  "profile.json": {
+    "bytes": 83701,
+    "sha256": "a0a456490ebcac70ee91d367bb123f464efcb3015895a7abae82628e1d162812"
+  }
+}

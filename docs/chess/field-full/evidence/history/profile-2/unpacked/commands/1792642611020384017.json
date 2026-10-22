@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "lake",
+    "--wfail",
+    "-f",
+    "lakefile.chess-field-full.toml",
+    "build",
+    "chess_field_full_export"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "\u2714 [3856/3930] Built Cryptids.Compilation.FieldCompiler.Graph (3.9s)\n\u2139 [3908/3930] Replayed Cryptids.Chess.Compilation.SourceCertificate\ninfo: Cryptids/Chess/Compilation/SourceCertificate.lean:226:0: Source certificate: 7076 checked lemmas, 7037 cache hits\ninfo: Cryptids/Chess/Compilation/SourceCertificate.lean:230:0: Literal row certificate: 5952 checked rows in 186 chunks\n\u2139 [7762/7844] Replayed Cryptids.Chess.Compilation.Input\ninfo: Cryptids/Chess/Compilation/Input.lean:128:0: Checked 186 literal row chunks: 141042 stack symbols\n\u2714 [7768/7844] Built Cryptids.Compilation.FieldCompiler.Graph:c.o (680ms)\n\u2714 [7840/7844] Built Cryptids.Chess.Optimisation.FieldAware (3.6s)\n\u2714 [7842/7844] Built scripts.chess_field_full.Export (5.2s)\n\u2714 [7844/7844] Built chess_field_full_export:exe (2.6s)\nBuild completed successfully (7844 jobs).\n",
+  "output_sha256": "f091e60c6b970ebdba810eedd40813d309443a4b67c2e10012af95ae2872b62f",
+  "timed_out": false,
+  "timeout_seconds": 1800,
+  "elapsed_seconds": 20.021824070000008,
+  "cumulative_children_peak_rss_kib": 4454132
+}
