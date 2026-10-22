@@ -26,8 +26,8 @@ Keep the frozen chess specification and every pre-campaign tracked file fixed;
 `baseline-pins.json` records their hashes. Use new source and evidence paths.
 No outreach, upstream issues/comments/PRs, or messages to other people.
 
-The goal has no numeric token budget. Latest account snapshot: **52% used,
-48% remaining** in the primary window. No reset credits have been consumed.
+The goal has no numeric token budget. Latest account snapshot: **53% used,
+47% remaining** in the primary window. No reset credits have been consumed.
 Check usage periodically and maintain this handoff throughout the run.
 
 ## Round 01: selective return controls
@@ -49,8 +49,8 @@ See `round-01/CONSTRUCTION.md`, `GENERIC-ROUTE.md`, and `BODY-ROUTE.md`.
 
 - `FieldReturns.Syntax` and `FieldReturns.Graph` built successfully in remote run
   `39777697376` at `bc2e490`. Their current source hashes matched that receipt.
-- `SelectiveBinary` proofs elaborated in session `39779413053`, iteration 1.
-  Only a long-line warning remained; its source repair accompanies this checkpoint.
+- `SelectiveBinary` passed strict Lean in session `39780889172`, iteration 1,
+  at `965a568`. Parent matched its current source hash to the remote manifest.
 - The three `FieldSelective` modules are complete source drafts, including both
   halting directions, exact paid tape entry, state count and row-image equality.
   Their strict integrated build remains pending.
@@ -72,7 +72,8 @@ first check and its five-minute wait expired. Its diagnostics are retained under
 dependent equivalence rewrites and protection against expanding the large
 layout during child coverage. Those repairs accompany this checkpoint.
 
-Dispatch a new bounded remote session targeting `full`. It can check up to eight committed
+Current run **39780889172**, initial source/workflow **965a568**, is the new bounded
+remote session targeting `full`. It can check up to eight committed
 revisions while retaining one runner's dependency cache. Each iteration uploads
 `chess-goal-session-N-SOURCE_SHA`. It stops after a successful full check or five
 minutes without a new source commit, with a 60-minute job timeout.
@@ -81,6 +82,11 @@ For later iterations, the computation commit differs from the workflow's initial
 head SHA. `session-binding.json`, `source-manifest.json`, and the saved executed
 workflow bind these separately. Preserve both identities.
 
+Iteration 1 passed the generic compiler and left one concrete-layout heartbeat
+limit at `returnAt_live`. Its diagnostics are retained in
+`round-01/evidence/session-39780889172-1`; the concrete worker is repairing it.
+The session's next-source wait began at 12:49:29 UTC and expires after five minutes.
+
 Read compact run status and artifact metadata with `gh`. Download each completed
 iteration's diagnostics while the session waits, repair its actual errors, then
 push a source checkpoint. Avoid documentation-only pushes during a waiting
@@ -88,7 +94,7 @@ session: any new branch commit triggers the next check.
 
 ## Next concrete task
 
-1. Dispatch the repaired checkpoint and retrieve its first iteration. Route generic errors
+1. Retrieve run 39780889172's next completed iteration. Route generic errors
    to `goal_selective_binary`, concrete layout errors to `goal_selective_chess`,
    exporter errors to `goal_selective_export`, and fixture errors to
    `goal_selective_fixtures`. These agents are available for follow-up repairs.
@@ -107,8 +113,10 @@ session: any new branch commit triggers the next check.
 Directory: `/Users/bocowgill/.codex/worktrees/6ba9/cryptids`.
 Branch: `codex/chess-openevolve-pilot`. Fork: `bocowgill/cryptids`.
 `origin` is upstream, so push explicitly to `git@github.com:bocowgill/cryptids.git`.
-All computation sources through `cd09c1e` are pushed. This handoff and the new
-retention helper should accompany the next source checkpoint.
+All computation sources through `965a568` and the retention helper are pushed.
+The source-only sealed checker and next-initializer scouting report have separate
+owners (`goal_evidence_checker`, `goal_initializer_route`). Neither constitutes
+acceptance of the current candidate or the start of a second implementation route.
 
 Unlazy scope: `.unlazy/chess-goal-20261022-r01`; a tracked ledger snapshot is under
 `round-01/ledger-snapshot`. Component source gates are distinct from remote proof

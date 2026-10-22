@@ -136,6 +136,8 @@ def findReturn (q : Fin (CompactPost.stateCount 106668 5)) : Option (Fin 40461) 
   | none => some haltReturn
   | some (pc, value) => findReturnSlot (FieldPacked.layout.code.symm pc) value
 
+attribute [local irreducible] code
+
 theorem returnAt_halt (value : Fin 5) :
     returnAt haltReturn = CompactPost.encode FieldPacked.getter (none, value) := rfl
 
@@ -144,6 +146,7 @@ theorem returnAt_live (q : Fin 4042) (i : Fin (localSize q)) (value : Fin 5) :
       (some (nodeIndex q (FieldReturns.targetAt _ i)), value) := by
   simp only [returnAt, liveReturn, finSumFinEquiv_symm_apply_natAdd]
   rw [finProdFinEquiv.symm_apply_apply]
+  change returnAtSlot (code.symm (code ⟨q, i⟩)) value = returnAtSlot ⟨q, i⟩ value
   exact congrArg (fun slot ↦ returnAtSlot slot value) (code.symm_apply_apply ⟨q, i⟩)
 
 theorem findReturn_halt (value : Fin 5) :
