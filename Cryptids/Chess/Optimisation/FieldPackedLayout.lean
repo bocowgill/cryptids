@@ -303,8 +303,9 @@ theorem code_val (q : Fin 4042) (i : Fin (FieldAware.syntaxRows.get q).size) :
   change ((finCongr packed_nodes) (packed.code (sourceSlots ⟨q, i⟩))).val = _
   simp only [finCongr_apply, Fin.val_cast]
   change (packed.code ⟨(sourceSlots ⟨q, i⟩).1, (sourceSlots ⟨q, i⟩).2⟩).val = _
-  rw [packed.code_val, sourceSlots_snd_val, sourceSlots_fst]
-  rfl
+  rw [packed.code_val]
+  exact congrArg₂ (· + ·) (congrArg packed.offset (sourceSlots_fst q i))
+    (sourceSlots_snd_val q i)
 
 theorem index_val (q : Fin 4042) (i : Fin (FieldAware.syntaxRows.get q).size) :
     (index q i).val = offset q + i.val := code_val q i
