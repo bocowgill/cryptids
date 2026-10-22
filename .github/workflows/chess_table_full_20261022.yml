@@ -1,0 +1,60 @@
+name: Chess complete structured initializer
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: Complete proof or full acceptance evidence
+        type: choice
+        options: [machine, full]
+        default: machine
+permissions:
+  contents: read
+concurrency:
+  group: chess-table-full-20261022-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    env:
+      ELAN_NO_UPDATE_CHECK: '1'
+      LEAN_NUM_THREADS: '1'
+      CHESS_REMOTE: '1'
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+      - uses: leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6
+        with:
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'false'
+          use-github-cache: 'false'
+      - uses: actions/cache/restore@caa296126883cff596d87d8935842f9db880ef25
+        with:
+          path: |
+            .lake/packages
+            .lake/build
+          key: chess-table-full-20261022-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-${{ github.sha }}
+          restore-keys: |
+            chess-table-full-20261022-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-
+            chess-table-proof-20261022-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-
+            chess-seed-20261022-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-
+      - name: Fetch pinned Mathlib cache
+        run: timeout --signal=TERM --kill-after=10s 900s lake exe cache get Mathlib
+      - name: Complete remote verification
+        run: python3 scripts/chess_table_full_20261022/verify.py --target "${{ inputs.target }}"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: chess-table-full-${{ inputs.target }}-${{ github.sha }}
+          include-hidden-files: true
+          path: .lake/chess-table-full-20261022/**
+          retention-days: 30
+      - uses: actions/cache/save@5a3ec84eff668545956fd18022155c47e93e2684
+        if: always()
+        with:
+          path: |
+            .lake/packages
+            .lake/build
+          key: chess-table-full-20261022-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-${{ github.sha }}

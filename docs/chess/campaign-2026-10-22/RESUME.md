@@ -1,10 +1,23 @@
-# Chess compression campaign — PAUSED by user, 2026-10-22
+# Chess compression campaign — resumed by user, 2026-10-22
 
-**Do not resume research, builds, searches or remote jobs until the user asks.**
-This checkpoint preserves the entire working state. Resource exhaustion did not
-cause this stop; the user explicitly requested a complete checkpoint and pause.
+**User explicitly resumed the existing campaign from checkpoint fc16528.**
+The immutable pause snapshot remains in `pause-2026-10-22/`; the current handoff
+continues below. Goal tooling still reports paused and cannot set active; app
+Resume is needed for automatic goal continuation, but current-turn work is authorized.
+Resource exhaustion did not cause the earlier stop.
 The optimization goal is not complete. Latest observed usage was 1% used after
 the service changed its earlier 93% reading; no agent-initiated reset occurred.
+
+## Hard stop for this resumed run
+
+User requested graceful wind-down **by 2026-10-22 16:15 America/New_York**
+(**20:15 UTC**), preferably earlier at a useful checkpoint. Their hard stop is
+16:25 Eastern. Stop launching substantial work by15:45 Eastern (19:45 UTC),
+begin shutdown/checkpoint by16:00 (20:00 UTC), stop workers and remote jobs,
+retain diagnostics and save/push a clean handoff, then mark the goal paused.
+Do not consume the remaining usage past this deadline. An early stop is appropriate
+if the goal is achieved or a useful recoverable checkpoint is reached. A resource
+or time stop is not proof of global minimum or successful campaign completion.
 
 ## Accepted machine and exact objective
 
@@ -105,7 +118,7 @@ fixtures/10corruptions. Source/pilot bytes remain fixed.
 | `Scan.lean` | Complete strict39816368927 atc0be393; generic framed marker scans. |
 | `Blocks.lean` | Complete strict39821625026 atf1aec68,6.2s. Actual paid entry/read/emit/finish and Reaches contracts, no assumed free controls. |
 | `ChessCodec.lean` | Complete strict39820664426 iteration2f1aec68,3.3s. Exact frozen letters and173641packetbits/173642writerstates using existing certified row bounds. |
-| `Transducer.lean` | Through literal/row/reversed-phase composition passed39821587222 atf1aec68,12s. **Final `packetRaw`, `packet_eq_header_raw`, `packet_run` are saved but unverified.** |
+| `Transducer.lean` | Through literal/row/reversed-phase composition passed39821587222 atf1aec68,12s. **Complete final packet theorem passed strict39825511470 iteration3 atdfb522a (5.1s).** |
 | `Correct.lean` | Conditional general Step/Path-to-machine lift passed uploaded strict39823380010 at721ab74,2.7s, before pause cancellation. Retained `correct-pause-live-01/`. Final source-path premise is not yet discharged. Leaf review/ledger reconciliation remains. |
 
 Required final packet signature:
@@ -124,9 +137,9 @@ Exact source hashes, receipts and former ownership are in the pause snapshot.
 
 1. Read this checkpoint and final remote metadata; reclaim only required ownership
    scopes. All campaign workers stopped and active leases were released on pause.
-2. Run strict remote `--target transducer` on saved finalpacket source. Repair
-   only real diagnostics. Do not redo already-passed foundation development.
-3. Reconcile the uploaded `Correct` pass, then discharge its explicit source-path
+2. Finalpacket strict check passed on resume (39825511470 iteration3, dfb522a).
+   Preserve this verified source; official final evidence is being retained.
+3. Conditional `Correct` pass is reconciled; now discharge its explicit source-path
    premise using verified packet_run and header identity. Strictly check the
    unconditional entire-tape/head decoder theorem.
 4. Add full `FieldTableSeed` / public `ChessTableSeed` linking through existing
@@ -156,4 +169,5 @@ Workspace `/Users/bocowgill/.codex/worktrees/6ba9/cryptids`, branch
 `git@github.com:bocowgill/cryptids.git`, same branch. Source baseline before pause
 checkpoint:721ab7423d47146c446c51e6e601593c0f9e46d0. The final checkpoint commit
 includes the saved unverified packet theorem and every retained evidence packet;
-use current `git log` to identify it. Do not start work until the user resumes.
+the complete pause checkpoint is fc16528caeaf909e9bfb2b0239ced8f352d6bf3d.
+The user has now explicitly resumed, with every prior constraint preserved.

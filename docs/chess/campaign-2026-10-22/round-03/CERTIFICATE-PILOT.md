@@ -1,10 +1,12 @@
 # Bounded concrete quotient certificate scalability pilot
 
-Status: the first trial of the chunked quotient stopped on strict long-line
-warnings in the template smoke. Its formatting repair is source-ready and
-awaits remote verification. The preceding full trial successfully loaded and
-audited the complete map, then stopped on a recursion-depth error in the
-executable quotient declaration. Zero actual-body row proofs have passed. This
+Status: the user resumed this work from checkpoint `fc16528` on 2026-10-22.
+The root is rerunning the unchanged formatting repair under the original
+1,200-second/6-GiB limits. Trial 07 stopped on strict long-line warnings;
+trial 08 was cancelled at the user's pause request and retained only a source
+manifest. The preceding full trial successfully loaded and audited the complete
+map, then stopped on a recursion-depth error in the executable quotient
+declaration. Zero actual-body row proofs have passed. This
 experiment tests the cost of ordinary Lean kernel certificates for the measured
 114,487-state quotient. A pass covers only the requested sample, never all
 573,802 old states or a new accepted chess machine. The accepted full-machine
@@ -292,6 +294,26 @@ assembled branches, including the complete 128-shard expression. These changes
 preserve all names, types, literal paths, terms, data and limits. No linter is
 disabled. Only the generator source and this report were edited locally; the
 new formatting has not been generated or executed locally.
+
+## Trial 08: user cancellation and unchanged resumed run
+
+Run `39822945066` used the formatting-only source checkpoint
+`3b8e7844085ee35bc11f2b5ac1be36d0768da3f7` and was cancelled at the user's pause
+request. Its retained packet at `evidence/certificate-pause-live-08/` contains
+only [source-manifest.json](evidence/certificate-pause-live-08/unpacked/source-manifest.json),
+as recorded in the [archive inventory](evidence/certificate-pause-live-08/archive-entries.json).
+No pilot summary, stage outcome or row certificate is retained. The manifest
+binds the driver to SHA256
+`d75109fb1d4c8f30aca47d431ed50d588342d6f9ae65b554f9ba526b11dc4b46`;
+it does not establish that any pilot stage passed or failed. No scalability
+conclusion follows from this cancellation.
+
+The user explicitly resumed the existing goal from `fc16528` on 2026-10-22.
+The root is rerunning that unchanged bounded driver before any further design
+change. All generation, Lean, model, count and audit execution remains remote
+only. The current leaf retains zero actual-body row proofs, an open G2 gate
+and a conditional 459,315-state saving. The driver stays fixed while awaiting
+the resumed run's retained diagnostics.
 
 ## Root-owned runner interface
 

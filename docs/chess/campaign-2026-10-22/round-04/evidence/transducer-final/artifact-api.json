@@ -1,0 +1,20 @@
+{
+  "id": 12447460792,
+  "node_id": "MDg6QXJ0aWZhY3QxMjQ0NzQ2MDc5Mg==",
+  "name": "chess-table-proof-session-3-dfb522af6c94a153c3f109dee8515d67751c9a2f",
+  "size_in_bytes": 497031,
+  "url": "https://api.github.com/repos/bocowgill/cryptids/actions/artifacts/12447460792",
+  "archive_download_url": "https://api.github.com/repos/bocowgill/cryptids/actions/artifacts/12447460792/zip",
+  "expired": false,
+  "digest": "sha256:034a038f341de4f2fce900ef97d3375ccfcf371eaa5c0e9b527c03571f9829e4",
+  "created_at": "2026-10-22T17:55:05Z",
+  "updated_at": "2026-10-22T17:55:05Z",
+  "expires_at": "2026-11-21T17:55:03Z",
+  "workflow_run": {
+    "id": 39825511470,
+    "repository_id": 1426408147,
+    "head_repository_id": 1426408147,
+    "head_branch": "codex/chess-openevolve-pilot",
+    "head_sha": "fc16528caeaf909e9bfb2b0239ced8f352d6bf3d"
+  }
+}
