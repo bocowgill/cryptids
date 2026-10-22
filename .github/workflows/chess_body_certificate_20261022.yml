@@ -41,6 +41,8 @@ jobs:
           key: chess-body-certificate-20261022-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-${{ github.sha }}
           restore-keys: |
             chess-body-certificate-20261022-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-
+            chess-table-full-20261022-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-
+            chess-table-proof-20261022-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-
             chess-seed-20261022-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-
             chess-goal-20261022-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-
       - name: Fetch pinned Mathlib cache
@@ -54,3 +56,10 @@ jobs:
           include-hidden-files: true
           path: .lake/chess-body-certificate-20261022/**
           retention-days: 30
+      - uses: actions/cache/save@5a3ec84eff668545956fd18022155c47e93e2684
+        if: always()
+        with:
+          path: |
+            .lake/packages
+            .lake/build
+          key: chess-body-certificate-20261022-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-${{ github.sha }}

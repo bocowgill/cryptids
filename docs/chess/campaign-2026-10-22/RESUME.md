@@ -2,7 +2,7 @@
 
 The user resumed the existing goal from `fc16528`. The goal is active and the
 optimization objective remains open. The previous pause snapshot is immutable
-in `pause-2026-10-22/`. Latest account usage observation: 54% consumed at 18:27 UTC;
+in `pause-2026-10-22/`. Latest account usage observation: 70% consumed at 18:44 UTC;
 usage is shared across the account and may change independently of this task.
 
 ## Hard wind-down
@@ -46,8 +46,10 @@ checks and copied-directory portability passed. See `round-04/RESULTS.md`,
 
 Checker SHA: `86e414ccf7b9931fdccd1b8417fc2e5b27154c6faa5557b5dceb16b11e196a82`.
 Seal SHA: `29579084f3691e6ab8dd9c6447df7fb70abcb858994b7c9c23b04687c3d6d8c4`.
-All 2,983 predecessor pins and 57 computation source hashes matched. Preserve the
-new accepted pin manifest when present, as well as every earlier accepted pin set.
+All 2,983 predecessor pins and 57 computation source hashes matched. The new `accepted-769344-pins.json` freezes 3,116 files (SHA-256
+`43942091ac61ca4d93001fb259eb8e0694bbc499e5279658ac10d3836f166102`).
+The complete accepted checkpoint is `100ed94` and is pushed to the fork. Preserve
+that manifest and every earlier accepted pin set.
 The successful diagnostic `full-01` is retained separately; the final run includes
 a reviewed ten-step resource-counter correction.
 
@@ -110,3 +112,8 @@ Workspace `/Users/bocowgill/.codex/worktrees/6ba9/cryptids`, branch
 `codex/chess-openevolve-pilot`. **Origin is upstream: do not push origin.** Use
 `git@github.com:bocowgill/cryptids.git`, the same branch, for authorized checkpoints.
 No upstream communication is authorized.
+
+Remote setup improvement for the next pilot: the body workflow now restores the
+fresh accepted table cache and saves subsequent body caches. Trial 10 spent
+645.964 seconds rebuilding unchanged base modules; this infrastructure repair
+changes no proof, source requirement, machine count or resource cap.

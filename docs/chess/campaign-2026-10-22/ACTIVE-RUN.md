@@ -60,3 +60,10 @@ audit passed2.628s/4,223,442,944bytes. Combined Data hit6GiB after16.412s at
 certificate-10 retained. Separate thin-data/fidelity facts from heavy chess imports
 is under source-only review; no larger cap or new accepted saving. All jobs finished.
 Root updated next pilot wrapper to validate all3116accepted769344pins.
+
+Remote infrastructure finding: trial10 spent645.964s rebuilding unchanged base
+modules because its restore keys missed the fresh accepted table cache. Root adds
+that pinned-toolchain cache fallback and saves subsequent body cache; Lake strict
+source checking and all proof audits remain. This reduces repeated setup, not any
+machine states or proof obligations. The data-split pilot is under source review.
+Latest usage70%used at18:44UTC; accepted checkpoint100ed94 and trial10b243220 pushed.

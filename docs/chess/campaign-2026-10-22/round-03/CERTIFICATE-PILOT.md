@@ -1,14 +1,16 @@
 # Bounded concrete quotient certificate scalability pilot
 
-Status: resumed trial 09 passed its two-chunk smoke and complete map build/audit,
-then hit the sampled 6-GiB RSS limit compiling the full typed quotient. The
-authorized packed-natural quotient is implemented in the remote-only generator
-and awaits remote verification. Zero actual-body row proofs have passed. This
+Status: trial 10 passed the packed quotient's complete build and full-private
+audit, then hit the sampled 6-GiB RSS limit in the combined `Data` module. The
+authorized module split is implemented and awaits remote verification.
+Zero actual-body row proofs have passed. This
 experiment tests the cost of ordinary Lean kernel certificates for the measured
 114,487-state quotient. A pass covers only the requested sample, never all
 573,802 old states or a new accepted chess machine. The accepted full-machine
-baseline is now 998,176 states; this experiment targets the additional measured
-459,315-state opportunity.
+baseline is now 769,344 states, accepted at `100ed94`; the unchanged body still
+has 573,802 states. This experiment targets the additional measured 459,315-state
+opportunity, for a conditional complete total of 310,029. All 3,116 entries in
+the new accepted pin set and all earlier accepted pins remain fixed.
 
 ## First remote attempt and bounded repair
 
@@ -398,8 +400,9 @@ the first actual-row proofs expose a separate bottleneck.
 Generated `Packed.lean` contains the shared executable codec and eight generic
 range/fidelity theorems. `Loaders` imports it, so its strict build occurs within
 the existing 60-second setup stage. `TemplateSmoke` and `Data` each name exactly
-20 required audit roots: their concrete obligations plus all eight generic
-theorems. The smoke also kernel-checks code zero (halt), code one (nonhalting),
+20 required audit roots in trial 10: their concrete obligations plus all eight
+generic theorems. The subsequent thin split redistributes the same complete-data
+roots as described below. The smoke also kernel-checks code zero (halt), code one (nonhalting),
 the valid maximum code eight for two states, and rejection of code nine by the
 range predicate. Its ordinary two-chunk transitions and zero actual-body-row
 census remain. The compiled full-private auditor and its standard-axiom rules
@@ -410,6 +413,82 @@ The experiment keeps the original 180-second quotient stage,
 watchdog. Stop at the first obstruction, retain all diagnostics, and do not
 raise a cap. Root owns remote dispatch; no heavy launch is
 authorized after 19:45 UTC and the work deadline is 20:15 UTC.
+
+## Trial 10: packed quotient passes; combined data exceeds memory
+
+Run `39830984315`, commit `fe8656cdd316bf64e1317bf8a8aaa64c71e9450f`, is retained
+under `evidence/certificate-10/unpacked/`. Its
+[summary](evidence/certificate-10/unpacked/certificate-summary.json) records all
+228,974 packed cells independently inverted and compared with the pinned JSON.
+The expanded smoke build passed, followed by a full-private audit of exactly
+20 roots and 1,714 dependencies, using only `propext` and `Quot.sound`.
+
+| Completed stage | Seconds | Peak combined RSS, bytes |
+|---|---:|---:|
+| Complete raw map build | 23.850 | 3,244,789,760 |
+| Map full-private audit | 3.236 | 4,276,064,256 |
+| Complete packed quotient build | 53.650 | 4,268,597,248 |
+| Quotient full-private audit | 2.628 | 4,223,442,944 |
+
+The packed quotient's 48,009,360-byte `.olean` accompanies an actual successful
+build and audit. Its [audit log](evidence/certificate-10/unpacked/QuotientDataAudit.log)
+checks the complete `quotientTree` closure: 142 dependencies and no axioms. This
+establishes that the executable packed data now loads within the existing caps;
+the complete concrete range/cache/fidelity proof remains a later obligation.
+
+The combined `Data` build was killed after 16.412 seconds at sampled combined
+RSS 6,456,266,752 bytes, exceeding the 6,442,450,944-byte limit. The receipt
+records exit -9, `process_group_memory_budget`, and no data success banner or
+produced `.olean`. Its [log](evidence/certificate-10/unpacked/Data.log) contains
+only replayed import messages, including the full accepted chess source and
+input certificates. It does not locate the peak within import loading or the
+concrete kernel reductions; no individual `Data` theorem receives proof credit.
+
+Total elapsed time was 123.342 seconds and driver peak RSS was 125,576 KiB.
+`complete_typed_candidate_data_checked` remains false, both actual-body row
+counters remain zero, and the deliberate false-row control remains unrun.
+Packed data has cleared the previous representation-stage obstruction; this
+does not certify the quotient relation or accept the conditional 459,315 saving.
+
+## Authorized bounded split: isolate data proofs from chess imports
+
+The trial-10 generated `Data` module imports both complete literal datasets,
+`FieldSelective` and `LocalCertificate`, then checks every map and quotient
+count/cache/range obligation in that combined environment. Only `RowAt` needs
+the actual accepted body; the concrete data theorems need no chess definitions.
+The authorized source implementation now uses this split:
+
+- `MapChecks` imports only `MapData` and proves the unchanged map count,
+  well-formedness, complete range, lookup bound, exact `classMap` value and entry.
+- `QuotientChecks` imports only `QuotientData` and proves the unchanged quotient
+  count, cache validity, complete packed range, per-code bound and universal
+  transition fidelity. Both modules retain their explicit full-private audits;
+  all generic codec roots remain audited. `MapChecks` names exactly six roots;
+  `QuotientChecks` names thirteen, including all eight generic codec roots.
+- A lightweight `Data` module imports those checked interfaces, with no
+  `FieldSelective` import or repeated large kernel reductions. A separate
+  `BodyRelation` imports this interface and the exact accepted `FieldSelective`
+  definition, then defines and audits the unchanged `RowAt` before `Rows64`.
+  The `Data` full-private audit rechecks all nineteen combined mathematical
+  roots; `BodyRelation` explicitly audits `RowAt`, giving the same twenty roots
+  as the previous combined stage, with additional separate receipts.
+
+All replacement builds and audits share one 120-second deadline, equal to the
+old `Data` stage allowance, within the same global 1,200-second and 6-GiB caps.
+Each completed substage gets its own receipt; the complete-data flag advances
+only after every required check/audit succeeds. The existing actual-row samples
+and negative control stay unchanged. No theorem is replaced by a hash or an
+assumption, and no full-private environment is weakened to a public-only import.
+
+The intended mechanism is to avoid simultaneously holding the heavy chess
+environment and temporary allocations for the full map/quotient reductions.
+The receipts do not prove this caused the peak. The final body relation and its
+full-private audit must still import the necessary combined definitions and
+could reveal the same resident-memory obstruction. This bounded split measures
+that distinction and retains partial proof progress; it does not guarantee a
+fit or authorize raising any limit. No accepted file or new pin has changed.
+Only the owned remote generator, report and ledger were edited; no local
+generation, Lean, model, count or audit execution was performed.
 
 ## Root-owned runner interface
 
@@ -440,8 +519,10 @@ root = "Cryptids.Chess.Optimisation.BodyCertificatePilot.Audit"
 
 Smoke-only mode adds `--smoke-only` and uses `--seconds 300` instead of 1,200.
 The authorized full run omits that flag and keeps the command above. The
-root-owned verifier binds the accepted `accepted-998176-pins.json`
-checkpoint. The driver invokes `lake` directly and generates modules only in the
+trial-10 root-owned verifier bound the accepted `accepted-998176-pins.json`
+checkpoint. The root updated the next source-bound verifier to validate the new
+`accepted-769344-pins.json`; all new and prior accepted pins stay fixed. The driver
+invokes `lake` directly and generates modules only in the
 remote ephemeral checkout, below
 `Cryptids/Chess/Optimisation/BodyCertificatePilot/`. The local worker authors only
 the Python generator/driver, this report and its leaf ledger. No local import,
@@ -494,7 +575,7 @@ quotient subtrees and assembled tree remain executable, transparent
 receipt are retained alongside the full input, shard data and generated source.
 
 Separate modules measure full-map loading, full-quotient loading, and complete
-cache/census checks. The final data module proves with `decide +kernel`:
+cache/census checks. `MapChecks` and `QuotientChecks` prove with `decide +kernel`:
 
 ```
 mapTree.count = 573802
@@ -508,12 +589,14 @@ classMap 0 = 0
 
 `mapAllBelow` recursively checks every leaf against 114,487. Its generic
 induction theorem proves that every lookup stays below the bound when the
-fallback does. Consequently the data module proves
+fallback does. Consequently `MapChecks` proves
 `mapTree.lookup index 0 < 114487` for every natural index. It defines
 `classMap s := Fin.ofNat 114487 (mapTree.lookup s.val 0)` and proves for every
 old state `s` that `(classMap s).val = mapTree.lookup s.val 0`, using
 `Nat.mod_eq_of_lt`. Thus the modulo constructor does not change the measured
-map. These complete range and identity proofs are required audit roots.
+map. These complete range and identity proofs are required audit roots, along
+with entry zero, before any accepted chess body is imported by the full-data
+path.
 
 The raw map lookup's fallback is zero. The checked complete count and cache
 validity establish the intended full-range tree layout; missing or shifted
@@ -543,8 +626,12 @@ and `.olean.private` build products remain available for this audit. The build
 and external audit share the original stage time allowance and global resource
 limits. Only their joint success advances the checked-data or positive-row
 census. `Loaders` contains setup elaborators and imports the shared `Packed`
-theorems, whose explicit mathematical roots are audited through both smoke and
-complete-data modules.
+theorems, whose explicit mathematical roots are audited through smoke,
+`QuotientChecks` and `Data`. `BodyRelation` imports `FieldSelective` only after
+all complete-data proofs have passed, and audits the exact actual-body row
+predicate before any sampled row proof. Its construction and audit alone do
+not certify a row. The complete-data flag advances only after this final
+integration stage also passes.
 
 ## Exact actual-body claims and representative samples
 
@@ -597,7 +684,7 @@ honestly recorded as unrun, and the pilot stops.
 | `TemplateSmoke` | 60 | Small production-template checks and dependency audit; zero actual-body rows |
 | `MapData` | 240 | Complete natural-valued map and dependency audit |
 | `QuotientData` | 180 | Complete packed quotient and dependency audit |
-| `Data` | 120 | Full counts/caches, map identity, packed range/fidelity, entry and actual-body predicate |
+| `MapChecks` → `QuotientChecks` → `Data` → `BodyRelation` | 120 shared | Separate map/Q proofs, thin assembly and exact actual-body predicate, each with full-private audit |
 | `Rows64` | 120 | 128 actual-body row proofs and dependency audit |
 | `Negative` | 45 | Kernel refusal of one false actual row |
 | `Rows512` | 180 | 1,024 actual-body row proofs and dependency audit |
@@ -607,6 +694,10 @@ The 1,200-second global wall limit includes input validation, depth selection,
 generation, auditor compilation, all builds, external audits and diagnostics.
 The smoke-only decision test uses a smaller 300-second global limit. Each stage is further capped by the
 remaining global budget. Three seconds are reserved for final diagnostics.
+The four replacement data stages share one deadline, including every build,
+audit and intervening receipt; they do not each receive 120 seconds. The
+summary retains the group's exact required/completed stage lists and elapsed
+time, including the failed stage when a resource obstruction occurs.
 A 0.1-second watchdog covers driver RSS during every phase, with a 512-MiB driver
 allowance; child stages also sample combined process-group-plus-driver RSS and
 stop above 6 GiB. Resident-memory enforcement is sampled, not an instantaneous
@@ -669,6 +760,17 @@ the pinned Lean `Init/Core.lean` confirms that both `if_pos` and `if_neg` are
 deprecated aliases; the codec now uses `ite_eq_left` and `ite_eq_right`, matching
 existing verified source usage. This source-only repair changes no proposition
 or bound. The driver is frozen for the next remote checkpoint.
+Trial 10 then verified the packed codec, smoke, complete literal map/quotient
+builds and their audits remotely. The authorized thin-data split relocates the
+same declarations and audit roots without changing their statements, bodies,
+data or accepted-body reference. It distinguishes possible temporary kernel
+reduction overhead from the final combined-import cost; no memory saving is
+assumed before its remote run.
+The thin split completed four source passes: declaration relocation and import
+boundaries; complete root/census preservation; independent targeted reviews of
+Lean visibility/closure and shared-budget failure behavior; and retention/report
+consistency. Both independent reviewers found no blocking issue. The source is
+frozen and ready for root-owned remote verification, with no local execution.
 An import or data-loading
 obstruction is useful evidence of this representation's cost, not permission
 to bypass the kernel or claim the 459,315-state reduction accepted.

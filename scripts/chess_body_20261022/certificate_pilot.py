@@ -99,6 +99,10 @@ class Driver:
             "stages": [], "generated_files": {}, "completed_positive_sample_states": 0,
             "completed_positive_unique_rows": 0, "complete_typed_candidate_data_checked": False,
             "template_smoke_checked": False,
+            "data_stage_group": {"wall_seconds": 120,
+                                 "required_stages": ["MapChecks", "QuotientChecks", "Data",
+                                                     "BodyRelation"],
+                                 "completed_stages": []},
             "audited_modules": [],
             "negative_control": {"status": "not_run"},
         }
@@ -255,6 +259,34 @@ class Driver:
             if remaining_stage <= 0:
                 raise Obstruction(stem + ": no remaining stage time for required full-private audit")
             self.run(stem, remaining_stage, "Body full-private kernel root audit passed", audit=True)
+
+    def run_data_group(self):
+        # Splitting imports is not an expanded allowance: every build, audit and
+        # intervening receipt in this group shares the original Data deadline.
+        started = time.monotonic()
+        group = self.summary["data_stage_group"]
+        group["started_after_seconds"] = started - self.start
+        self.checkpoint()
+        stages = (
+            ("MapChecks", "Complete body class map checks passed"),
+            ("QuotientChecks", "Complete packed quotient checks passed"),
+            ("Data", "Complete body certificate data assembled"),
+            ("BodyRelation", "Actual body row predicate checked"),
+        )
+        for stem, banner in stages:
+            remaining = group["wall_seconds"] - (time.monotonic() - started)
+            if remaining <= 0:
+                raise Obstruction("shared Data wall budget exhausted before " + stem)
+            try:
+                self.run(stem, remaining, banner)
+            finally:
+                group["elapsed_seconds"] = time.monotonic() - started
+            group["completed_stages"].append(stem)
+            self.checkpoint()
+        if time.monotonic() - started > group["wall_seconds"]:
+            raise Obstruction("shared Data wall budget exhausted after required audits")
+        self.summary["complete_typed_candidate_data_checked"] = True
+        self.checkpoint()
 
 
 def current_rss(pid):
@@ -873,12 +905,9 @@ def generate(driver, selected):
                 quotient_declarations(driver, "quotient", "quotient-packed.rows", K, K,
                                       QUOTIENT_CHUNK_STATES) +
                 audit_and_end(driver, "QuotientData", ["quotientTree"], "Complete body quotient rows loaded"))
-    data = header([MODULE + ".MapData", MODULE + ".QuotientData",
-                   "Cryptids.Chess.Optimisation.FieldSelective", "Cryptids.Compilation.LocalCertificate"])
-    data += MAP_BOUNDS
-    data += f'''noncomputable def classMap (s : Fin {N}) : Fin {K} :=
+    map_checks = header([MODULE + ".MapData"]) + MAP_BOUNDS
+    map_checks += f'''noncomputable def classMap (s : Fin {N}) : Fin {K} :=
   Fin.ofNat {K} (mapTree.lookup s.val 0)
-def quotient : Machine {K} 2 := packedMachine {K} quotientTree
 {HEARTBEATS}theorem map_count : mapTree.count = {N} := by decide +kernel
 {HEARTBEATS}theorem map_valid : mapTree.WellFormed := by decide +kernel
 {HEARTBEATS}theorem map_bounded : mapAllBelow mapTree {K} = true := by decide +kernel
@@ -887,6 +916,13 @@ theorem map_lookup_lt (index : Nat) : mapTree.lookup index 0 < {K} :=
 theorem classMap_val (s : Fin {N}) : (classMap s).val = mapTree.lookup s.val 0 := by
   change (mapTree.lookup s.val 0) % {K} = mapTree.lookup s.val 0
   exact Nat.mod_eq_of_lt (map_lookup_lt s.val)
+{HEARTBEATS}theorem entry : classMap 0 = 0 := by decide +kernel
+'''
+    map_roots = ["map_count", "map_valid", "map_bounded", "map_lookup_lt", "classMap_val", "entry"]
+    driver.emit("MapChecks.lean", map_checks + audit_and_end(
+        driver, "MapChecks", map_roots, "Complete body class map checks passed"))
+    quotient_checks = header([MODULE + ".QuotientData"])
+    quotient_checks += f'''def quotient : Machine {K} 2 := packedMachine {K} quotientTree
 {HEARTBEATS}theorem quotient_count : quotientTree.count = {K} := by decide +kernel
 {HEARTBEATS}theorem quotient_valid : quotientTree.WellFormed := by decide +kernel
 {HEARTBEATS}theorem quotient_bounded :
@@ -897,19 +933,27 @@ theorem quotient_code_bound (state : Fin {K}) (bit : Fin 2) :
 theorem quotient_fidelity (state : Fin {K}) (bit : Fin 2) :
     packedEncode (quotient.transition state bit) = packedCodeAt quotientTree state bit :=
   packed_transition_fidelity {K} quotientTree quotient_bounded state bit
-{HEARTBEATS}theorem entry : classMap 0 = 0 := by decide +kernel
-def RowAt (s : Fin {N}) (b : Fin 2) : Prop :=
+'''
+    quotient_roots = ["quotient_count", "quotient_valid", "quotient_bounded", "quotient_code_bound",
+                      "quotient_fidelity"] + PACKED_ROOTS
+    driver.emit("QuotientChecks.lean", quotient_checks + audit_and_end(
+        driver, "QuotientChecks", quotient_roots, "Complete packed quotient checks passed"))
+    # The assembly has no chess import and repeats no large kernel reduction.
+    # Its full-private audit deliberately rechecks the complete combined roots.
+    driver.emit("Data.lean", header([MODULE + ".MapChecks", MODULE + ".QuotientChecks"]) +
+                audit_and_end(driver, "Data", map_roots + quotient_roots,
+                              "Complete body certificate data assembled"))
+    relation = header([MODULE + ".Data", "Cryptids.Chess.Optimisation.FieldSelective",
+                       "Cryptids.Compilation.LocalCertificate"])
+    relation += f'''def RowAt (s : Fin {N}) (b : Fin 2) : Prop :=
   (Chess.Optimisation.FieldSelective.body.toMachine.transition s b).map
     (fun (write, dir, next) ↦ (write, dir, classMap next)) =
   quotient.transition (classMap s) b
 '''
-    driver.emit("Data.lean", data + audit_and_end(driver, "Data",
-        ["map_count", "map_valid", "map_bounded", "map_lookup_lt", "classMap_val",
-         "quotient_count", "quotient_valid", "quotient_bounded", "quotient_code_bound",
-         "quotient_fidelity", "entry", "RowAt"] + PACKED_ROOTS,
-        "Complete body certificate data checked"))
+    driver.emit("BodyRelation.lean", relation + audit_and_end(
+        driver, "BodyRelation", ["RowAt"], "Actual body row predicate checked"))
     for count in (64, 512, 4096):
-        parts, names = [header([MODULE + ".Data"])], []
+        parts, names = [header([MODULE + ".BodyRelation"])], []
         for state in selected[:count]:
             for bit in (0, 1):
                 name = f"row_{count}_{state}_{bit}"
@@ -975,8 +1019,7 @@ def main():
             return 0
         driver.run("MapData", 240, "Complete body class map loaded")
         driver.run("QuotientData", 180, "Complete body quotient rows loaded")
-        driver.run("Data", 120, "Complete body certificate data checked")
-        driver.summary["complete_typed_candidate_data_checked"] = True
+        driver.run_data_group()
         for count, seconds in ((64, 120), (512, 180), (4096, 210)):
             driver.run("Rows" + str(count), seconds,
                        f"Body kernel rows checked: {count} states, {2 * count} rows")
