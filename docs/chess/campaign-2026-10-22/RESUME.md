@@ -2,8 +2,8 @@
 
 **User explicitly resumed the existing campaign from checkpoint fc16528.**
 The immutable pause snapshot remains in `pause-2026-10-22/`; the current handoff
-continues below. Goal tooling still reports paused and cannot set active; app
-Resume is needed for automatic goal continuation, but current-turn work is authorized.
+continues below. Goal tooling now confirms **active** (17:59 UTC observation); automatic goal
+continuation has resumed under the user's hard wind-down deadline.
 Resource exhaustion did not cause the earlier stop.
 The optimization goal is not complete. Latest observed usage was 1% used after
 the service changed its earlier 93% reading; no agent-initiated reset occurred.

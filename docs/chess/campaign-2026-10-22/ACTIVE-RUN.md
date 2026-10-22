@@ -7,9 +7,9 @@ Hard wind-down: **16:15 Eastern /20:15 UTC today**. Stop substantial dispatches
 at15:45 Eastern /19:45 UTC; begin checkpoint/shutdown at16:00 Eastern /20:00 UTC.
 The user's personal hard stop is16:25. Prefer an earlier useful stopping point.
 
-The goal API still reports paused and offers no active/resume operation. User was
-informed that app Resume is needed for automatic continuation. This turn's work
-is explicitly authorized. Do not create a replacement goal or mark it complete.
+The existing goal API now reports **active**, confirmed at17:59 UTC after the
+initial paused reading. Automatic continuation is available. No replacement goal
+was created and no completion was claimed. The hard deadline still takes priority.
 
 ## Remote jobs
 

@@ -56,4 +56,13 @@ theorem packet_reaches_of_path (raw : List Bit) (out : List Letter) (gap : Nat)
       ⟨done, Tape.mk₁ (Seed.seed out)⟩ := by
   simpa only [header, entry_eq_zero] using source_path_reaches raw out gap path
 
+/-- Every valid bounded-row packet reaches its exact seed tape on the actual paid machine. -/
+theorem packet_reaches (pre : List Letter) (rows : List Row) (post : List Letter) :
+    Reaches (step machine) ⟨0, Tape.mk₁ (packet pre rows post)⟩
+      ⟨done, Tape.mk₁ (Seed.seed (letters pre rows post))⟩ := by
+  rw [Transducer.packet_eq_header_raw]
+  exact packet_reaches_of_path (Transducer.packetRaw pre rows post)
+    (letters pre rows post) (1 + (Transducer.packetRaw pre rows post).length)
+    (Transducer.packet_run pre rows post)
+
 end ConjectureMachines.Compilation.TableSeed.Correct
