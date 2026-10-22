@@ -1,5 +1,8 @@
 name: Chess complete structured initializer
 on:
+  push:
+    branches: ['codex/chess-openevolve-pilot']
+    paths: ['.github/workflows/chess_table_full_20261022.yml']
   workflow_dispatch:
     inputs:
       target:
@@ -14,6 +17,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   verify:
+    if: ${{ github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-24.04
     timeout-minutes: 60
     env:
