@@ -1,0 +1,24 @@
+{
+  "accepted_complete_states": 2411743,
+  "additional_link_states_H": 1,
+  "all_allocated_states_paid": true,
+  "complete_candidate_states": 998176,
+  "controller_rows": 432,
+  "controller_states_D": 216,
+  "formula": "997959 + D + H",
+  "million_initializer_saving_bound_D_plus_H_lt_413784": true,
+  "prospective_saving": 1413567,
+  "scope": "Measured finite Python controller and symbolic composition only; no new certified full machine",
+  "seed_bits": 424156,
+  "status": "FINITE_UNVERIFIED_PILOT",
+  "stretch_D_plus_H_lt_2041": true,
+  "strict_reduction": true,
+  "unchanged_body_states": 573802,
+  "unproved_obligations": [
+    "Universal expansion/cleanup and termination in Lean",
+    "Exact controller-to-Lean numeric-row identity",
+    "Instantiation of the protected success linker and paid writer",
+    "Full chess halting equivalence and complete-machine row export"
+  ],
+  "writer_states": 424157
+}

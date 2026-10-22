@@ -1,0 +1,17 @@
+{
+  "schema": "chess-goal-retention-v1",
+  "repository": "bocowgill/cryptids",
+  "run_id": 39788561190,
+  "run_url": "https://github.com/bocowgill/cryptids/actions/runs/39788561190",
+  "run_conclusion": "success",
+  "workflow_commit": "619a4cde330b15ea16bc1cdbdea7f581b4658629",
+  "computation_commit": "619a4cde330b15ea16bc1cdbdea7f581b4658629",
+  "artifact_id": 12428629946,
+  "artifact_name": "chess-seed-pilot-619a4cde330b15ea16bc1cdbdea7f581b4658629",
+  "artifact_sha256": "adde1bf8504ec9ca7aca86a29e8d9caf0f8af74a63542b15322ca46eb157ef28",
+  "artifact_bytes": 314168,
+  "logs_sha256": "22ff78985512a7c45367762d85f20c83735615e74afac77121cb8e4b0e4ebd8e",
+  "logs_bytes": 15163,
+  "evidence_scope": "Retained remote provenance and byte hashes only; no local model execution",
+  "certifies_new_machine": false
+}

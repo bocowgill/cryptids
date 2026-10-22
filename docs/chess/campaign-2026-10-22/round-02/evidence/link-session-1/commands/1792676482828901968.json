@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "lake",
+    "--wfail",
+    "-f",
+    "lakefile.chess-seed-20261022.toml",
+    "build",
+    "Cryptids.Compilation.SeedLink"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "\u2716 [3813/3813] Building Cryptids.Compilation.SeedLink (6.9s)\ntrace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean -M6144 /home/runner/work/cryptids/cryptids/Cryptids/Compilation/SeedLink.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Compilation/SeedLink.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Compilation/SeedLink.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Compilation/SeedLink.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Compilation/SeedLink.setup.json --json\nwarning: Cryptids/Compilation/SeedLink.lean:133:41: This simp argument is unused:\n  \u2193reduceIte\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [machine, bodyState, show \u00acD + 1 + state.val < D by omega, \u2193reduceDIte,\n    show D + 1 + state.val \u2260 D by omega, Nat.add_sub_cancel_left]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nerror: Cryptids/Compilation/SeedLink.lean:162:6: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  step (machine M done body) (embedOld body first)\nin the target expression\n  Function.onFun (fun a b \u21a6 b \u2208 step (machine M done body) a) (embedOld body) first next\n\nD : \u2115\nM : Machine D 2\ndone : Fin D\nbody : BundledMachine 2\nterminal : \u2200 (bit : Fin 2), M.transition done bit = none\ncfg out : Cfg D 2\npath : Reaches (step M) cfg out\nfirst next : Cfg D 2\nmove : next \u2208 step M first\naway : first.state \u2260 done\n\u22a2 Function.onFun (fun a b \u21a6 b \u2208 step (machine M done body) a) (embedOld body) first next\nwarning: Cryptids/Compilation/SeedLink.lean:307:33: This simp argument is unused:\n  inOld\n\nHint: Omit it from the simp argument list.\n  [apply] simp [machine, numericRow, success, bridgeState]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nwarning: Cryptids/Compilation/SeedLink.lean:311:33: This simp argument is unused:\n  inOld\n\nHint: Omit it from the simp argument list.\n  [apply] simp [machine, numericRow, bridge, bodyState]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nSome required targets logged failures:\n- Cryptids.Compilation.SeedLink\nerror: build failed\n",
+  "output_sha256": "2ed674b79e8f45edd1c2c8af8b580a5fc6ca372d9d977198f183ce912c709bd0",
+  "timed_out": false,
+  "timeout_seconds": 1800,
+  "elapsed_seconds": 13.31620443099996,
+  "cumulative_children_peak_rss_kib": 1714648
+}

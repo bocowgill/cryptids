@@ -1,0 +1,77 @@
+{
+  "controls": [
+    {
+      "name": "B_overlap_marker_bit",
+      "reason": "('successful done required', 'step_limit', 161)",
+      "rejected": true
+    },
+    {
+      "name": "A_shift_direction",
+      "reason": "('wrong final head', -9, -7)",
+      "rejected": true
+    },
+    {
+      "name": "emitted_main_bit",
+      "reason": "('complete tape mismatch', [-7])",
+      "rejected": true
+    },
+    {
+      "name": "B_cleanup_residue",
+      "reason": "('complete tape mismatch', [11])",
+      "rejected": true
+    },
+    {
+      "name": "A_cleanup_residue",
+      "reason": "('complete tape mismatch', [1])",
+      "rejected": true
+    },
+    {
+      "name": "missing_bottom_marker",
+      "reason": "('complete tape mismatch', [18])",
+      "rejected": true
+    },
+    {
+      "name": "wrong_final_head",
+      "reason": "('wrong final head', 8, 6)",
+      "rejected": true
+    },
+    {
+      "name": "scanner_counter_reset",
+      "reason": "('successful done required', 'step_limit', 30)",
+      "rejected": true
+    },
+    {
+      "name": "parser_counter_bit",
+      "reason": "('complete tape mismatch', [-6])",
+      "rejected": true
+    },
+    {
+      "name": "unpaid_state_counter",
+      "reason": "paid state census",
+      "rejected": true
+    },
+    {
+      "name": "invalid_code_accidental_halt",
+      "reason": "only done may halt",
+      "rejected": true
+    },
+    {
+      "name": "far_right_exterior_residue",
+      "reason": "('complete tape mismatch', [1000000])",
+      "rejected": true
+    },
+    {
+      "name": "far_left_exterior_residue",
+      "reason": "('complete tape mismatch', [-1000000])",
+      "rejected": true
+    },
+    {
+      "name": "wrong_step_counter",
+      "reason": "('step count', 456, 455)",
+      "rejected": true
+    }
+  ],
+  "positive_controls_ran_first": true,
+  "rejected": 14,
+  "status": "FINITE_UNVERIFIED_PILOT"
+}

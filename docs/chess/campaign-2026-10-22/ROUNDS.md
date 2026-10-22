@@ -16,3 +16,7 @@ all4,823,486actual rows,202,100sourcecases,27corruptions,audits and regressions.
 Fresh complete advisory and parent sealed replay with41metadata controls passed.
 The next route is a three-bit initializer seed and certified fixed expander;
 its symbolic count and remaining proof obligations are in round-01/NEXT-INITIALIZER.md.
+
+Round02 finite pilot passed remotely at619a4cd (run39788561190):216controllerstates,
+432actualrows,465fixtures,14negativecontrols,andfullstaticinputequality. Candidate
+composition998176is not accepted until universalLean and fullmachinechecks pass.

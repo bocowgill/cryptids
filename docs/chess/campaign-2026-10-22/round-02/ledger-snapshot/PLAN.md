@@ -1,4 +1,4 @@
-# Round02 contract revision1: three-bit seed and certified expander
+# Round02 contract revision2: three-bit seed and certified expander
 
 Start from accepted2411743-state FieldSelective body/prefix, checkpointd79ae92,
 with all29round01gates met and finalledger checkpoint18e8474. Overallgoalcontinues.
@@ -16,7 +16,7 @@ termination, then exact paid link into unchanged573802-state chessbody.
 | ID | Required outcome | Owner | Gate | State |
 | C1 | Approved baseline and exact target preserved | root | G1 | READY |
 | C2 | Protected-success linker, all D+1+B controls, arbitrary tapes | linkworker | leaf1.1 | READY |
-| C3 | Complete finite binary controller, independent pilot and paid count | pilotworker | leaf1.2 | READY |
+| C3 | Complete finite binary controller, independent pilot and paid count | pilotworker | leaf1.2 | REMOTE PASSED39788561190 |
 | C4 | Universal expansion and exact fullinput identity in Lean | laterproofworker | G2 | WAITING C3 |
 | C5 | Fullmachine blank haltingiffnotdraw, statecount and strict reduction | root/integration | G3 | WAITING C2,C4 |
 | C6 | Every actualrow, staticfullinput, independent fixtures/negativecontrols/audit | laternativeworker | G4 | WAITING C3,C5 |
@@ -52,3 +52,8 @@ negativecontrols. Inputsource mayuseacceptednativepayloadasfrozenexplicitdata; l
 thispilotfiniteevidence, notLean/newfullcertification. No localPythonexecution/import.
 Coordinatecontrollerinterfacewithrootbeforemoreformalcode. Invalidcodes5..7charged
 nonterminalerrorloop; onlydonevalidsuccess. Rootprovidesremotepilotrunner.
+
+Source-only proof architecture leaf1.3 active (goal_initializer_route).
+Exact Lean format/controller/fixedblock leaf2.1 active (goal_seed_machine), following
+verified finite pilot216states/432rows/465fixtures/14corruptions. Root owns native
+Lean row export/compare. Universal scans/loop/cleanup remain next dependency.

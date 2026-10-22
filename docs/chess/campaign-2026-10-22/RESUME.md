@@ -23,7 +23,7 @@ fixtures, simulations, synthesis and counting stay **remote**. Local source edit
 and saved metadata/hash inspection are permitted. No outreach, issues/comments,
 upstream PRs or messages to others. Use new dated source/evidence paths.
 
-Latest account snapshot: **58% used / 42% remaining** in the primary window.
+Latest account snapshot: **60% used / 40% remaining** in the primary window.
 No numeric goal token budget and no reset credit consumed. Check usage periodically;
 checkpoint throughout and stop recoverably near exhaustion, without marking success.
 
@@ -88,14 +88,23 @@ in `.unlazy/chess-goal-20261022-r02`; tracked snapshots are under `round-02/ledg
 Worker `/root/goal_seed_link` has drafted `Cryptids/Compilation/SeedLink.lean`;
 worker `/root/goal_seed_controller` owns the finite binary controller pilot.
 The new workflow `chess_seed_20261022.yml` supports `pilot` and a bounded `link`
-proof-repair session. First remote attempts are retained in `round-02/evidence/pilot-01` and
-`link-infra-01`: pilot serialization failed before simulation; the linker runner
-rejected excess cache keys before invoking Lean. Both local source repairs are
-ready for a new remote run. No new machine is accepted.
+proof-repair session. The finite controller pilot passed remotely in run **39788561190** at
+`619a4cde330b15ea16bc1cdbdea7f581b4658629`, retained in `round-02/evidence/pilot-02`.
+It measured **216 states / 432 rows**, passed **465 valid fixtures**, **14 negative
+controls**, and full static equality of the compressed seed to the frozen input.
+The candidate paid formula is **998,176 states** (424,157 writer +216 controller
++1 bridge +573,802 body). It is not an accepted full machine: universal Lean
+expansion, actual Lean row identity, full composition and acceptance remain open.
+The accepted best remains **2,411,743**. First serialization/setup failures are
+retained in `pilot-01` and `link-infra-01`.
 
-The controller source estimate is D=216, hence candidate 998,176 states; this is
-not a measured or accepted new machine. First run the finite pilot and strict
-link proof remotely, retain diagnostics, then establish universal expander correctness.
+Current remote linker proof session: **39788567168**, starts at `619a4cd`; inspect
+status/artifacts before retrying. No other accepted round's job is active.
+Worker `/root/goal_seed_machine` owns new `Seed/{Format,Controller,Blocks}.lean`;
+source adviser `/root/goal_initializer_route` owns `round-02/PROOF-PLAN.md`.
+The plan uses a ListBlank zipper invariant and word-wise marker scans; universal
+loop/cleanup proof is the next workstream after stable controller definitions.
+
 All 2,762 tracked baseline/accepted files except these mutable campaign progress
 documents are pinned in `round-02/baseline-pins.json`. Accepted round-01 files stay fixed.
 

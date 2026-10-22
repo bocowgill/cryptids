@@ -1,0 +1,28 @@
+{
+  "actual_final_stack_symbol": 2,
+  "all_target_bits_equal": true,
+  "full_controller_simulated": false,
+  "payload_has_no_four_ones": true,
+  "scope": "Full static codec equality; universal controller correctness remains unproved",
+  "seed_bits": 424156,
+  "seed_bytes": 424156,
+  "seed_bytes_format": "ASCII 0/1, no newline, original stack order, charged trailing 000",
+  "seed_sha256": "2946c43c229df7c2468d45f72ac385e20188aeafc1a4af74309a5d563d8befe1",
+  "source_cells_sha256": "e0be400450a54b6f44169fbca7e79be157a24bb2bcad3a8ea0f3d9af330af914",
+  "source_export": "docs/chess/campaign-2026-10-22/round-01/evidence/final/unpacked/machine-export.json",
+  "source_export_sha256": "592ea3c892d0e9d5a6db6ce31e3f590bde7973774bdc9a70cfe46cb6996cd39e",
+  "source_main_only": true,
+  "source_symbols": 141380,
+  "source_unique_first_marker": true,
+  "status": "FINITE_UNVERIFIED_PILOT",
+  "symbol_histogram": {
+    "bit0": 56973,
+    "bit1": 66548,
+    "cons": 17858,
+    "cons_left": 1
+  },
+  "target_bits": 1837940,
+  "target_sha256": "a537828df795044398b0eb71c0f9091da6a3d2e01511bac338b8581b04fda9fa",
+  "unmarked_output_has_no_four_ones": true,
+  "writer_states": 424157
+}

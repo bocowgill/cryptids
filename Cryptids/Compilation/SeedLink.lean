@@ -130,7 +130,7 @@ theorem transition_body (M : Machine D 2) (done : Fin D) (body : BundledMachine 
       (body.toMachine.transition state bit).map
         (fun (write, dir, next) ↦ (write, dir, bodyState D body next)) := by
   simp only [machine, bodyState, show ¬D + 1 + state.val < D by omega, ↓reduceDIte,
-    show D + 1 + state.val ≠ D by omega, ↓reduceIte, Nat.add_sub_cancel_left]
+    show D + 1 + state.val ≠ D by omega, Nat.add_sub_cancel_left]
 
 /-- Original controller steps commute with embedding away from the patched state. -/
 theorem step_embedOld (M : Machine D 2) (done : Fin D) (body : BundledMachine 2)
@@ -159,6 +159,7 @@ theorem reaches_lift (M : Machine D 2) (done : Fin D) (body : BundledMachine 2)
   apply ReflTransGen.lift (embedOld body) ?_ _ _ path
   intro first next move
   have away := step_source_ne_done M done terminal first next move
+  change step (machine M done body) (embedOld body first) = some (embedOld body next)
   rw [step_embedOld M done body first away, show step M first = some next from move]
   rfl
 
@@ -304,11 +305,11 @@ theorem transition_numericRow (M : Machine D 2) (done : Fin D) (body : BundledMa
       numericRow M done body state.val bit := by
   by_cases inOld : state.val < D
   · by_cases success : state.val = done.val
-    · simp [machine, numericRow, inOld, success, bridgeState]
+    · simp [machine, numericRow, success, bridgeState]
     · simp only [machine, numericRow, inOld, ↓reduceDIte, success, ↓reduceIte]
       cases M.transition ⟨state.val, inOld⟩ bit <;> rfl
   · by_cases bridge : state.val = D
-    · simp [machine, numericRow, inOld, bridge, bodyState]
+    · simp [machine, numericRow, bridge, bodyState]
     · have inBody : state.val - (D + 1) < body.states := by have := state.isLt; omega
       simp only [machine, numericRow, inOld, ↓reduceDIte, bridge, ↓reduceIte, inBody]
       cases body.toMachine.transition ⟨state.val - (D + 1), inBody⟩ bit <;> rfl
