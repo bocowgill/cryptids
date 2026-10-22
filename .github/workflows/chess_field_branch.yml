@@ -1,4 +1,5 @@
 name: Chess field-aware branch integration
+# Register this focused workflow on the fork; later source commits use explicit dispatch.
 on:
   push:
     branches: ['codex/chess-openevolve-pilot']
