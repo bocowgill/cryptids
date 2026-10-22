@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "prlimit",
+    "--as=17179869184",
+    "--",
+    "lake",
+    "env",
+    "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_table_full_audit",
+    "--negative-control-generator"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "uncaught exception: Proof generator is a mathematical dependency: Chess.Compilation.SourceCertificate.Generator.certify\n",
+  "output_sha256": "209e5569ccd8ab58543fc1ace53b9b7ff4a1113f88be92b4ed47abb87308b9b8",
+  "timed_out": false,
+  "timeout_seconds": 600,
+  "elapsed_seconds": 3.424521294000016,
+  "cumulative_children_peak_rss_kib": 3910296
+}

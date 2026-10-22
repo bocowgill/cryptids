@@ -1,8 +1,7 @@
 # Resumed campaign activity — 2026-10-22
 
 User resumed from checkpoint `fc16528`, preserving every constraint. The existing
-goal is active. Accepted best remains **998,176 states**; no new full-machine
-acceptance has occurred.
+goal is active. Accepted best is now **769,344 states** after complete round04 acceptance.
 
 Hard wind-down: **16:15 Eastern /20:15 UTC today**. Stop substantial dispatches
 at15:45 Eastern /19:45 UTC; begin checkpoint/shutdown at16:00 Eastern /20:00 UTC.
@@ -10,7 +9,7 @@ The user's personal hard stop is16:25. Prefer an earlier useful stopping point.
 
 ## Remote jobs
 
-- `39830779431`: ACTIVE final complete structured-machine acceptance at1c8334a. Strict
+- `39830779431`: completed/success final complete structured-machine acceptance at1c8334a. Strict
   build, foundation audit/negative controls, actual full-row export, independent
   static input/writer/toy fixtures/corruptions, and M2–M7 regressions. Deadline60min;
   no full quadratic chess startup execution. All heavy work is remote.
@@ -50,3 +49,7 @@ retained under round04/evidence/full-01. Fresh independent review found ten
 boundary steps omitted from the resource counter (no semantic/count defect).
 Fix1c8334a charges them; final full run39830779431 at1c8334a is active. Source
 review otherwise passed. Final advisory/seal await corrected complete evidence.
+
+18:37UTC acceptance: finalreview, coordinatorseal,52hostilemetadata controls and
+portable replay passed. Accepted machine769344, saving228832; fullallocation and
+newimmutablepins saved. Trial10 quotient39830984315 remains active/experimental.

@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_table_full_20261022/fixtures.py"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "Table seed complete independent fixtures passed\n",
+  "output_sha256": "f5c4dde026a3479587972ce3814c390b86f982e7eb15874706bcbaf50affa052",
+  "timed_out": false,
+  "timeout_seconds": 1200,
+  "elapsed_seconds": 18.48844381500001,
+  "cumulative_children_peak_rss_kib": 4411592
+}

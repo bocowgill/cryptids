@@ -1,0 +1,48 @@
+{
+  "artifact_id": 12447959670,
+  "artifact_sha256": "b631558b531ff437ef4d8dae8d42f637166c4d3df5bca56c007145a242ed377b",
+  "claim": {
+    "blank_tape": true,
+    "body_states": 573802,
+    "decoder_bridge_states": 1,
+    "decoder_states": 21682,
+    "formal_machine": "ConjectureMachines.Machines.chess_table_seed",
+    "formal_theorem": "ConjectureMachines.Semantics.ChessTableSeed.halts_iff_not_draw",
+    "initializer_states": 173642,
+    "main_states": 533341,
+    "previous_states": 998176,
+    "return_states": 40461,
+    "saved_states": 228832,
+    "seed_bridge_states": 1,
+    "seed_controller_states": 216,
+    "states": 769344,
+    "symbols": 2
+  },
+  "computation_commit": "1c8334adb8fa63f9f8450b2d8ea08bb5f01eeb85",
+  "cumulative_phase_receipts": 54,
+  "formal_verification_by_reviewer": false,
+  "frozen_files_checked": 2983,
+  "human_approval": false,
+  "independent_local_recount": false,
+  "local_heavy_computation": false,
+  "logs_sha256": "cb9742a6d172b41cf4e45059c6b3cd3906a056c15cd54318013fcc695bb885bf",
+  "phases": [
+    "build",
+    "contracts",
+    "native",
+    "counts",
+    "full"
+  ],
+  "repository_import_files_checked": 133,
+  "run_id": 39830779431,
+  "saved_composed_fixtures": 20,
+  "saved_corruption_controls": 37,
+  "saved_full_rows": 1538688,
+  "saved_native_fixtures": 14,
+  "schema": "chess-table-full-metadata-receipt-v1",
+  "source_manifest_sha256": "b4b358288e3c3c071329cb07060eda03f0756cf964f23568f41ab9e0681de605",
+  "status": "passed",
+  "unique_commands": 20,
+  "workflow_commit": "1c8334adb8fa63f9f8450b2d8ea08bb5f01eeb85"
+}
+Table seed sealed evidence review passed

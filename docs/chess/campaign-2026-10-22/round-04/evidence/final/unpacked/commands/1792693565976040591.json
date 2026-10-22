@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "prlimit",
+    "--stack=67108864",
+    "--",
+    "lake",
+    "env",
+    "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_table_full_export",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-table-full-20261022/machine-export.json"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "[chess-table-full-export] replaying the complete paid packet writer\n[chess-table-full-export] executing bounded complete two-decoder startup fixtures\n[chess-table-full-export] complete startup fixture empty\n[chess-table-full-export] complete startup fixture letters\n[chess-table-full-export] complete startup fixture zero\n[chess-table-full-export] complete startup fixture tag_0\n[chess-table-full-export] complete startup fixture tag_1\n[chess-table-full-export] complete startup fixture tag_2\n[chess-table-full-export] complete startup fixture tag_3\n[chess-table-full-export] complete startup fixture tag_4\n[chess-table-full-export] complete startup fixture tag_5\n[chess-table-full-export] complete startup fixture tag_6\n[chess-table-full-export] complete startup fixture boundaries\n[chess-table-full-export] complete startup fixture pre_only\n[chess-table-full-export] complete startup fixture post_only\n[chess-table-full-export] complete startup fixture row_only\n[chess-table-full-export] exporting every actual row, including both bits and all body halts\n[chess-table-full-export] complete state 0/769344\n[chess-table-full-export] complete state 65536/769344\n[chess-table-full-export] complete state 131072/769344\n[chess-table-full-export] complete state 196608/769344\n[chess-table-full-export] complete state 262144/769344\n[chess-table-full-export] complete state 327680/769344\n[chess-table-full-export] complete state 393216/769344\n[chess-table-full-export] complete state 458752/769344\n[chess-table-full-export] complete state 524288/769344\n[chess-table-full-export] complete state 589824/769344\n[chess-table-full-export] complete state 655360/769344\n[chess-table-full-export] complete state 720896/769344\nTable seed complete native export passed\n",
+  "output_sha256": "095f8ad87e85777dc880226204e6206dbddb9466665dcbe8851a0163d0395f79",
+  "timed_out": false,
+  "timeout_seconds": 1200,
+  "elapsed_seconds": 35.34926701400002,
+  "cumulative_children_peak_rss_kib": 4411592
+}

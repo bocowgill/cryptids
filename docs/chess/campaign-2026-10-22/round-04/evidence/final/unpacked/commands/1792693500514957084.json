@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "prlimit",
+    "--as=17179869184",
+    "--",
+    "lake",
+    "env",
+    "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_table_full_audit"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "Audited 10773 ChessTableSeed foundation roots and 60793 dependencies\nMeta certificate generator roots outside safe roots: 0\nCompiler artifacts outside safe roots: #[ConjectureMachines.Compilation.FieldCompiler.emit._unsafe_rec, ConjectureMachines.Compilation.FieldReturns.writeCount._unsafe_rec, ConjectureMachines.Compilation.FieldReturns.writeTargets._unsafe_rec, ConjectureMachines.Compilation.Seed.validPath._unsafe_rec, ConjectureMachines.Compilation.TableSeed.fixedBits._unsafe_rec, Chess.Optimisation.FieldPackedLayout.Block.ofTree._unsafe_rec, ConjectureMachines.Compilation.FieldCompiler.Codec.bitInput._unsafe_rec, ConjectureMachines.Compilation.FieldCompiler.Snapshot.Correct._unsafe_rec, ConjectureMachines.Compilation.FieldCompiler.Snapshot.project._unsafe_rec, ConjectureMachines.Compilation.FieldCompiler.Syntax.fastNodeAt._unsafe_rec, ConjectureMachines.Compilation.FieldCompiler.Syntax.meaning._unsafe_rec, ConjectureMachines.Compilation.FieldCompiler.Syntax.nodeAt._unsafe_rec, ConjectureMachines.Compilation.FieldCompiler.Syntax.size._unsafe_rec, ConjectureMachines.Compilation.FieldCompiler.Syntax.subAt._unsafe_rec, ConjectureMachines.Compilation.Seed.Scan.Reads._unsafe_rec, ConjectureMachines.Compilation.Seed.Scan.scanWord._unsafe_rec, ConjectureMachines.Compilation.TableSeed.Blocks.ValidPath._unsafe_rec, ConjectureMachines.Compilation.TableSeed.Transducer.emitTrace._unsafe_rec, ConjectureMachines.Compilation.TableSeed.Transducer.readTrace._unsafe_rec]\nPermitted axioms: #[propext, Classical.choice, Quot.sound]\nChess table seed foundation audit passed\n",
+  "output_sha256": "721cf4d37dd06178b7da98d071fd40be2186da0b88de573cb86e1471aa912731",
+  "timed_out": false,
+  "timeout_seconds": 600,
+  "elapsed_seconds": 20.502987324999992,
+  "cumulative_children_peak_rss_kib": 3903332
+}

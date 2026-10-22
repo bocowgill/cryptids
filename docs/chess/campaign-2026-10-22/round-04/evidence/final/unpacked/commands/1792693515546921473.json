@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-table-full-20261022/OldCount.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "/home/runner/work/cryptids/cryptids/.lake/chess-table-full-20261022/OldCount.lean:3:65: error: Tactic `decide` proved that the proposition\n  769344 = 998176\nis false\n",
+  "output_sha256": "99e72e3e28f20a2047013dd6a549ce259d1cccb253d65c84ea74d1701f0f856f",
+  "timed_out": false,
+  "timeout_seconds": 300,
+  "elapsed_seconds": 4.694855502999985,
+  "cumulative_children_peak_rss_kib": 4405740
+}

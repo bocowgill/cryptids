@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-table-full-20261022/BadSaving.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "/home/runner/work/cryptids/cryptids/.lake/chess-table-full-20261022/BadSaving.lean:3:122: error: Tactic `decide` proved that the proposition\n  998176 - 769344 = 228833\nis false\n",
+  "output_sha256": "a888f04528f3fef1ca59d9107500b9aa1e0413ac871a04bb4d96014f6203ace0",
+  "timed_out": false,
+  "timeout_seconds": 300,
+  "elapsed_seconds": 3.743277785999993,
+  "cumulative_children_peak_rss_kib": 4407556
+}

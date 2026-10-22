@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-table-full-20261022/UnpaidBridge.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "/home/runner/work/cryptids/cryptids/.lake/chess-table-full-20261022/UnpaidBridge.lean:3:59: error: Tactic `decide` proved that the proposition\n  595702 = 595701\nis false\n",
+  "output_sha256": "2c98d46a7ebb48b8c324a6f4dfa788d0dab560732e17070a0450651ead5f28ae",
+  "timed_out": false,
+  "timeout_seconds": 300,
+  "elapsed_seconds": 3.7320476550000024,
+  "cumulative_children_peak_rss_kib": 4407556
+}

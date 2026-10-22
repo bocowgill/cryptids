@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-table-full-20261022/UnpaidDecoder.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "/home/runner/work/cryptids/cryptids/.lake/chess-table-full-20261022/UnpaidDecoder.lean:3:65: error: Tactic `decide` proved that the proposition\n  769344 = 747662\nis false\n",
+  "output_sha256": "66eff95edd360c1a45192f8ffcd17c90218275dfdbc4070dcc2bc9b738f6ce86",
+  "timed_out": false,
+  "timeout_seconds": 300,
+  "elapsed_seconds": 3.833348720999993,
+  "cumulative_children_peak_rss_kib": 4407448
+}

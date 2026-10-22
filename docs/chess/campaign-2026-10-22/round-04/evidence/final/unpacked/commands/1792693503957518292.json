@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "prlimit",
+    "--as=17179869184",
+    "--",
+    "lake",
+    "env",
+    "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_table_full_audit",
+    "--negative-control"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "uncaught exception: Forbidden axiom: sorryAx\n",
+  "output_sha256": "25e77efff0da4a435953fd833bca02bfafebc29e9ecd1c800424f3f0efd40786",
+  "timed_out": false,
+  "timeout_seconds": 600,
+  "elapsed_seconds": 3.4422390979999875,
+  "cumulative_children_peak_rss_kib": 3906420
+}

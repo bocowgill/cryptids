@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "--run",
+    "scripts/RunChessM4.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "ok: terminal White win takes priority over clock draw\nok: terminal Black win takes priority over clock draw\nok: terminal stalemate evaluates to draw\nok: White can claim before a winning move\nok: White chooses mate over an available draw\nok: White optimal action is a move\nok: White chosen move is legal\nok: White chosen move attains the value\nok: Black chooses mate over an available draw\nok: Black optimal action is a move\nok: Black chosen move is legal\nok: Black chosen move attains the value\nok: threatened position has exactly one move plus a claim\nok: threatened position offers a legal draw claim\nok: every played alternative loses to a forced mate\nok: claim improves the outcome from loss to draw\nok: optimal policy takes the saving claim\nok: automatic draw stops evaluation before considering moves\nok: full history changes a winning layout into an automatic draw\nok: finite selector rejects one favorable line with a better opposing option\nok: finite selector preserves an actual candidate on ties\nChess M4 fixtures passed: 21 assertions\n",
+  "output_sha256": "7148f275aaa7dd282423b11de275c6322a9b3ac8050a4c5bd9d8e21f3144c373",
+  "timed_out": false,
+  "timeout_seconds": 600,
+  "elapsed_seconds": 11.419802790000006,
+  "cumulative_children_peak_rss_kib": 4411592
+}
