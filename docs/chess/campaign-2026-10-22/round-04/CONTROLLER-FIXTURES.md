@@ -1,7 +1,10 @@
 # Independent finite controller checker
 
-Status: source draft, no local execution and no successful remote run claimed.
-The accepted complete machine remains 998,176 states. The packet identity run
+Status: the bounded remote finite pilot passed in official run
+[39810577763](https://github.com/bocowgill/cryptids/actions/runs/39810577763), at source
+commit `0afbd2a0c921b4bf0ffdcc5dee67b5b89f899eab`. No local execution occurred.
+The accepted complete machine remains **998,176 states**. The universal decoder
+proof and complete-machine composition are still missing. The packet identity run
 39807083846 establishes a static input identity; it does not establish this
 controller's behavior. The checker does not import `controller.py` or any of its
 transition helpers.
@@ -111,8 +114,42 @@ The summary explicitly sets `universal_proof: false`, `new_accepted_machine: fal
 and `full_chess_packet_executed: false`.
 
 Successful finite verification prints
-`CHESS_TABLE_SEED_CONTROLLER_PILOT_PASSED`. Current status remains source-only
-until an exact-source remote receipt is retained and independently reviewed.
+`CHESS_TABLE_SEED_CONTROLLER_PILOT_PASSED`. The official receipt is retained in
+[controller-01](evidence/controller-01/), and the parent inspected the saved packet's
+metadata and hashes in [parent-controller-replay.json](evidence/parent-controller-replay.json).
+
+## Retained remote result
+
+The [controller summary](evidence/controller-01/unpacked/controller-summary.json)
+reports the following finite results:
+
+| Check | Remote result |
+|---|---:|
+| Complete decoder states `D` | 21,682 |
+| All allocated symbol rows `2D` | 43,364 |
+| Contiguous paid allocation blocks | 4,626 |
+| Complete positive fixtures | 66 |
+| Rejected corruption controls | 10 |
+| Total simulated transitions, including controls | 410,290 |
+| Maximum completed positive fixture transitions | 47,746 |
+| Independent checker elapsed time | 0.777 seconds |
+| Independent checker peak RSS | 43,644 KiB |
+| Timeouts counted as rejection | 0 |
+
+All tested packets had exact final head and complete sparse support, including
+translated origins -37, 0 and 101. Every row and paid block was checked. The full
+quadratic chess packet was not executed. The raw controller JSON hash is
+`c812768bac296d8520f64b7df4a33de47e7c067c79594bef48e7b536e359e09f`;
+the retained summary hash is
+`87c4885e89eb4e041a255d1e717d7454d389969dbb43fa65e9efb15a77f90637`.
+
+Substituting this complete `D` into the paid accounting gives **769,344 prospective
+states** with the current body, or **310,029 conditionally** with the experimental
+114,487-state body. The same-body prospective saving is **228,832 states**. These
+figures include the packet writer, decoder, retained 216-state expander, and both
+one-state bridges. They are finite construction/accounting results, not new
+accepted chess machines. Acceptance still requires the universal decoder proof,
+the relevant body certificate, exact composition, and full-machine verification.
 
 ## Four source passes
 
@@ -132,4 +169,6 @@ mismatch in packet order, head/support, primitive geometry, census or controls. 
 identified missing maximum/current-step information on failures; that evidence
 gap was repaired. Parent review additionally requested an exact check of the
 nonterminal error self-loop; that check is present. No simulation or counting
-was run locally. All remote verification remains pending.
+was run locally. The source-bound bounded remote pilot and parent metadata/hash
+replay now close this fixture leaf; the universal-proof and full-machine gates
+remain separate and unmet.

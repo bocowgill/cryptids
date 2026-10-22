@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "prlimit",
+    "--as=4294967296",
+    "--",
+    "/usr/bin/python3",
+    "scripts/chess_table_seed_20261022/controller_fixtures.py",
+    "--controller",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-table-controller-20261022/controller.json",
+    "--output",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-table-controller-20261022"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "CHESS_TABLE_SEED_CONTROLLER_PILOT_PASSED\n",
+  "output_sha256": "32985e92121c7208581297a11073568098bda7927e5bf6c2aa1818d5505b1f51",
+  "timed_out": false,
+  "timeout_seconds": 594.486872297,
+  "elapsed_seconds": 0.8338313450000001,
+  "cumulative_children_peak_rss_kib": 55948
+}

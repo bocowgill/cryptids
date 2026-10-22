@@ -1,0 +1,79 @@
+{
+  "commands/1792685017915388700.json": {
+    "bytes": 737,
+    "sha256": "79114cf98f9a9a5b9286e393c88b45284072722abe24bf5bd61b9f938036ae5c",
+    "crc32": 3758617340,
+    "compressed_bytes": 398,
+    "compression": 8
+  },
+  "controller-checker-source.json": {
+    "bytes": 296,
+    "sha256": "edfce7e09ec66655e6e4e1fa0a083eb923557069d5c1d45cb332828b71134d67",
+    "crc32": 1179909916,
+    "compressed_bytes": 206,
+    "compression": 8
+  },
+  "commands/1792685017039850288.json": {
+    "bytes": 2094,
+    "sha256": "3dab124f1559ff95429b8c1e3edce30efca470becc7d2af5a4792229150c7826",
+    "crc32": 2866418887,
+    "compressed_bytes": 1069,
+    "compression": 8
+  },
+  "controller-construction.json": {
+    "bytes": 1534,
+    "sha256": "aaea0e319755015b660cc767489b82dc6016e48dfb02ad2ab299e6c529084ef6",
+    "crc32": 2509259637,
+    "compressed_bytes": 774,
+    "compression": 8
+  },
+  "controller-controls.json": {
+    "bytes": 3146,
+    "sha256": "8540abf5a7e23929e4d4937b18cb47664d4642b22f71a8d8f822d697141ac4e0",
+    "crc32": 1235301031,
+    "compressed_bytes": 573,
+    "compression": 8
+  },
+  "controller-fixtures.json": {
+    "bytes": 43415,
+    "sha256": "d29a033d5df8a7423fca1fad60990f3e33aeb10579894a984d29930c4dbfa4f8",
+    "crc32": 2426953066,
+    "compressed_bytes": 6761,
+    "compression": 8
+  },
+  "controller-progress.json": {
+    "bytes": 443,
+    "sha256": "d0105193c47f97e681c615ee2098e794c5b47511e6a13503387c5d6b82907389",
+    "crc32": 2441610537,
+    "compressed_bytes": 211,
+    "compression": 8
+  },
+  "controller-summary.json": {
+    "bytes": 2486,
+    "sha256": "87c4885e89eb4e041a255d1e717d7454d389969dbb43fa65e9efb15a77f90637",
+    "crc32": 2107054117,
+    "compressed_bytes": 1054,
+    "compression": 8
+  },
+  "controller.json": {
+    "bytes": 3560793,
+    "sha256": "c812768bac296d8520f64b7df4a33de47e7c067c79594bef48e7b536e359e09f",
+    "crc32": 1008369102,
+    "compressed_bytes": 307480,
+    "compression": 8
+  },
+  "source-manifest.json": {
+    "bytes": 445250,
+    "sha256": "74e5d6500b4602d538f79131da293a03bebc69229565b36c65c10ae1a9ec79c9",
+    "crc32": 3831604744,
+    "compressed_bytes": 120614,
+    "compression": 8
+  },
+  "verification.json": {
+    "bytes": 451094,
+    "sha256": "f3d62b2208f83808195929c58a52d5255660481b08f89b26163d153dd0f8c69c",
+    "crc32": 1447923504,
+    "compressed_bytes": 122723,
+    "compression": 8
+  }
+}

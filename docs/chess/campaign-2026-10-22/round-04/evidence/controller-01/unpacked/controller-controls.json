@@ -1,0 +1,94 @@
+[
+  {
+    "name": "allocation_undercount",
+    "original_positive_passed": true,
+    "reason": "Error control: integer outside [0,21681): 21681",
+    "rejected": true,
+    "scope": "complete state, row and block allocation",
+    "timeout_counted_as_rejection": false
+  },
+  {
+    "name": "allocation_missing_block",
+    "original_positive_passed": true,
+    "reason": "Blocks do not cover every paid state",
+    "rejected": true,
+    "scope": "complete state, row and block allocation",
+    "timeout_counted_as_rejection": false
+  },
+  {
+    "name": "undesignated_terminal",
+    "original_positive_passed": true,
+    "reason": "Undesignated missing row 0/0",
+    "rejected": true,
+    "scope": "complete state, row and block allocation",
+    "timeout_counted_as_rejection": false
+  },
+  {
+    "name": "table_write",
+    "original_positive_passed": true,
+    "reason": "empty: complete relative support mismatch; extra=[-1]; missing=[]",
+    "rejected": true,
+    "scope": "complete valid empty packet",
+    "timeout_counted_as_rejection": false
+  },
+  {
+    "name": "table_movement",
+    "original_positive_passed": true,
+    "reason": "empty: final head -12, expected -10",
+    "rejected": true,
+    "scope": "complete valid empty packet",
+    "timeout_counted_as_rejection": false
+  },
+  {
+    "name": "table_destination",
+    "original_positive_passed": true,
+    "reason": "empty: final head 1, expected -10",
+    "rejected": true,
+    "scope": "complete valid empty packet",
+    "timeout_counted_as_rejection": false
+  },
+  {
+    "block": "consume.to.literal.post.d1.v0",
+    "complete_parent_fixture": "empty",
+    "fixed_steps": 8,
+    "name": "consume_shift",
+    "original_positive_passed": true,
+    "reason": "consume_shift: complete relative support mismatch; extra=[]; missing=[4]",
+    "rejected": true,
+    "scope": "complete actual-context primitive, entire tape and exact head",
+    "timeout_counted_as_rejection": false
+  },
+  {
+    "block": "emit.row.t0.right.cons.code",
+    "complete_parent_fixture": "zero_words",
+    "fixed_steps": 3,
+    "name": "zero_word_cons",
+    "original_positive_passed": true,
+    "reason": "zero_word_cons: complete relative support mismatch; extra=[]; missing=[2]",
+    "rejected": true,
+    "scope": "complete actual-context primitive, entire tape and exact head",
+    "timeout_counted_as_rejection": false
+  },
+  {
+    "block": "finish.write_header",
+    "complete_parent_fixture": "empty",
+    "fixed_steps": 13,
+    "name": "cleanup_header",
+    "original_positive_passed": true,
+    "reason": "cleanup_header: complete relative support mismatch; extra=[]; missing=[12]",
+    "rejected": true,
+    "scope": "complete actual-context primitive, entire tape and exact head",
+    "timeout_counted_as_rejection": false
+  },
+  {
+    "block": "finish.restore_head",
+    "complete_parent_fixture": "empty",
+    "fixed_steps": 1,
+    "name": "final_head",
+    "original_positive_passed": true,
+    "reason": "final_head: final head -12, expected -10",
+    "rejected": true,
+    "scope": "complete actual-context primitive, entire tape and exact head",
+    "timeout_counted_as_rejection": false
+  }
+]

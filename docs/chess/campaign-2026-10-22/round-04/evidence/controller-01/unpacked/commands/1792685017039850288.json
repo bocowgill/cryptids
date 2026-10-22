@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "prlimit",
+    "--as=4294967296",
+    "--",
+    "/usr/bin/python3",
+    "scripts/chess_table_seed_20261022/controller.py",
+    "--output",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-table-controller-20261022"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "{\"all_destinations_paid\": true, \"allocated_states_by_kind\": {\"cleanup_b\": 6, \"cleanup_header\": 13, \"cleanup_seek\": 10, \"consume_read\": 385, \"consume_seek\": 2310, \"consume_shift\": 4664, \"emit_code\": 1224, \"emit_depart\": 408, \"emit_marker\": 2448, \"emit_return\": 2040, \"emit_seek\": 2040, \"emit_skip\": 2856, \"entry\": 7, \"final_head\": 1, \"nonterminal_error\": 1, \"scan_left\": 1636, \"scan_right\": 1632, \"success\": 1}, \"allocation_limit\": 50000, \"blocks\": 4626, \"charged_bridge_states\": 2, \"claim\": \"Complete finite row construction only; independent fixtures and universal proof are separate\", \"conditional_quotient_complete_candidate\": 310029, \"controller_sha256\": \"c812768bac296d8520f64b7df4a33de47e7c067c79594bef48e7b536e359e09f\", \"finite_source_nodes\": {\"emit\": 408, \"read\": 385}, \"fixtures_executed\": false, \"github_run_id\": \"39810577763\", \"github_sha\": \"0afbd2a0c921b4bf0ffdcc5dee67b5b89f899eab\", \"implicit_runtime_operations\": false, \"new_accepted_machine\": false, \"old_seed_expander_states\": 216, \"prospective_same_body_saving\": 228832, \"rows\": 43364, \"same_body_complete_candidate\": 769344, \"schema\": \"chess-table-seed-controller-construction-v1\", \"source_sha256\": \"60ac31fb4474b225af657e1321f1a848e93d529fb47263cb0cb1f8721558f220\", \"states\": 21682, \"status\": \"FINITE_UNVERIFIED_CONTROLLER\", \"universal_proof\": false, \"whole_operand_control_register\": false, \"within_allocation_limit\": true}\nCHESS_TABLE_SEED_CONTROLLER_BUILT\n",
+  "output_sha256": "11ea2ddd5e63aa1505acbdb579c260dd9dc5c3be2e5cf93621cfa67521423e5b",
+  "timed_out": false,
+  "timeout_seconds": 120,
+  "elapsed_seconds": 0.23730336199999869,
+  "cumulative_children_peak_rss_kib": 55948
+}

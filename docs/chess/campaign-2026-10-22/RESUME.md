@@ -43,7 +43,7 @@ The reviewer/seal are model advisory/provenance anchors, not human approval.
 - Prioritize large complete-machine savings; update
   `STATE-COUNTS-AND-OPPORTUNITIES.md` each major checkpoint. Small work must unlock
   an explicit large payoff. Separate accepted savings from finite measurements.
-- Latest account snapshot77%used/23%remaining. No numerical goal token budget,
+- Latest account snapshot81%used/19%remaining. No numerical goal token budget,
   no reset credit consumed. Continue useful bounded work and checkpoint often.
 
 ## Current primary route: whole-body quotient
@@ -110,8 +110,10 @@ packets are retained in round04/evidence/packet-01 andpacket-02. Patchedrun took
 passed current source hashes,2983acceptedpins,ZIPs,allartifacts andcommandreceipt:
 `round-04/evidence/parent-packet-replay.json`.
 
-Candidate total is747662+D with acceptedbody, or288347+D conditionalonquotient
-certification; net250514-D. Dunknown. Arityonly saves494databits; dictionaries
+Controller pilot39810577763 at0afbd2a PASSED: D21682,43364rows,66completefixtures,
+10corruptions,410290steps/max47746,0.777seconds/43644KiB. Retained controller-01
+and parent-controller-replay.json. Candidate total769344 with acceptedbody,
+or310029 conditionalonquotient certification; prospective saving228832. Arityonly saves494databits; dictionaries
 d4/6/8 save18453/19546/12611beforelookupcontrols. Defer these small extensions.
 
 Root authorized a bounded physicalcontroller pilot after packetidentitypassed.
@@ -153,3 +155,21 @@ For live diagnostics use`gh run download` to a fresh folder. No local model run.
 Accepted metadata replay:
 `python3 scripts/chess_seed_20261022/check_saved_evidence.py --root . --evidence docs/chess/campaign-2026-10-22/round-02/evidence/final --seal docs/chess/campaign-2026-10-22/round-02/review/seal.json --self-test`.
 This verifies saved hashes/provenance/receipts, never localLean or rowcounting.
+
+
+## Latest live checkpoint
+
+Fifth bounded body certificate run39812361401 atfabb9f4 is active. It adds a tiny
+TemplateSmoke and avoids native code generation only for proof-witness map defs;
+all kernel range/identity/actual-row/audit obligations and budgets remain fixed.
+Retain this attempt before any further tuning. There are zero certified actual
+body rows so far. Earlier certificate-04 evidence is now committed.
+
+Controller finite pilot and parent metadata replay passed. Source bytes remain
+unchanged. Proof-plan source review passed. New wave decoder-foundations:
+leaf3.1 goal_seed_codec owns TableSeed/Format.lean; leaf3.2 goal_seed_machine owns
+TableSeed/Controller.lean. These target universal original-word semantics and
+exact paid typed control. Root prepares chess_table_proof_20261022.yml,
+lakefile.chess-table-proof-20261022.toml and proof_verify.py/proof_session.py.
+Physical proof/composition leaves follow after verified interfaces; no local
+Lean/LSP/Probe/model/fixture/count execution. Accepted count stays998176.

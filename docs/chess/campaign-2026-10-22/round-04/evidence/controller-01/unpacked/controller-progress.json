@@ -1,0 +1,29 @@
+{
+  "case": "operand_8191",
+  "completed": 66,
+  "control": "final_head",
+  "current_case": "empty",
+  "current_origin": 0,
+  "current_step_cap": 1,
+  "current_steps": 1,
+  "fixture": {
+    "name": "operand_8191",
+    "post": [
+      4
+    ],
+    "pre": [
+      1
+    ],
+    "rows": [
+      [
+        1,
+        8191,
+        0
+      ]
+    ]
+  },
+  "origin": 0,
+  "phase": "negative_controls",
+  "status": "running",
+  "total_steps": 409525
+}

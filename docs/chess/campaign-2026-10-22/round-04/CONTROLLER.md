@@ -1,11 +1,43 @@
 # Fixed29 packet decoder: explicit controller source
 
-Status: **source ready; bounded remote controller pilot pending**. This source
+Status: **bounded remote controller pilot passed**. This source
 implements the fixed29 packet architecture after the complete static packet
 identity passed run 39807083846. The accepted complete machine remains 998,176
 states. The new artifact is labeled `FINITE_UNVERIFIED_CONTROLLER`; neither its
 source nor a future finite fixture pass supplies a universal decoder proof or a
 new accepted machine.
+
+[Run 39810577763](https://github.com/bocowgill/cryptids/actions/runs/39810577763)
+checked commit `0afbd2a0c921b4bf0ffdcc5dee67b5b89f899eab`. The retained
+[runner receipt](evidence/controller-01/unpacked/verification.json) records exit
+zero for construction and independent checking, neither timed out, and both exact
+success banners. Its complete wrapper elapsed time was 3.350205019 seconds under
+the combined 600-second/4-GiB limit. The
+[independent summary](evidence/controller-01/unpacked/controller-summary.json)
+records **21,682 paid states, 43,364 checked rows, 66 positive fixtures, and 10
+rejected corruption controls**. Every state belongs to one of 4,626 declared
+blocks; only the two designated success rows are absent. No timeout was counted
+as a rejected control.
+
+With the accepted body, the measured finite allocation gives a prospective
+complete total of **769,344 states**, saving **228,832** from the accepted
+998,176-state machine. The quotient-body total is **310,029**, conditional on its
+separate body certificate. Both totals still require the universal decoder and
+full composition proofs; this pilot accepted no new machine.
+
+The controller artifact SHA-256 is
+`c812768bac296d8520f64b7df4a33de47e7c067c79594bef48e7b536e359e09f`.
+The executed generator source SHA-256 is
+`60ac31fb4474b225af657e1321f1a848e93d529fb47263cb0cb1f8721558f220`, as recorded in
+[controller-construction.json](evidence/controller-01/unpacked/controller-construction.json).
+The parent independently checked saved metadata and hashes; its
+[replay receipt](evidence/parent-controller-replay.json) binds official archive
+SHA-256 `1d90c69c89c3de713310a6d7699b4db5ad1a6c7de6075155437a7b25783f21a5`,
+source-manifest SHA-256
+`74e5d6500b4602d538f79131da293a03bebc69229565b36c65c10ae1a9ec79c9`, and summary
+SHA-256 `87c4885e89eb4e041a255d1e717d7454d389969dbb43fa65e9efb15a77f90637`.
+This local replay inspected retained evidence only and did not execute the table,
+model, or state-count construction.
 
 [controller.py](../../../../../scripts/chess_table_seed_20261022/controller.py)
 owns construction only. It requires `CHESS_REMOTE=1` and `GITHUB_ACTIONS=true`,
@@ -19,10 +51,10 @@ wrapper own the combined pilot and its success banner.
 
 No local execution, model generation, import, simulation, counting, compilation,
 Lean invocation, git mutation, or network request was performed for this leaf.
-The root's remote wrapper enforces the agreed 600-second and 4-GiB combined
+The root's remote wrapper enforced the agreed 600-second and 4-GiB combined
 limit. The builder exports the complete allocation even if it exceeds 50,000
 states, records that failure, and exits before any fixture may be counted as a
-successful pilot.
+successful pilot. The successful run remained below that allocation limit.
 
 ## Finite control and complete row allocation
 
@@ -186,12 +218,22 @@ or unexpected exception is not successful rejection.
 
 ## Count boundary and four source passes
 
-Exact D and all `2D` rows are determined by the remote constructor from the
-complete allocation, before reachability reduction. The construction report
-includes `747662+D` with the accepted body, conditional `288347+D` with the
-separate quotient body, and prospective saving `250514−D`. Both one-state
-bridges and the retained 216-state old expander are charged in these formulas.
-There is no measured D or new accepted saving in this source-readiness report.
+Exact `D=21682` and all `2D=43364` rows were determined by the remote constructor
+from the complete allocation, before reachability reduction, and independently
+checked. The construction report instantiates `747662+D=769344` with the
+accepted body, conditional `288347+D=310029` with the separate quotient body,
+and prospective saving `250514−D=228832`. Both one-state bridges and the retained
+216-state old expander are charged in these formulas. These are measured finite
+allocation and arithmetic composition, not a new accepted saving theorem.
+
+The 66 positive executions covered all seven tags, empty phases, zero words,
+operand boundaries and adjacent long one-runs at translated origins −37, 0 and
+101. They compared the entire sparse support and exact head. The independent
+summary records 410,290 total simulated steps and a maximum of 47,746 steps for
+one completed positive fixture. Actual positive snapshots supplied the
+`consume_shift`, `zero_word_cons`, `cleanup_header`, and `final_head` primitive
+contexts for focused corruptions. The full chess packet was not executed; its
+complete static identity remains the separate successful packet run 39807083846.
 
 1. **Complete implementation pass:** expanded every read, write, branch,
    continuation, scanner, emission, error and cleanup operation into paid
@@ -208,4 +250,6 @@ There is no measured D or new accepted saving in this source-readiness report.
 4. **Polish/interface pass:** aligned the exact builder banner and output schema
    with the root-owned contract, gave the independent checker stable block kinds
    and precise entry/exit geometry, and separated finite source readiness from
-   the pending bounded pilot and subsequent universal Lean proof.
+   bounded execution and the subsequent universal Lean proof. After the remote
+   pass, retained receipts and hash provenance were recorded without changing
+   the computational controller source.
