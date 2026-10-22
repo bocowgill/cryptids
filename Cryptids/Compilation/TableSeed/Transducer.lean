@@ -352,8 +352,14 @@ theorem packet_run (pre : List Letter) (rows : List Row) (post : List Letter) :
     (pre ++ outRows) [] (gapRows + 3 + (Seed.payload pre.reverse).length)
   have combined := (((((postRun.trans postStop).trans delimiter).trans rowsRun).trans
     rowsStop).trans preRun).trans preStop
-  simpa only [packetRaw, tailPre, tailRows, gapPost, gapRows, outRows, letters,
-    List.append_assoc, List.singleton_append, List.length_append, List.length_cons,
-    List.length_nil, Nat.add_zero, Nat.add_assoc] using combined
+  have phaseOne : (1 : Fin 2) ≠ 0 := by decide
+  have gap_eq : gapRows + 3 + (Seed.payload pre.reverse).length +
+      ([0, 0, 0] : List Bit).length = 1 + (packetRaw pre rows post).length := by
+    simp only [packetRaw, gapRows, gapPost, List.length_append,
+      List.length_cons, List.length_nil]
+    omega
+  rw [if_neg phaseOne, gap_eq] at combined
+  simpa only [packetRaw, tailPre, tailRows, outRows, letters,
+    List.append_assoc, List.singleton_append] using combined
 
 end ConjectureMachines.Compilation.TableSeed.Transducer
