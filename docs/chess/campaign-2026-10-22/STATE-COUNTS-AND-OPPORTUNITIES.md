@@ -51,7 +51,7 @@ Their order combines absolute opportunity with the cost of obtaining evidence.
 | Priority | Whole-machine mechanism | Absolute opportunity | Proof difficulty | Implementation effort | Next decision test |
 |---|---|---|---|---|---|
 | 1 | Certify the complete exact interpreter quotient |459,315measured finite states; candidate full538,861 | Generic LocalCertificate proof exists; concrete kernel scalability is being measured | Bounded full-data and representative-row pilot, then literal or structural certificate | Remote run39800616921 at9b85ea9;1200seconds/6GiB;64/512/4096states,bothbits,negativecontrol |
-| 2 | Encode structured source-table rows before expanding the exact old input | Source-derived gross table-payload budget250,518states before framing and decoder; net unknown | High: complete decoder, exact word reconstruction and tape cleanup; existing SeedLink/expander reusable | Source-only reconnaissance; bounded encoding and fully counted decoder design required | Check29-bit row proposal and all overhead; no implementation commitment until source review and finite measurement |
+| 2 | Encode structured source-table rows before expanding the exact old input | Proposed full saving250,514-D including framing and newbridge; Dunknown, requireD≤50000 for≥200514saving | High: complete decoder, exact word reconstruction and tape cleanup; existing SeedLink/expander reusable | Source architecture reviewed; finitepacketcensus in preparation, controller allocation/proof stillabsent | Check29-bit row proposal and all overhead; no implementation commitment until source review and finite measurement |
 | 3 | Structural proof of store/suffix sharing if literal quotient certification scales poorly | Within measured459,315;339,898same-node equivalences are diagnostics, not a closed subquotient | High: successor closure through loads/branches/jumps | High, possibly much smaller proof data | Use actual pilot obstruction; avoid a second literal route with the same scaling problem |
 | 4 | Fixed two-bit or pair packing of the seed | Two-bit141,380gross payload states; five-bit-pair70,684seed bits before controller delta | Medium to high: framing, odd inputs, cleanup and exact codec | Moderate if expander contracts transfer | Compare fully paid result against structured-table compression before choosing |
 | 5 | Replace the specialized interpreter by program-as-data or apply dictionary/grammar compression | No defensible net count yet; all stored program/dictionary/decoder states must be charged | Very high for a new interpreter; high for a generic decoder | High | Require an explicit whole-machine design and bounded end-to-end pilot |
@@ -91,3 +91,8 @@ Certificate pilot checkpoint: run39800616921 failed before loader elaboration wi
 thread-creation failure under the5.5GiBvirtual-address cap, sampledRSS885MB.
 This is a harness/resource configuration obstruction, not a measured proof cost.
 One bounded rerun will retain RSS/wall watchdogs while removing the virtual cap.
+
+Secondcertificateattempt39802757781: Loaderspassed; MapData stopped at inline
+audit/importvisibility and stylelint errors after133.9s/6015852544sampledRSSbytes.
+No actual rows reached. Repairingfull-private-importaudit and diagnostic
+classification before treating this as a proof-scaling measurement.

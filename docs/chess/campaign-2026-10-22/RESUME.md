@@ -60,23 +60,28 @@ metadata replay`round-03/evidence/parent-pilot-replay.json`. Preserve sourcepilo
 The339898same-node store diagnostic is part of the GLOBALstablepartition;
 restricting it alone may break successor closure. Do not claim an isolated saving.
 
-**Remote run39800616921 completed failure before proof elaboration**, new
-`.github/workflows/chess_body_certificate_20261022.yml`, source
-`9b85ea9f54c1ad4c0a2bd7a4888e0784f7a63353`. No remote job currently remains active.
-This bounded ordinary-kernel pilot loads complete typed map and quotient data,
-then tries64/512/4096representative oldstates,bothbits,including main/return/entry/
-halt/deep paths and a genuine false-row kernel control. Driver1200seconds/6GiB;
-prebuild separate900secondscap. It stops at the first obstruction and retains all
-generated source, logs, resource measurements and unattempted source stages.
-First attempt hit Lean thread-creation failure under the5.5GiBvirtual-address cap,
-with only885MBsampledRSS. Dependency prebuild without that cap passed. This does
-not measure proof scalability. Worker is removing the virtual-address cap while
-retaining6GiBsampledRSS/wall watchdogs for one bounded rerun. Official retention
-round03/evidence/certificate-01 is in progress; raw diagnostics are retained.
-Do not commit to1147604row proofs without a credible scaling result.
+Two bounded certificate attempts are complete, both failures before row proofs.
+Run39800616921 at9b85ea9 failed Lean thread creation under a5.5GiBvirtual-address
+cap; sampledRSS885MB. Official evidence`round03/evidence/certificate-01`.
+Run39802757781 at1fa449d removed that cap. Loaders passed5.65s; MapData failed
+133.9s/6015852544sampledbytes due an inline audit seeing hidden imported
+`Nat.decLe._proof_1` as an axiom, plus an unscoped maxHeartbeatsstylewarning.
+Its broadresourceclassifier incorrectly matched that warning. This is not a
+successful data build or measured row-proof cost. Official evidence
+`round-03/evidence/certificate-02/`.
+
+Worker is repairing the audit to use an external full-private-import environment
+like accepted audits, retaining the same permitted axioms and all root checks;
+fixing the generatedstylewarning and narrowing resourceclassification. No remote
+job currently active. Root will source-review and dispatch one bounded rerun.
+All attempts retain full map/table/generated sources. Driver1200seconds/6GiB
+sampledRSS; prebuild900secondscap. If a true loading/row scaling obstruction
+appears, reconsider literal certificates before a million-row commitment.
+`round-03/FAST-ROW-OPTION.md` records an exact local-slot/proved-fast-accessor
+alternative if actual-body row normalization later proves slow; no new proof yet.
 
 Workergoal_body_quotient_pilot owns certificate_pilot.py/CERTIFICATE-PILOT.md,
-repairing the resource harness after the first run. Root owns workflow/lakefile/certificate_verify.py.
+repairing the audit/import and diagnostic issues after the second run. Root owns workflow/lakefile/certificate_verify.py.
 `round-03/PROOF-OPTIONS.md` explains reuse of LocalCertificate.Rows/respects:
 oldbody→quotientclass map, both missing transitions preserved; no injectivity
 needed and no new generic simulation theorem required. Actual-body identity still
@@ -94,18 +99,25 @@ saving. Early source finding: the inputtable is5952three-word rows; bounded
 children suggest29bits/row before framing. A source-derived gross250518table
 payload margin exists before decoder/framing; net saving is unknown.
 Require exact decoder/tape/input proofs, all runtime controls counted, comparison
-with2bit/pair packing, a bounded remote decision test and stopcriteria. No code,
-model or experiment has been dispatched for this architectural scout.
+with2bit/pair packing, a bounded remote decision test and stopcriteria. The source scout is complete. Newleaf1.2 is drafting a bounded remote-only
+packetcensus script to encode/decode everybit, compare against acceptedseed, and
+measurearity/dictionary scores. No controller or universalproof yet. Root owns
+newworkflow/verify.py and frozenaccepted-998176-pins.json (2983files); do notlaunch
+workflow until worker source is reviewed. Candidate173641packetbits and250514-D
+net saving remain symbolic; Dunknown, initialdecoderbudget50000. Acceptedmachine
+checkpointa2110e2 and completed35gatecheckpoint1fa449d are pushed.
 
 ## Immediate continuation
 
 1. Accepted round02checkpointa2110e2 is pushed; all35gates are met and leases
    released. Preserve all accepted bytes; finish the final ledger checkpoint.
-2. Inspect run39800616921's official result/artifact. Retain failures as evidence,
+2. Inspect the next corrected body certificate pilot after source-review/dispatch.
+   The two prior failures are retained. Retain failures as evidence,
    repair ordinary sourceerrors boundedly, or reconsider representation ifkernel
    loading/row evaluation is too expensive. Continue toward full quotient only
    after its costs justify doing so.
-3. Review round04source report when returned and update priority estimates.
+3. Review and launch bounded round04packetcensus when source-ready; no controller
+   implementation until complete independentpacketidentity and measurements pass.
 4. Check account usage periodically; maintain clean handoff before exhaustion.
 
 Workspace`/Users/bocowgill/.codex/worktrees/6ba9/cryptids`, branch

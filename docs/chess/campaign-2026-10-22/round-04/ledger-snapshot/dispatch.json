@@ -5,7 +5,7 @@
       "leaves": [
         "leaf-1.1"
       ],
-      "state": "sealed",
+      "state": "complete",
       "openedAt": "2026-10-22T15:01:25.376Z",
       "started": {
         "leaf-1.1": {
@@ -13,8 +13,28 @@
           "at": "2026-10-22T15:01:50.910Z"
         }
       },
+      "returned": {
+        "leaf-1.1": {
+          "at": "2026-10-22T15:17:28.354Z"
+        }
+      },
+      "sealedAt": "2026-10-22T15:01:50.957Z",
+      "completedAt": "2026-10-22T15:17:28.354Z"
+    },
+    "packet-census": {
+      "leaves": [
+        "leaf-1.2"
+      ],
+      "state": "sealed",
+      "openedAt": "2026-10-22T15:17:28.475Z",
+      "started": {
+        "leaf-1.2": {
+          "handle": "/root/goal_initializer_route",
+          "at": "2026-10-22T15:17:56.559Z"
+        }
+      },
       "returned": {},
-      "sealedAt": "2026-10-22T15:01:50.957Z"
+      "sealedAt": "2026-10-22T15:17:56.608Z"
     }
   }
 }
