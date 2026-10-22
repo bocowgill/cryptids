@@ -63,3 +63,23 @@ on parent-reviewed stable Format/Controller interface plus measured pilot;
 strict compilation ofthose dependencies is independently inprogress. This is
 readinessfor source drafting, not verifiedLeanacceptance. Finalparentgates require
 all strict builds on oneexactcompletecandidate; no component is trustedbyassumption.
+
+Leaf3.1 native complete-candidate drafting is READY on reviewed stable controller,
+SeedLink and FieldSeed interfaces; this does not assert universal proof acceptance.
+Own Export.lean, fixtures.py and NATIVE-CONTRACT.md only. Export every actual row
+of FieldSeed.machine and compare FieldSeed.rowMachine; independent Python checks
+against retained accepted body rows, pilot controller, independently encoded seed
+and reverse schedule. Count 424157 writer +216 controller +1 bridge +573802 body.
+All execution REMOTE ONLY; avoid full quadratic seed startup. Require full static
+input identity, small actual-controller/link/blank-writer fixture paths, all-boundary
+and hostile controls. Root owns workflow, lakefile, audit, full runner, git, review.
+
+Leaf3.2 metadata-only checker drafting READY on root full.py command contract and
+native payload schema, with all acceptance gates waiting successful same-source
+full remote evidence. Own new check_saved_evidence.py and EVIDENCE-CONTRACT.md only.
+Adapt frozen accepted checker without editing it. Bind full source closure/pins,
+official ZIP/API/log identity and archive content inventory, actual command receipts
+and exact success/failure controls, paid998176count and full1996352rows receipts,
+fresh independent model advisory and externally supplied parent seal. No self-seal.
+Large streams hash only locally; no machine recount, simulation, generator, Lean,
+fixture execution or imports. Retain hostile metadata self-tests and portability.

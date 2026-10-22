@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "waves": {
+    "body-pilot": {
+      "leaves": [
+        "leaf-1.1"
+      ],
+      "state": "complete",
+      "openedAt": "2026-10-22T14:13:12.016Z",
+      "started": {
+        "leaf-1.1": {
+          "handle": "/root/goal_body_quotient_pilot",
+          "at": "2026-10-22T14:13:57.520Z"
+        }
+      },
+      "returned": {
+        "leaf-1.1": {
+          "at": "2026-10-22T14:28:08.459Z"
+        }
+      },
+      "sealedAt": "2026-10-22T14:13:57.564Z",
+      "completedAt": "2026-10-22T14:28:08.459Z"
+    }
+  }
+}

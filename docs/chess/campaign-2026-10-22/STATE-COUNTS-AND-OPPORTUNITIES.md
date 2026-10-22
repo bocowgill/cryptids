@@ -22,7 +22,12 @@ sealed at `d79ae92`, with its completed ledger checkpoint `18e8474`.
 controller, all 432 rows, 465 execution fixtures, 14 rejected mutations, and full
 static input equality passed remote run39788561190. The generic D+1+B linker
 passed strict Lean in run39788567168. Actual Lean controller row identity and the same finite fixtures passed
-run39790380235 at4fa54a4. Universal expansion, full composition, audit and final
+run39790380235 at4fa54a4. Reusable Blocks and Scan named strict builds passed
+run39793271595 at7710f6f; the combined command failed downstream. Universal
+expansion and codec repairs plus the complete wrapper are queued in remote
+run39795117911, initially atcc5731e. Full native verification now has drafted
+coverage of all1,996,352rows,88complete startup cases,465controller cases and
+34corruption controls; those new checks have not run yet. Full audit and final
 acceptance remain open. The
 998,176 total is a measured component composition, not a certified full machine.
 
@@ -63,7 +68,8 @@ workspace setup and dispatch state. Avoid opening many speculative routes at onc
   Reconsider its representation if the same substantive obstruction recurs without
   improved prospects; retain the exact failure and remaining obligation.
 - A whole-body quotient pilot may run independently on the already retained body
-  table. Bound time/memory, retain its partition and an independent full-row
+table. The bounded pilot is queued as run39795919458 at8cd145e. Bound time/memory,
+retain its partition and an independent full-row
   certificate check, and label a nonconverged partition as incomplete evidence.
   Never promote a finite refinement or state-count estimate to a Lean theorem.
 - Pursue a small component change only when it closes a named dependency of a

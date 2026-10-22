@@ -1,146 +1,128 @@
 # Active chess compression goal — 2026-10-22
 
-The Codex goal is active. Continue successive optimization rounds. Usage exhaustion
-is a resource stop, not successful completion; leave resets and resumption to the user.
+The Codex goal is active. Continue successive focused rounds. Usage exhaustion is
+a resource stop, not successful completion. Leave resets and resumption to the user.
 
-## Current accepted best
+## Accepted best
 
-**2,411,743 states**, public machine
-`ConjectureMachines.Machines.chess_field_selective`, theorem
-`ConjectureMachines.Semantics.ChessFieldSelective.halts_iff_not_draw`.
-The computation commit is `2dfa3a7656de3f15a0bbda387d6f0642328e6d08`; the sealed acceptance checkpoint is `d79ae92034a7d33db9787bab8f15bbc349a60bd9`, committed and pushed to the fork.
-It saves **492,880** states from the previous accepted 2,904,623-state machine.
-Full proof, actual native export, independent full-table checks, audit, regressions,
-fresh advisory and sealed parent replay passed. See `round-01/RESULTS.md`.
-The previous accepted machine and all its sealed evidence remain unchanged.
+**2,411,743 states**, public machine `ConjectureMachines.Machines.chess_field_selective`,
+with `ConjectureMachines.Semantics.ChessFieldSelective.halts_iff_not_draw`.
+It saves **492,880 states** from the goal's starting 2,904,623-state machine.
+Computation commit `2dfa3a7656de3f15a0bbda387d6f0642328e6d08`; sealed acceptance
+checkpoint `d79ae92034a7d33db9787bab8f15bbc349a60bd9`; final ledger checkpoint
+`18e8474`. All are pushed to the fork. All 29 round-01 gates passed.
 
-## Nonnegotiable constraints
+Round-01 exact complete table, independent checks, safe closure audit, regressions,
+fresh advisory and sealed parent replay passed. See `round-01/RESULTS.md` and
+`round-01/evidence/final/`. Successful remote run39780889172 iteration4 is complete.
+No round-01 job remains active. Preserve all accepted sources and evidence.
 
-Keep every pre-campaign file fixed under `baseline-pins.json` (2,638 files),
-including the frozen chess specification, conjecture and all earlier evidence.
-All Lean/Lake/LSP/LeanProbe, native compilation/execution, generators, models,
-fixtures, simulations, synthesis and counting stay **remote**. Local source edits
-and saved metadata/hash inspection are permitted. No outreach, issues/comments,
-upstream PRs or messages to others. Use new dated source/evidence paths.
+## Constraints and priorities
 
-Latest account snapshot: **60% used / 40% remaining** in the primary window.
-No numeric goal token budget and no reset credit consumed. Check usage periodically;
-checkpoint throughout and stop recoverably near exhaustion, without marking success.
+- Frozen chess specification/conjecture fixed. Round-02 `baseline-pins.json` pins
+  2,762 baseline and accepted files. Accepted earlier rounds remain immutable.
+- ALL Lean/Lake/LSP/LeanProbe, compilation, native execution, models, generators,
+  simulations, synthesis, fixtures and counting stay **remote**. Local source
+  editing and retained metadata/hash inspection are allowed.
+- No outreach, upstream issues/comments/PRs or messages. Fork checkpoints authorized.
+- Prioritize large reductions in the complete certified machine. Maintain the
+  complete breakdown and ranked savings/proof/effort in
+  `STATE-COUNTS-AND-OPPORTUNITIES.md`. Separate accepted counts from experiments.
+  Small proof components currently unlock the 1,413,567-state seed reduction.
+- Use bounded pilots; retain failed routes and reconsider growing costs without
+  better prospects. No micro-optimization of the 216-state controller now.
+- Latest usage snapshot: **66% used / 34% remaining**. No numeric goal token budget,
+  no reset credit consumed. Check usage periodically and checkpoint throughout.
 
-## Completed remote check
+## Round 02 — current primary route
 
-Run **39780889172** is **completed successfully**. Its fourth iteration checked
-`2dfa3a7656de3f15a0bbda387d6f0642328e6d08`; original workflow SHA was
-`965a568c124b28a48d6a1926d99a0f8496e30718`. Session provenance binds both.
-There is no active remote job from this round.
+Experimental full count **998,176** =424,157 paid writer +216 expander +1 bridge
++573,802 accepted interpreter body. Prospective additional saving **1,413,567**.
+**Not accepted yet.** No completed universal/full-machine Lean certificate yet.
 
-Official ZIP, logs, APIs, archive inventory and all 38 exact unpacked files are
-retained in `round-01/evidence/final/`. Artifact ID **12427716840**, SHA-256
-`a493ccbc794bdbfce0b879d1e0cb0767f53ccba3e39bf98bfd453357f8344c10`.
-All 16 new-source hashes and all 2,638 frozen hashes match the final manifest.
+The writer installs three-bit stack symbols between two guarded markers. The
+controller expands each to the old thirteen-bit cell, erases all temporary data,
+sets the original bottom marker and passes the exact old tape/head to the body.
+Runtime is quadratic in input length: NEVER execute the entire 141,380-symbol
+startup. Acceptance requires universal finite-input proof, full static input
+identity, full actual table comparison and small native composition fixtures.
 
-All 20 command receipts passed their intended conditions across build, contracts,
-native, counts and full. Complete validation includes 4,823,486 actual rows,
-202,100 source cases, all 40,461 return inverse checks, exact paid initializer,
-six edge cases, 27 rejected corruptions, five false count contracts, three audit
-negative controls, safe closure of 9,259 roots / 58,974 dependencies, and M2–M7
-and shared/terminal regressions. Raw streams are retained, not only samples.
+### Completed intermediate evidence
 
-Failed runs remain under `round-01/evidence/`: source-only census and earlier
-syntax/graph/generic/layout/wrapper/export repairs. They do not constitute new
-machine acceptance. Repairs preserved theorem statements and frozen sources.
+- Finite pilot216controls/432rows/465validfixtures/14corruptions/fullstaticinput:
+  run39788561190 at619a4cde330b15ea16bc1cdbdea7f581b4658629;
+  `round-02/evidence/pilot-02/`.
+- Generic protected-success SeedLink strict Lean: run39788567168 iteration2,
+  `round-02/evidence/link-final/`. All D+1+B controls paid, both halting directions.
+- Actual Lean controller exactly matches all432pilotrows and reruns fixtures:
+  run39790380235 iteration2 at4fa54a4; `round-02/evidence/controller-final/`.
+- Blocks and Scan strict named builds passed in run39793271595 at7710f6f.
+  Overall command failed downstream in Expander/ChessCodec; do not call this a
+  full proof pass. Official retained packet `round-02/evidence/proofs-session-1/`;
+  initial diagnostics also saved in `proofs-session-1-diagnostics/`.
+- Expander syntax/dependent rewriting/blank-tail/arithmetic errors repaired.
+  Codec concrete input normalization exceeded6GiB; repaired by generic equality
+  composition and irreducibility. No theorem statements weakened.
 
-## Immediate next task
+### Current remote run / source
 
-Round 01 is accepted and its complete checkpoint is pushed. Round 02 is active:
-a direct binary three-bit seed expander plus one paid bridge into the accepted
-573,802-state body. Do not mark the overall goal complete after this reduction.
+**Run39795117911**, bounded `chess_seed_20261022.yml` session target `machine`,
+initial source **cc5731e**. Last observed queued. Inspect status/artifacts before
+starting another job. It checks universal components and the complete FieldSeed
+wrapper/public ChessSeed theorem. A failure opens a five-minute source-repair
+window, up to eight iterations. Preserve exact computation/workflow identities.
 
-The metadata-only acceptance command is:
+Root owns `FieldSeed.lean`, `Semantics/ChessSeed.lean`, runner/workflow/audit,
+git/network/remote jobs. Agents own:
 
-```sh
-python3 scripts/chess_goal_20261022/check_saved_evidence.py --root . --evidence docs/chess/campaign-2026-10-22/round-01/evidence/final --seal docs/chess/campaign-2026-10-22/round-01/review/seal.json --self-test
-```
+- goal_seed_expander: `Seed/Expander.lean`, awaiting remote diagnostics.
+- goal_seed_codec: `Seed/ChessCodec.lean`, awaiting remote diagnostics.
+- goal_seed_machine/scan: controller/blocks/scans; named builds passed, final
+  root full receipt/audit still required.
+- goal_seed_native: new `scripts/chess_seed_20261022/Export.lean`, `fixtures.py`,
+  `round-02/NATIVE-CONTRACT.md`. Drafting full actual rows and independent checks.
+  Expected binary full-rows.bin, six bytes per row, both bits of every state.
 
-It passed with 41 rejected evidence corruptions. A copied checker/seal also passed
-from a different working directory. Exact actual receipts are retained under
-`round-01/evidence/parent-replay.json` and `parent-portability.json`; the baseline
-replay is `baseline-parent-replay.json`. This executes no proof, model or recount.
-The sealed advisory is an independent model review, not human approval or formal
-verification by that reviewer. Preserve all accepted round-01 source/evidence.
+Root full runner/audit and native checks are drafted for remote execution. Native
+source includes all1,996,352rows,88complete startup cases,465controller cases and
+34corruption controls; these new checks have not executed yet. Worker
+goal_seed_evidence is drafting the separate new metadata-only sealed checker.
+Acceptance remains: strict complete
+build, safe axiom closure, full table/count/input/fixtures and hostile controls,
+prior regressions, fresh complete advisory, sealed metadata checker and parent
+replay, then a committed/pushed result. No count is accepted before all pass.
 
-## Next focused route
+## Round 03 — bounded independent body measurement
 
-`round-01/NEXT-INITIALIZER.md` is a reviewed source reconnaissance report, not an
-implementation. Three-bit source symbols plus two guarded markers and a fixed
-expander could replace the 13-bit-per-cell straight-line writer. Symbolic full
-count with the selective body is **997,959 + D + H**, where every decompressor
-control is D and the proposed exact-head linker adds H=1. These are not measured
-or certified new machine counts. Sub-million total needs D+H<2,041.
+Worker goal_body_quotient_pilot owns `scripts/chess_body_20261022/pilot.py` and
+`round-03/PILOT.md`; root owns remote-only verify.py/workflow. Source review is
+complete; **run39795919458** is queued at **8cd145e**. It analyzes the entire
+already accepted573,802-state body,
+including both transitions of every allocated state, by exact output-labelled
+bisimulation. Bound600seconds/6GiB including independent serialized certificate
+checks and hostile controls. No Lean quotient claim or new accepted count.
+Retain map, representatives, full quotient rows, state-family costs and certificate
+size to rank whether structural sharing is worth formalizing next.
 
-The report specifies tape geometry, reversal, empty input, marker overlap,
-complete cleanup and exact head restoration. Required new proofs: universal
-finite-input expansion and a protected-prefix expander/body linker. Quadratic
-startup makes full step-by-step chess initialization impractical; use a certified
-universal expansion path, full static input equality, exact full table export,
-and independent small-input/negative controls. The round-02 contract is active
-in `.unlazy/chess-goal-20261022-r02`; tracked snapshots are under `round-02/ledger-snapshot`.
-Worker `/root/goal_seed_link` has drafted `Cryptids/Compilation/SeedLink.lean`;
-worker `/root/goal_seed_controller` owns the finite binary controller pilot.
-The new workflow `chess_seed_20261022.yml` supports `pilot` and a bounded `link`
-proof-repair session. The finite controller pilot passed remotely in run **39788561190** at
-`619a4cde330b15ea16bc1cdbdea7f581b4658629`, retained in `round-02/evidence/pilot-02`.
-It measured **216 states / 432 rows**, passed **465 valid fixtures**, **14 negative
-controls**, and full static equality of the compressed seed to the frozen input.
-The candidate paid formula is **998,176 states** (424,157 writer +216 controller
-+1 bridge +573,802 body). It is not an accepted full machine: universal Lean
-expansion, actual Lean row identity, full composition and acceptance remain open.
-The accepted best remains **2,411,743**. First serialization/setup failures are
-retained in `pilot-01` and `link-infra-01`.
+## Recovery and orchestration
 
-Generic linker proof passed run **39788567168** iteration2 at `99836fb`;
-complete retained packet is `round-02/evidence/link-final`. No linker job remains active.
-Current remote controller proof session: **39790380235**, starts at `5b52ca0`;
-first check found one Format length-arithmetic proof error, now repaired for recheck.
-Inspect status/artifacts before retrying. No other accepted round's job is active.
-Worker `/root/goal_seed_machine` owns new `Seed/{Format,Controller,Blocks}.lean`;
-source adviser `/root/goal_initializer_route` owns `round-02/PROOF-PLAN.md`.
-The plan uses a ListBlank zipper invariant and word-wise marker scans; universal
-loop/cleanup proof is the next workstream after stable controller definitions.
+Workspace `/Users/bocowgill/.codex/worktrees/6ba9/cryptids`, branch
+`codex/chess-openevolve-pilot`, fork `bocowgill/cryptids`. **Origin is upstream.**
+Push explicitly to `git@github.com:bocowgill/cryptids.git`; never push upstream.
+Latest pushed proof source `cc5731e`; inspect git status for subsequent root/worker
+changes before committing. Do not discard concurrent edits.
 
-All 2,762 tracked baseline/accepted files except these mutable campaign progress
-documents are pinned in `round-02/baseline-pins.json`. Accepted round-01 files stay fixed.
+Ignored active ledgers `.unlazy/chess-goal-20261022-r02` and `...-r03`; copy their
+snapshots to dated tracked docs at major checkpoints. Source-ready is not verified.
+Native worker wave is sealed; returned source workers must be recorded as returned
+before parent verification. Returned means scheduler completion, not proof pass.
 
-## Workspace and recovery
+Metadata-only official retention command:
+`python3 scripts/chess_goal_20261022/retain.py --run ID --artifact EXACTNAME --output FRESH_FOLDER`.
+Only after run completion; reads/downloads saved evidence and hashes, no model run.
+For live iteration diagnostics use `gh run download` into a fresh dated folder.
 
-Directory `/Users/bocowgill/.codex/worktrees/6ba9/cryptids`, branch
-`codex/chess-openevolve-pilot`, fork `bocowgill/cryptids`. Origin is upstream;
-push explicitly to `git@github.com:bocowgill/cryptids.git`. All computation sources
-through `2dfa3a7` are pushed; the complete acceptance checkpoint
-`d79ae92` is also pushed. Inspect the latest commit before resuming. Never push upstream or open outreach.
-
-Unlazy scope `.unlazy/chess-goal-20261022-r01`, tracked ledger snapshot under
-`round-01/ledger-snapshot`. All 29 round-01 gates are met, with no unmet or abandoned gate; G6 records
-the final committed/pushed checkpoint. All proof,
-native, checker and fresh-review leaves passed, and all launch waves are complete.
-Release ownership after parent verification and preserve the final tracked ledger
-snapshot. No remote job remains active from this round.
-
-Active universal proof owners: goal_seed_scan (Scan.lean), goal_seed_expander
-(Expander.lean), goal_seed_codec (ChessCodec.lean). All execute Lean remotely via
-root. Fixed blocks and generic scanner drafts are ready for a remote components
-check; no universal expansion or new best is claimed yet.
-
-User steering: prioritize large full-machine savings, keep component counts and
-ranked opportunities at each major checkpoint. See
-`STATE-COUNTS-AND-OPPORTUNITIES.md`; current component proofs unlock prospective
-1413567additionalstates. Bound uncertainpilots and reconsiderunproductivecostgrowth.
-Acceptedfull savings, experimentalestimates and intermediateproofstatusstayseparate.
-
-Latest checkpoint: controller actual Lean rows passed run39790380235 iteration2
-at4fa54a4, retained in round02/evidence/controller-final: all432rows,465fixtures,
-14corruptions,threecommandsall0. Generic blocks/scanner firstremotecheck failed
-only small proof-elaboration/style points, now repaired; diagnostics retained in
-components-session-1. Universal Expander and ChessCodec sources are complete
-drafts, not certified. Next remote target `proofs` builds both plus dependencies
-in one bounded cached session; inspect current jobs before resuming.
+Accepted round-01 metadata replay (does not execute Lean/models/counting):
+`python3 scripts/chess_goal_20261022/check_saved_evidence.py --root . --evidence docs/chess/campaign-2026-10-22/round-01/evidence/final --seal docs/chess/campaign-2026-10-22/round-01/review/seal.json --self-test`.
+Passed with41rejectedcorruptions and copiedchecker/seal portability. Its old sealed
+files must stay fixed; create a new round-02 checker/seal for the new machine.

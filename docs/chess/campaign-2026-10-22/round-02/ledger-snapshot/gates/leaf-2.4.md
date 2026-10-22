@@ -20,3 +20,11 @@ OWNS: Cryptids/Compilation/Seed/ChessCodec.lean, .unlazy/chess-goal-20261022-r02
   read-only subagent review found no semantic concern and confirmed counts use existing kernel
   length theorems, not a static hash. Parent informed. Final acceptance still awaits remote
   elaboration, strict no-placeholder/axiom validation, and parent review of the same candidate.
+
+Remote proof session 1 diagnosed two implementation issues in this leaf: simplification did
+not unfold the unapplied `unmarkedSymbol` under `List.map`, and the paid-writer `rw` proof
+exhausted the 6 GiB kernel memory limit while reducing concrete data. The candidate now explicitly
+unfolds the generic helper before conversion, uses direct equality transitivity for the paid
+schedule and exact output, and locally protects the frozen data definitions from unfolding.
+Receipt: `docs/chess/campaign-2026-10-22/round-02/evidence/proofs-session-1-diagnostics/commands/1792678380255457094.json`.
+These repairs are not yet accepted; the next remote strict recheck is required.

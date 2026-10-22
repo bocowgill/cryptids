@@ -17,3 +17,15 @@
 2026-10-22T13:52:55.220Z dispatch universal-proof started leaf-2.3 as /root/goal_seed_expander
 2026-10-22T13:52:55.266Z dispatch universal-proof started leaf-2.4 as /root/goal_seed_codec
 2026-10-22T13:52:55.307Z dispatch universal-proof sealed
+2026-10-22T14:13:57.610Z dispatch proof-plan returned leaf-1.3
+2026-10-22T14:20:28.342Z dispatch full-native opened: leaf-3.1
+2026-10-22T14:20:57.349Z dispatch full-native started leaf-3.1 as /root/goal_seed_native
+2026-10-22T14:20:57.395Z dispatch full-native sealed
+2026-10-22T14:20:57.437Z dispatch controller-proof returned leaf-2.1
+2026-10-22T14:20:57.479Z dispatch scanner-proof returned leaf-2.2
+2026-10-22T14:26:33.908Z dispatch universal-proof returned leaf-2.3
+2026-10-22T14:26:33.953Z dispatch universal-proof returned leaf-2.4
+2026-10-22T14:31:01.255Z dispatch evidence-replay opened: leaf-3.2
+2026-10-22T14:31:29.131Z dispatch evidence-replay started leaf-3.2 as /root/goal_seed_evidence
+2026-10-22T14:31:29.176Z dispatch evidence-replay sealed
+2026-10-22T14:32:49.436Z dispatch full-native returned leaf-3.1

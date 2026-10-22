@@ -15,7 +15,7 @@ def main():
     if os.environ.get('CHESS_REMOTE') != '1' or os.environ.get('GITHUB_ACTIONS') != 'true':
         raise SystemExit('Remote GitHub Actions execution required')
     parser = argparse.ArgumentParser()
-    parser.add_argument('--target', required=True, choices=['pilot', 'link', 'format', 'controller', 'blocks', 'scan', 'components', 'codec', 'expander', 'proofs', 'machine'])
+    parser.add_argument('--target', required=True, choices=['pilot', 'link', 'format', 'controller', 'blocks', 'scan', 'components', 'codec', 'expander', 'proofs', 'machine', 'full'])
     args = parser.parse_args()
     spec = importlib.util.spec_from_file_location('accepted_runner', ROOT / 'scripts/chess_field_reverse/verify.py')
     runner = importlib.util.module_from_spec(spec)
@@ -37,6 +37,10 @@ def main():
                     source_sha256={p: runner.sha(ROOT / p) for p in sorted(set(paths))},
                     frozen_source_sha256=pins)
     (WORK / 'source-manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
+    if args.target == 'full':
+        import full
+        full.verify(runner, manifest)
+        return
     checks = []
     if args.target == 'pilot':
         check = runner.run([sys.executable, 'scripts/chess_seed_20261022/pilot.py'],

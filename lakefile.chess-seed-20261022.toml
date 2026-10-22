@@ -37,3 +37,11 @@ name = "BusyBeaverChallenge"
 name = "chess_seed_controller_export"
 root = "scripts.chess_seed_20261022.ControllerExport"
 
+[[lean_exe]]
+name = "chess_seed_audit"
+root = "scripts.chess_seed_20261022.Audit"
+
+[[lean_exe]]
+name = "chess_seed_export"
+root = "scripts.chess_seed_20261022.Export"
+
