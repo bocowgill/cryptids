@@ -15,7 +15,7 @@ def main():
     if os.environ.get('CHESS_REMOTE') != '1' or os.environ.get('GITHUB_ACTIONS') != 'true':
         raise SystemExit('Remote GitHub Actions execution required')
     parser = argparse.ArgumentParser()
-    parser.add_argument('--target', required=True, choices=['pilot', 'link', 'format', 'controller', 'blocks', 'scan', 'components', 'codec', 'expander', 'proofs'])
+    parser.add_argument('--target', required=True, choices=['pilot', 'link', 'format', 'controller', 'blocks', 'scan', 'components', 'codec', 'expander', 'proofs', 'machine'])
     args = parser.parse_args()
     spec = importlib.util.spec_from_file_location('accepted_runner', ROOT / 'scripts/chess_field_reverse/verify.py')
     runner = importlib.util.module_from_spec(spec)
@@ -27,7 +27,8 @@ def main():
     for name, digest in pins.items():
         assert runner.sha(ROOT / name) == digest, 'Accepted source/evidence changed: ' + name
     paths = ['.github/workflows/chess_seed_20261022.yml', pin_path,
-             'lakefile.chess-seed-20261022.toml', 'Cryptids/Compilation/SeedLink.lean']
+             'lakefile.chess-seed-20261022.toml', 'Cryptids/Compilation/SeedLink.lean',
+             'Cryptids/Chess/Optimisation/FieldSeed.lean', 'Cryptids/Semantics/ChessSeed.lean']
     paths.extend(str(p.relative_to(ROOT)) for p in (ROOT / 'scripts/chess_seed_20261022').rglob('*')
                  if p.is_file() and p.suffix in ('.py', '.lean'))
     paths.extend(str(p.relative_to(ROOT)) for p in (ROOT / 'Cryptids/Compilation/Seed').glob('*.lean'))
@@ -67,7 +68,8 @@ def main():
                   'components': 'Cryptids.Compilation.Seed.Blocks',
                   'codec': 'Cryptids.Compilation.Seed.ChessCodec',
                   'expander': 'Cryptids.Compilation.Seed.Expander',
-                  'proofs': 'Cryptids.Compilation.Seed.Expander'}[args.target]
+                  'proofs': 'Cryptids.Compilation.Seed.Expander',
+                  'machine': 'Cryptids.Semantics.ChessSeed'}[args.target]
         targets = [target] + (['Cryptids.Compilation.Seed.Scan'] if args.target == 'components' else [])
         if args.target == 'proofs':
             targets.append('Cryptids.Compilation.Seed.ChessCodec')

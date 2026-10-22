@@ -69,8 +69,9 @@ theorem markedOutput_reversed (values : List Γ') :
 theorem markedOutput_bitInput (values : List Γ') :
     markedOutput ((values.map ofSymbol).reverse) = Tape.mk₁
       (FieldCompiler.Codec.bitInput (TM2to1.trInit K'.main values)) := by
-  simpa only [List.map_reverse, TM2to1.trInit, unmarkedSymbol] using
-    markedOutput_reversed values.reverse
+  have result := markedOutput_reversed values.reverse
+  unfold unmarkedSymbol at result
+  simpa only [List.map_reverse, TM2to1.trInit] using result
 
 theorem encode_toBool (bit : Bit) : Binary.encodeSymbol (FieldCompiler.toBool bit) = bit := by
   fin_cases bit <;> rfl
@@ -90,6 +91,9 @@ theorem markedOutput_input (values : List Γ') :
 
 namespace ChessCodec
 
+attribute [local irreducible] Chess.Compilation.Input.stack
+  Chess.Optimisation.FieldAware.bits Chess.Optimisation.FieldPacked.bits
+
 /-- The frozen complete chess stack, in the order consumed by the seed controller. -/
 def letters : List Letter := Chess.Compilation.Input.stack.map ofSymbol
 
@@ -108,19 +112,18 @@ theorem bits_size : bits.size = 424156 := by
 theorem writer_states : bits.size + 1 = 424157 := by
   rw [bits_size]
 
+attribute [local irreducible] bits
+
 /-- The existing paid reverse writer has exactly the stated number of controls. -/
 theorem paid_writer_states :
-    (Chess.Optimisation.OpenEvolveWide.schedule bits).size = 424157 := by
-  rw [Chess.Optimisation.OpenEvolveWide.schedule_size]
-  exact writer_states
+    (Chess.Optimisation.OpenEvolveWide.schedule bits).size = 424157 :=
+  (Chess.Optimisation.OpenEvolveWide.schedule_size bits).trans writer_states
 
 /-- The exact tape expected by the accepted complete selective chess body. -/
 theorem output_eq :
-    markedOutput letters.reverse = Tape.mk₁ Chess.Optimisation.FieldSelective.bits.toList := by
-  change markedOutput ((Chess.Compilation.Input.stack.map ofSymbol).reverse) =
-    Tape.mk₁ Chess.Optimisation.FieldPacked.bits.toList
-  rw [Chess.Optimisation.FieldPacked.bits_toList]
-  exact markedOutput_input Chess.Compilation.Input.stack
+    markedOutput letters.reverse = Tape.mk₁ Chess.Optimisation.FieldSelective.bits.toList :=
+  (markedOutput_input Chess.Compilation.Input.stack).trans
+    (congrArg Tape.mk₁ Chess.Optimisation.FieldPacked.bits_toList.symm)
 
 end ChessCodec
 end ConjectureMachines.Compilation.Seed

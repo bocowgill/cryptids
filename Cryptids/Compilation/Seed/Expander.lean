@@ -91,24 +91,24 @@ theorem scan_left_marker (scanner : Fin 4 → Fin 216) (exit : Fin 216)
     FlatInit.runFrom machine (bits.length + 5)
       ⟨scanner 0, (Tape.mk' (ListBlank.append (bits ++ marker.reverse) left) right).move .left⟩ =
       some ⟨exit, Tape.mk' left (ListBlank.append (marker ++ bits.reverse) right)⟩ := by
-  let prefix := bits ++ [0, 1, 1, 1, 1]
+  let scanBits := bits ++ [0, 1, 1, 1, 1]
   have start :
       (Tape.mk' (ListBlank.append (bits ++ marker.reverse) left) right).move .left =
-        Scan.mkLeft (ListBlank.append prefix (left.cons 0)) right := by
-    simp [prefix, marker, ListBlank.append_assoc, ListBlank.append, Scan.mkLeft, Tape.mk',
+        Scan.mkLeft (ListBlank.append scanBits (left.cons 0)) right := by
+    simp [scanBits, marker, ListBlank.append_assoc, ListBlank.append, Scan.mkLeft, Tape.mk',
       Tape.move]
-  have read : Scan.Reads .left (Scan.mkLeft (ListBlank.append prefix (left.cons 0)) right)
+  have read : Scan.Reads .left (Scan.mkLeft (ListBlank.append scanBits (left.cons 0)) right)
       ((bits ++ [0]) ++ [1, 1, 1, 1]) := by
-    simpa only [prefix, List.append_assoc, List.cons_append, List.nil_append] using
-      Scan.reads_left prefix (left.cons 0) right
+    simpa only [scanBits, List.append_assoc, List.cons_append, List.nil_append] using
+      Scan.reads_left scanBits (left.cons 0) right
   have traversed := Scan.run_safe_fourOnes machine scanner exit .left rows (bits ++ [0])
-    (Scan.mkLeft (ListBlank.append prefix (left.cons 0)) right) safe read
+    (Scan.mkLeft (ListBlank.append scanBits (left.cons 0)) right) safe read
   have shifted :
       shift .left ((bits ++ [0]).length + 4)
-          (Scan.mkLeft (ListBlank.append prefix (left.cons 0)) right) =
+          (Scan.mkLeft (ListBlank.append scanBits (left.cons 0)) right) =
         Tape.mk' left (ListBlank.append (marker ++ bits.reverse) right) := by
-    simpa [prefix, marker, List.reverse_append, List.append_assoc, ListBlank.append_assoc,
-      ListBlank.append] using Scan.shift_left_prefix prefix (left.cons 0) right
+    simpa [scanBits, marker, List.reverse_append, List.append_assoc, ListBlank.append_assoc,
+      ListBlank.append] using Scan.shift_left_prefix scanBits (left.cons 0) right
   rw [shifted] at traversed
   simpa only [start, List.length_append, List.length_cons, List.length_nil, Nat.add_zero,
     Nat.add_assoc] using traversed
@@ -120,43 +120,43 @@ theorem scan_right_marker (bits : List Bit) (safe : Scan.scanWord bits 0 = some 
       ⟨encode (.seekB 0), Tape.mk' left (ListBlank.append (bits ++ marker) right)⟩ =
       some ⟨loop, Tape.mk' (ListBlank.append bits.reverse left)
         (ListBlank.append marker right)⟩ := by
-  let prefix := bits ++ [0, 1, 1, 1, 1]
+  let scanBits := bits ++ [0, 1, 1, 1, 1]
   have start : Tape.mk' left (ListBlank.append (bits ++ marker) right) =
-      Tape.mk' left (ListBlank.append prefix (right.cons 0)) := by
-    simp [prefix, marker, ListBlank.append_assoc, ListBlank.append]
+      Tape.mk' left (ListBlank.append scanBits (right.cons 0)) := by
+    simp [scanBits, marker, ListBlank.append_assoc, ListBlank.append]
   have safeGuard : Scan.scanWord (bits ++ [0]) 0 = some 0 := by
     simp only [Scan.scanWord_append, safe, Option.bind_some, Scan.scanWord,
       Scan.advance_zero]
-  have read : Scan.Reads .right (Tape.mk' left (ListBlank.append prefix (right.cons 0)))
+  have read : Scan.Reads .right (Tape.mk' left (ListBlank.append scanBits (right.cons 0)))
       ((bits ++ [0]) ++ [1, 1, 1, 1]) := by
-    simpa only [prefix, List.append_assoc, List.cons_append, List.nil_append] using
-      Scan.reads_right prefix left (right.cons 0)
+    simpa only [scanBits, List.append_assoc, List.cons_append, List.nil_append] using
+      Scan.reads_right scanBits left (right.cons 0)
   have traversed := Scan.run_safe_fourOnes machine (fun run ↦ encode (.seekB run))
     (encode (.backB 0)) .right seekB_rows (bits ++ [0])
-    (Tape.mk' left (ListBlank.append prefix (right.cons 0))) safeGuard read
+    (Tape.mk' left (ListBlank.append scanBits (right.cons 0))) safeGuard read
   have shifted :
       shift .right ((bits ++ [0]).length + 4)
-          (Tape.mk' left (ListBlank.append prefix (right.cons 0))) =
-        Tape.mk' (ListBlank.append prefix.reverse left) (right.cons 0) := by
-    simpa [prefix, Nat.add_assoc] using Scan.shift_right_prefix prefix left (right.cons 0)
+          (Tape.mk' left (ListBlank.append scanBits (right.cons 0))) =
+        Tape.mk' (ListBlank.append scanBits.reverse left) (right.cons 0) := by
+    simpa [scanBits, Nat.add_assoc] using Scan.shift_right_prefix scanBits left (right.cons 0)
   rw [shifted] at traversed
   have returned := run_block .backB
-    (Tape.mk' (ListBlank.append prefix.reverse left) (right.cons 0))
+    (Tape.mk' (ListBlank.append scanBits.reverse left) (right.cons 0))
   have backGeometry :
       Init.executeList (blockActions .backB)
-          (Tape.mk' (ListBlank.append prefix.reverse left) (right.cons 0)) =
+          (Tape.mk' (ListBlank.append scanBits.reverse left) (right.cons 0)) =
         Tape.mk' (ListBlank.append bits.reverse left) (ListBlank.append marker right) := by
-    simp [actions_backB, Init.executeList, Init.execute, prefix, List.reverse_append,
+    simp [actions_backB, Init.executeList, Init.execute, scanBits, List.reverse_append,
       ListBlank.append_assoc, ListBlank.append, marker, List.replicate_succ]
   rw [backGeometry] at returned
   have first : FlatInit.runFrom machine (bits.length + 5)
       ⟨encode (.seekB 0), Tape.mk' left (ListBlank.append (bits ++ marker) right)⟩ =
         some ⟨encode (.backB 0),
-          Tape.mk' (ListBlank.append prefix.reverse left) (right.cons 0)⟩ := by
+          Tape.mk' (ListBlank.append scanBits.reverse left) (right.cons 0)⟩ := by
     simpa only [start, List.length_append, List.length_cons, List.length_nil, Nat.add_zero,
       Nat.add_assoc] using traversed
   have last : FlatInit.runFrom machine 5
-      ⟨encode (.backB 0), Tape.mk' (ListBlank.append prefix.reverse left) (right.cons 0)⟩ =
+      ⟨encode (.backB 0), Tape.mk' (ListBlank.append scanBits.reverse left) (right.cons 0)⟩ =
         some ⟨loop, Tape.mk' (ListBlank.append bits.reverse left)
           (ListBlank.append marker right)⟩ := returned
   rw [show bits.length + 10 = bits.length + 5 + 5 by omega, run_add, first,
@@ -193,10 +193,13 @@ theorem read_letter_run (letter : Letter) (left right : ListBlank Bit) :
         Tape.mk' (ListBlank.append (marker ++ word letter).reverse left) right⟩ := by
   have skipped := run_block .skipB
     (Tape.mk' left (ListBlank.append marker (ListBlank.append (word letter) right)))
-  change FlatInit.runFrom machine 6 _ =
+  change FlatInit.runFrom machine 6
+    ⟨loop, Tape.mk' left (ListBlank.append marker (ListBlank.append (word letter) right))⟩ =
     some ⟨encode (.parse 0), Init.executeList (blockActions .skipB) _⟩ at skipped
   rw [actions_skipB, execute_moves_shift] at skipped
-  rw [show 6 = marker.length by rfl, Scan.shift_right_prefix] at skipped
+  have moved := Scan.shift_right_prefix marker left (ListBlank.append (word letter) right)
+  change shift .right 6 _ = _ at moved
+  rw [moved] at skipped
   have parsed := parse_letter_run letter (ListBlank.append marker.reverse left) right
   have first : FlatInit.runFrom machine 6
       ⟨loop, Tape.mk' left (ListBlank.append (marker ++ word letter) right)⟩ =
@@ -216,10 +219,13 @@ theorem read_stop_run (left right : ListBlank Bit) :
         Tape.mk' (ListBlank.append (marker ++ [0, 0, 0]).reverse left) right⟩ := by
   have skipped := run_block .skipB
     (Tape.mk' left (ListBlank.append marker (ListBlank.append [0, 0, 0] right)))
-  change FlatInit.runFrom machine 6 _ =
+  change FlatInit.runFrom machine 6
+    ⟨loop, Tape.mk' left (ListBlank.append marker (ListBlank.append [0, 0, 0] right))⟩ =
     some ⟨encode (.parse 0), Init.executeList (blockActions .skipB) _⟩ at skipped
   rw [actions_skipB, execute_moves_shift] at skipped
-  rw [show 6 = marker.length by rfl, Scan.shift_right_prefix] at skipped
+  have moved := Scan.shift_right_prefix marker left (ListBlank.append [0, 0, 0] right)
+  change shift .right 6 _ = _ at moved
+  rw [moved] at skipped
   have parsed := parse_stop_run (ListBlank.append marker.reverse left) right
   have first : FlatInit.runFrom machine 6
       ⟨loop, Tape.mk' left (ListBlank.append (marker ++ [0, 0, 0]) right)⟩ =
@@ -265,6 +271,10 @@ theorem loop_once_gap (out : List Letter) (letter : Letter) (todo : List Letter)
     have written := prepend_run letter (ListBlank.mk [])
       (ListBlank.mk (output out ++ List.replicate (gap + 3) 0 ++
         marker ++ payload todo ++ [0, 0, 0]))
+    have blank : ListBlank.append (List.replicate 13 (0 : Bit)) (ListBlank.mk []) =
+        ListBlank.mk [] := by
+      rw [ListBlank.append_mk, List.append_nil, mk_zeros]
+    rw [blank] at written
     simpa [atA, atOutput, output_cons, ListBlank.append_mk, List.append_assoc] using written
   have seekB : FlatInit.runFrom machine (13 * (out.length + 1) + (gap + 3) + 10)
       ⟨encode (.seekB 0), atOutput⟩ =
@@ -273,7 +283,8 @@ theorem loop_once_gap (out : List Letter) (letter : Letter) (todo : List Letter)
       (output (letter :: out) ++ List.replicate (gap + 3) 0)
       (scan_right_gap (letter :: out) (gap + 3)) (ListBlank.mk marker.reverse) right
     simpa [atOutput, frameTape, right, ListBlank.append_mk, List.reverse_append,
-      List.reverse_replicate, List.append_assoc] using scanned
+      List.reverse_replicate, List.append_assoc, Nat.mul_add, Nat.add_assoc,
+      Nat.add_comm, Nat.add_left_comm] using scanned
   rw [show 26 * out.length + 2 * gap + 81 =
       9 + (10 + ((gap + 13 * out.length + 5) +
         (31 + (13 * (out.length + 1) + (gap + 3) + 10)))) by omega,
@@ -286,7 +297,7 @@ theorem loop_once (out : List Letter) (letter : Letter) (todo : List Letter) :
       ⟨loop, loopTape out (letter :: todo)⟩ =
       some ⟨loop, loopTape (letter :: out) todo⟩ := by
   have result := loop_once_gap out letter todo (1 + 3 * out.length)
-  simpa only [frameTape_canonical, List.length_cons,
+  simpa only [frameTape, loopTape, List.length_cons,
     show 26 * out.length + 2 * (1 + 3 * out.length) + 81 = 32 * out.length + 83 by omega,
     show 1 + 3 * out.length + 3 = 1 + 3 * (out.length + 1) by omega] using result
 
@@ -296,16 +307,11 @@ theorem eraseA_geometry (out : List Letter) (gap : Nat) :
       (Tape.mk' (ListBlank.mk [])
         (ListBlank.mk (marker ++ output out ++ List.replicate gap 0 ++
           List.replicate 9 0))) = Tape.mk₁ (output out) := by
-  have tail : ListBlank.mk (output out ++ List.replicate gap 0 ++ List.replicate 9 0) =
-      ListBlank.mk (output out) := by
-    rw [mk_append_zeros, mk_append_zeros]
+  rw [mk_append_zeros, mk_append_zeros]
   have written := execute_write_right (List.replicate 6 (0 : Bit)) marker (by decide)
-    (ListBlank.mk [])
-    (ListBlank.mk (output out ++ List.replicate gap 0 ++ List.replicate 9 0))
-  simp only [List.reverse_replicate, ListBlank.append_mk, List.append_nil, mk_zeros, tail]
-    at written
-  simpa [actions_eraseA, ListBlank.append_mk, List.append_assoc, Tape.mk₁, Tape.mk₂]
-    using written
+    (ListBlank.mk []) (ListBlank.mk (output out))
+  simpa only [actions_eraseA, List.map_replicate, List.reverse_replicate,
+    ListBlank.append_mk, List.append_nil, mk_zeros, Tape.mk₁, Tape.mk₂] using written
 
 /-- The last three fixed blocks mark offset twelve and return to the same relative head. -/
 theorem final_marker_geometry (tape : Tape Bit) :

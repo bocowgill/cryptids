@@ -31,7 +31,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('mode', choices=['sync', 'check', 'finish'])
     parser.add_argument('--first', action='store_true')
-    parser.add_argument('--target', choices=['link', 'format', 'controller', 'blocks', 'scan', 'components', 'codec', 'expander', 'proofs'], default='link')
+    parser.add_argument('--target', choices=['link', 'format', 'controller', 'blocks', 'scan', 'components', 'codec', 'expander', 'proofs', 'machine'], default='link')
     args = parser.parse_args()
     STATE.mkdir(parents=True, exist_ok=True)
     result_path = STATE / 'last-result.json'

@@ -1,6 +1,7 @@
 # Universal expander proof candidate
 
-Status: complete source candidate, awaiting remote Lean compilation and axiom audit. This document
+Status: complete source candidate, first remote diagnostics repaired; strict rerun and axiom audit
+pending. This document
 does not certify the candidate or change the accepted 2,411,743-state result.
 
 The exact target is `Seed.run_seed`: for every `letters : List (Fin 4)`, the actual
@@ -61,3 +62,20 @@ required before changing any acceptance gate to checked. Remote build/evidence r
 will be recorded here after
 the root supplies them. All local activity for this work consisted of source reads and edits;
 Lean, Lake, LSP, LeanProbe, models, and tests were not executed locally.
+
+## Remote repair record
+
+The first proof session built `Blocks` and `Scan` successfully, then rejected `Expander`.
+Its exact retained command record is
+`evidence/proofs-session-1-diagnostics/commands/1792678380255457094.json`.
+The diagnosed defects were the reserved identifier `prefix`, a numeral rewrite whose motive
+abstracted a dependent `Fin` instance, a missing explicit blank-prefix quotient equality,
+normalization of the right-scan step count and canonical gap, and asymmetric blank-tail
+simplification in the erase-A proof. The source now renames the local scanner word, rewrites a
+separately typed shift equality, explicitly collapses the thirteen supplied left blanks, and
+normalizes the affected tape and count expressions. The erase-A goal is normalized before
+applying the framed write theorem. No mathematical statement or controller definition changed.
+
+All changes are source repairs awaiting the next remote strict build. The syntax defect prevented
+the first session from checking the full scanner composition, so no partial acceptance is inferred
+from the absence of additional diagnostics in that session.
