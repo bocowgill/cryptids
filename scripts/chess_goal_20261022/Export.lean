@@ -301,7 +301,8 @@ def main (args : List String) : IO Unit := do
   let mut returnTargets : Array Nat := #[]
   for index in List.finRange returnCount do
     let target := Chess.Optimisation.FieldSelectiveLayout.returnAt index
-    unless Chess.Optimisation.FieldSelectiveLayout.findReturn target = some index do
+    unless (Chess.Optimisation.FieldSelectiveLayout.findReturn target).map Fin.val =
+        some index.val do
       throw (IO.userError s!"Actual selected return lookup fails roundtrip at {index.val}")
     returnTargets := returnTargets.push target.val
   unless returnCount = 1 + 5 * returnOffsets.back! do

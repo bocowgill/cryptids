@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "lake",
+    "--wfail",
+    "-f",
+    "lakefile.chess-goal-20261022.toml",
+    "build",
+    "Cryptids.Semantics.ChessFieldSelective",
+    "chess_goal_audit",
+    "chess_goal_export"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "\u2139 [3908/3944] Replayed Cryptids.Chess.Compilation.SourceCertificate\ninfo: Cryptids/Chess/Compilation/SourceCertificate.lean:226:0: Source certificate: 7076 checked lemmas, 7037 cache hits\ninfo: Cryptids/Chess/Compilation/SourceCertificate.lean:230:0: Literal row certificate: 5952 checked rows in 186 chunks\n\u2139 [3919/3944] Replayed Cryptids.Chess.Compilation.Input\ninfo: Cryptids/Chess/Compilation/Input.lean:128:0: Checked 186 literal row chunks: 141042 stack symbols\n\u2714 [7863/7868] Built Cryptids.Chess.Optimisation.FieldSelective (1.9s)\n\u2714 [7864/7868] Built Cryptids.Chess.Optimisation.FieldSelective:c.o (76ms)\n\u2716 [7865/7868] Building scripts.chess_goal_20261022.Export (12s)\ntrace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean -M6144 /home/runner/work/cryptids/cryptids/scripts/chess_goal_20261022/Export.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/scripts/chess_goal_20261022/Export.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/scripts/chess_goal_20261022/Export.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/scripts/chess_goal_20261022/Export.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/scripts/chess_goal_20261022/Export.setup.json --json\nerror: scripts/chess_goal_20261022/Export.lean:304:4: failed to synthesize instance of type class\n  Decidable (Chess.Optimisation.FieldSelectiveLayout.findReturn target = some index)\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\n\u2714 [7866/7868] Built Cryptids.Semantics.ChessFieldSelective (1.9s)\nSome required targets logged failures:\n- scripts.chess_goal_20261022.Export\nerror: build failed\n",
+  "output_sha256": "a33d9967f0593af1ad5a12b27ad2e4839b14a0a8e3552fa00bb2cc23ab2a9cd0",
+  "timed_out": false,
+  "timeout_seconds": 1800,
+  "elapsed_seconds": 19.508951901000046,
+  "cumulative_children_peak_rss_kib": 4417588
+}
