@@ -1,0 +1,50 @@
+name: Chess quotient certificate scalability pilot
+on:
+  push:
+    branches: ['codex/chess-openevolve-pilot']
+    paths: ['.github/workflows/chess_body_certificate_20261022.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: chess-body-certificate-20261022-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  pilot:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      ELAN_NO_UPDATE_CHECK: '1'
+      LEAN_NUM_THREADS: '1'
+      CHESS_REMOTE: '1'
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+      - uses: leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6
+        with:
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'false'
+          use-github-cache: 'false'
+      - uses: actions/cache/restore@caa296126883cff596d87d8935842f9db880ef25
+        with:
+          path: |
+            .lake/packages
+            .lake/build
+          key: chess-body-certificate-20261022-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-${{ github.sha }}
+          restore-keys: |
+            chess-body-certificate-20261022-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-
+            chess-seed-20261022-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-
+            chess-goal-20261022-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-
+      - name: Fetch pinned Mathlib cache
+        run: timeout --signal=TERM --kill-after=10s 900s lake exe cache get Mathlib
+      - name: Bounded actual quotient certificate experiment
+        run: python3 scripts/chess_body_20261022/certificate_verify.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: chess-body-certificate-${{ github.sha }}
+          include-hidden-files: true
+          path: .lake/chess-body-certificate-20261022/**
+          retention-days: 30
