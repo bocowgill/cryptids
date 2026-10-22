@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "lake",
+    "--wfail",
+    "-f",
+    "lakefile.chess-field-packed.toml",
+    "build",
+    "Cryptids.Semantics.ChessFieldPacked",
+    "chess_field_packed_audit",
+    "chess_field_packed_export"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "\u2139 [3908/3938] Replayed Cryptids.Chess.Compilation.SourceCertificate\ninfo: Cryptids/Chess/Compilation/SourceCertificate.lean:226:0: Source certificate: 7076 checked lemmas, 7037 cache hits\ninfo: Cryptids/Chess/Compilation/SourceCertificate.lean:230:0: Literal row certificate: 5952 checked rows in 186 chunks\n\u2139 [3919/3938] Replayed Cryptids.Chess.Compilation.Input\ninfo: Cryptids/Chess/Compilation/Input.lean:128:0: Checked 186 literal row chunks: 141042 stack symbols\n\u2714 [3928/7856] Built scripts.chess_field_packed.Audit (4.2s)\n\u2714 [7839/7856] Built Cryptids.Compilation.FieldPacking.Interface:c.o (298ms)\n\u2714 [7840/7856] Built Cryptids.Compilation.FieldPacking.Graph:c.o (73ms)\n\u2714 [7842/7856] Built scripts.chess_field_packed.Audit:c.o (194ms)\n\u2714 [7845/7856] Built chess_field_packed_audit:exe (1.4s)\n\u2714 [7849/7856] Built Cryptids.Chess.Optimisation.FieldPackedLayout (40s)\n\u2714 [7850/7856] Built Cryptids.Chess.Optimisation.FieldPackedLayout:c.o (115ms)\n\u2714 [7851/7856] Built Cryptids.Chess.Optimisation.FieldPacked (2.1s)\n\u2714 [7852/7856] Built Cryptids.Chess.Optimisation.FieldPacked:c.o (59ms)\n\u2714 [7853/7856] Built scripts.chess_field_packed.Export (7.1s)\n\u2714 [7854/7856] Built Cryptids.Semantics.ChessFieldPacked (1.5s)\n\u2714 [7855/7856] Built scripts.chess_field_packed.Export:c.o (503ms)\n\u2714 [7856/7856] Built chess_field_packed_export:exe (2.1s)\nBuild completed successfully (7856 jobs).\n",
+  "output_sha256": "dd901a1db5bea12c13bf06c3083774992cf370c681441ba437add28544782865",
+  "timed_out": false,
+  "timeout_seconds": 1800,
+  "elapsed_seconds": 64.94984715799998,
+  "cumulative_children_peak_rss_kib": 4430444
+}

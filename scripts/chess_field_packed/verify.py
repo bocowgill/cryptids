@@ -93,7 +93,7 @@ def contracts():
     examples=[
       ('BadCount','example : generated.states = 45065962 := by rw [generated_states]; decide +kernel'),
       ('Unpaid','example : generated.states = body.states := by rw [generated_states, body_states]; decide +kernel'),
-      ('BadPadding','example : (FieldPackedLayout.layout.code ⟨0, (FieldAware.syntaxRows.get 0).root⟩).val = 106668 := by decide +kernel'),
+      ('BadPadding','example : FieldPackedLayout.packed.nodes = 4139008 := by rw [FieldPackedLayout.packed_nodes]; decide +kernel'),
       ('BadStore',"example : FieldReturn.symbolCode (some Turing.PartrecToTM2.Γ'.bit1) = 3 := by decide +kernel"),
       ('BadFrame','example : FieldBinary.updateCell (false, fun _ ↦ 0) 0 4 = (false, fun _ ↦ 4) := by decide +kernel'),
       ('BadInitializer','example : (FlatInit.initialise #[0, 1] (⟨1, {transition := fun _ _ ↦ none}⟩ : ConjectureMachines.BundledMachine 2)).states = 1 := by decide +kernel')]

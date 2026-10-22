@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_field_packed/verify.py",
+    "--target",
+    "layout"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "\u2139 [3909/3930] Replayed Cryptids.Chess.Compilation.SourceCertificate\ninfo: Cryptids/Chess/Compilation/SourceCertificate.lean:226:0: Source certificate: 7076 checked lemmas, 7037 cache hits\ninfo: Cryptids/Chess/Compilation/SourceCertificate.lean:230:0: Literal row certificate: 5952 checked rows in 186 chunks\n\u2139 [3920/3930] Replayed Cryptids.Chess.Compilation.Input\ninfo: Cryptids/Chess/Compilation/Input.lean:128:0: Checked 186 literal row chunks: 141042 stack symbols\nBuild completed successfully (3930 jobs).\nPacked field frozen inputs passed\nPacked field frozen inputs passed\nPacked field layout passed\n",
+  "output_sha256": "d7142181d094410ea624bbb3ab77767de220aba9d0a025a291dfaf7ce4872779",
+  "timed_out": false,
+  "timeout_seconds": 1800,
+  "elapsed_seconds": 3.7331107310000107,
+  "cumulative_children_peak_rss_kib": 4430444
+}

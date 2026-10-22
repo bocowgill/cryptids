@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-field-packed/BadPadding.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "/home/runner/work/cryptids/cryptids/.lake/chess-field-packed/BadPadding.lean:3:101: error: (kernel) deep recursion detected, use `set_option maxRecDepth <num>` to increase the limit\n",
+  "output_sha256": "e715e5263fcfc520041057f28fbd1b82165f0f1ff63a89550cddcc89a8804758",
+  "timed_out": false,
+  "timeout_seconds": 300,
+  "elapsed_seconds": 4.017683219000048,
+  "cumulative_children_peak_rss_kib": 4531116
+}
