@@ -1,9 +1,10 @@
 # Bounded concrete quotient certificate scalability pilot
 
-Status: the compiled-auditor smoke passed in 27.433 seconds. Its full-private
-audit checked nine roots and 700 dependencies, using only `propext`, below the
-6-GiB sampled RSS cap. The full pilot is authorized with the same fixed driver
-and original 1,200-second/6-GiB budget. Zero actual-body row proofs have passed. This
+Status: the full trial successfully loaded and audited the complete map, then
+stopped on a recursion-depth error in the executable quotient declaration.
+There was no sampled RSS stop. The authorized bounded executable-chunk
+representation is now implemented in the remote-only driver and awaits remote
+verification. Zero actual-body row proofs have passed. This
 experiment tests the cost of ordinary Lean kernel certificates for the measured
 114,487-state quotient. A pass covers only the requested sample, never all
 573,802 old states or a new accepted chess machine. The accepted full-machine
@@ -217,6 +218,60 @@ accepted machine. On this evidence the root authorized the unchanged full
 pilot, with the original 1,200-second and 6-GiB limits; its partial-row gate
 remains open. The driver is fixed for that run.
 
+## Full trial: quotient recursion-depth stop
+
+Run `39816362847`, commit `c0be393f574c785ba0e352df98f3f78f1ed2c20d`, retained
+under `evidence/certificate-live-06/unpacked/`, used the unchanged driver from
+the successful smoke. The complete raw-natural map build passed in 25.832
+seconds at peak combined RSS 3,185,684,480 bytes. Its external full-private
+audit passed in 3.242 seconds at 4,179,472,384 bytes. This establishes successful
+full map loading and its dependency audit; the later map range/count/cache
+certificates in `Data` were not attempted.
+
+`QuotientData` failed after 99.602 seconds at 5,940,023,296 bytes, below the
+sampled 6-GiB limit, with `resource_stop: null`. The
+[retained log](evidence/certificate-live-06/unpacked/QuotientData.log) reports
+`maximum recursion depth has been reached` at line 12, the declaration of
+`quotientTree`. Its source already sets `maxRecDepth 1000000`, and declares one
+executable literal tree with `compiler.extract_closed false`. The later
+`Complete body quotient rows loaded` message comes from a separate `run_cmd`
+that executes after the diagnostic; it does not establish successful loading
+or kernel checking of the failed declaration. The log does not identify the
+specific internal compiler/elaboration pass that exhausted depth.
+
+Total elapsed time was 167.516 seconds, with driver peak RSS 126,964 KiB. The
+[summary](evidence/certificate-live-06/unpacked/certificate-summary.json)
+correctly records a bounded Lean recursion-depth obstruction. Quotient audit,
+complete-data checks, actual-body row proofs and the false-row control were
+not run. The complete-data flag remains false and both actual-body counters
+remain zero.
+
+The authorized structural change splits the same midpoint tree
+into contiguous subtrees of at most 1,024 states, each loaded by the existing
+typed loader as an executable `@[noinline] def`. Destinations retain the global
+`Fin 114487` type. A small balanced assembly of `RowTree.branch` nodes references
+these subtrees directly, with cached counts equal to the number of actual rows
+on the left. Cutting at the existing midpoint boundaries preserves the original
+fully unfolded tree and row order. Remote generation retains a complete chunk
+manifest with each interval, global destination bound, filename, byte size and
+hash. It independently rereads the emitted chunks, checks their contiguous
+interval census and requires their concatenated bytes to equal the
+pinned-derived full `quotient.rows` exactly. Full count/cache proofs, machine
+type, actual-body relation and the audit of every dependency remain required. Lean's
+compiler honors `noinline` on ordinary constants while kernel reduction remains
+transparent. This implementation keeps the 180-second quotient stage, 1,200-second
+global budget and 6-GiB RSS limit; it does not make the quotient noncomputable
+or raise a recursion limit. Its scaling effect has not yet been measured.
+
+The template smoke now forces two separate one-state executable chunks and
+proves a conjunction containing one defined transition from each side. It
+retains exactly nine required audit roots and zero actual-body rows. The full
+pilot requires this build and audit before loading the complete candidate;
+smoke-only mode exercises the same two-chunk template. Source inspection covered
+the split/loader identity, retained-data census, executable/kernel behavior and
+unchanged runner limits. An independent read-only reviewer found no blocking
+static issue. No local generation, execution or Lean verification was performed.
+
 ## Root-owned runner interface
 
 Prebuild these accepted dependencies using the root-owned lakefile, outside the
@@ -283,15 +338,20 @@ checks; it uses only the retained four-entry/two-row template literals.
 
 The generated map loader calls the existing generic
 `TableSyntax.balancedRowsExpr` with `mkNatLit` leaves, producing
-`mapTree : Balanced.RowTree Nat`. The existing `load_balanced_rows%` loader constructs the quotient
-as a `Balanced.RowTree (List (Option (Fin 2 × Dir × Fin 114487)))`. Both loaders
+`mapTree : Balanced.RowTree Nat`. The existing `load_balanced_rows%` loader constructs quotient
+subtrees of at most 1,024 states, each as a
+`Balanced.RowTree (List (Option (Fin 2 × Dir × Fin 114487)))`. A balanced assembly
+uses the original midpoint splits and actual subtree counts. Both loaders
 propose ordinary constructor expressions. The quotient loader still uses
 `boundedFinExpr`; its finite values are checked by the kernel. Map bounds are
 established by a complete separate kernel computation. Neither a file hash nor
 the native generator is a proof of a row relation.
 
 Only the map tree and its lookup wrapper suppress native code generation via
-`noncomputable`; their transparent safe kernel definitions are retained.
+`noncomputable`; their transparent safe kernel definitions are retained. The
+quotient subtrees and assembled tree remain executable, transparent
+`@[noinline] def` declarations. Their manifest and exact byte-concatenation
+receipt are retained alongside the full input, shard data and generated source.
 
 Separate modules measure full-map loading, full-quotient loading, and complete
 cache/census checks. The final data module proves with `decide +kernel`:

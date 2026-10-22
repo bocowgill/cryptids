@@ -30,6 +30,7 @@ NS = "Chess.Optimisation.BodyCertificatePilot"
 AUDIT_TARGET = "chess_body_certificate_audit"
 AUDIT_EXE = ROOT / ".lake/build/bin" / AUDIT_TARGET
 N, K, MAIN = 573802, 114487, 533341
+QUOTIENT_CHUNK_STATES = 1024
 INPUT = ROOT / "docs/chess/campaign-2026-10-22/round-03/evidence/pilot-final/unpacked"
 SNAPSHOT = ROOT / "docs/chess/campaign-2026-10-22/round-01/evidence/final/unpacked/machine-export.json"
 SNAPSHOT_SHA = "592ea3c892d0e9d5a6db6ce31e3f590bde7973774bdc9a70cfe46cb6996cd39e"
@@ -94,6 +95,7 @@ class Driver:
             "audit_execution": "compiled_lean_executable",
             "map_representation": "literal_nat_balanced_tree_with_kernel_range_certificate",
             "map_native_code_generation": False,
+            "quotient_representation": "executable_noinline_midpoint_subtrees",
             "stages": [], "generated_files": {}, "completed_positive_sample_states": 0,
             "completed_positive_unique_rows": 0, "complete_typed_candidate_data_checked": False,
             "template_smoke_checked": False,
@@ -540,6 +542,64 @@ HEARTBEATS = ("set_option maxHeartbeats 0 in\n"
               "-- The driver bounds literal-data elaboration and kernel checking by wall time and RSS.\n")
 
 
+def quotient_declarations(driver, stem, rows_name, states, state_bound, chunk_limit):
+    """Preserve the loader's midpoint tree while bounding each executable definition.
+
+    Global destination bounds are never replaced by a chunk's row count. Kernel
+    transparency is unchanged: noinline affects only native compiler sharing.
+    """
+    source_path = ROOT / PREFIX / rows_name
+    source_bytes = source_path.read_bytes()
+    lines = source_bytes.decode("utf-8").splitlines(keepends=True)
+    require(states > 0 and len(lines) == states and 1 <= chunk_limit <= QUOTIENT_CHUNK_STATES,
+            "quotient chunk input census or limit")
+    require(all(line.endswith("\n") for line in lines), "quotient chunk line termination")
+    row_tree = f"Balanced.RowTree (List (Option (Fin 2 × Dir × Fin {state_bound})))"
+    declarations, chunks = [], []
+
+    def subtree(start, length):
+        if length <= chunk_limit:
+            name = f"{stem}Chunk_{start:06d}"
+            filename = f"{stem}-chunks/{start:06d}-{length:04d}.rows"
+            driver.emit(filename, "".join(lines[start:start + length]))
+            chunks.append({"definition": NS + "." + name, "start": start, "states": length,
+                           "binary_rows": 2 * length, "path": str(PREFIX / filename),
+                           "info": info(ROOT / PREFIX / filename)})
+            declarations.append(HEARTBEATS + f"@[noinline] def {name} : {row_tree} :=\n" +
+                                f'  load_balanced_rows% "{PREFIX}/{filename}"\n')
+            return name
+        # This is exactly balancedRowsExpr's split, including odd lengths.
+        left_count = length // 2
+        left = subtree(start, left_count)
+        right = subtree(start + left_count, length - left_count)
+        return f"(Balanced.RowTree.branch {left_count} {left} {right})"
+
+    assembled = subtree(0, states)
+    # Independently reread every emitted shard in recorded order: exact byte
+    # equality binds all rows, symbols and global destinations, without sampling.
+    next_start = 0
+    for chunk in chunks:
+        require(chunk["start"] == next_start and 0 < chunk["states"] <= chunk_limit,
+                "quotient chunk interval gap, overlap or bound")
+        next_start += chunk["states"]
+    concatenated = b"".join((ROOT / chunk["path"]).read_bytes() for chunk in chunks)
+    require(next_start == states and concatenated == source_bytes,
+            "quotient chunk concatenation differs from complete source")
+    manifest = {"source": {"path": str(PREFIX / rows_name), "info": info(source_path)},
+                "states": states, "binary_rows": 2 * states, "destination_bound": state_bound,
+                "chunk_limit_states": chunk_limit, "chunk_count": len(chunks),
+                "split_rule": "left_count = floor(subtree_state_count / 2)",
+                "exact_concatenation_checked": True,
+                "concatenated_sha256": hashlib.sha256(concatenated).hexdigest(), "chunks": chunks}
+    manifest_name = stem + "-chunks.json"
+    driver.emit(manifest_name, json.dumps(manifest, indent=2, sort_keys=True) + "\n")
+    driver.summary.setdefault("quotient_layouts", {})[stem] = {
+        key: value for key, value in manifest.items() if key != "chunks"}
+    driver.summary["quotient_layouts"][stem]["manifest"] = info(ROOT / PREFIX / manifest_name)
+    declarations.append(HEARTBEATS + f"@[noinline] def {stem}Tree : {row_tree} :=\n  {assembled}\n")
+    return "".join(declarations)
+
+
 def generate_smoke(driver):
     # Reuse the production loaders, generic proof and scoped-option prefix.
     # These small literals check templates only and count as no actual-body rows.
@@ -550,10 +610,8 @@ def generate_smoke(driver):
     smoke += HEARTBEATS + f'''noncomputable def smokeMapTree : Balanced.RowTree Nat :=
   load_body_map% "{PREFIX}/smoke-map.txt"
 '''
-    smoke += HEARTBEATS + f'''def smokeQuotientTree :
-    Balanced.RowTree (List (Option (Fin 2 × Dir × Fin 2))) :=
-  load_balanced_rows% "{PREFIX}/smoke-quotient.rows"
-'''
+    # Force two separate executable chunks even for this two-state table.
+    smoke += quotient_declarations(driver, "smokeQuotient", "smoke-quotient.rows", 2, 2, 1)
     for name, proposition in (
             ("smoke_map_count", "smokeMapTree.count = 4"),
             ("smoke_map_valid", "smokeMapTree.WellFormed"),
@@ -572,7 +630,8 @@ def smokeQuotient : Machine 2 2 := Balanced.ofTree smokeQuotientTree
 '''
     smoke += HEARTBEATS + "theorem smoke_entry : smokeClassMap 0 = 0 := by decide +kernel\n"
     smoke += HEARTBEATS + '''theorem smoke_row :
-    smokeQuotient.transition (smokeClassMap 0) 0 = some (0, Dir.right, 1) := by decide +kernel
+    smokeQuotient.transition (smokeClassMap 0) 0 = some (0, Dir.right, 1) ∧
+    smokeQuotient.transition (smokeClassMap 1) 1 = some (1, Dir.left, 0) := by decide +kernel
 '''
     roots = ["smoke_map_count", "smoke_map_valid", "smoke_map_bounded", "smoke_lookup_lt",
              "smokeClassMap_val", "smoke_quotient_count", "smoke_quotient_valid",
@@ -596,9 +655,8 @@ def generate(driver, selected):
                 f'  load_body_map% "{PREFIX}/class-map.txt"\n' +
                 audit_and_end(driver, "MapData", ["mapTree"], "Complete body class map loaded"))
     driver.emit("QuotientData.lean", header([MODULE + ".Loaders"]) +
-                HEARTBEATS +
-                f'def quotientTree : Balanced.RowTree (List (Option (Fin 2 × Dir × Fin {K}))) :=\n' +
-                f'  load_balanced_rows% "{PREFIX}/quotient.rows"\n' +
+                quotient_declarations(driver, "quotient", "quotient.rows", K, K,
+                                      QUOTIENT_CHUNK_STATES) +
                 audit_and_end(driver, "QuotientData", ["quotientTree"], "Complete body quotient rows loaded"))
     data = header([MODULE + ".MapData", MODULE + ".QuotientData",
                    "Cryptids.Chess.Optimisation.FieldSelective", "Cryptids.Compilation.LocalCertificate"])
