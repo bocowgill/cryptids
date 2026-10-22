@@ -82,6 +82,98 @@ def run(command, expected="", code=0, timeout=900):
         f"timeout={timed_out}; diagnostic record={logs}")
     return record
 
+def contracts():
+    audit=['prlimit','--as=17179869184','--','lake','env',
+           str(ROOT/'.lake/build/bin/chess_field_full_audit')]
+    checks=[run(audit,'Chess FieldAware foundation audit passed',timeout=600)]
+    for flag,expected in [('--negative-control','Forbidden axiom: sorryAx'),
+                          ('--negative-control-open','The open chess conjecture is a dependency'),
+                          ('--negative-control-generator','Proof generator is a mathematical dependency:')]:
+        checks.append(run(audit+[flag],expected,code=1,timeout=600))
+    examples=[
+      ('BadCount','example : generated.states = 390491642 := by rw [generated_states]; decide +kernel'),
+      ('Unpaid','example : generated.states = body.states := by rw [generated_states, body_states]; decide +kernel'),
+      ('BadStore',"example : FieldReturn.symbolCode (some Turing.PartrecToTM2.Γ'.bit1) = 3 := by decide +kernel"),
+      ('BadFrame','example : FieldBinary.updateCell (false, fun _ ↦ 0) 0 4 = (false, fun _ ↦ 4) := by decide +kernel'),
+      ('BadBranch','example : SharedModel.branchFn RuntimeModel.s003 none = false := by decide +kernel'),
+      ('BadInitializer','example : (FlatInit.initialise #[0, 1] (⟨1, {transition := fun _ _ ↦ none}⟩ : ConjectureMachines.BundledMachine 2)).states = 1 := by decide +kernel')]
+    for name,text in examples:
+        path=WORK/(name+'.lean')
+        path.write_text('import Cryptids.Semantics.ChessFieldAware\n'
+                        'open Chess.Optimisation.FieldAware ConjectureMachines.Compilation\n'+text+'\n')
+        checks.append(run(['lake','env','lean','-M6144','-DwarningAsError=true',str(path)],
+                          'is false',code=1,timeout=300))
+    save('contracts',checks)
+    return checks
+
+def native_fixtures():
+    checks=[run(['lake','env',str(ROOT/'.lake/build/bin/chess_field_full_export'),
+                 str(WORK/'machine.json')],'Full field machine export passed',timeout=900)]
+    checks.append(run([sys.executable,'scripts/chess_field_full/fixtures.py'],
+                      'Full field independent fixtures passed',timeout=900))
+    detail=json.loads((WORK/'fixtures-detail.json').read_text())
+    save('fixtures',checks,detail=detail,export_sha256=sha(WORK/'machine.json'))
+    return checks
+
+def counts():
+    assert os.environ.get('CHESS_REMOTE')=='1','Heavy verification is remote-only'
+    detail=json.loads((WORK/'fixtures-detail.json').read_text())
+    assert detail['initializer_verified'] is True
+    assert detail['labels_covered']==4042
+    assert detail['states']==detail['body_states']+detail['initializer_states']
+    assert detail['states']<detail['previous_states']==390491642
+    assert detail['saved_states']==detail['previous_states']-detail['states']
+    assert len(detail['mutation_controls'])>=5
+    save('counts',[],detail=detail,export_sha256=sha(WORK/'machine.json'))
+    print('Full field chess reduction passed')
+
+def accepted_regressions():
+    checks=[run(['lake','--wfail','-f','lakefile.chess-field-full.toml','build',
+                 'Cryptids.Chess.Fixtures','Cryptids.Chess.Evaluation',
+                 'Cryptids.Semantics.ChessM7','Cryptids.Compilation.FieldBranch.Certificate'],
+                'Build completed successfully',timeout=1200)]
+    for name,expected,args in [
+      ('scripts/RunChessM2.lean','Rule fixtures passed:',['--rules']),
+      ('scripts/RunChessM3.lean','Chess M3 fixtures passed:',[]),
+      ('scripts/RunChessM4.lean','Chess M4 fixtures passed:',[]),
+      ('scripts/RunChessM5.lean','16 assertions',[]),
+      ('scripts/chess_m6/SharedFixtures.lean','Shared fixtures passed:',[]),
+      ('scripts/chess_m7/Fixtures.lean','M7 quotient fixtures passed',[]),
+      ('scripts/chess_openevolve/Fixtures.lean','Terminal binary fixtures passed',[])]:
+        checks.append(run(['lake','env','lean','-M6144','-DwarningAsError=true',
+                           '--run',name]+args,expected,timeout=600))
+    return checks
+
+def regenerate():
+    generated=WORK/'generated/Snapshot.lean'
+    generated.parent.mkdir(parents=True,exist_ok=True)
+    check=run([sys.executable,'scripts/chess_field_full/generate_snapshot.py',
+               '--output',str(generated)],timeout=120)
+    snapshot=ROOT/'Cryptids/Compilation/FieldCompiler/Snapshot.lean'
+    if snapshot.is_file():
+        assert snapshot.read_bytes()==generated.read_bytes(),'Committed snapshot differs from generator'
+    else:
+        shutil.copyfile(generated,snapshot)
+    return check
+
+def full():
+    metadata()
+    checks=[regenerate(),run(['lake','--wfail','-f','lakefile.chess-field-full.toml','build']+
+                            TARGETS['full'],'Build completed successfully',timeout=1800)]
+    for phase,token in [('semantics','Full field compiler semantics passed'),
+                        ('coverage','Full field compiler coverage passed'),
+                        ('machine','Full field chess machine passed')]:
+        save(phase,checks)
+        print(token)
+    checks+=contracts()
+    checks+=native_fixtures()
+    counts()
+    checks+=accepted_regressions()
+    save('regressions',checks)
+    print('Full field chess regressions passed')
+    save('full',checks)
+    print('Complete field-aware chess compiler passed')
+
 
 TARGETS={
  'core':['Cryptids.Compilation.FieldCompiler.Operations','Cryptids.Compilation.FieldCompiler.Bounds'],
@@ -97,23 +189,33 @@ def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--metadata',action='store_true')
     parser.add_argument('--target',choices=TARGETS)
+    for flag in ['semantics','coverage','machine','counts','regressions']:
+        parser.add_argument('--'+flag,action='store_true')
     args=parser.parse_args()
     if args.metadata: metadata()
     if args.target:
         assert os.environ.get('CHESS_REMOTE')=='1','Heavy verification is remote-only'
         checks=[]
-        if args.target=='snapshot':
-            generated=WORK/'generated/Snapshot.lean'
-            generated.parent.mkdir(parents=True,exist_ok=True)
-            checks.append(run([sys.executable,'scripts/chess_field_full/generate_snapshot.py',
-                               '--output',str(generated)],timeout=120))
-            snapshot=ROOT/'Cryptids/Compilation/FieldCompiler/Snapshot.lean'
-            if snapshot.is_file():
-                assert snapshot.read_bytes()==generated.read_bytes(),'Committed snapshot differs from generator'
-            else:
-                shutil.copyfile(generated,snapshot)
+        if args.target=='full':
+            full()
+            return
+        if args.target=='snapshot':checks.append(regenerate())
         checks.append(run(['lake','--wfail','-f','lakefile.chess-field-full.toml','build']+TARGETS[args.target],
                     'Build completed successfully',timeout=1800))
         save(args.target,checks)
         print('Full field compiler '+args.target+' passed')
+    for flag,target in [('semantics','semantics'),('coverage','snapshot'),('machine','machine')]:
+        if getattr(args,flag):
+            checks=([regenerate()] if flag=='coverage' else [])
+            targets=TARGETS[target]+(TARGETS['graph'] if flag=='coverage' else [])
+            checks.append(run(['lake','--wfail','-f','lakefile.chess-field-full.toml','build']+
+                              targets,'Build completed successfully',timeout=1800))
+            save(flag,checks)
+            print('Full field chess machine passed' if flag=='machine' else
+                  'Full field compiler '+flag+' passed')
+    if args.counts:counts()
+    if args.regressions:
+        checks=contracts()+native_fixtures()+accepted_regressions()
+        save('regressions',checks)
+        print('Full field chess regressions passed')
 if __name__=='__main__':main()

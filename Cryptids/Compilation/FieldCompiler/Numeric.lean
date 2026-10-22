@@ -31,12 +31,24 @@ theorem binaryRows_eq {q : Nat} [NeZero q] (M : TM0.Machine Bool (Fin q)) :
     binaryRows M = Binary.compile M := by
   apply congrArg (fun rows ↦ (⟨rows⟩ : Machine (q + q) 2))
   funext state bit
-  induction state using Fin.addCases with
-  | left i =>
-    simp [binaryRows, Binary.compile, Binary.mainState, Binary.bounceState]
-  | right i =>
-    simp [binaryRows, Binary.compile, Binary.mainState, Binary.bounceState,
-      show ¬ q + i.val < q by omega]
+  change (binaryRows M).transition state bit = (Binary.compile M).transition state bit
+  by_cases main : state.val < q
+  · let i : Fin q := ⟨state.val, main⟩
+    have same : Binary.mainState i = state := Fin.ext rfl
+    rw [← same, Binary.compile_main]
+    simp only [binaryRows, Binary.mainState, Fin.val_castAdd, i.isLt, ↓reduceDIte]
+    congr 1
+    funext ⟨next, action⟩
+    cases action <;> simp [Binary.mainState, Binary.bounceState, Nat.add_comm]
+  · let i : Fin q := ⟨state.val - q, by have := state.isLt; omega⟩
+    have same : Binary.bounceState i = state := by
+      apply Fin.ext
+      change q + (state.val - q) = state.val
+      omega
+    rw [← same, Binary.compile_bounce]
+    simp only [binaryRows, Binary.bounceState, Fin.val_natAdd,
+      show ¬ q + i.val < q by omega, ↓reduceDIte]
+    rfl
 
 /-- Three direct numeric ranges: write, restore the head, and offset every body row. -/
 def paidRows (bits : Array (Fin 2)) (body : BundledMachine 2) :
@@ -58,14 +70,12 @@ theorem paidRows_eq (bits : Array (Fin 2)) (body : BundledMachine 2) :
     paidRows bits body = (FlatInit.initialise bits body).toMachine := by
   apply congrArg (fun rows ↦ (⟨rows⟩ : Machine (body.states + 2 * bits.size) 2))
   funext state bit
+  dsimp only [paidRows, FlatInit.initialise, FlatInit.machine]
   by_cases write : state.val < bits.size
   · have inPrefix : state.val < 2 * bits.size := by omega
-    simp only [paidRows, write, ↓reduceDIte, FlatInit.initialise, FlatInit.machine,
-      inPrefix, FlatInit.actionAt, Option.getD_some]
+    simp only [write, ↓reduceDIte, inPrefix, FlatInit.actionAt, Option.getD_some]
   · by_cases restore : state.val < 2 * bits.size
-    · simp only [paidRows, write, restore, ↓reduceDIte, FlatInit.initialise,
-        FlatInit.machine, FlatInit.actionAt, Option.getD_none]
-    · simp only [paidRows, write, restore, ↓reduceDIte, FlatInit.initialise,
-        FlatInit.machine, FlatInit.bodyState]
+    · simp only [write, restore, ↓reduceDIte, FlatInit.actionAt, Option.getD_none]
+    · simp only [write, restore, ↓reduceDIte, FlatInit.bodyState]
 
 end ConjectureMachines.Compilation.FieldCompiler
