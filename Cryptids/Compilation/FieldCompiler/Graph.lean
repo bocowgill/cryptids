@@ -113,12 +113,14 @@ theorem nodeAt_meaning {n : Nat} (p : Syntax n) (i : Fin p.size) :
     refine Fin.lastCases ?_ (fun j ↦ ?_) i
     · simp only [nodeAt, Fin.lastCases_last, TemplateGraph.buildNode, subAt,
         Fin.lastCases_castSucc, subAt_root, meaning]
+      all_goals rfl
     · simpa only [nodeAt, subAt, Fin.lastCases_castSucc, TemplateGraph.buildNode_map,
         Function.comp_def] using ih j
   | branch t p q ihp ihq =>
     refine Fin.lastCases ?_ (fun j ↦ ?_) i
     · simp only [nodeAt, Fin.lastCases_last, TemplateGraph.buildNode, subAt,
         Fin.lastCases_castSucc, Fin.addCases_left, Fin.addCases_right, subAt_root, meaning]
+      all_goals rfl
     · induction j using Fin.addCases with
       | left j =>
         simpa only [nodeAt, subAt, Fin.lastCases_castSucc, Fin.addCases_left,
@@ -183,6 +185,7 @@ def graphSyntax {labels : Nat} (rows : Vector (Syntax labels) labels) (width : N
   unfold graphNode graphIndex
   rw [Equiv.symm_apply_apply]
   simp only [graphNodePair, Fin.val_castLE, dite_eq_left i.isLt]
+  rfl
 
 @[simp] theorem graphSyntax_index {labels : Nat} (rows : Vector (Syntax labels) labels)
     (width : Nat) (fits : ∀ q, (rows.get q).size ≤ width) (q : Fin labels)
@@ -212,10 +215,11 @@ theorem graphNode_below {labels : Nat} (rows : Vector (Syntax labels) labels) (w
   next inside =>
     rw [TemplateGraph.children_mapNode, List.mem_map] at member
     obtain ⟨old, member, rfl⟩ := member
-    have below := (rows.get q).nodeAt_below ⟨slot.val, inside⟩ old member
+    have below : old.val < slot.val :=
+      (rows.get q).nodeAt_below ⟨slot.val, inside⟩ old member
     change (graphIndex rows width fits q old).val < slot.val + width * q.val
-    rw [graphIndex_val, Nat.mul_comm width q.val]
-    omega
+    rw [graphIndex_val, Nat.mul_comm width q.val, Nat.add_comm slot.val (q.val * width)]
+    exact Nat.add_lt_add_left below _
   next => simp [Node.children] at member
 
 /-- The complete getter graph has exactly `labels * width` nodes, with no removed padding. -/

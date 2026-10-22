@@ -1,0 +1,18 @@
+{
+  "commands/1792637825000779056.json": {
+    "bytes": 623,
+    "sha256": "c2ddc37f0158828ae7274d9863f8fe4baacb8d8bb999654f13a0af9a8f59caf4"
+  },
+  "generated/Snapshot.lean": {
+    "bytes": 1000452,
+    "sha256": "b9853271fdc327eef9f69986cd2edc4f6f154a9ed355ffc16125840525a6cc5b"
+  },
+  "commands/1792637872158584392.json": {
+    "bytes": 569,
+    "sha256": "e441fb5cb3f88251b110df5e28ce22cd52d5e34bcddf7ebbfc7f2883b06571f1"
+  },
+  "snapshot.json": {
+    "bytes": 76187,
+    "sha256": "df1f2807603d9d9b8071454d39225b035de9a9434ec8d601b2523ead7a5f0e6d"
+  }
+}
