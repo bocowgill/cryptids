@@ -1,0 +1,121 @@
+{
+  "artifact-manifest.json": {
+    "bytes": 1308,
+    "sha256": "932caf33b07e6247267558bf566dfa5761cc3d467a730f48e877324ec3dda444",
+    "crc32": 1927305108,
+    "compressed_bytes": 547,
+    "compression": 8
+  },
+  "counts.json": {
+    "bytes": 94634,
+    "sha256": "4d589739e280eb3be3fd486dd55d247aa1c4dc002422d9c7483709ef09592e29",
+    "crc32": 1357106082,
+    "compressed_bytes": 16367,
+    "compression": 8
+  },
+  "commands/1792683473860727554.json": {
+    "bytes": 746,
+    "sha256": "8e55686aeddd43aa724398f3191ee02f8d75ab6048495a1fa8567dec5b6293c4",
+    "crc32": 427978365,
+    "compressed_bytes": 429,
+    "compression": 8
+  },
+  "decoded-seed.bits": {
+    "bytes": 424156,
+    "sha256": "2946c43c229df7c2468d45f72ac385e20188aeafc1a4af74309a5d563d8befe1",
+    "crc32": 2869608141,
+    "compressed_bytes": 28679,
+    "compression": 8
+  },
+  "decoded-symbols.u8": {
+    "bytes": 141380,
+    "sha256": "3a148a738a015a5fa45ba469a7e6dc84a14b37b5b215c704cac257d097d8e773",
+    "crc32": 3005632727,
+    "compressed_bytes": 21819,
+    "compression": 8
+  },
+  "fixtures.json": {
+    "bytes": 51379,
+    "sha256": "e65068f0fbef039716922137cc9ce19c29a54604c6a3420acae9aea82f7862f7",
+    "crc32": 1135837866,
+    "compressed_bytes": 2987,
+    "compression": 8
+  },
+  "hard-timeout.txt": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "crc32": 0,
+    "compressed_bytes": 2,
+    "compression": 8
+  },
+  "hostile-controls.json": {
+    "bytes": 3138,
+    "sha256": "5c5503756852c10dd7a97f87358899978fd6cfc3a7f042220f1308357f1b6299",
+    "crc32": 3879623046,
+    "compressed_bytes": 889,
+    "compression": 8
+  },
+  "packet-source-manifest.json": {
+    "bytes": 2343,
+    "sha256": "1ae4f08a95558776d5247f6252220b6ee50641dbdbe666a5a0bfdacd93a01c41",
+    "crc32": 620106941,
+    "compressed_bytes": 837,
+    "compression": 8
+  },
+  "packet.bin": {
+    "bytes": 21706,
+    "sha256": "79099d16fcf3f0f36ba84836d080dabe812f49966f2bf937fa7f38dbddbcda84",
+    "crc32": 4039891702,
+    "compressed_bytes": 19775,
+    "compression": 8
+  },
+  "packet.bits": {
+    "bytes": 173641,
+    "sha256": "ab1f8764749765bfb0d44b22a999d7907345d2648bf478092a276cf8df71c2d8",
+    "crc32": 3213543591,
+    "compressed_bytes": 22552,
+    "compression": 8
+  },
+  "pilot-progress.json": {
+    "bytes": 65,
+    "sha256": "d93fe653a8792f13d5f895c7da98700e068b6a6e46bcf4e8711748215272dfb7",
+    "crc32": 3487036329,
+    "compressed_bytes": 62,
+    "compression": 8
+  },
+  "pilot-summary.json": {
+    "bytes": 3197,
+    "sha256": "37529715cc80c49ab0e3f2cadddb52f6d92c9a42427255efe6eef749379d09a6",
+    "crc32": 3756106974,
+    "compressed_bytes": 1258,
+    "compression": 8
+  },
+  "source-input.json": {
+    "bytes": 259517,
+    "sha256": "81211018fb63850c544e2ea7c336163215fee1b4e0f2b391ff00304ced258c4c",
+    "crc32": 161285613,
+    "compressed_bytes": 27108,
+    "compression": 8
+  },
+  "source-manifest.json": {
+    "bytes": 444576,
+    "sha256": "9774ccab6dd686183f593d914d2153e8dd5fba49655f6cdbac2c8c5c55e3ad3b",
+    "crc32": 2434241550,
+    "compressed_bytes": 120262,
+    "compression": 8
+  },
+  "source-symbols.u8": {
+    "bytes": 141380,
+    "sha256": "3a148a738a015a5fa45ba469a7e6dc84a14b37b5b215c704cac257d097d8e773",
+    "crc32": 3005632727,
+    "compressed_bytes": 21819,
+    "compression": 8
+  },
+  "verification.json": {
+    "bytes": 445534,
+    "sha256": "f781bb933121f033b35327174b21c8118396e7d75ac727a750b18b57bf616bb2",
+    "crc32": 2776931614,
+    "compressed_bytes": 120788,
+    "compression": 8
+  }
+}

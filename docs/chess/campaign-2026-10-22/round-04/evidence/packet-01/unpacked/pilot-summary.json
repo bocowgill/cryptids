@@ -1,0 +1,96 @@
+{
+  "accounting": {
+    "controller_states": null,
+    "decoder_states": null,
+    "full_with_114487_body_expression": "288347 + D",
+    "full_with_573802_body_expression": "747662 + D",
+    "net_saving_states": null,
+    "new_bridge_states": 1,
+    "packet_writer_states_formula": 173642,
+    "retained_bridge_states": 1,
+    "retained_expander_states": 216,
+    "same_body_saving_expression": "250514 - D"
+  },
+  "artifacts": {
+    "counts.json": {
+      "bytes": 94634,
+      "sha256": "4d589739e280eb3be3fd486dd55d247aa1c4dc002422d9c7483709ef09592e29"
+    },
+    "decoded-seed.bits": {
+      "bytes": 424156,
+      "sha256": "2946c43c229df7c2468d45f72ac385e20188aeafc1a4af74309a5d563d8befe1"
+    },
+    "decoded-symbols.u8": {
+      "bytes": 141380,
+      "sha256": "3a148a738a015a5fa45ba469a7e6dc84a14b37b5b215c704cac257d097d8e773"
+    },
+    "fixtures.json": {
+      "bytes": 51379,
+      "sha256": "e65068f0fbef039716922137cc9ce19c29a54604c6a3420acae9aea82f7862f7"
+    },
+    "hostile-controls.json": {
+      "bytes": 3138,
+      "sha256": "5c5503756852c10dd7a97f87358899978fd6cfc3a7f042220f1308357f1b6299"
+    },
+    "packet-source-manifest.json": {
+      "bytes": 2343,
+      "sha256": "1ae4f08a95558776d5247f6252220b6ee50641dbdbe666a5a0bfdacd93a01c41"
+    },
+    "packet.bin": {
+      "bytes": 21706,
+      "sha256": "79099d16fcf3f0f36ba84836d080dabe812f49966f2bf937fa7f38dbddbcda84"
+    },
+    "packet.bits": {
+      "bytes": 173641,
+      "sha256": "ab1f8764749765bfb0d44b22a999d7907345d2648bf478092a276cf8df71c2d8"
+    },
+    "source-input.json": {
+      "bytes": 259517,
+      "sha256": "81211018fb63850c544e2ea7c336163215fee1b4e0f2b391ff00304ced258c4c"
+    },
+    "source-symbols.u8": {
+      "bytes": 141380,
+      "sha256": "3a148a738a015a5fa45ba469a7e6dc84a14b37b5b215c704cac257d097d8e773"
+    }
+  },
+  "classification": "FINITE_PACKET_CENSUS_ONLY",
+  "commit": "3a4626e63bbb1ce139c4f72fc10bdafff496b375",
+  "controller_constructed": false,
+  "elapsed_seconds": 1.584605240000002,
+  "identity": {
+    "accepted_seed_sha256": "2946c43c229df7c2468d45f72ac385e20188aeafc1a4af74309a5d563d8befe1",
+    "all_accepted_seed_bits": true,
+    "all_source_rows_and_order": true,
+    "all_source_symbols": true,
+    "consumed_entire_packet": true,
+    "packet_sha256": "ab1f8764749765bfb0d44b22a999d7907345d2648bf478092a276cf8df71c2d8",
+    "source_symbols_sha256": "3a148a738a015a5fa45ba469a7e6dc84a14b37b5b215c704cac257d097d8e773",
+    "static_blank_exteriors": true,
+    "static_relative_head": 0
+  },
+  "lean_certificate": false,
+  "limits": {
+    "cleanup_reserve_seconds": 3,
+    "memory_gib": 4,
+    "wall_seconds": 600
+  },
+  "limits_of_evidence": "Static finite packet equality only; no physical controller, cleanup or universal proof",
+  "measured": {
+    "decoded_seed_bits": 424156,
+    "hostile_controls_rejected": 17,
+    "packet_bits": 173641,
+    "positive_fixtures": 136,
+    "source_symbols": 141380
+  },
+  "new_accepted_machine": false,
+  "peak_rss_kib": 74372,
+  "phase": "counts",
+  "run_id": "39806575742",
+  "source_derived_expected": {
+    "accepted_seed_bits": 424156,
+    "packet_bits": 173641,
+    "rows": 5952
+  },
+  "status": "passed",
+  "tm_execution": false
+}

@@ -1,0 +1,30 @@
+{
+  "accepted_export": {
+    "path": "docs/chess/campaign-2026-10-22/round-02/evidence/final/unpacked/machine-export.json",
+    "sha256": "16e42308a35d2b68bc2e22870494715652ec106656cb53059a10605ba3fe8c2b"
+  },
+  "commit": "3a4626e63bbb1ce139c4f72fc10bdafff496b375",
+  "enforced_identity_pins": {
+    "Cryptids/Chess/Compilation/Input.lean": "5ace349af5d55572f80dc653c208ec6047d39ff77c6ab5b177b793eab3541f18",
+    "Cryptids/Chess/Compilation/SourceModel.lean": "077268682267b94fae672c7b1bad726a4baa201fa3eb46c553bd4ba016d55202",
+    "Cryptids/Chess/Compilation/Tape.lean": "7dfc07955ae460efb1e37fb1bb212b7feccfb7b5aa4ea5758f199c6893383fea",
+    "Cryptids/Compilation/CodeDAG.lean": "89750a8d709f5e90b8b61c8b44b394b0b57be8f443092a632b0190d0c632a80f",
+    "Cryptids/Compilation/RuntimeWire.lean": "feb92be30f18c80c3d4351d31a68e416393dbb50f056936b450c5437b58384b6",
+    "Cryptids/Compilation/Seed/ChessCodec.lean": "5eba1992db784c5994b75af068c6f90aa1a941ca4fc06e0e6618e7dff4ea1116",
+    "Cryptids/Compilation/Seed/Format.lean": "d2cce4c27619af93d7aa158e60f8e573e26486a8769bf056c8963821f1ca7aea"
+  },
+  "run_id": "39806575742",
+  "scope": "FINITE_PACKET_CENSUS_ONLY",
+  "source_sha256": {
+    "Cryptids/Chess/Compilation/Input.lean": "5ace349af5d55572f80dc653c208ec6047d39ff77c6ab5b177b793eab3541f18",
+    "Cryptids/Chess/Compilation/SourceCertificate.lean": "07b5db3de36215ab913508a8f93b7ea67cf580197cf9832b04c8efb569fd4531",
+    "Cryptids/Chess/Compilation/SourceModel.lean": "077268682267b94fae672c7b1bad726a4baa201fa3eb46c553bd4ba016d55202",
+    "Cryptids/Chess/Compilation/Tape.lean": "7dfc07955ae460efb1e37fb1bb212b7feccfb7b5aa4ea5758f199c6893383fea",
+    "Cryptids/Compilation/CodeDAG.lean": "89750a8d709f5e90b8b61c8b44b394b0b57be8f443092a632b0190d0c632a80f",
+    "Cryptids/Compilation/RuntimeWire.lean": "feb92be30f18c80c3d4351d31a68e416393dbb50f056936b450c5437b58384b6",
+    "Cryptids/Compilation/Seed/ChessCodec.lean": "5eba1992db784c5994b75af068c6f90aa1a941ca4fc06e0e6618e7dff4ea1116",
+    "Cryptids/Compilation/Seed/Format.lean": "d2cce4c27619af93d7aa158e60f8e573e26486a8769bf056c8963821f1ca7aea",
+    "scripts/chess_seed_20261022/Export.lean": "e21ad457c2a27387cf9794713d3238f8fc3806131971aca32a28260e0ca82b4e",
+    "scripts/chess_table_seed_20261022/pilot.py": "c2ccf64d9a67c4853f344beebbc56e096bb9b193f14083e59c5d268be7e799d2"
+  }
+}

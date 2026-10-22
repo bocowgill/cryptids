@@ -50,8 +50,8 @@ Their order combines absolute opportunity with the cost of obtaining evidence.
 
 | Priority | Whole-machine mechanism | Absolute opportunity | Proof difficulty | Implementation effort | Next decision test |
 |---|---|---|---|---|---|
-| 1 | Certify the complete exact interpreter quotient |459,315measured finite states; candidate full538,861 | Generic LocalCertificate proof exists; concrete kernel scalability is being measured | Bounded full-data and representative-row pilot, then literal or structural certificate | Remote run39800616921 at9b85ea9;1200seconds/6GiB;64/512/4096states,bothbits,negativecontrol |
-| 2 | Encode structured source-table rows before expanding the exact old input | Proposed full saving250,514-D including framing and newbridge; Dunknown, requireD≤50000 for≥200514saving | High: complete decoder, exact word reconstruction and tape cleanup; existing SeedLink/expander reusable | Source architecture reviewed; finitepacketcensus in preparation, controller allocation/proof stillabsent | Check29-bit row proposal and all overhead; no implementation commitment until source review and finite measurement |
+| 1 | Certify the complete exact interpreter quotient | 459,315 measured finite states; candidate full 538,861 | Generic LocalCertificate proof exists; concrete kernel scalability is being measured | Bounded full-data and representative-row pilot, then literal or structural certificate | Third remote run 39806307575 at 992129b; 1,200 seconds/6 GiB; 64/512/4,096 states, both bits, negative control |
+| 2 | Encode structured source-table rows before expanding the exact old input | Proposed full saving 250,514−D including framing and new bridge; D unknown. D≤50,000 would save at least 200,514 | High: complete decoder, exact word reconstruction and tape cleanup; existing SeedLink/expander reusable | Complete finite packet identity passed; physical controller allocation and proof remain absent | Run 39806575742 measured 173,641 packet bits and reconstructed every accepted seed bit. Next: bounded explicit-controller pilot, after parser-hardening replay |
 | 3 | Structural proof of store/suffix sharing if literal quotient certification scales poorly | Within measured459,315;339,898same-node equivalences are diagnostics, not a closed subquotient | High: successor closure through loads/branches/jumps | High, possibly much smaller proof data | Use actual pilot obstruction; avoid a second literal route with the same scaling problem |
 | 4 | Fixed two-bit or pair packing of the seed | Two-bit141,380gross payload states; five-bit-pair70,684seed bits before controller delta | Medium to high: framing, odd inputs, cleanup and exact codec | Moderate if expander contracts transfer | Compare fully paid result against structured-table compression before choosing |
 | 5 | Replace the specialized interpreter by program-as-data or apply dictionary/grammar compression | No defensible net count yet; all stored program/dictionary/decoder states must be charged | Very high for a new interpreter; high for a generic decoder | High | Require an explicit whole-machine design and bounded end-to-end pilot |
@@ -96,3 +96,39 @@ Secondcertificateattempt39802757781: Loaderspassed; MapData stopped at inline
 audit/importvisibility and stylelint errors after133.9s/6015852544sampledRSSbytes.
 No actual rows reached. Repairingfull-private-importaudit and diagnostic
 classification before treating this as a proof-scaling measurement.
+
+Third certificate attempt 39806307575 is running at 992129b. It loads private
+proof bodies in a separate audit, preserves the standard axiom whitelist, and
+shares the original stage budgets between build and audit. If memory prevents
+the typed map from loading, the first bounded representation alternative is a
+raw-Nat balanced map plus a complete kernel range certificate. This removes
+per-leaf Fin proof terms; its actual memory effect has not been measured.
+
+## Structured initializer measurement
+
+Remote run 39806575742 at 3a4626e passed the complete finite packet census in
+1.585 seconds, peak 74,372 KiB. It checked all 5,952 rows, 141,380 source symbols,
+and 424,156 accepted seed bits, plus 136 positive fixtures and 17 corruptions.
+Evidence is retained in `round-04/evidence/packet-01`. A follow-up hardens parser
+boundaries and timeout cleanup; the accepted source hashes already protect the
+identity of the actual input in this first run.
+
+| Proposed component | Paid allocation or status |
+|---|---:|
+| Packet writer, including final turn | 173,642 states by the established writer formula |
+| New structured decoder | D, unknown |
+| New decoder/expander bridge | 1 |
+| Retained seed expander and bridge | 216 + 1 |
+| Accepted body | 573,802 |
+| **Candidate complete machine** | **747,662 + D** |
+| **Candidate with the still-uncertified quotient body** | **288,347 + D** |
+
+Neither candidate is accepted. No physical decoder, universal decoder theorem,
+or measured controller allocation exists yet. The next pilot must count every
+control and test exact head, cleanup, and both exterior tapes.
+
+Measured optional extensions rank below the main decoder: removing structurally
+unused operands saves only 494 data bits. The tested 4/6/8-bit dictionaries save
+18,453 / 19,546 / 12,611 data bits after dictionary storage but before lookup
+controls. Defer these extensions: they add proof and implementation cost while
+the main decoder could unlock over 200,000 full-machine states.

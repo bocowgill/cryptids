@@ -1,0 +1,20 @@
+{
+  "id": 12436853883,
+  "node_id": "MDg6QXJ0aWZhY3QxMjQzNjg1Mzg4Mw==",
+  "name": "chess-table-seed-3a4626e63bbb1ce139c4f72fc10bdafff496b375",
+  "size_in_bytes": 408380,
+  "url": "https://api.github.com/repos/bocowgill/cryptids/actions/artifacts/12436853883",
+  "archive_download_url": "https://api.github.com/repos/bocowgill/cryptids/actions/artifacts/12436853883/zip",
+  "expired": false,
+  "digest": "sha256:dbb5b4788f8bd92525ebf957124441c48291be7b1b9f3d1afe27fe5e5d432b2d",
+  "created_at": "2026-10-22T15:37:55Z",
+  "updated_at": "2026-10-22T15:37:55Z",
+  "expires_at": "2026-11-21T15:37:54Z",
+  "workflow_run": {
+    "id": 39806575742,
+    "repository_id": 1426408147,
+    "head_repository_id": 1426408147,
+    "head_branch": "codex/chess-openevolve-pilot",
+    "head_sha": "3a4626e63bbb1ce139c4f72fc10bdafff496b375"
+  }
+}

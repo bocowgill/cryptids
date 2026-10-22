@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_table_seed_20261022/pilot.py",
+    "--output",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-table-seed-20261022",
+    "--seconds",
+    "600",
+    "--memory-gib",
+    "4"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "packet census: source_oracle\npacket census: encode_decode\npacket census: positive_fixtures\npacket census: hostile_controls\npacket census: counts\nCHESS_TABLE_SEED_PACKET_CENSUS_PASSED\n",
+  "output_sha256": "e0914b02995692491b90796e15ff4379afa02185c1a09fceb943d32b0aa7fde4",
+  "timed_out": false,
+  "timeout_seconds": 630,
+  "elapsed_seconds": 1.8194955430000022,
+  "cumulative_children_peak_rss_kib": 74372
+}

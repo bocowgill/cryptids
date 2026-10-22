@@ -1,0 +1,104 @@
+[
+  {
+    "mutated_packet_sha256": "03e69724959a80f2b70906b386336976b6c09b45ba8f698a3ce8d938b12fbba9",
+    "name": "first_marker",
+    "reason": "Packet marker/gap framing",
+    "status": "rejected"
+  },
+  {
+    "mutated_packet_sha256": "2c84e60116076b34d59aad0da57521ff54e6ffa6594883e4ba36bfc42841964e",
+    "name": "second_marker",
+    "reason": "Packet marker/gap framing",
+    "status": "rejected"
+  },
+  {
+    "mutated_packet_sha256": "7d6f45124356d3a24709ca886fcf02f6578fe021aa3acacd10eba26fe009315f",
+    "name": "argument_stop",
+    "reason": "Invalid literal code at bit 988",
+    "status": "rejected"
+  },
+  {
+    "mutated_packet_sha256": "2cf1b8cb5fe435ef51d7a94f6a79e0c420c769833bb3dcecf1ad4c5acaea6211",
+    "name": "row_stop",
+    "reason": "Truncated field at bit 173638",
+    "status": "rejected"
+  },
+  {
+    "mutated_packet_sha256": "0874538c411cd29c815067deb0dce04bc6cb895fa7b30a8962f9aebc7ba0a5a0",
+    "name": "truncated_final_stop",
+    "reason": "Truncated field at bit 173638",
+    "status": "rejected"
+  },
+  {
+    "mutated_packet_sha256": "b489156258cd49de9597cfa78e19c4db3c57e9987cefa2626ccac79e2cd7895a",
+    "name": "extra_trailing_zero",
+    "reason": "Unconsumed packet suffix at bit 173641",
+    "status": "rejected"
+  },
+  {
+    "mutated_packet_sha256": "78de387da8e6d2067b34b10f5bfffb2330ee3257142b4f162cc593f7aa580ded",
+    "name": "operand_bit",
+    "reason": "Complete row order/content",
+    "status": "rejected"
+  },
+  {
+    "mutated_packet_sha256": "a4fda52cdde510cd3ff3d5fda642c255cd20f9682ebdbc55a277fdc36a58f8ae",
+    "name": "tag_bit",
+    "reason": "Complete row order/content",
+    "status": "rejected"
+  },
+  {
+    "mutated_packet_sha256": "1bc9c76a890734c4d5c53eee669d65edbb6d69c932f19a88e9bc78c48a018772",
+    "name": "nonbinary_bit",
+    "reason": "Nonbinary packet",
+    "status": "rejected"
+  },
+  {
+    "mutated_packet_sha256": null,
+    "name": "relative_head_plus_one",
+    "reason": "Relative seed head is not zero",
+    "status": "rejected"
+  },
+  {
+    "mutated_packet_sha256": null,
+    "name": "left_exterior_one",
+    "reason": "Nonzero exterior or tape support differs",
+    "status": "rejected"
+  },
+  {
+    "mutated_packet_sha256": null,
+    "name": "right_exterior_one",
+    "reason": "Nonzero exterior or tape support differs",
+    "status": "rejected"
+  },
+  {
+    "mutated_packet_sha256": null,
+    "name": "omitted_zero_word_cons",
+    "reason": "Complete finite seed bits differ",
+    "status": "rejected"
+  },
+  {
+    "mutated_packet_sha256": null,
+    "name": "source_row_order",
+    "reason": "Complete finite seed bits differ",
+    "status": "rejected"
+  },
+  {
+    "mutated_packet_sha256": null,
+    "name": "literal_rhs_extension",
+    "reason": "LiteralArgument RHS is not exactly one hexadecimal natural",
+    "status": "rejected"
+  },
+  {
+    "mutated_packet_sha256": null,
+    "name": "input_rhs_extension",
+    "reason": "Exact Tape.input source binding changed",
+    "status": "rejected"
+  },
+  {
+    "mutated_packet_sha256": null,
+    "name": "table_source_binding",
+    "reason": "Exact Tape.table source binding changed",
+    "status": "rejected"
+  }
+]

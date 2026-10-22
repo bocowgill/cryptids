@@ -189,12 +189,14 @@ def parse_sources(model_text, tape_text):
     argument = re.fullmatch(r"\s*\[(0x[0-9a-fA-F]+)\]\s*", bodies[0])
     require(argument is not None, "LiteralArgument RHS is not exactly one hexadecimal natural")
     require(len(argument[1]) <= 4096, "Oversized argument literal")
-    for name, exact in (
-        ("table", r"def table : CodeDAG\.DAG := SourceModel\.dag"),
-        ("input", r"def input : List Γ' := RuntimeWire\.input table literalArgument"),
+    for name, declaration, next_declaration, rhs in (
+        ("table", r"def table : CodeDAG\.DAG :=", r"def argument\b", r"SourceModel\.dag"),
+        ("input", r"def input : List Γ' :=", r"theorem table_valid\b",
+         r"RuntimeWire\.input table literalArgument"),
     ):
+        bodies = re.findall(r"^" + declaration + r"(.*?)^" + next_declaration, tape, re.M | re.S)
         require(len(re.findall(r"^def " + name + r"\b", tape, re.M)) == 1
-                and len(re.findall(r"^" + exact + r"[ \t]*$", tape, re.M)) == 1,
+                and len(bodies) == 1 and re.fullmatch(r"\s*" + rhs + r"\s*", bodies[0]) is not None,
                 f"Exact Tape.{name} source binding changed")
     return rows, root, int(argument[1], 16), {"blocks": len(blocks), "root_block": root_block}
 
@@ -418,10 +420,17 @@ def hostile_checks(packet, pre, rows, post, expected, decoded, model_text, tape_
         "def input : List Γ' := RuntimeWire.input table literalArgument ++ []", 1)
     require(extended_input != tape_text, "Input RHS hostile fixture not found")
     reject("input_rhs_extension", lambda: parse_sources(model_text, extended_input))
+    multiline_input = tape_text.replace(
+        "def input : List Γ' := RuntimeWire.input table literalArgument",
+        "def input : List Γ' := RuntimeWire.input table literalArgument\n  ++ []", 1)
+    reject("input_multiline_rhs_extension", lambda: parse_sources(model_text, multiline_input))
     changed_table = tape_text.replace("def table : CodeDAG.DAG := SourceModel.dag",
                                       "def table : CodeDAG.DAG := otherDag", 1)
     require(changed_table != tape_text, "Table binding hostile fixture not found")
     reject("table_source_binding", lambda: parse_sources(model_text, changed_table))
+    multiline_table = tape_text.replace("def table : CodeDAG.DAG := SourceModel.dag",
+                                        "def table : CodeDAG.DAG := SourceModel.dag\n  |> id", 1)
+    reject("table_multiline_rhs_extension", lambda: parse_sources(model_text, multiline_table))
     return results
 
 
@@ -532,10 +541,9 @@ def main():
             "Refuse to overwrite prior census evidence; retain it and use a fresh output directory")
     started = time.monotonic()
     phase = "startup"
-    reserve = bytearray(1024 * 1024)
+    reserve = None
     summary = {"status": "running", "classification": CLASSIFICATION}
-    write_json(output / "pilot-summary.json", summary)
-    hard_timeout_fd = os.open(output / "hard-timeout.txt", os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o644)
+    hard_timeout_fd = None
 
     def progress(next_phase):
         nonlocal phase
@@ -545,8 +553,11 @@ def main():
 
     def hard_timeout(_signum, _frame):
         # The preopened file and existing progress/summary survive even an exhausted cleanup budget.
-        os.write(hard_timeout_fd, b"Hard wall deadline reached; no success claim. Retain all partial evidence.\n")
-        os._exit(124)
+        try:
+            os.write(hard_timeout_fd if hard_timeout_fd is not None else 2,
+                     b"Hard wall deadline reached; no success claim. Retain all partial evidence.\n")
+        finally:
+            os._exit(124)
 
     def arm_hard_deadline():
         remaining = args.seconds - (time.monotonic() - started)
@@ -561,9 +572,15 @@ def main():
 
     exit_code = 1
     try:
-        resource.setrlimit(resource.RLIMIT_AS, (args.memory_gib * 1024 ** 3,) * 2)
         signal.signal(signal.SIGALRM, timeout)
-        signal.setitimer(signal.ITIMER_REAL, args.seconds - 3)
+        work_remaining = args.seconds - 3 - (time.monotonic() - started)
+        if work_remaining <= 0:
+            timeout(None, None)
+        signal.setitimer(signal.ITIMER_REAL, work_remaining)
+        resource.setrlimit(resource.RLIMIT_AS, (args.memory_gib * 1024 ** 3,) * 2)
+        reserve = bytearray(1024 * 1024)
+        hard_timeout_fd = os.open(output / "hard-timeout.txt", os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o644)
+        write_json(output / "pilot-summary.json", summary)
         summary = run(output, progress)
         exit_code = 0
     except (Exception, KeyboardInterrupt) as exc:
@@ -587,7 +604,8 @@ def main():
     else:
         print(f"Packet census failed in {phase}; retained pilot-summary.json and failure.txt", file=sys.stderr)
     signal.setitimer(signal.ITIMER_REAL, 0)
-    os.close(hard_timeout_fd)
+    if hard_timeout_fd is not None:
+        os.close(hard_timeout_fd)
     return exit_code
 
 
