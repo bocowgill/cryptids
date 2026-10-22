@@ -112,6 +112,7 @@ def native_fixtures():
     checks.append(run([sys.executable,'scripts/chess_field_full/fixtures.py'],
                       'Full field independent fixtures passed',timeout=900))
     detail=json.loads((WORK/'fixtures-detail.json').read_text())
+    assert detail['status']=='passed'
     save('fixtures',checks,detail=detail,export_sha256=sha(WORK/'machine.json'))
     return checks
 
@@ -124,6 +125,7 @@ def counts():
     assert detail['states']<detail['previous_states']==390491642
     assert detail['saved_states']==detail['previous_states']-detail['states']
     assert len(detail['mutation_controls'])>=5
+    assert all(c['passed'] is True and c['rejected'] is True for c in detail['mutation_controls'])
     save('counts',[],detail=detail,export_sha256=sha(WORK/'machine.json'))
     print('Full field chess reduction passed')
 
