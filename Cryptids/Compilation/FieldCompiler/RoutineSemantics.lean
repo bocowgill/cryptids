@@ -31,10 +31,10 @@ theorem map_bit_roundtrip (tape : Tape Bit) : (tape.map bitMap).map boolMap = ta
   · exact from_to_bool head
   · apply ListBlank.ext
     intro i
-    simpa only [Tape.map, ListBlank.nth_map] using from_to_bool (left.nth i)
+    simpa only [Tape.map, ListBlank.nth_map, bitMap, boolMap] using from_to_bool (left.nth i)
   · apply ListBlank.ext
     intro i
-    simpa only [Tape.map, ListBlank.nth_map] using from_to_bool (right.nth i)
+    simpa only [Tape.map, ListBlank.nth_map, bitMap, boolMap] using from_to_bool (right.nth i)
 
 theorem map_bool_roundtrip (tape : Tape Bool) : (tape.map boolMap).map bitMap = tape := by
   rcases tape with ⟨head, left, right⟩
@@ -43,10 +43,10 @@ theorem map_bool_roundtrip (tape : Tape Bool) : (tape.map boolMap).map bitMap = 
   · exact to_from_bool head
   · apply ListBlank.ext
     intro i
-    simpa only [Tape.map, ListBlank.nth_map] using to_from_bool (left.nth i)
+    simpa only [Tape.map, ListBlank.nth_map, bitMap, boolMap] using to_from_bool (left.nth i)
   · apply ListBlank.ext
     intro i
-    simpa only [Tape.map, ListBlank.nth_map] using to_from_bool (right.nth i)
+    simpa only [Tape.map, ListBlank.nth_map, bitMap, boolMap] using to_from_bool (right.nth i)
 
 /-- Emitting a counted field routine gives its exact tape semantics inside one TM1 statement. -/
 theorem emit_stepAux {α : Type} {n : Nat} (p : Routine α) (k : α → Syntax n)

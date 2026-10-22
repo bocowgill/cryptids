@@ -28,10 +28,10 @@ theorem map_bit_roundtrip (tape : Tape Bit) : (tape.map bitMap).map boolMap = ta
   · exact from_to_bool head
   · apply ListBlank.ext
     intro i
-    simpa only [Tape.map, ListBlank.nth_map] using from_to_bool (left.nth i)
+    simpa only [Tape.map, ListBlank.nth_map, bitMap, boolMap] using from_to_bool (left.nth i)
   · apply ListBlank.ext
     intro i
-    simpa only [Tape.map, ListBlank.nth_map] using from_to_bool (right.nth i)
+    simpa only [Tape.map, ListBlank.nth_map, bitMap, boolMap] using from_to_bool (right.nth i)
 
 theorem rep_map (source : Tape Symbol) (bits : Tape Bit)
     (rep : FieldReturn.RepresentsTape source bits) : RepTape source (bits.map bitMap) := by
