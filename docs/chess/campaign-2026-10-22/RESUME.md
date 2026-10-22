@@ -23,7 +23,7 @@ fixtures, simulations, synthesis and counting stay **remote**. Local source edit
 and saved metadata/hash inspection are permitted. No outreach, issues/comments,
 upstream PRs or messages to others. Use new dated source/evidence paths.
 
-Latest account snapshot: **55% used / 45% remaining** in the primary window.
+Latest account snapshot: **58% used / 42% remaining** in the primary window.
 No numeric goal token budget and no reset credit consumed. Check usage periodically;
 checkpoint throughout and stop recoverably near exhaustion, without marking success.
 
@@ -52,9 +52,9 @@ machine acceptance. Repairs preserved theorem statements and frozen sources.
 
 ## Immediate next task
 
-Round 01 is accepted and its complete checkpoint is pushed. Continue the active
-goal with the initializer route below. Do not mark the overall
-goal complete after this reduction.
+Round 01 is accepted and its complete checkpoint is pushed. Round 02 is active:
+a direct binary three-bit seed expander plus one paid bridge into the accepted
+573,802-state body. Do not mark the overall goal complete after this reduction.
 
 The metadata-only acceptance command is:
 
@@ -83,8 +83,18 @@ complete cleanup and exact head restoration. Required new proofs: universal
 finite-input expansion and a protected-prefix expander/body linker. Quadratic
 startup makes full step-by-step chess initialization impractical; use a certified
 universal expansion path, full static input equality, exact full table export,
-and independent small-input/negative controls. First establish a new round
-contract and remote-only pilot. No second implementation route has started yet.
+and independent small-input/negative controls. The round-02 contract is active
+in `.unlazy/chess-goal-20261022-r02`; tracked snapshots are under `round-02/ledger-snapshot`.
+Worker `/root/goal_seed_link` has drafted `Cryptids/Compilation/SeedLink.lean`;
+worker `/root/goal_seed_controller` owns the finite binary controller pilot.
+The new workflow `chess_seed_20261022.yml` supports `pilot` and a bounded `link`
+proof-repair session. No remote round-02 run has started yet.
+
+The controller source estimate is D=216, hence candidate 998,176 states; this is
+not a measured or accepted new machine. First run the finite pilot and strict
+link proof remotely, retain diagnostics, then establish universal expander correctness.
+All 2,762 tracked baseline/accepted files except these mutable campaign progress
+documents are pinned in `round-02/baseline-pins.json`. Accepted round-01 files stay fixed.
 
 ## Workspace and recovery
 

@@ -4,6 +4,7 @@
 |---|---|---|---:|
 | Baseline | Reverse paid initializer and packed field body | accepted, sealed | 2,904,623 |
 | 01 | Selective binary return controls | accepted, sealed | 2,411,743 |
+| 02 | Three-bit seed and fixed binary expander | active; universal proof pending | — |
 
 Preserve failure witnesses and exact remote receipts. Partial improvements are not
 accepted full machines. Continue beyond successful rounds until usage limits stop
