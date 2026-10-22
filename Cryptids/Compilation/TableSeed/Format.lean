@@ -82,7 +82,7 @@ theorem W_prefix_step (value : Nat) (bit : Bool) (base : List Letter) :
     rfl
   · have guard : value ≠ 0 ∨ bit = true := by
       cases bit <;> simp_all
-    rw [if_neg skip, W_bit bit value guard, List.cons_append]
+    rw [ite_eq_right skip, W_bit bit value guard, List.cons_append]
 
 /-- A Boolean digit as a physical binary symbol. -/
 def bitValue (bit : Bool) : Bit := if bit then 1 else 0
@@ -169,7 +169,7 @@ def letters (pre : List Letter) (rows : List Row) (post : List Letter) : List Le
 theorem rowLetters_eq_trList (row : Row) :
     rowLetters row = (trList [row.tag.val, row.left.val, row.right.val]).map Seed.ofSymbol := by
   simp only [rowLetters, W, trList, List.map_append, List.map_cons, List.map_nil,
-    List.append_nil, List.append_assoc, List.cons_append]
+    List.nil_append, List.append_assoc, List.cons_append]
 
 /-- Prepending blocks while reading reversed rows restores their original order. -/
 theorem prepend_blocks_reverse {α : Type} (values : List α) (block : α → List Letter)
