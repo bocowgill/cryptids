@@ -75,6 +75,7 @@ class Driver:
         self.args, self.start = args, time.monotonic()
         self.deadline = self.start + args.seconds
         self.child = None
+        self.audit_roots = {}
         self.stage = "input_and_generation"
         self.summary = {
             "status": "running", "classification": "FINITE_PARTIAL_KERNEL_SCALABILITY_PILOT",
@@ -86,6 +87,8 @@ class Driver:
                        "address_space_limit": None, "memory_enforcement": "sampled resident memory"},
             "source_states": N, "quotient_states": K, "requested_sample_states": [64, 512, 4096],
             "stages": [], "generated_files": {}, "completed_positive_sample_states": 0,
+            "completed_positive_unique_rows": 0, "complete_typed_candidate_data_checked": False,
+            "audited_modules": [],
             "negative_control": {"status": "not_run"},
         }
         signal.signal(signal.SIGALRM, self.expire)
@@ -129,8 +132,9 @@ class Driver:
         shutil.copyfile(path, retained)
         self.summary["generated_files"][str(PREFIX / name)] = info(path)
 
-    def run(self, stem, seconds, banner=None, negative=False):
-        self.stage = stem
+    def run(self, stem, seconds, banner=None, negative=False, audit=False):
+        stage_started = time.monotonic()
+        self.stage = stem + "Audit" if audit else stem
         self.checkpoint()
         remaining = self.deadline - time.monotonic() - 4
         if remaining <= 0:
@@ -139,14 +143,21 @@ class Driver:
         module = MODULE + "." + stem
         # Only generated build products are removed, so a stage measures fresh
         # kernel checking rather than replay of a prior pilot's cached .olean.
-        for folder in ("lib/lean", "ir"):
-            base = ROOT / ".lake/build" / folder / PREFIX
-            if base.is_dir():
-                for path in base.glob(stem + ".*"):
-                    if path.is_file():
-                        path.unlink()
-        command = ["lake", "--wfail", "-f", str(self.args.lakefile), "build", module]
-        log_path = self.args.output / (stem + ".log")
+        if not audit:
+            for folder in ("lib/lean", "ir"):
+                base = ROOT / ".lake/build" / folder / PREFIX
+                if base.is_dir():
+                    for path in base.glob(stem + ".*"):
+                        if path.is_file():
+                            path.unlink()
+        command = ["lake", "--wfail", "-f", str(self.args.lakefile)]
+        if audit:
+            command += ["env", "lean", "-M6144", "-DwarningAsError=true", "--run",
+                        str(PREFIX / "Audit.lean"), module,
+                        str(PREFIX / (stem + ".roots")), str(len(self.audit_roots[stem]))]
+        else:
+            command += ["build", module]
+        log_path = self.args.output / (self.stage + ".log")
         started, peak, cause = time.monotonic(), 0, None
         self.summary["active_command"] = {"argv": command, "cwd": str(ROOT), "shell": False,
                                           "timeout_seconds": limit, "log": log_path.name,
@@ -173,21 +184,26 @@ class Driver:
         lower = output.lower()
         if exit_code != 0 and ("failed to create thread" in lower or "pthread_create" in lower):
             cause = cause or "runtime_thread_resource"
-        receipt = {"module": module, "argv": command, "cwd": str(ROOT), "shell": False,
+        receipt = {"module": module, "kind": "full_private_audit" if audit else "kernel_build",
+                   "argv": command, "cwd": str(ROOT), "shell": False,
                    "exit": exit_code, "timeout_seconds": limit, "resource_stop": cause,
                    "elapsed_seconds": time.monotonic() - started, "peak_group_plus_driver_rss_bytes": peak,
                    "log": log_path.name, "log_info": info(log_path), "expected_banner": banner,
                    "expected_banner_found": banner in output if banner else None}
         compiled = ROOT / ".lake/build/lib/lean" / PREFIX / (stem + ".olean")
-        if compiled.exists():
+        if compiled.exists() and not audit:
             receipt["olean"] = info(compiled)
         self.summary["stages"].append(receipt)
         self.summary.pop("active_command", None)
         self.checkpoint()
-        scaling = cause or any(word in lower for word in
-                              ("out of memory", "memory exhausted", "maximum memory", "bad_alloc",
-                               "resource temporarily unavailable", "timeout", "heartbeats",
-                               "recursion depth", "stack overflow"))
+        error_text = "\n".join(line.lower() for line in output.splitlines()
+                               if "error:" in line.lower() or line.lower().startswith(
+                                   ("libc++abi:", "fatal error:", "terminate called", "runtime error:")))
+        scaling = cause or any(pattern in error_text for pattern in
+                               ("out of memory", "memory allocation failed", "memory exhausted",
+                                "maximum memory", "bad_alloc", "resource temporarily unavailable",
+                                "(deterministic) timeout", "maximum number of heartbeats",
+                                "heartbeat limit exceeded", "maximum recursion depth", "stack overflow"))
         if (cause or exit_code != 0) and scaling:
             # A runtime resource failure is never a successful negative control.
             raise Obstruction(stem + ": " + str(cause or "Lean resource/scaling failure"))
@@ -202,7 +218,16 @@ class Driver:
             raise RuntimeError(stem + ": Lean source/proof failure; inspect retained log")
         else:
             require(banner and banner in output, stem + ": success banner missing")
+        if audit:
+            self.summary.setdefault("audited_modules", []).append(
+                {"module": module, "required_roots": len(self.audit_roots[stem]),
+                 "full_private_environment": True})
         self.checkpoint()
+        if not audit and not negative and stem in self.audit_roots:
+            remaining_stage = seconds - (time.monotonic() - stage_started)
+            if remaining_stage <= 0:
+                raise Obstruction(stem + ": no remaining stage time for required full-private audit")
+            self.run(stem, remaining_stage, "Body full-private kernel root audit passed", audit=True)
 
 
 def current_rss(pid):
@@ -368,8 +393,19 @@ elab "load_body_map% " path:str : term <= expectedType? => do
       let some value := text.toNat? | throwError "Malformed map integer"
       entries := entries.push (TableSyntax.boundedFinExpr bound value)
   TableSyntax.balancedRowsExpr elemType entries 0 entries.size
+end Chess.Optimisation.BodyCertificatePilot.Generator
+end
+run_cmd Lean.logInfo "Body certificate loaders checked"
+'''
 
-def dependencies (info : ConstantInfo) : Array Name := Id.run do
+
+AUDIT = r'''import Lean
+
+-- Intentionally not a `module`: importModules loads the full private proof
+-- closure. A module's public environment can expose private proofs as axioms.
+open Lean
+
+private def dependencies (info : ConstantInfo) : Array Name := Id.run do
   let mut names := info.type.getUsedConstants
   if let some value := info.value? (allowOpaque := true) then
     names := names ++ value.getUsedConstants
@@ -382,28 +418,50 @@ def dependencies (info : ConstantInfo) : Array Name := Id.run do
   | _ => pure ()
   return names
 
-elab "audit_body_roots% " "[" roots:ident,* "]" : command => do
-  let env ← getEnv
-  let mut pending := roots.getElems.map (fun name ↦ name.getId)
+def main (args : List String) : IO Unit := do
+  let [moduleText, rootsPath, expectedText] := args
+    | throw <| IO.userError "Expected module, roots file and exact root count"
+  let some expected := expectedText.toNat?
+    | throw <| IO.userError "Malformed expected root count"
+  let mut roots : Array Name := #[]
+  for raw in (← IO.FS.readFile rootsPath).splitOn "\n" do
+    let text := raw.trimAscii.toString
+    if !text.isEmpty then
+      let name := text.toName
+      unless (`Chess.Optimisation.BodyCertificatePilot).isPrefixOf name do
+        throw <| IO.userError s!"Unexpected root namespace: {name}"
+      if roots.contains name then throw <| IO.userError s!"Duplicate root: {name}"
+      roots := roots.push name
+  unless expected > 0 && roots.size == expected do
+    throw <| IO.userError "Required root census mismatch"
+  initSearchPath (← findSysroot)
+  let env ← importModules #[{module := moduleText.toName}] {} 0
+  let mut pending := roots
   let mut seen : NameSet := {}
+  let mut axioms : NameSet := {}
   while let some name := pending.back? do
     pending := pending.pop
     if seen.contains name then continue
     seen := seen.insert name
-    let some decl := env.find? name | throwError "Missing audited declaration: {name}"
-    if decl.isUnsafe || decl.isPartial then throwError "Unsafe/partial dependency: {name}"
-    if (`Chess.Optimisation.BodyCertificatePilot.Generator).isPrefixOf name ||
-        (`ConjectureMachines.TableSyntax).isPrefixOf name ||
-        name == `Chess.perfect_play_results_in_draw then
-      throwError "Forbidden generator/conjecture dependency: {name}"
+    let some decl := env.find? name
+      | throw <| IO.userError s!"Missing audited declaration: {name}"
+    if decl.isUnsafe || decl.isPartial then
+      throw <| IO.userError s!"Unsafe/partial dependency: {name}"
+    let userName := privateToUserName name
+    if (`Chess.Optimisation.BodyCertificatePilot.Generator).isPrefixOf userName ||
+        (`ConjectureMachines.TableSyntax).isPrefixOf userName ||
+        (`Chess.Compilation.SourceCertificate.Generator).isPrefixOf userName ||
+        (`Chess.Compilation.Input.Generator).isPrefixOf userName ||
+        userName == `Chess.perfect_play_results_in_draw then
+      throw <| IO.userError s!"Forbidden generator/conjecture dependency: {name}"
     if decl matches .axiomInfo _ then
       unless #[`propext, `Classical.choice, `Quot.sound].contains name do
-        throwError "Forbidden axiom dependency: {name}"
+        throw <| IO.userError s!"Forbidden axiom dependency: {name}"
+      axioms := axioms.insert name
     pending := pending ++ dependencies decl
-  logInfo m!"Body kernel certificate root audit passed: {roots.getElems.size} roots"
-end Chess.Optimisation.BodyCertificatePilot.Generator
-end
-run_cmd Lean.logInfo "Body certificate loaders checked"
+  IO.println s!"Audited {roots.size} required roots and {seen.size} dependencies from {moduleText}"
+  IO.println s!"Permitted axioms: {axioms.toArray.qsort Name.lt}"
+  IO.println "Body full-private kernel root audit passed"
 '''
 
 
@@ -411,41 +469,56 @@ def header(imports):
     return ("module\n" + "".join("public import " + item + "\n" for item in imports) +
             "\n@[expose] public section\nnamespace " + NS + "\n" +
             "open Turing ConjectureMachines ConjectureMachines.Compilation\n" +
-            "set_option maxHeartbeats 0\nset_option maxRecDepth 1000000\n" +
+            "set_option maxRecDepth 1000000\n" +
             "set_option Elab.async false\nset_option compiler.extract_closed false\n")
 
 
-def audit_and_end(names, banner):
-    return ("\naudit_body_roots% [" + ", ".join(NS + "." + name for name in names) + "]\n" +
-            "end " + NS + "\nrun_cmd Lean.logInfo " + json.dumps(banner) + "\n")
+def audit_and_end(driver, stem, names, banner):
+    # The successful build and its separate full-private audit share one stage
+    # budget. Every explicit mathematical root is retained, not sampled.
+    roots = [NS + "." + name for name in names]
+    driver.audit_roots[stem] = roots
+    driver.emit(stem + ".roots", "\n".join(roots) + "\n")
+    return ("\nend " + NS + "\nrun_cmd Lean.logInfo " + json.dumps(banner) + "\n")
 
 
 def generate(driver, selected):
     # Source text is generated only after the import-time remote guard.
     driver.emit("Loaders.lean", LOADERS)
+    driver.emit("Audit.lean", AUDIT)
     driver.emit("MapData.lean", header([MODULE + ".Loaders"]) +
+                "-- Wall and RSS limits bound this complete typed-data elaboration.\n" +
+                "set_option maxHeartbeats 0 in\n" +
                 f'def mapTree : Balanced.RowTree (Fin {K}) :=\n' +
                 f'  load_body_map% "{PREFIX}/class-map.txt"\n' +
-                audit_and_end(["mapTree"], "Complete body class map loaded"))
+                audit_and_end(driver, "MapData", ["mapTree"], "Complete body class map loaded"))
     driver.emit("QuotientData.lean", header([MODULE + ".Loaders"]) +
+                "-- Wall and RSS limits bound this complete typed-data elaboration.\n" +
+                "set_option maxHeartbeats 0 in\n" +
                 f'def quotientTree : Balanced.RowTree (List (Option (Fin 2 × Dir × Fin {K}))) :=\n' +
                 f'  load_balanced_rows% "{PREFIX}/quotient.rows"\n' +
-                audit_and_end(["quotientTree"], "Complete body quotient rows loaded"))
+                audit_and_end(driver, "QuotientData", ["quotientTree"], "Complete body quotient rows loaded"))
     data = header([MODULE + ".MapData", MODULE + ".QuotientData",
                    "Cryptids.Chess.Optimisation.FieldSelective", "Cryptids.Compilation.LocalCertificate"])
     data += f'''def classMap (s : Fin {N}) : Fin {K} := mapTree.lookup s.val 0
 def quotient : Machine {K} 2 := Balanced.ofTree quotientTree
+-- Each kernel computation remains bounded by the driver's wall and RSS limits.
+set_option maxHeartbeats 0 in
 theorem map_count : mapTree.count = {N} := by decide +kernel
+set_option maxHeartbeats 0 in
 theorem map_valid : mapTree.WellFormed := by decide +kernel
+set_option maxHeartbeats 0 in
 theorem quotient_count : quotientTree.count = {K} := by decide +kernel
+set_option maxHeartbeats 0 in
 theorem quotient_valid : quotientTree.WellFormed := by decide +kernel
+set_option maxHeartbeats 0 in
 theorem entry : classMap 0 = 0 := by decide +kernel
 def RowAt (s : Fin {N}) (b : Fin 2) : Prop :=
   (Chess.Optimisation.FieldSelective.body.toMachine.transition s b).map
     (fun (write, dir, next) ↦ (write, dir, classMap next)) =
   quotient.transition (classMap s) b
 '''
-    driver.emit("Data.lean", data + audit_and_end(
+    driver.emit("Data.lean", data + audit_and_end(driver, "Data",
         ["map_count", "map_valid", "quotient_count", "quotient_valid", "entry", "RowAt"],
         "Complete body certificate data checked"))
     for count in (64, 512, 4096):
@@ -454,8 +527,10 @@ def RowAt (s : Fin {N}) (b : Fin 2) : Prop :=
             for bit in (0, 1):
                 name = f"row_{count}_{state}_{bit}"
                 names.append(name)
-                parts.append(f"theorem {name} : RowAt {state} {bit} := by decide +kernel\n")
-        parts.append(audit_and_end(names, f"Body kernel rows checked: {count} states, {2 * count} rows"))
+                parts.append("set_option maxHeartbeats 0 in\n" +
+                             f"theorem {name} : RowAt {state} {bit} := by decide +kernel\n")
+        parts.append(audit_and_end(driver, f"Rows{count}", names,
+                                   f"Body kernel rows checked: {count} states, {2 * count} rows"))
         driver.emit(f"Rows{count}.lean", "".join(parts))
     negative = f'''module
 import {MODULE}.Rows64
