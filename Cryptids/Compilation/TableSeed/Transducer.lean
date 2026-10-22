@@ -80,28 +80,44 @@ theorem operand_prefix_step (tag : Fin 7) (side : Fin 2) (position : Fin 13)
           (decide (Nat.bit (decide (bit = 1)) value ≠ 0)),
         W (Nat.bit (decide (bit = 1)) value) ++ base, raw, gap + 1⟩ := by
   fin_cases bit
-  · by_cases zero : value = 0
+  · change Path ⟨.read (.operand tag side position (decide (value ≠ 0))),
+        W value ++ base, 0 :: raw, gap⟩
+      ⟨operandBoundary tag side (position.val + 1) (decide (Nat.bit false value ≠ 0)),
+        W (Nat.bit false value) ++ base, raw, gap + 1⟩
+    by_cases zero : value = 0
     · subst value
-      simpa only [decide_false, Nat.bit_false_zero, operand_zero_unseen] using
-        read_path (.operand tag side position false) (W 0 ++ base) 0 raw gap
+      change Path ⟨.read (.operand tag side position false), W 0 ++ base, 0 :: raw, gap⟩
+        ⟨operandBoundary tag side (position.val + 1) false, W 0 ++ base, raw, gap + 1⟩
+      have read := read_path (.operand tag side position false) (W 0 ++ base) 0 raw gap
+      rwa [operand_zero_unseen] at read
     · have read := read_path (.operand tag side position true) (W value ++ base) 0 raw gap
       rw [operand_zero_seen] at read
       have emitted := emit_path (.operandBit tag side position false)
         (W value ++ base) raw (gap + 1)
       rw [operand_emit_target] at emitted
       have nonzero : Nat.bit false value ≠ 0 := by
-        simpa only [Nat.bit_eq_zero_iff, and_true] using zero
-      simpa [zero, nonzero, emitLetter, bitLetter,
-        W_bit false value (Or.inl zero)] using read.trans emitted
-  · have read := read_path (.operand tag side position (decide (value ≠ 0)))
+        intro equal
+        exact zero (Nat.bit_eq_zero_iff.mp equal).1
+      have seen : decide (value ≠ 0) = true := decide_eq_true_eq.mpr zero
+      have newSeen : decide (Nat.bit false value ≠ 0) = true := decide_eq_true_eq.mpr nonzero
+      rw [seen, newSeen, W_bit false value (Or.inl zero)]
+      exact read.trans emitted
+  · change Path ⟨.read (.operand tag side position (decide (value ≠ 0))),
+        W value ++ base, 1 :: raw, gap⟩
+      ⟨operandBoundary tag side (position.val + 1) (decide (Nat.bit true value ≠ 0)),
+        W (Nat.bit true value) ++ base, raw, gap + 1⟩
+    have read := read_path (.operand tag side position (decide (value ≠ 0)))
       (W value ++ base) 1 raw gap
     rw [operand_one] at read
     have emitted := emit_path (.operandBit tag side position true)
       (W value ++ base) raw (gap + 1)
     rw [operand_emit_target] at emitted
-    have nonzero : Nat.bit true value ≠ 0 := by simp [Nat.bit_eq_zero_iff]
-    simpa [nonzero, emitLetter, bitLetter, W_bit true value (Or.inr rfl)] using
-      read.trans emitted
+    have nonzero : Nat.bit true value ≠ 0 := by
+      intro equal
+      cases (Nat.bit_eq_zero_iff.mp equal).2
+    have newSeen : decide (Nat.bit true value ≠ 0) = true := decide_eq_true_eq.mpr nonzero
+    rw [newSeen, W_bit true value (Or.inr rfl)]
+    exact read.trans emitted
 
 /-- A suffix of the thirteen-bit field completes the prefix invariant for every bit pattern. -/
 theorem operand_suffix (tag : Fin 7) (side : Fin 2) (bits : List Bit)
@@ -139,8 +155,9 @@ theorem operand_run (tag : Fin 7) (side : Fin 2) (value : Fin 8192)
   have ready : Path ⟨emitTarget (.operandCons tag side),
       emitLetter (.operandCons tag side) :: out, fieldBits value ++ raw, gap⟩
       ⟨afterOperand tag side, W value.val ++ out, raw, gap + 13⟩ := by
+    have unseen : decide ((0 : Nat) ≠ 0) = false := rfl
     simpa only [emitTarget, emitLetter, operandBoundary, Nat.zero_lt_succ, ↓reduceDIte,
-      decide_false, W_zero, consLetter, List.singleton_append, fieldBits_value,
+      unseen, W_zero, consLetter, List.singleton_append, fieldBits_value,
       fieldBits_length] using rest
   exact first.trans ready
 
@@ -170,20 +187,24 @@ theorem readTrace_path (bits : List Bit) (initial final : Entry)
     | finish => simp only [readTrace, reduceCtorEq] at checked
     | error => simp only [readTrace, reduceCtorEq] at checked
 
+set_option maxRecDepth 4096 in
 theorem literal_decode (phase : Fin 2) (letter : Letter) :
     readTrace (Seed.word letter) (.read (.literal phase 0)) =
       some (.emit (.literal phase letter)) := by
   fin_cases phase <;> fin_cases letter <;> rfl
 
+set_option maxRecDepth 4096 in
 theorem literal_stop_decode (phase : Fin 2) :
     readTrace [0, 0, 0] (.read (.literal phase 0)) =
       some (if phase = 0 then .emit .delimiter else .finish) := by
   fin_cases phase <;> rfl
 
+set_option maxRecDepth 4096 in
 theorem tag_decode (tag : Fin 7) :
     readTrace (tagBits tag) (.read (.tag 0)) = some (.emit (.operandCons tag 0)) := by
   fin_cases tag <;> rfl
 
+set_option maxRecDepth 4096 in
 theorem tag_stop_decode :
     readTrace [1, 1, 1] (.read (.tag 0)) = some (.read (.literal 1 0)) := rfl
 
@@ -221,6 +242,7 @@ theorem emitTrace_path (count : Nat) (initial final : Entry) (word : List Letter
     | finish => simp only [emitTrace, reduceCtorEq] at checked
     | error => simp only [emitTrace, reduceCtorEq] at checked
 
+set_option maxRecDepth 4096 in
 theorem tag_emit_trace (tag : Fin 7) :
     emitTrace (tagWidth tag + 1) (.emit (.tagCons tag)) =
       some (W tag.val, .read (.tag 0)) := by

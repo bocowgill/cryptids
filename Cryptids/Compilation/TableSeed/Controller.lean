@@ -574,6 +574,88 @@ theorem controlRow_readState (context : ReadCtx) (position : Fin 7) (bit : Bit) 
         ⟨35 + 84 * digit.val + 7 * boolIndex seen + position.val, bound⟩ bit).trans
         (operandRow_read tag side digit seen position bit)
 
+theorem operandRow_cons (tag : Fin 7) (side : Fin 2) (position : Fin 35) (bit : Bit) :
+    operandRow tag side ⟨position.val, by omega⟩ bit =
+      emitRow (.operandCons tag side) position bit := by
+  simp only [operandRow, position.isLt, ↓reduceDIte]
+
+theorem operandRow_emit (tag : Fin 7) (side : Fin 2) (digit : Fin 13)
+    (value : Bool) (position : Fin 35) (bit : Bit) :
+    operandRow tag side
+      ⟨49 + 84 * digit.val + 35 * boolIndex value + position.val,
+        by have := boolIndex_le value; omega⟩ bit =
+      emitRow (.operandBit tag side digit value) position bit := by
+  cases value with
+  | false =>
+    change operandRow tag side ⟨49 + 84 * digit.val + position.val, _⟩ bit = _
+    have bound : ¬49 + 84 * digit.val + position.val < 35 := by omega
+    have quotient : (49 + 84 * digit.val + position.val - 35) / 84 = digit.val := by
+      omega
+    have remainder : (49 + 84 * digit.val + position.val - 35) % 84 =
+        14 + position.val := by omega
+    have first : ¬14 + position.val < 7 := by omega
+    have second : ¬14 + position.val < 14 := by omega
+    have third : 14 + position.val < 49 := by omega
+    simp only [operandRow, bound, ↓reduceDIte, quotient, remainder, first, second, third,
+      Nat.add_sub_cancel_left]
+  | true =>
+    change operandRow tag side ⟨49 + 84 * digit.val + 35 + position.val, _⟩ bit = _
+    have bound : ¬49 + 84 * digit.val + 35 + position.val < 35 := by omega
+    have quotient : (49 + 84 * digit.val + 35 + position.val - 35) / 84 = digit.val := by
+      omega
+    have remainder : (49 + 84 * digit.val + 35 + position.val - 35) % 84 =
+        49 + position.val := by omega
+    have first : ¬49 + position.val < 7 := by omega
+    have second : ¬49 + position.val < 14 := by omega
+    have third : ¬49 + position.val < 49 := by omega
+    simp only [operandRow, bound, ↓reduceDIte, quotient, remainder, first, second, third,
+      Nat.add_sub_cancel_left]
+
+theorem tagRow_cons (tag : Fin 7) (position : Fin 35) (bit : Bit) :
+    tagRow tag ⟨2254 + position.val, by have := tagSize_lower tag; omega⟩ bit =
+      emitRow (.tagCons tag) position bit := by
+  have first : ¬2254 + position.val < 2254 := by omega
+  have second : 2254 + position.val < 2289 := by omega
+  simp only [tagRow, first, second, ↓reduceDIte, Nat.add_sub_cancel_left]
+
+theorem tagRow_emit (tag : Fin 7) (digit : Fin (tagWidth tag))
+    (position : Fin 35) (bit : Bit) :
+    tagRow tag ⟨2289 + 35 * digit.val + position.val, by rw [tagSize_eq]; omega⟩ bit =
+      emitRow (.tagBit tag digit) position bit := by
+  have first : ¬2289 + 35 * digit.val + position.val < 2254 := by omega
+  have second : ¬2289 + 35 * digit.val + position.val < 2289 := by omega
+  have quotient : (2289 + 35 * digit.val + position.val - 2289) / 35 = digit.val := by
+    omega
+  have remainder : (2289 + 35 * digit.val + position.val - 2289) % 35 =
+      position.val := by omega
+  simp only [tagRow, first, second, ↓reduceDIte, quotient, remainder]
+
+/-- Every actual emission context has the same paid thirty-five-row schema. -/
+theorem controlRow_emitState (context : EmitCtx) (position : Fin 35) (bit : Bit) :
+    controlRow (emitState context position) bit = emitRow context position bit := by
+  cases context with
+  | literal phase letter => exact literalRow_emit phase letter position bit
+  | delimiter => rfl
+  | operandCons tag side =>
+    simp only [emitState, controlRow_tagControl]
+    exact (tagRow_operand tag side ⟨position.val, by omega⟩ bit).trans
+      (operandRow_cons tag side position bit)
+  | operandBit tag side digit value =>
+    simp only [emitState, controlRow_tagControl]
+    have bound : 49 + 84 * digit.val + 35 * boolIndex value + position.val < 1127 := by
+      have := boolIndex_le value
+      omega
+    simpa only [Nat.add_assoc] using
+      (tagRow_operand tag side
+        ⟨49 + 84 * digit.val + 35 * boolIndex value + position.val, bound⟩ bit).trans
+        (operandRow_emit tag side digit value position bit)
+  | tagCons tag =>
+    simp only [emitState, controlRow_tagControl]
+    exact tagRow_cons tag position bit
+  | tagBit tag digit =>
+    simp only [emitState, controlRow_tagControl]
+    exact tagRow_emit tag digit position bit
+
 def machine : Machine 21682 2 where
   transition state bit := (controlRow (decode state) bit).map
     (fun (write, dir, next) ↦ (write, dir, encode next))

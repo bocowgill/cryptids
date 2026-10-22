@@ -217,7 +217,7 @@ theorem emitMiddlePath_valid (context : EmitCtx)
 
 theorem emitMiddle_actions (context : EmitCtx) :
     (emitMiddlePath context).map Prod.snd = Geometry.prependActions (emitLetter context) := by
-  simp only [emitMiddlePath, List.map_cons, List.map_nil, Prod.snd]
+  simp only [emitMiddlePath, List.map_cons, List.map_nil]
   generalize emitLetter context = letter
   fin_cases letter <;> rfl
 
@@ -386,9 +386,21 @@ theorem finish_frame (out : List Letter) (gap : Nat) :
         ListBlank.mk [] := by
       rw [ListBlank.append_mk, List.append_nil, Seed.mk_zeros]
     rw [blank] at written
-    simpa [atA, Seed.seed, Tape.mk₁, Tape.mk₂, ListBlank.append_mk,
-      ← List.append_assoc, Seed.mk_append_zeros,
-      show ([0, 0, 0] : List Bit) = List.replicate 3 0 by rfl] using written
+    have tails : ListBlank.mk ((Seed.marker ++ [0] ++ Seed.marker) ++
+        (Seed.payload out ++ List.replicate gap 0 ++ List.replicate 6 0)) =
+        ListBlank.mk (Seed.seed out) := by
+      rw [← List.append_assoc, ← List.append_assoc,
+        Seed.mk_append_zeros, Seed.mk_append_zeros]
+      exact (Seed.mk_append_zeros
+        (Seed.marker ++ [0] ++ Seed.marker ++ Seed.payload out) 3).symm
+    have finalTape : Tape.mk' (ListBlank.mk [])
+        (ListBlank.append (Seed.marker ++ [0] ++ Seed.marker)
+          (ListBlank.mk (Seed.payload out ++ List.replicate gap 0 ++ List.replicate 6 0))) =
+        Tape.mk₁ (Seed.seed out) := by
+      rw [ListBlank.append_mk, tails]
+      rfl
+    rw [finalTape] at written
+    simpa only [atA, ListBlank.append_mk, List.append_assoc] using written
   rw [show 3 * out.length + gap + 35 = 11 + ((gap + 3 * out.length + 5) + 19) by omega,
     run_add, erase, Option.bind_some, run_add, seek, Option.bind_some, header]
 

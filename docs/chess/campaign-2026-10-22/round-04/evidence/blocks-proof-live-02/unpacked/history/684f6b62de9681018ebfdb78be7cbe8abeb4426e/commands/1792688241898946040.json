@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "lake",
+    "--wfail",
+    "-f",
+    "lakefile.chess-table-proof-20261022.toml",
+    "build",
+    "Cryptids.Compilation.TableSeed.Blocks"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "\u2716 [3824/3824] Building Cryptids.Compilation.TableSeed.Blocks (9.0s)\ntrace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean -M6144 /home/runner/work/cryptids/cryptids/Cryptids/Compilation/TableSeed/Blocks.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Compilation/TableSeed/Blocks.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Compilation/TableSeed/Blocks.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Compilation/TableSeed/Blocks.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Compilation/TableSeed/Blocks.setup.json --json\nwarning: Cryptids/Compilation/TableSeed/Blocks.lean:220:58: This simp argument is unused:\n  Prod.snd\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [emitMiddlePath, List.map_cons, List.map_nil]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nerror: Cryptids/Compilation/TableSeed/Blocks.lean:389:4: Type mismatch: After simplification, term\n  written\n has type\n  FlatInit.runFrom machine 19\n      { state := encode (Control.finish 15),\n        tape :=\n          Tape.mk' (ListBlank.mk [])\n            (ListBlank.mk (Seed.marker ++ Seed.payload out ++ List.replicate gap 0 ++ [0, 0, 0, 0, 0, 0])) } =\n    some\n      { state := done,\n        tape :=\n          Tape.mk' (ListBlank.mk [])\n            (ListBlank.mk\n              (Seed.marker ++ [0] ++ Seed.marker ++ Seed.payload out ++ List.replicate gap 0 ++ [0, 0, 0, 0, 0, 0])) }\nbut is expected to have type\n  FlatInit.runFrom machine 19\n      { state := encode (Control.finish 15),\n        tape :=\n          Tape.mk' (ListBlank.mk [])\n            (ListBlank.mk (Seed.marker ++ Seed.payload out ++ List.replicate gap 0 ++ [0, 0, 0, 0, 0, 0])) } =\n    some\n      { state := done,\n        tape :=\n          Tape.mk' (ListBlank.mk [])\n            (ListBlank.mk (Seed.marker ++ [0] ++ Seed.marker ++ Seed.payload out ++ [0, 0, 0])) }\nSome required targets logged failures:\n- Cryptids.Compilation.TableSeed.Blocks\nerror: build failed\n",
+  "output_sha256": "1a38a08e268b03e07777911e89e7527a6977c368dcfde268f0dee13997bdb431",
+  "timed_out": false,
+  "timeout_seconds": 1200,
+  "elapsed_seconds": 14.83975577000001,
+  "cumulative_children_peak_rss_kib": 1760928
+}

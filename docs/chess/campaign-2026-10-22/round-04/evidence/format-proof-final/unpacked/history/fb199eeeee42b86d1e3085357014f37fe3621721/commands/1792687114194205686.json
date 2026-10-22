@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "lake",
+    "--wfail",
+    "-f",
+    "lakefile.chess-table-proof-20261022.toml",
+    "build",
+    "Cryptids.Compilation.TableSeed.Format",
+    "Cryptids.Compilation.TableSeed.Geometry",
+    "Cryptids.Compilation.TableSeed.Scan"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "\u2139 [3910/3946] Replayed Cryptids.Chess.Compilation.SourceCertificate\ninfo: Cryptids/Chess/Compilation/SourceCertificate.lean:226:0: Source certificate: 7076 checked lemmas, 7037 cache hits\ninfo: Cryptids/Chess/Compilation/SourceCertificate.lean:230:0: Literal row certificate: 5952 checked rows in 186 chunks\n\u2139 [3921/3946] Replayed Cryptids.Chess.Compilation.Input\ninfo: Cryptids/Chess/Compilation/Input.lean:128:0: Checked 186 literal row chunks: 141042 stack symbols\n\u2716 [3945/3946] Building Cryptids.Compilation.TableSeed.Format (1.7s)\ntrace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean -M6144 /home/runner/work/cryptids/cryptids/Cryptids/Compilation/TableSeed/Format.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Compilation/TableSeed/Format.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Compilation/TableSeed/Format.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Compilation/TableSeed/Format.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Compilation/TableSeed/Format.setup.json --json\nwarning: Cryptids/Compilation/TableSeed/Format.lean:85:8: `if_neg` has been deprecated: Use `ite_eq_right` instead\n\nHint: Replace the deprecated name:\n  i\u0335f\u0335_\u0335n\u0335e\u0335g\u0335i\u0332t\u0332e\u0332_\u0332e\u0332q\u0332_\u0332r\u0332i\u0332g\u0332h\u0332t\u0332\nerror: Cryptids/Compilation/TableSeed/Format.lean:170:94: unsolved goals\nrow : Row\n\u22a2 List.map Seed.ofSymbol (trNat \u2191row.tag) ++\n      Seed.ofSymbol \u0393'.cons ::\n        ([] ++\n          (List.map Seed.ofSymbol (trNat \u2191row.left) ++\n            Seed.ofSymbol \u0393'.cons :: ([] ++ (List.map Seed.ofSymbol (trNat \u2191row.right) ++ [Seed.ofSymbol \u0393'.cons])))) =\n    List.map Seed.ofSymbol (trNat \u2191row.tag) ++\n      Seed.ofSymbol \u0393'.cons ::\n        (List.map Seed.ofSymbol (trNat \u2191row.left) ++\n          Seed.ofSymbol \u0393'.cons :: (List.map Seed.ofSymbol (trNat \u2191row.right) ++ [Seed.ofSymbol \u0393'.cons]))\nwarning: Cryptids/Compilation/TableSeed/Format.lean:172:4: This simp argument is unused:\n  List.append_nil\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [rowLetters, W, trList, List.map_append, List.map_cons, List.map_nil, List.append_assoc,\n    List.cons_append]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nSome required targets logged failures:\n- Cryptids.Compilation.TableSeed.Format\nerror: build failed\n",
+  "output_sha256": "f3623b12a27bd96d527f64367ef0eccb308975ded6312c26f740db5acadd246d",
+  "timed_out": false,
+  "timeout_seconds": 1200,
+  "elapsed_seconds": 4.020669801000054,
+  "cumulative_children_peak_rss_kib": 2007092
+}
