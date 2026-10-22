@@ -194,7 +194,8 @@ def table (returnAt : Fin r → Fin q) (findReturn : Fin q → Option (Fin r))
   transition s a := (old.transition (decode returnAt s) a).bind fun (b, d, next) ↦
     (remap findReturn next).map fun target ↦ (b, d, target)
 
-/-- The independent reindexing and compiler agree. Semantic correctness additionally uses coverage. -/
+/-- The independent reindexing and compiler agree.
+Semantic correctness additionally uses coverage. -/
 theorem table_compile [NeZero q] (M : TM0.Machine Bool (Fin q))
     (returnAt : Fin r → Fin q) (findReturn : Fin q → Option (Fin r)) :
     table returnAt findReturn (Binary.compile M) = compile M returnAt findReturn := by

@@ -24,6 +24,7 @@ open ConjectureMachines.Optimisation FieldCompiler FieldPackedLayout
 
 set_option backward.isDefEq.respectTransparency false
 set_option maxRecDepth 16384
+attribute [local irreducible] FieldPacked.layout
 
 abbrev localSize (q : Fin 4042) : Nat :=
   1 + FieldReturns.writeCount (FieldPacked.syntaxRows.get q)
@@ -110,24 +111,30 @@ theorem liveReturn_val (q : Fin 4042) (i : Fin (localSize q)) (value : Fin 5) :
   rw [code_val]
   omega
 
+def returnAtSlot (slot : Σ q : Fin 4042, Fin (localSize q)) (value : Fin 5) :
+    Fin (CompactPost.stateCount 106668 5) :=
+  CompactPost.encode FieldPacked.getter
+    (some (nodeIndex slot.1 (FieldReturns.targetAt _ slot.2)), value)
+
+def returnAtPair (state : Fin 8092 × Fin 5) : Fin (CompactPost.stateCount 106668 5) :=
+  returnAtSlot (code.symm state.1) state.2
+
 /-- Decode each paid return into the original, permuted CompactPost control. -/
 def returnAt (r : Fin 40461) : Fin (CompactPost.stateCount 106668 5) :=
   match (finSumFinEquiv.symm r : Fin 1 ⊕ Fin (8092 * 5)) with
   | .inl _ => CompactPost.encode FieldPacked.getter (none, 0)
-  | .inr pair =>
-      let state := finProdFinEquiv.symm pair
-      let slot := code.symm state.1
-      CompactPost.encode FieldPacked.getter
-        (some (nodeIndex slot.1 (FieldReturns.targetAt _ slot.2)), state.2)
+  | .inr pair => returnAtPair (finProdFinEquiv.symm pair)
+
+def findReturnSlot (slot : FieldPacking.Slot FieldPacked.syntaxRows) (value : Fin 5) :
+    Option (Fin 40461) :=
+  (FieldReturns.findTarget (FieldPacked.syntaxRows.get slot.1) slot.2).map
+    (fun i ↦ liveReturn slot.1 i value)
 
 /-- Partial lookup only examines the decoded row's structural local target list. -/
 def findReturn (q : Fin (CompactPost.stateCount 106668 5)) : Option (Fin 40461) :=
   match CompactPost.decode FieldPacked.getter q with
   | none => some haltReturn
-  | some (pc, value) =>
-      let slot := FieldPacked.layout.code.symm pc
-      (FieldReturns.findTarget (FieldPacked.syntaxRows.get slot.1) slot.2).map
-        (fun i ↦ liveReturn slot.1 i value)
+  | some (pc, value) => findReturnSlot (FieldPacked.layout.code.symm pc) value
 
 theorem returnAt_halt (value : Fin 5) :
     returnAt haltReturn = CompactPost.encode FieldPacked.getter (none, value) := rfl
@@ -135,8 +142,9 @@ theorem returnAt_halt (value : Fin 5) :
 theorem returnAt_live (q : Fin 4042) (i : Fin (localSize q)) (value : Fin 5) :
     returnAt (liveReturn q i value) = CompactPost.encode FieldPacked.getter
       (some (nodeIndex q (FieldReturns.targetAt _ i)), value) := by
-  simp only [returnAt, liveReturn, finSumFinEquiv_symm_apply_natAdd,
-    Equiv.symm_apply_apply]
+  simp only [returnAt, liveReturn, finSumFinEquiv_symm_apply_natAdd]
+  rw [finProdFinEquiv.symm_apply_apply]
+  exact congrArg (fun slot ↦ returnAtSlot slot value) (code.symm_apply_apply ⟨q, i⟩)
 
 theorem findReturn_halt (value : Fin 5) :
     findReturn (CompactPost.encode FieldPacked.getter (none, value)) = some haltReturn := by
@@ -147,8 +155,9 @@ theorem findReturn_live (q : Fin 4042) (i : Fin (FieldPacked.syntaxRows.get q).s
     findReturn (CompactPost.encode FieldPacked.getter (some (nodeIndex q i), value)) =
       (FieldReturns.findTarget (FieldPacked.syntaxRows.get q) i).map
         (fun r ↦ liveReturn q r value) := by
-  simp only [findReturn, CompactPost.decode_encode, Option.map_some, nodeIndex,
-    Equiv.symm_apply_apply]
+  simp only [findReturn, CompactPost.decode_encode, Option.map_some, nodeIndex]
+  exact congrArg (fun slot ↦ findReturnSlot slot value)
+    (FieldPacked.layout.code.symm_apply_apply ⟨q, i⟩)
 
 /-- Local coverage transports through both certified finite allocations and the store pair. -/
 theorem covered_live (q : Fin 4042) (i : Fin (FieldPacked.syntaxRows.get q).size)
@@ -173,7 +182,8 @@ theorem covered_halt (value : Fin 5) :
 theorem covered_entry (label : Fin 4042) (value : Fin 5) :
     (findReturn (CompactPost.encode FieldPacked.getter
       (some (FieldPacked.getter.entry label), value))).map returnAt =
-      some (CompactPost.encode FieldPacked.getter (some (FieldPacked.getter.entry label), value)) := by
+      some (CompactPost.encode FieldPacked.getter
+        (some (FieldPacked.getter.entry label), value)) := by
   exact covered_live label (FieldPacked.syntaxRows.get label).root value
     (FieldReturns.root_covered _)
 
@@ -189,6 +199,7 @@ theorem covered_write_child (i : Fin 106668) (table : BoolGraph.Table 5 Bool)
     (value : Fin 5) :
     (findReturn (CompactPost.encode FieldPacked.getter (some child, value))).map returnAt =
       some (CompactPost.encode FieldPacked.getter (some child, value)) := by
+  rw [FieldPacked.getter, FieldPacking.graph_node] at same
   obtain ⟨⟨label, slot⟩, rfl⟩ := FieldPacked.layout.code.surjective i
   change FieldPacking.graphNode FieldPacked.syntaxRows FieldPacked.layout
     (FieldPacking.graphIndex FieldPacked.syntaxRows FieldPacked.layout label slot) = _ at same
