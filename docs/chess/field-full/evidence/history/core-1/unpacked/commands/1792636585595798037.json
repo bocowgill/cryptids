@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "lake",
+    "--wfail",
+    "-f",
+    "lakefile.chess-field-full.toml",
+    "build",
+    "Cryptids.Compilation.FieldCompiler.Operations"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "\u2714 [3847/3848] Built Cryptids.Compilation.FieldCompiler.Syntax (2.8s)\n\u2714 [3848/3848] Built Cryptids.Compilation.FieldCompiler.Operations (1.9s)\nBuild completed successfully (3848 jobs).\n",
+  "output_sha256": "ae59c0740c5f94820a9de07a8b3d54259835ee90ad2e851e08e08284b2c50f43",
+  "timed_out": false,
+  "elapsed_seconds": 7.509910584000011,
+  "cumulative_children_peak_rss_kib": 1773900
+}
