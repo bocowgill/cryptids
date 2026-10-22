@@ -29,7 +29,8 @@ theorem size_pos {n : Nat} (p : Syntax n) : 0 < p.size := by
 def root {n : Nat} : (p : Syntax n) → Fin p.size
   | .move _ p | .write _ p | .load _ p => Fin.last p.size
   | .branch _ p q => Fin.last (p.size + q.size)
-  | .go _ | .halt => 0
+  | .go _ => ⟨0, by simp [size]⟩
+  | .halt => ⟨0, by simp [size]⟩
 
 @[simp] theorem root_val {n : Nat} (p : Syntax n) : p.root.val = p.size - 1 := by
   cases p <;> simp [root, size]
@@ -66,9 +67,10 @@ def nodeAt {n : Nat} : (p : Syntax n) → Fin p.size → Node p.size 5 n
 /-- Every meaningful local edge points strictly backwards in postorder. -/
 theorem nodeAt_below {n : Nat} (p : Syntax n) (i child : Fin p.size)
     (member : child ∈ (p.nodeAt i).children) : child.val < i.val := by
-  induction p generalizing i child with
+  induction p with
   | move x p ih | write x p ih | load x p ih =>
-    refine Fin.lastCases ?_ (fun j ↦ ?_) i member
+    revert member
+    refine Fin.lastCases ?_ (fun j ↦ ?_) i
     · intro member
       simp only [nodeAt, Fin.lastCases_last, Node.children, List.mem_singleton] at member
       subst child
@@ -79,10 +81,11 @@ theorem nodeAt_below {n : Nat} (p : Syntax n) (i child : Fin p.size)
       obtain ⟨old, member, rfl⟩ := member
       exact ih j old member
   | branch t p q ihp ihq =>
-    refine Fin.lastCases ?_ (fun j ↦ ?_) i member
+    revert member
+    refine Fin.lastCases ?_ (fun j ↦ ?_) i
     · intro member
       simp only [nodeAt, Fin.lastCases_last, Node.children, List.mem_cons,
-        List.mem_singleton] at member
+        List.not_mem_nil, or_false] at member
       rcases member with rfl | rfl
       · exact p.root.isLt.trans_le (Nat.le_add_right _ _)
       · exact Nat.add_lt_add_left q.root.isLt p.size
@@ -105,19 +108,24 @@ theorem nodeAt_below {n : Nat} (p : Syntax n) (i child : Fin p.size)
 theorem nodeAt_meaning {n : Nat} (p : Syntax n) (i : Fin p.size) :
     TemplateGraph.buildNode (Equiv.refl (Fin 5)) (fun j ↦ (p.subAt j).meaning)
       (p.nodeAt i) = (p.subAt i).meaning := by
-  induction p generalizing i with
+  induction p with
   | move x p ih | write x p ih | load x p ih =>
     refine Fin.lastCases ?_ (fun j ↦ ?_) i
-    · simp [nodeAt, subAt, meaning, TemplateGraph.buildNode]
-    · simpa [nodeAt, subAt, TemplateGraph.buildNode_map, Function.comp_def] using ih j
+    · simp only [nodeAt, Fin.lastCases_last, TemplateGraph.buildNode, subAt,
+        Fin.lastCases_castSucc, subAt_root, meaning]
+    · simpa only [nodeAt, subAt, Fin.lastCases_castSucc, TemplateGraph.buildNode_map,
+        Function.comp_def] using ih j
   | branch t p q ihp ihq =>
     refine Fin.lastCases ?_ (fun j ↦ ?_) i
-    · simp [nodeAt, subAt, meaning, TemplateGraph.buildNode]
+    · simp only [nodeAt, Fin.lastCases_last, TemplateGraph.buildNode, subAt,
+        Fin.lastCases_castSucc, Fin.addCases_left, Fin.addCases_right, subAt_root, meaning]
     · induction j using Fin.addCases with
       | left j =>
-        simpa [nodeAt, subAt, TemplateGraph.buildNode_map, Function.comp_def] using ihp j
+        simpa only [nodeAt, subAt, Fin.lastCases_castSucc, Fin.addCases_left,
+          TemplateGraph.buildNode_map, Function.comp_def] using ihp j
       | right j =>
-        simpa [nodeAt, subAt, TemplateGraph.buildNode_map, Function.comp_def] using ihq j
+        simpa only [nodeAt, subAt, Fin.lastCases_castSucc, Fin.addCases_right,
+          TemplateGraph.buildNode_map, Function.comp_def] using ihq j
   | go t => rfl
   | halt => rfl
 
@@ -135,61 +143,79 @@ def graphIndex {labels : Nat} (rows : Vector (Syntax labels) labels) (width : Na
     (graphIndex rows width fits q i).val = q.val * width + i.val := by
   simp [graphIndex, finProdFinEquiv, Nat.mul_comm, Nat.add_comm]
 
-/-- Direct global getter. Unused slots are literal childless halt nodes. -/
-def graphNode {labels : Nat} (rows : Vector (Syntax labels) labels) (width : Nat)
-    (fits : ∀ q, (rows.get q).size ≤ width) (i : Fin (labels * width)) :
+/-- Inspect one explicitly selected source block and its local slot. -/
+def graphNodePair {labels : Nat} (rows : Vector (Syntax labels) labels) (width : Nat)
+    (fits : ∀ q, (rows.get q).size ≤ width) (pair : Fin labels × Fin width) :
     Node (labels * width) 5 labels :=
-  let pair : Fin labels × Fin width := finProdFinEquiv.symm i
   if inside : pair.2.val < (rows.get pair.1).size then
     TemplateGraph.mapNode (graphIndex rows width fits pair.1)
       ((rows.get pair.1).nodeAt ⟨pair.2.val, inside⟩)
   else .halt
+
+/-- Direct global getter. Unused slots are literal childless halt nodes. -/
+def graphNode {labels : Nat} (rows : Vector (Syntax labels) labels) (width : Nat)
+    (fits : ∀ q, (rows.get q).size ≤ width) (i : Fin (labels * width)) :
+    Node (labels * width) 5 labels :=
+  graphNodePair rows width fits (finProdFinEquiv.symm i)
 
 /-- Direct entry getter selects the tree root within its source-label block. -/
 def graphEntry {labels : Nat} (rows : Vector (Syntax labels) labels) (width : Nat)
     (fits : ∀ q, (rows.get q).size ≤ width) (q : Fin labels) : Fin (labels * width) :=
   graphIndex rows width fits q (rows.get q).root
 
-/-- Exact syntax of every paid global slot, including all unused padding slots. -/
-def graphSyntax {labels : Nat} (rows : Vector (Syntax labels) labels) (width : Nat)
-    (i : Fin (labels * width)) : Syntax labels :=
-  let pair : Fin labels × Fin width := finProdFinEquiv.symm i
+/-- Exact syntax in one selected block, with a halt at every unused local slot. -/
+def graphSyntaxPair {labels : Nat} (rows : Vector (Syntax labels) labels) (width : Nat)
+    (pair : Fin labels × Fin width) : Syntax labels :=
   if inside : pair.2.val < (rows.get pair.1).size then
     (rows.get pair.1).subAt ⟨pair.2.val, inside⟩
   else .halt
+
+/-- Exact syntax of every paid global slot, including all unused padding slots. -/
+def graphSyntax {labels : Nat} (rows : Vector (Syntax labels) labels) (width : Nat)
+    (i : Fin (labels * width)) : Syntax labels :=
+  graphSyntaxPair rows width (finProdFinEquiv.symm i)
 
 @[simp] theorem graphNode_index {labels : Nat} (rows : Vector (Syntax labels) labels)
     (width : Nat) (fits : ∀ q, (rows.get q).size ≤ width) (q : Fin labels)
     (i : Fin (rows.get q).size) :
     graphNode rows width fits (graphIndex rows width fits q i) =
       TemplateGraph.mapNode (graphIndex rows width fits q) ((rows.get q).nodeAt i) := by
-  simp [graphNode, graphIndex, i.isLt]
+  unfold graphNode graphIndex
+  rw [Equiv.symm_apply_apply]
+  simp only [graphNodePair, Fin.val_castLE, dite_eq_left i.isLt]
 
 @[simp] theorem graphSyntax_index {labels : Nat} (rows : Vector (Syntax labels) labels)
     (width : Nat) (fits : ∀ q, (rows.get q).size ≤ width) (q : Fin labels)
     (i : Fin (rows.get q).size) :
     graphSyntax rows width (graphIndex rows width fits q i) = (rows.get q).subAt i := by
-  simp [graphSyntax, graphIndex, i.isLt]
+  unfold graphSyntax graphIndex
+  rw [Equiv.symm_apply_apply]
+  simp only [graphSyntaxPair, Fin.val_castLE, dite_eq_left i.isLt]
 
 /-- A paid padding slot has a literal halt row and no possible syntax fallthrough. -/
 theorem graphNode_padding {labels : Nat} (rows : Vector (Syntax labels) labels) (width : Nat)
     (fits : ∀ q, (rows.get q).size ≤ width) (q : Fin labels) (slot : Fin width)
     (outside : (rows.get q).size ≤ slot.val) :
     graphNode rows width fits (finProdFinEquiv (q, slot)) = .halt := by
-  simp [graphNode, Nat.not_lt_of_ge outside]
+  unfold graphNode
+  rw [Equiv.symm_apply_apply]
+  simp only [graphNodePair, dite_eq_right (Nat.not_lt_of_ge outside)]
 
 theorem graphNode_below {labels : Nat} (rows : Vector (Syntax labels) labels) (width : Nat)
     (fits : ∀ q, (rows.get q).size ≤ width) (i child : Fin (labels * width))
     (member : child ∈ (graphNode rows width fits i).children) : child.val < i.val := by
   obtain ⟨⟨q, slot⟩, rfl⟩ := finProdFinEquiv.surjective i
-  simp only [graphNode, Equiv.symm_apply_apply] at member
+  unfold graphNode at member
+  rw [Equiv.symm_apply_apply] at member
+  unfold graphNodePair at member
   split at member
   next inside =>
     rw [TemplateGraph.children_mapNode, List.mem_map] at member
     obtain ⟨old, member, rfl⟩ := member
     have below := (rows.get q).nodeAt_below ⟨slot.val, inside⟩ old member
-    simpa only [graphIndex_val, finProdFinEquiv_apply, Fin.val_mk, Nat.mul_comm,
-      Nat.add_comm] using Nat.add_lt_add_left below (q.val * width)
+    change (graphIndex rows width fits q old).val < slot.val + width * q.val
+    rw [graphIndex_val, Nat.mul_comm width q.val]
+    omega
   next => simp [Node.children] at member
 
 /-- The complete getter graph has exactly `labels * width` nodes, with no removed padding. -/
@@ -222,12 +248,17 @@ theorem graphNode_meaning {labels : Nat} (rows : Vector (Syntax labels) labels) 
       (fun child ↦ (graphSyntax rows width child).meaning) (graphNode rows width fits i) =
       (graphSyntax rows width i).meaning := by
   obtain ⟨⟨q, slot⟩, rfl⟩ := finProdFinEquiv.surjective i
-  simp only [graphNode, Equiv.symm_apply_apply]
-  conv_rhs => simp only [graphSyntax, Equiv.symm_apply_apply]
+  unfold graphNode
+  rw [Equiv.symm_apply_apply]
+  conv_rhs =>
+    unfold graphSyntax
+    rw [Equiv.symm_apply_apply]
+    unfold graphSyntaxPair
+  unfold graphNodePair
   by_cases inside : slot.val < (rows.get q).size
-  · simpa only [dif_pos inside, TemplateGraph.buildNode_map, Function.comp_def,
+  · simpa only [dite_eq_left inside, TemplateGraph.buildNode_map, Function.comp_def,
       graphSyntax_index] using (rows.get q).nodeAt_meaning ⟨slot.val, inside⟩
-  · simp only [dif_neg inside, TemplateGraph.buildNode, Syntax.meaning]
+  · simp only [dite_eq_right inside, TemplateGraph.buildNode, Syntax.meaning]
 
 private theorem decode_build {n k labels : Nat} {σ : Type} (g : LazyGraph.Graph n k labels)
     (store : Fin k ≃ σ) (i : Fin n) :
