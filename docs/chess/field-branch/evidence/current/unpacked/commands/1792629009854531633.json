@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "lake",
+    "--wfail",
+    "-f",
+    "lakefile.chess-field-branch.toml",
+    "build",
+    "Cryptids.Compilation.FieldBranch.Certificate"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "\u2714 [3843/3843] Built Cryptids.Compilation.FieldBranch.Certificate (3.5s)\nBuild completed successfully (3843 jobs).\n",
+  "output_sha256": "969f9a6991e0e5bff28e81ba7a0b09b8d6acf84fb479bddfc65b1a9301529d02",
+  "timed_out": false,
+  "elapsed_seconds": 6.463597914000047,
+  "cumulative_children_peak_rss_kib": 1775616
+}

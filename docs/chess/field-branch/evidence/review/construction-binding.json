@@ -1,0 +1,172 @@
+{
+  "schema": 1,
+  "scope": "return-main-pop-second-return-actual-branch",
+  "formal_target": "ConjectureMachines.Compilation.FieldBranch.extended_certificate",
+  "full_chess_machine_constructed": false,
+  "full_chess_state_saving_claimed": false,
+  "remote_run_id": 39699849855,
+  "computation_commit": "5277e624b154f1c7c8ceed704668a20a7819ef89",
+  "source_sha256": {
+    ".github/workflows/chess_field_branch.yml": "fa5d3df0c8906afca580d259659376a228aeee5d82e2f6171700c901cdc54c50",
+    "Cryptids/Compilation/FieldBranch/Certificate.lean": "f82db5e2ab1ffaa07d654cd84ebc19a57c12ff4df327541006a4f8c15810d0ee",
+    "Cryptids/Compilation/FieldBranch/Graph.lean": "e0dadd4164e0fd1617e7a6d0477faab772e6f52d7569b2ca17b6f718252d1a4f",
+    "docs/chess/field-branch/baseline-pins.json": "6d37598a4240064c327e18ad473138402cd715de24b0e6e7a5c496b47ea75a24",
+    "lakefile.chess-field-branch.toml": "5c62455e3a16a4d8fdd75eefbbd2dd9c3ef4769f9ba7bc1afe27d6f5cefd21dc",
+    "scripts/chess_field_branch/Audit.lean": "7be2a13b491ab834e49ada052e5d9ee5e2302503040ba98708527317d216a637",
+    "scripts/chess_field_branch/Export.lean": "fc305bd372d7c3dd395f6b2125cca8aae38f6c6f58decb39113fb86d9bd04b1c",
+    "scripts/chess_field_branch/fixtures.py": "b47693db3e2a93faae66779b85bd7e5a0f2b4561cd4081e639386ecd5bc5ef7e",
+    "scripts/chess_field_branch/verify.py": "a08d16cc690544b446692ab3cee942078614b65a1da5b1f8ebfb4ff58ff5000b"
+  },
+  "reviewed_extra_source_sha256": {
+    "docs/chess/field-branch/DESIGN.md": "975141416000200b7fef4cc43c85c291d3e4eeb29aabcc74a92bd66a29670604",
+    "docs/chess/field-branch/RESULTS.md": "d2d8a3aeb4e3e3941cef6cde3898628993565fa4dd6d3ed02de101c2dbba552a",
+    "docs/chess/field-branch/results.json": "1b61c1fb867d88b1710add51878f6ad89ff621c6f4cb254de6e26e3f3db52c29",
+    "docs/chess/field-branch/RESUME.md": "5c164762c3330eb08e3244bac2fca375cdd47433b57f694c226e254f680fd89f",
+    "docs/chess/field-branch/FULL-MACHINE-PLAN.md": "719799b10d37ca1b4ee4baadb04baa22bba3ebb6df3ded06dacc55a2d103e6fa",
+    "docs/chess/field-branch/evidence/retain_remote.py": "7fb033ccff9daff1c2665491f7d4b778cc453e32baafa72d73acd06959b7fd69",
+    "docs/chess/field-branch/evidence/remote-status.json": "bd727c2707dfd1209b62b33e36854f1d8c6031d146fd8ca753f0595243c6c481",
+    "docs/chess/field-branch/evidence/run-dispositions.json": "6c0bd25a154b81956ce202a818527222b2bae259ee9f06eb4a86b7d8a0d3c7a1"
+  },
+  "retained_history_sha256": {
+    "docs/chess/field-branch/evidence/history/attempt-1/archive-entries.json": "3e169350303bc751fb902ee0519d320cc5fa5e8c9d048ce7a791fdcf90977eb2",
+    "docs/chess/field-branch/evidence/history/attempt-1/artifact-api.json": "c65d5bde1c513a19711ba99871c447c1671510c6c991103717935661089ce097",
+    "docs/chess/field-branch/evidence/history/attempt-1/artifact.zip": "50b0c6240d3c48e3b2970e14fbdfddf808a621f7ebc467e61cb7e1178d83e0cd",
+    "docs/chess/field-branch/evidence/history/attempt-1/jobs-api.json": "123450334a9d5f6673e873f153fac8cb6641fe0130c3ca2828e540ad1895be39",
+    "docs/chess/field-branch/evidence/history/attempt-1/logs.zip": "2317542c97e4ea57bb4f1fbefd853a94d11089636e941ffd7ea4e5ffdb5c619d",
+    "docs/chess/field-branch/evidence/history/attempt-1/retention.json": "96f70d625d477aaf4e30ec3dc9c4662a37610df8f4dac154f4e2cac9dea8b4b1",
+    "docs/chess/field-branch/evidence/history/attempt-1/run-api.json": "43cf20d3c21d6fbc9a1f08f6caa194fac48a11341a7ad56b57799bcb99e48e35",
+    "docs/chess/field-branch/evidence/history/attempt-1/unpacked/commands/1792628718052755138.json": "220a50fab6e4a60d08526a42c8278010f6066e93ba53a949ed81b6eaf1ef1969"
+  },
+  "official_metadata_sha256": {
+    "run-api.json": "afab0296b5dd1806f04cd270a3aeea77bcb8efff1f2566458ec6d093a7bbceae",
+    "jobs-api.json": "d43f05a07971b68110fb134e468cf343e0b87c01ba7b4256e2f94f2a761d42e2",
+    "artifact-api.json": "40835a32f0365898c76ab158dd8851943434fa729f5d45838a11c33ea8046b5b",
+    "retention.json": "b4478ace29227b45592e8107730d347b86bd2a19fc39dc80e5eead95257042c9",
+    "archive-entries.json": "74a90142f294f8505f6851563cec2de1ba6f4d173edfe494c31283fe28f1a70d"
+  },
+  "artifact_sha256": "b24a9a8f5c4d83cc5f8b203da22ec1862a478afa03545467f46e89519866422a",
+  "logs_sha256": "83cb599e60a5b85dfd8bbfb21fb497f4e0c17ab3bec915512c421b8bc7905f7a",
+  "exported_rows_sha256": "b0d8921a959768481f1276de574f7fcd76fdf37ce90ec6b358d9798983a098f6",
+  "remote_root": "/home/runner/work/cryptids/cryptids",
+  "python_executable": "/usr/bin/python3",
+  "permitted_axioms_line": "Permitted axioms: #[propext, Classical.choice, Quot.sound]",
+  "fixture_detail": {
+    "status": "passed",
+    "composed_source_cases": 46875,
+    "branch_source_cases": 18750,
+    "raw_pop_cases": 8192,
+    "arbitrary_valid_gap_cases": 5,
+    "binary_machine_cases": 73822,
+    "source_pattern_seeds": 625,
+    "raw_cell_patterns": 8192,
+    "store_values": 5,
+    "return_distances": [
+      0,
+      1,
+      7
+    ],
+    "scan_distances": [
+      0,
+      1,
+      2,
+      7,
+      31
+    ],
+    "second_return_distances": [
+      0,
+      1,
+      2,
+      7,
+      31,
+      64
+    ],
+    "visited_controls": 675,
+    "corruption_controls": [
+      {
+        "name": "former-return-port-stops",
+        "rejected": true
+      },
+      {
+        "name": "normal-dispatch-alignment",
+        "rejected": true
+      },
+      {
+        "name": "gap-dispatch",
+        "rejected": true
+      },
+      {
+        "name": "marker-dispatch",
+        "rejected": true
+      },
+      {
+        "name": "loaded-store-gate",
+        "rejected": true
+      },
+      {
+        "name": "main-field-clear",
+        "rejected": true
+      },
+      {
+        "name": "successor-store-port",
+        "rejected": true
+      },
+      {
+        "name": "scan-loop-head",
+        "rejected": true
+      },
+      {
+        "name": "return-prefix-loop",
+        "rejected": true
+      },
+      {
+        "name": "former-successor-stops",
+        "rejected": true
+      },
+      {
+        "name": "second-return-store",
+        "rejected": true
+      },
+      {
+        "name": "actual-branch-target",
+        "rejected": true
+      },
+      {
+        "name": "separator-branch-target",
+        "rejected": true
+      },
+      {
+        "name": "second-return-loop",
+        "rejected": true
+      }
+    ],
+    "source_oracle": "return + normal2 + main-pop + ret s003 + actual branch",
+    "raw_invalid_codes_are_source_evidence": false,
+    "successors": [
+      "normal3",
+      "reverse_push_s000"
+    ],
+    "literal_runtime_statement_families": {
+      "push": 162,
+      "peek": 14,
+      "pop": 108,
+      "load": 1,
+      "branch": 187,
+      "goto": 181,
+      "halt": 1
+    },
+    "literal_shared_label_families": {
+      "normal": 345,
+      "go": 284,
+      "ret": 654
+    },
+    "inventory_is_coverage_certificate": false
+  },
+  "retained_unsuccessful_runs": [
+    {
+      "folder": "attempt-1",
+      "run_id": 39699319643,
+      "commit": "b26d0bb367f48b7995d22c66c407c781758b7eac",
+      "conclusion": "failure"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  ".github/workflows/chess_field_branch.yml": "fa5d3df0c8906afca580d259659376a228aeee5d82e2f6171700c901cdc54c50",
+  ".lake/packages/mathlib/Mathlib/Computability/TuringMachine/StackTuringMachine.lean": "c6794793ea2146a0fcc88bb757bd82ae21be91f9bef422255475b17774faefac",
+  "Cryptids/Compilation/FieldBinary/Codec.lean": "d26c6d2e5558a400cbde50f38dbe1d008565e6e5eac63ab579864fb2da3d7185",
+  "Cryptids/Compilation/FieldBranch/Certificate.lean": "bd92b0471abaf513c4fd6a3c7e80d0c62a21fe4c2f494d551c60df96b7e4541d",
+  "Cryptids/Compilation/FieldBranch/Graph.lean": "e0dadd4164e0fd1617e7a6d0477faab772e6f52d7569b2ca17b6f718252d1a4f",
+  "Cryptids/Compilation/FieldContinuation/Certificate.lean": "6ae0a6fdbff18f7d574de1898290ccb44b4fbace19b9f2ccc63948709fe8ed30",
+  "Cryptids/Compilation/FieldContinuation/Graph.lean": "03bf899442d2e5bedeca04d1e1b7e8f24bf022e0b45a512544d324da5e5c6643",
+  "Cryptids/Compilation/FieldReturn/Certificate.lean": "e9fd2d47fac72639519ec69c1a48dd7289ac03ee9123313f8208be8c77d8b027",
+  "Cryptids/Compilation/RuntimeModel.lean": "190d0f4ecac779cc6444f37db07e05f66b60c769b4a454a09f54952fdcf5d587",
+  "Cryptids/Compilation/SharedModel.lean": "b12f925cbbb0cb1871424a2af4f90fbc5423ff9bb19797672ac1b8705b101aaa",
+  "docs/chess/field-branch/DESIGN.md": "975141416000200b7fef4cc43c85c291d3e4eeb29aabcc74a92bd66a29670604",
+  "docs/chess/field-branch/baseline-pins.json": "6d37598a4240064c327e18ad473138402cd715de24b0e6e7a5c496b47ea75a24",
+  "lakefile.chess-field-branch.toml": "5c62455e3a16a4d8fdd75eefbbd2dd9c3ef4769f9ba7bc1afe27d6f5cefd21dc",
+  "scripts/chess_field_branch/Audit.lean": "7be2a13b491ab834e49ada052e5d9ee5e2302503040ba98708527317d216a637",
+  "scripts/chess_field_branch/Export.lean": "fc305bd372d7c3dd395f6b2125cca8aae38f6c6f58decb39113fb86d9bd04b1c",
+  "scripts/chess_field_branch/fixtures.py": "b47693db3e2a93faae66779b85bd7e5a0f2b4561cd4081e639386ecd5bc5ef7e",
+  "scripts/chess_field_branch/verify.py": "a08d16cc690544b446692ab3cee942078614b65a1da5b1f8ebfb4ff58ff5000b"
+}

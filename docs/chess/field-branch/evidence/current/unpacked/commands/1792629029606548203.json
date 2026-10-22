@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_field_branch_audit"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "Audited 38 FieldBranch foundation roots and 6937 dependencies\nMeta certificate generator roots outside safe roots: 0\nCompiler artifacts outside safe roots: #[]\nPermitted axioms: #[propext, Classical.choice, Quot.sound]\nChess FieldBranch foundation audit passed\n",
+  "output_sha256": "d03dc7762caaf783dc4abf976aa53b71da7d84be684e70e58eef5bf609dd3352",
+  "timed_out": false,
+  "elapsed_seconds": 4.099305557999969,
+  "cumulative_children_peak_rss_kib": 4369128
+}

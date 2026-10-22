@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "review_kind": "independent-model-advisory",
+  "reviewer": "independent leaf-1.1 / branch_referee",
+  "review_gates": {
+    "R1": "passed",
+    "R2": "passed"
+  },
+  "remote_run_id": 39699849855,
+  "computation_commit": "5277e624b154f1c7c8ceed704668a20a7819ef89",
+  "formal_verification_by_reviewer": false,
+  "human_approval": false,
+  "local_heavy_computation": false,
+  "root_acceptance_and_live_status_separate": true,
+  "review_files_sha256": {
+    "R1-supplement.md": "b5d98306f1d8f97c158a03e76eb3b36640bba23d96dd0a94c954ec7b42e5190f",
+    "R1.md": "a8170df0676a18c4aef5f55119efbd659b04a1835ea757c395956e854d3d852c",
+    "R2.md": "2f5c2090eb8e37bca24454fb6b3c7922357556906f3e2caa8c23b3b772acc5f0",
+    "README.md": "236e921bb89a83aa729631da2593655a6b1c3c4d6f59e40ba6c7ace78b3ccf57",
+    "check_saved_evidence.py": "49d8081f39fac8e632a560c3e321a56086301abac7b362c2856bf604cd5c48b3",
+    "construction-binding.json": "7a60c6cd9ed984628247e6ae80a928298597c73a1b2058a2abcc2c98ec5c4243",
+    "negative-controls.json": "39a1697498f0a425a223caf7b3d6d93859db715f610a6d06166f4f60d1a61926",
+    "portability.json": "e3ba072e050702d069a9d0457537080683615ec7776ef9073687339ac31d3004",
+    "r1-source-sha256.json": "6b63bc0d241266ae310e50f852d6b7e92f1b234a12780460d666952267eb4e1b",
+    "r1-supplement-source-sha256.json": "ec91443199ab746ec23503d8ee85bff8ca070902bcb9812def21d60d89da0fb9",
+    "receipt.json": "c9410d9ff90950314c5581f32a34d248d68236e642eeae68ee8aeab7f2d529c4"
+  }
+}

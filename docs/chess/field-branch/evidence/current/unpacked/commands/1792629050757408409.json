@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_field_branch_export",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-field-branch/machine.json"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "Field branch machine export passed\n",
+  "output_sha256": "6a1e0155d3b3b1c907122981b69caf3122e039efbaaf4cc4dfa879d48c47fe55",
+  "timed_out": false,
+  "elapsed_seconds": 0.9191670669999894,
+  "cumulative_children_peak_rss_kib": 4369128
+}

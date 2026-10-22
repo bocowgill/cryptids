@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_field_branch_audit",
+    "--negative-control"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "uncaught exception: Forbidden axiom: sorryAx\n",
+  "output_sha256": "25e77efff0da4a435953fd833bca02bfafebc29e9ecd1c800424f3f0efd40786",
+  "timed_out": false,
+  "elapsed_seconds": 3.1738075099999605,
+  "cumulative_children_peak_rss_kib": 4369128
+}

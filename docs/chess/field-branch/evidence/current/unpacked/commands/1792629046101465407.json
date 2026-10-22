@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-field-branch/BadConnector.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "/home/runner/work/cryptids/cryptids/.lake/chess-field-branch/BadConnector.lean:3:48: error: Tactic `decide` proved that the proposition\n  machine.transition 404 0 = none\nis false\n",
+  "output_sha256": "b29b370061c1bf375b9e58a333b71d12ddfb9b1fe257a2c1e9a2264967948d1b",
+  "timed_out": false,
+  "elapsed_seconds": 3.5828836349999165,
+  "cumulative_children_peak_rss_kib": 4369128
+}

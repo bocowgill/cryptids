@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-field-branch/BadStore.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "/home/runner/work/cryptids/cryptids/.lake/chess-field-branch/BadStore.lean:3:130: error: Tactic `decide` proved that the proposition\n  ConjectureMachines.Compilation.SharedModel.branchFn ConjectureMachines.Compilation.RuntimeModel.s003 none = false\nis false\n",
+  "output_sha256": "62f62dca187e575b0d70c4fb855ac6386d56c1c9e1bfce9c404c8a5c7cf3ef9f",
+  "timed_out": false,
+  "elapsed_seconds": 3.690394187999914,
+  "cumulative_children_peak_rss_kib": 4369128
+}

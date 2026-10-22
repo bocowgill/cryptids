@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-field-branch/BadCount.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "/home/runner/work/cryptids/cryptids/.lake/chess-field-branch/BadCount.lean:3:34: error: Tactic `decide` proved that the proposition\n  675 = 670\nis false\n",
+  "output_sha256": "f46f571b39c6e9cef3f2b215e1195cbd6a0e7da46d007f1d58c1a3a0f42d0086",
+  "timed_out": false,
+  "elapsed_seconds": 3.5958263999999645,
+  "cumulative_children_peak_rss_kib": 4369128
+}

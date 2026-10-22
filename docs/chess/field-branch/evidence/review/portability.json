@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "copied_directory_outside_repository": true,
+  "explicit_root_and_evidence": true,
+  "local_heavy_computation": false,
+  "positive_exit": 0,
+  "positive_output_sha256": "07d94f85de36b6dce223550f94d8e8f94dfaf5111ab5cdabdb7b7b6258af67d6",
+  "negative_controls": {
+    "source": {
+      "exit": 1,
+      "output_sha256": "8e5214ccbe7e2ccab5c1ca9ba5f9391731b185907b68bf59b4f2f54f4a59e0b6"
+    },
+    "entry": {
+      "exit": 1,
+      "output_sha256": "cf5ab183f196e1068d644481dc308c4dc8400ea26e21026d3abfc38a11cf51dc"
+    },
+    "claim": {
+      "exit": 1,
+      "output_sha256": "8c0c99b18cde57017ab1c4c3a8c524624cf1084364997fed4847f6bfc5c172e4"
+    },
+    "receipt": {
+      "exit": 1,
+      "output_sha256": "f1e6254e45f3324ad0d5d34671352d12aa353c735de3313e3b39d308860529c6"
+    },
+    "missing-phase": {
+      "exit": 1,
+      "output_sha256": "44ee8137aa407e6b829116c7670f8190d8b245a2415281edacb45110f56abc08"
+    },
+    "seal": {
+      "exit": 1,
+      "output_sha256": "6998934d6c5856fc711570331f89713fd6d54242ab01bd606fd4405f689de182"
+    }
+  },
+  "deterministic_receipt_sha256": "c9410d9ff90950314c5581f32a34d248d68236e642eeae68ee8aeab7f2d529c4"
+}

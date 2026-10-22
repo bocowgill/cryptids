@@ -1,0 +1,32 @@
+{
+  "artifact_sha256": "b24a9a8f5c4d83cc5f8b203da22ec1862a478afa03545467f46e89519866422a",
+  "computation_commit": "5277e624b154f1c7c8ceed704668a20a7819ef89",
+  "exported_rows_sha256": "b0d8921a959768481f1276de574f7fcd76fdf37ce90ec6b358d9798983a098f6",
+  "full_chess_machine_constructed": false,
+  "full_chess_state_saving_claimed": false,
+  "local_heavy_computation": false,
+  "logs_sha256": "83cb599e60a5b85dfd8bbfb21fb497f4e0c17ab3bec915512c421b8bc7905f7a",
+  "phases": [
+    "probe",
+    "proofs",
+    "contracts",
+    "fixtures",
+    "counts"
+  ],
+  "remote_run_id": 39699849855,
+  "saved_remote_fixture_cases": 73822,
+  "schema": 1,
+  "scope": "return-main-pop-second-return-actual-branch",
+  "source_sha256": {
+    ".github/workflows/chess_field_branch.yml": "fa5d3df0c8906afca580d259659376a228aeee5d82e2f6171700c901cdc54c50",
+    "Cryptids/Compilation/FieldBranch/Certificate.lean": "f82db5e2ab1ffaa07d654cd84ebc19a57c12ff4df327541006a4f8c15810d0ee",
+    "Cryptids/Compilation/FieldBranch/Graph.lean": "e0dadd4164e0fd1617e7a6d0477faab772e6f52d7569b2ca17b6f718252d1a4f",
+    "docs/chess/field-branch/baseline-pins.json": "6d37598a4240064c327e18ad473138402cd715de24b0e6e7a5c496b47ea75a24",
+    "lakefile.chess-field-branch.toml": "5c62455e3a16a4d8fdd75eefbbd2dd9c3ef4769f9ba7bc1afe27d6f5cefd21dc",
+    "scripts/chess_field_branch/Audit.lean": "7be2a13b491ab834e49ada052e5d9ee5e2302503040ba98708527317d216a637",
+    "scripts/chess_field_branch/Export.lean": "fc305bd372d7c3dd395f6b2125cca8aae38f6c6f58decb39113fb86d9bd04b1c",
+    "scripts/chess_field_branch/fixtures.py": "b47693db3e2a93faae66779b85bd7e5a0f2b4561cd4081e639386ecd5bc5ef7e",
+    "scripts/chess_field_branch/verify.py": "a08d16cc690544b446692ab3cee942078614b65a1da5b1f8ebfb4ff58ff5000b"
+  },
+  "status": "passed"
+}

@@ -58,7 +58,9 @@ of its operation; it should not require a new manual proof per source label.
    `Halts machine ↔ ¬(WhiteCanAvoidLoss ∧ BlackCanAvoidLoss)`.
 
 A remote source inventory is recorded in this extension's fixture receipt.
-It describes literal runtime constructors and shared-label forms. It does not
+It reports 162 push, 14 peek, 108 pop, one load, 187 branch, 181 goto and one
+halt statement declaration, plus 345 normal, 284 go and 654 ret labels. These
+are literal source inventories, not a count of independently missing proofs. It does not
 measure compiler coverage, prove reachability, predict a replacement count or
 justify any percentage-complete claim.
 

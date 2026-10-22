@@ -1,0 +1,201 @@
+{
+  "status": "passed",
+  "scope": "return-main-pop-second-return-actual-branch",
+  "source_label": "TM2to1.ret RuntimeModel.s003",
+  "source_successors": [
+    "TM2to1.normal 3",
+    "TM2to1.go .rev (.push (SharedModel.pushFn RuntimeModel.s002)) RuntimeModel.s000"
+  ],
+  "computation_commit": "5277e624b154f1c7c8ceed704668a20a7819ef89",
+  "remote_run_id": 39699849855,
+  "states": 675,
+  "retained_continuation_states": 425,
+  "additional_states": 250,
+  "inventory": [
+    425,
+    5,
+    245
+  ],
+  "entries": [
+    0,
+    49,
+    98,
+    147,
+    196
+  ],
+  "final_ports": [
+    478,
+    527,
+    576,
+    625,
+    674
+  ],
+  "final_ports_are_counted": true,
+  "final_ports_are_module_terminals": true,
+  "successor_bodies_executed": false,
+  "external_store_register": false,
+  "external_return_register": false,
+  "full_chess_machine_constructed": false,
+  "full_chess_state_saving_claimed": false,
+  "accepted_chess_machine_states": 390491642,
+  "full_chess_state_saving_this_task": 0,
+  "frozen_input_count": 503,
+  "computation_source_count": 9,
+  "fixtures": {
+    "status": "passed",
+    "composed_source_cases": 46875,
+    "branch_source_cases": 18750,
+    "raw_pop_cases": 8192,
+    "arbitrary_valid_gap_cases": 5,
+    "binary_machine_cases": 73822,
+    "source_pattern_seeds": 625,
+    "raw_cell_patterns": 8192,
+    "store_values": 5,
+    "return_distances": [
+      0,
+      1,
+      7
+    ],
+    "scan_distances": [
+      0,
+      1,
+      2,
+      7,
+      31
+    ],
+    "second_return_distances": [
+      0,
+      1,
+      2,
+      7,
+      31,
+      64
+    ],
+    "visited_controls": 675,
+    "corruption_controls": [
+      {
+        "name": "former-return-port-stops",
+        "rejected": true
+      },
+      {
+        "name": "normal-dispatch-alignment",
+        "rejected": true
+      },
+      {
+        "name": "gap-dispatch",
+        "rejected": true
+      },
+      {
+        "name": "marker-dispatch",
+        "rejected": true
+      },
+      {
+        "name": "loaded-store-gate",
+        "rejected": true
+      },
+      {
+        "name": "main-field-clear",
+        "rejected": true
+      },
+      {
+        "name": "successor-store-port",
+        "rejected": true
+      },
+      {
+        "name": "scan-loop-head",
+        "rejected": true
+      },
+      {
+        "name": "return-prefix-loop",
+        "rejected": true
+      },
+      {
+        "name": "former-successor-stops",
+        "rejected": true
+      },
+      {
+        "name": "second-return-store",
+        "rejected": true
+      },
+      {
+        "name": "actual-branch-target",
+        "rejected": true
+      },
+      {
+        "name": "separator-branch-target",
+        "rejected": true
+      },
+      {
+        "name": "second-return-loop",
+        "rejected": true
+      }
+    ],
+    "source_oracle": "return + normal2 + main-pop + ret s003 + actual branch",
+    "raw_invalid_codes_are_source_evidence": false,
+    "successors": [
+      "normal3",
+      "reverse_push_s000"
+    ],
+    "literal_runtime_statement_families": {
+      "push": 162,
+      "peek": 14,
+      "pop": 108,
+      "load": 1,
+      "branch": 187,
+      "goto": 181,
+      "halt": 1
+    },
+    "literal_shared_label_families": {
+      "normal": 345,
+      "go": 284,
+      "ret": 654
+    },
+    "inventory_is_coverage_certificate": false
+  },
+  "audit": {
+    "roots": 38,
+    "dependencies": 6937,
+    "permitted_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "excluded_verified_compiler_helpers": [],
+    "meta_generator_roots_outside_safe_roots": 0,
+    "negative_dependencies_rejected": 3,
+    "false_contracts_rejected": 3
+  },
+  "universal_certificate": "ConjectureMachines.Compilation.FieldBranch.extended_certificate",
+  "new_path_certificate": "ConjectureMachines.Compilation.FieldBranch.branch_certificate",
+  "premises": [
+    "FieldReturn.ReturnPath source n bottom",
+    "FieldContinuation.PopPath bottom m popped value flag",
+    "FieldReturn.ReturnPath popped k last",
+    "RepTape source binary"
+  ],
+  "source_step_count": "n+m+k+4",
+  "binary_step_count": "(37*n+26+23*m+(if flag then 34 else 61))+2+(37*k+24)",
+  "source_sha256": {
+    ".github/workflows/chess_field_branch.yml": "fa5d3df0c8906afca580d259659376a228aeee5d82e2f6171700c901cdc54c50",
+    "Cryptids/Compilation/FieldBranch/Certificate.lean": "f82db5e2ab1ffaa07d654cd84ebc19a57c12ff4df327541006a4f8c15810d0ee",
+    "Cryptids/Compilation/FieldBranch/Graph.lean": "e0dadd4164e0fd1617e7a6d0477faab772e6f52d7569b2ca17b6f718252d1a4f",
+    "docs/chess/field-branch/baseline-pins.json": "6d37598a4240064c327e18ad473138402cd715de24b0e6e7a5c496b47ea75a24",
+    "lakefile.chess-field-branch.toml": "5c62455e3a16a4d8fdd75eefbbd2dd9c3ef4769f9ba7bc1afe27d6f5cefd21dc",
+    "scripts/chess_field_branch/Audit.lean": "7be2a13b491ab834e49ada052e5d9ee5e2302503040ba98708527317d216a637",
+    "scripts/chess_field_branch/Export.lean": "fc305bd372d7c3dd395f6b2125cca8aae38f6c6f58decb39113fb86d9bd04b1c",
+    "scripts/chess_field_branch/fixtures.py": "b47693db3e2a93faae66779b85bd7e5a0f2b4561cd4081e639386ecd5bc5ef7e",
+    "scripts/chess_field_branch/verify.py": "a08d16cc690544b446692ab3cee942078614b65a1da5b1f8ebfb4ff58ff5000b"
+  },
+  "exported_rows_sha256": "b0d8921a959768481f1276de574f7fcd76fdf37ce90ec6b358d9798983a098f6",
+  "artifact_sha256": "b24a9a8f5c4d83cc5f8b203da22ec1862a478afa03545467f46e89519866422a",
+  "logs_sha256": "83cb599e60a5b85dfd8bbfb21fb497f4e0c17ab3bec915512c421b8bc7905f7a",
+  "official_artifact_entries": 21,
+  "heavy_computation_remote": true,
+  "outreach_on_hold": true,
+  "failed_remote_runs": [
+    39699319643
+  ],
+  "integration_assessment": "docs/chess/field-branch/FULL-MACHINE-PLAN.md",
+  "next_recommended_acceptance": "closed full chess machine below390491642 states with original halting equivalence",
+  "calendar_eta_established": false
+}

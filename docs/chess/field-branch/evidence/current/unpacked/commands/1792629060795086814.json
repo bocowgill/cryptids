@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_field_branch/fixtures.py"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "{\"status\": \"passed\", \"composed_source_cases\": 46875, \"branch_source_cases\": 18750, \"raw_pop_cases\": 8192, \"arbitrary_valid_gap_cases\": 5, \"binary_machine_cases\": 73822, \"source_pattern_seeds\": 625, \"raw_cell_patterns\": 8192, \"store_values\": 5, \"return_distances\": [0, 1, 7], \"scan_distances\": [0, 1, 2, 7, 31], \"second_return_distances\": [0, 1, 2, 7, 31, 64], \"visited_controls\": 675, \"corruption_controls\": [{\"name\": \"former-return-port-stops\", \"rejected\": true}, {\"name\": \"normal-dispatch-alignment\", \"rejected\": true}, {\"name\": \"gap-dispatch\", \"rejected\": true}, {\"name\": \"marker-dispatch\", \"rejected\": true}, {\"name\": \"loaded-store-gate\", \"rejected\": true}, {\"name\": \"main-field-clear\", \"rejected\": true}, {\"name\": \"successor-store-port\", \"rejected\": true}, {\"name\": \"scan-loop-head\", \"rejected\": true}, {\"name\": \"return-prefix-loop\", \"rejected\": true}, {\"name\": \"former-successor-stops\", \"rejected\": true}, {\"name\": \"second-return-store\", \"rejected\": true}, {\"name\": \"actual-branch-target\", \"rejected\": true}, {\"name\": \"separator-branch-target\", \"rejected\": true}, {\"name\": \"second-return-loop\", \"rejected\": true}], \"source_oracle\": \"return + normal2 + main-pop + ret s003 + actual branch\", \"raw_invalid_codes_are_source_evidence\": false, \"successors\": [\"normal3\", \"reverse_push_s000\"], \"literal_runtime_statement_families\": {\"push\": 162, \"peek\": 14, \"pop\": 108, \"load\": 1, \"branch\": 187, \"goto\": 181, \"halt\": 1}, \"literal_shared_label_families\": {\"normal\": 345, \"go\": 284, \"ret\": 654}, \"inventory_is_coverage_certificate\": false}\nField branch independent fixtures passed\n",
+  "output_sha256": "4fc5f3dcbb85bbfe185a164d800e6a45e3b0e0ea08f70c77d7d09e8ffce5d15d",
+  "timed_out": false,
+  "elapsed_seconds": 10.037396268999942,
+  "cumulative_children_peak_rss_kib": 4369128
+}

@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "lake",
+    "--wfail",
+    "-f",
+    "lakefile.chess-field-branch.toml",
+    "build",
+    "Cryptids.Compilation.FieldBranch.Certificate",
+    "chess_field_branch_audit",
+    "chess_field_branch_export"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "\u2714 [3834/7677] Built scripts.chess_field_branch.Audit (3.9s)\n\u2714 [7652/7677] Built scripts.chess_field_branch.Audit:c.o (619ms)\n\u2714 [7663/7677] Built chess_field_branch_audit:exe (1.4s)\n\u2714 [7673/7677] Built Cryptids.Compilation.FieldBranch.Graph:c.o (129ms)\n\u2714 [7674/7677] Built Cryptids.Compilation.FieldBranch.Certificate:c.o (138ms)\n\u2714 [7675/7677] Built scripts.chess_field_branch.Export (3.7s)\n\u2714 [7676/7677] Built scripts.chess_field_branch.Export:c.o (202ms)\n\u2714 [7677/7677] Built chess_field_branch_export:exe (1.5s)\nBuild completed successfully (7677 jobs).\n",
+  "output_sha256": "f599a1e1a4643b1775bf72ff7ff922914cda9362bdb9b863ae1b993ec7d2b48f",
+  "timed_out": false,
+  "elapsed_seconds": 15.381635879999976,
+  "cumulative_children_peak_rss_kib": 4369128
+}
