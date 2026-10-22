@@ -71,7 +71,7 @@ def run(command, expected="", code=0, timeout=900):
     output = b"".join(chunks).decode("utf-8", errors="replace")
     record = {"argv": command, "cwd": str(ROOT), "shell": False, "exit": exit_code,
               "output": output, "output_sha256": hashlib.sha256(output.encode()).hexdigest(),
-              "timed_out": timed_out,
+              "timed_out": timed_out, "timeout_seconds": timeout,
               "elapsed_seconds": time.monotonic() - begin,
               "cumulative_children_peak_rss_kib": resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss}
     logs = WORK / "commands"
@@ -107,7 +107,8 @@ def contracts():
     return checks
 
 def native_fixtures():
-    checks=[run(['lake','env',str(ROOT/'.lake/build/bin/chess_field_full_export'),
+    checks=[run(['prlimit','--stack=67108864','--','lake','env',
+                 str(ROOT/'.lake/build/bin/chess_field_full_export'),
                  str(WORK/'machine.json')],'Full field machine export passed',timeout=900)]
     checks.append(run([sys.executable,'scripts/chess_field_full/fixtures.py'],
                       'Full field independent fixtures passed',timeout=900))

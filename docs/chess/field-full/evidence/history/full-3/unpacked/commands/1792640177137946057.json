@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "lake",
+    "--wfail",
+    "-f",
+    "lakefile.chess-field-full.toml",
+    "build",
+    "Cryptids.Semantics.ChessFieldAware",
+    "chess_field_full_audit",
+    "chess_field_full_export"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "\u2139 [3908/3934] Replayed Cryptids.Chess.Compilation.SourceCertificate\ninfo: Cryptids/Chess/Compilation/SourceCertificate.lean:226:0: Source certificate: 7076 checked lemmas, 7037 cache hits\ninfo: Cryptids/Chess/Compilation/SourceCertificate.lean:230:0: Literal row certificate: 5952 checked rows in 186 chunks\n\u2139 [3919/3934] Replayed Cryptids.Chess.Compilation.Input\ninfo: Cryptids/Chess/Compilation/Input.lean:128:0: Checked 186 literal row chunks: 141042 stack symbols\n\u2714 [7843/7848] Built Cryptids.Chess.Optimisation.FieldAware (4.8s)\n\u2714 [7844/7848] Built Cryptids.Chess.Optimisation.FieldAware:c.o (348ms)\n\u2716 [7845/7848] Building scripts.chess_field_full.Export (4.5s)\ntrace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean -M6144 /home/runner/work/cryptids/cryptids/scripts/chess_field_full/Export.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/scripts/chess_field_full/Export.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/scripts/chess_field_full/Export.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/scripts/chess_field_full/Export.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/scripts/chess_field_full/Export.setup.json --json\nerror: scripts/chess_field_full/Export.lean:80:37: failed to synthesize instance of type class\n  Inhabited (Fin states)\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\nwarning: scripts/chess_field_full/Export.lean:129:4: declaration uses `sorry`\n\u2714 [7846/7848] Built Cryptids.Semantics.ChessFieldAware (1.7s)\nSome required targets logged failures:\n- scripts.chess_field_full.Export\nerror: build failed\n",
+  "output_sha256": "7023f1046889e57df66a20545f457be8c2f74dc2722c97e4d49ea06ad0245469",
+  "timed_out": false,
+  "elapsed_seconds": 14.210311450000006,
+  "cumulative_children_peak_rss_kib": 4467696
+}
