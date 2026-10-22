@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Remote source-bound orchestration for a bounded quotient-proof experiment."""
+import argparse
 import importlib.util
 import json
 import os
@@ -13,12 +14,15 @@ WORK = ROOT / '.lake/chess-body-certificate-20261022'
 def main():
     if os.environ.get('CHESS_REMOTE') != '1' or os.environ.get('GITHUB_ACTIONS') != 'true':
         raise SystemExit('Remote GitHub Actions execution required')
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--mode', choices=['smoke', 'full'], default='smoke')
+    args = parser.parse_args()
     spec = importlib.util.spec_from_file_location('accepted_runner', ROOT / 'scripts/chess_field_reverse/verify.py')
     runner = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(runner)
     runner.WORK = WORK
     WORK.mkdir(parents=True, exist_ok=True)
-    pin_path = 'docs/chess/campaign-2026-10-22/round-02/baseline-pins.json'
+    pin_path = 'docs/chess/campaign-2026-10-22/accepted-998176-pins.json'
     pins = json.loads((ROOT / pin_path).read_text())
     for name, digest in pins.items():
         assert runner.sha(ROOT / name) == digest, 'Accepted source/evidence changed: ' + name
@@ -37,11 +41,20 @@ def main():
                          'Cryptids.Compilation.BalancedTable',
                          'Cryptids.Compilation.LocalCertificate'],
                         'Build completed successfully', timeout=900)]
+    smoke = args.mode == 'smoke'
+    seconds = '300' if smoke else '1200'
+    expected = ('Body certificate compiled-audit smoke passed' if smoke else
+                'Bounded body kernel certificate pilot passed')
     checks.append(runner.run([sys.executable, 'scripts/chess_body_20261022/certificate_pilot.py',
                               '--lakefile', lakefile, '--output', str(WORK),
-                              '--seconds', '1200', '--memory-gib', '6'],
-                             'Bounded body kernel certificate pilot passed', timeout=1260))
+                              '--seconds', seconds, '--memory-gib', '6'] +
+                             (['--smoke-only'] if smoke else []), expected,
+                             timeout=int(seconds) + 60))
+    detail = json.loads((WORK / 'certificate-summary.json').read_text())
+    assert detail['status'] == ('smoke_passed' if smoke else 'passed')
+    assert detail['full_quotient_certified'] is False
     (WORK / 'verification.json').write_text(json.dumps(dict(manifest, status='passed', checks=checks,
+        mode=args.mode, detail=detail,
         scope='Bounded concrete certificate pilot only; no complete quotient proof or accepted machine'),
         indent=2) + '\n')
     print('Bounded quotient certificate verification passed')

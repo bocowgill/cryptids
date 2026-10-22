@@ -33,3 +33,7 @@ name = "BusyBeaver"
 [[lean_lib]]
 name = "BusyBeaverChallenge"
 
+[[lean_exe]]
+name = "chess_body_certificate_audit"
+root = "Cryptids.Chess.Optimisation.BodyCertificatePilot.Audit"
+

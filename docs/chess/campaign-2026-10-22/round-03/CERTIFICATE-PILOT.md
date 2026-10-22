@@ -1,14 +1,14 @@
 # Bounded concrete quotient certificate scalability pilot
 
-Status: the fourth remote run loaded the complete raw-natural map below the
-sampled memory ceiling, but its strict build failed because the scoped heartbeat
-comment preceded the option instead of following `in`. Every generated occurrence
-is repaired, with a small remote template check before the next full-data load.
-Zero actual-body row proofs have passed. This
+Status: the fifth run passed the template's strict kernel build, including the
+style fix and generic range proof. Its interpreted full-private audit then hit
+the 6-GiB RSS cap. The next decision test compiles the Lean-only auditor once
+and stops after auditing that same nine-root smoke module, under a 300-second
+global limit. Zero actual-body row proofs have passed. This
 experiment tests the cost of ordinary Lean kernel certificates for the measured
 114,487-state quotient. A pass covers only the requested sample, never all
-573,802 old states or a new accepted chess machine. The current seed proof
-remains the primary route; this experiment targets the additional measured
+573,802 old states or a new accepted chess machine. The accepted full-machine
+baseline is now 998,176 states; this experiment targets the additional measured
 459,315-state opportunity.
 
 ## First remote attempt and bounded repair
@@ -128,6 +128,43 @@ generating native code for the 573,802-leaf proof witness. The quotient tree
 and quotient machine remain executable ordinary definitions. The cost benefit
 of skipping map code generation is not yet measured.
 
+## Fifth remote attempt and compiled-auditor decision test
+
+Run `39812361401`, commit `fabb9f4d4cee8116b7bbb6d637bbe8d792ecbb76`, passed
+`Loaders` in 6.695 seconds with peak combined RSS 2,471,616,512 bytes. The strict
+`TemplateSmoke` build passed in 8.113 seconds with peak 2,998,788,096 bytes,
+confirming the shared comment placement, generic range proof and noncomputable
+lookup templates compile. Its interpreted `TemplateSmokeAudit` was killed after
+12.100 seconds at 6,477,537,280 bytes, exceeding the unchanged 6-GiB cap. Total
+elapsed time was 28.636 seconds and driver peak RSS was 126,872 KiB. The
+[saved summary](evidence/certificate-05/unpacked/certificate-summary.json)
+records `process_group_memory_budget`, no audited modules and an empty audit
+log. No complete-map build, actual-body row, or negative control was attempted.
+The full smoke stage therefore did not pass.
+
+Lean's `--run` executes `main` while its frontend environment remains live.
+The accepted campaign audits instead build a Lean-only executable and invoke
+it through `lake env`. The repaired driver follows that mechanism: compile the
+same nonmodule audit source once, then run the native executable on the exact
+target module, retained roots file and exact count. This avoids constructing
+the source frontend environment in the auditing process. It preserves
+`importModules ... {} 0`, full private proof bodies, all nine smoke roots and
+the existing dependency traversal and three-axiom whitelist. There is no
+interpreted or public-only fallback. The native auditor also sets Lean's
+internal 6,144-MiB allocator limit before importing, alongside the existing
+sampled combined RSS cap. Whether this removes enough memory overhead is the
+question for the next bounded test, not an established result.
+
+The next run uses `--smoke-only --seconds 300`. It generates only the auditor,
+loaders, smoke sources, exact nine-root manifest and tiny literal data; it does
+not read or generate the full measured map, select body states or build any
+body-row sample. Auditor compilation has a 120-second stage cap, followed by
+the existing 60-second loader and 60-second smoke build-plus-audit caps, all
+within 300 seconds and 6 GiB. Success is recorded as `smoke_passed` with the
+distinct marker `Body certificate compiled-audit smoke passed`; it stops there
+with zero actual-body rows and the full-data flag false. A full-map retry
+requires a separate decision after this evidence.
+
 ## Root-owned runner interface
 
 Prebuild these accepted dependencies using the root-owned lakefile, outside the
@@ -147,16 +184,25 @@ CHESS_REMOTE=1 GITHUB_ACTIONS=true python scripts/chess_body_20261022/certificat
   --output .lake/chess-body-certificate-20261022 --seconds 1200 --memory-gib 6
 ```
 
-The ordinary `Cryptids` Lean library suffices; no new library stanza is needed.
-The driver invokes `lake` directly and generates modules only in the
+The root-owned lakefile additionally declares the generated native auditor:
+
+```toml
+[[lean_exe]]
+name = "chess_body_certificate_audit"
+root = "Cryptids.Chess.Optimisation.BodyCertificatePilot.Audit"
+```
+
+The next decision run adds `--smoke-only` and uses `--seconds 300` instead of
+1,200. The root-owned verifier binds the accepted `accepted-998176-pins.json`
+checkpoint. The driver invokes `lake` directly and generates modules only in the
 remote ephemeral checkout, below
 `Cryptids/Chess/Optimisation/BodyCertificatePilot/`. The local worker authors only
 the Python generator/driver, this report and its leaf ledger. No local import,
 generation, Lean command, model, computation or test is performed. The successful
 finite `pilot.py` and all accepted source/evidence files remain fixed.
 
-Exit zero requires every requested stage and its success marker, including the
-genuine negative kernel rejection. Its final marker is:
+For the full pilot, exit zero requires every requested stage and its success
+marker, including the genuine negative kernel rejection. Its final marker is:
 
 ```
 Bounded body kernel certificate pilot passed
@@ -179,6 +225,8 @@ hard-pinned to the successful finite pilot. The driver verifies the exact
 canonical minima, entry zero, and all 228,974 quotient rows. It writes the full
 map as integers and the full quotient as two-column transition cells; no
 sampled map or reduced quotient is substituted.
+The separate smoke-only decision mode does not claim or perform these full-data
+checks; it uses only the retained four-entry/two-row template literals.
 
 The generated map loader calls the existing generic
 `TableSyntax.balancedRowsExpr` with `mkNatLit` leaves, producing
@@ -222,9 +270,11 @@ a transitive dependency audit allowing only the repository's standard
 conjecture, or generator dependencies are rejected. No new axiom, admitted proof
 or native decision procedure is introduced.
 
-Immediately after each successful data or positive-row module build, the driver
-runs the retained nonmodule `Audit.lean` with `lean -M6144
--DwarningAsError=true --run`. It imports that exact completed module using
+Before loading any data module, the driver compiles retained nonmodule
+`Audit.lean` once through the root-owned Lake executable target, with strict
+warnings and the lakefile's Lean memory setting. Immediately after each
+successful data or positive-row module build, it runs that compiled executable
+through `lake env`. It imports that exact completed module using
 `importModules #[{module := moduleText.toName}] {} 0`, then traverses types and
 values throughout the full private dependency closure. Each retained `.roots`
 file names every required mathematical declaration, with an independently
@@ -280,6 +330,7 @@ honestly recorded as unrun, and the pilot stops.
 
 | Stage | Maximum seconds | Purpose |
 |---|---:|---|
+| `AuditExecutable` | 120 | Compile the Lean-only native full-private auditor once |
 | `Loaders` | 60 | Typed-data elaborator setup |
 | `TemplateSmoke` | 60 | Small production-template checks and dependency audit; zero actual-body rows |
 | `MapData` | 240 | Complete natural-valued map and dependency audit |
@@ -291,7 +342,8 @@ honestly recorded as unrun, and the pilot stops.
 | `Rows4096` | 210 | 8,192 actual-body row proofs and dependency audit |
 
 The 1,200-second global wall limit includes input validation, depth selection,
-generation, all builds, external audits and diagnostics. Each stage is further capped by the
+generation, auditor compilation, all builds, external audits and diagnostics.
+The smoke-only decision test uses a smaller 300-second global limit. Each stage is further capped by the
 remaining global budget. Three seconds are reserved for final diagnostics.
 A 0.1-second watchdog covers driver RSS during every phase, with a 512-MiB driver
 allowance; child stages also sample combined process-group-plus-driver RSS and
@@ -303,7 +355,9 @@ process group and are killed on budget exhaustion.
 For each stage the driver retains the exact argv, cwd, exit, time cap, elapsed
 time, sampled peak combined RSS, full log and its hash/size, plus the `.olean`
 hash/size when produced. Builds and external audits have separate receipts and
-logs, tagged by kind. The global summary records source/input identities,
+logs, tagged by kind. Auditor build receipts include executable hash/size and
+source identity; every audit checks that executable identity before invoking it
+and records it with the exact argv. The global summary records source/input identities,
 every completed stage, the first obstruction, and how many positive sample
 states actually completed. A failed stage never advances that census.
 
@@ -336,6 +390,10 @@ comment-placement failure prompted direct linter-source inspection, a common
 commented option prefix, and the bounded remote template stage. A source audit
 of Lean's declaration elaborator confirmed that making map witnesses
 noncomputable skips native compilation while retaining safe kernel definitions.
+The fifth run established that the small templates compile and isolated the
+interpreted audit's memory obstruction. The compiled-auditor repair follows
+the accepted executable mechanism, retains the exact closure checks, and is
+limited first to the small smoke decision test.
 An import or data-loading
 obstruction is useful evidence of this representation's cost, not permission
 to bypass the kernel or claim the 459,315-state reduction accepted.

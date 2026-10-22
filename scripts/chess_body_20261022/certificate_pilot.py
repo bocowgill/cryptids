@@ -27,6 +27,8 @@ ROOT = Path(__file__).resolve().parents[2]
 PREFIX = Path("Cryptids/Chess/Optimisation/BodyCertificatePilot")
 MODULE = "Cryptids.Chess.Optimisation.BodyCertificatePilot"
 NS = "Chess.Optimisation.BodyCertificatePilot"
+AUDIT_TARGET = "chess_body_certificate_audit"
+AUDIT_EXE = ROOT / ".lake/build/bin" / AUDIT_TARGET
 N, K, MAIN = 573802, 114487, 533341
 INPUT = ROOT / "docs/chess/campaign-2026-10-22/round-03/evidence/pilot-final/unpacked"
 SNAPSHOT = ROOT / "docs/chess/campaign-2026-10-22/round-01/evidence/final/unpacked/machine-export.json"
@@ -84,8 +86,12 @@ class Driver:
             "commit": os.environ.get("GITHUB_SHA"), "driver_source": info(Path(__file__)),
             "limits": {"wall_seconds": args.seconds, "process_group_rss_bytes": args.memory_gib << 30,
                        "driver_rss_bytes": 512 << 20, "rss_sampling_seconds": 0.1,
+                       "audit_allocator_limit_bytes": 6144 << 20,
                        "address_space_limit": None, "memory_enforcement": "sampled resident memory"},
-            "source_states": N, "quotient_states": K, "requested_sample_states": [64, 512, 4096],
+            "source_states": N, "quotient_states": K,
+            "requested_scope": "compiled_audit_smoke_only" if args.smoke_only else "full_bounded_pilot",
+            "requested_sample_states": [] if args.smoke_only else [64, 512, 4096],
+            "audit_execution": "compiled_lean_executable",
             "map_representation": "literal_nat_balanced_tree_with_kernel_range_certificate",
             "map_native_code_generation": False,
             "stages": [], "generated_files": {}, "completed_positive_sample_states": 0,
@@ -135,9 +141,10 @@ class Driver:
         shutil.copyfile(path, retained)
         self.summary["generated_files"][str(PREFIX / name)] = info(path)
 
-    def run(self, stem, seconds, banner=None, negative=False, audit=False):
+    def run(self, stem, seconds, banner=None, negative=False, audit=False, audit_build=False):
+        require(sum((negative, audit, audit_build)) <= 1, "conflicting stage kinds")
         stage_started = time.monotonic()
-        self.stage = stem + "Audit" if audit else stem
+        self.stage = "AuditExecutable" if audit_build else stem + "Audit" if audit else stem
         self.checkpoint()
         remaining = self.deadline - time.monotonic() - 4
         if remaining <= 0:
@@ -153,13 +160,18 @@ class Driver:
                     for path in base.glob(stem + ".*"):
                         if path.is_file():
                             path.unlink()
+            if audit_build and AUDIT_EXE.exists():
+                AUDIT_EXE.unlink()
         command = ["lake", "--wfail", "-f", str(self.args.lakefile)]
         if audit:
-            command += ["env", "lean", "-M6144", "-DwarningAsError=true", "--run",
-                        str(PREFIX / "Audit.lean"), module,
+            require(AUDIT_EXE.is_file() and "auditor_executable" in self.summary,
+                    "compiled auditor has not completed its required build")
+            require(info(AUDIT_EXE) == self.summary["auditor_executable"]["info"],
+                    "compiled auditor identity changed")
+            command += ["env", str(AUDIT_EXE), module,
                         str(PREFIX / (stem + ".roots")), str(len(self.audit_roots[stem]))]
         else:
-            command += ["build", module]
+            command += ["build", AUDIT_TARGET if audit_build else module]
         log_path = self.args.output / (self.stage + ".log")
         started, peak, cause = time.monotonic(), 0, None
         self.summary["active_command"] = {"argv": command, "cwd": str(ROOT), "shell": False,
@@ -187,7 +199,8 @@ class Driver:
         lower = output.lower()
         if exit_code != 0 and ("failed to create thread" in lower or "pthread_create" in lower):
             cause = cause or "runtime_thread_resource"
-        receipt = {"module": module, "kind": "full_private_audit" if audit else "kernel_build",
+        kind = "auditor_build" if audit_build else "full_private_audit" if audit else "kernel_build"
+        receipt = {"module": module, "kind": kind,
                    "argv": command, "cwd": str(ROOT), "shell": False,
                    "exit": exit_code, "timeout_seconds": limit, "resource_stop": cause,
                    "elapsed_seconds": time.monotonic() - started, "peak_group_plus_driver_rss_bytes": peak,
@@ -196,12 +209,17 @@ class Driver:
         compiled = ROOT / ".lake/build/lib/lean" / PREFIX / (stem + ".olean")
         if compiled.exists() and not audit:
             receipt["olean"] = info(compiled)
+        if audit_build and AUDIT_EXE.exists():
+            receipt["executable"] = {"path": str(AUDIT_EXE), "info": info(AUDIT_EXE)}
+        elif audit:
+            receipt["executable"] = self.summary["auditor_executable"]
         self.summary["stages"].append(receipt)
         self.summary.pop("active_command", None)
         self.checkpoint()
         error_text = "\n".join(line.lower() for line in output.splitlines()
                                if "error:" in line.lower() or line.lower().startswith(
-                                   ("libc++abi:", "fatal error:", "terminate called", "runtime error:")))
+                                   ("libc++abi:", "fatal error:", "terminate called", "runtime error:",
+                                    "uncaught exception:")))
         scaling = cause or any(pattern in error_text for pattern in
                                ("out of memory", "memory allocation failed", "memory exhausted",
                                 "maximum memory", "bad_alloc", "resource temporarily unavailable",
@@ -221,6 +239,10 @@ class Driver:
             raise RuntimeError(stem + ": Lean source/proof failure; inspect retained log")
         else:
             require(banner and banner in output, stem + ": success banner missing")
+        if audit_build:
+            require(AUDIT_EXE.is_file(), "successful auditor build produced no executable")
+            self.summary["auditor_executable"] = {"path": str(AUDIT_EXE), "info": info(AUDIT_EXE),
+                                                  "source": self.summary["generated_files"][str(PREFIX / "Audit.lean")]}
         if audit:
             self.summary.setdefault("audited_modules", []).append(
                 {"module": module, "required_roots": len(self.audit_roots[stem]),
@@ -421,6 +443,8 @@ private def dependencies (info : ConstantInfo) : Array Name := Id.run do
   return names
 
 def main (args : List String) : IO Unit := do
+  -- Preserve the Lean CLI's former -M6144 allocator limit in this native driver.
+  Lean.Internal.setMaxMemory (6144 * 1024 * 1024 : USize)
   let [moduleText, rootsPath, expectedText] := args
     | throw <| IO.userError "Expected module, roots file and exact root count"
   let some expected := expectedText.toNat?
@@ -559,11 +583,15 @@ def smokeQuotient : Machine 2 2 := Balanced.ofTree smokeQuotientTree
         driver, "TemplateSmoke", roots, "Body certificate template smoke checked"))
 
 
-def generate(driver, selected):
-    # Source text is generated only after the import-time remote guard.
+def generate_setup(driver):
     driver.emit("Loaders.lean", LOADERS)
     driver.emit("Audit.lean", AUDIT)
     generate_smoke(driver)
+
+
+def generate(driver, selected):
+    # Source text is generated only after the import-time remote guard.
+    generate_setup(driver)
     driver.emit("MapData.lean", header([MODULE + ".Loaders"]) +
                 HEARTBEATS +
                 'noncomputable def mapTree : Balanced.RowTree Nat :=\n' +
@@ -639,6 +667,8 @@ def main():
     parser.add_argument("--lakefile", type=Path, default=ROOT / "lakefile.chess-body-certificate-20261022.toml")
     parser.add_argument("--seconds", type=int, default=1200)
     parser.add_argument("--memory-gib", type=int, default=6)
+    parser.add_argument("--smoke-only", action="store_true",
+                        help="Stop after compiled auditor and complete nine-root template smoke audit")
     args = parser.parse_args()
     require(sys.platform == "linux" and 10 <= args.seconds <= 1200 and 2 <= args.memory_gib <= 6,
             "Linux and bounded resource settings required")
@@ -646,12 +676,23 @@ def main():
     require(args.lakefile.is_file(), "root-owned lakefile missing")
     driver = Driver(args)
     try:
-        load_candidate(driver)
-        selected = select_states(driver)
-        generate(driver, selected)
+        if args.smoke_only:
+            generate_setup(driver)
+        else:
+            load_candidate(driver)
+            selected = select_states(driver)
+            generate(driver, selected)
+        driver.run("Audit", 120, "Build completed successfully", audit_build=True)
         driver.run("Loaders", 60, "Body certificate loaders checked")
         driver.run("TemplateSmoke", 60, "Body certificate template smoke checked")
         driver.summary["template_smoke_checked"] = True
+        if args.smoke_only:
+            driver.summary["status"] = "smoke_passed"
+            driver.checkpoint()
+            driver.monitor_stop.set()
+            signal.setitimer(signal.ITIMER_REAL, 0)
+            print("Body certificate compiled-audit smoke passed", flush=True)
+            return 0
         driver.run("MapData", 240, "Complete body class map loaded")
         driver.run("QuotientData", 180, "Complete body quotient rows loaded")
         driver.run("Data", 120, "Complete body certificate data checked")

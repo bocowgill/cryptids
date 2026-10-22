@@ -4,6 +4,12 @@ on:
     branches: ['codex/chess-openevolve-pilot']
     paths: ['.github/workflows/chess_body_certificate_20261022.yml']
   workflow_dispatch:
+    inputs:
+      mode:
+        description: Bounded compiled-audit preflight or complete certificate scalability trial
+        type: choice
+        options: [smoke, full]
+        default: smoke
 permissions:
   contents: read
 concurrency:
@@ -40,7 +46,7 @@ jobs:
       - name: Fetch pinned Mathlib cache
         run: timeout --signal=TERM --kill-after=10s 900s lake exe cache get Mathlib
       - name: Bounded actual quotient certificate experiment
-        run: python3 scripts/chess_body_20261022/certificate_verify.py
+        run: python3 scripts/chess_body_20261022/certificate_verify.py --mode "${{ inputs.mode || 'smoke' }}"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
