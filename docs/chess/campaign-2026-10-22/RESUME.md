@@ -65,3 +65,13 @@ Next concrete tasks:
 3. Fresh independent fullcandidate review and sealedpacket replay before acceptance.
 4. Only then update best count and pursue nextcompressionround; goal staysactive.
 Local branch codex/chess-openevolve-pilot; push explicitfork URL (origin is upstream).
+
+Live update: fullremote run39778061609 dispatched at83abc4f (latestgeneric
+transparencyrepair, allnativevalidation sources committed). Firstmachinecheck
+39777697376 failed; diagnosticsbeingretained. Audit source now additionally imports
+previous public FieldReverse theorem so its retained required-root audit can find it;
+this small repair is after83abc4f and requires a later fullrun beforeacceptance.
+
+Component validation: machine39777697376 successfully built FieldReturns.Syntax
+and FieldReturns.Graph on current exact sourcehashes. Generic failed on already
+repaired transparency; concrete modules not yet checked. No acceptednewmachine.

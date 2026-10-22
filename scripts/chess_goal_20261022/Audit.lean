@@ -36,7 +36,8 @@ private def dependencies (info : ConstantInfo) : Array Name := Id.run do
 
 def main (args : List String) : IO Unit := do
   initSearchPath (← findSysroot)
-  let env ← importModules #[{module := `Cryptids.Semantics.ChessFieldSelective}] {} 0
+  let env ← importModules #[{module := `Cryptids.Semantics.ChessFieldSelective},
+    {module := `Cryptids.Semantics.ChessFieldReverse}] {} 0
   let mut roots := env.constants.toList.foldl (init := #[]) fun acc (name, _) ↦
     if prefixes.any (·.isPrefixOf name) then acc.push name else acc
   let generatorRoots := roots.filter generator
