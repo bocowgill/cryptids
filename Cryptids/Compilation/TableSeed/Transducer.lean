@@ -358,7 +358,7 @@ theorem packet_run (pre : List Letter) (rows : List Row) (post : List Letter) :
     simp only [packetRaw, gapRows, gapPost, List.length_append,
       List.length_cons, List.length_nil]
     omega
-  rw [if_neg phaseOne, gap_eq] at combined
+  rw [ite_eq_right phaseOne, gap_eq] at combined
   simpa only [packetRaw, tailPre, tailRows, outRows, letters,
     List.append_assoc, List.singleton_append] using combined
 
