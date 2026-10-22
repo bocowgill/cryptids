@@ -1,0 +1,14 @@
+{
+  "commands/1792639859177268177.json": {
+    "bytes": 622,
+    "sha256": "da30b8d72f464cca8c79d6c286784c32fa3bc410f65988a12ce40daa76180866"
+  },
+  "commands/1792639869891206282.json": {
+    "bytes": 3630,
+    "sha256": "76089479e0a88a3de9c294e62dc558d7f1939468796fd60006e55e8f8ee71ed2"
+  },
+  "generated/Snapshot.lean": {
+    "bytes": 1000452,
+    "sha256": "b9853271fdc327eef9f69986cd2edc4f6f154a9ed355ffc16125840525a6cc5b"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "lake",
+    "--wfail",
+    "-f",
+    "lakefile.chess-field-full.toml",
+    "build",
+    "Cryptids.Semantics.ChessFieldAware",
+    "chess_field_full_audit",
+    "chess_field_full_export"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "\u2714 [3858/3934] Built Cryptids.Compilation.FieldCompiler.Numeric (2.0s)\n\u2139 [3908/3934] Replayed Cryptids.Chess.Compilation.SourceCertificate\ninfo: Cryptids/Chess/Compilation/SourceCertificate.lean:226:0: Source certificate: 7076 checked lemmas, 7037 cache hits\ninfo: Cryptids/Chess/Compilation/SourceCertificate.lean:230:0: Literal row certificate: 5952 checked rows in 186 chunks\n\u2139 [3919/3934] Replayed Cryptids.Chess.Compilation.Input\ninfo: Cryptids/Chess/Compilation/Input.lean:128:0: Checked 186 literal row chunks: 141042 stack symbols\n\u2714 [7774/7848] Built Cryptids.Compilation.FieldCompiler.Numeric:c.o (399ms)\n\u2716 [7843/7848] Building Cryptids.Chess.Optimisation.FieldAware (3.3s)\ntrace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean -M6144 /home/runner/work/cryptids/cryptids/Cryptids/Chess/Optimisation/FieldAware.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Chess/Optimisation/FieldAware.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Chess/Optimisation/FieldAware.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Chess/Optimisation/FieldAware.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Chess/Optimisation/FieldAware.setup.json --json\nerror: Cryptids/Chess/Optimisation/FieldAware.lean:71:0: maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information\nerror: Cryptids/Chess/Optimisation/FieldAware.lean:78:8: (kernel) unknown constant 'Chess.Optimisation.FieldAware.binaryInput_length'\nerror: Cryptids/Chess/Optimisation/FieldAware.lean:82:8: Function expected at\n  List.toList_toArray\nbut this term has type\n  (List.toArray ?m.8).toList = ?m.8\n\nNote: Expected a function because this term is being applied to the argument\n  _\nSome required targets logged failures:\n- Cryptids.Chess.Optimisation.FieldAware\nerror: build failed\n",
+  "output_sha256": "d49f93986020c1c566967103750f1ad68f52904d1fbf79521d43b95ee9782440",
+  "timed_out": false,
+  "elapsed_seconds": 10.71235826100002,
+  "cumulative_children_peak_rss_kib": 2012780
+}
