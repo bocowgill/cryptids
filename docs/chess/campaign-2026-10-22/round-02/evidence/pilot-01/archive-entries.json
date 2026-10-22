@@ -1,0 +1,30 @@
+{
+  "commands/1792676063836177380.json": {
+    "bytes": 1113,
+    "sha256": "b5be6d3c6f69dc5c38dab1d404fdd1d22bfb11b124fac0a94d824f48594e012e",
+    "crc32": 3521217815,
+    "compressed_bytes": 472,
+    "compression": 8
+  },
+  "controller-rows.jsonl": {
+    "bytes": 32083,
+    "sha256": "36d362456838f9c1b16a396b48567cfe52ad42a7b803403cbefa513179ae7895",
+    "crc32": 2770865186,
+    "compressed_bytes": 2928,
+    "compression": 8
+  },
+  "controller.json": {
+    "bytes": 51982,
+    "sha256": "c19e270e8c21b2c629413f5977a9b57f4aab018ef61988f405669bb8726691d2",
+    "crc32": 2430191284,
+    "compressed_bytes": 4112,
+    "compression": 8
+  },
+  "source-manifest.json": {
+    "bytes": 410306,
+    "sha256": "49f78272b16f057dd2a71f42f5cf418b5de9ebbb6da4453ef509ba0e78378b1b",
+    "crc32": 3325378905,
+    "compressed_bytes": 111067,
+    "compression": 8
+  }
+}

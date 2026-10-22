@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_seed_20261022/pilot.py"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "Traceback (most recent call last):\n  File \"/home/runner/work/cryptids/cryptids/scripts/chess_seed_20261022/pilot.py\", line 564, in <module>\n    main()\n  File \"/home/runner/work/cryptids/cryptids/scripts/chess_seed_20261022/pilot.py\", line 537, in main\n    machine = export_and_reload(machine)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/cryptids/cryptids/scripts/chess_seed_20261022/pilot.py\", line 239, in export_and_reload\n    require(saved == machine, \"controller JSON round trip\")\n  File \"/home/runner/work/cryptids/cryptids/scripts/chess_seed_20261022/pilot.py\", line 46, in require\n    raise AssertionError(message)\nAssertionError: controller JSON round trip\n",
+  "output_sha256": "a6c1f4d381f8690869a21b1d5f4a7537871243a64d4a16527ed4e51617b06d3f",
+  "timed_out": false,
+  "timeout_seconds": 900,
+  "elapsed_seconds": 0.18554863600000715,
+  "cumulative_children_peak_rss_kib": 31180
+}

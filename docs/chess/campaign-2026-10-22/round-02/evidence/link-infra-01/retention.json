@@ -1,0 +1,12 @@
+{
+  "status": "infrastructure_failure",
+  "run_id": 39788030317,
+  "commit": "b1dc8eaad5462fafffb18b0f3a94ffd3ae097e77",
+  "diagnosis": "Cache restore rejected more than ten lookup keys; Lean was never invoked",
+  "proof_effect": "none",
+  "hashes": {
+    "jobs-api.json": "8683feb03a3729c63909e742993475bde5d2a5c1b0fd93a6d29b9c43414fd4d7",
+    "run-api.json": "53db4eabeb09c4a0585c0104856e44886c264535d49bf933c1f960f6414e1192",
+    "logs.zip": "47c111bf3ba071adb1cf3708c3a603893d3866d370e4c7ce7b89c78c5508f8bf"
+  }
+}

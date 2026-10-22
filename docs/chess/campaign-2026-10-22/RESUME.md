@@ -88,7 +88,10 @@ in `.unlazy/chess-goal-20261022-r02`; tracked snapshots are under `round-02/ledg
 Worker `/root/goal_seed_link` has drafted `Cryptids/Compilation/SeedLink.lean`;
 worker `/root/goal_seed_controller` owns the finite binary controller pilot.
 The new workflow `chess_seed_20261022.yml` supports `pilot` and a bounded `link`
-proof-repair session. No remote round-02 run has started yet.
+proof-repair session. First remote attempts are retained in `round-02/evidence/pilot-01` and
+`link-infra-01`: pilot serialization failed before simulation; the linker runner
+rejected excess cache keys before invoking Lean. Both local source repairs are
+ready for a new remote run. No new machine is accepted.
 
 The controller source estimate is D=216, hence candidate 998,176 states; this is
 not a measured or accepted new machine. First run the finite pilot and strict

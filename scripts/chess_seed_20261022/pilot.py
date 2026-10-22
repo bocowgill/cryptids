@@ -71,7 +71,7 @@ class Builder:
         self.blocks.append({
             "name": block, "kind": kind, "entry": first, "states": len(names),
             "state_names": names, "carry": carry, "contract": contract,
-            "operations": operations,
+            "operations": None if operations is None else [list(operation) for operation in operations],
         })
 
     def fixed(self, block, operations, target, contract, carry=None):
