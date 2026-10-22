@@ -26,6 +26,7 @@ theorem to_from_bool (bit : Bool) : toBool (fromBool bit) = bit := by
 
 theorem map_bit_roundtrip (tape : Tape Bit) : (tape.map bitMap).map boolMap = tape := by
   rcases tape with ⟨head, left, right⟩
+  simp only [Tape.map]
   congr 1
   · exact from_to_bool head
   · apply ListBlank.ext
@@ -37,6 +38,7 @@ theorem map_bit_roundtrip (tape : Tape Bit) : (tape.map bitMap).map boolMap = ta
 
 theorem map_bool_roundtrip (tape : Tape Bool) : (tape.map boolMap).map bitMap = tape := by
   rcases tape with ⟨head, left, right⟩
+  simp only [Tape.map]
   congr 1
   · exact to_from_bool head
   · apply ListBlank.ext
