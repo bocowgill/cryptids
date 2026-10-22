@@ -38,8 +38,6 @@ theorem binaryRows_eq {q : Nat} [NeZero q] (M : TM0.Machine Bool (Fin q)) :
     rw [← same, Binary.compile_main]
     simp only [binaryRows, Binary.mainState, Fin.val_castAdd, i.isLt, ↓reduceDIte]
     congr 1
-    funext ⟨next, action⟩
-    cases action <;> simp [Binary.mainState, Binary.bounceState, Nat.add_comm]
   · let i : Fin q := ⟨state.val - q, by have := state.isLt; omega⟩
     have same : Binary.bounceState i = state := by
       apply Fin.ext

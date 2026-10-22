@@ -163,14 +163,12 @@ def full():
     for phase,token in [('semantics','Full field compiler semantics passed'),
                         ('coverage','Full field compiler coverage passed'),
                         ('machine','Full field chess machine passed')]:
-        save(phase,checks)
-        print(token)
-    checks+=contracts()
-    checks+=native_fixtures()
-    counts()
-    checks+=accepted_regressions()
-    save('regressions',checks)
-    print('Full field chess regressions passed')
+        checks.append(run([sys.executable,'scripts/chess_field_full/verify.py','--'+phase],
+                          token,timeout=1800))
+    checks.append(run([sys.executable,'scripts/chess_field_full/verify.py','--regressions'],
+                      'Full field chess regressions passed',timeout=1800))
+    checks.append(run([sys.executable,'scripts/chess_field_full/verify.py','--counts'],
+                      'Full field chess reduction passed',timeout=120))
     save('full',checks)
     print('Complete field-aware chess compiler passed')
 
