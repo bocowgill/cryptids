@@ -5,8 +5,8 @@ The immutable pause snapshot remains in `pause-2026-10-22/`; the current handoff
 continues below. Goal tooling now confirms **active** (17:59 UTC observation); automatic goal
 continuation has resumed under the user's hard wind-down deadline.
 Resource exhaustion did not cause the earlier stop.
-The optimization goal is not complete. Latest observed usage was 1% used after
-the service changed its earlier 93% reading; no agent-initiated reset occurred.
+The optimization goal is not complete. Latest observed account usage was41% used at18:16UTC; no agent-initiated reset
+occurred. Usage readings have changed sharply; checkpoint throughout.
 
 ## Hard stop for this resumed run
 
@@ -68,41 +68,33 @@ All35acceptance gates met. CheckerSHA5e148cacf6a852cc899eaf1fff3e6fb7ad5d5f4451e
 | Route | Prospective full count | Measured saving | Remaining difficulty |
 |---|---:|---:|---|
 | Whole-body quotient | 538,861 | 459,315 | Concrete kernel scalability and all actual transition rows; highest absolute opportunity. |
-| Structured initializer | 769,344 | 228,832 | Final packet theorem, physical composition and complete-machine acceptance; most foundations now checked. |
+| Structured initializer | 769,344 | 228,832 | Complete theorem passed; full export, independent checks, audit and acceptance underway. |
 | Both, conditional on both complete certificates | 310,029 | 688,147 | Combination must itself be certified and counted. |
 
 Structured candidate accounting:173642writer +21682decoder +1newbridge +216old
 expander +1oldbridge +573802body =769344. These are **candidate counts**, not
 accepted machines. Dictionary/arity/tiny-controller extensions remain deferred.
 
-## Round 03: quotient state at pause
+## Round 03: current quotient obstruction
 
-The finite whole-body pilot39795919458 at8cd145e checked all1,147,604old rows and
-228,974quotient rows, retained114487classes and exact maps, and rejected12corruptions
-plus an overmerged golden. Runtime21.027s/287416KiB. Official evidence and parent
-replay are retained in `round-03/evidence/pilot-final/`.
+Finite whole-body pilot39795919458 at8cd145e checked all1,147,604old rows and
+228,974quotient rows, with114487classes. This remains finite evidence only.
+No concrete actual-body row has yet been kernel-certified.
 
-No concrete actual-body row has yet been kernel-certified. The last successful
-large-data stage is complete raw-Nat map loading and full-private audit in
-run39816362847 atc0be393:25.832s/3.186GB and3.242s/4.179GB. QuotientData then hit
-recursion-depth failure after99.602s/5.940GB. No watchdog stop; no full-data or row
-certificate. Earlier failures are all retained; see `CERTIFICATE-PILOT.md`.
+Resumed trial09 run39825520233 atfc16528 completed/failure. Complete raw-Nat map
+build passed22.259s/3,234,848,768bytes and full-private audit passed3.237s/
+4,275,249,152bytes. Executable typed quotient128shards exceeded6GiB after142.458s:
+6,486,990,848bytes. A94,802,768byteolean was produced but is NOT a successful
+stage. Total188.792s; no quotient audit, fullData, actualRows or negative stage.
+Official evidence is retained in `round-03/evidence/certificate-09`.
 
-Current driver `scripts/chess_body_20261022/certificate_pilot.py` keeps an
-executable transparent quotient split into noinline midpoint shards of at most
-1024states, exact global Fin114487 destinations, full manifest and byte-identical
-concatenation. A two-shard smoke checks both halves before full data. Same1200s/
-6GiBlimits, full-private audit and negative-control requirements remain.
-
-- Trial07 run39819548458 at176c71c failed only strict generated-line formatting
-  before full data. Retained `certificate-live-07/`; zero new proof credit.
-- Formatting-only repair3b8e784 is current and source-reviewed.
-- Trial08 run39822945066 was **cancelled at the user's pause request**. Its
-  uploaded packet in `certificate-pause-live-08/` contains only source-manifest;
-  no pilot summary/result is retained. Do not infer a scalability outcome.
-- On resume, rerun this exact bounded trial before changing limits or design.
-  If actual-row normalization stalls, use `FAST-ROW-OPTION.md` / `PROOF-OPTIONS.md`
-  for structural local-slot certificates, not blind budget increases.
+A bounded packed-Nat transition representation pilot is now authorized, retaining
+complete kernel range and decoder-fidelity obligations, the original1200seconds/
+6GiBcaps, all actual-row checks and meaningful negatives. Root dispatches only
+when source is ready. Independent raw-code roundtrip must bind original quotient
+rows; modulo targets cannot substitute for a bound proof. Structural/local-slot
+certificates remain alternatives if actual-row checking becomes the obstruction.
+Every older failed/cancelled trial remains retained in CERTIFICATE-PILOT.md.
 
 ## Round 04: source and proof state
 
@@ -119,36 +111,40 @@ fixtures/10corruptions. Source/pilot bytes remain fixed.
 | `Blocks.lean` | Complete strict39821625026 atf1aec68,6.2s. Actual paid entry/read/emit/finish and Reaches contracts, no assumed free controls. |
 | `ChessCodec.lean` | Complete strict39820664426 iteration2f1aec68,3.3s. Exact frozen letters and173641packetbits/173642writerstates using existing certified row bounds. |
 | `Transducer.lean` | Through literal/row/reversed-phase composition passed39821587222 atf1aec68,12s. **Complete final packet theorem passed strict39825511470 iteration3 atdfb522a (5.1s).** |
-| `Correct.lean` | Conditional general Step/Path-to-machine lift passed uploaded strict39823380010 at721ab74,2.7s, before pause cancellation. Retained `correct-pause-live-01/`. Final source-path premise is not yet discharged. Leaf review/ledger reconciliation remains. |
+| `Correct.lean` | Conditional lift reconciled; **unconditional `packet_reaches` passed strict39827508136 iteration1 at7c477f3 (5.0s)**. Exact entire tape/head decoder theorem has no Path premise. Official evidence is retained in correct-unconditional-final. |
 
 Required final packet signature:
 `Path ⟨.read (.literal 0 0), [], packetRaw pre rows post, 1⟩`
 `     ⟨.finish, letters pre rows post, [], 1+(packetRaw pre rows post).length⟩`.
 
 `Correct.packet_reaches_of_path` already composes actual entry/path/finish, but
-explicitly assumes that source path. Never treat it as unconditional decoder
-correctness until the finalpacket theorem is checked and substituted.
+explicitly assumes that source path. The new `Correct.packet_reaches` discharges it
+using the verified finalpacket theorem and has passed strict remote checking.
 
 `ControllerExport.lean` / `controller_compare.py` are complete and fixed. Their
 finite correspondence is separate from universal execution and full acceptance.
 Exact source hashes, receipts and former ownership are in the pause snapshot.
 
-## Next concrete actions after an explicit resume
+## Current complete-machine check and next concrete actions
 
-1. Read this checkpoint and final remote metadata; reclaim only required ownership
-   scopes. All campaign workers stopped and active leases were released on pause.
-2. Finalpacket strict check passed on resume (39825511470 iteration3, dfb522a).
-   Preserve this verified source; official final evidence is being retained.
-3. Conditional `Correct` pass is reconciled; now discharge its explicit source-path
-   premise using verified packet_run and header identity. Strictly check the
-   unconditional entire-tape/head decoder theorem.
-4. Add full `FieldTableSeed` / public `ChessTableSeed` linking through existing
-   `FieldSeed.linked`, with173642writer +21682decoder +1newbridge +574019oldbody.
-5. Complete full strict build, exported actual rows and independent counts,
-   fixtures/corruptions/regressions, safe transitive audit, fresh advisory,
-   official completed-run evidence, seal and parent replay before acceptance.
-6. Independently rerun the unchanged bounded quotient trial when resuming that
-   route. Retain precise outcomes; all prior failures remain available.
+Full `FieldTableSeed` / public `ChessTableSeed` passed strict remote build
+39828692045 iteration1 at e40aeef1e377910e1f86fd31c717c18b1729458c (15.027s).
+Official `round-04/evidence/machine-proof-final` retains all provenance. The
+kernel-checked769344 candidate charges173642writer +21682decoder +1newbridge
++216oldexpander +1oldbridge +533341mains +40461returns. Exact row image, strict
+228832saving and original both-direction halting equivalence are proved.
+This is not yet an accepted full-machine result.
+
+1. Finish remote full acceptance39829682430 at93389ce; inspect actual strict
+   export/audit, all full rows, independent exact input/writer/toys/corruptions,
+   prior regressions and intended negative controls. Repair only new sources.
+2. Retain official completed-run provenance. Finish fresh independent complete
+   review, external seal, positive/hostile saved-metadata and portable replay.
+   Only then promote a new best; keep998176accepted meanwhile.
+3. In parallel, prepare and dispatch one bounded packed-Nat quotient trial.
+   Retain precise obstruction/actual coverage without weakening resource limits.
+4. Obey20:15UTCpause deadline. No major launches after19:45; startshutdown20:00.
+   Update breakdown/ranking, retain logs, stopworkers/jobs, commit/push and pause.
 
 ## Checkpoint files and remote shutdown
 

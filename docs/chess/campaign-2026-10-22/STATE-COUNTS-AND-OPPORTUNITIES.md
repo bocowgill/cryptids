@@ -50,7 +50,7 @@ Their order combines absolute opportunity with the cost of obtaining evidence.
 
 | Priority | Whole-machine mechanism | Absolute opportunity | Proof difficulty | Implementation effort | Next decision test |
 |---|---|---|---|---|---|
-| 1 | Certify the complete exact interpreter quotient | 459,315 measured finite states; candidate full 538,861 | Generic LocalCertificate proof exists; concrete kernel scalability is being measured | Bounded full-data and representative-row pilot, then literal or structural certificate | Complete map build/audit passed39816362847; QuotientData hit recursion-depth failure before rows. Trial07 stopped only on generated formatting; trial08 was cancelled for pause; resumed unchanged bounded trial39825520233 is active |
+| 1 | Certify the complete exact interpreter quotient | 459,315 measured finite states; candidate full 538,861 | Generic LocalCertificate proof exists; concrete kernel scalability is being measured | Bounded full-data and representative-row pilot, then literal or structural certificate | Complete map build/audit passed39816362847; QuotientData hit recursion-depth failure before rows. Trial07 stopped only on generated formatting; resumed trial39825520233 passed full map/audit but executable typed quotient hit6GiB RSS before actual rows; raw numeric quotient representation under bounded review |
 | 2 | Encode structured source-table rows before expanding the exact old input | 228,832 measured prospective full saving; D=21,682; full candidate769,344 | High: complete decoder, exact word reconstruction and tape cleanup; existing SeedLink/expander reusable | Complete packet identity and physical controller pilot passed; universal arithmetic/tape proof pending | Format, framed Scan, exact typed control/all43,364 rows/28 corruptions and physical geometry passed; Complete paid Blocks, exact chess codec and row/literal semantic induction passed; join final packet path to physical execution, then full-machine acceptance |
 | 3 | Structural proof of store/suffix sharing if literal quotient certification scales poorly | Within measured459,315;339,898same-node equivalences are diagnostics, not a closed subquotient | High: successor closure through loads/branches/jumps | High, possibly much smaller proof data | Use actual pilot obstruction; avoid a second literal route with the same scaling problem |
 | 4 | Fixed two-bit or pair packing of the seed | Two-bit141,380gross payload states; five-bit-pair70,684seed bits before controller delta | Medium to high: framing, odd inputs, cleanup and exact codec | Moderate if expander contracts transfer | Compare fully paid result against structured-table compression before choosing |
@@ -246,3 +246,32 @@ User resumed fromfc16528 and requested wind-down by16:15 Eastern on2026-10-22.
 See ACTIVE-RUN.md for current runs and ownership; accepted count and all ranked
 full-machine opportunities above remain unchanged. Final decoder proof is in
 remote repair; independent full native acceptance components are being authored.
+
+
+## Major checkpoint: resumed quotient obstruction and complete decoder proof
+
+Accepted machine remains998176; no new full saving. Whole-body quotient still
+offers459315 measured finite states, but trial09 hit the original6GiB cap in
+QuotientData (142.458s,6,486,990,848bytes). Smoke/full map/audit passed; zero
+actual body rows are kernel-certified. A raw numeric quotient proposal is being
+reviewed to remove per-row dependent proof data, with unchanged caps.
+
+The initializer now has a verified unconditional exact whole-tape/head decoder
+theorem (39827508136 at7c477f3). Complete769344 machine source is in strict remote
+checking; native full export/independent fixtures and acceptance checker sources
+are ready or under review. Their work unlocks the same228832full saving.
+
+
+## Major checkpoint: complete theorem passed,18:16UTC
+
+The full769344-state structured machine now passes strict public Lean build
+39828692045 at e40aeef. Allocation:173642writer +21682decoder +1newbridge
++216oldexpander +1oldbridge +533341main +40461return. Original two-direction
+not-draw equivalence and exact row image are kernel-checked. Accepted best remains
+998176 until current full acceptance39829682430, fresh review/seal/replay complete.
+Potential228832fullsaving is now awaiting acceptance evidence rather than semantics.
+
+The459315body opportunity remains largest. Packed raw numeric transitions are
+authorized for one bounded pilot, targeting measured typed-data memory overhead;
+complete range/fidelity proofs prevent modulo aliasing. Caps1200s/6GiB unchanged.
+Zero actual-body rows are certified, and combined310029 remains conditional.

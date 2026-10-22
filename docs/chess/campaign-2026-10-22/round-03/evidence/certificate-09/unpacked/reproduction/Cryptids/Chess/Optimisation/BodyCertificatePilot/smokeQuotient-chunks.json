@@ -1,0 +1,41 @@
+{
+  "binary_rows": 4,
+  "chunk_count": 2,
+  "chunk_limit_states": 1,
+  "chunks": [
+    {
+      "binary_rows": 2,
+      "definition": "Chess.Optimisation.BodyCertificatePilot.smokeQuotientChunk_000000",
+      "info": {
+        "bytes": 8,
+        "sha256": "814b8b2d9872199927d2392b7c68993e400d71ca0d3c5d99e177013791887dad"
+      },
+      "path": "Cryptids/Chess/Optimisation/BodyCertificatePilot/smokeQuotient-chunks/000000-0001.rows",
+      "start": 0,
+      "states": 1
+    },
+    {
+      "binary_rows": 2,
+      "definition": "Chess.Optimisation.BodyCertificatePilot.smokeQuotientChunk_000001",
+      "info": {
+        "bytes": 8,
+        "sha256": "12379029b295a6d342711ded720fc0bd8b30dc321bc3782d88fe768a67770eb8"
+      },
+      "path": "Cryptids/Chess/Optimisation/BodyCertificatePilot/smokeQuotient-chunks/000001-0001.rows",
+      "start": 1,
+      "states": 1
+    }
+  ],
+  "concatenated_sha256": "9cf063c5b38fbeee723e221f55fcf558989c106d98ff9cd409dde9271a7f7c1a",
+  "destination_bound": 2,
+  "exact_concatenation_checked": true,
+  "source": {
+    "info": {
+      "bytes": 16,
+      "sha256": "9cf063c5b38fbeee723e221f55fcf558989c106d98ff9cd409dde9271a7f7c1a"
+    },
+    "path": "Cryptids/Chess/Optimisation/BodyCertificatePilot/smoke-quotient.rows"
+  },
+  "split_rule": "left_count = floor(subtree_state_count / 2)",
+  "states": 2
+}

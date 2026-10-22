@@ -1,36 +1,41 @@
 # Resumed campaign activity — 2026-10-22
 
-User resumed from checkpoint `fc16528`, preserving every constraint. Accepted best
-remains **998,176 states**; no new full-machine acceptance has occurred.
+User resumed from checkpoint `fc16528`, preserving every constraint. The existing
+goal is active. Accepted best remains **998,176 states**; no new full-machine
+acceptance has occurred.
 
 Hard wind-down: **16:15 Eastern /20:15 UTC today**. Stop substantial dispatches
 at15:45 Eastern /19:45 UTC; begin checkpoint/shutdown at16:00 Eastern /20:00 UTC.
 The user's personal hard stop is16:25. Prefer an earlier useful stopping point.
 
-The existing goal API now reports **active**, confirmed at17:59 UTC after the
-initial paused reading. Automatic continuation is available. No replacement goal
-was created and no completion was claimed. The hard deadline still takes priority.
-
 ## Remote jobs
 
-- `39825511470`: structured decoder proof session, started at `fc16528`; iteration1
-  found final endpoint/length normalization errors. Iteration2 at `c20dd86`
-  elaborated but failed strict checking solely on deprecated `if_neg`. The exact
-  `ite_eq_right` substitution passed strict checking atdfb522a, iteration3 (5.1s).
-  The session completed successfully; official final provenance is being retained.
-- `39825520233`: unchanged bounded quotient trial from `fc16528`, full mode,
-  original1,200seconds /6GiB pilot caps. Outcome pending; zero actual-row proof
-  credit until exact retained receipts show otherwise.
+- `39829682430`: ACTIVE complete structured-machine acceptance at93389ce. Strict
+  build, foundation audit/negative controls, actual full-row export, independent
+  static input/writer/toy fixtures/corruptions, and M2–M7 regressions. Deadline60min;
+  no full quadratic chess startup execution. All heavy work is remote.
+- `39828692045`: completed/success, full wrapper strict public theorem build15.027s
+  at e40aeef; official `round-04/evidence/machine-proof-final` retained. Candidate
+ 769344 paid states, prospective228832 saving. Broader acceptance still pending.
+- `39827508136`: completed/success, unconditional physical decoder strict build5.0s
+  at7c477f3; official `correct-unconditional-final` retained.
+- `39825511470`: completed/success, universal source packet proof strict build5.1s
+  atdfb522a; official `transducer-final` retained. Prior failures preserved.
+- `39825520233`: completed/failure, unchanged quotient trial09 atfc16528. Complete
+  raw map build/audit passed; typed quotient exceeded6GiB before any actual-row
+  proofs. Official `round-03/evidence/certificate-09` retained. Zero row credit.
 
-## Ownership
+## Ownership and next actions
 
-Existing leaf3.7 owns Transducer final proof; leaf3.9 reconciled the unchanged
-conditional physical-lift pass. Parent will authorize unconditional composition
-only after final packet success. Leaf2.1 owns quotient driver/report and is waiting
-for diagnostics without changing driver.
+Structured source leaves3.7/3.9 are verified/frozen. Leaf4.3 reconciles full-wrapper
+strict evidence. Leaf4.1 owns native exporter;4.2 independent fixtures;4.4 saved
+metadata checker;4.5 fresh complete review. Root owns runner/audit/workflow, Git,
+remote dispatch, evidence retention, acceptance seal, hostile/portable replay.
 
-New independent leaves4.1/4.2 author the complete native exporter and independent
-fixture checker under `round-04/NATIVE-CONTRACT.md`. They unlock the same measured
-228,832-state structured-initializer opportunity; no new component saving is
-claimed. Parent owns full runner/audit/workflow and eventual machine composition.
-All execution remains remote. No accepted/frozen bytes or outreach are touched.
+Quotient leaf2.1 is authorized for one packed-Nat representation pilot with full
+range and decoder-fidelity obligations, unchanged1200s/6GiB caps and all actual-row
+checks/audits/negative controls. Source edits only until root dispatch. It targets
+459315 prospective full-body savings; memory improvement is still a hypothesis.
+
+Keep all frozen and accepted sources/evidence fixed, local work lightweight, and
+outreach on hold. Accepted count never changes on component/proof progress alone.
