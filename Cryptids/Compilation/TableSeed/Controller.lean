@@ -216,7 +216,8 @@ theorem boolIndex_le (bit : Bool) : boolIndex bit ≤ 1 := by cases bit <;> deci
 def readState (context : ReadCtx) (position : Fin 7) : Control :=
   match context with
   | .literal phase parser =>
-    .literal phase ⟨7 * parser.val + position.val, by have := parser.isLt; have := position.isLt; omega⟩
+    .literal phase ⟨7 * parser.val + position.val,
+      by have := parser.isLt; have := position.isLt; omega⟩
   | .tag parser => .tag parser position
   | .operand tag side digit seen =>
     tagControl tag (1127 * side.val + 35 + 84 * digit.val + 7 * boolIndex seen + position.val)

@@ -86,7 +86,7 @@ class Driver:
             "commit": os.environ.get("GITHUB_SHA"), "driver_source": info(Path(__file__)),
             "limits": {"wall_seconds": args.seconds, "process_group_rss_bytes": args.memory_gib << 30,
                        "driver_rss_bytes": 512 << 20, "rss_sampling_seconds": 0.1,
-                       "audit_allocator_limit_bytes": 6144 << 20,
+                       "audit_allocator_limit_bytes": None,
                        "address_space_limit": None, "memory_enforcement": "sampled resident memory"},
             "source_states": N, "quotient_states": K,
             "requested_scope": "compiled_audit_smoke_only" if args.smoke_only else "full_bounded_pilot",
@@ -443,8 +443,6 @@ private def dependencies (info : ConstantInfo) : Array Name := Id.run do
   return names
 
 def main (args : List String) : IO Unit := do
-  -- Preserve the Lean CLI's former -M6144 allocator limit in this native driver.
-  Lean.Internal.setMaxMemory (6144 * 1024 * 1024 : USize)
   let [moduleText, rootsPath, expectedText] := args
     | throw <| IO.userError "Expected module, roots file and exact root count"
   let some expected := expectedText.toNat?

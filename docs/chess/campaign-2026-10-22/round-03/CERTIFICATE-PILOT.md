@@ -1,10 +1,10 @@
 # Bounded concrete quotient certificate scalability pilot
 
-Status: the fifth run passed the template's strict kernel build, including the
-style fix and generic range proof. Its interpreted full-private audit then hit
-the 6-GiB RSS cap. The next decision test compiles the Lean-only auditor once
-and stops after auditing that same nine-root smoke module, under a 300-second
-global limit. Zero actual-body row proofs have passed. This
+Status: the first compiled-auditor smoke run failed at an unavailable allocator
+helper during compilation. That optional call is removed; the mandatory sampled
+6-GiB combined RSS limit and 300-second smoke budget remain. The next decision
+test still stops after auditing the same nine-root smoke module. Zero actual-body
+row proofs have passed. This
 experiment tests the cost of ordinary Lean kernel certificates for the measured
 114,487-state quotient. A pass covers only the requested sample, never all
 573,802 old states or a new accepted chess machine. The accepted full-machine
@@ -150,9 +150,8 @@ target module, retained roots file and exact count. This avoids constructing
 the source frontend environment in the auditing process. It preserves
 `importModules ... {} 0`, full private proof bodies, all nine smoke roots and
 the existing dependency traversal and three-axiom whitelist. There is no
-interpreted or public-only fallback. The native auditor also sets Lean's
-internal 6,144-MiB allocator limit before importing, alongside the existing
-sampled combined RSS cap. Whether this removes enough memory overhead is the
+interpreted or public-only fallback. The native auditing process is bounded by
+the existing sampled 6-GiB combined RSS cap. Whether this removes enough memory overhead is the
 question for the next bounded test, not an established result.
 
 The next run uses `--smoke-only --seconds 300`. It generates only the auditor,
@@ -164,6 +163,28 @@ within 300 seconds and 6 GiB. Success is recorded as `smoke_passed` with the
 distinct marker `Body certificate compiled-audit smoke passed`; it stops there
 with zero actual-body rows and the full-data flag false. A full-map retry
 requires a separate decision after this evidence.
+
+## Compiled-auditor smoke harness correction
+
+Run `39814737424`, commit `1b97ad08dbcf49d6fb7f3b061266af9de9d711a7`, failed
+`AuditExecutable` after 6.447 seconds with peak combined RSS 2,449,555,456 bytes
+and no resource stop. The only diagnostic was
+`Unknown identifier Lean.Internal.setMaxMemory`. Total elapsed time was 6.450
+seconds; driver peak RSS was 23,192 KiB. Loader, template and audit execution
+were not attempted. Raw summary, generated sources and log are retained at
+`/tmp/chess-body-smoke-39814737424/`; official retention awaits the run API's
+completed status. This is a harness source error, not a scaling measurement.
+
+The earlier source review found the helper in Lean's `Shell.lean` but missed
+that the module does not publicly export this unmarked declaration. The repair
+removes the optional allocator call without substituting another name or
+private declaration. The native auditor reports no separately set allocator
+limit (`audit_allocator_limit_bytes: null`). Its mandatory sampled 6-GiB
+process-group-plus-driver RSS limit, 512-MiB driver watchdog, process-group
+termination, stage and 300-second global smoke limits are unchanged. Lean
+compilation retains the root-owned lakefile's `-M6144` setting. The exact nine
+roots, full-private imports, whitelist, executable identity checks and distinct
+smoke-only success gate are unchanged. The failed receipt remains unchanged.
 
 ## Root-owned runner interface
 

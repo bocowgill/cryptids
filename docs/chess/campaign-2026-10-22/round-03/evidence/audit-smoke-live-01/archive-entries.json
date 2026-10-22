@@ -1,0 +1,79 @@
+{
+  "AuditExecutable.log": {
+    "bytes": 2107,
+    "sha256": "1bb73a4d75b2017d57ddf35df9dbfbd93f3e9a9bd001704c13d49fe644976d74",
+    "crc32": 1105868736,
+    "compressed_bytes": 450,
+    "compression": 8
+  },
+  "certificate-summary.json": {
+    "bytes": 3512,
+    "sha256": "881845fff23fd14a045692419743a941be22d1f79e50a56191996a2d4845f91d",
+    "crc32": 2504975350,
+    "compressed_bytes": 1502,
+    "compression": 8
+  },
+  "commands/1792686826374707986.json": {
+    "bytes": 1101,
+    "sha256": "b13cca68979da95cb2aec0fc606c69ade1a12db189cde1b7d5d524b357ecf8bf",
+    "crc32": 1610162248,
+    "compressed_bytes": 548,
+    "compression": 8
+  },
+  "commands/1792686832860016402.json": {
+    "bytes": 764,
+    "sha256": "89168919832bf4ff95b2c7c9c162c111530ebc3651249929a22b436f38593116",
+    "crc32": 3185528722,
+    "compressed_bytes": 414,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/Audit.lean": {
+    "bytes": 3169,
+    "sha256": "c3bbf1c3309202f1a1b1750d331bf778038c0786c6c4a81c6e7949680a0489f2",
+    "crc32": 1720837688,
+    "compressed_bytes": 1291,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/Loaders.lean": {
+    "bytes": 1024,
+    "sha256": "37477fb7ee21f4fddef2b379394b21ac5f83191f5dded4c52189676c56ed3672",
+    "crc32": 146971059,
+    "compressed_bytes": 557,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/TemplateSmoke.lean": {
+    "bytes": 4129,
+    "sha256": "657788c17ea5635ccdd78c293dc828427f2556900e3f737408ed4588db537a1c",
+    "crc32": 344381931,
+    "compressed_bytes": 1152,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/TemplateSmoke.roots": {
+    "bytes": 508,
+    "sha256": "6c2648ac7701555d1315961162f5829725e0ba0b7585a450143e50fbecf96500",
+    "crc32": 702153146,
+    "compressed_bytes": 114,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/smoke-map.txt": {
+    "bytes": 8,
+    "sha256": "e4749bc7f4f9360cf6a2e56321b815c8de72808a8ee756a48722cc9b287ddc24",
+    "crc32": 440241192,
+    "compressed_bytes": 10,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/smoke-quotient.rows": {
+    "bytes": 16,
+    "sha256": "9cf063c5b38fbeee723e221f55fcf558989c106d98ff9cd409dde9271a7f7c1a",
+    "crc32": 3798896032,
+    "compressed_bytes": 18,
+    "compression": 8
+  },
+  "source-manifest.json": {
+    "bytes": 444579,
+    "sha256": "cc77e8dd351aedcc95adecd2ccf63d49c8a838aa92b0d1f9f08c5644fbff902a",
+    "crc32": 3845902753,
+    "compressed_bytes": 120269,
+    "compression": 8
+  }
+}

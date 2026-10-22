@@ -1,0 +1,100 @@
+{
+  "audit_execution": "compiled_lean_executable",
+  "audited_modules": [],
+  "classification": "FINITE_PARTIAL_KERNEL_SCALABILITY_PILOT",
+  "commit": "1b97ad08dbcf49d6fb7f3b061266af9de9d711a7",
+  "complete_typed_candidate_data_checked": false,
+  "completed_positive_sample_states": 0,
+  "completed_positive_unique_rows": 0,
+  "driver_peak_rss_kib": 23192,
+  "driver_source": {
+    "bytes": 35573,
+    "sha256": "00680c069b7568af80294af262010a2dea261ef2414b208f2f54652a4bf0253e"
+  },
+  "elapsed_seconds": 6.4502131039999995,
+  "full_quotient_certified": false,
+  "generated_files": {
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/Audit.lean": {
+      "bytes": 3169,
+      "sha256": "c3bbf1c3309202f1a1b1750d331bf778038c0786c6c4a81c6e7949680a0489f2"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/Loaders.lean": {
+      "bytes": 1024,
+      "sha256": "37477fb7ee21f4fddef2b379394b21ac5f83191f5dded4c52189676c56ed3672"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/TemplateSmoke.lean": {
+      "bytes": 4129,
+      "sha256": "657788c17ea5635ccdd78c293dc828427f2556900e3f737408ed4588db537a1c"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/TemplateSmoke.roots": {
+      "bytes": 508,
+      "sha256": "6c2648ac7701555d1315961162f5829725e0ba0b7585a450143e50fbecf96500"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/smoke-map.txt": {
+      "bytes": 8,
+      "sha256": "e4749bc7f4f9360cf6a2e56321b815c8de72808a8ee756a48722cc9b287ddc24"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/smoke-quotient.rows": {
+      "bytes": 16,
+      "sha256": "9cf063c5b38fbeee723e221f55fcf558989c106d98ff9cd409dde9271a7f7c1a"
+    }
+  },
+  "limits": {
+    "address_space_limit": null,
+    "audit_allocator_limit_bytes": 6442450944,
+    "driver_rss_bytes": 536870912,
+    "memory_enforcement": "sampled resident memory",
+    "process_group_rss_bytes": 6442450944,
+    "rss_sampling_seconds": 0.1,
+    "wall_seconds": 300
+  },
+  "map_native_code_generation": false,
+  "map_representation": "literal_nat_balanced_tree_with_kernel_range_certificate",
+  "negative_control": {
+    "status": "not_run"
+  },
+  "new_accepted_machine": false,
+  "obstruction": {
+    "later_stages_not_attempted": true,
+    "message": "Audit: Lean source/proof failure; inspect retained log",
+    "stage": "AuditExecutable",
+    "type": "RuntimeError"
+  },
+  "partial_certificate_only": true,
+  "quotient_states": 114487,
+  "requested_sample_states": [],
+  "requested_scope": "compiled_audit_smoke_only",
+  "run_id": "39814737424",
+  "source_states": 573802,
+  "stage": "AuditExecutable",
+  "stages": [
+    {
+      "argv": [
+        "lake",
+        "--wfail",
+        "-f",
+        "lakefile.chess-body-certificate-20261022.toml",
+        "build",
+        "chess_body_certificate_audit"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "elapsed_seconds": 6.446916631000022,
+      "exit": 1,
+      "expected_banner": "Build completed successfully",
+      "expected_banner_found": false,
+      "kind": "auditor_build",
+      "log": "AuditExecutable.log",
+      "log_info": {
+        "bytes": 2107,
+        "sha256": "1bb73a4d75b2017d57ddf35df9dbfbd93f3e9a9bd001704c13d49fe644976d74"
+      },
+      "module": "Cryptids.Chess.Optimisation.BodyCertificatePilot.Audit",
+      "peak_group_plus_driver_rss_bytes": 2449555456,
+      "resource_stop": null,
+      "shell": false,
+      "timeout_seconds": 120
+    }
+  ],
+  "status": "failed",
+  "template_smoke_checked": false
+}
