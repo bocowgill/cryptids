@@ -16,11 +16,13 @@ and native validators have disjoint workers. Root handles assembly, audit,
 verification dispatch, retained evidence and final integration. A fresh full
 candidate referee remains to be dispatched after the complete proof is ready.
 
-Current computation checkpoint6688a599cfcc8a5a375a7dd53c011fb181acc33e.
+Current computation checkpoint8bc8076153b51f3ac279788dd3a310538e954bb3.
 Interface initial run39724650129 passed. Graph39724652002 failed only two
 dependent projection simp rewrites; repaired through congrArg of the complete
-dependent Slot, rerun39725164233. Layout39724981625 checks the full balanced
-source-derived bijection, prefix APIs and exact count. Both are still pending.
+dependent Slot, rerun39725164233 passed strictly. Layout39724981625 found
+dependent transport/simplification and reserved-keyword errors; these are repaired
+in the current source. Machine39725820189 now checks the complete repaired layout
+and named machine/proof/count assembly. It is still pending.
 Official development packets are retained under `evidence/history/`.
 
 The first focused graph/interface verifier accidentally read the older570-file

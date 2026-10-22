@@ -24,6 +24,12 @@ open ConjectureMachines.Compilation FieldCompiler
 set_option backward.isDefEq.respectTransparency false
 set_option maxRecDepth 16384
 
+/-- Transporting a finite bound preserves the underlying numeric local index. -/
+@[simp] theorem transport_val {α : Type} {size : α → Nat} {a b : α}
+    (same : a = b) (i : Fin (size a)) : (same ▸ i : Fin (size b)).val = i.val := by
+  cases same
+  rfl
+
 /-- A contiguous block of rows, together with its actual finite allocation. -/
 structure Block where
   rows : Nat
@@ -219,8 +225,8 @@ theorem sourceSlots_fst (q : Fin 4042) (i : Fin (FieldAware.syntaxRows.get q).si
 
 theorem sourceSlots_snd_val (q : Fin 4042) (i : Fin (FieldAware.syntaxRows.get q).size) :
     (sourceSlots ⟨q, i⟩).2.val = i.val := by
-  simp only [sourceSlots, Equiv.sigmaCongr, Equiv.trans_apply,
-    Equiv.sigmaCongrRight_apply, Equiv.sigmaCongrLeft_apply, finCongr_apply, Fin.val_cast]
+  change ((finCongr (packed_size q).symm) i).val = i.val
+  simp only [finCongr_apply, Fin.val_cast]
 
 /-- Exact padding-free allocation for all4042source labels. -/
 def layout : FieldPacking.Layout FieldAware.syntaxRows 106668 where
@@ -297,7 +303,7 @@ theorem code_val (q : Fin 4042) (i : Fin (FieldAware.syntaxRows.get q).size) :
   change ((finCongr packed_nodes) (packed.code (sourceSlots ⟨q, i⟩))).val = _
   simp only [finCongr_apply, Fin.val_cast]
   change (packed.code ⟨(sourceSlots ⟨q, i⟩).1, (sourceSlots ⟨q, i⟩).2⟩).val = _
-  rw [packed.code_val, sourceSlots_fst, sourceSlots_snd_val]
+  rw [packed.code_val, sourceSlots_snd_val, sourceSlots_fst]
   rfl
 
 theorem index_val (q : Fin 4042) (i : Fin (FieldAware.syntaxRows.get q).size) :
