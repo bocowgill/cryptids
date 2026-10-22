@@ -29,7 +29,7 @@ def binaryRows {q : Nat} [NeZero q] (M : TM0.Machine Bool (Fin q)) : Machine (q 
 /-- Every binary row, including all bounce controls and missing rows, agrees universally. -/
 theorem binaryRows_eq {q : Nat} [NeZero q] (M : TM0.Machine Bool (Fin q)) :
     binaryRows M = Binary.compile M := by
-  apply Machine.ext
+  apply congrArg (fun rows ↦ (⟨rows⟩ : Machine (q + q) 2))
   funext state bit
   induction state using Fin.addCases with
   | left i =>
@@ -56,12 +56,12 @@ def paidRows (bits : Array (Fin 2)) (body : BundledMachine 2) :
 /-- The paid recipe agrees for every state and both symbols, including empty input. -/
 theorem paidRows_eq (bits : Array (Fin 2)) (body : BundledMachine 2) :
     paidRows bits body = (FlatInit.initialise bits body).toMachine := by
-  apply Machine.ext
+  apply congrArg (fun rows ↦ (⟨rows⟩ : Machine (body.states + 2 * bits.size) 2))
   funext state bit
   by_cases write : state.val < bits.size
-  · have prefix : state.val < 2 * bits.size := by omega
+  · have inPrefix : state.val < 2 * bits.size := by omega
     simp only [paidRows, write, ↓reduceDIte, FlatInit.initialise, FlatInit.machine,
-      prefix, FlatInit.actionAt, Option.getD_some]
+      inPrefix, FlatInit.actionAt, Option.getD_some]
   · by_cases restore : state.val < 2 * bits.size
     · simp only [paidRows, write, restore, ↓reduceDIte, FlatInit.initialise,
         FlatInit.machine, FlatInit.actionAt, Option.getD_none]

@@ -8,6 +8,7 @@ public import Cryptids.Compilation.FieldCompiler.Semantics
 public import Cryptids.Compilation.FieldCompiler.Bounds
 public import Cryptids.Compilation.FieldCompiler.Graph
 public import Cryptids.Compilation.FieldCompiler.Snapshot
+public import Cryptids.Compilation.FieldCompiler.Numeric
 public import Cryptids.Chess.Optimisation.OpenEvolveWide
 
 /-! # Complete field-aware chess machine with every allocated state paid -/
@@ -128,5 +129,38 @@ theorem initialises :
     FlatInit.runFrom machine 3675880 ConjectureMachines.init =
       some (⟨3675880, Tape.mk₁ bits.toList⟩ : Cfg 45065962 2) :=
   Compilation.Image.initialise_cast_paid_run bits body generated_states prefix_states (by decide)
+
+/-- Independent arithmetic body rows, covering every main and return control. -/
+def rowBody : BundledMachine 2 := ⟨body.states, binaryRows post⟩
+
+theorem rowBody_eq : rowBody = body := by
+  unfold rowBody body
+  rw [binaryRows_eq]
+
+/-- Independent three-range initializer around the independently assembled body. -/
+def rowGenerated : BundledMachine 2 :=
+  ⟨rowBody.states + 2 * bits.size, paidRows bits rowBody⟩
+
+theorem rowGenerated_eq : rowGenerated = generated := by
+  unfold rowGenerated
+  rw [paidRows_eq, rowBody_eq]
+  rfl
+
+theorem rowGenerated_states : rowGenerated.states = 45065962 :=
+  (congrArg BundledMachine.states rowGenerated_eq).trans generated_states
+
+def rowMachine : Machine 45065962 2 :=
+  Compilation.Image.castMachine rowGenerated_states rowGenerated.toMachine
+
+theorem cast_congr {states : Nat} (a b : BundledMachine 2) (same : a = b)
+    (first : a.states = states) (second : b.states = states) :
+    Compilation.Image.castMachine first a.toMachine =
+      Compilation.Image.castMachine second b.toMachine := by
+  cases same
+  rfl
+
+/-- Universal row identity; finite testing is supplementary to this kernel theorem. -/
+theorem rowMachine_eq : rowMachine = machine :=
+  cast_congr rowGenerated generated rowGenerated_eq rowGenerated_states generated_states
 
 end Chess.Optimisation.FieldAware

@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "lake",
+    "--wfail",
+    "-f",
+    "lakefile.chess-field-full.toml",
+    "build",
+    "Cryptids.Compilation.FieldCompiler.Semantics",
+    "Cryptids.Compilation.FieldCompiler.Numeric"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "\u2716 [3852/3853] Building Cryptids.Compilation.FieldCompiler.Numeric (4.1s)\ntrace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean -M6144 /home/runner/work/cryptids/cryptids/Cryptids/Compilation/FieldCompiler/Numeric.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Compilation/FieldCompiler/Numeric.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Compilation/FieldCompiler/Numeric.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Compilation/FieldCompiler/Numeric.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Compilation/FieldCompiler/Numeric.setup.json --json\nerror: Cryptids/Compilation/FieldCompiler/Numeric.lean:32:8: Unknown constant `ConjectureMachines.Machine.ext`\nerror: Cryptids/Compilation/FieldCompiler/Numeric.lean:33:2: No goals to be solved\nerror: Cryptids/Compilation/FieldCompiler/Numeric.lean:59:8: Unknown constant `ConjectureMachines.Machine.ext`\nerror: Cryptids/Compilation/FieldCompiler/Numeric.lean:60:2: No goals to be solved\nerror: Cryptids/Compilation/FieldCompiler/Numeric.lean:62:17: unexpected identifier; expected prec\nerror: Cryptids/Compilation/FieldCompiler/Numeric.lean:64:12: unexpected token ','; expected ':'\n\u2714 [3853/3853] Built Cryptids.Compilation.FieldCompiler.Semantics (1.8s)\nSome required targets logged failures:\n- Cryptids.Compilation.FieldCompiler.Numeric\nerror: build failed\n",
+  "output_sha256": "fa5bcc9f6172068811efa7d56929ecba91fbb790378ec70553886f53db4dd20a",
+  "timed_out": false,
+  "elapsed_seconds": 8.828957564000007,
+  "cumulative_children_peak_rss_kib": 1775508
+}

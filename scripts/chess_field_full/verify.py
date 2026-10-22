@@ -77,7 +77,9 @@ def run(command, expected="", code=0, timeout=900):
     logs = WORK / "commands"
     logs.mkdir(parents=True, exist_ok=True)
     (logs / (str(time.time_ns()) + ".json")).write_text(json.dumps(record, indent=2) + "\n")
-    assert not timed_out and exit_code == code and expected in output, json.dumps(record)
+    assert not timed_out and exit_code == code and expected in output, (
+        f"Command failed: {command}; exit={exit_code}; expected={expected!r}; "
+        f"timeout={timed_out}; diagnostic record={logs}")
     return record
 
 
@@ -88,8 +90,8 @@ TARGETS={
  'graph':['Cryptids.Compilation.FieldCompiler.Graph'],
  'snapshot':['Cryptids.Compilation.FieldCompiler.Snapshot'],
  'semantics':['Cryptids.Compilation.FieldCompiler.Semantics','Cryptids.Compilation.FieldCompiler.Numeric'],
- 'machine':['Cryptids.Chess.Optimisation.FieldAware'],
- 'full':['Cryptids.Chess.Optimisation.FieldAware']}
+ 'machine':['Cryptids.Semantics.ChessFieldAware'],
+ 'full':['Cryptids.Semantics.ChessFieldAware','chess_field_full_audit','chess_field_full_export']}
 
 def main():
     parser=argparse.ArgumentParser()
