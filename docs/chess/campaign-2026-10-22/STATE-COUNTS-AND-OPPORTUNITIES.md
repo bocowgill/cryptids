@@ -50,8 +50,8 @@ Their order combines absolute opportunity with the cost of obtaining evidence.
 
 | Priority | Whole-machine mechanism | Absolute opportunity | Proof difficulty | Implementation effort | Next decision test |
 |---|---|---|---|---|---|
-| 1 | Certify the complete exact interpreter quotient | 459,315 measured finite states; candidate full 538,861 | Generic LocalCertificate proof exists; concrete kernel scalability is being measured | Bounded full-data and representative-row pilot, then literal or structural certificate | Compiled-auditor smoke39815643692 passed27.433s/4.82GB; full unchanged-budget certificate trial39816362847 now running; no actual rows certified yet |
-| 2 | Encode structured source-table rows before expanding the exact old input | 228,832 measured prospective full saving; D=21,682; full candidate769,344 | High: complete decoder, exact word reconstruction and tape cleanup; existing SeedLink/expander reusable | Complete packet identity and physical controller pilot passed; universal arithmetic/tape proof pending | Original-word/field foundation, exacttypedcontrol/all43364rows/28corruptions and physical action geometry passed; finish framed actual-machine primitives and universalphasecomposition |
+| 1 | Certify the complete exact interpreter quotient | 459,315 measured finite states; candidate full 538,861 | Generic LocalCertificate proof exists; concrete kernel scalability is being measured | Bounded full-data and representative-row pilot, then literal or structural certificate | Complete map build/audit passed39816362847; QuotientData hit recursion-depth failure before rows. Next bounded test: noinline executable row shards, unchanged time/memory caps |
+| 2 | Encode structured source-table rows before expanding the exact old input | 228,832 measured prospective full saving; D=21,682; full candidate769,344 | High: complete decoder, exact word reconstruction and tape cleanup; existing SeedLink/expander reusable | Complete packet identity and physical controller pilot passed; universal arithmetic/tape proof pending | Format, framed Scan, exact typed control/all43,364 rows/28 corruptions and physical geometry passed; verify paid blocks and source-graph induction, then compose universal execution |
 | 3 | Structural proof of store/suffix sharing if literal quotient certification scales poorly | Within measured459,315;339,898same-node equivalences are diagnostics, not a closed subquotient | High: successor closure through loads/branches/jumps | High, possibly much smaller proof data | Use actual pilot obstruction; avoid a second literal route with the same scaling problem |
 | 4 | Fixed two-bit or pair packing of the seed | Two-bit141,380gross payload states; five-bit-pair70,684seed bits before controller delta | Medium to high: framing, odd inputs, cleanup and exact codec | Moderate if expander contracts transfer | Compare fully paid result against structured-table compression before choosing |
 | 5 | Replace the specialized interpreter by program-as-data or apply dictionary/grammar compression | No defensible net count yet; all stored program/dictionary/decoder states must be charged | Very high for a new interpreter; high for a generic decoder | High | Require an explicit whole-machine design and bounded end-to-end pilot |
@@ -189,3 +189,22 @@ It has1200seconds/6GiB; exactkernelnegative after64states; stopatfirstobstructio
 No full map or actual-row proof has yet passed. Uploaded artifacts are retained
 with explicit PENDING provenance while GitHub status is delayed; final API/log
 retention remains a gate before any accepted machine.
+
+## Major proof checkpoint: 17:03 UTC
+
+Accepted full count **998,176** and cumulative saving **1,906,447** remain fixed.
+Full quotient trial 39816362847 now passed complete map loading (25.832 seconds,
+3.186 GB) and full-private audit (3.242 seconds, 4.179 GB). QuotientData failed
+with maximum recursion depth after 99.602 seconds / 5.940 GB; no RSS stop and
+no actual-row certificate. This is a new, narrower obstruction. Preserve the
+same 1,200-second / 6-GiB pilot cap and review quotient code-generation structure
+before another trial; no accepted saving follows from map success.
+
+Final original-word/packet Format and generic framed Scan proofs passed. The
+exact Controller plus first row-view lemmas passed all 43,364 row comparisons
+and 28 negatives again. Physical paid-block and source-graph induction modules
+are in first remote checks (39818051349 / 39818061113). They unlock the same
+**228,832** full-machine opportunity. No new component optimization is being
+pursued for its own sake. Ranked priorities remain quotient first by absolute
+saving, structured initializer in parallel by shrinking proof obligations, then
+structural certificate alternatives if the concrete quotient stalls.

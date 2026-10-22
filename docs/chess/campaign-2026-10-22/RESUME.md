@@ -1,151 +1,158 @@
-# Active chess compression goal — checkpoint 2026-10-22 16:40 UTC
+# Active chess compression goal — checkpoint 2026-10-22 17:03 UTC
 
-The Codex goal is ACTIVE. Continue focused rounds; do not mark it complete after
-a reduction or resource stop. Latest account snapshot:87%used/13%remaining; ordinary
-usage available, no numerical goal token budget and no reset credit consumed.
+The Codex goal is **ACTIVE**. Continue focused rounds; a resource stop or one
+successful reduction does not complete it. Latest usage snapshot: 90% used,
+10% remaining; ordinary usage allowed. No numerical goal budget was requested,
+and no reset credit has been consumed. Leave resets to the user.
 
-## Accepted machine:998,176 states
+## Accepted machine: 998,176 states
 
-`ConjectureMachines.Machines.chess_seed`, theorem
-`ConjectureMachines.Semantics.ChessSeed.halts_iff_not_draw` proves both directions
+`ConjectureMachines.Machines.chess_seed`, with theorem
+`ConjectureMachines.Semantics.ChessSeed.halts_iff_not_draw`, proves both directions
 of blank-tape halting iff NOT `(Chess.WhiteCanAvoidLoss ∧ Chess.BlackCanAvoidLoss)`.
-Paid breakdown:424,157writer +216expander +1bridge +533,341main +40,461returns.
-Goal starting machine2,904,623; accepted cumulative saving1,906,447. Round01 saved
-492,880; round02 saved1,413,567. No later machine has been accepted.
 
-Round02 official run39797909133 iteration4: computation780ad59e871a47d76726a5c81800af3e48bda188,
-workflow7e32af8294ca8052c88852518508c0e6ecd5bcf4, artifact12433769822.
-All1,996,352actualrows, strict universal/public Lean, safe closure audit,
-88complete startupfixtures,465controllerfixtures,34corruptions, regressions,
-fresh advisory, parent seal,45hostilemetadata controls and portability passed.
-See round-02/RESULTS.md, evidence/final/ and review/. All35gates met and leases
-released. CheckerSHA5e148cacf6a852cc899eaf1fff3e6fb7ad5d5f4451e1fbe53e982a7461465557.
+| Paid component | States |
+|---|---:|
+| Reverse input writer, including final turn | 424,157 |
+| Complete seed expander | 216 |
+| Exact-head bridge | 1 |
+| Interpreter main controls | 533,341 |
+| Interpreter return controls | 40,461 |
+| **Complete accepted machine** | **998,176** |
 
-## Nonnegotiable constraints
+The goal started at 2,904,623 states. Accepted cumulative saving: **1,906,447**.
+Round 01 saved 492,880; round 02 saved 1,413,567. No later machine is accepted.
 
-- Frozen chess specification/conjecture and ALL accepted sources/evidence fixed.
-  Current immutable manifest `accepted-998176-pins.json` has2983entries.
-- ALL Lean/Lake/LSP/LeanProbe, compilation, native execution, models, generators,
-  simulations, synthesis, fixtures and machine counting REMOTE ONLY. Local
-  source editing and saved metadata/hash checking are permitted.
+Round 02 official run 39797909133 iteration 4: computation
+`780ad59e871a47d76726a5c81800af3e48bda188`, workflow
+`7e32af8294ca8052c88852518508c0e6ecd5bcf4`, artifact 12433769822.
+All 1,996,352 actual rows, strict universal/public Lean, safe closure audit,
+88 complete startup fixtures, 465 controller fixtures, 34 corruptions and
+regressions passed. Fresh complete advisory, parent seal, 45 hostile metadata
+controls and portability passed. See `round-02/RESULTS.md`, `evidence/final/`
+and `review/`. All 35 gates are met and leases released.
+
+## Requirements
+
+- Frozen chess specification/conjecture and every accepted source/evidence file
+  stay fixed. `accepted-998176-pins.json` contains 2,983 immutable entries.
+- **All Lean/Lake/LSP/LeanProbe, builds, native execution, models, generators,
+  simulations, synthesis, fixtures and machine counting run remotely.** Local
+  source editing and saved metadata/hash inspection are permitted.
 - No outreach, upstream issues/comments/PRs/messages. Fork checkpoints authorized.
-- Prioritize complete-machine savings; maintain STATE-COUNTS-AND-OPPORTUNITIES.md.
-  Separate accepted savings, finite measurements, and partial proof progress.
-- Never simulate the full quadratic141380symbol seed/structured startup. Universal
-  reachability plus exact complete static input identity is the proof route.
-- Root alone handles git/network/remote dispatch/retention; do not revert workers.
+- Keep full-machine accounting and ranked opportunities in
+  `STATE-COUNTS-AND-OPPORTUNITIES.md`; distinguish accepted savings, finite
+  measurements and partial proofs. Prioritize large avoidable cost categories.
+- Never simulate the full quadratic 141,380-symbol startup. Use universal
+  execution proofs plus complete static input identity.
+- Root handles Git, network, remote dispatch and retention. Workers have disjoint
+  source ownership; do not revert one another's work.
 
-## Ranked routes and state accounting
+## Ranked routes
 
-1. Whole-body quotient:573,802→114,487; measured459,315saving. Fullcandidate538,861
-   using acceptedseed. All old/new rows independently checked in finite pilot
-   run39795919458 at8cd145e,21.027s/287416KiB;12corruptions+badgolden rejected.
-   `round-03/evidence/pilot-final` and parent-pilot-replay.json are retained.
-   NO full Lean certificate; zero actual body rows have yet been certified.
-2. Structured fixed29 input:packet173641bits, paidwriter173642; explicitdecoder21682;
-   newbridge1; retainedexpander216+bridge1; unchangedbody573802. Fullcandidate769344,
-   prospective saving228832. Conditional combined quotient+decoder310029. Neither
-   candidate accepted. Their savings are additive only after both full certificates.
-3. Structural/local-slot body certificates if literal loading/normalization does
-   not scale. See round03/FAST-ROW-OPTION.md and PROOF-OPTIONS.md. Globalquotient
-   categories are diagnostics, NOT closed independent subquotients.
-4. Dictionary/arity/tiny-controller shaving deferred. Arity only494bits; tested
-   dictionaries18453/19546/12611before lookup controls. Finish the228832route first.
+1. **Whole-body quotient: measured saving 459,315.** Body 573,802 → 114,487;
+   prospective complete machine 538,861 with the accepted seed. The finite pilot
+   checked all old/new rows, but the concrete Lean certificate is unfinished.
+2. **Structured initializer: measured prospective saving 228,832.** Packet writer
+   173,642 + decoder 21,682 + new bridge 1 + retained seed expander/bridge 217 +
+   accepted body 573,802 = **769,344**. Combined with the unproved quotient:
+   **310,029**. Neither candidate is accepted.
+3. Structural/local-slot body certificates if literal data or row normalization
+   does not scale. `round-03/FAST-ROW-OPTION.md` describes the source-level route.
+4. Defer dictionary/arity/controller shaving until the larger routes are certified.
+   Arity saves only 494 data bits; dictionary savings omit lookup overhead.
 
-## Body proof pilot: preserve every failure
+## Round 03: complete quotient certificate pilot
 
-certificate-01/run39800616921: thread creation under virtual-AS cap; no rows.
-certificate-02/39802757781: imported-private audit visibility and style failure.
-certificate-03/39806307575: actual6GiB map RSS stop172.434s; no rows.
-certificate-04/39808462055: rawNat map loaded but strict comment-placement failure.
-certificate-05/39812361401 atfabb9f4: tiny TemplateSmoke kernel build PASSED8.113s;
-interpreted full-private audit hit6,477,537,280bytes after12.100s before large map.
-All five official packets retained. No data/audit/row completion is claimed.
+Finite pilot run 39795919458 at `8cd145e` independently checked all 1,147,604 old
+rows and 228,974 quotient rows in 21.027 seconds / 287,416 KiB; 12 certificate
+corruptions plus an overmerged golden were rejected. Exact data and parent replay
+are retained in `round-03/evidence/pilot-final/`.
 
-Current bounded alternative: compile Lean-only full-private auditor once, then
-execute it on exact module/rootfile/rootcount. Small --smoke-only300second/6GiB
-trial first, preserving all9roots/safe closure; no actual rows credited. Full
-pilot remains1200seconds/6GiB only after successful smoke. Proof-only rawNat map
-witnesses skip native compilation but retain transparent kernel-checked bodies,
-complete range certificate and exact Fin conversion. Quotient remains executable.
+Certificate attempts are retained; none has certified an actual body row yet:
 
-First compiled smoke39814737424 at1b97ad0 failed solely because optional allocator
-API Lean.Internal.setMaxMemory is private/unavailable. Removed that call; sampled
-6GiBRSS,512MiBdriver,stage/global bounds and kill remain unchanged. Build still-M6144.
-Uploaded diagnostics retained under round03/evidence/audit-smoke-live-01 with
-PENDING.json; final run metadata/logs pending. Repaired smoke39815643692 atfb199ee
-is active/awaiting evidence. Workergoal_body_quotient_pilot owns driver/report;
-root owns workflow,lakefile,certificate_verify.py. Do not raise limits or weakenaudit.
+| Attempt | Result |
+|---|---|
+| 01, 39800616921 | Thread creation failed under virtual-address cap; removed that cap while preserving RSS/time limits. |
+| 02, 39802757781 | Imported-private audit visibility and strict style failures. |
+| 03, 39806307575 | Actual 6-GiB map RSS stop after 172.434 seconds. |
+| 04, 39808462055 | Raw-Nat map loaded; strict heartbeat-comment placement failed. |
+| 05, 39812361401 | Tiny kernel module passed; interpreted full-private audit hit 6.478 GB before full data. |
+| Smoke 1, 39814737424 | Compiled auditor source used unavailable allocator API; removed optional call. |
+| Smoke 2, 39815643692 | **Passed** in 27.433 seconds; compiled audit 4.821 GB, 9 roots / 700 dependencies, only `propext`. |
+| 06, 39816362847 | **Complete raw-Nat map build and audit passed.** QuotientData hit maximum recursion depth during build; no actual-row checks reached. |
 
-## Decoder finite evidence and ongoing universal proof
+Attempt 06 source is `c0be393f574c785ba0e352df98f3f78f1ed2c20d`.
+Map build: 25.832 seconds / 3,185,684,480 bytes; map audit: 3.242 seconds /
+4,179,472,384 bytes. QuotientData: 99.602 seconds / 5,940,023,296 bytes, no RSS
+watchdog stop, error at generated line 12. Total: 167.516 seconds. Uploaded
+packet is retained in `round-03/evidence/certificate-live-06/`; final provenance
+is pending GitHub status recovery. `complete_typed_candidate_data_checked=false`.
 
-Complete packet census passed run39807083846 at6b2e120:5952rows,141380symbols,
-424156acceptedseedbits;136fixtures19corruptions. packet-02 and parent replay retained.
-Complete physical controller passed run39810577763 at0afbd2a:21682states/43364rows,
-4626blocks,66completepackets10corruptions,410290steps/max47746;0.777s43644KiB.
-Official controller-01 and parent-controller-replay.json retained. Sourcecontroller.py
-and controller_fixtures.py remain unchanged. All dispatch/return/cleanup/error paid.
+Worker `goal_body_quotient_pilot` owns `certificate_pilot.py`, its report and
+leaf 2.1. It is reviewing the quotient executable representation, proposing the
+smallest bounded change before another run. Keep 1,200-second / 6-GiB limits.
+Do not silently make the executable quotient noncomputable or weaken the audit.
+Only proof-only map witnesses skip native compilation, with transparent safe
+kernel definitions, a full range certificate and exact Fin conversion.
 
-PROOF-PLAN.md specifies universal packet_reaches exact entire tape/head, original
-trNat encoding, field prefix invariant with pending emissions, reverse row/phase
-ordering, raw-marker exclusion, complete cleanup, source identity and SeedLink.
-Existing FieldSeed.linked is the new decoder's body; outerwriter+newbridge paid.
+## Round 04: decoder proof status
 
-Round04 leaves:
--3.1 goal_seed_codec: TableSeed/Format.lean. OriginalW recurrence and fixed-width
- value passed9b50904; final added ordering/length block has only two minor repairs
- awaiting rerun (deprecated lemma, nil_append). No placeholders. Source-complete.
--3.2 goal_seed_machine: Controller.lean. Complete typed allocation/Fin21682
- equivalence and structural rows compiled e959201; only long-line warning repaired
- fb199ee. Strict native/all-row comparison pending. Arithmetic row-view lemmas
- still needed for readState/emitState/consume destinations before global proof.
--3.3 goal_seed_controller: Geometry.lean COMPLETE. Exact arbitrary-frame consume,
- prepend and header action equalities passed strict combined build9b50904; source
- hash matched. Both gates met, ownership released. Actual row integration separate.
--3.4 goal_seed_scan: Scan.lean. Word bounds passed9b50904; payload/gap inductions
- passed e959201. Generic framed marker wrappers being added next. No placeholders.
--3.5 goal_seed_native: ControllerExport.lean/controller_compare.py SOURCE-READY.
- Exports every actual Lean row and independently compares pinned pilot table;
-28negativecontrols. Native export compiled but prior strictControllerstylefailed.
- Root runner now requires complete build/export/compare before targetcontrollerpass.
+Complete packet census passed run 39807083846 at `6b2e120`: 5,952 rows,
+141,380 symbols, 424,156 accepted seed bits, 136 fixtures and 19 corruptions.
+Explicit physical controller passed run 39810577763 at `0afbd2a`: 21,682 states,
+43,364 rows, 4,626 blocks, 66 complete packets and 10 corruptions. Official
+`packet-02/`, `controller-01/` and parent replays are retained.
 
-Primitive session39813644432 iteration2 at9b50904 passed strict Format/Geometry/Scan
-(10.142scombined); `primitives-live-02` retains uploaded exact source/receipts/ZIP.
-Final provenance delayed. Format has since grown; onlyGeometry fullleafclosed.
-Controller repair session39814488598:iter1/2 syntax/type failures;iter3e959201
-compiledController+nativeexport butstrictlonglinewarning. fb199ee repairswarning.
-Latest primitives session39815250484 at e959201:Scanpayload/gap passed; finalFormat
-minorrepairs ready. These sessions checkpoint each iteration and stop on success
-or no new source within5minutes. Future packets preserve all prior iteration receipts
-under history even if an upload fails. Raw workflow bytes retained exactly.
+`PROOF-PLAN.md` specifies exact whole-tape/head reconstruction. Proof abstraction
+steps are not free machine instructions: `Blocks` must realize every transition
+of `Transducer` using the paid controller before the global theorem is accepted.
 
-## Immediate next actions
+| Leaf / owner | Source and verified status |
+|---|---|
+| 3.1 `goal_seed_codec` | `Format.lean` complete and fixed. Strict final pass 39815250484 iteration 3 at `fe5ad6f`; source SHA `7e55858fff8c88367f8dd7fa922d0f6032944fd78876482fcd05e1430ad5f5a0`. Both gates met; lease released. |
+| 3.2 `goal_seed_machine` | `Controller.lean` exact typed allocation and runtime definitions passed. First three row-view lemmas also passed 39816975477 at `37c1b72`; all 43,364 rows still match pinned pilot and 28 negatives reject. Next read-state bridge source is ready, not checked yet. Emit-state and consume-entry views remain. |
+| 3.3 `goal_seed_controller` | `Geometry.lean` complete and fixed; strict 9b50904 pass. Arbitrary-frame consume/prepend/header equalities; both gates met, lease released. |
+| 3.4 `goal_seed_scan` | `Scan.lean` complete and fixed; final generic framed scans passed 39816368927 at `c0be393` in 5.4 seconds. Both gates met, lease released. |
+| 3.5 `goal_seed_native` | Actual `ControllerExport.lean` and independent `controller_compare.py` complete and fixed. Exact 43,364-row correspondence / 28 corruption checks passed; both gates met, lease released. |
+| 3.6 `goal_seed_controller` | `Blocks.lean`: source includes paid path runner, consume/read, entry, emit finite paths/scanners and finish. First remote session **39818051349**, source `684f6b6`. Await diagnostics before composing emit and instantiating read row views. |
+| 3.7 `goal_seed_expander` | `Transducer.lean`: proof-only actual source graph, operand prefix/field induction and exact literal/tag traces. First remote session **39818061113**, source `684f6b6`. Universal phases and physical lift remain. |
 
-1. Read the active smoke39815643692 artifact; only after exact smoke success consider
- the unchanged-budget full body certificate trial. Retain any new obstruction.
-2. Push finalFormat repairs into primitive session39815250484; inspect diagnostic
- artifacts and continue Scan wrappers. Build Controller, export all43364rows,
- compare complete pilot and28controls in controller session39814488598.
-3. Once actualcontrol is verified, add row-view/primitiveexecution and universal
- phase composition leaves with disjoint ownership/gates. Small steps explicitly
- unlock228832complete-machine saving. Full chessproof/count/native/evidence/review
- acceptance remains a future gate; do not update accepted count prematurely.
-4. Update account usage/checkpoints; goal remainsactive. Leave resets to user.
+Passed proof evidence is retained in `round-04/evidence/format-proof-live-03/`,
+`scan-proof-live-01/`, `controller-proof-live-04/` and `controller-views-live-01/`.
+The next physical and semantic proofs both unlock the same **228,832 full-machine
+saving**; neither is an independent accepted reduction.
 
-## Evidence, Git and remote status
+## Immediate next tasks
 
-GitHub Actions Results incident q29p76qtnkyk makes run status lag actual execution.
-Some runs showqueued/inprogress despite uploaded complete artifacts. Inspect artifacts
-as well as status; do not duplicate or cancel solely on delayed status.
-`retain_live.py` retains artifactAPI/ZIP/hash/source receipts explicitly as
-UPLOADED_DIAGNOSTICS_ONLY; final completed run/log retention remains required.
-After completion use unchanged `scripts/chess_goal_20261022/retain.py` to a FRESH
-folder with exact artifactname. Never overwrite earlier failed or live packets.
+1. Inspect uploaded artifacts for sessions **39818051349 (blocks)** and
+   **39818061113 (transducer)**, retain exact diagnostics, send errors to owners.
+2. Commit/check the source-ready `controlRow_readState` block. Keep runtime
+   definitions fixed; remote all-row comparison remains the regression gate.
+3. Review worker's proposed response to QuotientData recursion-depth failure.
+   No retry without a concrete changed representation and unchanged resource caps.
+4. Join verified physical blocks and actual source-graph semantics, then prove
+   universal packet execution, exact chess input identity and full SeedLink chain.
+5. Before accepting any machine: strict full certificate, exact full count/table,
+   safe closure audit, independent fixtures/corruptions, fresh complete advisory,
+   final official provenance, seal and parent replay.
+6. Check usage periodically; preserve clean, reproducible checkpoints near zero.
+   Exhaustion does not complete the goal. Do not reset usage automatically.
 
-Workspace /Users/bocowgill/.codex/worktrees/6ba9/cryptids, branch
-codex/chess-openevolve-pilot. **origin is upstream**. Push explicitly to
-`git@github.com:bocowgill/cryptids.git` branchrefs/heads/codex/chess-openevolve-pilot.
-Latest pushedcheckpointfb199ee; inspect history for latersource/evidencecommits.
-Ignored active ledgers `.unlazy/chess-goal-20261022-r03` andr04; tracked
-round04/checkpoints/decoder-foundations predateslaterproofleaves. Snapshot again
-atnextmajorcheckpoint. Modeladvisory is nothumanapproval; nooutreach authorized.
+## Remote status and recovery
+
+GitHub Actions Results incident `q29p76qtnkyk` makes status lag execution. Some
+runs remain queued/in-progress after uploading complete artifacts. Inspect
+artifact listings as well as status. Do not duplicate or cancel based only on lag.
+
+`retain_live.py` captures API/ZIP/hash/source receipts as
+`UPLOADED_DIAGNOSTICS_ONLY`, with `PENDING.json`. Final completed run/log retention
+remains necessary: use unchanged `scripts/chess_goal_20261022/retain.py` into a
+**fresh** folder once status completes. Never overwrite earlier failure packets.
+
+Workspace `/Users/bocowgill/.codex/worktrees/6ba9/cryptids`; branch
+`codex/chess-openevolve-pilot`. **Origin is upstream.** Push explicitly to
+`git@github.com:bocowgill/cryptids.git`, branch `codex/chess-openevolve-pilot`.
+Latest pushed checkpoint at this writing: `684f6b6`. Inspect later commits before
+resuming. Active ignored ledgers live under `.unlazy/chess-goal-20261022-r03/`
+and `r04/`; tracked snapshots are refreshed at major checkpoints.

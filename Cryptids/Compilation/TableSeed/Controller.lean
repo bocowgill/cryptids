@@ -522,6 +522,58 @@ theorem literalRow_emit (phase : Fin 2) (letter : Letter) (position : Fin 35)
     omega
   simp only [literalRow, bound, ↓reduceDIte, quotient, remainder]
 
+theorem tagRow_operand (tag : Fin 7) (side : Fin 2) (position : Fin 1127)
+    (bit : Bit) :
+    tagRow tag ⟨1127 * side.val + position.val,
+      by have := tagSize_lower tag; omega⟩ bit = operandRow tag side position bit := by
+  have bound : 1127 * side.val + position.val < 2254 := by omega
+  have quotient : (1127 * side.val + position.val) / 1127 = side.val := by omega
+  have remainder : (1127 * side.val + position.val) % 1127 = position.val := by omega
+  simp only [tagRow, bound, ↓reduceDIte, quotient, remainder]
+
+theorem operandRow_read (tag : Fin 7) (side : Fin 2) (digit : Fin 13)
+    (seen : Bool) (position : Fin 7) (bit : Bit) :
+    operandRow tag side
+      ⟨35 + 84 * digit.val + 7 * boolIndex seen + position.val,
+        by have := boolIndex_le seen; omega⟩ bit =
+      readRow (.operand tag side digit seen) position bit := by
+  cases seen with
+  | false =>
+    change operandRow tag side ⟨35 + 84 * digit.val + position.val, _⟩ bit = _
+    have bound : ¬35 + 84 * digit.val + position.val < 35 := by omega
+    have quotient : (35 + 84 * digit.val + position.val - 35) / 84 = digit.val := by
+      omega
+    have remainder : (35 + 84 * digit.val + position.val - 35) % 84 =
+        position.val := by omega
+    simp only [operandRow, bound, ↓reduceDIte, quotient, remainder, position.isLt]
+  | true =>
+    change operandRow tag side ⟨35 + 84 * digit.val + 7 + position.val, _⟩ bit = _
+    have bound : ¬35 + 84 * digit.val + 7 + position.val < 35 := by omega
+    have quotient : (35 + 84 * digit.val + 7 + position.val - 35) / 84 = digit.val := by
+      omega
+    have remainder : (35 + 84 * digit.val + 7 + position.val - 35) % 84 =
+        7 + position.val := by omega
+    have first : ¬7 + position.val < 7 := by omega
+    have second : 7 + position.val < 14 := by omega
+    simp only [operandRow, bound, ↓reduceDIte, quotient, remainder, first, second,
+      Nat.add_sub_cancel_left]
+
+/-- All actual read contexts have the same seven-row physical schema. -/
+theorem controlRow_readState (context : ReadCtx) (position : Fin 7) (bit : Bit) :
+    controlRow (readState context position) bit = readRow context position bit := by
+  cases context with
+  | literal phase parser => exact literalRow_read phase parser position bit
+  | tag parser => rfl
+  | operand tag side digit seen =>
+    simp only [readState, controlRow_tagControl]
+    have bound : 35 + 84 * digit.val + 7 * boolIndex seen + position.val < 1127 := by
+      have := boolIndex_le seen
+      omega
+    simpa only [Nat.add_assoc] using
+      (tagRow_operand tag side
+        ⟨35 + 84 * digit.val + 7 * boolIndex seen + position.val, bound⟩ bit).trans
+        (operandRow_read tag side digit seen position bit)
+
 def machine : Machine 21682 2 where
   transition state bit := (controlRow (decode state) bit).map
     (fun (write, dir, next) ↦ (write, dir, encode next))
