@@ -5,8 +5,8 @@ Scope: Native complete actual machine/rowMachine exporter using frozen input, al
 
 - [x] G1: Complete source and four-pass review against agreed extraction format.
   EVIDENCE: Source draft in scripts/chess_goal_20261022/Export.lean and lakefile.chess-goal-20261022.toml; manually reviewed below. Parent review remains separate.
-- [ ] G2: Remote actual-artifact full validation passes on exact source.
-  EVIDENCE: Pending strict remote build and full actual-artifact run. No local Lean/native/model/count execution occurred.
+- [x] G2: Remote actual-artifact full validation passes on exact source.
+  EVIDENCE: Successful run39780889172 iteration4 at2dfa3a7656de3f15a0bbda387d6f0642328e6d08; native export command1792673927903612955 exit0 with Selective native export passed. Full independent fixtures command1792673961284055501 exit0. All saved final source hashes matched locally; evidence/final retains official ZIP/API/logs and all20 complete command receipts. Parent source review and complete table/count receipt inspection passed. No local model execution.
 
 ## Four source passes
 
@@ -24,5 +24,5 @@ Scope: Native complete actual machine/rowMachine exporter using frozen input, al
    returnAt/findReturn/offset APIs with the concrete layout owner, retained pinned
    toolchain configuration, and made remote GitHub Actions a runtime requirement.
 
-The source is a draft, not evidence of successful extraction or a certified reduction.
-Remote diagnostics must be resolved before G2 or full-machine acceptance.
+Final remote extraction passed. Full-machine acceptance additionally requires the
+independent complete-candidate review and sealed parent replay.

@@ -1,0 +1,38 @@
+2026-10-22T11:56:06.274Z dispatch source-1 opened: leaf-1.1, leaf-1.2
+2026-10-22T11:56:43.745Z dispatch source-1 started leaf-1.1 as /root/goal_binary_route
+2026-10-22T11:56:43.831Z dispatch source-1 started leaf-1.2 as /root/goal_body_route
+2026-10-22T11:56:43.912Z dispatch source-1 sealed
+2026-10-22T12:06:21.838Z dispatch source-1 returned leaf-1.1
+2026-10-22T12:06:58.697Z dispatch implementation-1 opened: leaf-2.1, leaf-2.2
+2026-10-22T12:07:16.357Z dispatch implementation-1 started leaf-2.1 as /root/goal_selective_binary
+2026-10-22T12:07:42.915Z dispatch implementation-1 started leaf-2.2 as /root/goal_return_syntax
+2026-10-22T12:07:43.002Z dispatch implementation-1 sealed
+2026-10-22T12:07:46.080Z dispatch source-1 returned leaf-1.2
+2026-10-22T12:11:12.002Z dispatch graph-1 opened: leaf-2.3
+2026-10-22T12:11:42.889Z dispatch graph-1 started leaf-2.3 as /root/goal_return_graph
+2026-10-22T12:11:42.977Z dispatch graph-1 sealed
+2026-10-22T12:13:58.396Z dispatch concrete-1 opened: leaf-2.4
+2026-10-22T12:14:32.512Z dispatch concrete-1 started leaf-2.4 as /root/goal_selective_chess
+2026-10-22T12:14:32.595Z dispatch concrete-1 sealed
+2026-10-22T12:15:31.029Z dispatch implementation-1 returned leaf-2.1
+2026-10-22T12:15:31.109Z dispatch implementation-1 returned leaf-2.2
+2026-10-22T12:15:31.193Z dispatch graph-1 returned leaf-2.3
+2026-10-22T12:16:28.230Z dispatch native-1 opened: leaf-2.5, leaf-2.6
+2026-10-22T12:16:48.056Z dispatch native-1 started leaf-2.5 as /root/goal_selective_export
+2026-10-22T12:17:20.814Z dispatch native-1 started leaf-2.6 as /root/goal_selective_fixtures
+2026-10-22T12:17:20.916Z dispatch native-1 sealed
+2026-10-22T12:21:59.736Z dispatch concrete-1 returned leaf-2.4
+2026-10-22T12:21:59.821Z dispatch native-1 returned leaf-2.5
+2026-10-22T12:21:59.905Z dispatch native-1 returned leaf-2.6
+2026-10-22T12:45:14.840Z dispatch seal-source-1 opened: leaf-2.7
+2026-10-22T12:45:44.534Z dispatch seal-source-1 started leaf-2.7 as /root/goal_evidence_checker
+2026-10-22T12:45:44.579Z dispatch seal-source-1 sealed
+2026-10-22T12:47:02.176Z dispatch next-source-1 opened: leaf-1.3
+2026-10-22T12:47:26.361Z dispatch next-source-1 started leaf-1.3 as /root/goal_initializer_route
+2026-10-22T12:47:26.404Z dispatch next-source-1 sealed
+2026-10-22T13:01:38.017Z dispatch review-1 opened: leaf-3.1
+2026-10-22T13:02:39.818Z dispatch review-1 started leaf-3.1 as /root/goal_selective_review
+2026-10-22T13:02:39.863Z dispatch review-1 sealed
+2026-10-22T13:04:09.127Z dispatch next-source-1 returned leaf-1.3
+2026-10-22T13:09:32.008Z dispatch seal-source-1 returned leaf-2.7
+2026-10-22T13:11:35.101Z dispatch review-1 returned leaf-3.1

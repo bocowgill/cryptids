@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-goal-20261022/OldCount.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "/home/runner/work/cryptids/cryptids/.lake/chess-goal-20261022/OldCount.lean:3:66: error: Tactic `decide` proved that the proposition\n  2411743 = 2904623\nis false\n",
+  "output_sha256": "f2a92f957aeac0078b2eb8f5c448f8858c30256f46da383d1f693a5a7bed12d6",
+  "timed_out": false,
+  "timeout_seconds": 300,
+  "elapsed_seconds": 2.9988227260000713,
+  "cumulative_children_peak_rss_kib": 4460040
+}

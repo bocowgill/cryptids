@@ -1,0 +1,20 @@
+{
+  "id": 12427716840,
+  "node_id": "MDg6QXJ0aWZhY3QxMjQyNzcxNjg0MA==",
+  "name": "chess-goal-session-4-2dfa3a7656de3f15a0bbda387d6f0642328e6d08",
+  "size_in_bytes": 9949872,
+  "url": "https://api.github.com/repos/bocowgill/cryptids/actions/artifacts/12427716840",
+  "archive_download_url": "https://api.github.com/repos/bocowgill/cryptids/actions/artifacts/12427716840/zip",
+  "expired": false,
+  "digest": "sha256:a493ccbc794bdbfce0b879d1e0cb0767f53ccba3e39bf98bfd453357f8344c10",
+  "created_at": "2026-10-22T12:59:54Z",
+  "updated_at": "2026-10-22T12:59:54Z",
+  "expires_at": "2026-11-21T12:59:51Z",
+  "workflow_run": {
+    "id": 39780889172,
+    "repository_id": 1426408147,
+    "head_repository_id": 1426408147,
+    "head_branch": "codex/chess-openevolve-pilot",
+    "head_sha": "965a568c124b28a48d6a1926d99a0f8496e30718"
+  }
+}

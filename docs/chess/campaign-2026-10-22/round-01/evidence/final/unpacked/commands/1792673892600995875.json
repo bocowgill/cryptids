@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-goal-20261022/BadSaving.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "/home/runner/work/cryptids/cryptids/.lake/chess-goal-20261022/BadSaving.lean:3:128: error: Tactic `decide` proved that the proposition\n  2904623 - 2411743 = 492881\nis false\n",
+  "output_sha256": "b2e3ee0e13a86579fdde542f46c26fa069e27f759a83b1f63a5f0038900ff592",
+  "timed_out": false,
+  "timeout_seconds": 300,
+  "elapsed_seconds": 3.0225317819999873,
+  "cumulative_children_peak_rss_kib": 4460040
+}

@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-goal-20261022/MissingTurn.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "/home/runner/work/cryptids/cryptids/.lake/chess-goal-20261022/MissingTurn.lean:3:72: error: Tactic `decide` proved that the proposition\n  1837941 = 1837940\nis false\n",
+  "output_sha256": "ba38ba4100d234648258f98a181c158fffa926acfbe88c6257f1777e844cf0c4",
+  "timed_out": false,
+  "timeout_seconds": 300,
+  "elapsed_seconds": 2.9876379810000344,
+  "cumulative_children_peak_rss_kib": 4460040
+}

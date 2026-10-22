@@ -1,8 +1,8 @@
 # Selective returns for the complete chess machine
 
-Status: candidate under remote verification. The accepted machine remains
-2,904,623 states until the full proof, native, independent, regression and review
-gates pass. The remote census suggests a complete candidate with 2,411,743 states.
+Status: accepted complete machine, **2,411,743 states**. Full proof, native export,
+independent validation, regressions, fresh advisory and sealed parent replay
+passed. See `RESULTS.md` for exact source, remote provenance and retained artifacts.
 
 ## Mechanism
 
@@ -82,11 +82,9 @@ entire emitted table. Source-operation cases, initializer edges, deliberate
 corruptions, prior regressions and the safe proof-closure audit are additional
 acceptance gates. Finite checks supplement the universal Lean theorem.
 
-## Next obstruction
+## Next route
 
-The initial remote syntax and graph builds passed after proof-elaboration repairs.
-The generic compiler and complete composition are still being checked. A smaller
-machine must not be reported as certified until the exact final source and all
-acceptance evidence have passed and been retained. The active goal continues
-after this round succeeds; write/move fusion and initializer compression remain
-separate possible next routes.
+All required verification passed on the retained final computation snapshot.
+The active goal continues. `NEXT-INITIALIZER.md` identifies a three-bit seed and
+fixed expander as the next focused route; its proof and complete control count
+remain new obligations. This accepted return reduction makes no minimality claim.

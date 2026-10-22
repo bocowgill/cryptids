@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-goal-20261022/UnpaidPrefix.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "/home/runner/work/cryptids/cryptids/.lake/chess-goal-20261022/UnpaidPrefix.lean:3:83: error: Tactic `decide` proved that the proposition\n  2411743 = 573802\nis false\n",
+  "output_sha256": "5f95721c27721a46d335f468eaeae2af4d9dacc9409f589dea2a24201b850077",
+  "timed_out": false,
+  "timeout_seconds": 300,
+  "elapsed_seconds": 3.0153286179998986,
+  "cumulative_children_peak_rss_kib": 4460040
+}

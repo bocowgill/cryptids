@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "prlimit",
+    "--as=17179869184",
+    "--",
+    "lake",
+    "env",
+    "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_goal_audit"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "Audited 9259 FieldSelective foundation roots and 58974 dependencies\nMeta certificate generator roots outside safe roots: 0\nCompiler artifacts outside safe roots: #[ConjectureMachines.Compilation.FieldCompiler.emit._unsafe_rec, ConjectureMachines.Compilation.FieldReturns.writeCount._unsafe_rec, ConjectureMachines.Compilation.FieldReturns.writeTargets._unsafe_rec, Chess.Optimisation.FieldPackedLayout.Block.ofTree._unsafe_rec, ConjectureMachines.Compilation.FieldCompiler.Codec.bitInput._unsafe_rec, ConjectureMachines.Compilation.FieldCompiler.Snapshot.Correct._unsafe_rec, ConjectureMachines.Compilation.FieldCompiler.Snapshot.project._unsafe_rec, ConjectureMachines.Compilation.FieldCompiler.Syntax.fastNodeAt._unsafe_rec, ConjectureMachines.Compilation.FieldCompiler.Syntax.meaning._unsafe_rec, ConjectureMachines.Compilation.FieldCompiler.Syntax.nodeAt._unsafe_rec, ConjectureMachines.Compilation.FieldCompiler.Syntax.size._unsafe_rec, ConjectureMachines.Compilation.FieldCompiler.Syntax.subAt._unsafe_rec]\nPermitted axioms: #[propext, Classical.choice, Quot.sound]\nChess FieldSelective foundation audit passed\n",
+  "output_sha256": "783957d08496d57ed19ba0ca9cad8afd0cfc55c9c625929965b0717e7cf79f80",
+  "timed_out": false,
+  "timeout_seconds": 600,
+  "elapsed_seconds": 4.003351156000008,
+  "cumulative_children_peak_rss_kib": 4460040
+}

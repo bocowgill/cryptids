@@ -1,0 +1,129 @@
+{
+  "schema": "chess-goal-selective-review-v1",
+  "status": "passed",
+  "verdict": "correct",
+  "review_kind": "independent-model-advisory",
+  "claim": {
+    "formal_machine": "ConjectureMachines.Machines.chess_field_selective",
+    "formal_theorem": "ConjectureMachines.Semantics.ChessFieldSelective.halts_iff_not_draw",
+    "states": 2411743,
+    "previous_states": 2904623,
+    "saved_states": 492880,
+    "initializer_states": 1837941,
+    "body_states": 573802,
+    "main_states": 533341,
+    "return_states": 40461,
+    "blank_tape": true,
+    "symbols": 2
+  },
+  "run_id": 39780889172,
+  "workflow_commit": "965a568c124b28a48d6a1926d99a0f8496e30718",
+  "computation_commit": "2dfa3a7656de3f15a0bbda387d6f0642328e6d08",
+  "source_manifest_sha256": "a2864bbaf8b9f444c51f454e470ed879bea93d842154a01bbce0cc835553582f",
+  "narrative_path": "docs/chess/campaign-2026-10-22/round-01/review/REPORT.md",
+  "narrative_sha256": "422971b83a0997d5b05dcbcc3d3db5c85b481c492030ae2fd77e96e8bfa15842",
+  "artifact_sha256": "a493ccbc794bdbfce0b879d1e0cb0767f53ccba3e39bf98bfd453357f8344c10",
+  "human_approval": false,
+  "formal_verification_by_reviewer": false,
+  "local_heavy_computation": false,
+  "repository": "bocowgill/cryptids",
+  "review_date": "2026-10-22",
+  "reviewer": "independent model advisory /root/goal_selective_review",
+  "evidence_path": "docs/chess/campaign-2026-10-22/round-01/evidence/final",
+  "artifact_id": 12427716840,
+  "artifact_name": "chess-goal-session-4-2dfa3a7656de3f15a0bbda387d6f0642328e6d08",
+  "artifact_bytes": 9949872,
+  "logs_sha256": "add1273208ccbc7c58a9da2482db34fc5a70fbb5613f63e756643b334b160cab",
+  "logs_bytes": 53250,
+  "executed_workflow_sha256": "84a7e899becfa0bebfd9cfd3404f7ada29e6f338c2e8948ca6a15e3caac7028d",
+  "baseline_pins_sha256": "f8a54b2ee104f7b48b28e123ec3904f45bd1d449090245a7d83e8b849c69cfb5",
+  "checker_sha256": "260552c1fcc84034cee703dff1f5b5a1405d429d843cea09cbc4696ac2a866a5",
+  "metadata_sha256": {
+    "run-api.json": "50004d8b26f082761e57fe403f743340f006e6d683e3b225a49573f21f010e38",
+    "jobs-api.json": "f8f3f96fb49ad96d49ff613ac02b3cbf61f72ef695755374ff5982f898280b2e",
+    "artifact-api.json": "7e2c788be18e231337bc6e6493087a3f938e1475392104aa5a04cad976305790",
+    "retention.json": "f3f515b8bcd30cde197b0cfba5d5a68eedc090395b9e6f8c0dff7d280e62a4a4",
+    "archive-entries.json": "bdbab297acecfd1710e126265f30fce3e3998a68664b78ce243615afb9d9cb21"
+  },
+  "computation_source_sha256": {
+    ".github/workflows/chess_goal_20261022.yml": "84a7e899becfa0bebfd9cfd3404f7ada29e6f338c2e8948ca6a15e3caac7028d",
+    "Cryptids/Chess/Optimisation/FieldSelective.lean": "f0bbf5fe139b315191aa2a3b5996ef433dcf1e301d92511fc68583e67aab54c2",
+    "Cryptids/Chess/Optimisation/FieldSelectiveLayout.lean": "b3ab29678d58826df212a03cb15a479a530f258dc5c0b13f255112fb8ea5485a",
+    "Cryptids/Compilation/FieldReturns/Graph.lean": "c9d317f1a819f4c0b9b5efc7d3b57afee029831be71be3ef7a4b532a5b7346df",
+    "Cryptids/Compilation/FieldReturns/Syntax.lean": "d044e2ea94404cb91b0fecdfb3fb8a6ef0a2511a35d900c820d70ef163afc246",
+    "Cryptids/Optimisation/SelectiveBinary.lean": "9d4902e0eb645ae50cc0bcf83ab5f6b56c8991c4adb4feb403a89c1b66171f9d",
+    "Cryptids/Semantics/ChessFieldSelective.lean": "0518e1e40c1bf8e06b315b9e72f600941e8fdce7a3d2f10be2702b1079fd9bf5",
+    "docs/chess/campaign-2026-10-22/baseline-pins.json": "f8a54b2ee104f7b48b28e123ec3904f45bd1d449090245a7d83e8b849c69cfb5",
+    "lakefile.chess-goal-20261022.toml": "aac3b9abb134c8efb0f963d3337307b7688d28d01f5794930e08f1452382612b",
+    "scripts/chess_goal_20261022/Audit.lean": "991d4c4daf2161cc845340071fafcea2d88ae0e6f056a491f35cef2649e7010f",
+    "scripts/chess_goal_20261022/Export.lean": "b6b5d68e3c2add67d1fb077ec95e251c51c7b2dc696e7dea75eb4144fe4f1589",
+    "scripts/chess_goal_20261022/census.py": "c4d9dae48edbdc69dd8d5e36d3c616ab82afe8a6d66fc833f87eb30d49d2790e",
+    "scripts/chess_goal_20261022/fixtures.py": "0fc850ecf29db51d04d8e6a19bafe47e9ef021496fb72e9fa846c7761218e674",
+    "scripts/chess_goal_20261022/retain.py": "4cee06ddd94dec0dae041da38d4aae90d43051dddad2463b4ab99a23b86fd561",
+    "scripts/chess_goal_20261022/session.py": "0b48fb7742d11fe0020942d40a9021a212ee4ee0bc4ca2b70bc8ef8352451247",
+    "scripts/chess_goal_20261022/verify.py": "fff58c9cbfb40e09f30c65085d7b6a22c3320fc8fa18f1165b1cb1bb8753d800"
+  },
+  "frozen_files_checked": 2638,
+  "archive_members_checked": 38,
+  "source_hash_mismatches": [],
+  "frozen_hash_mismatches": [],
+  "archive_hash_mismatches": [],
+  "saved_remote_unique_commands": 20,
+  "saved_remote_phase_command_lengths": {
+    "build": 1,
+    "contracts": 10,
+    "native": 11,
+    "counts": 12,
+    "full": 20
+  },
+  "saved_remote_source_cases": 202100,
+  "saved_remote_full_rows": 4823486,
+  "saved_remote_corruption_controls": 27,
+  "local_machine_recount": false,
+  "local_model_execution": false,
+  "local_proof_execution": false,
+  "independent_subreviews": [
+    "read-only selective compiler/coverage/composition source review",
+    "read-only exporter/fixture/audit/verifier source and saved-receipt review"
+  ],
+  "passes": [
+    {
+      "number": 1,
+      "scope": "complete theorem meaning and proof chain",
+      "status": "passed"
+    },
+    {
+      "number": 2,
+      "scope": "paid controls and complete independent transition evidence",
+      "status": "passed"
+    },
+    {
+      "number": 3,
+      "scope": "adversarial audits controls regressions",
+      "status": "passed"
+    },
+    {
+      "number": 4,
+      "scope": "official provenance narrative binding clean final source pass",
+      "status": "passed"
+    }
+  ],
+  "findings": [
+    {
+      "id": "R1",
+      "severity": "review-integrity",
+      "status": "resolved",
+      "description": "Checker now validates actual REPORT.md bytes against narrative_sha256 and tests expected-hash and actual-content corruption."
+    }
+  ],
+  "outstanding_findings": [],
+  "limitations": [
+    "Independent model advisory; not human approval or formal verification by this reviewer.",
+    "Remote Lean and native receipts inspected; no compiler, proof, model, fixture, simulation, or allocation count rerun locally.",
+    "Saved API responses and the external seal are trust anchors, not independently authenticated GitHub attestations.",
+    "Finite source fixtures are supplemental; universal semantics comes from Lean proofs.",
+    "Dispatch and frame payload mutations reject at getter consistency; they do not isolate every end-to-end semantic sub-oracle.",
+    "No resolution of chess and no state-minimality claim.",
+    "Parent creates the external seal and independently replays metadata and hostile-control gates after this advisory."
+  ]
+}

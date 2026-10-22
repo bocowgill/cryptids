@@ -8,13 +8,13 @@ with an unconditional followingmove while preserving exactliveconfiguration sema
 
 | ID | Required outcome | Owner | Gate | State |
 |---|---|---|---|---|
-| C1 | Baseline/spec/evidence preserved, currentbaseline replayed | root | G1 | READY |
-| C2 | Generic code mechanism, exact proof bridge and obstruction | explorer1 | leaf1.1:G1,G2 | READY |
-| C3 | Concretebody target characterization, remote census design | explorer2 | leaf1.2:G1,G2 | READY |
-| C4 | Complete new machine and both directions in strict Lean | root/laterproofleaf | G2 | WAITING C2,C3 |
-| C5 | Independent full-state accounting and actualtransition evidence | root/laternativeleaf | G3 | WAITING C4 |
-| C6 | Safeproofaudit, hostilecontrols, priorregressions | root | G4 | WAITING C4,C5 |
-| C7 | Fresh completecandidate advisory + exactsavedpacket parentreplay | laterreferee/root | G5 | WAITING C4-C6 |
+| C1 | Baseline/spec/evidence preserved, currentbaseline replayed | root | G1 | VERIFIED |
+| C2 | Generic code mechanism, exact proof bridge and obstruction | explorer1 | leaf1.1:G1,G2 | VERIFIED |
+| C3 | Concretebody target characterization, remote census design | explorer2 | leaf1.2:G1,G2 | VERIFIED |
+| C4 | Complete new machine and both directions in strict Lean | root/proofleaves | G2 | VERIFIED |
+| C5 | Independent full-state accounting and actualtransition evidence | root/nativeleaves | G3 | VERIFIED |
+| C6 | Safeproofaudit, hostilecontrols, priorregressions | root | G4 | VERIFIED |
+| C7 | Fresh completecandidate advisory + exactsavedpacket parentreplay | reviewer/root | G5 | VERIFIED |
 | C8 | Durablecheckpoint and usage-aware continuation | root | G6 | IN-FLIGHT |
 
 Explorer1 owns only round-01/GENERIC-ROUTE.md and leaf1.1ledger. Explorer2 owns only
@@ -59,3 +59,31 @@ Return order:0sharedhalt,1+5*(return_offset[label]+localtargetindex)+store.
 Bodymain indices unchanged; return block follows533341mains. Native sample all
 source entry/store mains and their selected returns; haltreturn0. Full actual rows
 required. Root coordinates all remoteexecution and full proof/audit acceptance.
+
+Revision6: leaf2.7 READY for metadata-only sealed-checker SOURCE DRAFT, independently
+of active proof repairs. It owns only scripts/chess_goal_20261022/check_saved_evidence.py
+and its ledger. Adapt the prior sealed checker to the new five-phase verifier and
+session provenance. Never execute Lean, model, row generators, or recount locally.
+Final packet binding and adversarial evidence controls remain pending a successful
+remote full run and fresh independent complete-candidate review.
+
+Revision7: leaf1.3 READY for source-only scouting of the remaining initializer,
+while selective-return proofs execute remotely. Own only round-01/NEXT-INITIALIZER.md.
+No second implementation route is started. Identify concrete generic decompressor
+or tape representation routes with provable interfaces and symbolic overhead;
+separate source deductions from any future remote census. No machine execution.
+
+Revision8: leaf3.1 WAITING for strict complete remote full receipt and retained
+packet. Fresh independent reviewer owns round-01/review/REPORT.md and report.json
+only. Review all compiler/layout/composition proofs, concrete meaning and original
+statement, actual native/independent rows, full count, all controls, baseline pins,
+remote provenance, evidence checker and packet. Verdict may be correct only if
+complete final source and artifact qualify. Root separately binds a seal and replays
+metadata/hostile controls. Model review is advisory, never human or formal approval.
+
+Revision9: leaf3.1 READY for complete source/receipt review: session39780889172
+iteration4 at2dfa3a7656de3f15a0bbda387d6f0642328e6d08 passed all20commands and
+fivephases. Parent matched final new-source and all2638 frozen hashes. Full native
+packet is downloaded; official API/log/ZIP retention follows run cache-save finish.
+Reviewer may begin source/receipt review now but final G2 remains WAITING that
+official packet and its exact artifact identity. No new best until root replay.

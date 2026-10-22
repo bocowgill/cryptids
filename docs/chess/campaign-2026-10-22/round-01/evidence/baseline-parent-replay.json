@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "python3",
+    "docs/chess/field-reverse/evidence/review/check_saved_evidence.py",
+    "--self-test"
+  ],
+  "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+  "shell": false,
+  "exit": 0,
+  "expected": "Reverse sealed evidence controls passed",
+  "expected_matched": true,
+  "output_sha256": "d944759b0954f75a7d6b551eb72b118a3185b9a4733c362826f617c3ae81d61d",
+  "output": "Reverse sealed evidence controls passed\n",
+  "elapsed_seconds": 6.5197291250000005,
+  "scope": "Local saved metadata and byte hashes only; no model, proof, or count execution"
+}

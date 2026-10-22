@@ -1,0 +1,47 @@
+{
+  "schema": "chess-goal-selective-seal-v1",
+  "status": "accepted",
+  "claim": {
+    "formal_machine": "ConjectureMachines.Machines.chess_field_selective",
+    "formal_theorem": "ConjectureMachines.Semantics.ChessFieldSelective.halts_iff_not_draw",
+    "states": 2411743,
+    "previous_states": 2904623,
+    "saved_states": 492880,
+    "initializer_states": 1837941,
+    "body_states": 573802,
+    "main_states": 533341,
+    "return_states": 40461,
+    "blank_tape": true,
+    "symbols": 2
+  },
+  "repository": "bocowgill/cryptids",
+  "run_id": 39780889172,
+  "artifact_id": 12427716840,
+  "artifact_name": "chess-goal-session-4-2dfa3a7656de3f15a0bbda387d6f0642328e6d08",
+  "workflow_commit": "965a568c124b28a48d6a1926d99a0f8496e30718",
+  "computation_commit": "2dfa3a7656de3f15a0bbda387d6f0642328e6d08",
+  "artifact_sha256": "a493ccbc794bdbfce0b879d1e0cb0767f53ccba3e39bf98bfd453357f8344c10",
+  "artifact_bytes": 9949872,
+  "logs_sha256": "add1273208ccbc7c58a9da2482db34fc5a70fbb5613f63e756643b334b160cab",
+  "logs_bytes": 53250,
+  "source_manifest_sha256": "a2864bbaf8b9f444c51f454e470ed879bea93d842154a01bbce0cc835553582f",
+  "baseline_pins_sha256": "f8a54b2ee104f7b48b28e123ec3904f45bd1d449090245a7d83e8b849c69cfb5",
+  "checker_sha256": "260552c1fcc84034cee703dff1f5b5a1405d429d843cea09cbc4696ac2a866a5",
+  "metadata_sha256": {
+    "run-api.json": "50004d8b26f082761e57fe403f743340f006e6d683e3b225a49573f21f010e38",
+    "jobs-api.json": "f8f3f96fb49ad96d49ff613ac02b3cbf61f72ef695755374ff5982f898280b2e",
+    "artifact-api.json": "7e2c788be18e231337bc6e6493087a3f938e1475392104aa5a04cad976305790",
+    "retention.json": "f3f515b8bcd30cde197b0cfba5d5a68eedc090395b9e6f8c0dff7d280e62a4a4",
+    "archive-entries.json": "bdbab297acecfd1710e126265f30fce3e3998a68664b78ce243615afb9d9cb21"
+  },
+  "executed_workflow_sha256": "84a7e899becfa0bebfd9cfd3404f7ada29e6f338c2e8948ca6a15e3caac7028d",
+  "review": {
+    "kind": "independent-model-advisory",
+    "status": "passed",
+    "report_path": "docs/chess/campaign-2026-10-22/round-01/review/report.json",
+    "report_sha256": "e50dbd8e2e0e58cf093fabf5212f06973d3c75359e857f5ad6c46a0c58d4ed65",
+    "human_approval": false,
+    "formal_verification_by_reviewer": false,
+    "local_heavy_computation": false
+  }
+}

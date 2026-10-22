@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "python3",
+    "scripts/chess_goal_20261022/check_saved_evidence.py",
+    "--root",
+    "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+    "--evidence",
+    "docs/chess/campaign-2026-10-22/round-01/evidence/final",
+    "--seal",
+    "docs/chess/campaign-2026-10-22/round-01/review/seal.json",
+    "--self-test"
+  ],
+  "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+  "shell": false,
+  "exit": 0,
+  "expected": "Selective sealed evidence controls passed",
+  "expected_matched": true,
+  "output_sha256": "ccdbdf631d53cd43affe27b887110ba735c1ed769c5f5da12d490433e695e32d",
+  "output": "{\n  \"artifact_id\": 12427716840,\n  \"artifact_sha256\": \"a493ccbc794bdbfce0b879d1e0cb0767f53ccba3e39bf98bfd453357f8344c10\",\n  \"claim\": {\n    \"blank_tape\": true,\n    \"body_states\": 573802,\n    \"formal_machine\": \"ConjectureMachines.Machines.chess_field_selective\",\n    \"formal_theorem\": \"ConjectureMachines.Semantics.ChessFieldSelective.halts_iff_not_draw\",\n    \"initializer_states\": 1837941,\n    \"main_states\": 533341,\n    \"previous_states\": 2904623,\n    \"return_states\": 40461,\n    \"saved_states\": 492880,\n    \"states\": 2411743,\n    \"symbols\": 2\n  },\n  \"computation_commit\": \"2dfa3a7656de3f15a0bbda387d6f0642328e6d08\",\n  \"cumulative_phase_receipts\": 54,\n  \"evidence_corruption_controls\": [\n    \"sealed_claim\",\n    \"review_hash\",\n    \"narrative_hash\",\n    \"narrative_content\",\n    \"review_run\",\n    \"checker_hash\",\n    \"metadata_hash\",\n    \"artifact_hash\",\n    \"source_manifest_hash\",\n    \"frozen_pin\",\n    \"source_hash\",\n    \"api_conclusion\",\n    \"workflow_identity\",\n    \"artifact_run_identity\",\n    \"payload_bytes\",\n    \"unpacked_hash\",\n    \"archive_crc\",\n    \"missing_phase\",\n    \"command_exit\",\n    \"intentional_failure_exit\",\n    \"command_timeout\",\n    \"command_output_hash\",\n    \"success_marker\",\n    \"audit_axioms\",\n    \"unrelated_kernel_failure\",\n    \"native_return_allocation\",\n    \"phase_inventory\",\n    \"native_sample_coverage\",\n    \"full_rows\",\n    \"body_rows\",\n    \"cases\",\n    \"paid_returns\",\n    \"initializer_head\",\n    \"initializer_edge\",\n    \"mutation_inventory\",\n    \"mutation_acceptance\",\n    \"mutation_positive\",\n    \"halt_bounce\",\n    \"session_source\",\n    \"session_result\",\n    \"executed_workflow\"\n  ],\n  \"formal_verification_by_reviewer\": false,\n  \"frozen_files_checked\": 2638,\n  \"human_approval\": false,\n  \"independent_local_recount\": false,\n  \"local_heavy_computation\": false,\n  \"logs_sha256\": \"add1273208ccbc7c58a9da2482db34fc5a70fbb5613f63e756643b334b160cab\",\n  \"phases\": [\n    \"build\",\n    \"contracts\",\n    \"native\",\n    \"counts\",\n    \"full\"\n  ],\n  \"repository_import_files_checked\": 115,\n  \"run_id\": 39780889172,\n  \"saved_corruption_controls\": 27,\n  \"saved_full_rows\": 4823486,\n  \"saved_source_cases\": 202100,\n  \"schema\": \"chess-goal-selective-metadata-receipt-v1\",\n  \"source_manifest_sha256\": \"a2864bbaf8b9f444c51f454e470ed879bea93d842154a01bbce0cc835553582f\",\n  \"status\": \"passed\",\n  \"unique_commands\": 20,\n  \"workflow_commit\": \"965a568c124b28a48d6a1926d99a0f8496e30718\"\n}\nSelective sealed evidence controls passed\n",
+  "elapsed_seconds": 5.334499125,
+  "scope": "Parent local saved metadata and byte hashes only; no machine recount, model, or proof execution"
+}

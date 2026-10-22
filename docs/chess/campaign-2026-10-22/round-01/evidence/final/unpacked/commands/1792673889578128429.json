@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-goal-20261022/UnpaidReturns.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "/home/runner/work/cryptids/cryptids/.lake/chess-goal-20261022/UnpaidReturns.lean:3:55: error: Tactic `decide` proved that the proposition\n  573802 = 533341\nis false\n",
+  "output_sha256": "80e77c0c8bf43da121372084431182792cb099125a62209180c5912c317a8e4c",
+  "timed_out": false,
+  "timeout_seconds": 300,
+  "elapsed_seconds": 2.9934603359999983,
+  "cumulative_children_peak_rss_kib": 4460040
+}

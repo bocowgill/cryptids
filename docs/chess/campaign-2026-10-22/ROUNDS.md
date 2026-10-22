@@ -3,12 +3,15 @@
 | Round | Mechanism | State | Accepted full count |
 |---|---|---|---:|
 | Baseline | Reverse paid initializer and packed field body | accepted, sealed | 2,904,623 |
-| 01 | Selective binary return controls / fused write-move | source investigation | pending |
+| 01 | Selective binary return controls | accepted, sealed | 2,411,743 |
 
 Preserve failure witnesses and exact remote receipts. Partial improvements are not
 accepted full machines. Continue beyond successful rounds until usage limits stop
 work; checkpoint often and before any expensive or uncertain step.
 
-Round01 remote census39775667430 passed: full proposed2411743, savings492880;
-40461 exact write destinations = structural root/write-child/halt allocation.
-This count is unaccepted pending universal Lean and native full-machine evidence.
+Round 01 saves 492,880 states. Successful remote run39780889172 iteration4 at
+2dfa3a7656de3f15a0bbda387d6f0642328e6d08 includes the universal Lean theorem,
+all4,823,486actual rows,202,100sourcecases,27corruptions,audits and regressions.
+Fresh complete advisory and parent sealed replay with41metadata controls passed.
+The next route is a three-bit initializer seed and certified fixed expander;
+its symbolic count and remaining proof obligations are in round-01/NEXT-INITIALIZER.md.

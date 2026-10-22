@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_goal_20261022/fixtures.py"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "Selective independent fixtures passed: 202100 source cases; 3675882 complete actual prefix rows; 1147604 complete actual body rows; 80866 actual native rows; 27 rejected mutations\n",
+  "output_sha256": "f843f20e338fa7f6871c9f8af732c60a149ffc77fd3343a7ce52cd1b165c1d15",
+  "timed_out": false,
+  "timeout_seconds": 1200,
+  "elapsed_seconds": 33.378347977999965,
+  "cumulative_children_peak_rss_kib": 4460040
+}

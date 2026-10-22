@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "lake",
+    "--wfail",
+    "-f",
+    "lakefile.chess-goal-20261022.toml",
+    "build",
+    "Cryptids.Semantics.ChessFieldSelective",
+    "chess_goal_audit",
+    "chess_goal_export"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "\u2139 [3910/3944] Replayed Cryptids.Chess.Compilation.SourceCertificate\ninfo: Cryptids/Chess/Compilation/SourceCertificate.lean:226:0: Source certificate: 7076 checked lemmas, 7037 cache hits\ninfo: Cryptids/Chess/Compilation/SourceCertificate.lean:230:0: Literal row certificate: 5952 checked rows in 186 chunks\n\u2139 [3919/3944] Replayed Cryptids.Chess.Compilation.Input\ninfo: Cryptids/Chess/Compilation/Input.lean:128:0: Checked 186 literal row chunks: 141042 stack symbols\n\u2714 [7866/7868] Built scripts.chess_goal_20261022.Export (3.2s)\n\u2714 [7867/7868] Built scripts.chess_goal_20261022.Export:c.o (1.3s)\n\u2714 [7868/7868] Built chess_goal_export:exe (3.5s)\nBuild completed successfully (7868 jobs).\n",
+  "output_sha256": "80bdebb0e7e2586b03270cc1d3327ffdbc94e51fd2d89685079482345c38b342",
+  "timed_out": false,
+  "timeout_seconds": 1800,
+  "elapsed_seconds": 11.407803195000042,
+  "cumulative_children_peak_rss_kib": 4460040
+}
