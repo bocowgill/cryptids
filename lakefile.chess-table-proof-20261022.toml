@@ -33,3 +33,7 @@ name = "BusyBeaver"
 [[lean_lib]]
 name = "BusyBeaverChallenge"
 
+[[lean_exe]]
+name = "chess_table_controller_export"
+root = "scripts.chess_table_seed_20261022.ControllerExport"
+

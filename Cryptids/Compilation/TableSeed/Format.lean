@@ -56,7 +56,7 @@ theorem numCast_bit (bit : Bool) (value : Nat) :
     ((Nat.bit bit value : Nat) : Num) = cond bit Num.bit1 Num.bit0 (value : Num) := by
   simpa only [Num.ofNat'_eq] using Num.ofNat'_bit bit value
 
-/-- A new most-significant prefix bit is prepended to the original low-bit-first word. -/
+/-- Extending an MSB-read prefix prepends its new low bit to the original word. -/
 theorem W_bit (bit : Bool) (value : Nat) (guard : value ≠ 0 ∨ bit = true) :
     W (Nat.bit bit value) = bitLetter bit :: W value := by
   have numGuard : (value : Num) ≠ 0 ∨ bit = true := by
@@ -71,6 +71,18 @@ theorem W_bit (bit : Bool) (value : Nat) (guard : value ≠ 0 ∨ bit = true) :
 
 /-- Reading a leading zero retains the canonical zero word. -/
 theorem W_leading_zero : W (Nat.bit false 0) = W 0 := rfl
+
+/-- The stable output invariant after a consumed operand bit and its optional emission. -/
+theorem W_prefix_step (value : Nat) (bit : Bool) (base : List Letter) :
+    W (Nat.bit bit value) ++ base =
+      if value = 0 ∧ bit = false then W value ++ base
+      else bitLetter bit :: (W value ++ base) := by
+  by_cases skip : value = 0 ∧ bit = false
+  · rcases skip with ⟨rfl, rfl⟩
+    rfl
+  · have guard : value ≠ 0 ∨ bit = true := by
+      cases bit <;> simp_all
+    rw [if_neg skip, W_bit bit value guard, List.cons_append]
 
 /-- A Boolean digit as a physical binary symbol. -/
 def bitValue (bit : Bool) : Bit := if bit then 1 else 0
@@ -113,6 +125,22 @@ theorem fixedBits_value (width value : Nat) (bound : value < 2 ^ width) :
     simp only [readValue, List.foldl_cons, List.foldl_nil, bitValue_decide]
     exact Nat.bit_bodd_div2 value
 
+theorem half_testBit (value position : Nat) :
+    (value / 2).testBit position = value.testBit (position + 1) := by
+  cases value using Nat.bitCasesOn with
+  | bit bit value => simp only [Nat.bit_div_two, Nat.testBit_bit_succ]
+
+/-- The next physical bit has the highest remaining significance. -/
+theorem fixedBits_head (width value : Nat) :
+    fixedBits (width + 1) value = bitValue (value.testBit width) :: fixedBits width value := by
+  induction width generalizing value with
+  | zero => rfl
+  | succ width ih =>
+    change (fixedBits (width + 1) (value / 2) ++ [bitValue (Nat.bodd value)]) =
+      bitValue (value.testBit (width + 1)) ::
+        (fixedBits width (value / 2) ++ [bitValue (Nat.bodd value)])
+    rw [ih, List.cons_append, half_testBit]
+
 /-- Row tags use the opposite order from the fixed-width operands. -/
 def tagBits (tag : Fin 7) : List Bit := (fixedBits 3 tag.val).reverse
 
@@ -137,5 +165,61 @@ def packet (pre : List Letter) (rows : List Row) (post : List Letter) : List Bit
 /-- Original row order and the original mandatory table/argument separator. -/
 def letters (pre : List Letter) (rows : List Row) (post : List Letter) : List Letter :=
   pre ++ rows.flatMap rowLetters ++ [separatorLetter] ++ post
+
+theorem rowLetters_eq_trList (row : Row) :
+    rowLetters row = (trList [row.tag.val, row.left.val, row.right.val]).map Seed.ofSymbol := by
+  simp only [rowLetters, W, trList, List.map_append, List.map_cons, List.map_nil,
+    List.append_nil, List.append_assoc, List.cons_append]
+
+/-- Prepending blocks while reading reversed rows restores their original order. -/
+theorem prepend_blocks_reverse {α : Type} (values : List α) (block : α → List Letter)
+    (base : List Letter) :
+    values.reverse.foldl (fun out value ↦ block value ++ out) base =
+      values.flatMap block ++ base := by
+  induction values with
+  | nil => rfl
+  | cons value values ih =>
+    simp only [List.reverse_cons, List.foldl_append, List.foldl_cons, List.foldl_nil, ih,
+      List.flatMap_cons, List.append_assoc]
+
+theorem rows_reverse (rows : List Row) (base : List Letter) :
+    rows.reverse.foldl (fun out row ↦ rowLetters row ++ out) base =
+      rows.flatMap rowLetters ++ base :=
+  prepend_blocks_reverse rows rowLetters base
+
+/-- Prepending reversed literal phases restores their original order. -/
+theorem literals_reverse (values base : List Letter) :
+    values.reverse.foldl (fun out letter ↦ letter :: out) base = values ++ base := by
+  induction values with
+  | nil => rfl
+  | cons value values ih =>
+    simp only [List.reverse_cons, List.foldl_append, List.foldl_cons, List.foldl_nil, ih,
+      List.cons_append]
+
+@[simp] theorem tagBits_length (tag : Fin 7) : (tagBits tag).length = 3 := by
+  simp only [tagBits, List.length_reverse, fixedBits_length]
+
+@[simp] theorem fieldBits_length (value : Fin 8192) : (fieldBits value).length = 13 :=
+  fixedBits_length 13 value.val
+
+@[simp] theorem rowBits_length (row : Row) : (rowBits row).length = 29 := by
+  simp only [rowBits, List.length_append, tagBits_length, fieldBits_length]
+
+@[simp] theorem header_length : header.length = 13 := rfl
+
+theorem rowsBits_length (rows : List Row) : (rows.flatMap rowBits).length = 29 * rows.length := by
+  induction rows with
+  | nil => rfl
+  | cons row rows ih =>
+    simp only [List.flatMap_cons, List.length_append, rowBits_length, ih, List.length_cons]
+    omega
+
+theorem packet_length (pre : List Letter) (rows : List Row) (post : List Letter) :
+    (packet pre rows post).length = 22 + 3 * (pre.length + post.length) + 29 * rows.length := by
+  simp only [packet, List.length_append, header_length, Seed.payload_length,
+    List.length_reverse, List.length_cons, List.length_nil, rowsBits_length]
+  omega
+
+@[simp] theorem letters_empty : letters [] [] [] = [separatorLetter] := rfl
 
 end ConjectureMachines.Compilation.TableSeed

@@ -4,6 +4,7 @@ import argparse
 import importlib.util
 import json
 import os
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -39,7 +40,8 @@ def main():
     for name, digest in pins.items():
         assert runner.sha(ROOT / name) == digest, 'Accepted bytes changed: ' + name
     paths = [pin_path, '.github/workflows/chess_table_proof_20261022.yml',
-             'lakefile.chess-table-proof-20261022.toml']
+             'lakefile.chess-table-proof-20261022.toml',
+             'docs/chess/campaign-2026-10-22/round-04/evidence/controller-01/unpacked/controller.json']
     for directory in ['scripts/chess_table_seed_20261022', 'Cryptids/Compilation/TableSeed']:
         paths.extend(str(p.relative_to(ROOT)) for p in (ROOT / directory).glob('*')
                      if p.is_file() and p.suffix in ('.py', '.lean'))
@@ -55,10 +57,22 @@ def main():
     targets = TARGETS[args.target]
     if isinstance(targets, str):
         targets = [targets]
+    if args.target == 'controller':
+        targets = targets + ['chess_table_controller_export']
     command = ['lake', '--wfail', '-f', 'lakefile.chess-table-proof-20261022.toml',
                'build'] + targets
-    check = runner.run(command, 'Build completed successfully', timeout=1200)
-    report = dict(manifest, status='passed', target=args.target, checks=[check],
+    checks = [runner.run(command, 'Build completed successfully', timeout=1200)]
+    detail = None
+    if args.target == 'controller':
+        checks.append(runner.run(['lake', 'env', str(ROOT / '.lake/build/bin/chess_table_controller_export'),
+                                  str(WORK / 'controller-lean.json')],
+                                 'Table seed actual controller export passed', timeout=300))
+        checks.append(runner.run([sys.executable, 'scripts/chess_table_seed_20261022/controller_compare.py'],
+                                 'Table seed actual controller comparison passed', timeout=300))
+        detail = json.loads((WORK / 'controller-compare.json').read_text())
+        assert detail['status'] == 'passed' and detail['complete_row_equality'] is True
+        assert detail['universal_proof'] is False and detail['new_accepted_machine'] is False
+    report = dict(manifest, status='passed', target=args.target, checks=checks, detail=detail,
                   scope='Focused strict named Lean build only; universal/full-machine gates remain separate',
                   new_accepted_machine=False)
     (WORK / (args.target + '.json')).write_text(json.dumps(report, indent=2) + '\n')

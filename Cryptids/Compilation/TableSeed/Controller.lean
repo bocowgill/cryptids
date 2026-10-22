@@ -85,12 +85,12 @@ inductive Control where
   | error
   deriving DecidableEq, Fintype
 
-private abbrev Layout :=
+abbrev Layout :=
   Fin 7 ⊕ (Fin 2 × Fin 189) ⊕ Fin 35 ⊕ (Fin 7 × Fin 7) ⊕
     Fin 2289 ⊕ Fin 2324 ⊕ Fin 2359 ⊕ Fin 2359 ⊕ Fin 2394 ⊕ Fin 2394 ⊕ Fin 2394 ⊕
     (Fin 583 × Fin 8) ⊕ Fin 34 ⊕ Fin 1 ⊕ Fin 1
 
-private def toLayout : Control → Layout
+def toLayout : Control → Layout
   | .entry i => .inl i
   | .literal p i => .inr (.inl (p, i))
   | .delimiter i => .inr (.inr (.inl i))
@@ -103,17 +103,19 @@ private def toLayout : Control → Layout
   | .row5 i => .inr (.inr (.inr (.inr (.inr (.inr (.inr (.inr (.inr (.inl i)))))))))
   | .row6 i => .inr (.inr (.inr (.inr (.inr (.inr (.inr (.inr (.inr (.inr (.inl i))))))))))
   | .consume d i =>
-    .inr (.inr (.inr (.inr (.inr (.inr (.inr (.inr (.inr (.inr (.inr (.inl (d, i)))))))))))
+    .inr <| .inr <| .inr <| .inr <| .inr <| .inr <| .inr <|
+      .inr <| .inr <| .inr <| .inr <| .inl (d, i)
   | .finish i =>
-    .inr (.inr (.inr (.inr (.inr (.inr (.inr (.inr (.inr (.inr (.inr (.inr (.inl i))))))))))))
+    .inr <| .inr <| .inr <| .inr <| .inr <| .inr <| .inr <|
+      .inr <| .inr <| .inr <| .inr <| .inr <| .inl i
   | .done =>
-    .inr (.inr (.inr (.inr (.inr (.inr (.inr
-      (.inr (.inr (.inr (.inr (.inr (.inr (.inl 0)))))))))))))
+    .inr <| .inr <| .inr <| .inr <| .inr <| .inr <| .inr <|
+      .inr <| .inr <| .inr <| .inr <| .inr <| .inr <| .inl 0
   | .error =>
-    .inr (.inr (.inr (.inr (.inr (.inr (.inr
-      (.inr (.inr (.inr (.inr (.inr (.inr (.inr 0)))))))))))))
+    .inr <| .inr <| .inr <| .inr <| .inr <| .inr <| .inr <|
+      .inr <| .inr <| .inr <| .inr <| .inr <| .inr <| .inr 0
 
-private def fromLayout : Layout → Control :=
+def fromLayout : Layout → Control :=
   Sum.elim .entry <| Sum.elim (fun (p, i) ↦ .literal p i) <|
     Sum.elim .delimiter <| Sum.elim (fun (p, i) ↦ .tag p i) <|
     Sum.elim .row0 <| Sum.elim .row1 <| Sum.elim .row2 <| Sum.elim .row3 <|
@@ -121,7 +123,7 @@ private def fromLayout : Layout → Control :=
     Sum.elim (fun (d, i) ↦ .consume d i) <| Sum.elim .finish <|
     Sum.elim (fun _ ↦ .done) (fun _ ↦ .error)
 
-private def layoutEquiv : Control ≃ Layout where
+def layoutEquiv : Control ≃ Layout where
   toFun := toLayout
   invFun := fromLayout
   left_inv control := by cases control <;> rfl
@@ -156,10 +158,10 @@ private def layoutEquiv : Control ≃ Layout where
     · fin_cases i; rfl
     · fin_cases i; rfl
 
-private def joinCode {α β : Type} {m n : Nat} (a : α ≃ Fin m) (b : β ≃ Fin n) :
+def joinCode {α β : Type} {m n : Nat} (a : α ≃ Fin m) (b : β ≃ Fin n) :
     α ⊕ β ≃ Fin (m + n) := (Equiv.sumCongr a b).trans finSumFinEquiv
 
-private def layoutCode : Layout ≃ Fin 21682 :=
+def layoutCode : Layout ≃ Fin 21682 :=
   joinCode (Equiv.refl _) <| joinCode finProdFinEquiv <|
     joinCode (Equiv.refl _) <| joinCode finProdFinEquiv <|
     joinCode (Equiv.refl _) <| joinCode (Equiv.refl _) <|
@@ -203,7 +205,8 @@ def tagControl (tag : Fin 7) (index : Nat) (bound : index < tagSize tag) : Contr
   | 3 => .row3 ⟨index, by simpa [tagSize, h] using bound⟩
   | 4 => .row4 ⟨index, by simpa [tagSize, h] using bound⟩
   | 5 => .row5 ⟨index, by simpa [tagSize, h] using bound⟩
-  | _ => .row6 ⟨index, by simpa [tagSize, h] using bound⟩
+  | 6 => .row6 ⟨index, by simpa [tagSize, h] using bound⟩
+  | n + 7 => False.elim (by have := tag.isLt; omega)
 
 def boolIndex (bit : Bool) : Nat := if bit then 1 else 0
 
@@ -312,14 +315,14 @@ def consumeEntry (destination : ConsumeDest) : Entry :=
 def consumeState (destination : ConsumeDest) (position : Fin 8) : Control :=
   .consume destination position
 
-private def literalParserDest (phase : Fin 2) (parser : Fin 6) : ConsumeDest :=
+def literalParserDest (phase : Fin 2) (parser : Fin 6) : ConsumeDest :=
   if phase = 0 then ConsumeDest.postParser parser
   else ConsumeDest.preParser ⟨parser.val + 1, by omega⟩
 
-private def literalLetterDest (phase : Fin 2) (letter : Letter) : ConsumeDest :=
+def literalLetterDest (phase : Fin 2) (letter : Letter) : ConsumeDest :=
   if phase = 0 then ConsumeDest.postLetter letter else ConsumeDest.preLetter letter
 
-private def literalStopDest (phase : Fin 2) : ConsumeDest :=
+def literalStopDest (phase : Fin 2) : ConsumeDest :=
   if phase = 0 then ConsumeDest.delimiter else ConsumeDest.finish
 
 /-- Every read branch first selects one of the actual paid shared consume blocks. -/
@@ -467,7 +470,9 @@ def tagRow (tag : Fin 7) (position : Fin (tagSize tag)) (bit : Bit) :
   else if h : i < 2289 then emitRow (.tagCons tag) ⟨i - 2254, by omega⟩ bit
   else
     emitRow (.tagBit tag ⟨(i - 2289) / 35,
-      by have bound := position.isLt; rw [tagSize_eq] at bound; omega⟩)
+      by have bound : i < 2289 + 35 * tagWidth tag :=
+           by simpa only [tagSize_eq] using position.isLt
+         omega⟩)
       ⟨(i - 2289) % 35, Nat.mod_lt _ (by decide)⟩ bit
 
 /-- Every paid physical position has both rows; only the designated done rows are absent. -/
