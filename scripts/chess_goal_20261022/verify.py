@@ -133,6 +133,7 @@ def main():
                  'Cryptids/Semantics/ChessFieldSelective.lean']:
         paths.extend(str(p.relative_to(ROOT)) for p in ROOT.glob(glob) if p.is_file())
     manifest = dict(commit=os.environ.get('GITHUB_SHA'), run_id=os.environ.get('GITHUB_RUN_ID'),
+                    workflow_commit=os.environ.get('CHESS_WORKFLOW_SHA', os.environ.get('GITHUB_SHA')),
                     source_sha256={p: runner.sha(ROOT / p) for p in sorted(set(paths))},
                     frozen_source_sha256=pins)
     (WORK / 'source-manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')

@@ -96,7 +96,10 @@ theorem rows [NeZero q] (M : TM0.Machine Bool (Fin q))
     LocalCertificate.Rows (compile M returnAt findReturn) (Binary.compile M) (decode returnAt) := by
   intro s a
   refine Fin.addCases (fun i ↦ ?_) (fun k ↦ ?_) s
-  · rw [decode_main, compile_main, Binary.compile_main]
+  · change ((compile M returnAt findReturn).transition (mainState i) a).map
+        (fun (b, d, next) ↦ (b, d, decode returnAt next)) =
+      (Binary.compile M).transition (decode returnAt (mainState i)) a
+    rw [decode_main, compile_main, Binary.compile_main]
     cases row : M i (Binary.decodeSymbol a) with
     | none => rfl
     | some instruction =>
@@ -111,7 +114,10 @@ theorem rows [NeZero q] (M : TM0.Machine Bool (Fin q))
           have destination : returnAt k = j := by
             simpa only [found, Option.map_some, Option.some.injEq] using covered
           simp only [Option.bind_some, found, Option.map_some, decode_bounce, destination]
-  · simp only [compile_bounce, Option.map_some, decode_main, decode_bounce,
+  · change ((compile M returnAt findReturn).transition (bounceState k) a).map
+        (fun (b, d, next) ↦ (b, d, decode returnAt next)) =
+      (Binary.compile M).transition (decode returnAt (bounceState k)) a
+    simp only [compile_bounce, Option.map_some, decode_main, decode_bounce,
       Binary.compile_bounce]
 
 /-- Exact one-step agreement retains the entire tape and its head position. -/
@@ -197,7 +203,10 @@ theorem table_compile [NeZero q] (M : TM0.Machine Bool (Fin q))
   change (table returnAt findReturn (Binary.compile M)).transition s a =
     (compile M returnAt findReturn).transition s a
   refine Fin.addCases (fun i ↦ ?_) (fun k ↦ ?_) s
-  · simp only [table, decode_main, Binary.compile_main, compile_main]
+  · change ((Binary.compile M).transition (decode returnAt (mainState i)) a).bind
+        (fun (b, d, next) ↦ (remap findReturn next).map fun target ↦ (b, d, target)) =
+      (compile M returnAt findReturn).transition (mainState i) a
+    rw [decode_main, Binary.compile_main, compile_main]
     cases row : M i (Binary.decodeSymbol a) with
     | none => rfl
     | some instruction =>
@@ -207,7 +216,10 @@ theorem table_compile [NeZero q] (M : TM0.Machine Bool (Fin q))
       | write b =>
         simp only [Option.map_some, Option.bind_some, remap_bounce]
         cases findReturn j <;> rfl
-  · simp only [table, decode_bounce, Binary.compile_bounce, Option.bind_some,
+  · change ((Binary.compile M).transition (decode returnAt (bounceState k)) a).bind
+        (fun (b, d, next) ↦ (remap findReturn next).map fun target ↦ (b, d, target)) =
+      (compile M returnAt findReturn).transition (bounceState k) a
+    simp only [decode_bounce, Binary.compile_bounce, Option.bind_some,
       remap_main, Option.map_some, compile_bounce]
 
 /-- Every main and listed return control is included; no other control is allocated. -/
