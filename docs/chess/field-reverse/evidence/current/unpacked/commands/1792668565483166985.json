@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_field_reverse/verify.py",
+    "--counts"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "Reverse field frozen inputs passed\nReverse field frozen inputs passed\nReverse full chess reduction passed\n",
+  "output_sha256": "3610284a2648c1f14905e494041b1bcc8cb1a581dfd1df1300295550c4b488a6",
+  "timed_out": false,
+  "timeout_seconds": 120,
+  "elapsed_seconds": 4.099407004,
+  "cumulative_children_peak_rss_kib": 4415428
+}

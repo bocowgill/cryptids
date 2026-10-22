@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-field-reverse/BadInitializer.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "/home/runner/work/cryptids/cryptids/.lake/chess-field-reverse/BadInitializer.lean:3:59: error: Tactic `decide` proved that the proposition\n  1837941 = 3675880\nis false\n",
+  "output_sha256": "f55fdd7e172058420a772e85e87ac1e7adc67900b636295993c92f31d9ce0deb",
+  "timed_out": false,
+  "timeout_seconds": 300,
+  "elapsed_seconds": 4.060422969000001,
+  "cumulative_children_peak_rss_kib": 4413224
+}

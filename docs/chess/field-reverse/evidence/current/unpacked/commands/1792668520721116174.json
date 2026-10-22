@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_field_reverse/fixtures.py"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "Reverse independent fixtures passed: 202100 source cases; 3675882 complete actual prefix rows; 2133364 complete actual body rows; 80866 actual native rows; 16 rejected mutations\n",
+  "output_sha256": "a46a4d3670f3f96ea3e5c07244637a0fc55409427d2287d8e287ebe564315540",
+  "timed_out": false,
+  "timeout_seconds": 900,
+  "elapsed_seconds": 41.282381249000025,
+  "cumulative_children_peak_rss_kib": 4415428
+}

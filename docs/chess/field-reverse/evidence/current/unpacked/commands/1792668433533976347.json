@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-field-reverse/MissingTurn.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "/home/runner/work/cryptids/cryptids/.lake/chess-field-reverse/MissingTurn.lean:3:72: error: Tactic `decide` proved that the proposition\n  1837941 = 1837940\nis false\n",
+  "output_sha256": "e05306971fb55dbb8f99a907f7c59209231f4bfcffe9050d243df13fdded86b9",
+  "timed_out": false,
+  "timeout_seconds": 300,
+  "elapsed_seconds": 4.056735161999995,
+  "cumulative_children_peak_rss_kib": 4413680
+}

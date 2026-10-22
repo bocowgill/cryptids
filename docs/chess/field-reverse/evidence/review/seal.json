@@ -1,0 +1,22 @@
+{
+  "computation_commit": "9d51a19a9a098d17d48a6f37ba1afe96080c80ce",
+  "formal_verification_by_reviewer": false,
+  "human_approval": false,
+  "local_heavy_computation": false,
+  "review_files_sha256": {
+    "check_saved_evidence.py": "fecaa8f67c762ef45e8c6c63025265e498daf734c3d2549980fec9beddaff796",
+    "construction-binding.json": "40e56caf36d6357429a50e975e989bcf2d675e57f7f2bd23a893f7640ad9495f",
+    "receipt.json": "866593a0df8752b03564f9279e39637035d7bf8392c45a3b7b560dcbfb818a47",
+    "review.json": "c65de4317e69cb653cd56fbaf285e268e508958cbad87931ae147a63756a7717",
+    "review.md": "3f26d586ddcec54e5667ba9442df448ed6d189231698881a6b77266bd3b27367"
+  },
+  "review_gates": {
+    "R1": "passed",
+    "R2": "passed"
+  },
+  "review_kind": "independent-model-advisory",
+  "run_id": 39770155131,
+  "schema": "chess-field-reverse-review-v1",
+  "seal_limit": "Detects changes relative to this reviewed snapshot; not a GitHub signature, independent attestation or human approval.",
+  "status": "passed"
+}

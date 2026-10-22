@@ -1,7 +1,24 @@
-# Shorter paid initializer campaign
+# Shorter paid initializer
 
-Target: a complete certified binary blank-tape chess machine below4,742,562states by reducing its3,675,880-state initializer. All previous2,550tracked files are pinned and unchanged. The frozen chess specification, complete body, input bits and codec remain fixed. No outreach. All substantive proof, native, fixture, simulation and count work runs remotely.
+The complete binary blank-tape chess machine now has **2,904,623 states**, saving
+**1,837,939** from the accepted 4,742,562-state machine. Its initializer costs
+1,837,941 states rather than 3,675,880; the complete 1,066,682-state body is fixed.
+The original halting equivalence is proved in Lean. This does not decide chess.
 
-The route instantiates the already verified reverse writer on the current complete field-packed body. Its nleftward writes followed by1rightward step cost n+1states, rather than2n. The relative tape at body entry must be exactly the same original input, including blank exterior. Physical position is allowed to translate on the initially blank tape; the report must not claim original physical-head restoration.
+The initializer writes the frozen bits in reverse order while moving left, then
+pays one final rightward step. Its resulting relative tape is exactly the frozen
+body's input, including the blank exterior. The physical head moves to a new
+coordinate on the initially blank tape; no original-coordinate restoration is
+claimed or required by the formal tape model.
 
-Candidate arithmetic:1,837,941initializer states plus1,066,682body states gives2,904,623total, saving1,837,939. This is a candidate until full Lean and independent remote validation pass. Native validation will read both symbols at every actual prefix and body state, replay the complete initializer, compare original source cases and reject deliberate corruptions. Final acceptance requires a fresh advisory and sealed evidence replay.
+[RESULTS.md](RESULTS.md) records every state, exact proof names and remote checks.
+[CONSTRUCTION.md](CONSTRUCTION.md) explains the tape and proof composition.
+[RESUME.md](RESUME.md) gives the reproducible handoff.
+
+Remote run [39770155131](https://github.com/bocowgill/cryptids/actions/runs/39770155131)
+passed the strict Lean build, foundation audit, complete actual transition export,
+independent fixtures, complete initializer replay, negative controls and prior
+regressions. The official packet is retained in `evidence/current/` with its exact
+computation commit and all command receipts. All 2,550 previous tracked files,
+including the frozen specification, body, input and toolchain, remain pinned and
+unchanged. Heavy computation stayed remote. Outreach remains on hold.

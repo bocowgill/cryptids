@@ -1,0 +1,228 @@
+{
+  "schema": "chess-field-reverse-parent-replay-v1",
+  "status": "passed",
+  "run_id": 39770155131,
+  "computation_commit": "9d51a19a9a098d17d48a6f37ba1afe96080c80ce",
+  "authority": "parent metadata replay of independent-model advisory and official saved remote computation",
+  "formal_verification_by_reviewer": false,
+  "human_approval": false,
+  "metadata_only": true,
+  "local_heavy_computation": false,
+  "promoted_byte_identically": true,
+  "review_files_sha256": {
+    "check_saved_evidence.py": "fecaa8f67c762ef45e8c6c63025265e498daf734c3d2549980fec9beddaff796",
+    "construction-binding.json": "40e56caf36d6357429a50e975e989bcf2d675e57f7f2bd23a893f7640ad9495f",
+    "receipt.json": "866593a0df8752b03564f9279e39637035d7bf8392c45a3b7b560dcbfb818a47",
+    "review.json": "c65de4317e69cb653cd56fbaf285e268e508958cbad87931ae147a63756a7717",
+    "review.md": "3f26d586ddcec54e5667ba9442df448ed6d189231698881a6b77266bd3b27367",
+    "seal.json": "5c6327b5bc520a16fa54670d52a7c39fd5224583fe5c6f66dc737d760a4ece0b"
+  },
+  "checks": [
+    {
+      "label": "promoted-positive",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/bocowgill/.codex/worktrees/6ba9/cryptids/docs/chess/field-reverse/evidence/review/check_saved_evidence.py"
+      ],
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": false,
+      "exit": 0,
+      "expected_exit": 0,
+      "token": "Reverse sealed evidence review passed",
+      "matched": true,
+      "output": "{\n  \"artifact_entries\": 43,\n  \"artifact_sha256\": \"af9be877f50483ad27d6b82172853a2cb9a5cd62c9fb378aface0eee54355295\",\n  \"body_rows_bytes\": 57122148,\n  \"body_rows_sha256\": \"64337bda276a0b178e29318f7d7023b504adee4a1c1438465b416130cb111b65\",\n  \"claim\": {\n    \"absolute_head_restored\": false,\n    \"actual_graph_nodes\": 106668,\n    \"all_actual_source_nodes_preserved\": true,\n    \"all_controls_and_input_paid\": true,\n    \"blank_tape\": true,\n    \"body_entry_relative_tape\": \"Tape.mk\\u2081 FieldPacked.bits.toList\",\n    \"body_states\": 1066682,\n    \"equivalent_machine\": \"Chess.Optimisation.FieldPacked.machine\",\n    \"formal_machine\": \"ConjectureMachines.Machines.chess_field_reverse\",\n    \"formal_theorem\": \"ConjectureMachines.Semantics.ChessFieldReverse.halts_iff_not_draw\",\n    \"frozen_body_and_input_unchanged\": true,\n    \"full_chess_machine_constructed\": true,\n    \"graph_padding_nodes\": 0,\n    \"initializer_states\": 1837941,\n    \"input_bits\": 1837940,\n    \"physical_frame_max\": 1,\n    \"physical_frame_min\": -1837940,\n    \"physical_head_at_body_entry\": -1837939,\n    \"post_states\": 533341,\n    \"previous_states\": 4742562,\n    \"saved_states\": 1837939,\n    \"source_cells\": 141380,\n    \"source_labels\": 4042,\n    \"statement\": \"Halts chess_field_reverse iff NOT (Chess.WhiteCanAvoidLoss AND Chess.BlackCanAvoidLoss)\",\n    \"states\": 2904623,\n    \"symbols\": 2,\n    \"unconditional_chess_equivalence\": true\n  },\n  \"computation_commit\": \"9d51a19a9a098d17d48a6f37ba1afe96080c80ce\",\n  \"development_runs_checked\": 2,\n  \"formal_verification_by_reviewer\": false,\n  \"frozen_files_checked\": 2550,\n  \"human_approval\": false,\n  \"local_heavy_computation\": false,\n  \"logs_sha256\": \"d3b2078b1a62a5c3b099970d1056e86848d3e53576d65bfeafa0df8bc0e3387b\",\n  \"machine_json_sha256\": \"3c9ad4e5c7c979e17d2a4e26ff0310fbaa27ab2aee6f948295650ca7a40a45a4\",\n  \"phase_receipt_entries\": 39,\n  \"phases\": [\n    \"machine\",\n    \"contracts\",\n    \"native\",\n    \"fixtures\",\n    \"regressions\",\n    \"counts\",\n    \"full\"\n  ],\n  \"prefix_rows_bytes\": 22055292,\n  \"prefix_rows_sha256\": \"4bc44375eca63e9ce739f000ccf9bfee4b41fcb138bf3102753fb59cd78511f1\",\n  \"repository_import_files_checked\": 110,\n  \"review_kind\": \"independent-model-advisory\",\n  \"run_id\": 39770155131,\n  \"saved_body_rows\": 2133364,\n  \"saved_full_rows\": 5809246,\n  \"saved_prefix_rows\": 3675882,\n  \"saved_source_cases\": 202100,\n  \"schema\": \"chess-field-reverse-review-v1\",\n  \"source_sha256\": {\n    \".github/workflows/chess_field_reverse.yml\": \"b0c9a410e04f4ed1b1a94a61d25bd3b185b2a64ba6e57fd3b6b6f834b799a674\",\n    \"Cryptids/Chess/Optimisation/FieldReverse.lean\": \"e32351e3fed416497866a77791b81bdd1e1428261f1da363850bad8f4a5870f2\",\n    \"Cryptids/Semantics/ChessFieldReverse.lean\": \"1f12a77e18505fdef3d13d19763c2bf6c4bc8c25901eef7dd9fa9756c3105ada\",\n    \"docs/chess/field-reverse/baseline-pins.json\": \"84bee6f8f6760ba4f20527d2489a20e3780f9498fe7d094eeaaf5fac44368518\",\n    \"lakefile.chess-field-reverse.toml\": \"49ba9a6867e74e1f8aa962097bbb1c081667ebc34c7d6a34c523115204f6e4f1\",\n    \"scripts/chess_field_reverse/Audit.lean\": \"6a9e950033e5b4cbd07908a829e584781e3cef50b174cd595bb4eb249652939b\",\n    \"scripts/chess_field_reverse/Export.lean\": \"8c29c1407513bf17097d09b1cb40ed71492d98d61628dc6a213d503f9ea82390\",\n    \"scripts/chess_field_reverse/fixtures.py\": \"3785426af6bdd685c950d398a8c9affe9a64bad827db393c4078a0ffd71792a0\",\n    \"scripts/chess_field_reverse/verify.py\": \"64ee0cd32deb908aaeef8e2bca9c85ca97a322a31f2f66063602d08ba096653d\"\n  },\n  \"status\": \"passed\",\n  \"unique_command_receipts\": 26\n}\nReverse sealed evidence review passed\n",
+      "output_sha256": "b7c06c54eebc51caa67aeadd63792c963425b7fb0f52fc899b16a745e43be463",
+      "elapsed_seconds": 1.277635625,
+      "timeout_seconds": 240
+    },
+    {
+      "label": "promoted-self-test",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/bocowgill/.codex/worktrees/6ba9/cryptids/docs/chess/field-reverse/evidence/review/check_saved_evidence.py",
+        "--self-test"
+      ],
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": false,
+      "exit": 0,
+      "expected_exit": 0,
+      "token": "Reverse sealed evidence controls passed",
+      "matched": true,
+      "output": "Reverse sealed evidence controls passed\n",
+      "output_sha256": "d944759b0954f75a7d6b551eb72b118a3185b9a4733c362826f617c3ae81d61d",
+      "elapsed_seconds": 6.675546625,
+      "timeout_seconds": 240
+    },
+    {
+      "label": "individual-source",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/bocowgill/.codex/worktrees/6ba9/cryptids/docs/chess/field-reverse/evidence/review/check_saved_evidence.py",
+        "--negative",
+        "source"
+      ],
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": false,
+      "exit": 1,
+      "expected_exit": 1,
+      "token": "Reverse sealed evidence rejected: phase source binding changed: machine",
+      "matched": true,
+      "output": "Reverse sealed evidence rejected: phase source binding changed: machine\n",
+      "output_sha256": "a754c62b886aacfcf87d5209d19328a5f9facd8c457959922d2ff918b1e9a3fd",
+      "elapsed_seconds": 1.0593651249999994,
+      "timeout_seconds": 240
+    },
+    {
+      "label": "individual-entry",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/bocowgill/.codex/worktrees/6ba9/cryptids/docs/chess/field-reverse/evidence/review/check_saved_evidence.py",
+        "--negative",
+        "entry"
+      ],
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": false,
+      "exit": 1,
+      "expected_exit": 1,
+      "token": "Reverse sealed evidence rejected: archive inventory digest changed",
+      "matched": true,
+      "output": "Reverse sealed evidence rejected: archive inventory digest changed\n",
+      "output_sha256": "ff9badc84a0076ab647412150c6c5b585d632f7f8c4fdff73bf7645228b865fd",
+      "elapsed_seconds": 1.0033686250000002,
+      "timeout_seconds": 240
+    },
+    {
+      "label": "individual-claim",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/bocowgill/.codex/worktrees/6ba9/cryptids/docs/chess/field-reverse/evidence/review/check_saved_evidence.py",
+        "--negative",
+        "claim"
+      ],
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": false,
+      "exit": 1,
+      "expected_exit": 1,
+      "token": "Reverse sealed evidence rejected: whole construction claim changed",
+      "matched": true,
+      "output": "Reverse sealed evidence rejected: whole construction claim changed\n",
+      "output_sha256": "96c3e8b2ef49d9a8b9ca2da45aca9033a7efefb34bb599b38f6857879b27aa19",
+      "elapsed_seconds": 0.03363241699999975,
+      "timeout_seconds": 240
+    },
+    {
+      "label": "individual-receipt",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/bocowgill/.codex/worktrees/6ba9/cryptids/docs/chess/field-reverse/evidence/review/check_saved_evidence.py",
+        "--negative",
+        "receipt"
+      ],
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": false,
+      "exit": 1,
+      "expected_exit": 1,
+      "token": "Reverse sealed evidence rejected: command argv/exit/token changed",
+      "matched": true,
+      "output": "Reverse sealed evidence rejected: command argv/exit/token changed: Build completed successfully\n",
+      "output_sha256": "4f8ec42dd50ac962f493dc75d2efa3030ab4c2b8fd3f3abddcf4e7fbe90c0bd4",
+      "elapsed_seconds": 1.003721917,
+      "timeout_seconds": 240
+    },
+    {
+      "label": "individual-missing-phase",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/bocowgill/.codex/worktrees/6ba9/cryptids/docs/chess/field-reverse/evidence/review/check_saved_evidence.py",
+        "--negative",
+        "missing-phase"
+      ],
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": false,
+      "exit": 1,
+      "expected_exit": 1,
+      "token": "Reverse sealed evidence rejected: seven phase inventory changed",
+      "matched": true,
+      "output": "Reverse sealed evidence rejected: seven phase inventory changed\n",
+      "output_sha256": "99ff481cb81429f23331b5fd9445b4a99b73db8d25c358373dc4867aa7b029ce",
+      "elapsed_seconds": 1.0307097919999997,
+      "timeout_seconds": 240
+    },
+    {
+      "label": "individual-seal",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/bocowgill/.codex/worktrees/6ba9/cryptids/docs/chess/field-reverse/evidence/review/check_saved_evidence.py",
+        "--negative",
+        "seal"
+      ],
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": false,
+      "exit": 1,
+      "expected_exit": 1,
+      "token": "Reverse sealed evidence rejected: seal file mismatch: check_saved_evidence.py",
+      "matched": true,
+      "output": "Reverse sealed evidence rejected: seal file mismatch: check_saved_evidence.py\n",
+      "output_sha256": "8d6a6ba68e064275217d5e703a05174bd628d72a836fcf78a01ff6e30b5ecf9a",
+      "elapsed_seconds": 0.031817375000001036,
+      "timeout_seconds": 240
+    },
+    {
+      "label": "copied-directory-positive",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/var/folders/x0/yprf51qx0bnfqznnx840nwbw0000gn/T/chess-reverse-parent-portability-ofy6e6fw/review/check_saved_evidence.py",
+        "--root",
+        "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+        "--evidence",
+        "/Users/bocowgill/.codex/worktrees/6ba9/cryptids/docs/chess/field-reverse/evidence/current"
+      ],
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": false,
+      "exit": 0,
+      "expected_exit": 0,
+      "token": "Reverse sealed evidence review passed",
+      "matched": true,
+      "output": "{\n  \"artifact_entries\": 43,\n  \"artifact_sha256\": \"af9be877f50483ad27d6b82172853a2cb9a5cd62c9fb378aface0eee54355295\",\n  \"body_rows_bytes\": 57122148,\n  \"body_rows_sha256\": \"64337bda276a0b178e29318f7d7023b504adee4a1c1438465b416130cb111b65\",\n  \"claim\": {\n    \"absolute_head_restored\": false,\n    \"actual_graph_nodes\": 106668,\n    \"all_actual_source_nodes_preserved\": true,\n    \"all_controls_and_input_paid\": true,\n    \"blank_tape\": true,\n    \"body_entry_relative_tape\": \"Tape.mk\\u2081 FieldPacked.bits.toList\",\n    \"body_states\": 1066682,\n    \"equivalent_machine\": \"Chess.Optimisation.FieldPacked.machine\",\n    \"formal_machine\": \"ConjectureMachines.Machines.chess_field_reverse\",\n    \"formal_theorem\": \"ConjectureMachines.Semantics.ChessFieldReverse.halts_iff_not_draw\",\n    \"frozen_body_and_input_unchanged\": true,\n    \"full_chess_machine_constructed\": true,\n    \"graph_padding_nodes\": 0,\n    \"initializer_states\": 1837941,\n    \"input_bits\": 1837940,\n    \"physical_frame_max\": 1,\n    \"physical_frame_min\": -1837940,\n    \"physical_head_at_body_entry\": -1837939,\n    \"post_states\": 533341,\n    \"previous_states\": 4742562,\n    \"saved_states\": 1837939,\n    \"source_cells\": 141380,\n    \"source_labels\": 4042,\n    \"statement\": \"Halts chess_field_reverse iff NOT (Chess.WhiteCanAvoidLoss AND Chess.BlackCanAvoidLoss)\",\n    \"states\": 2904623,\n    \"symbols\": 2,\n    \"unconditional_chess_equivalence\": true\n  },\n  \"computation_commit\": \"9d51a19a9a098d17d48a6f37ba1afe96080c80ce\",\n  \"development_runs_checked\": 2,\n  \"formal_verification_by_reviewer\": false,\n  \"frozen_files_checked\": 2550,\n  \"human_approval\": false,\n  \"local_heavy_computation\": false,\n  \"logs_sha256\": \"d3b2078b1a62a5c3b099970d1056e86848d3e53576d65bfeafa0df8bc0e3387b\",\n  \"machine_json_sha256\": \"3c9ad4e5c7c979e17d2a4e26ff0310fbaa27ab2aee6f948295650ca7a40a45a4\",\n  \"phase_receipt_entries\": 39,\n  \"phases\": [\n    \"machine\",\n    \"contracts\",\n    \"native\",\n    \"fixtures\",\n    \"regressions\",\n    \"counts\",\n    \"full\"\n  ],\n  \"prefix_rows_bytes\": 22055292,\n  \"prefix_rows_sha256\": \"4bc44375eca63e9ce739f000ccf9bfee4b41fcb138bf3102753fb59cd78511f1\",\n  \"repository_import_files_checked\": 110,\n  \"review_kind\": \"independent-model-advisory\",\n  \"run_id\": 39770155131,\n  \"saved_body_rows\": 2133364,\n  \"saved_full_rows\": 5809246,\n  \"saved_prefix_rows\": 3675882,\n  \"saved_source_cases\": 202100,\n  \"schema\": \"chess-field-reverse-review-v1\",\n  \"source_sha256\": {\n    \".github/workflows/chess_field_reverse.yml\": \"b0c9a410e04f4ed1b1a94a61d25bd3b185b2a64ba6e57fd3b6b6f834b799a674\",\n    \"Cryptids/Chess/Optimisation/FieldReverse.lean\": \"e32351e3fed416497866a77791b81bdd1e1428261f1da363850bad8f4a5870f2\",\n    \"Cryptids/Semantics/ChessFieldReverse.lean\": \"1f12a77e18505fdef3d13d19763c2bf6c4bc8c25901eef7dd9fa9756c3105ada\",\n    \"docs/chess/field-reverse/baseline-pins.json\": \"84bee6f8f6760ba4f20527d2489a20e3780f9498fe7d094eeaaf5fac44368518\",\n    \"lakefile.chess-field-reverse.toml\": \"49ba9a6867e74e1f8aa962097bbb1c081667ebc34c7d6a34c523115204f6e4f1\",\n    \"scripts/chess_field_reverse/Audit.lean\": \"6a9e950033e5b4cbd07908a829e584781e3cef50b174cd595bb4eb249652939b\",\n    \"scripts/chess_field_reverse/Export.lean\": \"8c29c1407513bf17097d09b1cb40ed71492d98d61628dc6a213d503f9ea82390\",\n    \"scripts/chess_field_reverse/fixtures.py\": \"3785426af6bdd685c950d398a8c9affe9a64bad827db393c4078a0ffd71792a0\",\n    \"scripts/chess_field_reverse/verify.py\": \"64ee0cd32deb908aaeef8e2bca9c85ca97a322a31f2f66063602d08ba096653d\"\n  },\n  \"status\": \"passed\",\n  \"unique_command_receipts\": 26\n}\nReverse sealed evidence review passed\n",
+      "output_sha256": "b7c06c54eebc51caa67aeadd63792c963425b7fb0f52fc899b16a745e43be463",
+      "elapsed_seconds": 1.2894425829999996,
+      "timeout_seconds": 240
+    },
+    {
+      "label": "prior-packed-self-test",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/bocowgill/.codex/worktrees/6ba9/cryptids/docs/chess/field-packed/evidence/review/check_saved_evidence.py",
+        "--self-test"
+      ],
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": false,
+      "exit": 0,
+      "expected_exit": 0,
+      "token": "Packed sealed evidence controls passed",
+      "matched": true,
+      "output": "Packed sealed evidence controls passed\n",
+      "output_sha256": "ae0b7b15a10dc84c7963823e0476c56bea43738c2c4d83ffb8fc018b655f5dc2",
+      "elapsed_seconds": 6.408310290999999,
+      "timeout_seconds": 240
+    },
+    {
+      "label": "frozen-inputs-metadata",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/bocowgill/.codex/worktrees/6ba9/cryptids/scripts/chess_field_reverse/verify.py",
+        "--metadata"
+      ],
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "shell": false,
+      "exit": 0,
+      "expected_exit": 0,
+      "token": "Reverse field frozen inputs passed",
+      "matched": true,
+      "output": "Reverse field frozen inputs passed\n",
+      "output_sha256": "394bd86500e4fc374c409b7829d7086c556fb27e0f7733ff954436e83b0a1e1e",
+      "elapsed_seconds": 0.8173454999999983,
+      "timeout_seconds": 240
+    }
+  ]
+}

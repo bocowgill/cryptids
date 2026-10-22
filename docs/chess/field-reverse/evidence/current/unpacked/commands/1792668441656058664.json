@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-field-reverse/BadSaving.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "/home/runner/work/cryptids/cryptids/.lake/chess-field-reverse/BadSaving.lean:3:127: error: Tactic `decide` proved that the proposition\n  4742562 - 2904623 = 1837940\nis false\n",
+  "output_sha256": "4cebdbcb47cc559bb05c541a9faf500f25bd300368397eed6c570207cc9816fa",
+  "timed_out": false,
+  "timeout_seconds": 300,
+  "elapsed_seconds": 4.047997245999966,
+  "cumulative_children_peak_rss_kib": 4415428
+}

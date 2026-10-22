@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "lake",
+    "--wfail",
+    "-f",
+    "lakefile.chess-field-reverse.toml",
+    "build",
+    "Cryptids.Semantics.ChessFieldReverse",
+    "chess_field_reverse_audit",
+    "chess_field_reverse_export"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "\u2139 [3908/3939] Replayed Cryptids.Chess.Compilation.SourceCertificate\ninfo: Cryptids/Chess/Compilation/SourceCertificate.lean:226:0: Source certificate: 7076 checked lemmas, 7037 cache hits\ninfo: Cryptids/Chess/Compilation/SourceCertificate.lean:230:0: Literal row certificate: 5952 checked rows in 186 chunks\n\u2139 [3919/3939] Replayed Cryptids.Chess.Compilation.Input\ninfo: Cryptids/Chess/Compilation/Input.lean:128:0: Checked 186 literal row chunks: 141042 stack symbols\n\u2714 [7856/7858] Built scripts.chess_field_reverse.Export (21s)\nBuild completed successfully (7858 jobs).\n",
+  "output_sha256": "ac1ca0390b34a515a3a5dfe183eea9ac608993b9410f8c235196e1dc5d6dd265",
+  "timed_out": false,
+  "timeout_seconds": 1800,
+  "elapsed_seconds": 28.307809682000027,
+  "cumulative_children_peak_rss_kib": 4399800
+}

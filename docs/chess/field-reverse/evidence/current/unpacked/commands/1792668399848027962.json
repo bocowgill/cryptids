@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_field_reverse/verify.py",
+    "--target",
+    "machine"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "\u2139 [3909/3934] Replayed Cryptids.Chess.Compilation.SourceCertificate\ninfo: Cryptids/Chess/Compilation/SourceCertificate.lean:226:0: Source certificate: 7076 checked lemmas, 7037 cache hits\ninfo: Cryptids/Chess/Compilation/SourceCertificate.lean:230:0: Literal row certificate: 5952 checked rows in 186 chunks\n\u2139 [3920/3934] Replayed Cryptids.Chess.Compilation.Input\ninfo: Cryptids/Chess/Compilation/Input.lean:128:0: Checked 186 literal row chunks: 141042 stack symbols\nBuild completed successfully (3934 jobs).\nReverse field frozen inputs passed\nReverse field frozen inputs passed\nReverse field machine passed\n",
+  "output_sha256": "f09178c44c19a157e3e7ea1e9886d54e5f32b069326142548209c3d7b26b9732",
+  "timed_out": false,
+  "timeout_seconds": 1800,
+  "elapsed_seconds": 9.57615480000004,
+  "cumulative_children_peak_rss_kib": 4399800
+}

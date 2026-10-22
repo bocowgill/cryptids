@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "prlimit",
+    "--as=17179869184",
+    "--",
+    "lake",
+    "env",
+    "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_field_reverse_audit"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "Audited 9093 FieldReverse foundation roots and 58758 dependencies\nMeta certificate generator roots outside safe roots: 0\nCompiler artifacts outside safe roots: #[ConjectureMachines.Compilation.FieldCompiler.emit._unsafe_rec, Chess.Optimisation.FieldPackedLayout.Block.ofTree._unsafe_rec, ConjectureMachines.Compilation.FieldCompiler.Codec.bitInput._unsafe_rec, ConjectureMachines.Compilation.FieldCompiler.Snapshot.Correct._unsafe_rec, ConjectureMachines.Compilation.FieldCompiler.Snapshot.project._unsafe_rec, ConjectureMachines.Compilation.FieldCompiler.Syntax.fastNodeAt._unsafe_rec, ConjectureMachines.Compilation.FieldCompiler.Syntax.meaning._unsafe_rec, ConjectureMachines.Compilation.FieldCompiler.Syntax.nodeAt._unsafe_rec, ConjectureMachines.Compilation.FieldCompiler.Syntax.size._unsafe_rec, ConjectureMachines.Compilation.FieldCompiler.Syntax.subAt._unsafe_rec]\nPermitted axioms: #[propext, Classical.choice, Quot.sound]\nChess FieldReverse foundation audit passed\n",
+  "output_sha256": "2baf727c1b06a0641d10342ea2cc1745142224e8dfb487f5b81135c1d709e6c5",
+  "timed_out": false,
+  "timeout_seconds": 600,
+  "elapsed_seconds": 4.985017988999971,
+  "cumulative_children_peak_rss_kib": 3955428
+}
