@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "lake",
+    "--wfail",
+    "-f",
+    "lakefile.chess-table-full-20261022.toml",
+    "build",
+    "Cryptids.Chess.Fixtures",
+    "Cryptids.Chess.Evaluation",
+    "Cryptids.Semantics.ChessFieldSelective",
+    "Cryptids.Semantics.ChessSeed",
+    "Cryptids.Compilation.FieldBranch.Certificate"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "\u2139 [3910/3934] Replayed Cryptids.Chess.Compilation.SourceCertificate\ninfo: Cryptids/Chess/Compilation/SourceCertificate.lean:226:0: Source certificate: 7076 checked lemmas, 7037 cache hits\ninfo: Cryptids/Chess/Compilation/SourceCertificate.lean:230:0: Literal row certificate: 5952 checked rows in 186 chunks\n\u2139 [3921/3934] Replayed Cryptids.Chess.Compilation.Input\ninfo: Cryptids/Chess/Compilation/Input.lean:128:0: Checked 186 literal row chunks: 141042 stack symbols\nBuild completed successfully (3952 jobs).\n",
+  "output_sha256": "05b51b561020833d27bad326109d2575a41d95378e89a1a5bd2f1ccda5f5b23f",
+  "timed_out": false,
+  "timeout_seconds": 1200,
+  "elapsed_seconds": 4.792573202000028,
+  "cumulative_children_peak_rss_kib": 4408620
+}

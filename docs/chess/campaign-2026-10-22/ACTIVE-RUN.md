@@ -10,10 +10,15 @@ The user's personal hard stop is16:25. Prefer an earlier useful stopping point.
 
 ## Remote jobs
 
-- `39829682430`: ACTIVE complete structured-machine acceptance at93389ce. Strict
+- `39830779431`: ACTIVE final complete structured-machine acceptance at1c8334a. Strict
   build, foundation audit/negative controls, actual full-row export, independent
   static input/writer/toy fixtures/corruptions, and M2–M7 regressions. Deadline60min;
   no full quadratic chess startup execution. All heavy work is remote.
+- `39830984315`: ACTIVE packed-Nat quotient trial10 atfe8656c; unchanged1200s/6GiB
+  driver cap. Complete range/fidelity audit added; all actual-row obligations remain.
+- `39829682430`: completed/success diagnostic full01 at93389ce; all20commands,
+  fullrows/fixtures/audits/regressions passed. Retained official full-01. Superseded
+  for final acceptance solely by the ten-step resource accounting correction.
 - `39828692045`: completed/success, full wrapper strict public theorem build15.027s
   at e40aeef; official `round-04/evidence/machine-proof-final` retained. Candidate
  769344 paid states, prospective228832 saving. Broader acceptance still pending.

@@ -1,0 +1,11 @@
+{
+  "completed": 20,
+  "current_cap": 427,
+  "current_case": 13,
+  "current_control": "behavior_old_bridge",
+  "current_expected_rejection": "boundary_behavior",
+  "current_origin": 0,
+  "current_steps": 426,
+  "phase": "mutation_controls",
+  "status": "running"
+}

@@ -1,0 +1,20 @@
+{
+  "id": 12449066140,
+  "node_id": "MDg6QXJ0aWZhY3QxMjQ0OTA2NjE0MA==",
+  "name": "chess-table-full-full-93389ce9e3f2c12926d8d78031e9a3bc08db8460",
+  "size_in_bytes": 4784829,
+  "url": "https://api.github.com/repos/bocowgill/cryptids/actions/artifacts/12449066140",
+  "archive_download_url": "https://api.github.com/repos/bocowgill/cryptids/actions/artifacts/12449066140/zip",
+  "expired": false,
+  "digest": "sha256:71f6727e484a18b633822b22678dd098e26ee46250cffa2676c48363a866751c",
+  "created_at": "2026-10-22T18:20:32Z",
+  "updated_at": "2026-10-22T18:20:32Z",
+  "expires_at": "2026-11-21T18:20:30Z",
+  "workflow_run": {
+    "id": 39829682430,
+    "repository_id": 1426408147,
+    "head_repository_id": 1426408147,
+    "head_branch": "codex/chess-openevolve-pilot",
+    "head_sha": "93389ce9e3f2c12926d8d78031e9a3bc08db8460"
+  }
+}

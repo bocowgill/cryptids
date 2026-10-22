@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "lake",
+    "--wfail",
+    "-f",
+    "lakefile.chess-table-full-20261022.toml",
+    "build",
+    "Cryptids.Semantics.ChessTableSeed",
+    "chess_table_full_audit",
+    "chess_table_full_export"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "\u2139 [3918/3961] Replayed Cryptids.Chess.Compilation.SourceCertificate\ninfo: Cryptids/Chess/Compilation/SourceCertificate.lean:226:0: Source certificate: 7076 checked lemmas, 7037 cache hits\ninfo: Cryptids/Chess/Compilation/SourceCertificate.lean:230:0: Literal row certificate: 5952 checked rows in 186 chunks\n\u2139 [3929/3961] Replayed Cryptids.Chess.Compilation.Input\ninfo: Cryptids/Chess/Compilation/Input.lean:128:0: Checked 186 literal row chunks: 141042 stack symbols\n\u2714 [3948/7903] Built scripts.chess_table_full_20261022.Audit (5.4s)\n\u2714 [7750/7903] Built Cryptids.Compilation.TableSeed.Controller:c.o (1.5s)\n\u2714 [7752/7903] Built Cryptids.Compilation.TableSeed.Geometry:c.o (133ms)\n\u2714 [7754/7903] Built Cryptids.Compilation.TableSeed.Scan:c.o (87ms)\n\u2714 [7757/7903] Built Cryptids.Compilation.TableSeed.Blocks:c.o (744ms)\n\u2714 [7879/7903] Built scripts.chess_table_full_20261022.Audit:c.o (453ms)\n\u2714 [7886/7903] Built chess_table_full_audit:exe (1.6s)\n\u2714 [7892/7903] Built Cryptids.Compilation.TableSeed.Format:c.o (197ms)\n\u2714 [7893/7903] Built Cryptids.Compilation.TableSeed.ChessCodec:c.o (171ms)\n\u2714 [7895/7903] Built Cryptids.Compilation.TableSeed.Transducer:c.o (319ms)\n\u2714 [7897/7903] Built Cryptids.Compilation.TableSeed.Correct:c.o (99ms)\n\u2714 [7899/7903] Built Cryptids.Chess.Optimisation.FieldTableSeed:c.o (117ms)\n\u2714 [7900/7903] Built Cryptids.Semantics.ChessTableSeed:c.o (98ms)\n\u2714 [7901/7903] Built scripts.chess_table_full_20261022.Export (14s)\n\u2714 [7902/7903] Built scripts.chess_table_full_20261022.Export:c.o (1.7s)\n\u2714 [7903/7903] Built chess_table_full_export:exe (2.4s)\nBuild completed successfully (7903 jobs).\n",
+  "output_sha256": "9c2be834e9beff4dbc9926ebfe26db54be5122f60496ed0c790a75a596eaf100",
+  "timed_out": false,
+  "timeout_seconds": 1800,
+  "elapsed_seconds": 37.09469214399999,
+  "cumulative_children_peak_rss_kib": 4403604
+}

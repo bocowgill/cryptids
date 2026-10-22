@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-table-full-20261022/MissingTurn.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "/home/runner/work/cryptids/cryptids/.lake/chess-table-full-20261022/MissingTurn.lean:3:72: error: Tactic `decide` proved that the proposition\n  173642 = 173641\nis false\n",
+  "output_sha256": "f121d04d184f4d615eee3f8140e51fdf5a3695be4fd8d9258b4cff69dd73169a",
+  "timed_out": false,
+  "timeout_seconds": 300,
+  "elapsed_seconds": 4.020690488999975,
+  "cumulative_children_peak_rss_kib": 4408620
+}

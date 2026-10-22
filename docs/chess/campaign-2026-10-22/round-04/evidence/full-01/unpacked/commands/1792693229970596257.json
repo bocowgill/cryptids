@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-M6144",
+    "-DwarningAsError=true",
+    "--run",
+    "scripts/chess_openevolve/Fixtures.lean"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "Terminal binary fixtures passed: 30 corners, singleton edge, all-input theorem\n",
+  "output_sha256": "3d62af7c5ad23dd7eff81aaf92418ce2cf66de236c313ccdc8a12421f0c3a534",
+  "timed_out": false,
+  "timeout_seconds": 600,
+  "elapsed_seconds": 3.6213267210000026,
+  "cumulative_children_peak_rss_kib": 4408620
+}
