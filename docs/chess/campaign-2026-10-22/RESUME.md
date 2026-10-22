@@ -130,3 +130,17 @@ Active universal proof owners: goal_seed_scan (Scan.lean), goal_seed_expander
 (Expander.lean), goal_seed_codec (ChessCodec.lean). All execute Lean remotely via
 root. Fixed blocks and generic scanner drafts are ready for a remote components
 check; no universal expansion or new best is claimed yet.
+
+User steering: prioritize large full-machine savings, keep component counts and
+ranked opportunities at each major checkpoint. See
+`STATE-COUNTS-AND-OPPORTUNITIES.md`; current component proofs unlock prospective
+1413567additionalstates. Bound uncertainpilots and reconsiderunproductivecostgrowth.
+Acceptedfull savings, experimentalestimates and intermediateproofstatusstayseparate.
+
+Latest checkpoint: controller actual Lean rows passed run39790380235 iteration2
+at4fa54a4, retained in round02/evidence/controller-final: all432rows,465fixtures,
+14corruptions,threecommandsall0. Generic blocks/scanner firstremotecheck failed
+only small proof-elaboration/style points, now repaired; diagnostics retained in
+components-session-1. Universal Expander and ChessCodec sources are complete
+drafts, not certified. Next remote target `proofs` builds both plus dependencies
+in one bounded cached session; inspect current jobs before resuming.

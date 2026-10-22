@@ -106,7 +106,8 @@ def blockEntry (block : FixedBlock) : Control := pathStart (blockPath block) (bl
 def blockSteps (block : FixedBlock) : Nat := (blockPath block).length
 def blockActions (block : FixedBlock) : List Init.Instruction := (blockPath block).map Prod.snd
 
-theorem blockPath_valid (block : FixedBlock) : validPath (blockPath block) (blockExit block) = true := by
+theorem blockPath_valid (block : FixedBlock) :
+    validPath (blockPath block) (blockExit block) = true := by
   cases block with
   | entry => decide
   | skipB => decide
@@ -247,7 +248,7 @@ theorem shiftB_run (s : Letter) (left right : ListBlank Bit) :
         (Tape.mk' left (ListBlank.append (List.replicate 3 0 ++ marker) right)).move .left⟩ := by
   have result := run_block (.shiftB s)
     (Tape.mk' (ListBlank.append (marker ++ word s).reverse left) right)
-  change FlatInit.runFrom machine 10 _ =
+  change FlatInit.runFrom machine 10 ⟨encode (.shiftB s 0), _⟩ =
     some ⟨encode (.seekA s 0), Init.executeList (blockActions (.shiftB s)) _⟩ at result
   fin_cases s <;>
     simpa [actions_shiftB, marker, Init.executeList, Init.execute, ListBlank.append,

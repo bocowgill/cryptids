@@ -15,7 +15,7 @@ def main():
     if os.environ.get('CHESS_REMOTE') != '1' or os.environ.get('GITHUB_ACTIONS') != 'true':
         raise SystemExit('Remote GitHub Actions execution required')
     parser = argparse.ArgumentParser()
-    parser.add_argument('--target', required=True, choices=['pilot', 'link', 'format', 'controller', 'blocks', 'scan', 'components', 'codec', 'expander'])
+    parser.add_argument('--target', required=True, choices=['pilot', 'link', 'format', 'controller', 'blocks', 'scan', 'components', 'codec', 'expander', 'proofs'])
     args = parser.parse_args()
     spec = importlib.util.spec_from_file_location('accepted_runner', ROOT / 'scripts/chess_field_reverse/verify.py')
     runner = importlib.util.module_from_spec(spec)
@@ -66,8 +66,11 @@ def main():
                   'scan': 'Cryptids.Compilation.Seed.Scan',
                   'components': 'Cryptids.Compilation.Seed.Blocks',
                   'codec': 'Cryptids.Compilation.Seed.ChessCodec',
-                  'expander': 'Cryptids.Compilation.Seed.Expander'}[args.target]
+                  'expander': 'Cryptids.Compilation.Seed.Expander',
+                  'proofs': 'Cryptids.Compilation.Seed.Expander'}[args.target]
         targets = [target] + (['Cryptids.Compilation.Seed.Scan'] if args.target == 'components' else [])
+        if args.target == 'proofs':
+            targets.append('Cryptids.Compilation.Seed.ChessCodec')
         check = runner.run(['lake', '--wfail', '-f', 'lakefile.chess-seed-20261022.toml',
                             'build'] + targets,
                            'Build completed successfully', timeout=1800)

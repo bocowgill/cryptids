@@ -17,7 +17,10 @@ Owner: goal_seed_scan. Scope: `Cryptids/Compilation/Seed/Scan.lean` only.
 1. First draft written. Imported only verified FlatInit and FieldBinary.Fields. Source reviewed
    with an independent read-only subagent for the bidirectional zipper interface. Awaiting remote
    diagnostics.
-2. Pending compiler-directed repair.
+2. Remote run `39791458233`, retained `components-session-1/commands/*.json`, reported
+   two elaboration issues: the row hypothesis needed explicit instantiation and the local
+   execution-composition base case needed `Nat.zero_add`. Both repaired. All other scanner
+   declarations passed this attempt. Rerun pending; the failed attempt is retained.
 3. Independent read-only source review found the generic traversal and zipper contracts
    mathematically sound and the induction/simplification strategy coherent. Integration caller
    (Expander) confirmed the interface covers its left and right scans. Remote acceptance pending.

@@ -149,7 +149,7 @@ theorem step_row {q : Nat} (M : Machine q 2) (scanner : Fin 4 → Fin q) (exit :
     (dir : Dir) (rows : Rows M scanner exit dir) (run : Fin 4) (tape : Tape (Fin 2)) :
     step M ⟨scanner run, tape⟩ =
       some ⟨target scanner exit run tape.head, tape.move dir⟩ := by
-  simp only [step, rows, Option.map_some, Tape.write_self]
+  simp only [step, rows run tape.head, Option.map_some, Tape.write_self]
 
 /-- Safe words execute in exactly one machine step per bit and preserve the complete tape. -/
 theorem run_safe {q : Nat} (M : Machine q 2) (scanner : Fin 4 → Fin q) (exit : Fin q)
@@ -195,7 +195,7 @@ theorem run_safe_fourOnes {q : Nat} (M : Machine q 2) (scanner : Fin 4 → Fin q
         (FlatInit.runFrom M n cfg).bind (FlatInit.runFrom M m) := by
     intro n m cfg
     induction n generalizing cfg with
-    | zero => rfl
+    | zero => simp only [Nat.zero_add, FlatInit.runFrom, Option.bind_some]
     | succ n ih => simp only [Nat.succ_add, FlatInit.runFrom, ih, Option.bind_assoc]
   obtain ⟨first, last⟩ := (reads_append dir tape bits [1, 1, 1, 1]).mp read
   rw [compose, run_safe M scanner exit dir rows bits 0 0 tape safe first,

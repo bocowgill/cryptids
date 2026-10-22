@@ -9,12 +9,12 @@ on:
       target:
         description: Focused compiler/proof target
         type: choice
-        options: [pilot, link, format, controller, blocks, scan, components, codec, expander, session]
+        options: [pilot, link, format, controller, blocks, scan, components, codec, expander, proofs, session]
         default: pilot
       session_target:
         description: Target to repair within one bounded remote runner
         type: choice
-        options: [link, format, controller, blocks, scan, components, codec, expander]
+        options: [link, format, controller, blocks, scan, components, codec, expander, proofs]
         default: link
 permissions:
   contents: read

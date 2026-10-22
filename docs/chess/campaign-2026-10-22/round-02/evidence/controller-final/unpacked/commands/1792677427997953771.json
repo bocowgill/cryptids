@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_seed_20261022/controller_compare.py"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "Seed actual controller comparison passed\n",
+  "output_sha256": "90257dc4cf36a39207fdc41bbb0d3bca37e425ddac17fd6d943b44ca0d87323e",
+  "timed_out": false,
+  "timeout_seconds": 900,
+  "elapsed_seconds": 0.7146543010000528,
+  "cumulative_children_peak_rss_kib": 4267072
+}

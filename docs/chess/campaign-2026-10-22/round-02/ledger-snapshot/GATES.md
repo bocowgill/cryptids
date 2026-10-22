@@ -13,3 +13,6 @@ OWNS: docs/chess/campaign-2026-10-22/round-02/**
   EVIDENCE: pending complete final candidate
 - [ ] G6: All findings, failures, proofs, artifacts, active jobs and next task are committed/pushed in a clean recoverable checkpoint.
   EVIDENCE: pending final handoff
+
+- [ ] G7: Every major checkpoint records complete state costs and ranks large reduction opportunities by absolute savings, proof difficulty and implementation effort.
+  EVIDENCE: live STATE-COUNTS-AND-OPPORTUNITIES.md; refresh on final checkpoint

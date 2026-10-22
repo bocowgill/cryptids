@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_seed_controller_export",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-seed-20261022/controller-lean.json"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "Seed actual controller export passed\n",
+  "output_sha256": "a81fa6a5b705929b51941d0ebe530192c3e6e9fd16909fc13f63958767e1a309",
+  "timed_out": false,
+  "timeout_seconds": 300,
+  "elapsed_seconds": 0.5979438299999629,
+  "cumulative_children_peak_rss_kib": 4267072
+}
