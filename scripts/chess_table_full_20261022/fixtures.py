@@ -598,6 +598,8 @@ def controls(payload, raw, expected, packet, meta, decoder_data, inputs_data, to
 
         def boundary(candidate):
             tape = ones.copy()
+            budget.steps += 1
+            budget.check()
             target, new_head = step(candidate, state, head, tape)
             require(target == destination and new_head == head + direction and tape == ones,
                     "boundary_behavior", "Paid boundary failed exact one-step geometry")
