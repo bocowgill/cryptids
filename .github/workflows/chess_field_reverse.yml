@@ -1,5 +1,5 @@
 name: Reverse initializer chess compiler
-# Register this focused workflow on the fork; later source commits use explicit dispatch.
+# Remote-only verification; subsequent source checkpoints use explicit dispatch.
 on:
   push:
     branches: ['codex/chess-openevolve-pilot']
