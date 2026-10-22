@@ -15,7 +15,7 @@ with an unconditional followingmove while preserving exactliveconfiguration sema
 | C5 | Independent full-state accounting and actualtransition evidence | root/nativeleaves | G3 | VERIFIED |
 | C6 | Safeproofaudit, hostilecontrols, priorregressions | root | G4 | VERIFIED |
 | C7 | Fresh completecandidate advisory + exactsavedpacket parentreplay | reviewer/root | G5 | VERIFIED |
-| C8 | Durablecheckpoint and usage-aware continuation | root | G6 | IN-FLIGHT |
+| C8 | Durablecheckpoint and usage-aware continuation | root | G6 | VERIFIED |
 
 Explorer1 owns only round-01/GENERIC-ROUTE.md and leaf1.1ledger. Explorer2 owns only
 round-01/BODY-ROUTE.md and leaf1.2ledger. Read-only code exploration, no execution,

@@ -8,7 +8,7 @@ is a resource stop, not successful completion; leave resets and resumption to th
 **2,411,743 states**, public machine
 `ConjectureMachines.Machines.chess_field_selective`, theorem
 `ConjectureMachines.Semantics.ChessFieldSelective.halts_iff_not_draw`.
-The computation commit is `2dfa3a7656de3f15a0bbda387d6f0642328e6d08`.
+The computation commit is `2dfa3a7656de3f15a0bbda387d6f0642328e6d08`; the sealed acceptance checkpoint is `d79ae92034a7d33db9787bab8f15bbc349a60bd9`, committed and pushed to the fork.
 It saves **492,880** states from the previous accepted 2,904,623-state machine.
 Full proof, actual native export, independent full-table checks, audit, regressions,
 fresh advisory and sealed parent replay passed. See `round-01/RESULTS.md`.
@@ -52,9 +52,8 @@ machine acceptance. Repairs preserved theorem statements and frozen sources.
 
 ## Immediate next task
 
-Round 01 is accepted. Root's final checkpoint commit must include all retained
-artifacts, fresh review, seal, checker, parent receipts and ledger snapshot. Then
-continue the active goal with the initializer route below. Do not mark the overall
+Round 01 is accepted and its complete checkpoint is pushed. Continue the active
+goal with the initializer route below. Do not mark the overall
 goal complete after this reduction.
 
 The metadata-only acceptance command is:
@@ -92,11 +91,12 @@ contract and remote-only pilot. No second implementation route has started yet.
 Directory `/Users/bocowgill/.codex/worktrees/6ba9/cryptids`, branch
 `codex/chess-openevolve-pilot`, fork `bocowgill/cryptids`. Origin is upstream;
 push explicitly to `git@github.com:bocowgill/cryptids.git`. All computation sources
-through `2dfa3a7` are pushed; final acceptance artifacts are being checkpointed
-with this handoff. Inspect the latest commit before resuming. Never push upstream or open outreach.
+through `2dfa3a7` are pushed; the complete acceptance checkpoint
+`d79ae92` is also pushed. Inspect the latest commit before resuming. Never push upstream or open outreach.
 
 Unlazy scope `.unlazy/chess-goal-20261022-r01`, tracked ledger snapshot under
-`round-01/ledger-snapshot`. Root G1–G5 met; G6 records the final committed/pushed checkpoint. All proof,
+`round-01/ledger-snapshot`. All 29 round-01 gates are met, with no unmet or abandoned gate; G6 records
+the final committed/pushed checkpoint. All proof,
 native, checker and fresh-review leaves passed, and all launch waves are complete.
 Release ownership after parent verification and preserve the final tracked ledger
 snapshot. No remote job remains active from this round.
