@@ -21,7 +21,8 @@ theorem emit_size_le {α : Type} {n : Nat} (p : Routine α) (k : α → Syntax n
   | exit value => simpa [emit, Routine.size] using (bound value).trans (by omega)
   | next action rest ih =>
     rcases action with ⟨write, dir⟩
-    cases write <;> simp only [emit, Syntax.size, Routine.size] at * <;> omega
+    cases write <;>
+      simp only [emit, Syntax.size, Routine.size, Nat.mul_add, Nat.mul_one] at * <;> omega
   | read dir zero one iz io =>
     simp only [emit, Syntax.size, Routine.size]
     nlinarith
@@ -67,7 +68,9 @@ theorem lower_size {n : Nat} (op : Op n) : (lower op).size ≤ 1024 := by
       (fun word ↦ .load (table fun _ v ↦ value v (decodeWord word))
         (go (fun _ ↦ next))) 2 (by omega) (fun _ ↦ by rfl)
     rw [readAt_size] at h
-    change _ ≤ 1024
+    change (emit (readAt (fieldOffset field))
+      (fun word ↦ .load (table fun _ v ↦ value v (decodeWord word))
+        (go (fun _ ↦ next)))).size ≤ 1024
     omega
   | pureLoad value next => change 2 ≤ 1024; decide
   | marker yes no =>
@@ -86,7 +89,8 @@ theorem lower_size {n : Nat} (op : Op n) : (lower op).size ≤ 1024 := by
       (fun word ↦ go (fun _ ↦ if (decodeWord word).val = 0 then yes else no))
       1 (by omega) (fun _ ↦ by rfl)
     rw [readAt_size] at h
-    change _ ≤ 1024
+    change (emit (readAt (fieldOffset field))
+      (fun word ↦ go (fun _ ↦ if (decodeWord word).val = 0 then yes else no))).size ≤ 1024
     omega
   | branch test yes no => change 3 ≤ 1024; decide
   | jump target => change 1 ≤ 1024; decide
