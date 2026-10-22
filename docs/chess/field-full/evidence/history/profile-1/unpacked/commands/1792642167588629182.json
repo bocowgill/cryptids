@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "prlimit",
+    "--stack=67108864",
+    "--",
+    "lake",
+    "env",
+    "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_field_full_export",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-field-full/machine.json"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": -9,
+  "output": "[field-full-export] main entered\n[field-full-export] input ready: bits=1837940; beginning literal rows and actual samples\n[field-full-export] rows complete: 64/4042; native sample pairs=3200\n[field-full-export] rows complete: 128/4042; native sample pairs=6400\n[field-full-export] rows complete: 192/4042; native sample pairs=9600\n[field-full-export] rows complete: 256/4042; native sample pairs=12800\n",
+  "output_sha256": "fd8f58c139ea151ee554ce594a4e84ebc1bb900e5d73d1eee0772dbc42b10013",
+  "timed_out": true,
+  "timeout_seconds": 180,
+  "elapsed_seconds": 180.731421719,
+  "cumulative_children_peak_rss_kib": 4478828
+}

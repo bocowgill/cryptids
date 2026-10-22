@@ -43,6 +43,8 @@ def main (args : List String) : IO Unit := do
       `ConjectureMachines.Compilation.FieldCompiler.halts_input,
       `ConjectureMachines.Compilation.FieldCompiler.Snapshot.source_program,
       `ConjectureMachines.Compilation.FieldCompiler.machine_eq,
+      `ConjectureMachines.Compilation.FieldCompiler.Syntax.fastNodeAt_eq,
+      `ConjectureMachines.Compilation.FieldCompiler.Syntax.nodeAt_csimp,
       `ConjectureMachines.Compilation.FieldCompiler.binaryRows_eq,
       `ConjectureMachines.Compilation.FieldCompiler.paidRows_eq,
       `Chess.Optimisation.FieldAware.generated_states,

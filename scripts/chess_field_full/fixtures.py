@@ -230,12 +230,19 @@ def validate_native_samples(model):
             expected.add(base + len(nodes))
         require(expected <= getter_seen, (label, "missing getter boundary/padding probes"))
     seen = set()
+    shared_halt = {}
+    halt_controls = {model.prefix + model.halt_state,
+                     model.prefix + model.post_states + model.halt_state}
     for state, bit, actual, independently_assembled in data["samples"]:
         expected = model.row(state, bit)
         require(actual == independently_assembled, ("actual machine/rowMachine mismatch", state, bit))
         require(actual == expected, ("actual native numeric row/independent recipe", state, bit,
                                      actual, expected))
         seen.add((state, bit))
+        if state in halt_controls:
+            shared_halt[state, bit] = {"state": state, "bit": bit, "actual": actual,
+                                       "rowMachine": independently_assembled,
+                                       "independent_recipe": expected}
     for state in model.boundaries:
         require((state, 0) in seen and (state, 1) in seen,
                 ("missing all-label/all-store entry sample", state))
@@ -249,7 +256,9 @@ def validate_native_samples(model):
                   model.prefix + model.post_states + model.halt_state, model.states - 1):
         require((state, 0) in seen and (state, 1) in seen,
                 ("missing numeric boundary/initializer probes", state))
-    return len(data["samples"]), len(seen)
+    require(set(shared_halt) == {(state, bit) for state in halt_controls for bit in (0, 1)},
+            "Missing explicit shared-halt main/bounce evidence")
+    return len(data["samples"]), len(seen), [shared_halt[key] for key in sorted(shared_halt)]
 
 
 def validate_initializer(model):
@@ -379,7 +388,7 @@ def run_case(model, label, store, marker, value):
 
 def validate(data):
     model = NumericMachine(data)
-    samples, unique_samples = validate_native_samples(model)
+    samples, unique_samples, shared_halt = validate_native_samples(model)
     initializer = validate_initializer(model)
     cases = 0
     coverage = []
@@ -403,6 +412,7 @@ def validate(data):
             "initializer_states": model.prefix, "labels_covered": model.labels, "cases": cases,
             "counts": model.counts, "native_samples_checked": samples,
             "unique_native_sample_pairs": unique_samples, "initializer_verified": True,
+            "shared_halt_probes": shared_halt, "shared_halt_probes_verified": True,
             "initializer": initializer, "families": families, "cases_per_label": coverage,
             "stores_per_label": 5, "markers_per_store": 2, "active_field_values": 5,
             "frame": "Complete sparse tape equality; all other fields and nonblank neighboring cells",
@@ -470,12 +480,13 @@ def corruption_controls(data):
 
 def main():
     require(os.environ.get("CHESS_REMOTE") == "1", "Machine execution is remote-only")
-    source = WORK / "machine.json"
+    source = WORK / "machine-export.json"
     data = json.loads(source.read_text())
     report = validate(data)
     # The unmodified positive control must pass before the identical oracle tests each mutation.
     report["mutation_controls"] = corruption_controls(data)
     report["status"] = "passed"
+    report["machine_json_filename"] = source.name
     report["machine_json_sha256"] = hashlib.sha256(source.read_bytes()).hexdigest()
     (WORK / "fixtures-detail.json").write_text(json.dumps(report, indent=2) + "\n")
     print("Full field independent fixtures passed:", report["cases"], "source cases;",

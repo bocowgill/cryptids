@@ -64,6 +64,65 @@ def nodeAt {n : Nat} : (p : Syntax n) → Fin p.size → Node p.size 5 n
   | .go t => fun _ ↦ .goto t
   | .halt => fun _ ↦ .halt
 
+/-- Direct indexed lookup avoids the eager reverse induction used by `Fin.lastCases`.
+The equation below certifies this executable replacement for every local slot. -/
+def fastNodeAt {n : Nat} : (p : Syntax n) → Fin p.size → Node p.size 5 n
+  | .move d p, i =>
+      if h : i.val < p.size then
+        TemplateGraph.mapNode Fin.castSucc (p.fastNodeAt ⟨i.val, h⟩)
+      else .move d p.root.castSucc
+  | .write t p, i =>
+      if h : i.val < p.size then
+        TemplateGraph.mapNode Fin.castSucc (p.fastNodeAt ⟨i.val, h⟩)
+      else .write t p.root.castSucc
+  | .load t p, i =>
+      if h : i.val < p.size then
+        TemplateGraph.mapNode Fin.castSucc (p.fastNodeAt ⟨i.val, h⟩)
+      else .load t p.root.castSucc
+  | .branch t p q, i =>
+      if h : i.val < p.size + q.size then
+        if left : i.val < p.size then
+          TemplateGraph.mapNode (fun j ↦ (j.castAdd q.size).castSucc)
+            (p.fastNodeAt ⟨i.val, left⟩)
+        else
+          TemplateGraph.mapNode (fun j ↦ (Fin.natAdd p.size j).castSucc)
+            (q.fastNodeAt ⟨i.val - p.size, by omega⟩)
+      else .branch t (p.root.castAdd q.size).castSucc (Fin.natAdd p.size q.root).castSucc
+  | .go t, _ => .goto t
+  | .halt, _ => .halt
+
+theorem fastNodeAt_eq {n : Nat} (p : Syntax n) (i : Fin p.size) :
+    p.fastNodeAt i = p.nodeAt i := by
+  induction p with
+  | move x p ih | write x p ih | load x p ih =>
+    refine Fin.lastCases ?_ (fun j ↦ ?_) i
+    · simp only [fastNodeAt, nodeAt, Fin.lastCases_last, Fin.val_last,
+        Nat.lt_irrefl, ↓reduceDIte]
+    · simp only [fastNodeAt, nodeAt, Fin.lastCases_castSucc, Fin.val_castSucc,
+        j.isLt, ↓reduceDIte, ih]
+  | branch t p q ihp ihq =>
+    refine Fin.lastCases ?_ (fun j ↦ ?_) i
+    · simp only [fastNodeAt, nodeAt, Fin.lastCases_last, Fin.val_last,
+        Nat.lt_irrefl, ↓reduceDIte]
+    · induction j using Fin.addCases with
+      | left j =>
+        simp only [fastNodeAt, nodeAt, Fin.lastCases_castSucc, Fin.addCases_left,
+          Fin.val_castSucc, Fin.val_castAdd, j.isLt, ↓reduceDIte,
+          show j.val < p.size + q.size by omega, ihp]
+      | right j =>
+        simp only [fastNodeAt, nodeAt, Fin.lastCases_castSucc, Fin.addCases_right,
+          Fin.val_castSucc, Fin.val_natAdd,
+          show p.size + j.val < p.size + q.size by omega,
+          show ¬p.size + j.val < p.size by omega, ↓reduceDIte,
+          Nat.add_sub_cancel_left, ihq]
+  | go t => rfl
+  | halt => rfl
+
+/-- Native compilation uses only the universally proved faster getter. -/
+@[csimp] theorem nodeAt_csimp : @nodeAt = @fastNodeAt := by
+  funext n p i
+  exact (fastNodeAt_eq p i).symm
+
 /-- Every meaningful local edge points strictly backwards in postorder. -/
 theorem nodeAt_below {n : Nat} (p : Syntax n) (i child : Fin p.size)
     (member : child ∈ (p.nodeAt i).children) : child.val < i.val := by

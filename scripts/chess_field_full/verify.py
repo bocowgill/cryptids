@@ -109,12 +109,12 @@ def contracts():
 def native_fixtures():
     checks=[run(['prlimit','--stack=67108864','--','lake','env',
                  str(ROOT/'.lake/build/bin/chess_field_full_export'),
-                 str(WORK/'machine.json')],'Full field machine export passed',timeout=900)]
+                 str(WORK/'machine-export.json')],'Full field machine export passed',timeout=900)]
     checks.append(run([sys.executable,'scripts/chess_field_full/fixtures.py'],
                       'Full field independent fixtures passed',timeout=900))
     detail=json.loads((WORK/'fixtures-detail.json').read_text())
     assert detail['status']=='passed'
-    save('fixtures',checks,detail=detail,export_sha256=sha(WORK/'machine.json'))
+    save('fixtures',checks,detail=detail,export_sha256=sha(WORK/'machine-export.json'))
     return checks
 
 def counts():
@@ -127,7 +127,7 @@ def counts():
     assert detail['saved_states']==detail['previous_states']-detail['states']
     assert len(detail['mutation_controls'])>=5
     assert all(c['passed'] is True and c['rejected'] is True for c in detail['mutation_controls'])
-    save('counts',[],detail=detail,export_sha256=sha(WORK/'machine.json'))
+    save('counts',[],detail=detail,export_sha256=sha(WORK/'machine-export.json'))
     print('Full field chess reduction passed')
 
 def accepted_regressions():
@@ -207,7 +207,7 @@ def main():
         if args.target=='profile':
             checks.append(run(['prlimit','--stack=67108864','--','lake','env',
                 str(ROOT/'.lake/build/bin/chess_field_full_export'),
-                str(WORK/'machine.json')],'Full field machine export passed',timeout=180))
+                str(WORK/'machine-export.json')],'Full field machine export passed',timeout=180))
         save(args.target,checks)
         print('Full field compiler '+args.target+' passed')
     for flag,target in [('semantics','semantics'),('coverage','snapshot'),('machine','machine')]:
