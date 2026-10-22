@@ -7,6 +7,7 @@ import os
 import resource
 import selectors
 import signal
+import shutil
 import subprocess
 import sys
 import time
@@ -98,8 +99,19 @@ def main():
     if args.metadata: metadata()
     if args.target:
         assert os.environ.get('CHESS_REMOTE')=='1','Heavy verification is remote-only'
-        checks=[run(['lake','--wfail','-f','lakefile.chess-field-full.toml','build']+TARGETS[args.target],
-                    'Build completed successfully',timeout=1800)]
+        checks=[]
+        if args.target=='snapshot':
+            generated=WORK/'generated/Snapshot.lean'
+            generated.parent.mkdir(parents=True,exist_ok=True)
+            checks.append(run([sys.executable,'scripts/chess_field_full/generate_snapshot.py',
+                               '--output',str(generated)],timeout=120))
+            snapshot=ROOT/'Cryptids/Compilation/FieldCompiler/Snapshot.lean'
+            if snapshot.is_file():
+                assert snapshot.read_bytes()==generated.read_bytes(),'Committed snapshot differs from generator'
+            else:
+                shutil.copyfile(generated,snapshot)
+        checks.append(run(['lake','--wfail','-f','lakefile.chess-field-full.toml','build']+TARGETS[args.target],
+                    'Build completed successfully',timeout=1800))
         save(args.target,checks)
         print('Full field compiler '+args.target+' passed')
 if __name__=='__main__':main()
