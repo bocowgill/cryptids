@@ -1,0 +1,10 @@
+{
+  "commands/1792667809826481527.json": {
+    "bytes": 1143,
+    "sha256": "b303a5ab1dd15f9845225be5db47a674c8cc1c16a7d5eacd770722bb3eeb7382"
+  },
+  "machine.json": {
+    "bytes": 378020,
+    "sha256": "38af89ad4db601a72b7966ff7b63363ccbb25a4d2c509114903f32723d5b65ad"
+  }
+}

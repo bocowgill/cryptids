@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "lake",
+    "--wfail",
+    "-f",
+    "lakefile.chess-field-reverse.toml",
+    "build",
+    "Cryptids.Semantics.ChessFieldReverse",
+    "chess_field_reverse_audit",
+    "chess_field_reverse_export"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "\u2139 [3908/3939] Replayed Cryptids.Chess.Compilation.SourceCertificate\ninfo: Cryptids/Chess/Compilation/SourceCertificate.lean:226:0: Source certificate: 7076 checked lemmas, 7037 cache hits\ninfo: Cryptids/Chess/Compilation/SourceCertificate.lean:230:0: Literal row certificate: 5952 checked rows in 186 chunks\n\u2139 [3919/3939] Replayed Cryptids.Chess.Compilation.Input\ninfo: Cryptids/Chess/Compilation/Input.lean:128:0: Checked 186 literal row chunks: 141042 stack symbols\n\u2714 [3928/7858] Built scripts.chess_field_reverse.Audit (6.4s)\n\u2714 [7842/7858] Built scripts.chess_field_reverse.Audit:c.o (737ms)\n\u2714 [7848/7858] Built chess_field_reverse_audit:exe (1.7s)\n\u2714 [7854/7858] Built Cryptids.Chess.Optimisation.FieldReverse:c.o (100ms)\n\u26a0 [7856/7858] Building scripts.chess_field_reverse.Export (14s)\ntrace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean -M6144 /home/runner/work/cryptids/cryptids/scripts/chess_field_reverse/Export.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/scripts/chess_field_reverse/Export.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/scripts/chess_field_reverse/Export.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/scripts/chess_field_reverse/Export.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/scripts/chess_field_reverse/Export.setup.json --json\nwarning: scripts/chess_field_reverse/Export.lean:142:100: This line exceeds the 100 character limit, please shorten it!\nYou can use \"string gaps\" to format long strings: within a string quotation, using a '\\' at the end of a line allows you to continue the string on the following line, removing all intervening whitespace.\n\nNote: This linter can be disabled with `set_option linter.style.longLine false`\n\u2714 [7857/7858] Built scripts.chess_field_reverse.Export:c.o (1.4s)\n\u2714 [7858/7858] Built chess_field_reverse_export:exe (1.6s)\nSome required targets logged failures:\n- scripts.chess_field_reverse.Export\nerror: build failed\n",
+  "output_sha256": "a87f2915147005444f0a5a0844ce52de20759a05fb4ce3b042844f590d2b0e9c",
+  "timed_out": false,
+  "timeout_seconds": 1800,
+  "elapsed_seconds": 31.571775685000006,
+  "cumulative_children_peak_rss_kib": 4394124
+}

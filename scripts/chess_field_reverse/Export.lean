@@ -139,7 +139,8 @@ def replayInitializer {states : Nat} (machine rowMachine : Machine states 2)
     ("left_blank", num tape[0]!.val), ("right_blank", num tape[count + 1]!.val),
     ("frame_min", toJson (-(count : Int))), ("frame_max", toJson (1 : Int)),
     ("native_machine_and_rowMachine_replayed", toJson true),
-    ("frame", toJson "All visited physical positions were in [-bits_count,1]; outside stayed blank")]
+    ("frame", toJson ("All visited physical positions were in [-bits_count,1]; " ++
+      "outside stayed blank"))]
 
 /-- Six-byte little-endian records, with state and scanned bit implicit in order. -/
 def prefixRecord (buffer : ByteArray) (write : Fin 2) (dir : Dir) (next : Nat) : ByteArray :=
