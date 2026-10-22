@@ -1,4 +1,5 @@
 name: Chess compression goal research
+# Register this focused, remote-only campaign workflow on the fork branch.
 on:
   push:
     branches: ['codex/chess-openevolve-pilot']
