@@ -142,3 +142,9 @@ source fails matching getter_local wrappers (26.902s,3343872000bytes),
 without a resource stop. Other helpers receive no audited module credit.
 Repair explicitly unfolds getter/graph_node/nodeIndex/graphIndex in the one
 simpa proof; statements and limits fixed. Re-run smoke preflight first.
+
+Preflight39991831340 at48f19b9 retained certificate-21. Explicit wrappers
+reduce the mismatch to partially applied nodeIndex/graphIndex functions;
+4.843s at3031175168bytes, no resource stop. Replace simp-based function
+unfolding with an explicit equality of the renaming functions and rw.
+No mathematical statement, data or cap changes. Module remains uncredited.

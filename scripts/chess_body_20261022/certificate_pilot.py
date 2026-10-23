@@ -1258,8 +1258,10 @@ theorem getter_local (q : Fin 4042) (i : Fin (FieldPacked.syntaxRows.get q).size
     FieldPacked.getter.node (FieldSelectiveLayout.nodeIndex q i) =
       TemplateGraph.mapNode (FieldSelectiveLayout.nodeIndex q)
         ((FieldPacked.syntaxRows.get q).fastNodeAt i) := by
-  simpa only [FieldPacked.getter, FieldPacking.graph_node, FieldSelectiveLayout.nodeIndex,
-    FieldPacking.graphIndex, Syntax.fastNodeAt_eq] using
+  have rename : FieldSelectiveLayout.nodeIndex q =
+      FieldPacking.graphIndex FieldPacked.syntaxRows FieldPacked.layout q := by rfl
+  rw [rename]
+  simpa only [FieldPacked.getter, FieldPacking.graph_node, Syntax.fastNodeAt_eq] using
     FieldPacking.graphNode_index FieldPacked.syntaxRows FieldPacked.layout q i
 
 theorem initial_entry : FieldPacked.getter.entry 0 = 0 := by

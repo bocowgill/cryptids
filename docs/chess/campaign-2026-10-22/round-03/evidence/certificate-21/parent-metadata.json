@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 39991831340,
+  "commit": "48f19b99dec7a04457173f4cb7cb867fe9fd57bb",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": true,
+  "complete_candidate_data": false,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "Only the partially applied renaming functions still mismatch after simp; replace unfolding with an explicit function equality and rewrite",
+  "new_accepted_machine": false
+}

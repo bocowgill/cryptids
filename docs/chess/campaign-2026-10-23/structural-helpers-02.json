@@ -1,0 +1,11 @@
+{
+  "run_id": 39991831340,
+  "commit": "48f19b99dec7a04457173f4cb7cb867fe9fd57bb",
+  "mode": "smoke",
+  "status": "retained_source_failure",
+  "specific_correction": "Explicitly unfold wrapper definitions in getter_local simpa",
+  "remote_only": true,
+  "new_accepted_machine": false,
+  "evidence": "../campaign-2026-10-22/round-03/evidence/certificate-21",
+  "helper_module_certified": false
+}
