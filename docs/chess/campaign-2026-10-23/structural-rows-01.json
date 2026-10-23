@@ -1,0 +1,18 @@
+{
+  "run_id": 39997083726,
+  "commit": "901ae48f407f534d7853b189e8d02111bc0870b6",
+  "status": "active",
+  "mode": "full",
+  "exact_same_sample_states": true,
+  "both_bits": true,
+  "scopes": [
+    64,
+    512,
+    4096
+  ],
+  "on_demand_generation": true,
+  "accepted_machine_states": 769344,
+  "target_machine_states": 310029,
+  "full_quotient_certified": false,
+  "remote_only": true
+}

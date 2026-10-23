@@ -74,3 +74,10 @@ Exact first/far-end actual getter/local-slot witnesses pass in certificate-24:
 removes the immediate numeric-layout uncertainty for the next actual-row pilot.
 Remaining priority is every source transition, including all paid returns,
 followed by the unchanged complete-machine linkage and acceptance.
+
+Main/return transport helpers pass in certificate-25:7.307s fresh build,
+3.252s full-private10root/13148dependency audit, standard3axioms only.
+Actual-row structural pilot39997083726 at901ae48 is now active, with the
+same64states/both bits as direct normalization, then on-demand512/4096.
+Getter/layout stay opaque; exact local equations expose each actual row.
+No actual RowAt module or accepted full-machine saving reported yet.
