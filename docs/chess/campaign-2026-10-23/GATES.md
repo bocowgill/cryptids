@@ -10,10 +10,10 @@ evidence and pins stay fixed. No outreach or bulk upstream migration.
 - [x] G1: The accepted 769,344-state baseline and all 3,116 file pins are preserved;
   the resumed plan and goal-API discrepancy are recorded in a pushed checkpoint.
   EVIDENCE: pins-resume.json rehashes all3116unchanged accepted files and binds manifest43942091. Source/plan checkpoint7dc9de66d358ff3d85dc3fefaf3aa4c863a58756 pushed to authorized fork. get_goal returned null; discrepancy recorded without creating a replacement.
-- [ ] G2: One bounded remote validity diagnostic retains exact source, durable
+- [x] G2: One bounded remote validity diagnostic retains exact source, durable
   timing markers, build/audit outcomes and limits, identifying progress or an
   exact obstruction without promoting partial results to a new state count.
-  EVIDENCE: pending
+  EVIDENCE: Official run39980548245 at5b309f5 retained certificate-15, parent-metadata.json checks exact source/log/generated/progress hashes. MapCount42.826s; MapValid stage_wall_budget67.192s,29durable events through896/1024chunks in61.145marker seconds, peak2802655232bytes. Only Prelude/Count complete, no full validity or row credit. All caps unchanged.
 - [ ] G3: Complete map and quotient count/cache/range/fidelity proofs and their
   full-private audits pass under the established resource limits.
   EVIDENCE: pending

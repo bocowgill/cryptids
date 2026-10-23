@@ -1,0 +1,10 @@
+{
+  "run_id": 39980548245,
+  "source_commit": "5b309f57a857fd598785d291796236548e8f494a",
+  "status": "active at checkpoint",
+  "change": "Qualified Lean.Elab.Command.liftIO; explicit BaseIO.toIO; same diagnostic and caps",
+  "prior_run": 39979660954,
+  "prior_evidence": "../campaign-2026-10-22/round-03/evidence/certificate-14",
+  "accepted_states": 769344,
+  "target_states": 310029
+}

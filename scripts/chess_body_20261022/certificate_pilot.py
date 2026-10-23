@@ -95,6 +95,7 @@ class Driver:
             "requested_sample_states": [] if args.smoke_only else [64, 512, 4096],
             "audit_execution": "compiled_lean_executable",
             "map_representation": "named_literal_nat_midpoint_subtrees_with_composed_kernel_proofs",
+            "map_invariant_proof": "single_pass_checked_count_cache_range",
             "map_native_code_generation": False,
             "quotient_representation": "packed_nat_pairs_executable_noinline_midpoint_subtrees",
             "stages": [], "generated_files": {}, "completed_positive_sample_states": 0,
@@ -138,12 +139,14 @@ class Driver:
     def checkpoint(self):
         self.summary.update(stage=self.stage, elapsed_seconds=time.monotonic() - self.start,
                             driver_peak_rss_kib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
-        progress = self.args.output / "map-valid-progress.tsv"
-        if progress.exists():
-            events = progress.read_text().splitlines()
-            self.summary["validity_diagnostic"] = {
-                "path": progress.name, "info": info(progress), "events": len(events),
-                "last_event": events[-1] if events else None, "proof_credit": False}
+        for filename, key in (("map-valid-progress.tsv", "validity_diagnostic"),
+                              ("map-facts-progress.tsv", "map_facts_diagnostic")):
+            progress = self.args.output / filename
+            if progress.exists():
+                events = progress.read_text().splitlines()
+                self.summary[key] = {
+                    "path": progress.name, "info": info(progress), "events": len(events),
+                    "last_event": events[-1] if events else None, "proof_credit": False}
         save(self.args.output / "certificate-summary.json", self.summary)
 
     def emit(self, name, text):
@@ -659,6 +662,60 @@ theorem map_bounded_branch (left right : Balanced.RowTree Nat) (nl bound : Nat)
 MAP_BRANCH_ROOTS = ["map_count_branch", "map_valid_branch", "map_bounded_branch"]
 
 
+MAP_CHECKER = r'''def MapFacts (tree : Balanced.RowTree Nat) (size bound : Nat) : Prop :=
+  tree.count = size ∧ tree.WellFormed ∧ mapAllBelow tree bound = true
+
+def checkMap : Balanced.RowTree Nat → Nat → Option Nat
+  | .empty, _ => some 0
+  | .leaf value, bound => if value < bound then some 1 else none
+  | .branch cached left right, bound =>
+      match checkMap left bound, checkMap right bound with
+      | some nl, some nr => if cached = nl then some (nl + nr) else none
+      | _, _ => none
+
+theorem checkMap_sound (tree : Balanced.RowTree Nat) (bound size : Nat)
+    (checked : checkMap tree bound = some size) : MapFacts tree size bound := by
+  induction tree generalizing size with
+  | empty =>
+    have eq : 0 = size := Option.some.inj checked
+    subst size
+    exact ⟨rfl, trivial, rfl⟩
+  | leaf value =>
+    by_cases h : value < bound
+    · have eq : 1 = size := Option.some.inj (by
+        simpa only [checkMap, ite_eq_left h] using checked)
+      subst size
+      refine ⟨rfl, trivial, ?_⟩
+      simpa only [mapAllBelow, decide_eq_true_eq] using h
+    · simp only [checkMap, ite_eq_right h, reduceCtorEq] at checked
+  | branch cached left right ihl ihr =>
+    cases hl : checkMap left bound with
+    | none => simp only [checkMap, hl, reduceCtorEq] at checked
+    | some nl =>
+      cases hr : checkMap right bound with
+      | none => simp only [checkMap, hl, hr, reduceCtorEq] at checked
+      | some nr =>
+        by_cases hc : cached = nl
+        · have eq : nl + nr = size := Option.some.inj (by
+            simpa only [checkMap, hl, hr, ite_eq_left hc] using checked)
+          subst size
+          obtain ⟨hcl, hvl, hbl⟩ := ihl nl hl
+          obtain ⟨hcr, hvr, hbr⟩ := ihr nr hr
+          exact ⟨congrArg₂ Nat.add hcl hcr,
+            ⟨hc.trans hcl.symm, hvl, hvr⟩, Bool.and_eq_true_iff.mpr ⟨hbl, hbr⟩⟩
+        · simp only [checkMap, hl, hr, ite_eq_right hc, reduceCtorEq] at checked
+
+theorem map_facts_branch (left right : Balanced.RowTree Nat) (nl nr bound : Nat)
+    (hl : MapFacts left nl bound) (hr : MapFacts right nr bound) :
+    MapFacts (.branch nl left right) (nl + nr) bound :=
+  ⟨congrArg₂ Nat.add hl.1 hr.1, ⟨hl.1.symm, hl.2.1, hr.2.1⟩,
+    Bool.and_eq_true_iff.mpr ⟨hl.2.2, hr.2.2⟩⟩
+
+'''
+
+MAP_CHECKER_ROOTS = ["MapFacts", "checkMap", "checkMap_sound", "map_facts_branch"]
+
+
 HEARTBEATS = ("set_option maxHeartbeats 0 in\n"
               "-- The driver bounds literal-data elaboration and kernel checking by wall time and RSS.\n")
 
@@ -870,6 +927,18 @@ def map_declarations(driver, stem, rows_name, states, bound, chunk_limit):
     return "".join(declarations), nodes
 
 
+def progress_marker(kind, chunks, progress_path):
+    if progress_path is None:
+        return ""
+    path = json.dumps(str(progress_path.relative_to(ROOT)))
+    return ("run_cmd do\n" +
+            "  let now ← Lean.Elab.Command.liftIO IO.monoMsNow.toIO\n" +
+            "  Lean.Elab.Command.liftIO <| IO.FS.withFile\n" +
+            f"    {path} .append fun handle ↦ do\n" +
+            f'      handle.putStrLn s!"{kind}\\t{chunks}\\t{{now}}"\n' +
+            "      handle.flush\n")
+
+
 def map_proofs(nodes, tree_name, kind, bound, root_theorem, progress_path=None):
     """Only chunk leaves normalize; every internal proof names child theorems."""
     require(kind in ("count", "valid", "bounded") and nodes, "map proof kind or empty nodes")
@@ -882,15 +951,7 @@ def map_proofs(nodes, tree_name, kind, bound, root_theorem, progress_path=None):
         return f"mapAllBelow {name} {bound} = true"
 
     def marker(chunks):
-        if progress_path is None:
-            return ""
-        path = json.dumps(str(progress_path.relative_to(ROOT)))
-        return ("run_cmd do\n" +
-                "  let now ← Lean.Elab.Command.liftIO IO.monoMsNow.toIO\n" +
-                "  Lean.Elab.Command.liftIO <| IO.FS.withFile\n" +
-                f"    {path} .append fun handle ↦ do\n" +
-                f'      handle.putStrLn s!"{kind}\\t{chunks}\\t{{now}}"\n' +
-                "      handle.flush\n")
+        return progress_marker(kind, chunks, progress_path)
 
     proofs, chunks = [marker(0)], 0
     for node in nodes:
@@ -918,6 +979,33 @@ def map_proofs(nodes, tree_name, kind, bound, root_theorem, progress_path=None):
     proofs.append(HEARTBEATS + f"theorem {root_theorem} :\n    " +
                   proposition(tree_name, root["states"]) + f" :=\n  {root['name']}_{kind}\n")
     proofs.append(marker(chunks))
+    return "".join(proofs)
+
+
+def map_facts_proofs(nodes, tree_name, bound, root_theorem, progress_path=None):
+    """One linear chunk check recovers all three unchanged map invariants."""
+    require(nodes, "empty facts nodes")
+    proofs, chunks = [progress_marker("facts", 0, progress_path)], 0
+    for node in nodes:
+        name, size = node["name"], node["states"]
+        declaration = HEARTBEATS + f"theorem {name}_facts :\n"
+        declaration += f"    MapFacts {name} {size} {bound} :=\n"
+        if node["kind"] == "chunk":
+            declaration += f"  checkMap_sound {name} {bound} {size} (by decide +kernel)\n"
+        else:
+            left, right = node["left"], node["right"]
+            nl, nr = node["left_count"], node["right_count"]
+            declaration += f"  map_facts_branch\n    {left}\n    {right}\n"
+            declaration += f"    {nl} {nr} {bound}\n    {left}_facts\n    {right}_facts\n"
+        proofs.append(declaration)
+        if node["kind"] == "chunk":
+            chunks += 1
+            if chunks % 32 == 0:
+                proofs.append(progress_marker("facts", chunks, progress_path))
+    proofs.append(HEARTBEATS + f"theorem {root_theorem} :\n" +
+                  f"    MapFacts {tree_name} {nodes[-1]['states']} {bound} :=\n" +
+                  f"  {nodes[-1]['name']}_facts\n")
+    proofs.append(progress_marker("facts", chunks, progress_path))
     return "".join(proofs)
 
 
@@ -989,7 +1077,7 @@ def generate_smoke(driver):
     driver.emit("smoke-quotient.rows", "0R1 ---\n--- 1L0\n")
     driver.emit("smoke-packed.rows", "7 0\n0 2\n")
     smoke = header([MODULE + ".Loaders", "Cryptids.Chess.Optimisation.FieldSelective",
-                    "Cryptids.Compilation.LocalCertificate"]) + MAP_BOUNDS
+                    "Cryptids.Compilation.LocalCertificate"]) + MAP_BOUNDS + MAP_CHECKER
     # Force four leaf chunks and three named internal nodes through the exact
     # production map/proof helpers; these are still zero actual-body rows.
     map_source, map_nodes = map_declarations(driver, "smokeMap", "smoke-map.txt", 4, 2, 1)
@@ -997,6 +1085,8 @@ def generate_smoke(driver):
     for kind in ("count", "valid", "bounded"):
         progress = driver.args.output / "smoke-map-valid-progress.tsv" if kind == "valid" else None
         smoke += map_proofs(map_nodes, "smokeMapTree", kind, 2, "smoke_map_" + kind, progress)
+    smoke += map_facts_proofs(map_nodes, "smokeMapTree", 2, "smoke_map_facts",
+                              driver.args.output / "smoke-map-facts-progress.tsv")
     # Force two separate executable chunks even for this two-state table.
     smoke += quotient_declarations(driver, "smokeQuotient", "smoke-packed.rows", 2, 2, 1)
     for name, proposition in (
@@ -1034,10 +1124,18 @@ theorem smoke_quotient_fidelity (state : Fin 2) (bit : Fin 2) :
     ¬ (Balanced.RowTree.branch 2 (.leaf (0 : Nat)) (.leaf 1)).WellFormed :=
   by decide +kernel
 '''
+    smoke += HEARTBEATS + '''theorem smoke_map_checker_controls :
+    checkMap .empty 0 = some 0 ∧
+    checkMap (.leaf 0) 1 = some 1 ∧
+    checkMap (.leaf 1) 1 = none ∧
+    checkMap (.branch 2 (.leaf 0) (.leaf 0)) 1 = none ∧
+    checkMap (.branch 1 (.leaf 0) (.leaf 0)) 1 = some 2 := by decide +kernel
+'''
     roots = ["smoke_map_count", "smoke_map_valid", "smoke_map_bounded", "smoke_lookup_lt",
              "smokeClassMap_val", "smoke_quotient_count", "smoke_quotient_valid",
              "smoke_quotient_bounded", "smoke_quotient_fidelity", "smoke_codec_boundaries",
-             "smoke_entry", "smoke_row", "smoke_map_controls"] + PACKED_ROOTS + MAP_BRANCH_ROOTS
+             "smoke_entry", "smoke_row", "smoke_map_controls", "smoke_map_facts",
+             "smoke_map_checker_controls"] + PACKED_ROOTS + MAP_BRANCH_ROOTS + MAP_CHECKER_ROOTS
     driver.emit("TemplateSmoke.lean", smoke + audit_and_end(
         driver, "TemplateSmoke", roots, "Body certificate template smoke checked"))
 
@@ -1061,15 +1159,16 @@ def generate(driver, selected):
                 quotient_declarations(driver, "quotient", "quotient-packed.rows", K, K,
                                       QUOTIENT_CHUNK_STATES) +
                 audit_and_end(driver, "QuotientData", ["quotientTree"], "Complete body quotient rows loaded"))
-    map_prelude = header([MODULE + ".MapData"]) + MAP_BOUNDS
+    map_prelude = header([MODULE + ".MapData"]) + MAP_BOUNDS + MAP_CHECKER
     map_prelude += f'''noncomputable def classMap (s : Fin {N}) : Fin {K} :=
   Fin.ofNat {K} (mapTree.lookup s.val 0)
 '''
     driver.emit("MapPrelude.lean", map_prelude + audit_and_end(
-        driver, "MapPrelude", ["mapAllBelow", "lookup_lt_of_allBelow", "classMap"] + MAP_BRANCH_ROOTS,
+        driver, "MapPrelude", ["mapAllBelow", "lookup_lt_of_allBelow", "classMap"] +
+        MAP_BRANCH_ROOTS + MAP_CHECKER_ROOTS,
         "Body class map prelude checked"))
-    # Each root depends transitively on every checked chunk through named child
-    # theorem constants. Validity additionally imports certified child counts.
+    # Each original root projects from the complete combined facts. Count/cache/
+    # range are checked together once, and all original stage audits remain.
     for stem, kind, banner in (
             ("MapCount", "count",
              "Complete body class map count checked"),
@@ -1077,13 +1176,19 @@ def generate(driver, selected):
              "Complete body class map caches checked"),
             ("MapBounded", "bounded",
              "Complete body class map range checked")):
-        imports = [MODULE + ".MapPrelude"]
-        if kind == "valid":
-            imports.append(MODULE + ".MapCount")
+        imports = [MODULE + (".MapPrelude" if kind == "count" else ".MapCount")]
         name = "map_" + kind
-        progress = driver.args.output / "map-valid-progress.tsv" if kind == "valid" else None
-        source = header(imports) + map_proofs(map_nodes, "mapTree", kind, K, name, progress)
-        driver.emit(stem + ".lean", source + audit_and_end(driver, stem, [name], banner))
+        source, roots = header(imports), [name]
+        if kind == "count":
+            source += map_facts_proofs(map_nodes, "mapTree", K, "map_facts",
+                                       driver.args.output / "map-facts-progress.tsv")
+            source += f"theorem map_count : mapTree.count = {N} := map_facts.1\n"
+            roots.append("map_facts")
+        elif kind == "valid":
+            source += "theorem map_valid : mapTree.WellFormed := map_facts.2.1\n"
+        else:
+            source += f"theorem map_bounded : mapAllBelow mapTree {K} = true := map_facts.2.2\n"
+        driver.emit(stem + ".lean", source + audit_and_end(driver, stem, roots, banner))
     map_checks = header([MODULE + ".MapCount", MODULE + ".MapValid", MODULE + ".MapBounded"])
     map_checks += f'''theorem map_lookup_lt (index : Nat) : mapTree.lookup index 0 < {K} :=
   lookup_lt_of_allBelow mapTree {K} 0 map_bounded (by decide) index

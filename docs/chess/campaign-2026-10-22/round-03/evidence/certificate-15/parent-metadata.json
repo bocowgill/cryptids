@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source and metadata only",
+  "run_id": 39980548245,
+  "commit": "5b309f57a857fd598785d291796236548e8f494a",
+  "source_and_logs_and_generated_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "durable_events_match_hash": true,
+  "last_completed_chunk_marker": 896,
+  "total_chunks_from_remote_manifest": 1024,
+  "elapsed_marker_milliseconds": 61145,
+  "full_validity_proof_credit": false,
+  "actual_body_rows_certified": 0,
+  "accepted_states": 769344
+}

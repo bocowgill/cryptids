@@ -1,9 +1,10 @@
 # Resumed October23,2026
 
-The user authorized the existing campaign targeting certified310029states.
-Accepted count769344; proposed459315saving remains unaccepted.
-First source revision: durable validity-batch timings and generated Lean width
-preflight. All proof/data/audit requirements and budgets remain unchanged.
-Current plan/gates: ../campaign-2026-10-23/. No remote run launched yet.
-Prior jobs and the October22 shutdown packet remain complete and fixed.
-Root owns dispatch/retention/Git; no workers active in this resumed round.
+User authorized the existing campaign targeting certified310029states.
+Accepted769344 fixed; proposed459315saving unaccepted. No workers active.
+Run39980548245 at5b309f57a857fd598785d291796236548e8f494a is active:
+qualified timing IO API, same120s sharedData/1200s total/6GiB limits.
+Prior diagnostic39979660954 at7dc9de6 failed its tiny instrumentation preflight;
+official certificate-14 retained with exact source/log hashes. No validity
+profile or new actual-row credit from that failure. Root owns dispatch/retention.
+Current plan and gates: ../campaign-2026-10-23/. Frozen sources stay fixed.

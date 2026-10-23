@@ -59,3 +59,11 @@ unqualified liftIO. Official certificate-14 and parent metadata retained; no
 actual validity progress or new row credit. Repair qualifies
 Lean.Elab.Command.liftIO and explicitly converts monoMsNow.toIO. Statements and
 caps unchanged. G2 remains open until the actual validity diagnostic runs.
+
+Diagnostic02 run39980548245 at5b309f5 retained as certificate-15. Tiny timing
+preflight passes. MapCount42.826s; MapValid reaches896/1024chunks in61.145marker
+seconds, then sharedData120s expires (validity build67.192s/2802655232bytes).
+No memoryfailure or fullvalidity proof credit; actualrows0. G2 met as diagnostic,
+G3 remains open. Next source revision uses a single-pass structural checker
+returning exact count while checking caches and ranges; its generic soundness
+recovers the same original propositions. Keep all data, audit roots and caps.
