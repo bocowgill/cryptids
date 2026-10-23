@@ -1,0 +1,11 @@
+{
+  "run_id": 39979660954,
+  "url": "https://github.com/bocowgill/cryptids/actions/runs/39979660954",
+  "source_commit": "7dc9de66d358ff3d85dc3fefaf3aa4c863a58756",
+  "purpose": "Diagnostic only: validity batch timestamps, unchanged statements and caps",
+  "accepted_states": 769344,
+  "target_states": 310029,
+  "status_at_dispatch": "queued",
+  "limits": "120s sharedData;1200s total;6GiB",
+  "local_execution": "source editing and metadata only"
+}

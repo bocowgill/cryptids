@@ -1,0 +1,10 @@
+{
+  "commit": "7dc9de66d358ff3d85dc3fefaf3aa4c863a58756",
+  "source_and_logs_and_generated_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "status": "failed",
+  "stage": "TemplateSmoke",
+  "actual_rows": 0,
+  "diagnosis": "TemplateSmoke unknown unqualified liftIO; no validity diagnostic ran",
+  "repair": "Fully qualify Lean.Elab.Command.liftIO and explicitly lift monoMsNow.toIO"
+}

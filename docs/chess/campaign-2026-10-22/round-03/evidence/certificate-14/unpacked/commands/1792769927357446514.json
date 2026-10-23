@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_body_20261022/certificate_pilot.py",
+    "--lakefile",
+    "lakefile.chess-body-certificate-20261022.toml",
+    "--output",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-body-certificate-20261022",
+    "--seconds",
+    "1200",
+    "--memory-gib",
+    "6"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "Bounded body kernel certificate pilot stopped: TemplateSmoke: Lean source/proof failure; inspect retained log\n",
+  "output_sha256": "0812b42fb4cb9876ee36413dbf7a21c51a2c4447fa03121018bdbabeb9c9ae68",
+  "timed_out": false,
+  "timeout_seconds": 1260,
+  "elapsed_seconds": 27.14508243499995,
+  "cumulative_children_peak_rss_kib": 2037440
+}

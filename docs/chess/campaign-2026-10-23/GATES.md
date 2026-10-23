@@ -7,9 +7,9 @@ and accept a complete 310,029-state machine only after end-to-end verification.
 All heavy work is remote. Frozen specification, accepted source, historical
 evidence and pins stay fixed. No outreach or bulk upstream migration.
 
-- [ ] G1: The accepted 769,344-state baseline and all 3,116 file pins are preserved;
+- [x] G1: The accepted 769,344-state baseline and all 3,116 file pins are preserved;
   the resumed plan and goal-API discrepancy are recorded in a pushed checkpoint.
-  EVIDENCE: pending
+  EVIDENCE: pins-resume.json rehashes all3116unchanged accepted files and binds manifest43942091. Source/plan checkpoint7dc9de66d358ff3d85dc3fefaf3aa4c863a58756 pushed to authorized fork. get_goal returned null; discrepancy recorded without creating a replacement.
 - [ ] G2: One bounded remote validity diagnostic retains exact source, durable
   timing markers, build/audit outcomes and limits, identifying progress or an
   exact obstruction without promoting partial results to a new state count.

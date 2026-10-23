@@ -53,3 +53,9 @@ Root owns Git, dispatch, retention and acceptance. Authorized fork is
 Origin is upstream; never push origin. No remote jobs launched yet this round.
 Gates are in GATES.md. Prior exact source and evidence are in the immutable
 October 22 shutdown packet and `round-03/evidence/certificate-13/`.
+
+Diagnostic01 run39979660954 at7dc9de6 failed TemplateSmoke due to unknown
+unqualified liftIO. Official certificate-14 and parent metadata retained; no
+actual validity progress or new row credit. Repair qualifies
+Lean.Elab.Command.liftIO and explicitly converts monoMsNow.toIO. Statements and
+caps unchanged. G2 remains open until the actual validity diagnostic runs.

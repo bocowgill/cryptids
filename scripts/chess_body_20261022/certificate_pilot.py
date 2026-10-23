@@ -886,11 +886,11 @@ def map_proofs(nodes, tree_name, kind, bound, root_theorem, progress_path=None):
             return ""
         path = json.dumps(str(progress_path.relative_to(ROOT)))
         return ("run_cmd do\n" +
-                "  let now ← liftIO IO.monoMsNow\n" +
-                f"  liftIO <| IO.FS.withFile {path}\n" +
-                "      .append fun handle ↦ do\n" +
-                f'    handle.putStrLn s!"{kind}\\t{chunks}\\t{{now}}"\n' +
-                "    handle.flush\n")
+                "  let now ← Lean.Elab.Command.liftIO IO.monoMsNow.toIO\n" +
+                "  Lean.Elab.Command.liftIO <| IO.FS.withFile\n" +
+                f"    {path} .append fun handle ↦ do\n" +
+                f'      handle.putStrLn s!"{kind}\\t{chunks}\\t{{now}}"\n' +
+                "      handle.flush\n")
 
     proofs, chunks = [marker(0)], 0
     for node in nodes:
