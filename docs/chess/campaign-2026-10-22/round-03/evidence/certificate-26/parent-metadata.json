@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 39997083726,
+  "commit": "901ae48f407f534d7853b189e8d02111bc0870b6",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": true,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "Rows64 hits unchanged120s wall cap below6GiB; durable markers show31numeric main offsets take about106.6s before67getter witnesses. Replace repeated frozen syntax weighting with shared exact weight-list identities, then integer prefixes. No actual row or negative-control credit.",
+  "new_accepted_machine": false
+}

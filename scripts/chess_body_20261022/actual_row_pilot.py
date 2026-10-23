@@ -242,10 +242,13 @@ def generate_rows(driver, selected, snapshot, expected_sha, header, audit_and_en
         add(f'root_{q}', f'theorem root_{q} : syntax_{q}.root = slot_{node} := by rfl')
         add(f'entry_{q}', f'theorem entry_{q} : FieldPacked.getter.entry {q} = {node} := by\n'
             f'  rw [entry_syntax {q} syntax_{q} syntax_eq_{q}, root_{q}, address_{node}]')
+        marker(f'entry-{count}', q)
     for q in sorted({item[0] for item in plan['return_pairs']}):
         add(f'return_offset_{q}',
             f'theorem return_offset_{q} : FieldSelectiveLayout.offset {q} =\n'
-            f'    {data["return_offsets"][q]} := by decide +kernel')
+            f'    {data["return_offsets"][q]} := by\n'
+            '  rw [return_offset_fast] <;> decide +kernel')
+        marker(f'return-offset-{count}', q)
     for q, rank in sorted({(q, rank) for q, rank, _ in plan['return_pairs']}):
         parts.append(f'def rank_{q}_{rank} : Fin (1 + FieldReturns.writeCount syntax_{q}) :=\n'
                      f'  ⟨{rank}, by decide +kernel⟩\n')
@@ -269,7 +272,7 @@ def generate_rows(driver, selected, snapshot, expected_sha, header, audit_and_en
             f'  change 533341 + (returnIndex {q} syntax_{q} syntax_eq_{q}\n'
             f'    rank_{q}_{rank} {store}).val = {target}\n'
             f'  rw [returnIndex_val, return_offset_{q}]\n  rfl')
-    for (node, bit, store), result in sorted(plan['facts'].items()):
+    for fact_index, ((node, bit, store), result) in enumerate(sorted(plan['facts'].items())):
         instruction = data['getter_samples'][node][1]
         tag, truth = instruction[0], boolean(bit)
         if tag in (1, 2, 3, 4):
@@ -315,6 +318,8 @@ def generate_rows(driver, selected, snapshot, expected_sha, header, audit_and_en
         else:
             source += ('  exact ' + prefix.format('halt') + f'{node} {store} {node_proof}')
         add(name, source)
+        if fact_index % 16 == 15 or fact_index + 1 == len(plan['facts']):
+            marker(f'aux-{count}', 10 * node + 5 * bit + store)
     for state in selected:
         for bit in (0, 1):
             row = plan['rows'][state, bit]

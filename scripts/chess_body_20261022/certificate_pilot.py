@@ -1247,6 +1247,9 @@ def generate_setup(driver):
     driver.emit("Loaders.lean", LOADERS)
     driver.emit("Audit.lean", AUDIT)
     generate_smoke(driver)
+    import weight_table_pilot
+    driver.summary["weight_generator_source"] = info(Path(weight_table_pilot.__file__))
+    weight_table_pilot.generate(driver, SNAPSHOT, SNAPSHOT_SHA, header, audit_and_end)
     tools = header(["Cryptids.Chess.Optimisation.FieldSelective"])
     tools += r'''open ConjectureMachines.Optimisation
 open Chess.Optimisation FieldCompiler
@@ -1432,6 +1435,8 @@ def main():
         driver.run("TemplateSmoke", 60, "Body certificate template smoke checked")
         driver.summary["template_smoke_checked"] = True
         driver.run("RowTools", 60, "Structural body row helpers checked")
+        driver.run("WeightTables", 60,
+                   "Complete source weights and shared prefix correspondence checked")
         driver.run("RowWitnesses", 60, "Actual local syntax and far-end address witnesses checked")
         driver.run("ActualTools", 60, "Structural main and return row transport helpers checked")
         if args.smoke_only:
@@ -1446,6 +1451,8 @@ def main():
         driver.run_data_group()
         for count, seconds in ((64, 120), (512, 180), (4096, 210)):
             import actual_row_pilot
+            driver.stage = f"Rows{count}Generation"
+            driver.checkpoint()
             actual_row_pilot.generate_rows(driver, selected[:count], SNAPSHOT, SNAPSHOT_SHA,
                                            header, audit_and_end, progress_marker, MODULE)
             driver.run("Rows" + str(count), seconds,

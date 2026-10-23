@@ -61,7 +61,8 @@ def build_body(driver, data, nodes, progress_marker, *, extra_slots=(), extra_la
         parts.append(f'def syntax_{q} : Syntax 4042 := lower (Snapshot.program {q})\n')
         parts.append(f'theorem syntax_eq_{q} : FieldPacked.syntaxRows.get {q} = syntax_{q} :=\n'
                      f'  FieldAware.syntaxRows_get {q}\n')
-        proof = 'exact FieldPackedLayout.offset_zero' if q == 0 else 'decide +kernel'
+        proof = ('exact FieldPackedLayout.offset_zero' if q == 0 else
+                 'rw [node_offset_fast] <;> decide +kernel')
         parts.append(f'theorem offset_{q} : FieldPackedLayout.offset {q} = {offsets[q]} := by\n'
                      f'  {proof}\n')
         parts.append(marker('offset', q))
@@ -140,7 +141,7 @@ def generate(driver, snapshot, expected_sha, header, audit_and_end, progress_mar
     # Endpoints deliberately test both the first and far-end layout addresses.
     body, roots, detail = build_body(driver, data, [0, 106667], progress_marker,
                                      include_prelude=True)
-    driver.emit('RowWitnesses.lean', header([module + '.RowTools']) + body +
+    driver.emit('RowWitnesses.lean', header([module + '.RowTools', module + '.WeightTables']) + body +
                 audit_and_end(driver, 'RowWitnesses', roots,
                               'Actual local syntax and far-end address witnesses checked'))
     driver.summary['local_witness_preflight'] = detail

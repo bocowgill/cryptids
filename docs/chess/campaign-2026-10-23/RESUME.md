@@ -184,3 +184,11 @@ Negative submits the checked actual entry-row theorem at a false none RHS,
 so kernel rejection tests an actual transition without recomputing its body.
 Same120s data and120/180/210s sample stages,6GiB/1200s total. No actual
 quotient rows or full-machine savings accepted yet.
+
+Structural run39997083726 at901ae48 retained certificate-26: Data passes;
+Rows64 times out120.068s at5449285632bytes. No actual RowAt/negative credit.
+31main offsets consume about106.6s;67getter markers then complete. Next
+bounded smoke preflight shares two exact source-weight tables and universal
+prefix equations, eliminating repeated syntax lowering for numeric offsets.
+See SHARED-PREFIX-PILOT.md. New markers distinguish entry/return offsets and
+periodic auxiliary facts. All sample goals, candidates and caps unchanged.
