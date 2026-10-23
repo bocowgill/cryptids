@@ -21,7 +21,7 @@ def slotIndex (q : Fin 4042) (p : Syntax 4042)
 theorem slotIndex_val (q : Fin 4042) (p : Syntax 4042)
     (same : FieldPacked.syntaxRows.get q = p) (i : Fin p.size) :
     (slotIndex q p same i).val = FieldPackedLayout.offset q + i.val := by
-  simpa only [slotIndex, Fin.val_cast] using
+  simpa only [slotIndex, FieldSelectiveLayout.nodeIndex, FieldPacked.layout, Fin.val_cast] using
     FieldPackedLayout.code_val q (i.cast (congrArg Syntax.size same).symm)
 
 theorem getter_syntax (q : Fin 4042) (p : Syntax 4042)

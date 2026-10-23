@@ -156,3 +156,10 @@ Source/generated/log/preview byte hashes reviewed. No actual quotient row
 or machine accepted. Next bounded smoke pilot checks transported local
 syntax, numeric offsets and first/last getter nodes with durable markers;
 new witness-generator source is bound in the remote source manifest.
+
+Local witness preflight39993371544 at1bd111d retained certificate-23.
+RowTools rechecks and audits. RowWitnesses reaches all7markers including
+far-end106667;18.127s,5314121728bytes, no resource stop. Sole error is
+slotIndex_val nodeIndex/layout alias matching. Failed module has no proof
+credit. Repair explicitly unfolds those aliases in the generic simpa, with
+all witness claims, roots, markers and60s/6GiB unchanged. Re-run smoke.

@@ -1,12 +1,13 @@
 # Active resumed campaign — October23,2026
 
-Goal tracking active; accepted769344 fixed, target310029.
-Current remote39990942125 atcad12fd checks structural Post/getter/address
-helpers in smoke mode, before rebuilding the complete data chain.
-Trial19 run39988441457 ata3d485e is retained in certificate-19 with source,
-generated, log and preview byte checks. Complete data passes again; Rows64
-hits the unchanged6GiB budget after38.335s. No sampled row module or negative
-control passes. G1/G2/G3 met; G4/G5/G6 open. No new accepted machine.
-All3116acceptedpins preserved. Heavy work remote, local work lightweight,
-outreach on hold. Root owns all work; no agents newly dispatched.
-Current handoff/gates: ../campaign-2026-10-23/. Cost/ranking updated.
+Goal active; accepted769344 fixed, target310029. G1/G2/G3 met, G4/G5/G6 open.
+Structural helpers passed in official certificate-22, run39992542850 ate73d827:
+5.451s fresh build,2.929s full-private4root/13079dependency audit, standard3axioms.
+Current remote39993371544 at1bd111de16816ee85ba1b4957e61f433381abaa6 tests
+local syntax transport, first/far-end offsets and getter witnesses. Smoke mode,
+60s per helper/witness stage including audits,6GiB. Durable witness markers.
+Retain certificate-23 after completion and inspect exact failures before retry.
+No actual RowAt module, negative control or new machine accepted. Largest
+opportunity remains459315states from the measured whole-body quotient.
+All accepted/frozen pins fixed; heavy work remote; outreach on hold.
+Current handoff/gates: ../campaign-2026-10-23/. Root owns work, no agents dispatched.

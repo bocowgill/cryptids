@@ -1,0 +1,17 @@
+{
+  "run_id": 39993371544,
+  "commit": "1bd111de16816ee85ba1b4957e61f433381abaa6",
+  "status": "retained_source_failure",
+  "mode": "smoke",
+  "witness_nodes": [
+    0,
+    106667
+  ],
+  "remote_only": true,
+  "new_accepted_machine": false,
+  "evidence": "../campaign-2026-10-22/round-03/evidence/certificate-23",
+  "kernel_module_seconds": 18.126622382,
+  "peak_bytes": 5314121728,
+  "progress_marker_events": 7,
+  "proof_credit": false
+}

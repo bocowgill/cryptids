@@ -1,0 +1,19 @@
+ℹ [3909/3940] Replayed Cryptids.Chess.Compilation.SourceCertificate
+info: Cryptids/Chess/Compilation/SourceCertificate.lean:226:0: Source certificate: 7076 checked lemmas, 7037 cache hits
+info: Cryptids/Chess/Compilation/SourceCertificate.lean:230:0: Literal row certificate: 5952 checked rows in 186 chunks
+ℹ [3920/3940] Replayed Cryptids.Chess.Compilation.Input
+info: Cryptids/Chess/Compilation/Input.lean:128:0: Checked 186 literal row chunks: 141042 stack symbols
+ℹ [3939/3940] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.RowTools
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/RowTools.lean:44:0: Structural body row helpers checked
+✖ [3940/3940] Building Cryptids.Chess.Optimisation.BodyCertificatePilot.RowWitnesses (15s)
+trace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean -M6144 /home/runner/work/cryptids/cryptids/Cryptids/Chess/Optimisation/BodyCertificatePilot/RowWitnesses.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Chess/Optimisation/BodyCertificatePilot/RowWitnesses.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Chess/Optimisation/BodyCertificatePilot/RowWitnesses.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Chess/Optimisation/BodyCertificatePilot/RowWitnesses.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Chess/Optimisation/BodyCertificatePilot/RowWitnesses.setup.json --json
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/RowWitnesses.lean:21:2: Type mismatch: After simplification, term
+  FieldPackedLayout.code_val q (Fin.cast (Eq.symm (congrArg Syntax.size same)) i)
+ has type
+  @Eq ℕ (↑(FieldPackedLayout.layout.code ⟨q, Fin.cast ⋯ i⟩)) (FieldPackedLayout.offset q + ↑i)
+but is expected to have type
+  @Eq ℕ (↑(FieldSelectiveLayout.nodeIndex q (Fin.cast ⋯ i))) (FieldPackedLayout.offset q + ↑i)
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/RowWitnesses.lean:134:0: Actual local syntax and far-end address witnesses checked
+Some required targets logged failures:
+- Cryptids.Chess.Optimisation.BodyCertificatePilot.RowWitnesses
+error: build failed

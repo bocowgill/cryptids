@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 39993371544,
+  "commit": "1bd111de16816ee85ba1b4957e61f433381abaa6",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": false,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "Only generic slotIndex_val aliases mismatch; endpoint and far-end witness markers reached, but no audited module credit. Explicitly unfold nodeIndex and FieldPacked.layout aliases.",
+  "new_accepted_machine": false
+}

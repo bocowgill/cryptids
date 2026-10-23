@@ -1,0 +1,24 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_body_20261022/certificate_pilot.py",
+    "--lakefile",
+    "lakefile.chess-body-certificate-20261022.toml",
+    "--output",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-body-certificate-20261022",
+    "--seconds",
+    "300",
+    "--memory-gib",
+    "6",
+    "--smoke-only"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "Bounded body kernel certificate pilot stopped: RowWitnesses: Lean source/proof failure; inspect retained log\n",
+  "output_sha256": "c655292e67df296de6381923efe71ffc8f70f98baff5210395f4f64b14d7298d",
+  "timed_out": false,
+  "timeout_seconds": 360,
+  "elapsed_seconds": 58.678511297,
+  "cumulative_children_peak_rss_kib": 4247280
+}
