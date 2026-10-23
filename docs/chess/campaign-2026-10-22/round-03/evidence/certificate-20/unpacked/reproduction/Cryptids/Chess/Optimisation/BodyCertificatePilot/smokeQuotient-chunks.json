@@ -1,0 +1,67 @@
+{
+  "binary_rows": 4,
+  "chunk_count": 2,
+  "chunk_limit_states": 1,
+  "chunks": [
+    {
+      "binary_rows": 2,
+      "definition": "Chess.Optimisation.BodyCertificatePilot.smokeQuotientChunk_000000",
+      "info": {
+        "bytes": 4,
+        "sha256": "13316410c3243a6b30a5a799aabf36a1e1a8f2aec49fd3af6869c33441dabea7"
+      },
+      "path": "Cryptids/Chess/Optimisation/BodyCertificatePilot/smokeQuotient-chunks/000000-0001.rows",
+      "start": 0,
+      "states": 1
+    },
+    {
+      "binary_rows": 2,
+      "definition": "Chess.Optimisation.BodyCertificatePilot.smokeQuotientChunk_000001",
+      "info": {
+        "bytes": 4,
+        "sha256": "665ae877edd92e755fe8504188724e0438a217c62edad817b262fb85e6289a88"
+      },
+      "path": "Cryptids/Chess/Optimisation/BodyCertificatePilot/smokeQuotient-chunks/000001-0001.rows",
+      "start": 1,
+      "states": 1
+    }
+  ],
+  "concatenated_sha256": "d9b5bddeb8b223ab1ee660ea6a3e1523d09eab53580b32ade066d846ec4ba036",
+  "destination_bound": 2,
+  "exact_concatenation_checked": true,
+  "maximum_code": 8,
+  "postorder_nodes": [
+    {
+      "kind": "chunk",
+      "name": "smokeQuotientChunk_000000",
+      "start": 0,
+      "states": 1
+    },
+    {
+      "kind": "chunk",
+      "name": "smokeQuotientChunk_000001",
+      "start": 1,
+      "states": 1
+    },
+    {
+      "kind": "branch",
+      "left": "smokeQuotientChunk_000000",
+      "left_count": 1,
+      "name": "smokeQuotientNode_000000_000002",
+      "right": "smokeQuotientChunk_000001",
+      "right_count": 1,
+      "start": 0,
+      "states": 2
+    }
+  ],
+  "representation": "packed_nat_pairs",
+  "source": {
+    "info": {
+      "bytes": 8,
+      "sha256": "d9b5bddeb8b223ab1ee660ea6a3e1523d09eab53580b32ade066d846ec4ba036"
+    },
+    "path": "Cryptids/Chess/Optimisation/BodyCertificatePilot/smoke-packed.rows"
+  },
+  "split_rule": "left_count = floor(subtree_state_count / 2)",
+  "states": 2
+}

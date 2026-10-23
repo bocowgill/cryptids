@@ -136,3 +136,9 @@ Rows64 computation hits6GiB in38.335s. No actual-row or negative-control
 credit. See STRUCTURAL-ROWS.md. Next bounded action is a remote smoke
 preflight of structural getter/Post/address helpers before another complete
 data build. The exact RowAt, candidate quotient and budgets remain fixed.
+
+Structural preflight39990942125 atcad12fd retained certificate-20. RowTools
+source fails matching getter_local wrappers (26.902s,3343872000bytes),
+without a resource stop. Other helpers receive no audited module credit.
+Repair explicitly unfolds getter/graph_node/nodeIndex/graphIndex in the one
+simpa proof; statements and limits fixed. Re-run smoke preflight first.

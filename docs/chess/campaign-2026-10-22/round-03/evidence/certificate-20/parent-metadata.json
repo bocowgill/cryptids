@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 39990942125,
+  "commit": "cad12fd606d7284852a46b8fc2f147ae167c9c6a",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": true,
+  "complete_candidate_data": false,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "RowTools getter_local proof matching failure: explicitly unfold getter, graph_node, nodeIndex and graphIndex wrappers; no resource stop",
+  "new_accepted_machine": false
+}
