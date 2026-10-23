@@ -1,0 +1,11 @@
+{
+  "run_id": 40036863463,
+  "source": "2d3ad0b4303588a1efd2197bf81687996028b42f",
+  "mode": "full",
+  "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-33",
+  "status": "dispatched",
+  "change": "Keep layout/code opaque, granular markers, durable command error capture with independent smoke",
+  "resource_caps_changed": false,
+  "accepted_states": 769344,
+  "prospective_states": 310029
+}

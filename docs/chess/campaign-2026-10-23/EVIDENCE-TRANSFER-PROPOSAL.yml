@@ -1,0 +1,32 @@
+name: Chess checkpoint artifact transfer
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+jobs:
+  transfer:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Verify and retain the existing exact artifact blob
+        run: |
+          set -euo pipefail
+          gh api repos/bocowgill/cryptids/actions/artifacts/12531839300/zip > source.zip
+          python3 - <<'PY'
+          import base64, hashlib, json
+          from pathlib import Path
+          data = Path('source.zip').read_bytes()
+          assert hashlib.sha256(data).hexdigest() == \
+              '51a908c21fcdaf7e5a21e09dabd13c39d763a9d753a6dfbefbe02c6e0792154d'
+          blob = hashlib.sha1(b'blob ' + str(len(data)).encode() + b'\0' + data).hexdigest()
+          assert blob == 'b750039c9aa303363851c9e7d69e7ae91419f3c0'
+          payload = dict(content=base64.b64encode(data).decode(), encoding='base64')
+          Path('blob.json').write_text(json.dumps(payload))
+          PY
+          gh api --method POST repos/bocowgill/cryptids/git/blobs \
+            --input blob.json --jq '.sha' > blob-sha.txt
+          test "$(cat blob-sha.txt)" = b750039c9aa303363851c9e7d69e7ae91419f3c0
+          echo 'Exact retained checkpoint artifact blob uploaded remotely'

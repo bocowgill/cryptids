@@ -1,0 +1,21 @@
+{
+  "status": "success",
+  "human_authorization": "Approve the fixed artifact-transfer workflow",
+  "run_id": 40034914794,
+  "run_url": "https://github.com/bocowgill/cryptids/actions/runs/40034914794",
+  "branch": "codex/chess-evidence-transfer-2d3ad0b",
+  "commit": "5093816cc07a2a8042ccb4524ea655d6a99493c1",
+  "workflow_blob": "66190741980cac49ed157577988876826f9c70b6",
+  "artifact_id": 12531839300,
+  "artifact_sha256": "51a908c21fcdaf7e5a21e09dabd13c39d763a9d753a6dfbefbe02c6e0792154d",
+  "git_blob": "b750039c9aa303363851c9e7d69e7ae91419f3c0",
+  "verification": [
+    "Remote workflow checks SHA256 and Git blob SHA1 before upload",
+    "Remote gh API returns the expected Git SHA1; shell assertion passed",
+    "Parent HEAD request for exact blob returned success without downloading it"
+  ],
+  "scope": "One fixed existing archive; no checkout, code execution from archive, branch ref movement or outreach",
+  "accepted_machine_states": 769344,
+  "prospective_machine_states": 310029,
+  "new_accepted_saving": 0
+}

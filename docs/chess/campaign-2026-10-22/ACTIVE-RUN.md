@@ -1,28 +1,34 @@
-# Active resumed campaign — October23,2026
+# Active resumed campaign — October 23, 2026
 
-Goal active; accepted769344 fixed, target310029. G1/G2/G3 met; G4/G5/G6 open.
-Current remote40016014877 at9dde48b4a57ba3e7552527fa3924cb2c5c7aebcb tests
-universal exact operation size/return-count summaries, then uses those in
-frozen32row weight identities. Smoke mode;60s per helper stage including
-full-private audits,6GiB. Retain as certificate-30 after completion. No new
-actual RowAt module or accepted full-machine saving.
+Goal active. Accepted machine: **769,344** states. Target: **310,029**.
+G1/G2/G3 met; G4/G5/G6 open. Accepted full-machine savings this resume: **0**.
 
-Prior evidence: certificate-26 actual64pilot has complete map/Q data checked
-but times out120s.31label setup/offset blocks consume about106.6s before
-67getter markers finish. Labels include aliases, correspondence and offsets;
-markers do not isolate their individual costs. No actual row credit.
-Monolithic weights27 time out60s at6.396GB. Chunked weights28 reach96/127
-chunks at60s,3.203GB. Direct WeightFacts composition29 also reaches96/127
-at60s,3.178GB, so parent composition does not resolve time. Next route proves
-operation weights independent of table values/labels and rewrites the callback
-before closed leaf evaluation. Exact final weight and prefix claims fixed.
+Current remote run **40036863463**, source
+`2d3ad0b4303588a1efd2197bf81687996028b42f`, full mode. Retain as
+`round-03/evidence/certificate-33` after completion. It keeps the actual body,
+quotient, 64-state sample and all resource caps fixed, while making layout/code
+opaque and recording command diagnostics and granular timing markers.
+Diagnostic capture must pass its own remote smoke and full-private audit first.
 
-Preparatory proofs passed and retained: certificate-22 generic getter/Post/
-initial/permutation;24 exact first/far-end syntax/addresses/getter;25 generic
-entry/return transport and halt numbering. Each has fresh Lean plus full-private
-audit, standard3axioms only. Map/Q data previously passed8fresh modules and
-32root audit. Accepted/frozen3116pins fixed; all heavy computation remote;
-outreach on hold. Largest opportunity remains459315full-machine states.
+Certificate-31 passes the complete shared source-weight identities and universal
+prefix correspondence: 15.445 seconds plus a nine-root full-private audit.
+First/far-end address witnesses then take 5.253 seconds. Certificate-32 still
+times out on the actual 64-state module at 120.035 seconds, peak 5,537,595,392
+bytes. It reaches actual-row markers but has no complete module or audit credit.
+The largest timing gap is 79.684 seconds across rank, target and address setup.
+New diagnostics should distinguish proof errors from expensive normalization.
 
-Current handoff/gates: ../campaign-2026-10-23/. Root owns work; no new agents.
-Last account usage query reports2% consumed; no reset performed by this agent.
+Complete map/quotient data and all structural preparatory modules are checked;
+every audit allows only propext, Classical.choice and Quot.sound. No universal
+actual-row relation or new machine has been accepted. The largest identified
+opportunity remains **459,315** states through the measured 114,487-state body
+quotient; every other paid state remains included in the 310,029 target.
+
+The user-approved fixed archive-transfer run **40034914794** succeeded. Exact
+checkpoint tree and commit publication recovered through bounded Git Data
+requests, with a non-forced compare-and-swap and verified final fork head.
+See `../campaign-2026-10-23/network-recovery-02.json`. All archives remain intact.
+
+Frozen 3,116 pins fixed; all heavy computation remote; outreach on hold.
+Root owns work; no new agents. Last account usage query: 4% consumed; no reset.
+Handoff and gates: `../campaign-2026-10-23/RESUME.md` and `GATES.md`.

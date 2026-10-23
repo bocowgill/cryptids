@@ -249,3 +249,23 @@ per-command diagnostics because Lake may buffer errors until module exit.
 Observer preserves all diagnostics and kernel checking; standalone positive
 smoke plus file probe and full-private audit precede actual samples. Same
 64states, predicates and all proof resource caps. No accepted machine change.
+
+
+Artifact-transfer approval received explicitly from the human user. Fixed auxiliary
+workflow run40034914794 at5093816 succeeds, verifying both archive hashes and
+uploading exact blob b750039c9aa303363851c9e7d69e7ae91419f3c0. See
+artifact-transfer-01.json and EVIDENCE-TRANSFER-PROPOSAL.yml. No frozen files,
+archives, notification settings or accepted state counts changed. The workflow
+is confined to the auxiliary branch and is not part of the research workflow.
+Large local Git Data tree request also timed out; separately uploaded exact
+large text blobs through the connector, then split tree publication into bounded
+48KB requests. Final tree/commit hashes must match local2d3ad0b before CAS of the
+primary fork branch and the next full remote proof pilot. No branch has been
+force-pushed. All local work is text/object metadata and bounded publication;
+Lean, generation and state counting stay remote.
+
+Exact tree38865b2 and commit2d3ad0b publication verified. Primary fork CAS
+9b416f8→2d3ad0b succeeded, force=false; final head read matches. Full remote
+run40036863463 dispatched at2d3ad0b; retain certificate-33. All original caps
+and claims fixed. See network-recovery-02.json and run-33.json. No accepted
+full-machine state savings yet.

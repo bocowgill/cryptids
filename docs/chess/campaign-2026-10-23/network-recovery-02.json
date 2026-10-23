@@ -1,0 +1,76 @@
+{
+  "base": "9b416f87713ac360f4777f8a4dfa80973e80dbe9",
+  "commit": "2d3ad0b4303588a1efd2197bf81687996028b42f",
+  "tree": "38865b256a6dfeaf3c38236674fcb6f2c23ed841",
+  "status": "exact_commit_published",
+  "branch": "codex/chess-openevolve-pilot",
+  "cas_expected": "9b416f87713ac360f4777f8a4dfa80973e80dbe9",
+  "force": false,
+  "tree_batch_limit_bytes": 48000,
+  "tree_batches": [
+    {
+      "index": 0,
+      "tree": "95453a31ccdb7ca19847dd8a97f0a71958eb62f8",
+      "entries": 22
+    },
+    {
+      "index": 1,
+      "tree": "920073334c69808bad69627b3926e00ee5ac5b0b",
+      "entries": 36
+    },
+    {
+      "index": 2,
+      "tree": "f9eff69341fdd918d4759cf6ba1172a75fb2064c",
+      "entries": 60
+    },
+    {
+      "index": 3,
+      "tree": "0f5796cd4011b72be72538f03f335c12f5671a9d",
+      "entries": 162
+    },
+    {
+      "index": 4,
+      "tree": "b645d1c95f739e847d84bf8bc217d41080fb69a0",
+      "entries": 184
+    },
+    {
+      "index": 5,
+      "tree": "6b5cb95a3b0abf4002db062067364cec2cf7a75d",
+      "entries": 184
+    },
+    {
+      "index": 6,
+      "tree": "33e494f1b202746d1774d26232bc4fb24135a0df",
+      "entries": 184
+    },
+    {
+      "index": 7,
+      "tree": "51f378e8b54c03fd47b1fe24f5ee691c4b47222f",
+      "entries": 184
+    },
+    {
+      "index": 8,
+      "tree": "b85d8a393f2b93764b6dfd9908db7aeec95cf7e3",
+      "entries": 183
+    },
+    {
+      "index": 9,
+      "tree": "6968a1a0e012cb8ff023bdab1e6b9c61dcce32af",
+      "entries": 106
+    },
+    {
+      "index": 10,
+      "tree": "178314496b01941fb1db6ccea086cb59647ffa19",
+      "entries": 8
+    },
+    {
+      "index": 11,
+      "tree": "38865b256a6dfeaf3c38236674fcb6f2c23ed841",
+      "entries": 1
+    }
+  ],
+  "route": "Approved fixed archive transfer; separately uploaded exact text blobs; bounded Git Data tree batches; exact author/committer commit; connector CAS; final gh API head verification",
+  "full_remote_run": 40036863463,
+  "proof_source_pinned": true,
+  "new_accepted_machine": false
+}
