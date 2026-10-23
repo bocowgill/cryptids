@@ -1,0 +1,13 @@
+{
+  "run_id": 40023280717,
+  "commit": "9b416f87713ac360f4777f8a4dfa80973e80dbe9",
+  "status": "retained_passed",
+  "evidence": "../campaign-2026-10-22/round-03/evidence/certificate-31",
+  "weight_kernel_seconds": 15.445037523,
+  "weight_peak_bytes": 3214163968,
+  "weight_audit_seconds": 2.83068491,
+  "weight_audit_roots": 9,
+  "weight_dependencies": 13168,
+  "endpoint_kernel_seconds": 5.253111067,
+  "new_accepted_machine": false
+}

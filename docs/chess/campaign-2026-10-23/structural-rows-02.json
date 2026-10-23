@@ -1,0 +1,17 @@
+{
+  "run_id": 40024675883,
+  "commit": "9b416f87713ac360f4777f8a4dfa80973e80dbe9",
+  "status": "retained_wall_obstruction",
+  "mode": "full",
+  "same64states_both_bits": true,
+  "shared_certified_prefixes": true,
+  "stage_limits_unchanged": true,
+  "full_quotient_certified": false,
+  "evidence": "../campaign-2026-10-22/round-03/evidence/certificate-32",
+  "stage_seconds": 120.035436224,
+  "peak_bytes": 5537595392,
+  "last_actual_marker": 68,
+  "last_rowat_marker": 67,
+  "largest_setup_gap_ms": 79684,
+  "actual_module_certified": false
+}

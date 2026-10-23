@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40024675883,
+  "commit": "9b416f87713ac360f4777f8a4dfa80973e80dbe9",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": true,
+  "complete_candidate_data": true,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "Shared prefixes reach actual/RowAt markers but Rows64 times out120.035s at5537595392bytes. Largest measured gap79.684s lies between last return offset and first auxiliary marker. Add rank/target/main/bounce phase markers and keep syntaxRows/return code opaque; no module or negative-control credit.",
+  "new_accepted_machine": false
+}

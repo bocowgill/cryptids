@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40023280717,
+  "commit": "9b416f87713ac360f4777f8a4dfa80973e80dbe9",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": false,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "Strict repaired preflight PASSES: universal operation summaries, all127frozen weight chunks, universal prefixes, all9root weight audit and endpoint/helper audits. No actual RowAt accepted yet.",
+  "new_accepted_machine": false
+}

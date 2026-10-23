@@ -153,6 +153,10 @@ class Driver:
                 self.summary[key] = {
                     "path": progress.name, "info": info(progress), "events": len(events),
                     "last_event": events[-1] if events else None, "proof_credit": False}
+        diagnostics = self.args.output / "command-diagnostics.log"
+        if diagnostics.exists():
+            self.summary["durable_command_diagnostics"] = {
+                "path": diagnostics.name, "info": info(diagnostics), "proof_credit": False}
         save(self.args.output / "certificate-summary.json", self.summary)
 
     def emit(self, name, text):
@@ -1248,6 +1252,9 @@ def generate_setup(driver):
     driver.emit("Loaders.lean", LOADERS)
     driver.emit("Audit.lean", AUDIT)
     generate_smoke(driver)
+    import diagnostics_pilot
+    driver.summary["diagnostics_generator_source"] = info(Path(diagnostics_pilot.__file__))
+    diagnostics_pilot.generate(driver, header, audit_and_end, MODULE)
     import operation_weights_pilot
     driver.summary["operation_weight_generator_source"] = info(Path(operation_weights_pilot.__file__))
     operation_weights_pilot.generate(driver, header, audit_and_end)
@@ -1439,6 +1446,10 @@ def main():
         driver.run("Loaders", 60, "Body certificate loaders checked")
         driver.run("TemplateSmoke", 60, "Body certificate template smoke checked")
         driver.summary["template_smoke_checked"] = True
+        driver.run("DiagnosticsSmoke", 60, "Diagnostic command capture smoke checked")
+        require("Chess command diagnostics probe" in
+                (driver.args.output / "command-diagnostics.log").read_text(),
+                "durable command diagnostic observer did not capture its probe")
         driver.run("RowTools", 60, "Structural body row helpers checked")
         driver.run("OperationWeights", 60, "Universal frozen operation weight summaries checked")
         driver.run("WeightTables", 60,

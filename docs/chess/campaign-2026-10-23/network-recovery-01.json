@@ -1,0 +1,14 @@
+{
+  "base": "9dde48b4a57ba3e7552527fa3924cb2c5c7aebcb",
+  "target": "9b416f87713ac360f4777f8a4dfa80973e80dbe9",
+  "expected_tree": "fc1685994aa0c126e0334f5183c0a5c2f83593b5",
+  "changed_files": 57,
+  "object_bytes": 1121862,
+  "binary_blobs": 2,
+  "phase": "recovered_exact_commit_and_ref",
+  "ref_updated": true,
+  "tree": "fc1685994aa0c126e0334f5183c0a5c2f83593b5",
+  "api_commit": "9b416f87713ac360f4777f8a4dfa80973e80dbe9",
+  "commit_matches": true,
+  "ref_update": "GitHub connector fast-forward with expected_sha lease"
+}

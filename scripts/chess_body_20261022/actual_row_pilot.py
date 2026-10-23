@@ -207,14 +207,15 @@ def generate_rows(driver, selected, snapshot, expected_sha, header, audit_and_en
     body, roots, detail = row_witness_pilot.build_body(
         driver, data, plan['nodes'], progress_marker,
         extra_slots=plan['slots'], extra_labels=plan['labels'], numeric_nodes=True)
-    parts = [header([module + '.BodyRelation', module + '.ActualTools']),
+    parts = [header([module + '.BodyRelation', module + '.ActualTools', module + '.Diagnostics']),
              f'namespace {scope}\n',
-             'attribute [local irreducible] FieldPacked.getter FieldPacked.layout\n', body]
+             'attribute [local irreducible] FieldPacked.getter FieldPacked.layout\n'
+             'attribute [local irreducible] FieldAware.syntaxRows FieldSelectiveLayout.code\n', body]
     offsets, entries = data['prefix_offsets'], data['entries']
 
     def add(name, source):
         roots.append(name)
-        parts.append(source + '\n')
+        parts.append('capture_cert in\n' + source + '\n')
 
     def marker(kind, value):
         parts.append(progress_marker(kind, value, driver.args.output / f'rows-{count}-progress.tsv'))
@@ -252,17 +253,22 @@ def generate_rows(driver, selected, snapshot, expected_sha, header, audit_and_en
     for q, rank in sorted({(q, rank) for q, rank, _ in plan['return_pairs']}):
         parts.append(f'def rank_{q}_{rank} : Fin (1 + FieldReturns.writeCount syntax_{q}) :=\n'
                      f'  ⟨{rank}, by decide +kernel⟩\n')
+    marker(f'ranks-{count}', 0)
     for q, node, rank in sorted(plan['find_targets']):
         add(f'find_{q}_{node}', f'theorem find_{q}_{node} :\n'
             f'    FieldReturns.findTarget syntax_{q} slot_{node} = some rank_{q}_{rank} := by rfl')
     for q, rank, node in sorted(plan['target_slots']):
         add(f'target_{q}_{rank}', f'theorem target_{q}_{rank} :\n'
             f'    FieldReturns.targetAt syntax_{q} rank_{q}_{rank} = slot_{node} := by rfl')
-    for node, store in sorted(plan['main_pairs']):
+    marker(f'targets-{count}', 0)
+    for index, (node, store) in enumerate(sorted(plan['main_pairs'])):
         add(f'main_address_{node}_{store}', f'theorem main_address_{node}_{store} :\n'
             f'    mainIndex {node} {store} = {encoded(node, store)} := by\n'
             '  unfold mainIndex\n  rw [CompactPost.encode, permutation_numeric]\n'
             '  decide +kernel')
+        if index % 16 == 15 or index + 1 == len(plan['main_pairs']):
+            marker(f'main-address-{count}', encoded(node, store))
+    marker(f'before-bounce-{count}', 0)
     for q, rank, store in sorted(plan['return_pairs']):
         target = 533341 + 1 + 5 * (data['return_offsets'][q] + rank) + store
         add(f'bounce_address_{q}_{rank}_{store}',
@@ -272,6 +278,8 @@ def generate_rows(driver, selected, snapshot, expected_sha, header, audit_and_en
             f'  change 533341 + (returnIndex {q} syntax_{q} syntax_eq_{q}\n'
             f'    rank_{q}_{rank} {store}).val = {target}\n'
             f'  rw [returnIndex_val, return_offset_{q}]\n  rfl')
+        marker(f'bounce-address-{count}', target)
+    marker(f'before-aux-{count}', 0)
     for fact_index, ((node, bit, store), result) in enumerate(sorted(plan['facts'].items())):
         instruction = data['getter_samples'][node][1]
         tag, truth = instruction[0], boolean(bit)

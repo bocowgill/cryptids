@@ -224,3 +224,28 @@ and254unnecessarySeqFocus warnings. No weight-module credit. Next fixes
 parent congruence with explicit(lambda xs ys => xs++ys), and replaces
 unnecessary<;>with sequential tactics in generator and fast-offset templates.
 Strict lint, exact final statements and caps preserved. No actual RowAt yet.
+
+Repaired strict preflight40023280717 at9b416f8 retained certificate-31
+PASSES: WeightTables15.445s/3214163968bytes plus9root/13168dependency
+audit2.831s; endpoint witnesses now5.253s/3254796288bytes, all helpers
+audited with standard3axioms only. Current FULL retry40024675883 uses
+that exact same source and same64states/both bits, shared prefixes, all
+original caps. Retain certificate-32. Source pinned until exact outcome.
+Network Git pushes failed viaSSH andHTTPS; exact tree/commit9b416f8 was
+recovered through Git Data API and connector CAS fast-forward. See
+network-recovery-01.json. Bounded publish_checkpoint_api.py supports future
+exact-hash object uploads without moving refs; connector update_ref must
+verify expected head and force=false, then verify and dispatch. Never push
+origin. No frozen-pin edits allowed by publisher. No actual RowAt accepted.
+
+Shared-prefix full run40024675883 at9b416f8 retained certificate-32.
+Data passes; Rows64 hits120.035s at5537595392bytes. Actual/RowAt markers
+now reached (last actual encoded68, last row encoded67), but no complete
+module/audit credit; negative unrun. Main setup improved; largest gap79.684s
+from last return-offset to first auxiliary marker includes ranks, target
+lookups, main/bounce address proofs. Next adds granular markers, keeps
+FieldAware.syntaxRows and FieldSelectiveLayout.code opaque, and captures
+per-command diagnostics because Lake may buffer errors until module exit.
+Observer preserves all diagnostics and kernel checking; standalone positive
+smoke plus file probe and full-private audit precede actual samples. Same
+64states, predicates and all proof resource caps. No accepted machine change.
