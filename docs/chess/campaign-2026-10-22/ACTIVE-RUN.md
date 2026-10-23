@@ -3,12 +3,15 @@
 Goal active. Accepted machine: **769,344** states. Target: **310,029**.
 G1/G2/G3 met; G4/G5/G6 open. Accepted full-machine savings this resume: **0**.
 
-Current remote run **40038438126**, source
-`1a12ba4b34b8553dac7769f82bc223410f180c9c`, full mode. Retain as
-`round-03/evidence/certificate-34` after completion. It keeps the actual body,
-quotient, 64-state sample and all resource caps fixed, while making layout/code
-opaque and recording command diagnostics and granular timing markers.
-Diagnostic capture must pass its own remote smoke and full-private audit first.
+Current remote run **40041134597**, source
+`260ec88dc065a2d5e7f1b7f18211b3ac44936634`, full mode. Retain as
+`round-03/evidence/certificate-35` after completion. It corrects recorded
+bit-decoding and numeric-type rewrites, gives directions explicit types, and
+removes the per-row heartbeat override that confused strict scope linting.
+Run34's observer/audit and complete candidate data passed; actual Rows64 ended
+in84.302s with proof errors, below its limits. No actual module credit yet.
+RETURN-ADDRESS-PILOT.md records a conditional generic-value-interface pilot for
+measured5–8second return-address setup gaps. Await current correctness outcome.
 
 Certificate-31 passes the complete shared source-weight identities and universal
 prefix correspondence: 15.445 seconds plus a nine-root full-private audit.
@@ -30,5 +33,5 @@ requests, with a non-forced compare-and-swap and verified final fork head.
 See `../campaign-2026-10-23/network-recovery-02.json`. All archives remain intact.
 
 Frozen 3,116 pins fixed; all heavy computation remote; outreach on hold.
-Root owns work; no new agents. Last account usage query: 4% consumed; no reset.
+Root owns work; no new agents. Last account usage query: 5% consumed; no reset.
 Handoff and gates: `../campaign-2026-10-23/RESUME.md` and `GATES.md`.

@@ -300,3 +300,9 @@ Largest measured setup cost now isolated to bounce-address proofs: several
 5–8second gaps, up to8.007s for the far-end address. If corrected64passes,
 measure scaling before expanding proof volume; consider opaque syntax/rank
 witnesses with separately checked values or structural-table/cache fallback.
+
+Full run40041134597 at260ec88 dispatched after exact fork-head check. Retain
+certificate-35. Corrects recorded row typing/bit decoding/direction/lint errors.
+Next result must distinguish full module and foundation-audit success from
+diagnostic markers. All original claims and time/memory caps fixed; per-row
+heartbeat override removed. Accepted769344, target310029; no new saving.
