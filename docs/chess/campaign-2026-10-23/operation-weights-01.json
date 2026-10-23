@@ -1,0 +1,17 @@
+{
+  "run_id": 40016014877,
+  "commit": "9dde48b4a57ba3e7552527fa3924cb2c5c7aebcb",
+  "status": "retained_operation_pass_weight_failure",
+  "mode": "smoke",
+  "scope": "Universal exact operation node/return weights, then cheap frozen chunk identities",
+  "remote_only": true,
+  "new_accepted_machine": false,
+  "evidence": "../campaign-2026-10-22/round-03/evidence/certificate-30",
+  "operation_kernel_seconds": 9.103567109,
+  "operation_audit_seconds": 3.035722033,
+  "operation_roots": 6,
+  "operation_dependencies": 2697,
+  "weight_kernel_seconds": 21.143447144,
+  "weight_progress": 127,
+  "weight_certified": false
+}

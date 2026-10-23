@@ -215,3 +215,12 @@ exact(lower(op).size,1+writeCount(lower(op))) summaries for every operation
 constructor and field, independent of all table values and labels. Leaf
 weight checks then rewrite their function parameter to cheap opcode weights.
 Original exact weight identities/prefix statements and all caps remain fixed.
+
+Operation run40016014877 at9dde48b retained certificate-30. Universal
+OperationWeights PASSES9.104s plus6root/2697dependency audit3.036s, only
+standard3axioms. Concrete127chunks finish21.143s at3191775232bytes, but
+WeightTables is rejected by one List.append versus ++ parent type mismatch
+and254unnecessarySeqFocus warnings. No weight-module credit. Next fixes
+parent congruence with explicit(lambda xs ys => xs++ys), and replaces
+unnecessary<;>with sequential tactics in generator and fast-offset templates.
+Strict lint, exact final statements and caps preserved. No actual RowAt yet.

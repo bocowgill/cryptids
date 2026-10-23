@@ -1,27 +1,28 @@
 # Active resumed campaign — October23,2026
 
 Goal active; accepted769344 fixed, target310029. G1/G2/G3 met; G4/G5/G6 open.
-Current remote39999662622 atbe8cb5849b946b603609398d2102b2574e9a577d tests
-shared exact source-weight tables and universal prefix equations in smoke
-mode,60s per helper stage with full-private audits. Heavy work remains remote.
-Retain certificate-27 after completion and diagnose exact logs before retry.
+Current remote40016014877 at9dde48b4a57ba3e7552527fa3924cb2c5c7aebcb tests
+universal exact operation size/return-count summaries, then uses those in
+frozen32row weight identities. Smoke mode;60s per helper stage including
+full-private audits,6GiB. Retain as certificate-30 after completion. No new
+actual RowAt module or accepted full-machine saving.
 
-Previous actual-row run39997083726 at901ae48 retained certificate-26. Data
-passes fresh32root audit; Rows64 hits120.068s at5449285632bytes, below6GiB.
-31main offsets consume about106.6s;67getter markers then complete. Actual rows
-and negative control receive no credit. Native plan has31labels/67getter
-nodes/252auxiliary facts, proposing the unchanged64state/both-bit sample.
-The corrective change replaces repeated syntax weighting with two exact
-4042entry literal-weight identities, so each offset only sums integers.
-New markers distinguish entry, return-offset and auxiliary phases.
+Prior evidence: certificate-26 actual64pilot has complete map/Q data checked
+but times out120s.31label setup/offset blocks consume about106.6s before
+67getter markers finish. Labels include aliases, correspondence and offsets;
+markers do not isolate their individual costs. No actual row credit.
+Monolithic weights27 time out60s at6.396GB. Chunked weights28 reach96/127
+chunks at60s,3.203GB. Direct WeightFacts composition29 also reaches96/127
+at60s,3.178GB, so parent composition does not resolve time. Next route proves
+operation weights independent of table values/labels and rewrites the callback
+before closed leaf evaluation. Exact final weight and prefix claims fixed.
 
-Certified preparatory sets retained in certificate-22 (generic getter/Post/
-initial/permutation), certificate-24 (exact first/far-end syntax, offsets,
-addresses/getter), certificate-25 (main/return transport and halt numbering).
-Each set has a successful fresh Lean build, full-private audit and only the
-standard3axioms. Frozen specification and all3116accepted pins stay fixed.
-No accepted full-machine saving:459315remains contingent on universal actual
-rows and complete310029state linkage, regressions and final review.
+Preparatory proofs passed and retained: certificate-22 generic getter/Post/
+initial/permutation;24 exact first/far-end syntax/addresses/getter;25 generic
+entry/return transport and halt numbering. Each has fresh Lean plus full-private
+audit, standard3axioms only. Map/Q data previously passed8fresh modules and
+32root audit. Accepted/frozen3116pins fixed; all heavy computation remote;
+outreach on hold. Largest opportunity remains459315full-machine states.
 
-Main handoff/gates: ../campaign-2026-10-23/. Root owns work; no agents newly
-dispatched. Local inspections lightweight; outreach on hold. Usage11% consumed.
+Current handoff/gates: ../campaign-2026-10-23/. Root owns work; no new agents.
+Last account usage query reports2% consumed; no reset performed by this agent.

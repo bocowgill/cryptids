@@ -247,7 +247,7 @@ def generate_rows(driver, selected, snapshot, expected_sha, header, audit_and_en
         add(f'return_offset_{q}',
             f'theorem return_offset_{q} : FieldSelectiveLayout.offset {q} =\n'
             f'    {data["return_offsets"][q]} := by\n'
-            '  rw [return_offset_fast] <;> decide +kernel')
+            '  rw [return_offset_fast]\n  decide +kernel')
         marker(f'return-offset-{count}', q)
     for q, rank in sorted({(q, rank) for q, rank, _ in plan['return_pairs']}):
         parts.append(f'def rank_{q}_{rank} : Fin (1 + FieldReturns.writeCount syntax_{q}) :=\n'

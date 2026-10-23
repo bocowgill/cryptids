@@ -62,7 +62,7 @@ def build_body(driver, data, nodes, progress_marker, *, extra_slots=(), extra_la
         parts.append(f'theorem syntax_eq_{q} : FieldPacked.syntaxRows.get {q} = syntax_{q} :=\n'
                      f'  FieldAware.syntaxRows_get {q}\n')
         proof = ('exact FieldPackedLayout.offset_zero' if q == 0 else
-                 'rw [node_offset_fast] <;> decide +kernel')
+                 'rw [node_offset_fast]\n  decide +kernel')
         parts.append(f'theorem offset_{q} : FieldPackedLayout.offset {q} = {offsets[q]} := by\n'
                      f'  {proof}\n')
         parts.append(marker('offset', q))

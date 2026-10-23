@@ -33,7 +33,7 @@ theorem weight_map_branch {α : Type} (weight : α → Nat) (cache : Nat)
   have left_eq : left.flatten.map weight = a := hl
   have right_eq : right.flatten.map weight = b := hr
   simpa only [WeightFacts, Balanced.RowTree.flatten, List.map_append] using
-    congrArg₂ List.append left_eq right_eq
+    congrArg₂ (fun xs ys : List Nat ↦ xs ++ ys) left_eq right_eq
 ''']
     node_weight = '(fun row : Snapshot.Entry ↦ (lower row.1).size)'
     return_weight = '(fun row : Snapshot.Entry ↦ 1 + FieldReturns.writeCount (lower row.1))'
@@ -61,7 +61,7 @@ theorem weight_map_branch {α : Type} (weight : α → Nat) (cache : Nat)
                     (rp, return_weight, ret, 'return_weight_function')):
                 parts.append(f'theorem {proof} : WeightFacts\n'
                              f'    {weight}\n    {source} {values} := by\n'
-                             f'  rw [{rewrite}] <;> rfl\n')
+                             f'  rw [{rewrite}]\n  rfl\n')
             if start % 16 == 15 or end == 4042:
                 parts.append(progress_marker('weight-chunk', start + 1,
                                               driver.args.output / 'weight-chunks-progress.tsv'))

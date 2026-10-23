@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40016014877,
+  "commit": "9dde48b4a57ba3e7552527fa3924cb2c5c7aebcb",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": true,
+  "complete_candidate_data": false,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "OperationWeights all6roots and2697dependencies audited; WeightTables reaches127chunks in21.143s but one parent append-notation type mismatch plus254unnecessarySeqFocus warnings reject strict build. Fix lambda append congruence and sequential tactics, keep lint.",
+  "new_accepted_machine": false
+}
