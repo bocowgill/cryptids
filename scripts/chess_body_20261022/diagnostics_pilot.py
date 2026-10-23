@@ -29,7 +29,10 @@ end Chess.Optimisation.BodyCertificatePilot.Generator
 
 def generate(driver, header, audit_and_end, module):
     driver.emit('Diagnostics.lean', SOURCE)
-    smoke = header([module + '.Diagnostics']) + '''capture_cert in
+    # This observer smoke needs only Lean, not the mathematical header's namespaces.
+    prelude = header([module + '.Diagnostics']).replace(
+        'open Turing ConjectureMachines ConjectureMachines.Compilation\n', '')
+    smoke = prelude + '''capture_cert in
 theorem diagnostic_capture_smoke : True := True.intro
 capture_cert in
 run_cmd Lean.logInfo "Chess command diagnostics probe"

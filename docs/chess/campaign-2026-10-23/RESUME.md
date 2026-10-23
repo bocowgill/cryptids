@@ -269,3 +269,11 @@ Exact tree38865b2 and commit2d3ad0b publication verified. Primary fork CAS
 run40036863463 dispatched at2d3ad0b; retain certificate-33. All original caps
 and claims fixed. See network-recovery-02.json and run-33.json. No accepted
 full-machine state savings yet.
+
+Run40036863463 at2d3ad0b retained certificate-33 and byte-reviewed. Observer
+Diagnostics module compiles and durable probe is captured, but its smoke uses
+the common header open Turing without importing that namespace. Sole Lean
+error,2.122s, no resource stop. No later helper/data/row credit this run. Fix
+removes only the unused mathematical open line from the standalone smoke.
+Same statements, original caps and full-private audits; next full run again
+checks observer smoke before all structural and actual-row stages.
