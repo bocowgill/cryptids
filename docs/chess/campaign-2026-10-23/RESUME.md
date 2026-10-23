@@ -163,3 +163,11 @@ far-end106667;18.127s,5314121728bytes, no resource stop. Sole error is
 slotIndex_val nodeIndex/layout alias matching. Failed module has no proof
 credit. Repair explicitly unfolds those aliases in the generic simpa, with
 all witness claims, roots, markers and60s/6GiB unchanged. Re-run smoke.
+
+Local witness preflight39994157561 at99ec441 retained certificate-24 PASSES.
+First/far-end nodes0/106667, actual syntax transport, offsets and addresses
+checked in14.311s,5322248192bytes. Full-private14root/12086dependency audit
+passes2.015s,4869607424bytes; only standard3axioms. All byte/source/preview
+hashes reviewed. Next smoke preflight adds generic main/return index and
+entry/findReturn/returnAt transport helpers. Goal remains active, usage11%
+consumed, no actual quotient RowAt or new full-machine saving accepted.

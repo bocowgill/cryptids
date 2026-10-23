@@ -68,3 +68,9 @@ Structural helper preflight39992542850 ate73d827 passes:5.451s fresh
 RowTools build,2.929s full-private4root audit. Only the standard3axioms.
 Next: first/far-end local-slot witnesses, keeping full source-row goals
 unchanged. This intermediate proof progress accepts no full-machine saving.
+
+Exact first/far-end actual getter/local-slot witnesses pass in certificate-24:
+14.311s fresh build at5322248192bytes;2.015s full-private14root audit. This
+removes the immediate numeric-layout uncertainty for the next actual-row pilot.
+Remaining priority is every source transition, including all paid returns,
+followed by the unchanged complete-machine linkage and acceptance.

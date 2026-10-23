@@ -1,0 +1,14 @@
+{
+  "run_id": 39994157561,
+  "commit": "99ec441f79e29fcc3389e321edcab5daf6f48d06",
+  "status": "retained_passed",
+  "mode": "smoke",
+  "specific_correction": "Explicit nodeIndex and layout aliases in slotIndex_val",
+  "new_accepted_machine": false,
+  "evidence": "../campaign-2026-10-22/round-03/evidence/certificate-24",
+  "kernel_seconds": 14.311348179,
+  "kernel_peak_bytes": 5322248192,
+  "audit_seconds": 2.015258821,
+  "audit_roots": 14,
+  "audit_dependencies": 12086
+}

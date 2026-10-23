@@ -30,6 +30,7 @@ def main():
              'lakefile.chess-body-certificate-20261022.toml',
              'scripts/chess_body_20261022/certificate_pilot.py',
              'scripts/chess_body_20261022/row_witness_pilot.py',
+             'scripts/chess_body_20261022/actual_row_pilot.py',
              'scripts/chess_body_20261022/certificate_verify.py']
     manifest = dict(commit=os.environ.get('GITHUB_SHA'), run_id=os.environ.get('GITHUB_RUN_ID'),
                     workflow_commit=os.environ.get('GITHUB_SHA'),

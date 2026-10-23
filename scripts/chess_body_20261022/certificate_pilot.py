@@ -1285,6 +1285,9 @@ theorem permutation_numeric : CompactPost.permutation FieldPacked.getter =
     driver.summary["row_witness_generator_source"] = info(Path(row_witness_pilot.__file__))
     row_witness_pilot.generate(driver, SNAPSHOT, SNAPSHOT_SHA, header, audit_and_end,
                                progress_marker, MODULE)
+    import actual_row_pilot
+    driver.summary["actual_row_generator_source"] = info(Path(actual_row_pilot.__file__))
+    actual_row_pilot.generate_tools(driver, header, audit_and_end, MODULE)
 
 
 def generate(driver, selected):
@@ -1437,6 +1440,7 @@ def main():
         driver.summary["template_smoke_checked"] = True
         driver.run("RowTools", 60, "Structural body row helpers checked")
         driver.run("RowWitnesses", 60, "Actual local syntax and far-end address witnesses checked")
+        driver.run("ActualTools", 60, "Structural main and return row transport helpers checked")
         if args.smoke_only:
             driver.summary["status"] = "smoke_passed"
             driver.checkpoint()

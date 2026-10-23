@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 39994157561,
+  "commit": "99ec441f79e29fcc3389e321edcab5daf6f48d06",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": true,
+  "complete_candidate_data": false,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "Exact first and far-end local syntax/address/getter witnesses pass fresh Lean and all14root full-private audit; actual RowAt remains unproved",
+  "new_accepted_machine": false
+}
