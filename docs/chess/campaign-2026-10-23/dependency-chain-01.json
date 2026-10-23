@@ -1,0 +1,10 @@
+{
+  "run_id": 39986731860,
+  "source_commit": "207c7d997bb01f0c4b151ba8a55caf5aa3f510f6",
+  "purpose": "Fresh build of all8data modules and full-private union32root audit; unchanged120s/6GiB",
+  "previous_run": 39984446974,
+  "accepted_states": 769344,
+  "target_states": 310029,
+  "status": "active at checkpoint",
+  "actual_body_rows_certified": 0
+}

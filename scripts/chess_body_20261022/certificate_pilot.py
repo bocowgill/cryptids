@@ -1341,7 +1341,8 @@ theorem quotient_fidelity (state : Fin {K}) (bit : Fin 2) :
                 name = f"row_{count}_{state}_{bit}"
                 names.append(name)
                 parts.append(HEARTBEATS +
-                             f"theorem {name} : RowAt {state} {bit} := by decide +kernel\n")
+                             f"theorem {name} : RowAt {state} {bit} := by\n" +
+                             "  unfold RowAt\n  decide +kernel\n")
         parts.append(audit_and_end(driver, f"Rows{count}", names,
                                    f"Body kernel rows checked: {count} states, {2 * count} rows"))
         driver.emit(f"Rows{count}.lean", "".join(parts))

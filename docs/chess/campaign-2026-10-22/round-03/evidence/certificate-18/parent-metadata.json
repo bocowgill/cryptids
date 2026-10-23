@@ -1,0 +1,17 @@
+{
+  "scope": "Retained bytes and command metadata only",
+  "run_id": 39986731860,
+  "commit": "207c7d997bb01f0c4b151ba8a55caf5aa3f510f6",
+  "source_logs_generated_and_preview_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "all8fresh_builds_checked": true,
+  "all_original_roots_in32root_union": true,
+  "complete_candidate_data": true,
+  "data_group_seconds": 92.083531413,
+  "audit_peak_bytes": 5025153024,
+  "actual_rows": 0,
+  "first_failed_stage": "Rows64",
+  "diagnosis": "No Decidable instance synthesized through opaque RowAt predicate",
+  "negative_control": "not_run",
+  "new_accepted_machine": false
+}

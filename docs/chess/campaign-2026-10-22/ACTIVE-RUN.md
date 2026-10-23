@@ -1,13 +1,13 @@
 # Active resumed campaign — October23,2026
 
-Goal tracking restored and active; target certified310029states.
-Accepted769344 fixed. Frozen specification and all3116acceptedpins preserved.
-No workers newly dispatched; root owns source/Git/network/retention.
-
-Current remote run39984446974 atfe1a8145333401dd4030038afbdd4580bdf11703:
-checked paired-code quotient chunks, exact4*Kbound, named midpoint nodes,
-unchanged120s sharedData/1200s total/6GiB. No accepted saving from this pilot.
-Previous39982510510 at4925b66 completed: all map claims/audits pass, quotient
-checks exceed6GiB. Official certificate-16 retained and exact hashes checked.
-No actual-body rows kernel-certified yet. Full details and gates in
-../campaign-2026-10-23/. Outreach remains on hold; all heavy work remote.
+Existing goal tracking restored and active. Accepted769344 fixed; target310029.
+Current remote39986731860 at207c7d997bb01f0c4b151ba8a55caf5aa3f510f6:
+fresh all8module dependency build, union32root full-private audit, same120s
+sharedData/1200s total/6GiB. Source frozen until measured outcome.
+Prior39984446974 atfe1a814 retained certificate17: allData19claims/audits pass,
+only BodyRelation startup hits shared120s. Completepipelinefalse/actualrows0.
+New theory helpers and data checks are unchanged from that mathematical pass;
+current change removes repeated setup/audit loading without dropping roots.
+Root owns all source/Git/network/retention; no new workers active. All heavy
+work remote, frozen3116pins fixed, no outreach. Latest handoff/gates are in
+../campaign-2026-10-23/. Retain current outcome as certificate18.

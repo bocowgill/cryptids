@@ -14,9 +14,9 @@ evidence and pins stay fixed. No outreach or bulk upstream migration.
   timing markers, build/audit outcomes and limits, identifying progress or an
   exact obstruction without promoting partial results to a new state count.
   EVIDENCE: Official run39980548245 at5b309f5 retained certificate-15, parent-metadata.json checks exact source/log/generated/progress hashes. MapCount42.826s; MapValid stage_wall_budget67.192s,29durable events through896/1024chunks in61.145marker seconds, peak2802655232bytes. Only Prelude/Count complete, no full validity or row credit. All caps unchanged.
-- [ ] G3: Complete map and quotient count/cache/range/fidelity proofs and their
+- [x] G3: Complete map and quotient count/cache/range/fidelity proofs and their
   full-private audits pass under the established resource limits.
-  EVIDENCE: pending
+  EVIDENCE: Official run39986731860 at207c7d9, certificate-18 and parent metadata bind exact source/log/data/progress bytes. All8modules freshly Built, union32root audit passed, complete-data flagtrue in92.084s, auditpeak5025153024bytes below6GiB. Actual-row stage then fails only opaque RowAt Decidable synthesis; rowcredit0 and negativeunrun. Original claims/roots/caps unchanged.
 - [ ] G4: Every actual accepted body transition is related to the complete quotient,
   preserving missing transitions and both bits; a meaningful false-row control
   fails in the kernel, and both halting directions are proved.

@@ -106,3 +106,20 @@ all component root censuses. Delete every proof build product first; assert
 each module was freshly Built, strict exits, exact union audit, same120s/6GiB.
 QChecks imports MapChecks to serialize large facts builds. No checks omitted
 and no cap raised. G3 remains open until the complete pipeline passes.
+
+Current run39986731860 at207c7d997bb01f0c4b151ba8a55caf5aa3f510f6 tests
+one fresh dependency-chain build of all8data modules plus full-private UNION
+audit32roots. Every component's old root census is asserted; all proof products
+are deleted first and fresh Built banners required. Same120s/6GiB. Source
+frozen until exact remote outcome. Retain as certificate-18 after completion.
+If complete-data flag becomes true, inspect exact Rows64/negative/512/4096
+receipts before planning the full universal certificate. No row credit yet.
+
+Trial18 run39986731860 at207c7d9 retained certificate-18. COMPLETE DATA passes:
+all8fresh module builds plus exact32root union full-private audit in92.084s,
+auditpeak5025153024bytes. Parent matches source/log/generated/preview bytes and
+checks all original root membership and fresh Built banners. G3 met.
+Rows64 then fails Decidable(RowAt s b) synthesis because the definition is not
+unfolded for instance search. No actual row credit or negative control yet.
+Small source repair explicitly unfolds RowAt before decide+kernel, preserving
+the exact predicate and all budgets. No classical noncomputable decider added.

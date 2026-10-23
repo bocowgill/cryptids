@@ -1,0 +1,433 @@
+ℹ [3254/3455] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.Loaders
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/Loaders.lean:47:0: Body certificate loaders checked
+ℹ [3255/3455] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.MapData
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/MapData.lean:13322:0: Complete body class map loaded
+ℹ [3256/3455] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.MapPrelude
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/MapPrelude.lean:105:0: Body class map prelude checked
+ℹ [3257/3455] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.MapCount
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/MapCount.lean:15572:0: Complete body class map count checked
+ℹ [3258/3455] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.MapValid
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/MapValid.lean:13:0: Complete body class map caches checked
+ℹ [3259/3455] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.MapBounded
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/MapBounded.lean:13:0: Complete body class map range checked
+ℹ [3260/3455] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.MapChecks
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/MapChecks.lean:22:0: Complete body class map checks passed
+ℹ [3261/3455] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.QuotientData
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/QuotientData.lean:1674:0: Complete body quotient rows loaded
+ℹ [3262/3455] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.QuotientChecks
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/QuotientChecks.lean:1977:0: Complete packed quotient checks passed
+ℹ [3263/3455] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.Data
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/Data.lean:13:0: Complete body certificate data assembled
+ℹ [3920/3951] Replayed Cryptids.Chess.Compilation.SourceCertificate
+info: Cryptids/Chess/Compilation/SourceCertificate.lean:226:0: Source certificate: 7076 checked lemmas, 7037 cache hits
+info: Cryptids/Chess/Compilation/SourceCertificate.lean:230:0: Literal row certificate: 5952 checked rows in 186 chunks
+ℹ [3931/3951] Replayed Cryptids.Chess.Compilation.Input
+info: Cryptids/Chess/Compilation/Input.lean:128:0: Checked 186 literal row chunks: 141042 stack symbols
+ℹ [3950/3951] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.BodyRelation
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/BodyRelation.lean:18:0: Actual body row predicate checked
+✖ [3951/3951] Building Cryptids.Chess.Optimisation.BodyCertificatePilot.Rows64 (2.4s)
+trace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean -M6144 /home/runner/work/cryptids/cryptids/Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.setup.json --json
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:12:37: failed to synthesize
+  Decidable (RowAt 0 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:15:37: failed to synthesize
+  Decidable (RowAt 0 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:18:37: failed to synthesize
+  Decidable (RowAt 1 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:21:37: failed to synthesize
+  Decidable (RowAt 1 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:24:47: failed to synthesize
+  Decidable (RowAt 533340 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:27:47: failed to synthesize
+  Decidable (RowAt 533340 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:30:47: failed to synthesize
+  Decidable (RowAt 533341 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:33:47: failed to synthesize
+  Decidable (RowAt 533341 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:36:47: failed to synthesize
+  Decidable (RowAt 533342 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:39:47: failed to synthesize
+  Decidable (RowAt 533342 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:42:47: failed to synthesize
+  Decidable (RowAt 573801 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:45:47: failed to synthesize
+  Decidable (RowAt 573801 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:48:43: failed to synthesize
+  Decidable (RowAt 1886 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:51:43: failed to synthesize
+  Decidable (RowAt 1886 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:54:43: failed to synthesize
+  Decidable (RowAt 1887 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:57:43: failed to synthesize
+  Decidable (RowAt 1887 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:60:43: failed to synthesize
+  Decidable (RowAt 1888 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:63:43: failed to synthesize
+  Decidable (RowAt 1888 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:66:43: failed to synthesize
+  Decidable (RowAt 1889 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:69:43: failed to synthesize
+  Decidable (RowAt 1889 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:72:43: failed to synthesize
+  Decidable (RowAt 1890 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:75:43: failed to synthesize
+  Decidable (RowAt 1890 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:78:43: failed to synthesize
+  Decidable (RowAt 1981 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:81:43: failed to synthesize
+  Decidable (RowAt 1981 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:84:43: failed to synthesize
+  Decidable (RowAt 1982 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:87:43: failed to synthesize
+  Decidable (RowAt 1982 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:90:43: failed to synthesize
+  Decidable (RowAt 1983 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:93:43: failed to synthesize
+  Decidable (RowAt 1983 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:96:43: failed to synthesize
+  Decidable (RowAt 1984 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:99:43: failed to synthesize
+  Decidable (RowAt 1984 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:102:43: failed to synthesize
+  Decidable (RowAt 1985 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:105:43: failed to synthesize
+  Decidable (RowAt 1985 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:108:43: failed to synthesize
+  Decidable (RowAt 1491 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:111:43: failed to synthesize
+  Decidable (RowAt 1491 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:114:43: failed to synthesize
+  Decidable (RowAt 1492 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:117:43: failed to synthesize
+  Decidable (RowAt 1492 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:120:43: failed to synthesize
+  Decidable (RowAt 1493 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:123:43: failed to synthesize
+  Decidable (RowAt 1493 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:126:43: failed to synthesize
+  Decidable (RowAt 1494 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:129:43: failed to synthesize
+  Decidable (RowAt 1494 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:132:43: failed to synthesize
+  Decidable (RowAt 1495 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:135:43: failed to synthesize
+  Decidable (RowAt 1495 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:138:39: failed to synthesize
+  Decidable (RowAt 31 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:141:39: failed to synthesize
+  Decidable (RowAt 31 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:144:39: failed to synthesize
+  Decidable (RowAt 32 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:147:39: failed to synthesize
+  Decidable (RowAt 32 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:150:39: failed to synthesize
+  Decidable (RowAt 33 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:153:39: failed to synthesize
+  Decidable (RowAt 33 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:156:39: failed to synthesize
+  Decidable (RowAt 34 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:159:39: failed to synthesize
+  Decidable (RowAt 34 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:162:39: failed to synthesize
+  Decidable (RowAt 35 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:165:39: failed to synthesize
+  Decidable (RowAt 35 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:168:37: failed to synthesize
+  Decidable (RowAt 2 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:171:37: failed to synthesize
+  Decidable (RowAt 2 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:174:37: failed to synthesize
+  Decidable (RowAt 3 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:177:37: failed to synthesize
+  Decidable (RowAt 3 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:180:37: failed to synthesize
+  Decidable (RowAt 4 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:183:37: failed to synthesize
+  Decidable (RowAt 4 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:186:37: failed to synthesize
+  Decidable (RowAt 5 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:189:37: failed to synthesize
+  Decidable (RowAt 5 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:192:43: failed to synthesize
+  Decidable (RowAt 1481 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:195:43: failed to synthesize
+  Decidable (RowAt 1481 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:198:43: failed to synthesize
+  Decidable (RowAt 1482 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:201:43: failed to synthesize
+  Decidable (RowAt 1482 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:204:43: failed to synthesize
+  Decidable (RowAt 1483 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:207:43: failed to synthesize
+  Decidable (RowAt 1483 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:210:43: failed to synthesize
+  Decidable (RowAt 1484 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:213:43: failed to synthesize
+  Decidable (RowAt 1484 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:216:43: failed to synthesize
+  Decidable (RowAt 1485 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:219:43: failed to synthesize
+  Decidable (RowAt 1485 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:222:47: failed to synthesize
+  Decidable (RowAt 354130 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:225:47: failed to synthesize
+  Decidable (RowAt 354130 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:228:47: failed to synthesize
+  Decidable (RowAt 354129 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:231:47: failed to synthesize
+  Decidable (RowAt 354129 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:234:47: failed to synthesize
+  Decidable (RowAt 353135 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:237:47: failed to synthesize
+  Decidable (RowAt 353135 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:240:47: failed to synthesize
+  Decidable (RowAt 353134 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:243:47: failed to synthesize
+  Decidable (RowAt 353134 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:246:47: failed to synthesize
+  Decidable (RowAt 352010 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:249:47: failed to synthesize
+  Decidable (RowAt 352010 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:252:47: failed to synthesize
+  Decidable (RowAt 352009 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:255:47: failed to synthesize
+  Decidable (RowAt 352009 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:258:47: failed to synthesize
+  Decidable (RowAt 349700 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:261:47: failed to synthesize
+  Decidable (RowAt 349700 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:264:47: failed to synthesize
+  Decidable (RowAt 349699 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:267:47: failed to synthesize
+  Decidable (RowAt 349699 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:270:47: failed to synthesize
+  Decidable (RowAt 348540 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:273:47: failed to synthesize
+  Decidable (RowAt 348540 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:276:47: failed to synthesize
+  Decidable (RowAt 348539 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:279:47: failed to synthesize
+  Decidable (RowAt 348539 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:282:47: failed to synthesize
+  Decidable (RowAt 347190 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:285:47: failed to synthesize
+  Decidable (RowAt 347190 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:288:47: failed to synthesize
+  Decidable (RowAt 347189 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:291:47: failed to synthesize
+  Decidable (RowAt 347189 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:294:47: failed to synthesize
+  Decidable (RowAt 345780 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:297:47: failed to synthesize
+  Decidable (RowAt 345780 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:300:47: failed to synthesize
+  Decidable (RowAt 345779 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:303:47: failed to synthesize
+  Decidable (RowAt 345779 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:306:47: failed to synthesize
+  Decidable (RowAt 345055 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:309:47: failed to synthesize
+  Decidable (RowAt 345055 1)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:312:47: maximum number of errors (100; from option `maxErrors`) reached, exiting
+Some required targets logged failures:
+- Cryptids.Chess.Optimisation.BodyCertificatePilot.Rows64
+error: build failed
