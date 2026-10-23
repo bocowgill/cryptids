@@ -1,0 +1,15 @@
+{
+  "run_id": 39992542850,
+  "commit": "e73d827eea378545609781ff5f4442b4dab44fbb",
+  "mode": "smoke",
+  "status": "retained_passed",
+  "specific_correction": "Explicit function equality and rewrite instead of point-free simp unfolding",
+  "remote_only": true,
+  "new_accepted_machine": false,
+  "evidence": "../campaign-2026-10-22/round-03/evidence/certificate-22",
+  "helper_module_certified": true,
+  "kernel_build_seconds": 5.451204398,
+  "full_private_audit_seconds": 2.928658325,
+  "roots": 4,
+  "dependencies": 13079
+}

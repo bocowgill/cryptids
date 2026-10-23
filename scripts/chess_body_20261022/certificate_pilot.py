@@ -141,7 +141,8 @@ class Driver:
                             driver_peak_rss_kib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
         for filename, key in (("map-valid-progress.tsv", "validity_diagnostic"),
                               ("map-facts-progress.tsv", "map_facts_diagnostic"),
-                              ("quotient-facts-progress.tsv", "quotient_facts_diagnostic")):
+                              ("quotient-facts-progress.tsv", "quotient_facts_diagnostic"),
+                              ("row-witness-progress.tsv", "row_witness_diagnostic")):
             progress = self.args.output / filename
             if progress.exists():
                 events = progress.read_text().splitlines()
@@ -1280,6 +1281,10 @@ theorem permutation_numeric : CompactPost.permutation FieldPacked.getter =
     driver.emit("RowTools.lean", tools + audit_and_end(
         driver, "RowTools", ["post_live", "getter_local", "initial_entry",
                              "permutation_numeric"], "Structural body row helpers checked"))
+    import row_witness_pilot
+    driver.summary["row_witness_generator_source"] = info(Path(row_witness_pilot.__file__))
+    row_witness_pilot.generate(driver, SNAPSHOT, SNAPSHOT_SHA, header, audit_and_end,
+                               progress_marker, MODULE)
 
 
 def generate(driver, selected):
@@ -1431,6 +1436,7 @@ def main():
         driver.run("TemplateSmoke", 60, "Body certificate template smoke checked")
         driver.summary["template_smoke_checked"] = True
         driver.run("RowTools", 60, "Structural body row helpers checked")
+        driver.run("RowWitnesses", 60, "Actual local syntax and far-end address witnesses checked")
         if args.smoke_only:
             driver.summary["status"] = "smoke_passed"
             driver.checkpoint()

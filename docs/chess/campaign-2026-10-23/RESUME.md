@@ -148,3 +148,11 @@ reduce the mismatch to partially applied nodeIndex/graphIndex functions;
 4.843s at3031175168bytes, no resource stop. Replace simp-based function
 unfolding with an explicit equality of the renaming functions and rw.
 No mathematical statement, data or cap changes. Module remains uncredited.
+
+Preflight39992542850 ate73d827 retained certificate-22: RowTools builds
+in5.451s at3039035392bytes and full-private4root/13079dependency audit
+passes2.929s at4841820160bytes. Only propext/Classical.choice/Quot.sound.
+Source/generated/log/preview byte hashes reviewed. No actual quotient row
+or machine accepted. Next bounded smoke pilot checks transported local
+syntax, numeric offsets and first/last getter nodes with durable markers;
+new witness-generator source is bound in the remote source manifest.

@@ -63,3 +63,8 @@ Trial19: complete data passes; direct actual Rows64 normalization hits6GiB
 after38.335s. No row credit, no negative-control receipt. Structural helper
 preflight run39990942125 atcad12fd is active in smoke mode. The next action
 uses exact local-slot/compiler equations; the459315saving remains prospective.
+
+Structural helper preflight39992542850 ate73d827 passes:5.451s fresh
+RowTools build,2.929s full-private4root audit. Only the standard3axioms.
+Next: first/far-end local-slot witnesses, keeping full source-row goals
+unchanged. This intermediate proof progress accepts no full-machine saving.

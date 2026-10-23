@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 39992542850,
+  "commit": "e73d827eea378545609781ff5f4442b4dab44fbb",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": true,
+  "complete_candidate_data": false,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "Structural helper module and all4root full-private foundation audit pass; actual sampled quotient rows remain unproved",
+  "new_accepted_machine": false
+}
