@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40038438126,
+  "commit": "1a12ba4b34b8553dac7769f82bc223410f180c9c",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": true,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "Observer smoke and audit pass; complete data pass. Rows64 ends with Lean errors in84.302s at5552304128bytes, no resource stop. Actual main rewrite lacks explicit binary decoding and implicit transparency of stateCount; change tuples need explicit Dir.left/right. Custom capture wrapper confuses per-theorem option style lint. Fix generator with checked decode facts, local reducible numeric size alias, explicit Dir and default heartbeat limit. No actual module/audit credit.",
+  "new_accepted_machine": false
+}

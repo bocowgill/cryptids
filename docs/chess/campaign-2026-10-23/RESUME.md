@@ -282,3 +282,21 @@ Full remote run40038438126 at1a12ba4 dispatched after exact fork-head check.
 Retain certificate-34. Header-only diagnostic-smoke correction; all resource
 caps, data/row claims, foundation audits and frozen sources unchanged. Source
 and complete previous packet33 published by ordinary non-forced SSH push.
+
+
+Run40038438126 at1a12ba4 retained and byte-reviewed as certificate-34.
+Diagnostic observer smoke/audit pass; complete map/Q data pass. Rows64 exits
+with proof/source errors at84.302s,5552304128bytes, no resource stop. Captured
+errors: actual main rewrite sees Binary.decodeSymbol0/1 instead of Bool;
+stateCount alias makes rewritten types ill formed at implicit transparency;
+change tuples lack a Dir type; capture wrapper makes scoped heartbeat options
+look unscoped to strict lint. Same64state/128row module remains uncredited.
+Repair: checked decode_bit_0/1 facts added to ActualTools and explicit audit
+roots; local reducible numeric stateCount alias; Dir.left/right in change;
+remove unnecessary per-row maxHeartbeats0 instead of disabling a linter. Also
+remove final rfl after fully numeric return rewrites. All frozen code/claims
+and time/memory caps fixed. No accepted machine or actual-row module yet.
+Largest measured setup cost now isolated to bounce-address proofs: several
+5–8second gaps, up to8.007s for the far-end address. If corrected64passes,
+measure scaling before expanding proof volume; consider opaque syntax/rank
+witnesses with separately checked values or structural-table/cache fallback.

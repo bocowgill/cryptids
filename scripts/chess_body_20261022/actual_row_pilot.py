@@ -184,13 +184,18 @@ theorem haltedMain_address : haltedMain = 1 := by
   unfold haltedMain
   rw [CompactPost.encode, permutation_numeric]
   decide +kernel
+
+theorem decode_bit_0 : Binary.decodeSymbol 0 = false := rfl
+
+theorem decode_bit_1 : Binary.decodeSymbol 1 = true := rfl
 '''
 
 
 def generate_tools(driver, header, audit_and_end, module):
     roots = ['mainIndex', 'haltedMain', 'returnIndex', 'bounceIndex',
              'returnIndex_val', 'entry_syntax', 'findReturn_syntax',
-             'returnAt_syntax', 'post_halted', 'haltedMain_address']
+             'returnAt_syntax', 'post_halted', 'haltedMain_address',
+             'decode_bit_0', 'decode_bit_1']
     driver.emit('ActualTools.lean', header([module + '.RowWitnesses']) + TOOLS +
                 audit_and_end(driver, 'ActualTools', roots,
                               'Structural main and return row transport helpers checked'))
@@ -210,7 +215,9 @@ def generate_rows(driver, selected, snapshot, expected_sha, header, audit_and_en
     parts = [header([module + '.BodyRelation', module + '.ActualTools', module + '.Diagnostics']),
              f'namespace {scope}\n',
              'attribute [local irreducible] FieldPacked.getter FieldPacked.layout\n'
-             'attribute [local irreducible] FieldAware.syntaxRows FieldSelectiveLayout.code\n', body]
+             'attribute [local irreducible] FieldAware.syntaxRows FieldSelectiveLayout.code\n'
+             '-- Rewriting must see the same closed numeric state type on both sides.\n'
+             'attribute [local reducible] CompactPost.stateCount\n', body]
     offsets, entries = data['prefix_offsets'], data['entries']
 
     def add(name, source):
@@ -348,23 +355,24 @@ def generate_rows(driver, selected, snapshot, expected_sha, header, audit_and_en
                            f'  change ({compiler}).transition\n'
                            f'    (mainIndex {node} {store}) {bit} = _\n'
                            '  unfold mainIndex\n'
-                           f'  rw [SelectiveBinary.compile_main, post_live, aux_{node}_{bit}_{store}]\n'
+                           f'  rw [SelectiveBinary.compile_main, decode_bit_{bit},\n'
+                           f'    post_live, aux_{node}_{bit}_{store}]\n'
                            '  simp only [Option.bind_some]\n')
                 next_node, final_store, command, value = plan['facts'][node, bit, store]
                 if command == 'move':
-                    source += (f'  change some (({bit} : Fin 2), .{direction(value)},\n'
+                    source += (f'  change some (({bit} : Fin 2), Dir.{direction(value)},\n'
                                f'    mainIndex {next_node} {final_store}) = _\n'
                                f'  rw [main_address_{next_node}_{final_store}]')
                 elif next_node is None:
-                    source += '  rw [FieldSelectiveLayout.findReturn_halt]\n  rfl'
+                    source += '  rw [FieldSelectiveLayout.findReturn_halt]'
                 else:
                     q = bisect_right(offsets, next_node) - 1
                     rank = data['return_local_targets'][q].index(next_node - offsets[q])
                     source += (f'  rw [← address_{next_node}, findReturn_syntax, find_{q}_{next_node}]\n'
-                               f'  change some (Binary.encodeSymbol {boolean(value)}, .right,\n'
+                               f'  change some (({value} : Fin 2), Dir.right,\n'
                                f'    bounceIndex {q} syntax_{q} syntax_eq_{q}\n'
                                f'      rank_{q}_{rank} {final_store}) = _\n'
-                               f'  rw [bounce_address_{q}_{rank}_{final_store}]\n  rfl')
+                               f'  rw [bounce_address_{q}_{rank}_{final_store}]')
             elif state == 533341:
                 source += ('  have address : SelectiveBinary.bounceState (q := 533341)\n'
                            '      FieldSelectiveLayout.haltReturn = (533341 : Fin 573802) := rfl\n'
@@ -372,7 +380,7 @@ def generate_rows(driver, selected, snapshot, expected_sha, header, audit_and_en
                            f'  change ({compiler}).transition\n'
                            f'    (SelectiveBinary.bounceState FieldSelectiveLayout.haltReturn) {bit} = _\n'
                            '  rw [SelectiveBinary.compile_bounce, FieldSelectiveLayout.returnAt_halt 0]\n'
-                           f'  change some (({bit} : Fin 2), .left, haltedMain) = _\n'
+                           f'  change some (({bit} : Fin 2), Dir.left, haltedMain) = _\n'
                            '  rw [haltedMain_address]')
             else:
                 q, rank, store, node = plan['source_return'][state]
@@ -382,12 +390,12 @@ def generate_rows(driver, selected, snapshot, expected_sha, header, audit_and_en
                            f'    {bit} = _\n  unfold bounceIndex\n'
                            '  rw [SelectiveBinary.compile_bounce, returnAt_syntax,\n'
                            f'    target_{q}_{rank}, address_{node}]\n'
-                           f'  change some (({bit} : Fin 2), .left, mainIndex {node} {store}) = _\n'
+                           f'  change some (({bit} : Fin 2), Dir.left, mainIndex {node} {store}) = _\n'
                            f'  rw [main_address_{node}_{store}]')
             add(f'actual_{state}_{bit}', source)
             marker(f'actual-{count}', 2 * state + bit)
             name = f'row_{count}_{state}_{bit}'
-            add(name, f'set_option maxHeartbeats 0 in\ntheorem {name} : RowAt {state} {bit} := by\n'
+            add(name, f'theorem {name} : RowAt {state} {bit} := by\n'
                 f'  unfold RowAt\n  rw [actual_{state}_{bit}]\n  decide +kernel')
             marker(f'row-{count}', 2 * state + bit)
     parts.append(f'end {scope}\n')

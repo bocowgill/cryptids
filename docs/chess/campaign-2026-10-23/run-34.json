@@ -3,9 +3,11 @@
   "source": "1a12ba4b34b8553dac7769f82bc223410f180c9c",
   "mode": "full",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-34",
-  "status": "dispatched",
+  "status": "retained_failed_source",
   "change": "Remove unused mathematical open namespaces from standalone diagnostic smoke",
   "resource_caps_changed": false,
   "accepted_states": 769344,
-  "prospective_states": 310029
+  "prospective_states": 310029,
+  "diagnosis": "Rows64 implicit type transparency, missing bit decode rewrites, untyped directions and scoped option lint;84.302s, no resource stop",
+  "new_accepted_machine": false
 }
