@@ -58,3 +58,8 @@ full quadratic startup simulation. Keep CI failures genuine and outputs compact.
 The original October22 deadline was a one-day constraint. The user explicitly
 resumed October23; checkpoint and resource safeguards continue. Active goal
 tracking was restored after an initial null API response, with old history kept.
+
+Trial19: complete data passes; direct actual Rows64 normalization hits6GiB
+after38.335s. No row credit, no negative-control receipt. Structural helper
+preflight run39990942125 atcad12fd is active in smoke mode. The next action
+uses exact local-slot/compiler equations; the459315saving remains prospective.

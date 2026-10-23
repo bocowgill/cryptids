@@ -1,0 +1,9 @@
+{
+  "run_id": 39990942125,
+  "commit": "cad12fd606d7284852a46b8fc2f147ae167c9c6a",
+  "mode": "smoke",
+  "status": "active",
+  "purpose": "Kernel-check exact getter/Post/local-slot helpers before sampled actual rows",
+  "new_accepted_machine": false,
+  "remote_only": true
+}
