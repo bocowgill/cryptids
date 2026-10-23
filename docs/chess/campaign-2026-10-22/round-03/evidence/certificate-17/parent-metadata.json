@@ -1,0 +1,15 @@
+{
+  "scope": "Source and retained metadata only",
+  "run_id": 39984446974,
+  "commit": "fe1a8145333401dd4030038afbdd4580bdf11703",
+  "source_logs_and_generated_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "complete_map_and_quotient_claims_and_Data19audit_passed": true,
+  "complete_pipeline_flag": false,
+  "actual_rows": 0,
+  "first_failed_stage": "BodyRelation",
+  "resource_stop": "stage_wall_budget",
+  "last_stage_elapsed_seconds": 2.975,
+  "shared_data_seconds": 120.05772729299997,
+  "new_accepted_machine": false
+}

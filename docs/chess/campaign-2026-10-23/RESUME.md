@@ -84,3 +84,25 @@ and parent metadata retained; preview hash matches official artifact.
 Next: same checked-chunk technique for paired quotient rows, exact global
 code bound4*K, named executable midpoint subtrees and unchanged Data19 roots.
 No budget increase or accepted state saving.
+
+Current run39984446974 atfe1a8145333401dd4030038afbdd4580bdf11703 extends
+the successful checker approach to paired quotient rows. Full source reviewed
+for exact midpoint/order/cache counts, inclusive4*Kbound on BOTH columns,
+smoke36roots, QuotientChecks14 and finalData19. Stages/audits/caps unchanged.
+Wait for exact result and retain certificate-17 before choosing another change.
+If math proofs pass but repeated process/audit loading exhausts120s, consider a
+single fresh build of the data dependency chain plus one complete full-private
+audit covering every original root. Such consolidation must preserve all root
+coverage, fresh checking, strict failures and the same budget; never skip checks.
+Do not implement that contingency before measuring this run.
+
+Trial17 run39984446974 atfe1a814 retained certificate-17. Both map and quotient
+count/cache/range/fidelity claims and fullData19audit pass. Qfacts20.040s at
+2627661824bytes, audit2.943s. Only BodyRelation startup is stopped after2.975s
+by sharedData120s. Seven data stages complete; pipelineflagfalse, actualrows0.
+Next source revision consolidates eight fresh module builds into the dependency
+chain and audits the UNION of every original explicit root (32), preserving
+all component root censuses. Delete every proof build product first; assert
+each module was freshly Built, strict exits, exact union audit, same120s/6GiB.
+QChecks imports MapChecks to serialize large facts builds. No checks omitted
+and no cap raised. G3 remains open until the complete pipeline passes.

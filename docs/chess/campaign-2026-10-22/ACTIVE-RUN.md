@@ -1,15 +1,13 @@
-# Resumed October23,2026
+# Active resumed campaign — October23,2026
 
-User authorized the existing campaign targeting certified310029states.
-Accepted769344 fixed; proposed459315saving unaccepted. No workers active.
-Run39980548245 at5b309f57a857fd598785d291796236548e8f494a is active:
-qualified timing IO API, same120s sharedData/1200s total/6GiB limits.
-Prior diagnostic39979660954 at7dc9de6 failed its tiny instrumentation preflight;
-official certificate-14 retained with exact source/log hashes. No validity
-profile or new actual-row credit from that failure. Root owns dispatch/retention.
-Current plan and gates: ../campaign-2026-10-23/. Frozen sources stay fixed.
+Goal tracking restored and active; target certified310029states.
+Accepted769344 fixed. Frozen specification and all3116acceptedpins preserved.
+No workers newly dispatched; root owns source/Git/network/retention.
 
-Run39982510510 at4925b6690c01451e57b1c30128b901b31a255ff1 is now the active
-single-pass map certificate pilot. Run39980548245 completed, official certificate15
-retained; timing reaches896chunks before sharedData timeout. G2 diagnostic met,
-G3complete data still open. Goal tracking restored from checkpoint and active.
+Current remote run39984446974 atfe1a8145333401dd4030038afbdd4580bdf11703:
+checked paired-code quotient chunks, exact4*Kbound, named midpoint nodes,
+unchanged120s sharedData/1200s total/6GiB. No accepted saving from this pilot.
+Previous39982510510 at4925b66 completed: all map claims/audits pass, quotient
+checks exceed6GiB. Official certificate-16 retained and exact hashes checked.
+No actual-body rows kernel-certified yet. Full details and gates in
+../campaign-2026-10-23/. Outreach remains on hold; all heavy work remote.

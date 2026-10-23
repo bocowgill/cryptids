@@ -1,0 +1,12 @@
+{
+  "run_id": 39984446974,
+  "source_commit": "fe1a8145333401dd4030038afbdd4580bdf11703",
+  "status": "active at checkpoint",
+  "purpose": "Checked paired-code quotient chunks; all original count/cache/range statements and global4Kbound",
+  "prior_run": 39982510510,
+  "prior_evidence": "../campaign-2026-10-22/round-03/evidence/certificate-16",
+  "accepted_states": 769344,
+  "target_states": 310029,
+  "full_data_credit": false,
+  "actual_row_credit": 0
+}

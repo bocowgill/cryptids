@@ -163,6 +163,14 @@ class Driver:
         shutil.copyfile(path, retained)
         self.summary["generated_files"][str(PREFIX / name)] = info(path)
 
+    def clear_build_products(self, stem):
+        for folder in ("lib/lean", "ir"):
+            base = ROOT / ".lake/build" / folder / PREFIX
+            if base.is_dir():
+                for path in base.glob(stem + ".*"):
+                    if path.is_file():
+                        path.unlink()
+
     def run(self, stem, seconds, banner=None, negative=False, audit=False, audit_build=False):
         require(sum((negative, audit, audit_build)) <= 1, "conflicting stage kinds")
         stage_started = time.monotonic()
@@ -176,12 +184,7 @@ class Driver:
         # Only generated build products are removed, so a stage measures fresh
         # kernel checking rather than replay of a prior pilot's cached .olean.
         if not audit:
-            for folder in ("lib/lean", "ir"):
-                base = ROOT / ".lake/build" / folder / PREFIX
-                if base.is_dir():
-                    for path in base.glob(stem + ".*"):
-                        if path.is_file():
-                            path.unlink()
+            self.clear_build_products(stem)
             if audit_build and AUDIT_EXE.exists():
                 AUDIT_EXE.unlink()
         command = ["lake", "--wfail", "-f", str(self.args.lakefile)]
@@ -277,34 +280,45 @@ class Driver:
             self.run(stem, remaining_stage, "Body full-private kernel root audit passed", audit=True)
 
     def run_data_group(self):
-        # Splitting imports is not an expanded allowance: every build, audit and
-        # intervening receipt in this group shares the original Data deadline.
+        # One fresh dependency-chain build removes repeated compiler startup.
+        # The final full-private audit covers every original explicit root.
         started = time.monotonic()
         group = self.summary["data_stage_group"]
         group["started_after_seconds"] = started - self.start
+        group["strategy"] = "fresh_dependency_chain_and_union_audit"
+        stems = group["required_stages"]
+        expected_census = {"MapPrelude": 10, "MapCount": 2, "MapValid": 1,
+                           "MapBounded": 1, "MapChecks": 6, "QuotientChecks": 14,
+                           "Data": 19, "BodyRelation": 1}
+        require({stem: len(self.audit_roots[stem]) for stem in stems} == expected_census,
+                "data component audit coverage changed")
+        roots = list(dict.fromkeys(root for stem in stems for root in self.audit_roots[stem]))
+        require(len(roots) == 32, "complete data audit union census changed")
+        group["component_roots"] = {stem: self.audit_roots[stem] for stem in stems}
+        self.audit_roots["BodyRelation"] = roots
+        self.emit("BodyRelation.roots", "\n".join(roots) + "\n")
+        group["required_union_roots"] = len(roots)
+        # Every generated proof module is removed before this one build. Lake
+        # must freshly check all eight, not replay earlier cached certificates.
+        for stem in stems:
+            self.clear_build_products(stem)
         self.checkpoint()
-        stages = (
-            ("MapPrelude", "Body class map prelude checked"),
-            ("MapCount", "Complete body class map count checked"),
-            ("MapValid", "Complete body class map caches checked"),
-            ("MapBounded", "Complete body class map range checked"),
-            ("MapChecks", "Complete body class map checks passed"),
-            ("QuotientChecks", "Complete packed quotient checks passed"),
-            ("Data", "Complete body certificate data assembled"),
-            ("BodyRelation", "Actual body row predicate checked"),
-        )
-        for stem, banner in stages:
-            remaining = group["wall_seconds"] - (time.monotonic() - started)
-            if remaining <= 0:
-                raise Obstruction("shared Data wall budget exhausted before " + stem)
-            try:
-                self.run(stem, remaining, banner)
-            finally:
-                group["elapsed_seconds"] = time.monotonic() - started
-            group["completed_stages"].append(stem)
-            self.checkpoint()
+        remaining = group["wall_seconds"] - (time.monotonic() - started)
+        if remaining <= 0:
+            raise Obstruction("shared Data budget exhausted before fresh dependency build")
+        try:
+            self.run("BodyRelation", remaining, "Actual body row predicate checked")
+        finally:
+            group["elapsed_seconds"] = time.monotonic() - started
         if time.monotonic() - started > group["wall_seconds"]:
             raise Obstruction("shared Data wall budget exhausted after required audits")
+        output = (self.args.output / "BodyRelation.log").read_text()
+        require(all("Built " + MODULE + "." + stem in output for stem in stems),
+                "data dependency build did not freshly check every required module")
+        group["elapsed_seconds"] = time.monotonic() - started
+        if group["elapsed_seconds"] > group["wall_seconds"]:
+            raise Obstruction("shared Data budget exhausted during fresh-build receipt check")
+        group["completed_stages"] = list(stems)
         self.summary["complete_typed_candidate_data_checked"] = True
         self.checkpoint()
 
@@ -1283,7 +1297,9 @@ theorem classMap_val (s : Fin {N}) : (classMap s).val = mapTree.lookup s.val 0 :
     map_roots = ["map_count", "map_valid", "map_bounded", "map_lookup_lt", "classMap_val", "entry"]
     driver.emit("MapChecks.lean", map_checks + audit_and_end(
         driver, "MapChecks", map_roots, "Complete body class map checks passed"))
-    quotient_checks = header([MODULE + ".QuotientData"])
+    # The dependency on MapChecks serializes the two large facts builds. It
+    # prevents Lake from checking both large literal families concurrently.
+    quotient_checks = header([MODULE + ".QuotientData", MODULE + ".MapChecks"])
     quotient_checks += map_facts_proofs(quotient_nodes, "quotientTree", 4 * K, "quotient_facts",
                                         driver.args.output / "quotient-facts-progress.tsv",
                                         family="quotient")

@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_body_20261022/certificate_pilot.py",
+    "--lakefile",
+    "lakefile.chess-body-certificate-20261022.toml",
+    "--output",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-body-certificate-20261022",
+    "--seconds",
+    "1200",
+    "--memory-gib",
+    "6"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "Bounded body kernel certificate pilot stopped: BodyRelation: stage_wall_budget\n",
+  "output_sha256": "02e8de449aa8825b7a202cea1e47fffe07677276abb6e7d76043473fb4c52f23",
+  "timed_out": false,
+  "timeout_seconds": 1260,
+  "elapsed_seconds": 246.267686925,
+  "cumulative_children_peak_rss_kib": 3864604
+}
