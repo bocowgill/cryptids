@@ -142,7 +142,10 @@ class Driver:
         for filename, key in (("map-valid-progress.tsv", "validity_diagnostic"),
                               ("map-facts-progress.tsv", "map_facts_diagnostic"),
                               ("quotient-facts-progress.tsv", "quotient_facts_diagnostic"),
-                              ("row-witness-progress.tsv", "row_witness_diagnostic")):
+                              ("row-witness-progress.tsv", "row_witness_diagnostic"),
+                              ("rows-64-progress.tsv", "rows64_diagnostic"),
+                              ("rows-512-progress.tsv", "rows512_diagnostic"),
+                              ("rows-4096-progress.tsv", "rows4096_diagnostic")):
             progress = self.args.output / filename
             if progress.exists():
                 events = progress.read_text().splitlines()
@@ -1379,23 +1382,13 @@ theorem quotient_fidelity (state : Fin {K}) (bit : Fin 2) :
 '''
     driver.emit("BodyRelation.lean", relation + audit_and_end(
         driver, "BodyRelation", ["RowAt"], "Actual body row predicate checked"))
-    for count in (64, 512, 4096):
-        parts, names = [header([MODULE + ".BodyRelation"])], []
-        for state in selected[:count]:
-            for bit in (0, 1):
-                name = f"row_{count}_{state}_{bit}"
-                names.append(name)
-                parts.append(HEARTBEATS +
-                             f"theorem {name} : RowAt {state} {bit} := by\n" +
-                             "  unfold RowAt\n  decide +kernel\n")
-        parts.append(audit_and_end(driver, f"Rows{count}", names,
-                                   f"Body kernel rows checked: {count} states, {2 * count} rows"))
-        driver.emit(f"Rows{count}.lean", "".join(parts))
+    # Generate each structural sample only after the preceding stage passes.
+    # This avoids paying for4096state witnesses before measuring64states.
     negative = f'''module
 import {MODULE}.Rows64
 open Lean Elab Term Meta Command Turing ConjectureMachines
 -- Deliberately false: the accepted entry's symbol-zero row is defined.
--- A reflexivity term at the actual row cannot prove it equals none.
+-- A checked actual-row theorem with an explicit some RHS cannot prove none.
 elab "submit_false_body_row" : command => do
   liftTermElabM do
     let lhs ← elabTerm (← `(term|
@@ -1403,7 +1396,7 @@ elab "submit_false_body_row" : command => do
         (0 : Fin {N}) (0 : Fin 2))) none
     let rhs ← elabTerm (← `(term| (none : Option (Fin 2 × Dir × Fin {N})))) none
     let proposition ← mkEq lhs rhs
-    let falseProof ← mkEqRefl lhs
+    let falseProof := mkConst `{NS}.Sample64.actual_0_0
     addDecl (.thmDecl {{name := `{NS}.deliberately_false_row,
       levelParams := [], type := proposition, value := falseProof}}) true
 submit_false_body_row
@@ -1452,6 +1445,9 @@ def main():
         driver.run("QuotientData", 180, "Complete body quotient rows loaded")
         driver.run_data_group()
         for count, seconds in ((64, 120), (512, 180), (4096, 210)):
+            import actual_row_pilot
+            actual_row_pilot.generate_rows(driver, selected[:count], SNAPSHOT, SNAPSHOT_SHA,
+                                           header, audit_and_end, progress_marker, MODULE)
             driver.run("Rows" + str(count), seconds,
                        f"Body kernel rows checked: {count} states, {2 * count} rows")
             driver.summary["completed_positive_sample_states"] = count

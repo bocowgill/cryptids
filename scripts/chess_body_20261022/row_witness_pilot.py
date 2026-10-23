@@ -8,6 +8,7 @@ if os.environ.get('CHESS_REMOTE') != '1' or os.environ.get('GITHUB_ACTIONS') != 
 from bisect import bisect_right
 import hashlib
 import json
+import re
 
 
 PRELUDE = r'''open ConjectureMachines.Optimisation
@@ -33,14 +34,12 @@ theorem getter_syntax (q : Fin 4042) (p : Syntax 4042)
 '''
 
 
-def generate(driver, snapshot, expected_sha, header, audit_and_end, progress_marker, module):
-    assert hashlib.sha256(snapshot.read_bytes()).hexdigest() == expected_sha
-    data = json.loads(snapshot.read_text())
+def build_body(driver, data, nodes, progress_marker, *, extra_slots=(), extra_labels=(),
+               include_prelude=False, numeric_nodes=False):
     records = data['getter_samples']
     offsets, sizes = data['prefix_offsets'], data['row_sizes']
-    # Endpoints deliberately test both the first and far-end layout addresses.
-    nodes = [0, 106667]
-    slots = set(nodes)
+    nodes = sorted(set(nodes))
+    slots = set(nodes) | set(extra_slots)
     for node in nodes:
         record = records[node]
         assert record[0] == node
@@ -49,9 +48,11 @@ def generate(driver, snapshot, expected_sha, header, audit_and_end, progress_mar
             slots.add(instruction[2])
         elif instruction[0] == 3:
             slots.update(instruction[2:4])
-    labels = sorted({bisect_right(offsets, node) - 1 for node in slots})
-    parts = [header([module + '.RowTools']), PRELUDE]
-    roots = ['slotIndex', 'slotIndex_val', 'getter_syntax']
+    labels = sorted({bisect_right(offsets, node) - 1 for node in slots} | set(extra_labels))
+    parts = [PRELUDE] if include_prelude else [
+        'open ConjectureMachines.Optimisation\nopen Chess.Optimisation FieldCompiler\n'
+        'set_option backward.isDefEq.respectTransparency false\n']
+    roots = ['slotIndex', 'slotIndex_val', 'getter_syntax'] if include_prelude else []
 
     def marker(kind, value):
         return progress_marker(kind, value, driver.args.output / 'row-witness-progress.tsv')
@@ -93,6 +94,11 @@ def generate(driver, snapshot, expected_sha, header, audit_and_end, progress_mar
             cells = [('true' if v else 'false') if bound == 2 else
                      f'⟨{v}, by decide⟩' for v in values]
             table = '⟨#[\n' + ',\n'.join('      ' + cell for cell in cells) + '], rfl⟩'
+            if numeric_nodes:
+                kind = 'Bool' if bound == 2 else f'(Fin {bound})'
+                parts.append(f'def nodeTable_{node} : BoolGraph.Table 5 {kind} :=\n'
+                             f'  {table}\n')
+                table = f'nodeTable_{node}'
             constructor = {1: 'write', 2: 'load', 3: 'branch', 4: 'goto'}[tag]
             children = args[1:] if tag in (1, 2, 3) else []
             body = f'.{constructor}\n    {table}'
@@ -113,8 +119,28 @@ def generate(driver, snapshot, expected_sha, header, audit_and_end, progress_mar
                      f'  rw [← address_{node}, getter_syntax, local_eq_{node}]\n')
         roots.extend([f'local_eq_{node}', f'getter_witness_{node}'])
         parts.append(marker('getter', node))
-    parts.append(audit_and_end(driver, 'RowWitnesses', roots,
-                               'Actual local syntax and far-end address witnesses checked'))
-    driver.emit('RowWitnesses.lean', ''.join(parts))
-    driver.summary['local_witness_preflight'] = dict(nodes=nodes, labels=labels,
-                                                    universal_rows_proved=False)
+        if numeric_nodes:
+            global_body = re.sub(r'\bslot_(\d+)\b',
+                                 lambda m: f'({m.group(1)} : Fin 106668)', body)
+            parts.append(f'def globalNode_{node} : BoolGraph.Node 106668 5 4042 :=\n'
+                         f'  {global_body}\n')
+            reductions = [f'localNode_{node}', f'globalNode_{node}', 'TemplateGraph.mapNode']
+            reductions.extend(f'address_{child}' for child in children)
+            parts.append(f'theorem numeric_node_{node} :\n'
+                         f'    FieldPacked.getter.node {node} = globalNode_{node} := by\n'
+                         '  simpa only [\n    ' + ',\n    '.join(reductions) +
+                         f'] using getter_witness_{node}\n')
+            roots.append(f'numeric_node_{node}')
+    return ''.join(parts), roots, dict(nodes=nodes, labels=labels, universal_rows_proved=False)
+
+
+def generate(driver, snapshot, expected_sha, header, audit_and_end, progress_marker, module):
+    assert hashlib.sha256(snapshot.read_bytes()).hexdigest() == expected_sha
+    data = json.loads(snapshot.read_text())
+    # Endpoints deliberately test both the first and far-end layout addresses.
+    body, roots, detail = build_body(driver, data, [0, 106667], progress_marker,
+                                     include_prelude=True)
+    driver.emit('RowWitnesses.lean', header([module + '.RowTools']) + body +
+                audit_and_end(driver, 'RowWitnesses', roots,
+                              'Actual local syntax and far-end address witnesses checked'))
+    driver.summary['local_witness_preflight'] = detail

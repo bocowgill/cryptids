@@ -1,0 +1,14 @@
+{
+  "run_id": 39995222505,
+  "commit": "ad546421b9605ad4176cb485d9a870430e5bbd5a",
+  "status": "retained_passed",
+  "mode": "smoke",
+  "scope": "Generic main/return transport helpers, no actual RowAt acceptance",
+  "remote_only": true,
+  "new_accepted_machine": false,
+  "evidence": "../campaign-2026-10-22/round-03/evidence/certificate-25",
+  "kernel_seconds": 7.30697086,
+  "audit_seconds": 3.25227692,
+  "audit_roots": 10,
+  "audit_dependencies": 13148
+}

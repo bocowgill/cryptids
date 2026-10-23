@@ -171,3 +171,16 @@ passes2.015s,4869607424bytes; only standard3axioms. All byte/source/preview
 hashes reviewed. Next smoke preflight adds generic main/return index and
 entry/findReturn/returnAt transport helpers. Goal remains active, usage11%
 consumed, no actual quotient RowAt or new full-machine saving accepted.
+
+Main/return preflight39995222505 atad54642 retained certificate-25 PASSES:
+ActualTools fresh build7.307s at3235299328bytes; full-private10root/13148
+dependency audit3.252s at4869386240bytes. Standard3axioms only. Generic
+entry/findReturn/returnAt/return-index and halt numbering bridges checked.
+Next full pilot generates the same64actual states/both bits through cached
+local syntax/address/table/primitive equations, then exact unchanged RowAt.
+Native planner is only an untrusted witness producer. Keep getter/layout
+opaque during sample proofs. Generate512/4096only after previous success.
+Negative submits the checked actual entry-row theorem at a false none RHS,
+so kernel rejection tests an actual transition without recomputing its body.
+Same120s data and120/180/210s sample stages,6GiB/1200s total. No actual
+quotient rows or full-machine savings accepted yet.
