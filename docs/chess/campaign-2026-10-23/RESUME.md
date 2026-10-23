@@ -123,3 +123,9 @@ Rows64 then fails Decidable(RowAt s b) synthesis because the definition is not
 unfolded for instance search. No actual row credit or negative control yet.
 Small source repair explicitly unfolds RowAt before decide+kernel, preserving
 the exact predicate and all budgets. No classical noncomputable decider added.
+
+Current run39988441457 ata3d485e8d05481bc3ca00fa855072004456165dc tests
+explicit RowAt unfolding before decide+kernel. Same source predicates, sample
+selection, both bits, negative control, data union audit and caps. Retain as
+certificate-19. Source frozen. G1/G2/G3 met; universal rows/full machine/review
+G4/G5/G6 remain open. No accepted full-machine saving in this resumed round.

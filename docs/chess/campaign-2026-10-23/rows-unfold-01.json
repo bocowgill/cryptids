@@ -1,0 +1,10 @@
+{
+  "run_id": 39988441457,
+  "source_commit": "a3d485e8d05481bc3ca00fa855072004456165dc",
+  "purpose": "Unfold unchanged RowAt before decide+kernel; same data certificate and caps",
+  "previous_run": 39986731860,
+  "accepted_states": 769344,
+  "target_states": 310029,
+  "known_actual_row_credit": 0,
+  "status": "active at checkpoint"
+}
