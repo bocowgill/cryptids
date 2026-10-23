@@ -200,3 +200,10 @@ identity was active is unknown; no module credit. Next uses the127frozen
 map/append congruence, and a kernel-proved root-shape equality to Snapshot.
 All exact final identities/universal prefixes and60s/6GiB limits preserved;
 new durable chunk markers expose progress. No actual RowAt accepted.
+
+Chunk-weight run40001920844 at6797bbc retained certificate-28: progresses
+through96of127chunks;60.068s timeout, peak3202629632bytes. No module credit.
+Memory improved from monolithic6.396GB. Next replaces closed-parent simpa
+and root rw with WeightFacts-headed exact child terms and congruence/trans
+composition. This prevents simplifier re-normalizing full source expressions.
+Final weight identities/prefix equations and60s/6GiB limits stay unchanged.

@@ -21,11 +21,18 @@ def generate(driver, snapshot, expected_sha, header, audit_and_end, progress_mar
 open FieldCompiler
 set_option backward.isDefEq.respectTransparency false
 
+def WeightFacts {α : Type} (weight : α → Nat)
+    (tree : Balanced.RowTree α) (values : List Nat) : Prop :=
+  tree.flatten.map weight = values
+
 theorem weight_map_branch {α : Type} (weight : α → Nat) (cache : Nat)
     (left right : Balanced.RowTree α) (a b : List Nat)
-    (hl : left.flatten.map weight = a) (hr : right.flatten.map weight = b) :
-    (Balanced.RowTree.branch cache left right).flatten.map weight = a ++ b := by
-  simpa only [Balanced.RowTree.flatten, List.map_append] using congrArg₂ List.append hl hr
+    (hl : WeightFacts weight left a) (hr : WeightFacts weight right b) :
+    WeightFacts weight (Balanced.RowTree.branch cache left right) (a ++ b) := by
+  have left_eq : left.flatten.map weight = a := hl
+  have right_eq : right.flatten.map weight = b := hr
+  simpa only [WeightFacts, Balanced.RowTree.flatten, List.map_append] using
+    congrArg₂ List.append left_eq right_eq
 ''']
     node_weight = '(fun row : Snapshot.Entry ↦ (lower row.1).size)'
     return_weight = '(fun row : Snapshot.Entry ↦ 1 + FieldReturns.writeCount (lower row.1))'
@@ -49,8 +56,8 @@ theorem weight_map_branch {α : Type} (weight : α → Nat) (cache : Nat)
             literal(node, node_weights[first:end])
             literal(ret, return_weights[first:end])
             for proof, weight, values in ((np, node_weight, node), (rp, return_weight, ret)):
-                parts.append(f'theorem {proof} :\n    {source}.flatten.map\n'
-                             f'      {weight} =\n        {values} := by rfl\n')
+                parts.append(f'theorem {proof} : WeightFacts\n'
+                             f'    {weight}\n    {source} {values} := by rfl\n')
             if start % 16 == 15 or end == 4042:
                 parts.append(progress_marker('weight-chunk', start + 1,
                                               driver.args.output / 'weight-chunks-progress.tsv'))
@@ -66,12 +73,11 @@ theorem weight_map_branch {α : Type} (weight : α → Nat) (cache : Nat)
             for proof, weight, name, left, right, hl, hr in (
                     (np, node_weight, node, ln, rn, lnp, rnp),
                     (rp, return_weight, ret, lr, rr, lrp, rrp)):
-                parts.append(f'theorem {proof} :\n    {source}.flatten.map\n'
-                             f'      {weight} =\n        {name} := by\n'
-                             f'  simpa only [{source}, {name}] using\n'
-                             f'    weight_map_branch\n      {weight}\n'
-                             f'      {cache} {ls} {rs} {left} {right}\n'
-                             f'      {hl} {hr}\n')
+                parts.append(f'theorem {proof} : WeightFacts\n'
+                             f'    {weight}\n    {source} {name} :=\n'
+                             f'  weight_map_branch\n    {weight}\n'
+                             f'    {cache} {ls} {rs} {left} {right}\n'
+                             f'    {hl} {hr}\n')
         return source, node, ret, np, rp
 
     source, node, ret, np, rp = tree(0, (4042 + 31) // 32)
@@ -83,7 +89,10 @@ theorem weight_map_branch {α : Type} (weight : α → Nat) (cache : Nat)
             ('return', 'FieldSelectiveLayout', return_weight, ret, rp)):
         parts.append(f'theorem {prefix}_weights_eq : {frozen}.weights = {prefix}Weights := by\n'
                      f'  change Snapshot.entries.flatten.map\n    {weight} =\n      {values}\n'
-                     f'  rw [← weight_source_eq]\n  exact {proof}\n')
+                     '  exact (congrArg\n'
+                     '    (fun tree : Balanced.RowTree Snapshot.Entry ↦\n'
+                     f'      tree.flatten.map {weight})\n'
+                     f'    weight_source_eq.symm).trans {proof}\n')
     parts.append(r'''
 
 theorem node_offset_fast (q : Fin 4042) :
@@ -94,7 +103,7 @@ theorem return_offset_fast (q : Fin 4042) :
     FieldSelectiveLayout.offset q = (returnWeights.take q.val).sum := by
   rw [FieldSelectiveLayout.offset_eq_prefix, FieldSelectiveLayout.prefixSum, return_weights_eq]
 ''')
-    roots = ['weight_map_branch', 'weight_source_eq', 'nodeWeights', 'returnWeights',
+    roots = ['WeightFacts', 'weight_map_branch', 'weight_source_eq', 'nodeWeights', 'returnWeights',
              'node_weights_eq', 'return_weights_eq', 'node_offset_fast', 'return_offset_fast']
     parts.append(audit_and_end(driver, 'WeightTables', roots,
                                'Complete source weights and shared prefix correspondence checked'))

@@ -1,0 +1,12 @@
+{
+  "run_id": 40001920844,
+  "commit": "6797bbc621da0d89ad94a2b49273701795fbc11a",
+  "status": "retained_wall_obstruction",
+  "evidence": "../campaign-2026-10-22/round-03/evidence/certificate-28",
+  "completed_chunk_marker": 96,
+  "total_chunks": 127,
+  "stage_seconds": 60.067963948,
+  "peak_bytes": 3202629632,
+  "proof_credit": false,
+  "new_accepted_machine": false
+}

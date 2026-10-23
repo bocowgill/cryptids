@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40001920844,
+  "commit": "6797bbc621da0d89ad94a2b49273701795fbc11a",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": false,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "Frozen32row chunks reach96of127before unchanged60s wall cap, peak3202629632bytes. Replace closed parent simpa/root rw with opaque-headed WeightFacts and direct child proof/congruence composition; exact final claims unchanged.",
+  "new_accepted_machine": false
+}
