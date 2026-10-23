@@ -1,0 +1,30 @@
+# Certified 310,029-state chess machine
+
+OWNS: scripts/chess_body_20261022/certificate_pilot.py, scripts/chess_body_20261022/certificate_verify.py, docs/chess/campaign-2026-10-23/**
+
+Scope: Resume the existing campaign, certify the measured whole-body quotient,
+and accept a complete 310,029-state machine only after end-to-end verification.
+All heavy work is remote. Frozen specification, accepted source, historical
+evidence and pins stay fixed. No outreach or bulk upstream migration.
+
+- [ ] G1: The accepted 769,344-state baseline and all 3,116 file pins are preserved;
+  the resumed plan and goal-API discrepancy are recorded in a pushed checkpoint.
+  EVIDENCE: pending
+- [ ] G2: One bounded remote validity diagnostic retains exact source, durable
+  timing markers, build/audit outcomes and limits, identifying progress or an
+  exact obstruction without promoting partial results to a new state count.
+  EVIDENCE: pending
+- [ ] G3: Complete map and quotient count/cache/range/fidelity proofs and their
+  full-private audits pass under the established resource limits.
+  EVIDENCE: pending
+- [ ] G4: Every actual accepted body transition is related to the complete quotient,
+  preserving missing transitions and both bits; a meaningful false-row control
+  fails in the kernel, and both halting directions are proved.
+  EVIDENCE: pending
+- [ ] G5: The complete blank-tape binary machine has exactly 310,029 paid states
+  and the original not-draw equivalence; all actual rows, independent fixtures,
+  corruption controls, regressions and foundation audits pass remotely.
+  EVIDENCE: pending
+- [ ] G6: A distinct final review and saved-evidence checks pass; the new accepted
+  machine, full cost breakdown, immutable pins and clean handoff are pushed.
+  EVIDENCE: pending

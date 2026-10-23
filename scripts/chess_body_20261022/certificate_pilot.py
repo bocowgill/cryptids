@@ -138,9 +138,19 @@ class Driver:
     def checkpoint(self):
         self.summary.update(stage=self.stage, elapsed_seconds=time.monotonic() - self.start,
                             driver_peak_rss_kib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
+        progress = self.args.output / "map-valid-progress.tsv"
+        if progress.exists():
+            events = progress.read_text().splitlines()
+            self.summary["validity_diagnostic"] = {
+                "path": progress.name, "info": info(progress), "events": len(events),
+                "last_event": events[-1] if events else None, "proof_credit": False}
         save(self.args.output / "certificate-summary.json", self.summary)
 
     def emit(self, name, text):
+        if name.endswith(".lean"):
+            wide = [(i, len(line)) for i, line in enumerate(text.splitlines(), 1)
+                    if len(line) > 100]
+            require(not wide, name + ": generated Lean exceeds 100 characters: " + str(wide[:5]))
         path = ROOT / PREFIX / name
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(text, encoding="utf-8")
@@ -860,7 +870,7 @@ def map_declarations(driver, stem, rows_name, states, bound, chunk_limit):
     return "".join(declarations), nodes
 
 
-def map_proofs(nodes, tree_name, kind, bound, root_theorem):
+def map_proofs(nodes, tree_name, kind, bound, root_theorem, progress_path=None):
     """Only chunk leaves normalize; every internal proof names child theorems."""
     require(kind in ("count", "valid", "bounded") and nodes, "map proof kind or empty nodes")
 
@@ -871,7 +881,18 @@ def map_proofs(nodes, tree_name, kind, bound, root_theorem):
             return f"{name}.WellFormed"
         return f"mapAllBelow {name} {bound} = true"
 
-    proofs = []
+    def marker(chunks):
+        if progress_path is None:
+            return ""
+        path = json.dumps(str(progress_path.relative_to(ROOT)))
+        return ("run_cmd do\n" +
+                "  let now ← liftIO IO.monoMsNow\n" +
+                f"  liftIO <| IO.FS.withFile {path}\n" +
+                "      .append fun handle ↦ do\n" +
+                f'    handle.putStrLn s!"{kind}\\t{chunks}\\t{{now}}"\n' +
+                "    handle.flush\n")
+
+    proofs, chunks = [marker(0)], 0
     for node in nodes:
         name = node["name"]
         declaration = HEARTBEATS + f"theorem {name}_{kind} :\n"
@@ -889,9 +910,14 @@ def map_proofs(nodes, tree_name, kind, bound, root_theorem):
             else:
                 declaration += f"    {nl} {bound}\n    {left}_bounded\n    {right}_bounded\n"
         proofs.append(declaration)
+        if node["kind"] == "chunk":
+            chunks += 1
+            if chunks % 32 == 0:
+                proofs.append(marker(chunks))
     root = nodes[-1]
     proofs.append(HEARTBEATS + f"theorem {root_theorem} :\n    " +
                   proposition(tree_name, root["states"]) + f" :=\n  {root['name']}_{kind}\n")
+    proofs.append(marker(chunks))
     return "".join(proofs)
 
 
@@ -969,7 +995,8 @@ def generate_smoke(driver):
     map_source, map_nodes = map_declarations(driver, "smokeMap", "smoke-map.txt", 4, 2, 1)
     smoke += map_source
     for kind in ("count", "valid", "bounded"):
-        smoke += map_proofs(map_nodes, "smokeMapTree", kind, 2, "smoke_map_" + kind)
+        progress = driver.args.output / "smoke-map-valid-progress.tsv" if kind == "valid" else None
+        smoke += map_proofs(map_nodes, "smokeMapTree", kind, 2, "smoke_map_" + kind, progress)
     # Force two separate executable chunks even for this two-state table.
     smoke += quotient_declarations(driver, "smokeQuotient", "smoke-packed.rows", 2, 2, 1)
     for name, proposition in (
@@ -1054,7 +1081,8 @@ def generate(driver, selected):
         if kind == "valid":
             imports.append(MODULE + ".MapCount")
         name = "map_" + kind
-        source = header(imports) + map_proofs(map_nodes, "mapTree", kind, K, name)
+        progress = driver.args.output / "map-valid-progress.tsv" if kind == "valid" else None
+        source = header(imports) + map_proofs(map_nodes, "mapTree", kind, K, name, progress)
         driver.emit(stem + ".lean", source + audit_and_end(driver, stem, [name], banner))
     map_checks = header([MODULE + ".MapCount", MODULE + ".MapValid", MODULE + ".MapBounded"])
     map_checks += f'''theorem map_lookup_lt (index : Nat) : mapTree.lookup index 0 < {K} :=

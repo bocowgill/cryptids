@@ -1,16 +1,17 @@
-# Chess campaign — shutdown checkpoint, October 22, 2026
+# Chess campaign resumed October 23, 2026
 
-Research has stopped at a useful checkpoint, before the user's 4:15 p.m. Eastern
-hard deadline. The user also reported local memory pressure, so perform no further
-research, launches, or large local inspections in this session. All remote runs
-are complete and campaign leases are released. This disk snapshot precedes the
-final commit/push and goal-pause API call; the final chat response confirms those.
-A time/resource stop is not successful completion or proof of optimality.
-Resume the existing goal only when the user requests it; do not create a new goal.
+The user explicitly resumed the existing campaign, targeting a certified310029
+state machine. Current plan, gates and progress are in
+`../campaign-2026-10-23/RESUME.md` and its GATES.md. The October22 shutdown
+packet remains immutable; its deadline applied only to that date.
+Goal API currently returns null; continuing from the saved campaign on disk.
+No replacement API goal was created. All prior mathematical, frozen-source,
+remote-computation, local-memory and outreach constraints continue.
 
-Latest usage observation: 88% consumed at 19:22:27 UTC. The account is shared.
-The fresh shutdown packet is `pause-deadline-2026-10-22/`; earlier pause and
-accepted snapshots remain immutable.
+The account usage observation at resumption is8% consumed. First bounded action
+adds durable MapValid timing markers while preserving all proof statements,
+audits and resource caps. The original historical handoff follows below;
+its 'next resume' instructions are now authorized.
 
 ## Latest accepted machine
 

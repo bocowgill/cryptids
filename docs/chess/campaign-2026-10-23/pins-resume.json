@@ -1,0 +1,7 @@
+{
+  "scope": "File-byte preservation only; no proof/model/count execution",
+  "entries": 3116,
+  "manifest_sha256": "43942091ac61ca4d93001fb259eb8e0694bbc499e5279658ac10d3836f166102",
+  "mismatches": [],
+  "goal_api": "goal=null at resumption; continuing existing disk campaign"
+}
