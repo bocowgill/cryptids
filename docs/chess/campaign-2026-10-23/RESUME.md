@@ -129,3 +129,10 @@ explicit RowAt unfolding before decide+kernel. Same source predicates, sample
 selection, both bits, negative control, data union audit and caps. Retain as
 certificate-19. Source frozen. G1/G2/G3 met; universal rows/full machine/review
 G4/G5/G6 remain open. No accepted full-machine saving in this resumed round.
+
+Trial19 is retained as certificate-19 with source/generated/preview byte
+checks and unchanged accepted pins. Complete data passes again; actual
+Rows64 computation hits6GiB in38.335s. No actual-row or negative-control
+credit. See STRUCTURAL-ROWS.md. Next bounded action is a remote smoke
+preflight of structural getter/Post/address helpers before another complete
+data build. The exact RowAt, candidate quotient and budgets remain fixed.

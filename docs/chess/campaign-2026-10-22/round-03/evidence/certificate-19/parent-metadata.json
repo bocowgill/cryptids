@@ -1,0 +1,13 @@
+{
+  "scope": "Retained source/generated/provenance bytes only; no local proof execution",
+  "run_id": 39988441457,
+  "commit": "a3d485e8d05481bc3ca00fa855072004456165dc",
+  "source_generated_and_preview_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "complete_candidate_data": true,
+  "actual_rows": 0,
+  "diagnosis": "Rows64 direct exact-row kernel normalization reached the unchanged 6 GiB RSS budget",
+  "negative_control": "not_run",
+  "new_accepted_machine": false,
+  "all_stage_log_hashes_match": true
+}
