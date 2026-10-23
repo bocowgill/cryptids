@@ -17,7 +17,8 @@ def generate(driver, snapshot, expected_sha, header, audit_and_end, progress_mar
     assert len(node_weights) == len(return_weights) == 4042
     assert all(type(x) is int and 1 <= x <= 1024 for x in node_weights)
     assert all(1 <= r <= n for n, r in zip(node_weights, return_weights))
-    parts = [header(['Cryptids.Chess.Optimisation.FieldSelective']), r'''open Chess.Optimisation
+    parts = [header(['Cryptids.Chess.Optimisation.BodyCertificatePilot.OperationWeights']),
+             r'''open Chess.Optimisation
 open FieldCompiler
 set_option backward.isDefEq.respectTransparency false
 
@@ -55,9 +56,12 @@ theorem weight_map_branch {α : Type} (weight : α → Nat) (cache : Nat)
                          f'  Snapshot.chunk{first:04d}\n')
             literal(node, node_weights[first:end])
             literal(ret, return_weights[first:end])
-            for proof, weight, values in ((np, node_weight, node), (rp, return_weight, ret)):
+            for proof, weight, values, rewrite in (
+                    (np, node_weight, node, 'node_weight_function'),
+                    (rp, return_weight, ret, 'return_weight_function')):
                 parts.append(f'theorem {proof} : WeightFacts\n'
-                             f'    {weight}\n    {source} {values} := by rfl\n')
+                             f'    {weight}\n    {source} {values} := by\n'
+                             f'  rw [{rewrite}] <;> rfl\n')
             if start % 16 == 15 or end == 4042:
                 parts.append(progress_marker('weight-chunk', start + 1,
                                               driver.args.output / 'weight-chunks-progress.tsv'))

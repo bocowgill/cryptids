@@ -207,3 +207,11 @@ Memory improved from monolithic6.396GB. Next replaces closed-parent simpa
 and root rw with WeightFacts-headed exact child terms and congruence/trans
 composition. This prevents simplifier re-normalizing full source expressions.
 Final weight identities/prefix equations and60s/6GiB limits stay unchanged.
+
+WeightFacts run40012708747 at258c18c retained certificate-29: still96/127
+chunks by60.047s,3178483712bytes. No weight module credit. Direct parent
+composition does not resolve time. Next bounded preflight proves universal
+exact(lower(op).size,1+writeCount(lower(op))) summaries for every operation
+constructor and field, independent of all table values and labels. Leaf
+weight checks then rewrite their function parameter to cheap opcode weights.
+Original exact weight identities/prefix statements and all caps remain fixed.

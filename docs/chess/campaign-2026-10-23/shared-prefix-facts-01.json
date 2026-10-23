@@ -1,0 +1,14 @@
+{
+  "run_id": 40012708747,
+  "commit": "258c18cf2474ac48251d1db71c1ab66e485283d1",
+  "status": "retained_wall_obstruction",
+  "mode": "smoke",
+  "scope": "WeightFacts-headed direct parent terms and root congruence, same60s/6GiB",
+  "new_accepted_machine": false,
+  "evidence": "../campaign-2026-10-22/round-03/evidence/certificate-29",
+  "completed_chunk_marker": 96,
+  "total_chunks": 127,
+  "stage_seconds": 60.047420375,
+  "peak_bytes": 3178483712,
+  "proof_credit": false
+}

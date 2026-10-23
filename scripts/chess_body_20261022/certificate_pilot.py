@@ -1248,6 +1248,9 @@ def generate_setup(driver):
     driver.emit("Loaders.lean", LOADERS)
     driver.emit("Audit.lean", AUDIT)
     generate_smoke(driver)
+    import operation_weights_pilot
+    driver.summary["operation_weight_generator_source"] = info(Path(operation_weights_pilot.__file__))
+    operation_weights_pilot.generate(driver, header, audit_and_end)
     import weight_table_pilot
     driver.summary["weight_generator_source"] = info(Path(weight_table_pilot.__file__))
     weight_table_pilot.generate(driver, SNAPSHOT, SNAPSHOT_SHA, header, audit_and_end,
@@ -1437,6 +1440,7 @@ def main():
         driver.run("TemplateSmoke", 60, "Body certificate template smoke checked")
         driver.summary["template_smoke_checked"] = True
         driver.run("RowTools", 60, "Structural body row helpers checked")
+        driver.run("OperationWeights", 60, "Universal frozen operation weight summaries checked")
         driver.run("WeightTables", 60,
                    "Complete source weights and shared prefix correspondence checked")
         driver.run("RowWitnesses", 60, "Actual local syntax and far-end address witnesses checked")

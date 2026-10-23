@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40012708747,
+  "commit": "258c18cf2474ac48251d1db71c1ab66e485283d1",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": false,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "Direct WeightFacts composition still reaches96of127chunks at60s, peak3178483712bytes. Parent proof change did not resolve time bound. Next universal operation cost summaries avoid repeatedly lowering syntax in leaf weight checks.",
+  "new_accepted_machine": false
+}
