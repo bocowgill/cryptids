@@ -1,0 +1,6 @@
+Chess.Optimisation.BodyCertificatePilot.nodeWeights
+Chess.Optimisation.BodyCertificatePilot.returnWeights
+Chess.Optimisation.BodyCertificatePilot.node_weights_eq
+Chess.Optimisation.BodyCertificatePilot.return_weights_eq
+Chess.Optimisation.BodyCertificatePilot.node_offset_fast
+Chess.Optimisation.BodyCertificatePilot.return_offset_fast

@@ -1,0 +1,14 @@
+{
+  "run_id": 39999662622,
+  "commit": "be8cb5849b946b603609398d2102b2574e9a577d",
+  "status": "retained_wall_obstruction",
+  "mode": "smoke",
+  "specific_correction": "Share exact4042entry node/return weight identities and universal prefix equations; numeric address proofs sum integers",
+  "new_accepted_machine": false,
+  "remote_only": true,
+  "evidence": "../campaign-2026-10-22/round-03/evidence/certificate-27",
+  "stage_seconds": 60.101675636,
+  "peak_bytes": 6396383232,
+  "active_identity_unknown": true,
+  "proof_credit": false
+}

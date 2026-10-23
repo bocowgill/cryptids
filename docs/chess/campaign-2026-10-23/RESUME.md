@@ -192,3 +192,11 @@ bounded smoke preflight shares two exact source-weight tables and universal
 prefix equations, eliminating repeated syntax lowering for numeric offsets.
 See SHARED-PREFIX-PILOT.md. New markers distinguish entry/return offsets and
 periodic auxiliary facts. All sample goals, candidates and caps unchanged.
+
+Shared-weight run39999662622 atbe8cb58 retained certificate-27: whole
+WeightTables module times out60.102s at6396383232bytes, below6GiB. Which
+identity was active is unknown; no module credit. Next uses the127frozen
+32row chunks (last10rows), ordinary leaf weight identities, balanced
+map/append congruence, and a kernel-proved root-shape equality to Snapshot.
+All exact final identities/universal prefixes and60s/6GiB limits preserved;
+new durable chunk markers expose progress. No actual RowAt accepted.

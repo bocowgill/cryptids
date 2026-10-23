@@ -143,6 +143,7 @@ class Driver:
                               ("map-facts-progress.tsv", "map_facts_diagnostic"),
                               ("quotient-facts-progress.tsv", "quotient_facts_diagnostic"),
                               ("row-witness-progress.tsv", "row_witness_diagnostic"),
+                              ("weight-chunks-progress.tsv", "weight_chunks_diagnostic"),
                               ("rows-64-progress.tsv", "rows64_diagnostic"),
                               ("rows-512-progress.tsv", "rows512_diagnostic"),
                               ("rows-4096-progress.tsv", "rows4096_diagnostic")):
@@ -1249,7 +1250,8 @@ def generate_setup(driver):
     generate_smoke(driver)
     import weight_table_pilot
     driver.summary["weight_generator_source"] = info(Path(weight_table_pilot.__file__))
-    weight_table_pilot.generate(driver, SNAPSHOT, SNAPSHOT_SHA, header, audit_and_end)
+    weight_table_pilot.generate(driver, SNAPSHOT, SNAPSHOT_SHA, header, audit_and_end,
+                                progress_marker)
     tools = header(["Cryptids.Chess.Optimisation.FieldSelective"])
     tools += r'''open ConjectureMachines.Optimisation
 open Chess.Optimisation FieldCompiler

@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 39999662622,
+  "commit": "be8cb5849b946b603609398d2102b2574e9a577d",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": true,
+  "complete_candidate_data": false,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "Monolithic WeightTables checking hits unchanged60s wall cap at6396383232bytes, below6GiB; active identity unknown. Use frozen32row chunk identities plus balanced map/append congruence and exact root-shape proof.",
+  "new_accepted_machine": false
+}

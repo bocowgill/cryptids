@@ -81,3 +81,9 @@ Actual-row structural pilot39997083726 at901ae48 is now active, with the
 same64states/both bits as direct normalization, then on-demand512/4096.
 Getter/layout stay opaque; exact local equations expose each actual row.
 No actual RowAt module or accepted full-machine saving reported yet.
+
+Structural64pilot26 times out120.068s below6GiB:31main numeric offsets
+consume about106.6s, before actual row proofs finish. Current bounded
+preflight39999662622 atbe8cb58 certifies shared exact weight lists, replacing
+repeated source lowering with integer sums. This is still within the same
+459315prospective saving, with no accepted new machine or RowAt module.
