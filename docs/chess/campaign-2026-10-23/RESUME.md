@@ -3,9 +3,11 @@
 User authorized resuming the existing goal, targeting a certified complete
 310,029-state machine. The accepted baseline remains 769,344 at `100ed94`.
 This is a continuation of the October 22 campaign, not a new mathematical goal.
-The goal API returned `goal: null` at resumption despite the prior successful
-pause. Continue from disk and record this service discrepancy; do not invent
-an active API goal or silently create a replacement goal.
+The goal API initially returned `goal: null` despite the prior pause. Following
+this explicit resume request, tracking was restored from the saved campaign
+objective; the API now reports active. `goal-restored.json` records that new
+tracking baseline. Earlier campaign history and usage remain in the immutable
+October22 snapshot; tracking restoration does not reset account usage.
 
 ## First bounded action
 
@@ -67,3 +69,18 @@ No memoryfailure or fullvalidity proof credit; actualrows0. G2 met as diagnostic
 G3 remains open. Next source revision uses a single-pass structural checker
 returning exact count while checking caches and ranges; its generic soundness
 recovers the same original propositions. Keep all data, audit roots and caps.
+
+Single-pass pilot run39982510510 at4925b6690c01451e57b1c30128b901b31a255ff1
+is active. It recovers the three unchanged map invariants from a single structural
+checker, with forced production smoke controls, original audits and caps.
+Last account usage9% consumed. Root owns all work; no agents newly dispatched.
+
+Trial16 run39982510510 at4925b66 completed with all map count/cache/range/lookup/
+entry proofs and audits passing. Combined map facts build57.432s at2851602432bytes.
+QuotientChecks then exceeds6GiB after30.818s at6453841920bytes. Which individual
+quotient invariant was active is unknown; no quotient theorem credit. Five
+data substages completed in shared118.989s, actualrows0. Official certificate16
+and parent metadata retained; preview hash matches official artifact.
+Next: same checked-chunk technique for paired quotient rows, exact global
+code bound4*K, named executable midpoint subtrees and unchanged Data19 roots.
+No budget increase or accepted state saving.

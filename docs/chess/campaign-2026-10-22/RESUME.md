@@ -4,8 +4,8 @@ The user explicitly resumed the existing campaign, targeting a certified310029
 state machine. Current plan, gates and progress are in
 `../campaign-2026-10-23/RESUME.md` and its GATES.md. The October22 shutdown
 packet remains immutable; its deadline applied only to that date.
-Goal API currently returns null; continuing from the saved campaign on disk.
-No replacement API goal was created. All prior mathematical, frozen-source,
+Goal tracking has been restored from the saved campaign after an initial null
+API response; the current record is in the October23 checkpoint. All prior mathematical, frozen-source,
 remote-computation, local-memory and outreach constraints continue.
 
 The account usage observation at resumption is8% consumed. First bounded action

@@ -1,0 +1,13 @@
+{
+  "goal": {
+    "threadId": "01a1571a-d9e6-7513-9584-ff083c115b7e",
+    "objective": "Continue the existing Chess Cryptid reduction campaign from /Users/bocowgill/.codex/worktrees/6ba9/cryptids, branch codex/chess-openevolve-pilot, using docs/chess/campaign-2026-10-23/RESUME.md and GATES.md plus the immutable October22 checkpoint. Restore tracking after get_goal reported null; preserve prior campaign history on disk. Target a fully certified explicit two-symbol blank-tape 310,029-state machine, reducing the currently accepted 769,344-state machine via the measured 114,487-state body quotient (459,315 prospective saving). First retain and assess the bounded validity diagnostic and single-pass count/cache/range certificate pilot; use measured obstructions to remove repeated normalization, or test structural routine certificates if warranted. Do not repeat unchanged failing attempts or raise caps merely to pass. Complete every actual body transition, both halting directions Halts(M) iff NOT(Chess.WhiteCanAvoidLoss AND Chess.BlackCanAvoidLoss), all paid state accounting, strict remote Lean builds, full-private foundation audits, independent actual transition/fixture/corruption/regression checks, and a distinct final review before accepting a new best. Keep the frozen chess specification, accepted sources and immutable evidence fixed. All heavy computation (Lean/Lake/LSP/LeanProbe, compilation, generation, mathematical counting, simulation, fixtures, synthesis) stays remote on authorized infrastructure. Keep local memory/output low, outreach on hold, real CI failures and notification settings intact, and no bulk upstream API migration or full quadratic chess startup simulation. Root owns Git/network/dispatch/retention; authorized fork checkpoints use git@github.com:bocowgill/cryptids.git, never upstream origin. Continue autonomously through productive bounded rounds, checking account usage periodically and checkpointing exact sources, resource outcomes, failed routes, accepted versus prospective state counts and next tasks. Before any resource stop, save a clean pushed handoff and stop or make every remote job independently recoverable. Do not reset usage. Partial proofs or resource exhaustion are not goal completion.",
+    "status": "active",
+    "tokensUsed": 0,
+    "timeUsedSeconds": 0,
+    "createdAt": 1792771242,
+    "updatedAt": 1792771242
+  },
+  "remainingTokens": null,
+  "completionBudgetReport": null
+}

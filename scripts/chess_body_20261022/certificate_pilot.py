@@ -140,7 +140,8 @@ class Driver:
         self.summary.update(stage=self.stage, elapsed_seconds=time.monotonic() - self.start,
                             driver_peak_rss_kib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
         for filename, key in (("map-valid-progress.tsv", "validity_diagnostic"),
-                              ("map-facts-progress.tsv", "map_facts_diagnostic")):
+                              ("map-facts-progress.tsv", "map_facts_diagnostic"),
+                              ("quotient-facts-progress.tsv", "quotient_facts_diagnostic")):
             progress = self.args.output / filename
             if progress.exists():
                 events = progress.read_text().splitlines()
@@ -860,6 +861,63 @@ PACKED_ROOTS = ["packed_decode_none_iff", "packed_payload_lt", "packed_destinati
                 "packed_code_bound", "packed_transition_fidelity"]
 
 
+QUOTIENT_CHECKER = r'''def QuotientFacts
+    (tree : Balanced.RowTree (Nat × Nat)) (size bound : Nat) : Prop :=
+  tree.count = size ∧ tree.WellFormed ∧ packedAllBounded tree bound = true
+
+def checkQuotient : Balanced.RowTree (Nat × Nat) → Nat → Option Nat
+  | .empty, _ => some 0
+  | .leaf value, bound =>
+      if value.1 ≤ bound ∧ value.2 ≤ bound then some 1 else none
+  | .branch cached left right, bound =>
+      match checkQuotient left bound, checkQuotient right bound with
+      | some nl, some nr => if cached = nl then some (nl + nr) else none
+      | _, _ => none
+
+theorem checkQuotient_sound (tree : Balanced.RowTree (Nat × Nat)) (bound size : Nat)
+    (checked : checkQuotient tree bound = some size) : QuotientFacts tree size bound := by
+  induction tree generalizing size with
+  | empty =>
+    have eq : 0 = size := Option.some.inj checked
+    subst size
+    exact ⟨rfl, trivial, rfl⟩
+  | leaf value =>
+    by_cases h : value.1 ≤ bound ∧ value.2 ≤ bound
+    · have eq : 1 = size := Option.some.inj (by
+        simpa only [checkQuotient, ite_eq_left h] using checked)
+      subst size
+      refine ⟨rfl, trivial, ?_⟩
+      simpa only [packedAllBounded, Bool.and_eq_true_iff, decide_eq_true_eq] using h
+    · simp only [checkQuotient, ite_eq_right h, reduceCtorEq] at checked
+  | branch cached left right ihl ihr =>
+    cases hl : checkQuotient left bound with
+    | none => simp only [checkQuotient, hl, reduceCtorEq] at checked
+    | some nl =>
+      cases hr : checkQuotient right bound with
+      | none => simp only [checkQuotient, hl, hr, reduceCtorEq] at checked
+      | some nr =>
+        by_cases hc : cached = nl
+        · have eq : nl + nr = size := Option.some.inj (by
+            simpa only [checkQuotient, hl, hr, ite_eq_left hc] using checked)
+          subst size
+          obtain ⟨hcl, hvl, hbl⟩ := ihl nl hl
+          obtain ⟨hcr, hvr, hbr⟩ := ihr nr hr
+          exact ⟨congrArg₂ Nat.add hcl hcr,
+            ⟨hc.trans hcl.symm, hvl, hvr⟩, Bool.and_eq_true_iff.mpr ⟨hbl, hbr⟩⟩
+        · simp only [checkQuotient, hl, hr, ite_eq_right hc, reduceCtorEq] at checked
+
+theorem quotient_facts_branch (left right : Balanced.RowTree (Nat × Nat)) (nl nr bound : Nat)
+    (hl : QuotientFacts left nl bound) (hr : QuotientFacts right nr bound) :
+    QuotientFacts (.branch nl left right) (nl + nr) bound :=
+  ⟨congrArg₂ Nat.add hl.1 hr.1, ⟨hl.1.symm, hl.2.1, hr.2.1⟩,
+    Bool.and_eq_true_iff.mpr ⟨hl.2.2, hr.2.2⟩⟩
+
+'''
+
+QUOTIENT_CHECKER_ROOTS = ["QuotientFacts", "checkQuotient", "checkQuotient_sound",
+                          "quotient_facts_branch"]
+
+
 def map_declarations(driver, stem, rows_name, states, bound, chunk_limit):
     """Name exact midpoint subtrees so later proofs can compose checked children.
 
@@ -982,20 +1040,23 @@ def map_proofs(nodes, tree_name, kind, bound, root_theorem, progress_path=None):
     return "".join(proofs)
 
 
-def map_facts_proofs(nodes, tree_name, bound, root_theorem, progress_path=None):
+def map_facts_proofs(nodes, tree_name, bound, root_theorem, progress_path=None, family="map"):
     """One linear chunk check recovers all three unchanged map invariants."""
     require(nodes, "empty facts nodes")
+    require(family in ("map", "quotient"), "invalid facts family")
+    predicate = "MapFacts" if family == "map" else "QuotientFacts"
+    checker = "checkMap_sound" if family == "map" else "checkQuotient_sound"
     proofs, chunks = [progress_marker("facts", 0, progress_path)], 0
     for node in nodes:
         name, size = node["name"], node["states"]
         declaration = HEARTBEATS + f"theorem {name}_facts :\n"
-        declaration += f"    MapFacts {name} {size} {bound} :=\n"
+        declaration += f"    {predicate} {name} {size} {bound} :=\n"
         if node["kind"] == "chunk":
-            declaration += f"  checkMap_sound {name} {bound} {size} (by decide +kernel)\n"
+            declaration += f"  {checker} {name} {bound} {size} (by decide +kernel)\n"
         else:
             left, right = node["left"], node["right"]
             nl, nr = node["left_count"], node["right_count"]
-            declaration += f"  map_facts_branch\n    {left}\n    {right}\n"
+            declaration += f"  {family}_facts_branch\n    {left}\n    {right}\n"
             declaration += f"    {nl} {nr} {bound}\n    {left}_facts\n    {right}_facts\n"
         proofs.append(declaration)
         if node["kind"] == "chunk":
@@ -1003,7 +1064,7 @@ def map_facts_proofs(nodes, tree_name, bound, root_theorem, progress_path=None):
             if chunks % 32 == 0:
                 proofs.append(progress_marker("facts", chunks, progress_path))
     proofs.append(HEARTBEATS + f"theorem {root_theorem} :\n" +
-                  f"    MapFacts {tree_name} {nodes[-1]['states']} {bound} :=\n" +
+                  f"    {predicate} {tree_name} {nodes[-1]['states']} {bound} :=\n" +
                   f"  {nodes[-1]['name']}_facts\n")
     proofs.append(progress_marker("facts", chunks, progress_path))
     return "".join(proofs)
@@ -1022,9 +1083,10 @@ def quotient_declarations(driver, stem, rows_name, states, state_bound, chunk_li
             "quotient chunk input census or limit")
     require(all(line.endswith("\n") for line in lines), "quotient chunk line termination")
     row_tree = "Balanced.RowTree (Nat × Nat)"
-    declarations, chunks = [], []
+    declarations, chunks, nodes = [], [], []
 
     def subtree(start, length):
+        node = {"start": start, "states": length}
         if length <= chunk_limit:
             name = f"{stem}Chunk_{start:06d}"
             filename = f"{stem}-chunks/{start:06d}-{length:04d}.rows"
@@ -1034,13 +1096,19 @@ def quotient_declarations(driver, stem, rows_name, states, state_bound, chunk_li
                            "info": info(ROOT / PREFIX / filename)})
             declarations.append(HEARTBEATS + f"@[noinline] def {name} :\n    {row_tree} :=\n" +
                                 f'  load_packed_rows%\n    "{PREFIX}/{filename}"\n')
-            return name
-        # This is exactly balancedRowsExpr's split, including odd lengths.
-        left_count = length // 2
-        left = subtree(start, left_count)
-        right = subtree(start + left_count, length - left_count)
-        return (f"(Balanced.RowTree.branch {left_count}\n  " +
-                left.replace("\n", "\n  ") + "\n  " + right.replace("\n", "\n  ") + ")")
+            node.update(name=name, kind="chunk")
+        else:
+            # This is exactly balancedRowsExpr's split, including odd lengths.
+            left_count = length // 2
+            left = subtree(start, left_count)
+            right = subtree(start + left_count, length - left_count)
+            name = f"{stem}Node_{start:06d}_{length:06d}"
+            declarations.append(HEARTBEATS + f"@[noinline] def {name} :\n    {row_tree} :=\n" +
+                                f"  .branch {left_count}\n    {left}\n    {right}\n")
+            node.update(name=name, kind="branch", left=left, right=right,
+                        left_count=left_count, right_count=length-left_count)
+        nodes.append(node)
+        return name
 
     assembled = subtree(0, states)
     # Independently reread every emitted shard in recorded order: exact byte
@@ -1059,15 +1127,16 @@ def quotient_declarations(driver, stem, rows_name, states, state_bound, chunk_li
                 "chunk_limit_states": chunk_limit, "chunk_count": len(chunks),
                 "split_rule": "left_count = floor(subtree_state_count / 2)",
                 "exact_concatenation_checked": True,
-                "concatenated_sha256": hashlib.sha256(concatenated).hexdigest(), "chunks": chunks}
+                "concatenated_sha256": hashlib.sha256(concatenated).hexdigest(), "chunks": chunks,
+                "postorder_nodes": nodes}
     manifest_name = stem + "-chunks.json"
     driver.emit(manifest_name, json.dumps(manifest, indent=2, sort_keys=True) + "\n")
     driver.summary.setdefault("quotient_layouts", {})[stem] = {
-        key: value for key, value in manifest.items() if key != "chunks"}
+        key: value for key, value in manifest.items() if key not in ("chunks", "postorder_nodes")}
     driver.summary["quotient_layouts"][stem]["manifest"] = info(ROOT / PREFIX / manifest_name)
     declarations.append(HEARTBEATS + f"@[noinline] def {stem}Tree :\n    {row_tree} :=\n  " +
                         assembled.replace("\n", "\n  ") + "\n")
-    return "".join(declarations)
+    return "".join(declarations), nodes
 
 
 def generate_smoke(driver):
@@ -1088,7 +1157,11 @@ def generate_smoke(driver):
     smoke += map_facts_proofs(map_nodes, "smokeMapTree", 2, "smoke_map_facts",
                               driver.args.output / "smoke-map-facts-progress.tsv")
     # Force two separate executable chunks even for this two-state table.
-    smoke += quotient_declarations(driver, "smokeQuotient", "smoke-packed.rows", 2, 2, 1)
+    quotient_source, quotient_nodes = quotient_declarations(
+        driver, "smokeQuotient", "smoke-packed.rows", 2, 2, 1)
+    smoke += quotient_source
+    smoke += map_facts_proofs(quotient_nodes, "smokeQuotientTree", 8, "smoke_quotient_facts",
+                              family="quotient")
     for name, proposition in (
             ("smoke_quotient_count", "smokeQuotientTree.count = 2"),
             ("smoke_quotient_valid", "smokeQuotientTree.WellFormed"),
@@ -1131,17 +1204,27 @@ theorem smoke_quotient_fidelity (state : Fin 2) (bit : Fin 2) :
     checkMap (.branch 2 (.leaf 0) (.leaf 0)) 1 = none ∧
     checkMap (.branch 1 (.leaf 0) (.leaf 0)) 1 = some 2 := by decide +kernel
 '''
+    smoke += HEARTBEATS + '''theorem smoke_quotient_checker_controls :
+    checkQuotient .empty 0 = some 0 ∧
+    checkQuotient (.leaf (8, 0)) 8 = some 1 ∧
+    checkQuotient (.leaf (9, 0)) 8 = none ∧
+    checkQuotient (.leaf (0, 9)) 8 = none ∧
+    checkQuotient (.branch 2 (.leaf (0, 0)) (.leaf (0, 0))) 8 = none := by decide +kernel
+'''
     roots = ["smoke_map_count", "smoke_map_valid", "smoke_map_bounded", "smoke_lookup_lt",
              "smokeClassMap_val", "smoke_quotient_count", "smoke_quotient_valid",
              "smoke_quotient_bounded", "smoke_quotient_fidelity", "smoke_codec_boundaries",
              "smoke_entry", "smoke_row", "smoke_map_controls", "smoke_map_facts",
-             "smoke_map_checker_controls"] + PACKED_ROOTS + MAP_BRANCH_ROOTS + MAP_CHECKER_ROOTS
+             "smoke_map_checker_controls", "smoke_quotient_facts",
+             "smoke_quotient_checker_controls"] + PACKED_ROOTS + MAP_BRANCH_ROOTS + \
+            MAP_CHECKER_ROOTS + QUOTIENT_CHECKER_ROOTS
     driver.emit("TemplateSmoke.lean", smoke + audit_and_end(
         driver, "TemplateSmoke", roots, "Body certificate template smoke checked"))
 
 
 def generate_setup(driver):
-    driver.emit("Packed.lean", header(["Cryptids.Compilation.BalancedTable"]) + PACKED +
+    driver.emit("Packed.lean", header(["Cryptids.Compilation.BalancedTable"]) +
+                PACKED + QUOTIENT_CHECKER +
                 "\nend " + NS + "\n")
     driver.emit("Loaders.lean", LOADERS)
     driver.emit("Audit.lean", AUDIT)
@@ -1155,9 +1238,9 @@ def generate(driver, selected):
     driver.emit("MapData.lean", header([MODULE + ".Loaders"]) +
                 map_source +
                 audit_and_end(driver, "MapData", ["mapTree"], "Complete body class map loaded"))
-    driver.emit("QuotientData.lean", header([MODULE + ".Loaders"]) +
-                quotient_declarations(driver, "quotient", "quotient-packed.rows", K, K,
-                                      QUOTIENT_CHUNK_STATES) +
+    quotient_source, quotient_nodes = quotient_declarations(
+        driver, "quotient", "quotient-packed.rows", K, K, QUOTIENT_CHUNK_STATES)
+    driver.emit("QuotientData.lean", header([MODULE + ".Loaders"]) + quotient_source +
                 audit_and_end(driver, "QuotientData", ["quotientTree"], "Complete body quotient rows loaded"))
     map_prelude = header([MODULE + ".MapData"]) + MAP_BOUNDS + MAP_CHECKER
     map_prelude += f'''noncomputable def classMap (s : Fin {N}) : Fin {K} :=
@@ -1201,11 +1284,14 @@ theorem classMap_val (s : Fin {N}) : (classMap s).val = mapTree.lookup s.val 0 :
     driver.emit("MapChecks.lean", map_checks + audit_and_end(
         driver, "MapChecks", map_roots, "Complete body class map checks passed"))
     quotient_checks = header([MODULE + ".QuotientData"])
+    quotient_checks += map_facts_proofs(quotient_nodes, "quotientTree", 4 * K, "quotient_facts",
+                                        driver.args.output / "quotient-facts-progress.tsv",
+                                        family="quotient")
     quotient_checks += f'''def quotient : Machine {K} 2 := packedMachine {K} quotientTree
-{HEARTBEATS}theorem quotient_count : quotientTree.count = {K} := by decide +kernel
-{HEARTBEATS}theorem quotient_valid : quotientTree.WellFormed := by decide +kernel
+theorem quotient_count : quotientTree.count = {K} := quotient_facts.1
+theorem quotient_valid : quotientTree.WellFormed := quotient_facts.2.1
 {HEARTBEATS}theorem quotient_bounded :
-    packedAllBounded quotientTree (4 * {K}) = true := by decide +kernel
+    packedAllBounded quotientTree (4 * {K}) = true := quotient_facts.2.2
 theorem quotient_code_bound (state : Fin {K}) (bit : Fin 2) :
     packedCodeAt quotientTree state bit ≤ 4 * {K} :=
   packed_code_bound quotientTree (4 * {K}) quotient_bounded state bit
@@ -1216,7 +1302,8 @@ theorem quotient_fidelity (state : Fin {K}) (bit : Fin 2) :
     quotient_roots = ["quotient_count", "quotient_valid", "quotient_bounded", "quotient_code_bound",
                       "quotient_fidelity"] + PACKED_ROOTS
     driver.emit("QuotientChecks.lean", quotient_checks + audit_and_end(
-        driver, "QuotientChecks", quotient_roots, "Complete packed quotient checks passed"))
+        driver, "QuotientChecks", quotient_roots + ["quotient_facts"],
+        "Complete packed quotient checks passed"))
     # The assembly has no chess import and repeats no large kernel reduction.
     # Its full-private audit deliberately rechecks the complete combined roots.
     driver.emit("Data.lean", header([MODULE + ".MapChecks", MODULE + ".QuotientChecks"]) +

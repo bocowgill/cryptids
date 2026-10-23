@@ -30,3 +30,17 @@ all child-proof dependencies, explicit audit coverage and unchanged resource
 accounting. Remote compilation and measured savings remain pending. This pilot
 only unlocks the existing prospective459315state reduction; it has no separate
 accepted physical saving.
+
+## Trial16 result and quotient extension
+
+Map facts, all original map roots and their audits pass. Remaining failure is
+QuotientChecks process-group memory budget,30.818s/6453841920bytes. No individual
+quotient invariant completion is established. Source revision applies the same
+method to paired raw codes: checkQuotient validates each coordinate<=4*K and
+cached counts, with inductive soundness recovering old quotient propositions.
+Named executable chunks and parent nodes preserve exact midpoint/order/cache
+shape. Independent complete shard concatenation and inverse row comparison
+remain. Tiny smoke adds both-coordinate range and malformed-cache controls.
+Smoke36roots, QuotientChecks14(including combined facts), finalData19unchanged.
+Every existing data stage/audit remains in the same120s group and1200s/6GiB
+total caps. New performance remains unmeasured. No accepted savings.

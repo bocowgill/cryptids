@@ -1,0 +1,15 @@
+{
+  "scope": "Exact retained bytes/source only",
+  "commit": "4925b6690c01451e57b1c30128b901b31a255ff1",
+  "run_id": 39982510510,
+  "source_logs_and_generated_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "preview_matches_official_artifact": true,
+  "complete_map_claims_and_audits_passed": true,
+  "complete_candidate_data": false,
+  "actual_rows": 0,
+  "first_failed_stage": "QuotientChecks",
+  "resource_stop": "process_group_memory_budget",
+  "peak_bytes": 6453841920,
+  "individual_quotient_theorem_completion": "Not established"
+}
