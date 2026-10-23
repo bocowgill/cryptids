@@ -1,0 +1,11 @@
+{
+  "run_id": 40038438126,
+  "source": "1a12ba4b34b8553dac7769f82bc223410f180c9c",
+  "mode": "full",
+  "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-34",
+  "status": "dispatched",
+  "change": "Remove unused mathematical open namespaces from standalone diagnostic smoke",
+  "resource_caps_changed": false,
+  "accepted_states": 769344,
+  "prospective_states": 310029
+}

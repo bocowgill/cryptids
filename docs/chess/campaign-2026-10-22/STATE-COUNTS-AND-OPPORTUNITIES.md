@@ -87,3 +87,14 @@ consume about106.6s, before actual row proofs finish. Current bounded
 preflight39999662622 atbe8cb58 certifies shared exact weight lists, replacing
 repeated source lowering with integer sums. This is still within the same
 459315prospective saving, with no accepted new machine or RowAt module.
+
+
+October23 checkpoint through certificate-33: complete map/Q data and universal
+shared operation weights/prefixes pass with ordinary-kernel full-private audits.
+Certificate-31 weight stage15.445s; endpoint witnesses5.253s. Actual64run32 still
+hits120s before a complete module/audit. Run33 finds an isolated diagnostic-smoke
+header error before later stages, now corrected in remote run40038438126. There
+is still no accepted full-machine saving. Rank1 remains459315 prospective states;
+rank2 now includes the conditional structural-table/cache certificate design in
+../campaign-2026-10-23/STRUCTURAL-TABLE-FALLBACK.md. It is unimplemented, shares
+rank1's payoff and must remove a measured certificate cost before scaling.

@@ -3,9 +3,9 @@
 Goal active. Accepted machine: **769,344** states. Target: **310,029**.
 G1/G2/G3 met; G4/G5/G6 open. Accepted full-machine savings this resume: **0**.
 
-Current remote run **40036863463**, source
-`2d3ad0b4303588a1efd2197bf81687996028b42f`, full mode. Retain as
-`round-03/evidence/certificate-33` after completion. It keeps the actual body,
+Current remote run **40038438126**, source
+`1a12ba4b34b8553dac7769f82bc223410f180c9c`, full mode. Retain as
+`round-03/evidence/certificate-34` after completion. It keeps the actual body,
 quotient, 64-state sample and all resource caps fixed, while making layout/code
 opaque and recording command diagnostics and granular timing markers.
 Diagnostic capture must pass its own remote smoke and full-private audit first.

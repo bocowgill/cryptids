@@ -277,3 +277,8 @@ error,2.122s, no resource stop. No later helper/data/row credit this run. Fix
 removes only the unused mathematical open line from the standalone smoke.
 Same statements, original caps and full-private audits; next full run again
 checks observer smoke before all structural and actual-row stages.
+
+Full remote run40038438126 at1a12ba4 dispatched after exact fork-head check.
+Retain certificate-34. Header-only diagnostic-smoke correction; all resource
+caps, data/row claims, foundation audits and frozen sources unchanged. Source
+and complete previous packet33 published by ordinary non-forced SSH push.
