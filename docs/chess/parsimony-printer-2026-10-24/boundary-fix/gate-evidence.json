@@ -1,0 +1,40 @@
+[
+  {
+    "phase": "diagnose",
+    "run_id": 40138030294,
+    "producer": "d72ac3da4dbf747d35e598a92d165ebc64d09105",
+    "command": "python3 scripts/chess_parsimony_20261024/pilot.py --phase diagnose",
+    "cwd": "/home/runner/work/cryptids/cryptids",
+    "shell": "/bin/bash",
+    "path_sha256": "cc04e01474d3aa9a740c8964d21c6f839167ed54be9bf7d08131d841724ec5c9",
+    "path_entries": 16,
+    "exit": 0,
+    "matched_success_tokens": [
+      "PARSIMONY_BOUNDARY_DIAGNOSED"
+    ],
+    "workflow_log_entry": "printer/3_Bounded exact packet printer census and physical framing probe.txt",
+    "workflow_log_entry_sha256": "30f5d57ce1f89a1b49e18143ddcaab248f83afc231c2f07ee4ef8c0e39cd9ec6",
+    "workflow_log_entry_bytes": 653,
+    "all_heavy_checks_remote": true
+  },
+  {
+    "phase": "pilot",
+    "run_id": 40138445160,
+    "producer": "367b2fbebbd8b86a9e4a4b03e83832d680c0255a",
+    "command": "python3 scripts/chess_parsimony_20261024/pilot.py --phase pilot",
+    "cwd": "/home/runner/work/cryptids/cryptids",
+    "shell": "/bin/bash",
+    "path_sha256": "cc04e01474d3aa9a740c8964d21c6f839167ed54be9bf7d08131d841724ec5c9",
+    "path_entries": 16,
+    "exit": 0,
+    "matched_success_tokens": [
+      "PARSIMONY_PACKET_AND_FIXTURES_PASSED",
+      "PARSIMONY_COMPLETE_PRINTER_CENSUS_PASSED",
+      "PARSIMONY_NET_SAVINGS_ASSESSED"
+    ],
+    "workflow_log_entry": "printer/3_Bounded exact packet printer census and physical framing probe.txt",
+    "workflow_log_entry_sha256": "c9a2e99e87b645fb6f5406d1582fefcae97a01201c4dee46420f879094421ff9",
+    "workflow_log_entry_bytes": 788,
+    "all_heavy_checks_remote": true
+  }
+]

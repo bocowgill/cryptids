@@ -1,9 +1,16 @@
 # Bounded Parsimony packet-printer pilot
 
-The two-run pilot has stopped after its corrected adapter failed its first
-exact-boundary control. Read [RESULTS.md](RESULTS.md) for the complete allocation,
-conditional 609,247-state design, failure evidence and next diagnostic. There is
-no new certified reduction; the accepted machine remains 769,344 states.
+The authorized boundary follow-up passed: all 261 fixtures and both independent
+complete-machine censuses agree on a **609,247-state experimental candidate**,
+160,097 below the accepted machine. The failure was an oracle origin error,
+corrected from cell 34 to cell 33 without changing the printer's transitions.
+Read [the latest results](boundary-fix/RESULTS.md) and
+[recovery checkpoint](boundary-fix/CHECKPOINT.md). Certification has not started;
+the accepted machine remains **769,344 states**.
+
+The original failed two-run pilot and its missing-diagnostic limitation remain
+documented unchanged in [the original results](RESULTS.md). The follow-up has its
+own [gate ledger](boundary-fix/GATES.md) and exact retained remote evidence.
 
 User authorization: October 24, 2026, a bounded printer pilot on the exact existing
 chess packet, fully paid state accounting and net-savings assessment before
@@ -32,17 +39,17 @@ explicit read/write/movement commands. Default ERROR transitions lead to one
 explicit paid nonhalting trap; tests must never enter it. The bridge is initially
 a counted diagnostic boundary, not a claimed certified connection.
 
-See [GATES.md](GATES.md) for the predeclared contract and maximum two-run budget.
+See [GATES.md](GATES.md) for the original predeclared two-run budget, now closed.
 The planned checks compare native and independent Python physical executions on all
 8-bit words plus wider fixtures, reconstructs the exact entire chess packet
 from emitted transition targets, counts every raw control, and probes the full
 printer under a fixed step/time bound. The physical tape/head receipts determine
-the exact cleanup and connection work. Neither run completed the fixture suite.
+the exact cleanup and connection work. Neither original run completed the suite;
+the subsequently authorized boundary follow-up completed all 261 fixtures.
 An incomplete full-printer probe is reported honestly, not as successful startup.
 
-Only the new workflow-file path triggers the first run on push. Subsequent
-checkpoint commits do not restart it; any second run is manually dispatched only
-after diagnosing a concrete obstruction. Sources, numeric tables, fixture tapes,
+The workflow now uses manual dispatch only, with explicit `diagnose` and `pilot`
+phases. Checkpoint commits launch no printer jobs. Sources, numeric tables, fixture tapes,
 logs, corruption controls, resource outcomes and exact run identities are retained.
 
 No new state count is certified by this pilot. Even a positive measured saving

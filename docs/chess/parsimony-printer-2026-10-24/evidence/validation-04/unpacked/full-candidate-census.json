@@ -1,0 +1,41 @@
+{
+  "additional_bridge_states_outside_printer": 0,
+  "all_retained_transition_rows_checked": true,
+  "certified_saving": 0,
+  "complete_halting_equivalence_proved": false,
+  "experimental_net_saving": 160097,
+  "full_candidate_cells": 1218494,
+  "full_candidate_missing_cells": 2,
+  "full_candidate_sha256": "b9cf384e5470f3c9f5c501bd8c13555f15d4ea134469f5d159cd1bdb363cbf45",
+  "full_candidate_states": 609247,
+  "independent_native_census": {
+    "bytes": 7310964,
+    "cells": 1218494,
+    "maximum_target": 609246,
+    "missing_cells": 2,
+    "states": 609247
+  },
+  "interpreter_main": 533341,
+  "interpreter_returns": 40461,
+  "new_accepted_machine": false,
+  "new_decoder_bridge": 1,
+  "new_writer_categories": {
+    "data": 13361,
+    "error_trap": 1,
+    "extractor": 140,
+    "marker_erasure_and_decoder_connection": 2,
+    "nondestructive_marker_scan": 32,
+    "preamble_and_epilogue": 6,
+    "tail_cleanup": 3
+  },
+  "old_full_states": 769344,
+  "old_writer_states": 173642,
+  "printer_edges_into_decoder": 1,
+  "replacement_states": 13545,
+  "retained_decoder_boundary_already_paid": true,
+  "retained_decoder_states": 21682,
+  "retained_expander_bridge": 1,
+  "retained_seed_expander": 216,
+  "retained_suffix_roundtrip_sha256": "ea1f58425d93f3fb1ce5aa17d6a5f62fb78f70e6291b33b177fd72ec668ccb31",
+  "retained_suffix_states": 595702
+}

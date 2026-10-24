@@ -1,0 +1,86 @@
+[
+  {
+    "exact_boundary": true,
+    "name": "unmodified_adapter",
+    "result": {
+      "head": 33,
+      "ones": [
+        34,
+        36,
+        37,
+        39
+      ],
+      "state": 97,
+      "status": "boundary",
+      "steps": 3725
+    }
+  },
+  {
+    "mutated_cell": 190,
+    "mutated_row": [
+      1,
+      1,
+      97
+    ],
+    "name": "dirty_separator",
+    "rejected": true,
+    "result": {
+      "head": 33,
+      "ones": [
+        32,
+        34,
+        36,
+        37,
+        39
+      ],
+      "state": 97,
+      "status": "boundary",
+      "steps": 3725
+    }
+  },
+  {
+    "mutated_cell": 190,
+    "mutated_row": [
+      0,
+      0,
+      97
+    ],
+    "name": "wrong_decoder_head",
+    "rejected": true,
+    "result": {
+      "head": 31,
+      "ones": [
+        34,
+        36,
+        37,
+        39
+      ],
+      "state": 97,
+      "status": "boundary",
+      "steps": 3725
+    }
+  },
+  {
+    "mutated_cell": 123,
+    "mutated_row": [
+      1,
+      0,
+      62
+    ],
+    "name": "unerased_tail",
+    "rejected": true,
+    "result": {
+      "head": 33,
+      "ones": [
+        34,
+        36,
+        37,
+        39,
+        41
+      ],
+      "state": 97,
+      "status": "boundary",
+      "steps": 3725
+    }
+  }
+]

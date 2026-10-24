@@ -1,0 +1,10 @@
+[
+  {
+    "name": "actual_full_table_invalid_target",
+    "rejected": true
+  },
+  {
+    "name": "actual_full_table_truncated_record",
+    "rejected": true
+  }
+]
