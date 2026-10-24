@@ -1011,3 +1011,10 @@ Decision: one corrected bounded structural proof/scaling trial 74, same limits.
 If generic proof passes, measure actual 1/16 and 1/4 complete modules/audits;
 no inference of linear total cost from recursion shape. Accepted counts stay
 769,344 / target 310,029, new saving zero; linkage/final review remain open.
+
+Dispatch checkpoint: corrected pilot 74 is run 40078544743, source
+cc8740869bee349109576482fe9f0387d1a4b3b9, mode local. Retain certificate-74
+after completion and inspect exact StructuralChecks.log/audit plus complete
+scope summaries. Do not restart a live run. No new code depending on successful
+substantial scaling has been wired. Full global/link drafts remain conditional.
+Campaign ACTIVE, no resource stop/reset; last account usage 11%.

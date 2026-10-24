@@ -1,0 +1,24 @@
+{
+  "run_id": 40078544743,
+  "source": "cc8740869bee349109576482fe9f0387d1a4b3b9",
+  "mode": "local",
+  "status": "remote_queued",
+  "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-74",
+  "correction": "Explicit embedding function equality and direct leaf-to-root Fin.ext bounds repair structural proof preflight",
+  "required_new_generic_roots": 13,
+  "requested_body_fractions": [
+    "1/16",
+    "1/4"
+  ],
+  "stage_seconds": {
+    "structural_soundness": 60,
+    "complete_block": 120,
+    "scope16": 180,
+    "scope4": 210
+  },
+  "overall_seconds": 1200,
+  "memory_gib": 6,
+  "accepted_states": 769344,
+  "target_states": 310029,
+  "new_accepted_machine": false
+}

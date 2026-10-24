@@ -35,7 +35,9 @@ Pilot 73 is retained/reviewed: generic structural proof fails in 6.093 s,
 peak 3,181,682,688 bytes, with embedding eta/leaf Fin1 transparency mismatches.
 No block/substantial attempt or scalability evidence. Corrected with explicit
 function equality and direct Fin.ext leaf-to-root bounds; same checker and
-obligations. Corrected pilot 74 requires 13 generic roots and full private audit.
+obligations. Current corrected pilot 74: run 40078544743 at
+cc8740869bee349109576482fe9f0387d1a4b3b9 (mode local; retain certificate-74).
+It requires 13 generic roots and full private audit.
 
 It uses a root-and-children structural certificate without indexed runtime node
 getters. Actual Q/map equations, source identity, all bits/stores/returns remain.
