@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40043435954,
+  "commit": "39dcd4ed7ec10ff5606fc24751f5a0df91b9a3ae",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": true,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "Controlled intermediate rewrite has essentially no effect: same last row marker3781, Rows64 exceeds6GiB after113.497s at6459891712bytes; actual0bits still9.6/9.3s, no captured proof errors. No sampled module or negative credit. Close this micro-tactic route. Next bounded pilot proves symbolic main-write semantics once and instantiates exact checked certificates, first initial state then original64sample; same full obligations and caps.",
+  "new_accepted_machine": false
+}

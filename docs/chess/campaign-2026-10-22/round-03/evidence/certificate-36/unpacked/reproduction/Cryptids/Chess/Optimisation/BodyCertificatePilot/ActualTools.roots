@@ -1,0 +1,12 @@
+Chess.Optimisation.BodyCertificatePilot.mainIndex
+Chess.Optimisation.BodyCertificatePilot.haltedMain
+Chess.Optimisation.BodyCertificatePilot.returnIndex
+Chess.Optimisation.BodyCertificatePilot.bounceIndex
+Chess.Optimisation.BodyCertificatePilot.returnIndex_val
+Chess.Optimisation.BodyCertificatePilot.entry_syntax
+Chess.Optimisation.BodyCertificatePilot.findReturn_syntax
+Chess.Optimisation.BodyCertificatePilot.returnAt_syntax
+Chess.Optimisation.BodyCertificatePilot.post_halted
+Chess.Optimisation.BodyCertificatePilot.haltedMain_address
+Chess.Optimisation.BodyCertificatePilot.decode_bit_0
+Chess.Optimisation.BodyCertificatePilot.decode_bit_1

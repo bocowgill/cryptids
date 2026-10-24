@@ -144,6 +144,7 @@ class Driver:
                               ("quotient-facts-progress.tsv", "quotient_facts_diagnostic"),
                               ("row-witness-progress.tsv", "row_witness_diagnostic"),
                               ("weight-chunks-progress.tsv", "weight_chunks_diagnostic"),
+                              ("rows-1-progress.tsv", "rows1_diagnostic"),
                               ("rows-64-progress.tsv", "rows64_diagnostic"),
                               ("rows-512-progress.tsv", "rows512_diagnostic"),
                               ("rows-4096-progress.tsv", "rows4096_diagnostic")):
@@ -1255,6 +1256,9 @@ def generate_setup(driver):
     import diagnostics_pilot
     driver.summary["diagnostics_generator_source"] = info(Path(diagnostics_pilot.__file__))
     diagnostics_pilot.generate(driver, header, audit_and_end, MODULE)
+    import symbolic_transition_pilot
+    driver.summary["symbolic_generator_source"] = info(Path(symbolic_transition_pilot.__file__))
+    symbolic_transition_pilot.generate(driver, header, audit_and_end, MODULE)
     import operation_weights_pilot
     driver.summary["operation_weight_generator_source"] = info(Path(operation_weights_pilot.__file__))
     operation_weights_pilot.generate(driver, header, audit_and_end)
@@ -1456,6 +1460,7 @@ def main():
                    "Complete source weights and shared prefix correspondence checked")
         driver.run("RowWitnesses", 60, "Actual local syntax and far-end address witnesses checked")
         driver.run("ActualTools", 60, "Structural main and return row transport helpers checked")
+        driver.run("SymbolicTransitions", 60, "Symbolic actual main-write interface checked")
         if args.smoke_only:
             driver.summary["status"] = "smoke_passed"
             driver.checkpoint()
@@ -1466,6 +1471,12 @@ def main():
         driver.run("MapData", 240, "Complete body class map loaded")
         driver.run("QuotientData", 180, "Complete body quotient rows loaded")
         driver.run_data_group()
+        import actual_row_pilot
+        actual_row_pilot.generate_rows(driver, [0], SNAPSHOT, SNAPSHOT_SHA,
+                                       header, audit_and_end, progress_marker, MODULE)
+        driver.run("Rows1", 60, "Body kernel rows checked: 1 states, 2 rows")
+        driver.summary["symbolic_entry_pilot_checked"] = True
+        driver.checkpoint()
         for count, seconds in ((64, 120), (512, 180), (4096, 210)):
             import actual_row_pilot
             driver.stage = f"Rows{count}Generation"

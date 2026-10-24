@@ -212,7 +212,8 @@ def generate_rows(driver, selected, snapshot, expected_sha, header, audit_and_en
     body, roots, detail = row_witness_pilot.build_body(
         driver, data, plan['nodes'], progress_marker,
         extra_slots=plan['slots'], extra_labels=plan['labels'], numeric_nodes=True)
-    parts = [header([module + '.BodyRelation', module + '.ActualTools', module + '.Diagnostics']),
+    parts = [header([module + '.BodyRelation', module + '.SymbolicTransitions',
+                     module + '.Diagnostics']),
              f'namespace {scope}\n',
              'attribute [local irreducible] FieldPacked.getter FieldPacked.layout\n'
              'attribute [local irreducible] FieldAware.syntaxRows FieldSelectiveLayout.code\n'
@@ -346,6 +347,7 @@ def generate_rows(driver, selected, snapshot, expected_sha, header, audit_and_en
             source = (f'theorem actual_{state}_{bit} :\n'
                       f'    FieldSelective.body.toMachine.transition {state} {bit} =\n'
                       f'      {rhs} := by\n')
+            declaration = source
             compiler = ('SelectiveBinary.compile FieldPacked.post\n'
                         '    FieldSelectiveLayout.returnAt FieldSelectiveLayout.findReturn')
             if state == 1:
@@ -373,13 +375,14 @@ def generate_rows(driver, selected, snapshot, expected_sha, header, audit_and_en
                 else:
                     q = bisect_right(offsets, next_node) - 1
                     rank = data['return_local_targets'][q].index(next_node - offsets[q])
-                    source += (f'  rewrite [← address_{next_node}, findReturn_syntax,\n'
-                               f'    find_{q}_{next_node}]\n'
-                               f'  change some (({value} : Fin 2), Dir.right,\n'
-                               f'    bounceIndex {q} syntax_{q} syntax_eq_{q}\n'
-                               f'      rank_{q}_{rank} {final_store}) = _\n'
-                               + finish_index(value, 1,
-                                              f'bounce_address_{q}_{rank}_{final_store}'))
+                    source = declaration + (
+                        f'  exact symbolic_main_write {node} {store} {q}\n'
+                        f'    syntax_{q} syntax_eq_{q} slot_{next_node} rank_{q}_{rank}\n'
+                        f'    {final_store} {boolean(bit)} {boolean(value)}\n'
+                        f'    {state} {row[2]} {next_node}\n'
+                        f'    main_address_{node}_{store} address_{next_node}\n'
+                        f'    bounce_address_{q}_{rank}_{final_store}\n'
+                        f'    aux_{node}_{bit}_{store} find_{q}_{next_node}')
             elif state == 533341:
                 source += ('  have address : SelectiveBinary.bounceState (q := 533341)\n'
                            '      FieldSelectiveLayout.haltReturn = (533341 : Fin 573802) := rfl\n'

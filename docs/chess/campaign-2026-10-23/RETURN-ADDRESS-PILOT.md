@@ -34,3 +34,23 @@ The dependency/payoff is enabling the measured whole-body quotient:459315
 prospective full-machine states, complete target310029. This helper itself
 saves no states. If it does not reduce the measured large setup cost, reconsider
 it in favor of STRUCTURAL-TABLE-FALLBACK.md rather than polishing small proofs.
+
+Further structural observation from frozen source (unproved proposed lemmas):
+writeCount and write-target slot positions depend on the lowering shape, not the
+callback table values. OperationWeights already proves the count part uniformly
+for every source operation and field. A cheap return-rank representation could
+use that checked operation weight as its Fin bound, then cast through the count
+equality into the exact syntax rank. This may avoid re-normalizing lowered syntax
+just to type-check a concrete return address. Prove val_cast and a generic numeric
+bounce value interface once, then instantiate using named numeric rank values.
+Keep index implementations opaque only during those concrete address proofs; their
+later transition proofs may need explicit unfolding of the public wrappers.
+
+A related, larger obligation for the shared-table route is an exact theorem for
+(targets (lower op)).map Fin.val, with formulas per operation/field independent of
+callbacks. If true, certify all frozen return lists using the same127 operation
+chunks and checked prefix offsets as the weight tables. Do not assume this
+identity: write-target order, roots, every literal write child and inverse lookup
+must be proved. Start with a bounded constructor/field pilot and a corrupted slot.
+This could replace repeated dependent layout reasoning across all paid returns,
+and would also supply required return-table fidelity for the full shared checker.

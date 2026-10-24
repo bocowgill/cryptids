@@ -329,3 +329,18 @@ Retain certificate-36. Controlled intermediate rewrite tests recorded actual
 row memory obstruction; all original claims and caps fixed. Full previous
 packet35 and source pushed normally to fork; no automatic transfer workflow
 changes or additional permissions. No accepted machine or sampled module yet.
+
+
+Run40043435954 at39dcd4e retained and byte-reviewed certificate-36. Controlled
+rewrite makes essentially no difference: same last marker3781,113.497s,
+6459891712bytes,6GiB stop; actual0bits9.6/9.3s. No proof errors, no complete
+sample/audit credit, negative unrun. Close automatic-rw-reflexivity hypothesis.
+Next is SYMBOLIC-WRITE-PILOT.md: a generic source main-write theorem with
+symbolic addresses/node/store/bit/syntax/rank and explicit exact premises.
+Concrete write rows instantiate it, avoiding closed compiler rewrites entirely.
+New source producer is remote guarded and included in the source manifest.
+Generic helper gets60s plus full-private audit; an additional Rows1 gate checks
+initial0/both bits under60s before original64/512/4096samples and negative.
+Main completed-sample counters/claims unchanged. No original checks or roots
+removed, same6GiB/1200s total and120/180/210s samples. No accepted machine.
+New helper is unverified pending remote run; AST/template text inspected only.

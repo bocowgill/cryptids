@@ -34,6 +34,7 @@ def main():
              'scripts/chess_body_20261022/weight_table_pilot.py',
              'scripts/chess_body_20261022/operation_weights_pilot.py',
              'scripts/chess_body_20261022/diagnostics_pilot.py',
+             'scripts/chess_body_20261022/symbolic_transition_pilot.py',
              'scripts/chess_body_20261022/certificate_verify.py']
     manifest = dict(commit=os.environ.get('GITHUB_SHA'), run_id=os.environ.get('GITHUB_RUN_ID'),
                     workflow_commit=os.environ.get('GITHUB_SHA'),

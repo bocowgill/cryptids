@@ -1,0 +1,4 @@
+ℹ [3/3] Built Cryptids.Chess.Optimisation.BodyCertificatePilot.DiagnosticsSmoke (714ms)
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/DiagnosticsSmoke.lean:12:0: Chess command diagnostics probe
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/DiagnosticsSmoke.lean:15:0: Diagnostic command capture smoke checked
+Build completed successfully (3 jobs).

@@ -1,6 +1,6 @@
 # Certified 310,029-state chess machine
 
-OWNS: scripts/chess_body_20261022/{certificate_pilot,certificate_verify,row_witness_pilot,actual_row_pilot,weight_table_pilot,operation_weights_pilot,diagnostics_pilot,publish_checkpoint_api,review_retained_bytes}.py, docs/chess/campaign-2026-10-23/**
+OWNS: scripts/chess_body_20261022/{certificate_pilot,certificate_verify,row_witness_pilot,actual_row_pilot,weight_table_pilot,operation_weights_pilot,diagnostics_pilot,symbolic_transition_pilot,publish_checkpoint_api,review_retained_bytes}.py, docs/chess/campaign-2026-10-23/**
 
 Scope: Resume the existing campaign, certify the measured whole-body quotient,
 and accept a complete 310,029-state machine only after end-to-end verification.
