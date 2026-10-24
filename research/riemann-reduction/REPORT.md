@@ -1,4 +1,10 @@
-# RH reduction: closed route and next bounded proposal
+# RH reduction: closed state-53 route and decoder-sharing obstruction
+
+**Latest result:** the separately approved decoder-sharing pilot ran once.
+Python and independent Node replay found endpoint failures for every one of
+the 30 aliases. The batched Lean theorem failed Decidable synthesis; no audit
+or retry followed. See [the precise result](pilot-decoder-sharing/RESULT.md).
+No candidate was exported, and no new RH saving is certified.
 
 The **canonical state-53 bypass is closed**. Independent full-tape replay and
 Lean kernel checking confirmed that its skipped-bit encoding does not commute
@@ -14,25 +20,25 @@ savings. This local obstruction does not establish blank-run inequivalence,
 blank reachability of the test frame or a lower bound on other constructions.
 The original failed job and separately authorized successful job remain retained.
 
-## Next bounded proposal — awaiting approval
+## Executed bounded decoder-sharing pilot
 
 [Decoder sharing with unchanged words](pilot-decoder-sharing/PROPOSAL.md) is
-the next proposed pilot. Analyze only {26,46,50,86,87,94}, whose ZERO cells all
-equal `0R58`. Each pair may use either member's existing ONE branch: 15 pairs,
-at most 30 symbolic aliases, and at most one exported complete 94-state candidate.
-Keep the accepted control words, tape layout and return protocol fixed.
+the approved historical contract. The job analyzed only {26,46,50,86,87,94},
+whose ZERO cells all equal `0R58`: 15 pairs, both original representative choices,
+with accepted words/tapes/returns unchanged. No finite alias survived, so the
+conditional candidate-export and full RH proof path did not run.
 
-The first question is exact parser equivalence on the entire typed language.
-Finite failures yield typed-word witnesses; finite passes require a proof for
-arbitrary recursion depth before any candidate export. Different ONE branches
-may reject the entire family. A surviving parser equation alone earns no RH
-credit: full physical transport, blank boot, the unconditional RH theorem,
-independent comparator and foundation audit remain mandatory.
+The retained 189-case screen supplies a typed witness per choice, independently
+reproduced, plus two complete tape traces. This computational rejection of the
+unchanged-endpoint contract is not blank-run inequivalence. The exact certificate
+error is `Decidable (∀ i : Fin 30, failure i (witness i))` synthesis at generated
+ShareCertificate.lean:52:2. Family definitions built, but the final theorem and
+its full-private audit/rejection controls remain unverified.
 
-Proposed budget: one free ordinary remote job, 3180 seconds total, 6 GiB aggregate
-RSS, 512 MiB driver, serialized Lean with -M6144, no retry. There are no new jobs,
-generated candidates or executable checks in this proposal. The user's explicit
-approval is required before launch. Broader search remains held; Chess stays paused.
+Exactly one free ordinary remote job ran, attempt 1, without retry: 332.146
+governed seconds and sampled 5.13 GiB aggregate RSS. No resource stop occurred.
+The original 3180s/6GiB/512MiB-driver limits were kept. Further RH jobs and broader
+search are held pending new authorization; the Chess campaign pause is preserved.
 
 ## Preserved audit and baseline
 

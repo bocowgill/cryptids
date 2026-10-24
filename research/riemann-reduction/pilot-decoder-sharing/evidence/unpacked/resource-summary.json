@@ -1,0 +1,107 @@
+{
+  "status": "execution-failed",
+  "candidate_limit": 1,
+  "total_limit_seconds": 3180,
+  "aggregate_limit_bytes": 6442450944,
+  "driver_limit_bytes": 536870912,
+  "stage_caps": {
+    "setup": 900,
+    "generation": 120,
+    "screening": 180,
+    "kernel": 600,
+    "candidate": 900,
+    "audits": 450,
+    "packaging": 30
+  },
+  "commit": "8f3bda3344561fcb2d81987f8dfc48eeac1413ef",
+  "run_id": "40141846969",
+  "capacity": {
+    "host": {
+      "MemTotal": 16766414848,
+      "MemAvailable": 15246696448
+    },
+    "runner": "GitHub Actions 1000000361",
+    "environment": "github-hosted",
+    "cgroup": "0::/system.slice/hosted-compute-agent.service\n",
+    "visible_cgroup_files": {
+      "/sys/fs/cgroup/memory.max": null,
+      "/sys/fs/cgroup/memory.current": null,
+      "/sys/fs/cgroup/memory/memory.limit_in_bytes": null,
+      "/sys/fs/cgroup/memory/memory.usage_in_bytes": null,
+      "/sys/fs/cgroup/memory.limit_in_bytes": null,
+      "/sys/fs/cgroup/memory.usage_in_bytes": null
+    },
+    "probe_revision": "optional-v1-v2-files; fixed decoder-sharing pilot"
+  },
+  "setup_seconds": 13.831076383590698,
+  "stages": [
+    {
+      "name": "generation",
+      "argv": [
+        "/usr/bin/python3",
+        "scripts/riemann_share/pilot.py",
+        "prepare"
+      ],
+      "exit": 0,
+      "seconds": 0.07842878499999983,
+      "effective_cap_seconds": 120,
+      "stop": null
+    },
+    {
+      "name": "screening",
+      "argv": [
+        "/usr/bin/python3",
+        "scripts/riemann_share/pilot.py",
+        "screen"
+      ],
+      "exit": 0,
+      "seconds": 0.07710183399998982,
+      "effective_cap_seconds": 180,
+      "stop": null
+    },
+    {
+      "name": "independent-replay",
+      "argv": [
+        "node",
+        "scripts/riemann_share/replay.mjs"
+      ],
+      "exit": 0,
+      "seconds": 1.7698617960000007,
+      "effective_cap_seconds": 60,
+      "stop": null
+    },
+    {
+      "name": "setup",
+      "argv": [
+        "/usr/bin/python3",
+        "scripts/riemann_share/setup.py"
+      ],
+      "exit": 0,
+      "seconds": 98.28006656299999,
+      "effective_cap_seconds": 884.2380461774093,
+      "stop": null
+    },
+    {
+      "name": "kernel",
+      "argv": [
+        "lake",
+        "--wfail",
+        "-f",
+        "lakefile.riemann-share.toml",
+        "build",
+        "ShareCertificate"
+      ],
+      "exit": 1,
+      "seconds": 218.102306542,
+      "effective_cap_seconds": 600,
+      "stop": null
+    }
+  ],
+  "peak_group_plus_driver_rss_bytes": 5510496256,
+  "new_certified_savings": 0,
+  "lean_runs": 35,
+  "baseline_replays": 0,
+  "error": "Failed stage: kernel",
+  "total_seconds": 332.14556993659073,
+  "driver_peak_rss_bytes": 13803520
+}

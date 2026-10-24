@@ -2,8 +2,10 @@
 
 The canonical state-53 route is now [closed](pilot-53/CLOSED.md). A 94-state
 rejected-route artifact was generated for its verified counterexample; no smaller
-RH machine is certified. The next [bounded decoder-sharing proposal](pilot-decoder-sharing/PROPOSAL.md)
-is pending approval. All other saving estimates below concern the **complete**
+RH machine is certified. The [bounded decoder-sharing pilot](pilot-decoder-sharing/RESULT.md)
+has now run: all 30 aliases failed the independent finite endpoint screen, but
+the batched Lean theorem has an unresolved Decidable synthesis error. No further
+job is authorized. All other saving estimates below concern the **complete**
 physical machine. Ranges are planning
 estimates from the affected state pools, not achieved bounds or a probability of
 success. Decoder costs need not track logical instruction counts.
@@ -11,15 +13,15 @@ success. Decoder costs need not track logical instruction counts.
 | Rank | Concrete change to investigate | Plausible absolute net saving | Proof difficulty | Implementation effort |
 | --- | --- | --- | --- | --- |
 | Closed | Canonical skipped-bit removal of decoder 53 with unchanged returns | 0 certified; bridge refuted | Exact zero-DEC counterexample verified | Retired; preserve evidence |
-| Next proposed | Share a decoder state under the complete typed-word language | 0-1 in the fixed pair family | Medium if words stay fixed; potentially impossible | Low candidate cost; moderate invariant work |
+| Finite rejection | Fixed common-ZERO decoder-sharing family | 0 certified; all 30 finite failures reproduced | Batched Lean certificate blocked by Decidable synthesis | Preserve exact witnesses; no retry |
 | 3 | Eliminate a whole register-program transfer or duplicate update | 0-4, very uncertain | High: new stage/register relation | High: logical and physical program changes |
 | 4 | Reuse a temporary bank across non-overlapping phases | 0-4, before any staging cost | High: phase-dependent liveness and frames | High |
 | 5 | Reorder/reverse operand-bank layout to share selection/return work | 0-3 | High for tape reversal; medium/high for a permutation | Medium/high |
 | 6 | Share branch-return / padding / jump micro-routines | 0-2 | High: must retain branch and root-fence information | Medium |
 
-The fixed decoder-sharing family is the next proposed bounded test. It has not
-been run and is not approved for launch. Larger speculative ranges should not
-guide a search score until an explicit complete machine realizes them.
+The fixed decoder-sharing family has no finite survivor. Its failed certification
+does not justify reopening the family or expanding the search. Larger speculative
+ranges should not guide a score until an explicit complete machine realizes them.
 
 ## 1. Pass-through state 53 and control-word encoding
 
@@ -51,8 +53,10 @@ An explicit small family is {26, 46, 50, 86, 87, 94}. Each ZERO cell is `0R58`;
 their ONE targets are respectively 33, 60, 64, 89, 94, 43. A two-state fusion
 could choose either ONE target, redirect all incoming edges and remove one ID.
 The six-member family has 15 unordered pairs and at most 30 such choices.
-The next proposal bounds this to symbolic aliases and at most one exported table;
-none of these aliases has been executed here. See its exact transformation and caps.
+The authorized job analyzed these symbolic aliases without exporting a table.
+Each has an independently reproduced typed-word endpoint mismatch. The final
+batched Lean proof failed Decidable synthesis, so do not claim formal family
+certification. See the retained result, witnesses, exact diagnostic and caps.
 
 Matching one column is insufficient. Each valid typed caller word, including
 all recursion depths, must retain its native operation and continuation. Distinct

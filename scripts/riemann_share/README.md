@@ -1,5 +1,12 @@
 # Approved fixed decoder-sharing pilot
 
+Disposition: executed once as run 40141846969. Python/Node reproduced all 30
+finite failures; the final Lean batch failed Decidable synthesis and is not
+verified. No full-private audit or kernel rejection controls ran. The authorized
+job is consumed; no retry is authorized. The recoverable source defect remains
+unrepaired, and no extra verification job has been launched.
+See research/riemann-reduction/pilot-decoder-sharing/RESULT.md.
+
 Remote-only: 30 ordered representatives of the 15 pairs in
 {26,46,50,86,87,94}, unchanged typed words/tapes/returns, at most one exported
 candidate. New code never executes the retired state-53 operator.

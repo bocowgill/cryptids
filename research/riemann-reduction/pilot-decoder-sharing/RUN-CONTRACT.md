@@ -19,3 +19,8 @@ enumeration, parser checks, tapes, Lean and census are remote. Negative evidence
 rejects the unchanged-endpoint contract, not blank equivalence or other machines.
 All-rejected disposition requires the batched kernel certificate and dependency
 audit; otherwise report exactly the failed check or open obligation.
+
+Executed once as run 40141846969, attempt 1. The independent finite screen found
+all 30 endpoint mismatches, but the batched Lean theorem failed Decidable
+synthesis. No audit, candidate export or retry followed. Read RESULT.md for
+retained diagnostics and resources. This authorization is consumed.

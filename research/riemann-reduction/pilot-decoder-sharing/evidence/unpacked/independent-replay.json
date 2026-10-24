@@ -1,0 +1,15 @@
+{
+  "status": "fixed-family-replayed",
+  "aliases": 30,
+  "rejected": 30,
+  "exported_candidates": 0,
+  "baseline_sha256": "7e9731ed1b7c63d4e67c0f8d646f8498d9645f26e237a8604d4b7f91a6ab398d",
+  "negative_controls": {
+    "wrong_cell_rejected": true,
+    "wrong_alias_count_rejected": true
+  },
+  "full_tapes_replayed": true,
+  "transition_evaluations": 20025,
+  "combined_evaluations": 40050,
+  "certified_rh_savings": 0
+}

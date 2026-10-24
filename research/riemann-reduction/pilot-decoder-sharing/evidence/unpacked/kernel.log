@@ -1,0 +1,23 @@
+✔ [3252/3267] Built Cryptids.Machines (15s)
+✔ [3253/3267] Built Cryptids.Semantics.Riemann.Gadgets (39s)
+✔ [3254/3267] Built Cryptids.Semantics.Zf.Gadgets (18s)
+✔ [3255/3267] Built Cryptids.Semantics.Zf.Boot (4.6s)
+✔ [3256/3267] Built Cryptids.Riemann120 (13s)
+✔ [3257/3267] Built Cryptids.Semantics.Riemann120.Backend (86s)
+✔ [3258/3267] Built Cryptids.Riemann104 (15s)
+✔ [3259/3267] Built Cryptids.ReductionSupport.Riemann.WordGuard (1.6s)
+✔ [3260/3267] Built Cryptids.Riemann95Definition (1.6s)
+✔ [3261/3267] Built Cryptids.ReductionSupport.Riemann95.ControllerSchema95 (3.5s)
+✔ [3262/3267] Built Cryptids.ReductionSupport.Riemann95.Parser95 (2.4s)
+✔ [3263/3267] Built Cryptids.ReductionSupport.Riemann95.NoThree95 (1.8s)
+✔ [3264/3267] Built Cryptids.ReductionSupport.Riemann95.ControlStep95 (7.1s)
+✔ [3265/3267] Built ShareDefinitions (2.2s)
+✖ [3266/3267] Building ShareCertificate (1.5s)
+trace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean -M6144 -DwarningAsError=true /home/runner/work/cryptids/cryptids/scripts/riemann_share/ShareCertificate.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/ShareCertificate.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/ShareCertificate.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/ShareCertificate.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/ShareCertificate.setup.json --json
+error: scripts/riemann_share/ShareCertificate.lean:52:2: failed to synthesize
+  Decidable (∀ (i : Fin 30), failure i (witness i))
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+Some required targets logged failures:
+- ShareCertificate
+error: build failed

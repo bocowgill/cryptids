@@ -1,5 +1,10 @@
 # Proposed next pilot: decoder sharing with unchanged words
 
+**Historical approved contract, now executed once.** Read [RESULT.md](RESULT.md):
+all 30 finite witnesses were independently reproduced, but the batched Lean
+certificate failed Decidable synthesis. No retry or further job is authorized.
+The original proposal wording below is preserved.
+
 Status: **proposal only; awaiting the user's approval before any job launch**.
 No candidate, new runner, Lean proof or execution result is supplied by this
 document. The preparation uses lightweight source/provenance inspection only.

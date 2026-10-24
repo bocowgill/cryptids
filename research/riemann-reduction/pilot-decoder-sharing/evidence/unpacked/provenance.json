@@ -1,0 +1,25 @@
+{
+  "base": "6c28d8524fa008c6fb5aadb759df74a55ce96423",
+  "producer": "8f3bda3344561fcb2d81987f8dfc48eeac1413ef",
+  "hashes": {
+    "artifacts/riemann_95/machine.txt": "7e9731ed1b7c63d4e67c0f8d646f8498d9645f26e237a8604d4b7f91a6ab398d",
+    "Cryptids/ReductionSupport/Riemann95/ControllerSchema95.lean": "3bf839878cb1c8f5e1d754c543c76f37e6992b4bcdfe45e893921edb9c890f8b",
+    "Cryptids/ReductionSupport/Riemann95/ControlStep95.lean": "f2e883bbf94184590e57814b2a58166d24538b5f15adf3383d8c8e550e479e99",
+    "Cryptids/ReductionSupport/Riemann95/Parser95.lean": "b99d8a1f78e6ef0c155266c7cce74fce380a7bdf4c99d9c6cce40109d6afe66e",
+    "lean-toolchain": "8f89aa44fccdb1a0b6cc768c7c9f54b94cd40e47a08d582f82d1235f13075cf7",
+    "lake-manifest.json": "4bb9288d47457931549bbeff4d0e68d9a8dbd47b063e6b72a3210b0d09311284",
+    "lakefile.riemann-share.toml": "a807e0b0fdc4cd6e3fde48cd74c8c73653d232316f3b282a8d0e1eb49dbfdfcf",
+    ".github/workflows/riemann_share.yml": "543fe769128d49e2a5aeb69aacf3f5c00fc3676a08d386b516ef7157a62a9a25",
+    "scripts/riemann_share/README.md": "7e823edc3bdc99e6b3863e59ad7cec98ee6e275721d53a39e4ef92f548627784",
+    "scripts/riemann_share/ReplayAudit.lean": "28d2bd7eca798f03212cf1e174d9485b106b9ecf2f9313cca292f27668d27b4b",
+    "scripts/riemann_share/ShareDefinitions.lean": "322f9dfb71b047898ee6f7ef4e0274e61cceac407d990d5caf2cf05eca6ec228",
+    "scripts/riemann_share/check_lean.py": "002c2a1bbc9676193c52c8b1355a18d3941b4d1a8249ac2bd639a8ce5bafead0",
+    "scripts/riemann_share/driver.py": "bb0303849f425476e4a195b34525beafe49f9720ad1322f4f6ff2cb4ef1369bb",
+    "scripts/riemann_share/launch.json": "dd97d7df017e33e838a97f8b7e115de94d2bfce83f70991e185d72de3591e4b1",
+    "scripts/riemann_share/pilot.py": "7dc9fa8948f4d782115ce632e034142f6f6962679a5ca2786902a53e0047dd67",
+    "scripts/riemann_share/replay.mjs": "1589f61857fccbf4e6306bd671409ba74eec99b9cee9545d69f9fd00db350a71",
+    "scripts/riemann_share/setup.py": "189927d21e6235147fad092db550a3d7db29dd52cf1076eb3315c3c7bad4c022"
+  },
+  "exported_candidates": 0,
+  "new_certified_rh_savings": 0
+}

@@ -1,0 +1,11 @@
+Run https://github.com/bocowgill/cryptids/actions/runs/40141846969
+Producer 8f3bda3344561fcb2d81987f8dfc48eeac1413ef; job 121015053991; attempt 1
+2026-10-24T23:13:52.9126842Z generation exit 0, 0.07842878499999983 seconds
+2026-10-24T23:13:52.9902855Z screening exit 0, 0.07710183399998982 seconds
+2026-10-24T23:13:54.7606991Z independent replay exit 0, 1.7698617960000007 seconds
+2026-10-24T23:15:33.0428561Z setup exit 0, 98.28006656299999 seconds
+2026-10-24T23:19:11.1461152Z kernel exit 1, 218.102306542 seconds, stop null
+2026-10-24T23:19:11.2673635Z Process completed with exit code 1.
+2026-10-24T23:19:12.9921812Z Artifact successfully finalized, ID 12579470236, 13930 bytes
+Artifact digest f976adbed2c07f1896cca0564405cf53ef42161a7739f3cde9c0adadc484a49c
+See unpacked/kernel.log for the exact Lean typeclass-synthesis error.
