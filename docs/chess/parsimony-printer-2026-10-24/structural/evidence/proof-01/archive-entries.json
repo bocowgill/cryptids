@@ -1,0 +1,23 @@
+{
+  "failure.txt": {
+    "bytes": 893,
+    "sha256": "4f845e87a4cfd404d1541143bc4ab33633a9f68d82c6919251a11513347dab18",
+    "crc32": 1081257842,
+    "compressed_bytes": 359,
+    "compression": 8
+  },
+  "pilot-summary.json": {
+    "bytes": 737,
+    "sha256": "a408c6c9eefd90cf248e586d0dfa705f88a2eb4024c52536a6c0bc6d322eb8c1",
+    "crc32": 2009888424,
+    "compressed_bytes": 398,
+    "compression": 8
+  },
+  "source-manifest.json": {
+    "bytes": 466181,
+    "sha256": "ae660036d5987a277aed02810029458f16aab29942564910263f4c41b2e5b151",
+    "crc32": 596956466,
+    "compressed_bytes": 126934,
+    "compression": 8
+  }
+}

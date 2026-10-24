@@ -92,6 +92,27 @@ def scale_source(count, values):
     return '\n'.join(lines)
 
 
+def prepare_data():
+    raw = (ROOT / (EVIDENCE + 'full-candidate-rows.bin')).read_bytes()
+    assert hashlib.sha256(raw).hexdigest() == \
+        'b9cf384e5470f3c9f5c501bd8c13555f15d4ea134469f5d159cd1bdb363cbf45'
+    values, actual = [], []
+    for i in range(13360):
+        zero = RECORD.unpack_from(raw, (2 * (6 + i)) * RECORD.size)
+        one = RECORD.unpack_from(raw, (2 * (6 + i) + 1) * RECORD.size)
+        assert zero == (1 if i + 1 < 13360 else 0, 1, 6 + i + 1)
+        assert one[0:2] == (0, 1)
+        value = 6 + 13360 - 1 - one[2]
+        assert 0 <= value < 8192
+        values.append(value)
+        actual.extend([zero, one])
+    for count in [512, 8192, 13360]:
+        path = WORK / ('ParsimonyScale' + str(count) + '.lean')
+        path.write_text(scale_source(count, values))
+        source_check(path)
+    return actual
+
+
 def main():
     WORK.mkdir(parents=True, exist_ok=True)
     signal.alarm(900)
@@ -114,8 +135,13 @@ def main():
         source_sha256={path: runner.sha(ROOT / path) for path in paths},
         frozen_source_sha256=pins))
     runner.save('runner-capacity.json', dict(meminfo=Path('/proc/meminfo').read_text(),
-        cgroup_memory_max=Path('/sys/fs/cgroup/memory.max').read_text()))
+        process_cgroups=Path('/proc/self/cgroup').read_text(),
+        memory_files={path: Path(path).read_text() for path in
+            ['/sys/fs/cgroup/memory.max', '/sys/fs/cgroup/memory/memory.limit_in_bytes']
+            if Path(path).is_file()},
+        absent_cgroup_file_is_not_a_proof_failure=True))
     source_check(SOURCE)
+    actual = prepare_data()
     runner.checkpoint()
     runner.run('mathlib-cache', ['lake', 'exe', 'cache', 'get',
         'Mathlib.Computability.TuringMachine.PostTuringMachine', 'Mathlib.Data.Nat.Prime.Basic',
@@ -131,23 +157,8 @@ def main():
     audit.write_text('import ' + TARGET + '\n' + '\n'.join(
         '#print axioms ConjectureMachines.Compilation.Parsimony.Data.' + root for root in roots))
     foundations(lean('foundations', audit))
-    raw = (ROOT / (EVIDENCE + 'full-candidate-rows.bin')).read_bytes()
-    assert hashlib.sha256(raw).hexdigest() == \
-        'b9cf384e5470f3c9f5c501bd8c13555f15d4ea134469f5d159cd1bdb363cbf45'
-    values, actual = [], []
-    for i in range(13360):
-        zero = RECORD.unpack_from(raw, (2 * (6 + i)) * RECORD.size)
-        one = RECORD.unpack_from(raw, (2 * (6 + i) + 1) * RECORD.size)
-        assert zero == (1 if i + 1 < 13360 else 0, 1, 6 + i + 1)
-        assert one[0:2] == (0, 1)
-        value = 6 + 13360 - 1 - one[2]
-        assert 0 <= value < 8192
-        values.append(value)
-        actual.extend([zero, one])
     for count in [512, 8192, 13360]:
         path = WORK / ('ParsimonyScale' + str(count) + '.lean')
-        path.write_text(scale_source(count, values))
-        source_check(path)
         output = lean('scale-' + str(count), path, extra=['--run'])
         foundations(output)
         assert 'PARSIMONY_SCALE_EXPORTED' in output

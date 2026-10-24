@@ -3,7 +3,7 @@
   "source": "4919c0ccd88befa5d5fb96027125138a0ae1e9ae",
   "artifact": "chess-parsimony-proof-4919c0ccd88befa5d5fb96027125138a0ae1e9ae",
   "iteration": 1,
-  "status": "running",
+  "status": "failed_retained",
   "launch": "single workflow-file registration push; no manual duplicate",
   "driver_seconds": 900,
   "lean_heap_mib": 5120,
@@ -12,5 +12,7 @@
   "accepted_machine_states": 769344,
   "candidate_states": 609247,
   "certified_saving": 0,
-  "next": "Retain exact remote diagnostics and source before any diagnosed correction; at most four source-bound iterations."
+  "next": "Run the corrected portable metadata probe, with remote emitted-source formatting preflight before expensive proof stages.",
+  "retained_evidence": "evidence/proof-01",
+  "diagnosis": "Optional cgroup-v2 metadata path missing; no Lean/cache command started. Fix probes v1/v2 paths conditionally and leaves all resource caps unchanged."
 }

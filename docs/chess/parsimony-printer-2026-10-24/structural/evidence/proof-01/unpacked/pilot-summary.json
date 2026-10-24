@@ -1,0 +1,26 @@
+{
+  "accepted_machine_states": 769344,
+  "candidate_states": 609247,
+  "certified_saving": 0,
+  "commands": [],
+  "complete_printer_certified": false,
+  "driver_peak_rss_kib": 22588,
+  "elapsed_seconds": 5.489670845999996,
+  "experimental_saving": 160097,
+  "failure": "[Errno 2] No such file or directory: '/sys/fs/cgroup/memory.max'",
+  "failure_type": "FileNotFoundError",
+  "gates": {},
+  "limits": {
+    "driver_rss_bytes": 536870912,
+    "group_plus_driver_rss_bytes": 6442450944,
+    "lean_heap_mib": 5120,
+    "lean_seconds": 240,
+    "lean_threads": 1,
+    "scaling_seconds": 120,
+    "total_seconds": 900
+  },
+  "new_accepted_machine": false,
+  "scaling": [],
+  "schema": "parsimony-structural-data-v1",
+  "status": "failed"
+}
