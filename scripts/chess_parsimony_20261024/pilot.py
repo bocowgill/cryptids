@@ -14,6 +14,7 @@ import resource
 import signal
 import struct
 import subprocess
+import sys
 import time
 import traceback
 
@@ -84,7 +85,7 @@ def group_rss(pid):
     return total
 
 
-def run(name, argv, seconds):
+def run(name, argv, seconds, expected_exit=0):
     global ACTIVE_CHILD
     remaining = LIMIT - (time.monotonic() - BEGIN) - 5
     budget = min(seconds, remaining)
@@ -112,11 +113,12 @@ def run(name, argv, seconds):
         code = proc.wait()
         ACTIVE_CHILD = None
     receipt = dict(name=name, argv=argv, cwd=str(ROOT), exit=code, resource_stop=cause,
+        expected_exit=expected_exit,
         elapsed_seconds=time.monotonic() - start, effective_budget_seconds=budget,
         peak_group_plus_driver_rss_bytes=peak, log=log.name, log_sha256=sha(log))
     SUMMARY['commands'].append(receipt)
     checkpoint()
-    assert code == 0 and cause is None, name + ' failed; retained log: ' + str(log)
+    assert code == expected_exit and cause is None, name + ' failed; retained log: ' + str(log)
     return log.read_text()
 
 
@@ -129,9 +131,12 @@ def emit(name, obj):
     return WORK / (name + '.bin')
 
 
-def reference(rows, out, error, cap):
+def reference(rows, out, error, cap, trace=None, watch=None):
     ones, head, state = set(), 0, 0
     for step in range(cap + 1):
+        if trace is not None and state in watch and len(trace) < 256:
+            trace.append(dict(step=step, state=state, head=head, read=int(head in ones),
+                              ones=sorted(ones)))
         if state in (out, error):
             return dict(status='boundary' if state == out else 'error', steps=step,
                         state=state, head=head, ones=sorted(ones))
@@ -167,12 +172,49 @@ def exact_boundary(result, obj, bits, positions_key='ones'):
             [obj['packet_start'] + i for i, bit in enumerate(bits) if bit == '1'])
 
 
+def diagnose_boundary():
+    """Observe the existing failed contract before editing any printer control."""
+    bits = '01011010'
+    obj = printer.guarded(bits, 2)
+    n = obj['raw_parsimony_printer_states']
+    trace = []
+    result = reference(obj['rows'], obj['out'], obj['error'], 2000000, trace,
+                       {3, 4, 5, n, n + 1, n + 2, n + 3, obj['out'] - 3,
+                        obj['out'] - 2, obj['out']})
+    for event in trace:
+        event['name'] = obj['names'][event['state']]
+    receipt = dict(bits=bits, declared_packet_start=obj['packet_start'], result=result,
+                   trace=trace, old_contract_passed=exact_boundary(result, obj, bits))
+    save('boundary-diagnosis.json', receipt)
+    native = simulate('boundary-diagnostic-native', obj, 2000000, 15)
+    receipt['native_result'] = native
+    alternative = dict(obj, packet_start=obj['marker_bits'] + 1)
+    receipt['cell_zero_contract_passed'] = exact_boundary(result, alternative, bits)
+    receipt['native_cell_zero_contract_passed'] = exact_boundary(
+        native, alternative, bits, 'ones_positions')
+    receipt['candidate_packet_start'] = alternative['packet_start']
+    receipt['measured_offset_from_declared'] = result['head'] - obj['packet_start']
+    save('boundary-diagnosis.json', receipt)
+    assert all(native[k] == result[k] for k in ['status', 'steps', 'state', 'head'])
+    assert native['ones_positions'] == result['ones']
+    assert not receipt['old_contract_passed'], 'Original failure not reproduced'
+    assert receipt['cell_zero_contract_passed'] and receipt['native_cell_zero_contract_passed']
+    assert receipt['measured_offset_from_declared'] == -1
+    SUMMARY.update(status='bounded_diagnosis_passed', boundary_diagnosis=receipt,
+        next='Correct the observed absolute packet origin, preserving all tape checks; '
+             'run the independent fixtures and complete census before certification.')
+    checkpoint()
+    print('PARSIMONY_BOUNDARY_DIAGNOSED', flush=True)
+
+
 def adapter_controls():
     bits = '01011010'
     obj = printer.guarded(bits, 2)
     positive = reference(obj['rows'], obj['out'], obj['error'], 2000000)
+    records = [dict(name='unmodified_adapter',
+                    exact_boundary=exact_boundary(positive, obj, bits), result=positive)]
+    save('adapter-controls.json', records)
     assert exact_boundary(positive, obj, bits), 'Adapter positive control failed'
-    records = [dict(name='unmodified_adapter', exact_boundary=True, result=positive)]
     # Actual emitted transition mutations: a dirty separator, wrong entry head,
     # and an unerased tail sentinel must each fail the same exact-boundary oracle.
     clear_run = obj['out'] - 2
@@ -296,7 +338,7 @@ def provenance():
     save('source-manifest.json', dict(commit=os.environ['GITHUB_SHA'],
         workflow_commit=os.environ['GITHUB_SHA'], run_id=os.environ['GITHUB_RUN_ID'],
         cwd=str(ROOT), shell=os.environ.get('SHELL'), path=os.environ.get('PATH'),
-        command='python3 scripts/chess_parsimony_20261024/pilot.py',
+        command='python3 scripts/chess_parsimony_20261024/pilot.py ' + ' '.join(sys.argv[1:]),
         source_sha256={name: sha(ROOT / name) for name in paths},
         frozen_source_sha256=pins, packet_sha256=PACKET_SHA, packet_path=PACKET,
         parsimony_commit=SUMMARY['parsimony_commit']))
@@ -312,12 +354,21 @@ def provenance():
 
 
 def main():
+    global LIMIT
     parser = argparse.ArgumentParser()
-    parser.add_argument('--phase', choices=['probe', 'pilot'], default='pilot')
+    parser.add_argument('--phase', choices=['probe', 'diagnose', 'pilot'], default='diagnose')
     args = parser.parse_args()
+    LIMIT = 60 if args.phase == 'diagnose' else 600
+    SUMMARY['limits']['total_seconds'] = LIMIT
+    signal.alarm(LIMIT)
     WORK.mkdir(parents=True, exist_ok=True)
     SUMMARY['phase'] = args.phase
     bits = provenance()
+    if args.phase == 'diagnose':
+        run('compile-simulator', ['g++', '-O3', '-std=c++17', '-Wall', '-Wextra', '-Werror',
+            'scripts/chess_parsimony_20261024/simulate.cpp', '-o', str(WORK / 'simulate')], 45)
+        diagnose_boundary()
+        return
     if args.phase == 'pilot':
         # Retain the raw zero-only failure as a bounded regression control.
         raw_zero = printer.build('00000000', 2)
@@ -407,6 +458,7 @@ def stop(signum, _frame):
 if __name__ == '__main__':
     signal.signal(signal.SIGTERM, stop)
     signal.signal(signal.SIGINT, stop)
+    signal.signal(signal.SIGALRM, stop)
     try:
         main()
     except BaseException as error:

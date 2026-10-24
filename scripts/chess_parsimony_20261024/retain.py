@@ -14,7 +14,8 @@ def main():
     parser.add_argument('--source', required=True)
     parser.add_argument('--name', required=True)
     args = parser.parse_args()
-    assert args.name in ('probe-01', 'pilot-02')
+    assert args.name in ('probe-01', 'pilot-02', 'diagnosis-03', 'validation-04',
+                         'correction-05')
     path = ROOT / 'scripts/chess_goal_20261022/retain.py'
     spec = importlib.util.spec_from_file_location('pinned_transport', path)
     api = importlib.util.module_from_spec(spec)

@@ -1,9 +1,12 @@
 name: Bounded chess Parsimony printer pilot
 on:
-  push:
-    branches: ['codex/chess-openevolve-pilot']
-    paths: ['.github/workflows/chess_parsimony_printer_20261024.yml']
   workflow_dispatch:
+    inputs:
+      phase:
+        description: Bounded diagnosis or corrected validation
+        type: choice
+        options: [diagnose, pilot]
+        default: diagnose
 permissions:
   contents: read
 concurrency:
@@ -15,10 +18,13 @@ jobs:
     timeout-minutes: 15
     env:
       CHESS_REMOTE: '1'
+      PARSIMONY_PHASE: ${{ inputs.phase }}
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
       - name: Bounded exact packet printer census and physical framing probe
-        run: timeout --signal=TERM --kill-after=5s 610s python3 scripts/chess_parsimony_20261024/pilot.py
+        run: |
+          timeout --signal=TERM --kill-after=5s 610s \
+            python3 scripts/chess_parsimony_20261024/pilot.py --phase "$PARSIMONY_PHASE"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
