@@ -1,0 +1,53 @@
+[
+  {
+    "name": "cache_92616_167",
+    "first": 92616,
+    "size": 167,
+    "kind": "chunk"
+  },
+  {
+    "name": "cache_92783_168",
+    "first": 92783,
+    "size": 168,
+    "kind": "chunk"
+  },
+  {
+    "name": "cache_92616_335",
+    "first": 92616,
+    "size": 335,
+    "kind": "branch",
+    "half": 167,
+    "left": "cache_92616_167",
+    "right": "cache_92783_168"
+  },
+  {
+    "name": "cache_92951_167",
+    "first": 92951,
+    "size": 167,
+    "kind": "chunk"
+  },
+  {
+    "name": "cache_93118_168",
+    "first": 93118,
+    "size": 168,
+    "kind": "chunk"
+  },
+  {
+    "name": "cache_92951_335",
+    "first": 92951,
+    "size": 335,
+    "kind": "branch",
+    "half": 167,
+    "left": "cache_92951_167",
+    "right": "cache_93118_168"
+  },
+  {
+    "name": "cache_92616_670",
+    "first": 92616,
+    "size": 670,
+    "kind": "branch",
+    "half": 335,
+    "left": "cache_92616_335",
+    "right": "cache_92951_335"
+  }
+]

@@ -441,3 +441,23 @@ and setup/source/assembly costs before full-cost/scaling claim. Same1200s/6GiB
 global/driver512MiB/Lean-M6144, no paid runners. Prior coverage39,240states/
 78,480rows; accepted769,344/target310,029/new savings0; same459,315prospective
 payoff, high proof/moderate effort. Frozen/remote/outreach fixed, goalACTIVE.
+
+
+87retained/reviewed: all11cache batches/UNION audits and controls/kernel
+negative pass. SOURCE16passes117.438+3.050s (same39,240states/78,480rows).
+Setup952.079s leaves SOURCE4only123.458s of nominal210; it stops123.571s
+after655records, no quarter module/audit. Overall1196.138s with4sreserve.
+Not memory and NOT a full210s source4test. Batch fidelity278.337s plus
+data/audits123.870s; first448alias records8.301s, next207records111.194s.
+
+Decision REDESIGN repeated per-operation proof/setup overhead and residual
+return-table observations. Next concrete task in NEXT-STRUCTURAL-CERTIFICATE.md:
+reusable Window/list validator properties + globally correct working-set
+World, then a bounded four-way same-host comparison on actual3cases before
+substantial integration. Preserve every fidelity claim through quantified
+certificates; no dropped obligations, cap increases or unchanged retries.
+This next design is NOT implemented or proved yet. No credible full-cost
+estimate; G4-G6/S8-S9 remain open. Accepted769,344/target310,029/new full
+savings0. Same459,315prospective opportunity; high proof/moderate effort.
+GoalACTIVE; last usage13%, no reset, frozen/remote/no-outreach constraints fixed.
+No live remote jobs remain after87terminal; begin next bounded structural pilot.

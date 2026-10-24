@@ -1,0 +1,117 @@
+{
+  "chunk_count": 4,
+  "chunk_limit_states": 1,
+  "chunks": [
+    {
+      "definition": "Chess.Optimisation.BodyCertificatePilot.smokeMapChunk_000000",
+      "info": {
+        "bytes": 2,
+        "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+      },
+      "path": "Cryptids/Chess/Optimisation/BodyCertificatePilot/smokeMap-chunks/000000-0001.map",
+      "start": 0,
+      "states": 1
+    },
+    {
+      "definition": "Chess.Optimisation.BodyCertificatePilot.smokeMapChunk_000001",
+      "info": {
+        "bytes": 2,
+        "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+      },
+      "path": "Cryptids/Chess/Optimisation/BodyCertificatePilot/smokeMap-chunks/000001-0001.map",
+      "start": 1,
+      "states": 1
+    },
+    {
+      "definition": "Chess.Optimisation.BodyCertificatePilot.smokeMapChunk_000002",
+      "info": {
+        "bytes": 2,
+        "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+      },
+      "path": "Cryptids/Chess/Optimisation/BodyCertificatePilot/smokeMap-chunks/000002-0001.map",
+      "start": 2,
+      "states": 1
+    },
+    {
+      "definition": "Chess.Optimisation.BodyCertificatePilot.smokeMapChunk_000003",
+      "info": {
+        "bytes": 2,
+        "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+      },
+      "path": "Cryptids/Chess/Optimisation/BodyCertificatePilot/smokeMap-chunks/000003-0001.map",
+      "start": 3,
+      "states": 1
+    }
+  ],
+  "concatenated_sha256": "e4749bc7f4f9360cf6a2e56321b815c8de72808a8ee756a48722cc9b287ddc24",
+  "exact_concatenation_checked": true,
+  "node_count": 7,
+  "postorder_nodes": [
+    {
+      "kind": "chunk",
+      "name": "smokeMapChunk_000000",
+      "start": 0,
+      "states": 1
+    },
+    {
+      "kind": "chunk",
+      "name": "smokeMapChunk_000001",
+      "start": 1,
+      "states": 1
+    },
+    {
+      "kind": "branch",
+      "left": "smokeMapChunk_000000",
+      "left_count": 1,
+      "name": "smokeMapNode_000000_000002",
+      "right": "smokeMapChunk_000001",
+      "right_count": 1,
+      "start": 0,
+      "states": 2
+    },
+    {
+      "kind": "chunk",
+      "name": "smokeMapChunk_000002",
+      "start": 2,
+      "states": 1
+    },
+    {
+      "kind": "chunk",
+      "name": "smokeMapChunk_000003",
+      "start": 3,
+      "states": 1
+    },
+    {
+      "kind": "branch",
+      "left": "smokeMapChunk_000002",
+      "left_count": 1,
+      "name": "smokeMapNode_000002_000002",
+      "right": "smokeMapChunk_000003",
+      "right_count": 1,
+      "start": 2,
+      "states": 2
+    },
+    {
+      "kind": "branch",
+      "left": "smokeMapNode_000000_000002",
+      "left_count": 2,
+      "name": "smokeMapNode_000000_000004",
+      "right": "smokeMapNode_000002_000002",
+      "right_count": 2,
+      "start": 0,
+      "states": 4
+    }
+  ],
+  "raw_value_bound": 2,
+  "representation": "literal_nat",
+  "root_definition": "Chess.Optimisation.BodyCertificatePilot.smokeMapNode_000000_000004",
+  "source": {
+    "info": {
+      "bytes": 8,
+      "sha256": "e4749bc7f4f9360cf6a2e56321b815c8de72808a8ee756a48722cc9b287ddc24"
+    },
+    "path": "Cryptids/Chess/Optimisation/BodyCertificatePilot/smoke-map.txt"
+  },
+  "split_rule": "left_count = floor(subtree_state_count / 2)",
+  "states": 4
+}

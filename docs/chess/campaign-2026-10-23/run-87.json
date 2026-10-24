@@ -2,7 +2,7 @@
   "run_id": 40101931288,
   "source": "cb60aa5fdc3bffe09a1d2d48272663b9d407cbae",
   "mode": "local",
-  "status": "remote_queued",
+  "status": "bounded_obstruction_retained_reviewed",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-87",
   "route": "Batched operation-local main views plus shared verified return cache; original substantial SOURCE16/4 requirements",
   "maximum_batch_labels": 128,
@@ -39,5 +39,23 @@
     "interpreter_returns": 40461,
     "total": 769344
   },
-  "prospective_combined_body": 114487
+  "prospective_combined_body": 114487,
+  "driver_seconds": 1196.138407894,
+  "all_batches_checked": true,
+  "batches": 11,
+  "batch_fidelity_seconds": 278.336567329,
+  "batch_data_and_audit_seconds": 123.869768781,
+  "pre_scope_seconds": 952.079046903,
+  "source16_build_seconds": 117.438416297,
+  "source16_audit_seconds": 3.049620804,
+  "source4_nominal_seconds": 210,
+  "source4_allocated_seconds": 123.458267862,
+  "source4_elapsed_seconds": 123.57132389,
+  "source4_peak_bytes": 3866640384,
+  "source4_completed_records": 655,
+  "source4_target_records": 960,
+  "source4_module_audit_passed": false,
+  "obstruction": "Overall1200s budget clamps SOURCE4 to123.458s after setup; stage_wall_budget stop, not memory and not a full210s test",
+  "decision": "Redesign repeated per-operation certificate overhead and remaining global return observations. Universal window-property certificate and complete operation working-set bounded pilot next. No cap increase or unchanged retry.",
+  "last_usage_percent": 13
 }

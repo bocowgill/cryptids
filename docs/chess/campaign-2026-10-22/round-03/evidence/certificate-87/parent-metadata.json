@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40101931288,
+  "commit": "cb60aa5fdc3bffe09a1d2d48272663b9d407cbae",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": true,
+  "actual_rows": 78480,
+  "negative_control": "kernel_rejected",
+  "diagnosis": "All11bounded cache batches/full UNION audits, generic family and controls/kernel negative pass. SOURCE16passes117.438+3.050s,39240states/78480rows. Setup952.079s leaves123.458s of global1200budget for SOURCE4; it stops123.571s after655records, not a full210s trial. No memory stop or quarter audit. Batch fidelity278.337s plus data/audits123.870s. Redesign repeated per-op proof overhead and residual return lookup working set; do not repeat unchanged or raise caps. Full-machine accepted counts unchanged.",
+  "new_accepted_machine": false
+}
