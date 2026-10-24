@@ -967,3 +967,20 @@ all correctness/control/resource gates; actual profile still UNATTEMPTED.
 All20/29/17cores/audits/negativecontrols pass again. No throughput/scaling
 credit or accepted machine saving. Terminal metadata/logs appended; complete
 archives retained. GoalACTIVE; accepted769344/target310029/newfullsavings0.
+
+
+98dispatch race CAUGHT/CANCELED: run40125833075 gotoldbbe5c7fa whilepush
+stillpending. Cancellation requested during cache restore; no proof-stage entry
+observed. Do not credit or rerun this source. Push then completed ea3530e8,
+and forkref explicitly verified BEFORE replacement99dispatch. Keep98terminal
+cancellation metadata separately when available; failure was orchestration,
+not proof/memory/scaling.
+
+99CORRECT profile run40125909771 at VERIFIED
+ea3530e8aa5af1fb394a7f9a8c604ab19049ba3c. Artifact
+chess-body-certificate-ea3530e8aa5af1fb394a7f9a8c604ab19049ba3c ->certificate99.
+Ordered rewrite repair only, same8/15/42roots,60timingevents,60/60/120/45s
+stages,global1200s/6GiB/Lean-M6144/driver512MiB. Allsource/corruption/audit
+obligations unchanged. Watch99exactly; no observation-timeout restart.
+GoalACTIVE; accepted769344/target310029/newfullsavings0,strongest39240states/
+78480rows. Actual3case screening and substantial/fullsource/machine gatesOPEN.

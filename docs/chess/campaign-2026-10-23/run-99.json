@@ -1,0 +1,31 @@
+{
+  "run_id": 40125909771,
+  "source": "ea3530e8aa5af1fb394a7f9a8c604ab19049ba3c",
+  "mode": "profile",
+  "status": "dispatched_verified_producer",
+  "route": "Concrete numeric tree checker using actual mapQ without observation-cache materialization",
+  "artifact": "chess-body-certificate-ea3530e8aa5af1fb394a7f9a8c604ab19049ba3c",
+  "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-99",
+  "overall_seconds": 1200,
+  "memory_gib": 6,
+  "driver_mib": 512,
+  "lean_memory_mib": 6144,
+  "concrete_adapter_roots": 8,
+  "actual_data_roots": 15,
+  "actual_profile_roots": 42,
+  "labels": [
+    355,
+    445,
+    356
+  ],
+  "expected_timing_events": 60,
+  "new_accepted_machine": false,
+  "accepted_states": 769344,
+  "target_states": 310029,
+  "accepted_full_machine_savings": 0,
+  "prior_complete_source_states": 39240,
+  "prior_complete_source_rows": 78480,
+  "last_usage_percent": 15,
+  "next_gate": "One specific proof-conversion correction, then same concrete three-case cost/corruption pilot. Substantial option remains unwired. No scalability credit.",
+  "specific_correction": "rewrite typedStep_eq at word first; then simplify row/layout wrappers. Identical statements, hypotheses and caps."
+}

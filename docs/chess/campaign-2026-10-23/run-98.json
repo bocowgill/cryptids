@@ -1,0 +1,8 @@
+{
+  "run_id": 40125833075,
+  "source": "bbe5c7fa08a648d4ff7e9fd13ccca4eeb0dd35c0",
+  "status": "cancel_requested_during_cache_setup",
+  "diagnosis": "Dispatch raced pending push; producer verification caught old source. Canceled immediately before proof-stage entry observed. No mathematical credit.",
+  "accepted_full_machine_savings": 0,
+  "next": "Observe cancellation terminal metadata; correct run99 uses verified ea3530e8."
+}
