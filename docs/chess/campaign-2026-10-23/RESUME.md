@@ -1058,3 +1058,10 @@ Full source/global controls/linkage/regressions/distinct review remain open.
 If compact recipes still do not complete substantial coverage, investigate
 amortized numeric lookup certificates or composable bounded proof batches;
 do not repeat finite-loop or literalization variants.
+
+Compact-recipe dispatch: run40080114913 at
+cc92643ee6ae83389398c7a6543c6adf37ec03ee, mode local; retain certificate-75.
+NEXT: inspect SourceRecipes proof/audit, real source-write/count controls and
+fresh RecipeNegative kernel rejection, then complete LocalScope16/4 modules
+and audits. No credit from source markers or helper-only success. Do not
+restart a live job. Frozen references and accepted sources remain unchanged.

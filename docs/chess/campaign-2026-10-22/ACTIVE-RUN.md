@@ -36,7 +36,9 @@ Pilot 74 is retained/reviewed. Generic structural theorem passes 5.783+3.550 s,
 Scope16 still stops at 180.109 s after329 records (peak4,430,049,280bytes).
 No larger module/audit, no quarter. Reject traversal alone as scaling solution.
 
-Next pilot75 uses compact Boolean source recipes: exact frozen raw-source
+Current pilot75: run40080114913 at
+cc92643ee6ae83389398c7a6543c6adf37ec03ee (mode local; retain certificate-75).
+It uses compact Boolean source recipes: exact frozen raw-source
 equality + counts + all main and paid-return equations. Generic fromRaw must
 produce the SAME SourceCertificate. New operations use one checked record
 instead of ten separate concrete proof declarations and literal lowering.
