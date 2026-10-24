@@ -1,0 +1,12 @@
+{
+  "scope": "Read-only GitHub primary API metadata; no fetch/merge/source change or outreach",
+  "checked_at_utc": "2026-10-24T12:21:33Z",
+  "upstream_main": "6c28d8524fa008c6fb5aadb759df74a55ce96423",
+  "new_merged_code_since_prior_review": false,
+  "cryptid7_comments": 6,
+  "cryptid7_updated_at": "2026-10-20T22:56:39Z",
+  "cryptid7_last_comment": "https://github.com/google-deepmind/cryptids/pull/7#issuecomment-6303636582",
+  "comment_pagination_complete": true,
+  "new_reducer_reply": false,
+  "decision": "Continue exact live cache/source scaling pilot; existing upstream review remains applicable; no new shared optimizer to adopt"
+}
