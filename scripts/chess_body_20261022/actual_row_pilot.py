@@ -216,9 +216,8 @@ def generate_rows(driver, selected, snapshot, expected_sha, header, audit_and_en
                      module + '.Diagnostics']),
              f'namespace {scope}\n',
              'attribute [local irreducible] FieldPacked.getter FieldPacked.layout\n'
-             'attribute [local irreducible] FieldAware.syntaxRows FieldSelectiveLayout.code\n'
-             '-- Rewriting must see the same closed numeric state type on both sides.\n'
-             'attribute [local reducible] CompactPost.stateCount\n', body]
+             'attribute [local irreducible] FieldAware.syntaxRows FieldSelectiveLayout.code\n',
+             body]
     offsets, entries = data['prefix_offsets'], data['entries']
 
     def add(name, source):

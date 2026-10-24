@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40045525079,
+  "commit": "3e7613e11b70f7c132d9450e208f6c5ce1dc1f33",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": false,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "SymbolicTransitions rejected only by local reducible CompactPost.stateCount indexing validation;4.865s,3081744384bytes,no resource stop. The theorem has no separate reported error but no module/audit credit. Remove attribute from both mutable producers; preserve normal validation, statements and caps. Earlier35/36 command diagnostics did not capture top-level attribute errors; their memory stop and no-credit status remain.",
+  "new_accepted_machine": false
+}

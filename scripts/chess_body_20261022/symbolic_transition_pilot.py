@@ -9,7 +9,6 @@ if os.environ.get('CHESS_REMOTE') != '1' or os.environ.get('GITHUB_ACTIONS') != 
 SOURCE = r'''open ConjectureMachines.Optimisation
 open Chess.Optimisation FieldCompiler
 set_option backward.isDefEq.respectTransparency false
-attribute [local reducible] CompactPost.stateCount
 
 theorem symbolic_main_write
     (pc : Fin 106668) (value : Fin 5) (q : Fin 4042) (p : Syntax 4042)

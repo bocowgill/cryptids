@@ -1,0 +1,24 @@
+ℹ [3909/3944] Replayed Cryptids.Chess.Compilation.SourceCertificate
+info: Cryptids/Chess/Compilation/SourceCertificate.lean:226:0: Source certificate: 7076 checked lemmas, 7037 cache hits
+info: Cryptids/Chess/Compilation/SourceCertificate.lean:230:0: Literal row certificate: 5952 checked rows in 186 chunks
+ℹ [3920/3944] Replayed Cryptids.Chess.Compilation.Input
+info: Cryptids/Chess/Compilation/Input.lean:128:0: Checked 186 literal row chunks: 141042 stack symbols
+ℹ [3939/3944] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.RowTools
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/RowTools.lean:44:0: Structural body row helpers checked
+ℹ [3940/3944] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.OperationWeights
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/OperationWeights.lean:59:0: Universal frozen operation weight summaries checked
+ℹ [3941/3944] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.WeightTables
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/WeightTables.lean:5162:0: Complete source weights and shared prefix correspondence checked
+ℹ [3942/3944] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.RowWitnesses
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/RowWitnesses.lean:136:0: Actual local syntax and far-end address witnesses checked
+ℹ [3943/3944] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.ActualTools
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/ActualTools.lean:79:0: Structural main and return row transport helpers checked
+✖ [3944/3944] Building Cryptids.Chess.Optimisation.BodyCertificatePilot.SymbolicTransitions (2.1s)
+trace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean -M6144 /home/runner/work/cryptids/cryptids/Cryptids/Chess/Optimisation/BodyCertificatePilot/SymbolicTransitions.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Chess/Optimisation/BodyCertificatePilot/SymbolicTransitions.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Chess/Optimisation/BodyCertificatePilot/SymbolicTransitions.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Chess/Optimisation/BodyCertificatePilot/SymbolicTransitions.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Chess/Optimisation/BodyCertificatePilot/SymbolicTransitions.setup.json --json
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/SymbolicTransitions.lean:13:17: failed to set `[local reducible]` for `CompactPost.stateCount`, recall that `[reducible]` affects the term indexing data structures used by `simp` and type class resolution
+
+Note: Use `set_option allowUnsafeReducibility true` to override reducibility status validation
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/SymbolicTransitions.lean:43:0: Symbolic actual main-write interface checked
+Some required targets logged failures:
+- Cryptids.Chess.Optimisation.BodyCertificatePilot.SymbolicTransitions
+error: build failed

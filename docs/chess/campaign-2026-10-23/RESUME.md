@@ -349,3 +349,16 @@ Full remote run40045525079 at3e7613e dispatched after exact fork-head check.
 Retain certificate-37. Source/complete packet36 pushed normally to fork. See
 SYMBOLIC-WRITE-PILOT.md forS1/S2/S3gates. Last usage query6% consumed; no reset.
 All original sample/all-state claims, negative control and resource caps remain.
+
+
+Run40045525079 at3e7613e retained and byte-reviewed certificate-37.
+SymbolicTransitions exits4.865s at3081744384bytes, no resource stop. Only
+reported error: local reducible CompactPost.stateCount rejected by indexing
+validation. No separate theorem error, but no module/audit credit. Remove this
+attribute from BOTH mutable producers, preserving normal validation, exact
+statements and all caps. Do not use allowUnsafeReducibility override. This
+also exposes an uncaptured top-level attribute error introduced in35: previous
+command logs captured wrapped theorem errors, not attributes. Their measured
+memory stops and no-module/audit-credit status remain valid; they were not
+established source-error-free. Next same symbolic helper/entry/64pilot tests
+normal reducibility, with ordinary full-private audits. No new machine.
