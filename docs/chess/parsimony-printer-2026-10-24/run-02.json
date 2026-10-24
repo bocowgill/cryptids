@@ -3,7 +3,7 @@
   "source": "7c8ff325d3e9f4900c895e56e15f460b1dfdf984",
   "artifact": "chess-parsimony-printer-7c8ff325d3e9f4900c895e56e15f460b1dfdf984",
   "phase": "corrected_complete_pilot",
-  "status": "dispatched",
+  "status": "failed_retained",
   "launch": "one manual dispatch after fork-ref verification; no duplicate",
   "diagnosed_correction": "CORRECTION-02.md",
   "wall_seconds": 600,
@@ -16,5 +16,13 @@
   "new_accepted_machine": false,
   "certification_started": false,
   "older_quotient_goal": "paused",
-  "next": "Retain this exact terminal artifact and logs, assess all paid full-machine states and proof obligations, then stop. No third run or certification."
+  "next": "Pilot stopped at the predeclared two-run limit; see RESULTS.md. Boundary diagnosis needs a new bounded authorization. No certification or automatic resumption.",
+  "conclusion": "failure",
+  "retained_evidence": "evidence/pilot-02",
+  "failure": "Adapter positive control failed before saving its exact result",
+  "replacement_allocated_states": 13545,
+  "conditional_full_state_sum": 609247,
+  "conditional_saving": 160097,
+  "full_machine_census_completed": false,
+  "accepted_saving": 0
 }

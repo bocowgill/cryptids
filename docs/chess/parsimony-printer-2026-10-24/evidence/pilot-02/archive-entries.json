@@ -1,0 +1,72 @@
+{
+  "compile-simulator.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "crc32": 0,
+    "compressed_bytes": 2,
+    "compression": 8
+  },
+  "exact-packet-raw-printer.bin": {
+    "bytes": 162552,
+    "sha256": "f30c84c817b34d9336fa5f6335a5a3aabe1cf50c43678c73267597f98b6a94b8",
+    "crc32": 2841113741,
+    "compressed_bytes": 57537,
+    "compression": 8
+  },
+  "corruption-controls.json": {
+    "bytes": 142,
+    "sha256": "bda0fb3b1912f81be7950ebddd7119e18ee68ba88089dc818005bfa96ade0555",
+    "crc32": 934902589,
+    "compressed_bytes": 80,
+    "compression": 8
+  },
+  "exact-packet-raw-printer.json": {
+    "bytes": 352148,
+    "sha256": "6c1e4b4ad3221a0258799e720dca18f4f4e78b9dd991acc00c414b7eb3e91da2",
+    "crc32": 3443177672,
+    "compressed_bytes": 48677,
+    "compression": 8
+  },
+  "failure.txt": {
+    "bytes": 685,
+    "sha256": "bbe81189ad23ba7ba30babdf126f1c45fca6b5f4a4c574540d113313f748e8eb",
+    "crc32": 2133110541,
+    "compressed_bytes": 268,
+    "compression": 8
+  },
+  "original-zero-framing-obstruction.json": {
+    "bytes": 90,
+    "sha256": "11c46979e8c5a5ff6522060cc86227900a65aaaec33c6f1110f5e546ab7ac25f",
+    "crc32": 1608323241,
+    "compressed_bytes": 70,
+    "compression": 8
+  },
+  "pilot-summary.json": {
+    "bytes": 2274,
+    "sha256": "ae2fb6b9276c64f8ca7289f3852254965e586b082c428a9a60a78cdd4d54e311",
+    "crc32": 2758116311,
+    "compressed_bytes": 1012,
+    "compression": 8
+  },
+  "runner-capacity.json": {
+    "bytes": 1793,
+    "sha256": "016ad426767df9927b8c871449aa71c9fe9de80d36bca3c44c4661a199003d05",
+    "crc32": 810412658,
+    "compressed_bytes": 657,
+    "compression": 8
+  },
+  "simulate": {
+    "bytes": 28080,
+    "sha256": "ea9699e4a5f0b4f0f0b806af7aba507f35c3163d74a379f9a949e14174bfd41c",
+    "crc32": 2689333538,
+    "compressed_bytes": 8475,
+    "compression": 8
+  },
+  "source-manifest.json": {
+    "bytes": 465894,
+    "sha256": "2652445555750b27132edebfcbc58bd2e82228bdd4354973f97c64e436ecfffa",
+    "crc32": 4132763061,
+    "compressed_bytes": 126881,
+    "compression": 8
+  }
+}

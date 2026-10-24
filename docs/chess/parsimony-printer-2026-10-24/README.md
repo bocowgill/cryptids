@@ -1,5 +1,10 @@
 # Bounded Parsimony packet-printer pilot
 
+The two-run pilot has stopped after its corrected adapter failed its first
+exact-boundary control. Read [RESULTS.md](RESULTS.md) for the complete allocation,
+conditional 609,247-state design, failure evidence and next diagnostic. There is
+no new certified reduction; the accepted machine remains 769,344 states.
+
 User authorization: October 24, 2026, a bounded printer pilot on the exact existing
 chess packet, fully paid state accounting and net-savings assessment before
 certification. The older body-quotient goal remains paused. No Lean proof work,
@@ -28,11 +33,11 @@ explicit paid nonhalting trap; tests must never enter it. The bridge is initiall
 a counted diagnostic boundary, not a claimed certified connection.
 
 See [GATES.md](GATES.md) for the predeclared contract and maximum two-run budget.
-The first run checks native and independent Python physical executions on all
+The planned checks compare native and independent Python physical executions on all
 8-bit words plus wider fixtures, reconstructs the exact entire chess packet
 from emitted transition targets, counts every raw control, and probes the full
 printer under a fixed step/time bound. The physical tape/head receipts determine
-the exact cleanup and connection work that must be built and counted next.
+the exact cleanup and connection work. Neither run completed the fixture suite.
 An incomplete full-printer probe is reported honestly, not as successful startup.
 
 Only the new workflow-file path triggers the first run on push. Subsequent

@@ -1,0 +1,76 @@
+{
+  "accepted_machine_states": 769344,
+  "commands": [
+    {
+      "argv": [
+        "g++",
+        "-O3",
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "scripts/chess_parsimony_20261024/simulate.cpp",
+        "-o",
+        "/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-printer-20261024/simulate"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "effective_budget_seconds": 60,
+      "elapsed_seconds": 3.6755065070000015,
+      "exit": 0,
+      "log": "compile-simulator.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "name": "compile-simulator",
+      "peak_group_plus_driver_rss_bytes": 127954944,
+      "resource_stop": null
+    }
+  ],
+  "driver_peak_rss_kib": 39000,
+  "elapsed_seconds": 5.908598913000006,
+  "failure": "Adapter positive control failed",
+  "failure_type": "AssertionError",
+  "frozen_source_changed": false,
+  "gates": {
+    "G1": true
+  },
+  "lean_certificate": false,
+  "limits": {
+    "driver_rss_bytes": 536870912,
+    "full_printer_probe_seconds": 120,
+    "full_printer_probe_steps": 500000000,
+    "group_plus_driver_rss_bytes": 6442450944,
+    "native_compile_seconds": 60,
+    "total_seconds": 600
+  },
+  "new_accepted_machine": false,
+  "new_certified_saving": 0,
+  "old_writer_states": 173642,
+  "parsimony_commit": "7c199dbe0c82f0b9cc1adfbdc2b48fee3fef53aa",
+  "phase": "pilot",
+  "raw_printer_census": {
+    "allocated_probe_states": 13546,
+    "categories": {
+      "data": 13361,
+      "error_trap": 1,
+      "extractor": 140,
+      "marker_erasure_and_decoder_connection": 2,
+      "nondestructive_marker_scan": 32,
+      "preamble_and_epilogue": 6,
+      "retained_decoder_boundary": 1,
+      "tail_cleanup": 3
+    },
+    "completed_packet_adapter": true,
+    "pad_bits": 3,
+    "raw_parsimony_printer_states": 13507,
+    "width": 13,
+    "words": 13360
+  },
+  "raw_transition_packet_identity": {
+    "all_packet_bits_reconstructed": true,
+    "full_physical_startup_checked": false,
+    "packet_sha256": "ab1f8764749765bfb0d44b22a999d7907345d2648bf478092a276cf8df71c2d8",
+    "zero_padding_bits": 3
+  },
+  "retained_suffix_states": 595702,
+  "schema": "chess-parsimony-printer-pilot-v1",
+  "status": "failed"
+}

@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/runner/work/cryptids/cryptids/scripts/chess_parsimony_20261024/pilot.py", line 411, in <module>
+    main()
+  File "/home/runner/work/cryptids/cryptids/scripts/chess_parsimony_20261024/pilot.py", line 369, in main
+    SUMMARY['adapter_corruption_controls'] = adapter_controls()
+                                             ^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/cryptids/cryptids/scripts/chess_parsimony_20261024/pilot.py", line 174, in adapter_controls
+    assert exact_boundary(positive, obj, bits), 'Adapter positive control failed'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Adapter positive control failed
