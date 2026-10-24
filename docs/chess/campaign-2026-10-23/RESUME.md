@@ -526,3 +526,29 @@ still rechecks first, then complete-source theorem/audit. Source manifest binds
 the new producer. Verifier requires complete_opcode_snapshot_checked=true and
 4042checked operations only after audited success; graph/fullquotient/newmachine
 flags remainfalse. Remote generated-source width check applies before build.
+
+USER STEERING: resolve scalability next; explicitly authorizes a paired6/10GiB
+memory experiment on the existing FREE GitHub-hosted runner, max12onlywithheadroom,
+no purchases, same proof/time obligations. Initial comparison EXACTLY TWO pilots;
+then continue only with substantial increasing coverage and credible fullcost,
+otherwise redesign/abandon inefficient route. This overrides the earlier
+self-imposed6GiB prohibition only for this experiment. Goal remainsACTIVE.
+
+Certificate-48 retained/reviewed including matching previewZIP. All127sourcechunk
+markers occur, but CompleteSource hits60.067s/3548045312bytes before fullmodule/
+audit. No complete-source credit. This and43Rows512 are TIME failures, not memory.
+No unchanged source trial or timeout increase is authorized by the memory test.
+
+MEMORY-COMPARISON-PLAN.md fixes the paired experiment. Replay byte-identical
+historical certificate19 actual-row sources, whose6GiB failure is measured
+38.335s. Recheck3116pins, fresh map/Qdata, union32root audit, template smoke and
+all128actual rows/full-private audit. Larger512/4096tiers conditional, retaining
+original180/210s;64tier120s. No theorem, dataset or strict linter changes.
+New memory_replay.py/memory_capacity.py remain remote-only. Fixed standardpublic
+ubuntu-24.04 matrix[6,10], maxparallel1, failfastfalse, contentsread only. Capacity
+reads actual host/cgroup/rlimits with2GiB reserve before allowing budget. Lean
+-M6144/-M10240 coordinated with6/10GiB group+driverRSS,512MiBdriver unchanged.
+New workflow's OWN-FILE PUSH triggers the two jobs. DO NOT dispatch a duplicate.
+No12GiB run, paid resources, outreach or local heavy computation. Retain each
+matrix artifact separately (same runID, names suffix6gib/10gib) as49/50. Both
+source and proof/resource outcomes must be recovered before a route decision.

@@ -1,0 +1,66 @@
+name: Chess certification memory comparison
+on:
+  push:
+    branches: ['codex/chess-openevolve-pilot']
+    paths: ['.github/workflows/chess_memory_comparison_20261024.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: chess-memory-comparison-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  compare:
+    if: github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        memory_gib: [6, 10]
+    env:
+      ELAN_NO_UPDATE_CHECK: '1'
+      LEAN_NUM_THREADS: '1'
+      CHESS_REMOTE: '1'
+      CHESS_PUBLIC_REPOSITORY: '${{ !github.event.repository.private }}'
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+      - name: Check actual free-runner and container capacity
+        run: >-
+          python3 scripts/chess_body_20261022/memory_replay.py
+          --memory-gib ${{ matrix.memory_gib }} --capacity-only
+      - uses: leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6
+        with:
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'false'
+          use-github-cache: 'false'
+      - uses: actions/cache/restore@caa296126883cff596d87d8935842f9db880ef25
+        with:
+          path: |
+            .lake/packages
+            .lake/build
+          key: chess-memory-comparison-${{ matrix.memory_gib }}-${{ github.sha }}
+          restore-keys: |
+            chess-body-certificate-20261022-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-
+      - name: Fetch pinned Mathlib cache
+        run: timeout --signal=TERM --kill-after=10s 900s lake exe cache get Mathlib
+      - name: Prepare unchanged frozen dependency baseline at original Lean limit
+        run: >-
+          timeout --signal=TERM --kill-after=10s 900s
+          lake --wfail -f lakefile.chess-body-certificate-20261022.toml build
+          Cryptids.Chess.Optimisation.FieldSelective
+      - name: Replay exact memory-failing proof with coordinated limits
+        run: >-
+          python3 scripts/chess_body_20261022/memory_replay.py
+          --memory-gib ${{ matrix.memory_gib }}
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: chess-memory-${{ github.sha }}-${{ matrix.memory_gib }}gib
+          include-hidden-files: true
+          path: .lake/chess-memory-comparison-20261024-${{ matrix.memory_gib }}/**
+          retention-days: 30

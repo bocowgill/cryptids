@@ -126,3 +126,13 @@ passes in40/41; corrected negative/larger-sample run43 is pending. Accepted full
 count769344 and every paid component above are unchanged. Priority1remains the
 whole-body quotient459315. Complete finite source tables and packed cache are
 proof dependencies for it, high difficulty/effort, and earn no additive saving.
+
+Checkpoint48 and user memory-steering: accepted breakdown769344 unchanged.
+47checks one32operation source chunk;48reaches127chunk markers but times out60s
+before complete module/audit at3.548GB, no complete-source credit.43Rows512is
+also time-bound3.595GB. User now authorizes exactly two6/10GiB free-runner pilots
+at diagnosed historical19memory bottleneck, preserving proof/time gates. A RAM
+comparison is a bounded route decision for the same459315opportunity, not a new
+state saving. If it merely delays failure, abandon monolithic closed-row proofs
+and prioritize reusable structural certificates. Any positive scaling claim must
+survive increasing substantial coverage and fully priced proof/audit overhead.

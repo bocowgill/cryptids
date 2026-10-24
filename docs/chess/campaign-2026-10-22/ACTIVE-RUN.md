@@ -1,20 +1,23 @@
-# Active resumed campaign — October 23, 2026
+# Active resumed campaign — October23/24,2026
 
-Goal active. Accepted769344; target310029; prospective saving459315.
-G1/G2/G3 met; G4/G5/G6 open. No accepted full-machine savings this resume.
+Goal ACTIVE. Accepted769344; target310029; prospective saving459315.
+No new accepted full-machine saving. G4/G5/G6remain open.
 
-SOURCE40057188968 at44ce90ce4d9078ab541aa261e894e1f62ee6ab4d is running;
-retain48. It checks all4042source operations through127frozen chunks, original
-source-tree shape, restoration/lowering/length/all-label source meaning and a
-9root full-private audit. Original60s/6GiB component,180s source-mode caps.
-R3prerequisite now passes in47: complete chunk256..287 and corrupted callback
-rejection,5.470s build+2.842s4root audit. No complete-source credit until48passes.
+Latest user explicitly authorizes paired6/10GiB free-runner memory comparison,
+with actual host/container headroom checks and original proof/time limits.
+MEMORY-COMPARISON-PLAN.md is the next phase. New workflow own-file push starts
+exactly TWO matrix jobs [6,10]. DO NOT dispatch a duplicate. No12GiB scheduled.
+Replay certificate19 immutable proof bytes at its diagnosed memory bottleneck;
+original64/512/4096budgets and every data/root/audit obligation preserved.
+Retain the6/10suffix artifacts separately as certificates49/50, then make an
+explicit continue/redesign/abandon decision. Small samples are insufficient to
+establish full scaling; increasing substantial coverage is required if RAM helps.
 
-Full43checks64states/128rows and explicit false-row kernel rejection.512stage
-hits180s during offset setup, below memory cap;4096unattempted. Structural
-source/cache route preferred. DIRECT-SOURCE-CACHE-PILOT.md is a proposed
-alternative avoiding a separate106668node dump, not implemented or proved.
+Source48retained/reviewed: all127chunk markers, but module/audit not completed
+within60s at3.548GB. Source47onechunk32operations is checked/audited. Full43has
+128actual rows and kernel negative;512stage time-bound180s at3.595GB. These
+are time obstructions, distinct from historical19memory failure38.335s/6GiB.
 
-Approved artifact transfer complete. All3116accepted pins fixed. All heavy work
-remote, outreach on hold, no new agents. Last account usage9% consumed; no reset.
-Handoff/gates: ../campaign-2026-10-23/RESUME.md and GATES.md.
+All3116accepted pins fixed. All heavy work remote; local memory/output low;
+outreach on hold; no new agents. Last usage9% consumed; no reset performed.
+See ../campaign-2026-10-23/RESUME.md, GATES.md and MEMORY-COMPARISON-PLAN.md.

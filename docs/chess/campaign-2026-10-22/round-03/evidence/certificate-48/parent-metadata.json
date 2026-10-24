@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40057188968,
+  "commit": "44ce90ce4d9078ab541aa261e894e1f62ee6ab4d",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": true,
+  "complete_candidate_data": false,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "All127chunk progress markers complete; CompleteSource module then stops60.067s at3.548GB before module/audit completion. All-source final theorem/boundary overhead unlocalized. No complete source credit. User now authorizes exactly two6vs10GiB memory pilots at a diagnosed memory failure; preserve this outcome and pause unchanged source retries.",
+  "new_accepted_machine": false
+}

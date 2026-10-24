@@ -1,0 +1,4 @@
+ℹ [3850/3852] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.SourceTables
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/SourceTables.lean:99:0: Finite source-operation table reconstruction checked
+ℹ [3851/3852] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.SourceChunk
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/SourceChunk.lean:352:0: Actual frozen source chunk reconstructed and corruption rejected
