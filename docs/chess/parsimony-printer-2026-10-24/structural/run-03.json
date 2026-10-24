@@ -3,7 +3,7 @@
   "source": "cd91d8810121a4fb98a3080a1cd6789c7c66d6cd",
   "artifact": "chess-parsimony-proof-cd91d8810121a4fb98a3080a1cd6789c7c66d6cd",
   "iteration": 3,
-  "status": "running",
+  "status": "failed_retained",
   "launch": "one manual dispatch after completed push and exact fork-ref verification",
   "correction": "Supply i <= last explicitly in two row proofs and remove unused simp arguments; use explicit kernel-only decisions for generated Fin value bounds",
   "driver_seconds": 900,
@@ -13,5 +13,8 @@
   "accepted_machine_states": 769344,
   "candidate_states": 609247,
   "certified_saving": 0,
-  "next": "Retain exact results, assess reusable operational proof and real-data scaling; at most one further diagnosed iteration remains."
+  "next": "Final bounded iteration checks cleaned strict proof and balanced-chunk materialization at all three real data sizes. No caps raised.",
+  "retained_evidence": "evidence/proof-03",
+  "diagnosis": "Operational proofs elaborated without errors; strict --wfail rejected two unused simp arguments. Remove exactly those arguments without disabling lint or changing statements.",
+  "driver_elapsed_seconds": 42.546548652
 }

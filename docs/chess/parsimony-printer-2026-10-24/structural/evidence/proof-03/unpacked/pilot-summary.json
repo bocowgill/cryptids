@@ -1,0 +1,72 @@
+{
+  "accepted_machine_states": 769344,
+  "candidate_states": 609247,
+  "certified_saving": 0,
+  "commands": [
+    {
+      "argv": [
+        "lake",
+        "exe",
+        "cache",
+        "get",
+        "Mathlib.Computability.TuringMachine.PostTuringMachine",
+        "Mathlib.Data.Nat.Prime.Basic",
+        "Mathlib.Algebra.GCDMonoid.Finset",
+        "Mathlib.Order.Interval.Finset.Nat",
+        "Mathlib.NumberTheory.LSeries.RiemannZeta",
+        "Mathlib.SetTheory.ZFC.Basic",
+        "Mathlib.Tactic"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "effective_budget_seconds": 300,
+      "elapsed_seconds": 23.078136232000006,
+      "exit": 0,
+      "expected_exit": 0,
+      "log": "mathlib-cache.log",
+      "log_sha256": "199208aef99571d7169c316ab13e5419e5097ecd302c18da0c3bb3fc99aa9211",
+      "name": "mathlib-cache",
+      "peak_group_plus_driver_rss_bytes": 1064857600,
+      "resource_stop": null
+    },
+    {
+      "argv": [
+        "lake",
+        "--wfail",
+        "-f",
+        "lakefile.chess-parsimony-proof-20261024.toml",
+        "build",
+        "Cryptids.Compilation.Parsimony.Data"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "effective_budget_seconds": 240,
+      "elapsed_seconds": 13.880241402999985,
+      "exit": 1,
+      "expected_exit": 0,
+      "log": "structural-kernel.log",
+      "log_sha256": "e6fd2b8d7c50d7d3975626b2e65249134e46b9c7c1428bd6b3fbf27b07d3e784",
+      "name": "structural-kernel",
+      "peak_group_plus_driver_rss_bytes": 2695147520,
+      "resource_stop": null
+    }
+  ],
+  "complete_printer_certified": false,
+  "driver_peak_rss_kib": 34212,
+  "elapsed_seconds": 42.546548652,
+  "experimental_saving": 160097,
+  "failure": "structural-kernel failed; retained log: /home/runner/work/cryptids/cryptids/.lake/chess-parsimony-proof-20261024/structural-kernel.log",
+  "failure_type": "AssertionError",
+  "gates": {},
+  "limits": {
+    "driver_rss_bytes": 536870912,
+    "group_plus_driver_rss_bytes": 6442450944,
+    "lean_heap_mib": 5120,
+    "lean_seconds": 240,
+    "lean_threads": 1,
+    "scaling_seconds": 120,
+    "total_seconds": 900
+  },
+  "new_accepted_machine": false,
+  "scaling": [],
+  "schema": "parsimony-structural-data-v1",
+  "status": "failed"
+}

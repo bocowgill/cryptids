@@ -78,7 +78,7 @@ theorem row_zero_more (last : Nat) (values : Array (Fin (last + 1))) (i : Nat)
     (machine last values).transition (control last i) 0 =
       some (1, .right, control last (i + 1)) := by
   have le : i ≤ last := Nat.le_of_lt bound
-  simp [machine, control, Nat.min_eq_left le, bound, le]
+  simp [machine, control, bound, le]
 
 theorem row_zero_last (last : Nat) (values : Array (Fin (last + 1))) :
     (machine last values).transition (control last last) 0 =
@@ -88,7 +88,7 @@ theorem row_zero_last (last : Nat) (values : Array (Fin (last + 1))) :
 theorem row_one (last : Nat) (values : Array (Fin (last + 1))) (i : Nat) (bound : i ≤ last) :
     (machine last values).transition (control last i) 1 =
       some (0, .right, control last (last - (wordAt last values i).val)) := by
-  simp [machine, control, Nat.min_eq_left bound, bound]
+  simp [machine, control, bound]
 
 /-- Query the target-encoded word and materialize its unary value in exact finite time. -/
 theorem query_run (last : Nat) (values : Array (Fin (last + 1))) (i : Nat) (bound : i ≤ last)

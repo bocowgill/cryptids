@@ -11,6 +11,7 @@ import re
 import signal
 import struct
 import sys
+import textwrap
 import time
 import traceback
 
@@ -59,11 +60,25 @@ def foundations(output):
 def scale_source(count, values):
     name = 'ParsimonyScale' + str(count)
     lines = ['import ' + TARGET, '', 'open Turing ConjectureMachines',
-        'open ConjectureMachines.Compilation', 'namespace ' + name,
-        'def values : Array (Fin 13360) := #[']
-    lines += ['  ⟨' + str(value) + ', by decide +kernel⟩' + (',' if i + 1 < count else '')
-              for i, value in enumerate(values[:count])]
-    lines += [']', '', 'attribute [local irreducible] values', '',
+        'open ConjectureMachines.Compilation', 'namespace ' + name]
+    parts = []
+    for begin in range(0, count, 256):
+        part = 'part' + str(len(parts))
+        parts.append(part)
+        chunk = values[begin:min(begin + 256, count)]
+        lines += ['private def ' + part + ' : Array (Fin 13360) := #[']
+        lines += ['  ⟨' + str(value) + ', by decide +kernel⟩' +
+                  (',' if i + 1 < len(chunk) else '') for i, value in enumerate(chunk)]
+        lines += [']', '']
+    def balanced(names):
+        if len(names) == 1:
+            return names[0]
+        middle = len(names) // 2
+        return '(' + balanced(names[:middle]) + ' ++ ' + balanced(names[middle:]) + ')'
+    lines += ['def values : Array (Fin 13360) :='] + textwrap.wrap(
+        balanced(parts), width=98, initial_indent='  ', subsequent_indent='  ',
+        break_long_words=False, break_on_hyphens=False)
+    lines += ['', 'attribute [local irreducible] values', '',
         '/-- One generic proof, without unfolding the data array or the physical run. -/',
         'theorem runData (i : Fin ' + str(count) + ') (left right : ListBlank (Fin 2)) :',
         '    let value := (Parsimony.Data.wordAt 13359 values i.val).val',
@@ -149,6 +164,10 @@ def main():
         'Mathlib.NumberTheory.LSeries.RiemannZeta', 'Mathlib.SetTheory.ZFC.Basic',
         'Mathlib.Tactic'], 300)
     runner.run('structural-kernel', ['lake', '--wfail', '-f', LAKE, 'build', TARGET], 240)
+    built = ROOT / '.lake/build/lib/lean/Cryptids/Compilation/Parsimony/Data.olean'
+    (WORK / 'Data.olean').write_bytes(built.read_bytes())
+    runner.save('kernel-object.json', dict(sha256=runner.sha(built), bytes=built.stat().st_size,
+        source_sha256=runner.sha(SOURCE), strict_build_passed=True))
     SUMMARY['gates']['K1'] = True
     print('PARSIMONY_STRUCTURAL_KERNEL_PASSED', flush=True)
     runner.checkpoint()

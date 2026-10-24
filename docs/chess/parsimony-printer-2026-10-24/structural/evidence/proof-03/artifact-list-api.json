@@ -1,0 +1,25 @@
+{
+  "total_count": 1,
+  "artifacts": [
+    {
+      "id": 12578523254,
+      "node_id": "MDg6QXJ0aWZhY3QxMjU3ODUyMzI1NA==",
+      "name": "chess-parsimony-proof-cd91d8810121a4fb98a3080a1cd6789c7c66d6cd",
+      "size_in_bytes": 188401,
+      "url": "https://api.github.com/repos/bocowgill/cryptids/actions/artifacts/12578523254",
+      "archive_download_url": "https://api.github.com/repos/bocowgill/cryptids/actions/artifacts/12578523254/zip",
+      "expired": false,
+      "digest": "sha256:affc25d660b4f747d3af52909c1fa88989f558494a74368898a285d8a33eff00",
+      "created_at": "2026-10-24T23:07:16Z",
+      "updated_at": "2026-10-24T23:07:16Z",
+      "expires_at": "2026-11-23T23:07:16Z",
+      "workflow_run": {
+        "id": 40141259554,
+        "repository_id": 1426408147,
+        "head_repository_id": 1426408147,
+        "head_branch": "codex/chess-openevolve-pilot",
+        "head_sha": "cd91d8810121a4fb98a3080a1cd6789c7c66d6cd"
+      }
+    }
+  ]
+}
