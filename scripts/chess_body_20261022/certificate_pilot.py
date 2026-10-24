@@ -1513,6 +1513,7 @@ def main():
             driver.summary.update(classification="GENERIC_OBSERVED_CACHE_INTERFACE_PILOT",
                                   generic_observed_cache_interface_checked=False,
                                   generic_all_paid_controls_checked=False,
+                                  complete_prefix_scan_checked=False,
                                   complete_opcode_snapshot_checked=False,
                                   graph_fidelity_checked=False)
             driver.emit("Audit.lean", AUDIT)
@@ -1528,8 +1529,23 @@ def main():
             import binary_observation_pilot
             binary_observation_pilot.generate(driver, header, audit_and_end, MODULE)
             driver.run("BinaryObservation", 60, "Local equations cover every paid binary control")
+            driver.summary["generic_all_paid_controls_checked"] = True
+            driver.checkpoint()
+            import operation_weights_pilot
+            operation_weights_pilot.generate(driver, header, audit_and_end)
+            driver.run("OperationWeights", 60, "Universal frozen operation weight summaries checked")
+            import weight_table_pilot
+            weight_table_pilot.generate(driver, SNAPSHOT, SNAPSHOT_SHA, header, audit_and_end,
+                                        progress_marker)
+            driver.run("WeightTables", 60,
+                       "Complete source weights and shared prefix correspondence checked")
+            import prefix_scan_pilot
+            prefix_scan_pilot.generate(driver, SNAPSHOT, SNAPSHOT_SHA, header, audit_and_end, MODULE)
+            driver.run("PrefixScan", 60,
+                       "Complete linear prefix certificates agree with frozen offsets")
+            driver.summary["prefix_scan_proposed"]["kernel_checked"] = True
             driver.summary.update(status="observed_cache_passed",
-                                  generic_all_paid_controls_checked=True)
+                                  complete_prefix_scan_checked=True)
             driver.checkpoint()
             driver.monitor_stop.set()
             signal.setitimer(signal.ITIMER_REAL, 0)

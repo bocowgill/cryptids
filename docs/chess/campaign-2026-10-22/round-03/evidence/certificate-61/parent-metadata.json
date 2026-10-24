@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40063930658,
+  "commit": "7e62e9dfb1e0e4e555ff8b82404de65bc7942ed9",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": false,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "Full raw source all127chunk and13final markers reached in36.829s,3.161GB; sole source error List.getD_map explicit entries/default arguments missing. No timeout/memory stop; full module and audit not accepted. Correct API from pinned FieldPackedLayout.weights_get, keep every root and60s/6GiB cap.",
+  "new_accepted_machine": false
+}

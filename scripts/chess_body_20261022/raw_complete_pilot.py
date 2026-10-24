@@ -47,7 +47,7 @@ theorem raw_lookup (entries : List Snapshot.Entry) (raws : List RawOp)
           ((fun row : Snapshot.Entry ↦ rawSource row.1) (.halt, .halt)) :=
       congrArg (fun ops : List RawOp ↦ ops.getD index .halt) same.symm
     _ = rawSource (entries.getD index (.halt, .halt)).1 :=
-      List.getD_map (fun row : Snapshot.Entry ↦ rawSource row.1)
+      List.getD_map entries (.halt, .halt) (fun row : Snapshot.Entry ↦ rawSource row.1)
 '''
 
 

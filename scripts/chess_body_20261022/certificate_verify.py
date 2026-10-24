@@ -42,7 +42,8 @@ def main():
                   'scripts/chess_body_20261022/source_complete_pilot.py']
     if args.mode == 'cache':
         paths += ['scripts/chess_body_20261022/observed_cache_pilot.py',
-                  'scripts/chess_body_20261022/binary_observation_pilot.py']
+                  'scripts/chess_body_20261022/binary_observation_pilot.py',
+                  'scripts/chess_body_20261022/prefix_scan_pilot.py']
     if args.mode == 'raw':
         paths += ['scripts/chess_body_20261022/source_table_pilot.py',
                   'scripts/chess_body_20261022/raw_label_pilot.py',
@@ -90,6 +91,7 @@ def main():
     if cache:
         assert detail['generic_observed_cache_interface_checked'] is True
         assert detail['generic_all_paid_controls_checked'] is True
+        assert detail['complete_prefix_scan_checked'] is True
         assert detail['completed_positive_unique_rows'] == 0
     if raw:
         assert detail['raw_label_decoder_checked'] is True

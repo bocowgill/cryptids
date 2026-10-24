@@ -712,3 +712,18 @@ simpa because mainState and Fin.castAdd wrappers are not unfolded in the same
 form. Build6.688s/2.732GB, no resource stop. Explicitly unfold mainState in that
 simp; all premises/roots/caps unchanged. ObservedCache6root audit passes again.
 No bridge module credit until full build/audit. Complete raw source61 stillremote.
+
+Source61 retained/reviewed: all127chunk and13final markers reached in36.829s,
+peak3161006080bytes. Sole source error: List.getD_map needs explicit entries
+and fallback arguments before mapping function; pinned FieldPackedLayout.weights_get
+provides exact usage. Correct only that call, with all17roots/caps unchanged.
+No full module/audit acceptance yet. Unlike failed typed catalog54, this raw-label
+representation reaches all source proof stages below60s; actual-body scaling
+remains untested.
+
+PrefixScan proposal now follows the generic binary bridge in cache mode. It
+checks two complete4043-entry numeric prefix trees against a linear scan of the
+already certified exact weight lists. A universal lookup theorem identifies all
+frozen node/return offsets without new per-label take/sum facts. Use named chunks
+of at most32leaves, avoiding a declaration for every literal. Same60scomponent,
+180stotal,6GiB limits; no actual quotient-row or machine credit follows.

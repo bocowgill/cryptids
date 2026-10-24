@@ -1,0 +1,11 @@
+{
+  "run_id": 40064186860,
+  "source": "cd29e0203689637488eab43f3971ef1b5e0db7f4",
+  "mode": "cache",
+  "status": "remote_running",
+  "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-62",
+  "accepted_states": 769344,
+  "target_states": 310029,
+  "new_accepted_machine": false,
+  "actual_rows": 0
+}

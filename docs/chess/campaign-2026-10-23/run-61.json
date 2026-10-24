@@ -2,10 +2,13 @@
   "run_id": 40063930658,
   "source": "7e62e9dfb1e0e4e555ff8b82404de65bc7942ed9",
   "mode": "raw",
-  "status": "remote_running",
+  "status": "source_proof_failure",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-61",
   "accepted_states": 769344,
   "target_states": 310029,
   "new_accepted_machine": false,
-  "actual_rows": 0
+  "actual_rows": 0,
+  "diagnosis": "All127chunk and all13final markers reached; sole logged proof error is List.getD_map called without explicit entries/default arguments. Consult pinned FieldPackedLayout.weights_get usage. No resource stop; no full-module/audit credit.",
+  "build_seconds": 36.829498770999976,
+  "peak_rss_bytes": 3161006080
 }
