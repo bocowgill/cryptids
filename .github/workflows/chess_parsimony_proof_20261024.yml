@@ -1,9 +1,13 @@
 name: Bounded Parsimony structural proof pilot
 on:
-  push:
-    branches: ['codex/chess-openevolve-pilot']
-    paths: ['.github/workflows/chess_parsimony_proof_20261024.yml']
   workflow_dispatch:
+    inputs:
+      phase:
+        description: Explicitly selected bounded pilot
+        type: choice
+        required: true
+        default: structural
+        options: [structural, memory]
 permissions:
   contents: read
 concurrency:
@@ -36,11 +40,15 @@ jobs:
           restore-keys: |
             chess-body-certificate-20261022-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-
       - name: Bounded reusable proof and exact data scaling
+        if: inputs.phase == 'structural'
         run: python3 scripts/chess_parsimony_proof_20261024/verify.py
+      - name: Paired full-data proof memory comparison
+        if: inputs.phase == 'memory'
+        run: python3 scripts/chess_parsimony_memory_20261024/verify.py
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
-          name: chess-parsimony-proof-${{ github.sha }}
+          name: chess-parsimony-${{ inputs.phase == 'memory' && 'memory' || 'proof' }}-${{ github.sha }}
           include-hidden-files: true
-          path: .lake/chess-parsimony-proof-20261024/**
+          path: .lake/chess-parsimony-${{ inputs.phase == 'memory' && 'memory' || 'proof' }}-20261024/**
           retention-days: 30
