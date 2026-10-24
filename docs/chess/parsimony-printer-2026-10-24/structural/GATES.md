@@ -42,6 +42,9 @@ Use one Lean worker thread, Lean heap cap 5 GiB, process-group-plus-driver RSS c
 6 GiB, and driver RSS cap 512 MiB. No paid resources or resource escalation.
 Keep setup bounded by a 25-minute workflow timeout. Retain partial stage results
 on failure. No local Lean/Lake/LSP/LeanProbe, compilation, generation or counting.
+The initial workflow-file-only push registers the new workflow and launches the
+first iteration once; subsequent source-only iterations are manually dispatched.
+Do not send a duplicate manual dispatch for the initial registration event.
 
 Targeted proof coverage is the actual data routine, not yet every printer phase.
 The 140-state extractor, framing/cleanup, complete blank-tape startup and direct
