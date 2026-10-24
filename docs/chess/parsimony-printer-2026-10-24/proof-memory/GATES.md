@@ -8,20 +8,20 @@ statement, the exact candidate table and all accepted/frozen pins. This pilot ad
 zero states and zero accepted savings. It tests an integration prerequisite for
 the experimental 160,097-state reduction, without claiming full certification.
 
-- [ ] K1: The unchanged generic library and both full-size instances check remotely with standard foundations and warning-free positive logs; the instance theorem statement is identical.
+- [x] K1: The unchanged generic library and both full-size instances check remotely with standard foundations and warning-free positive logs; the instance theorem statement is identical.
   CHECK: python3 scripts/chess_parsimony_memory_20261024/verify.py
   EXPECT: PARSIMONY_MEMORY_KERNEL_PASSED
-  EVIDENCE: pending
+  EVIDENCE: Run 40143132066 at 5e978b16ee8269943ef4e9999b6f34cafc965801 exited zero and emitted the kernel token. Data.lean and its 41872-byte object retain their preceding hashes; instance statement/proof text is identical. Strict library build and standard-foundation audits passed with warning-free proof logs. Exact environment and workflow-step output fingerprint in gate-evidence.json; full evidence under evidence/memory-01.
 
-- [ ] B1: Both representations export all 26,720 data cells matching the exact candidate, with preserved raw word values and a changed-data negative control rejected by the same comparator.
+- [x] B1: Both representations export all 26,720 data cells matching the exact candidate, with preserved raw word values and a changed-data negative control rejected by the same comparator.
   CHECK: python3 scripts/chess_parsimony_memory_20261024/verify.py
   EXPECT: PARSIMONY_MEMORY_BINDING_PASSED
-  EVIDENCE: pending
+  EVIDENCE: Same zero-exit run and binding token. Both complete exports have SHA e4820e2a8ad863cd6d3728b120c67f5a249fac8f9418445fb55f795cfbba6a2c and match the exact unchanged candidate. All words satisfy the constructor identity bound; generic identity kernel-checked. Both positive-tested comparators reject a changed encoded word. RESULTS.md distinguishes external binding from kernel parser/full-machine certification.
 
-- [ ] M1: A paired all-word comparison records runtime, peak group RSS, object size, overhead and a decision under the unchanged resource caps, even if the representation fails to improve memory.
+- [x] M1: A paired all-word comparison records runtime, peak group RSS, object size, overhead and a decision under the unchanged resource caps, even if the representation fails to improve memory.
   CHECK: python3 scripts/chess_parsimony_memory_20261024/verify.py
   EXPECT: PARSIMONY_MEMORY_COMPARISON_PASSED
-  EVIDENCE: pending
+  EVIDENCE: Same zero-exit run and comparison token. Paired peak 6064721920 to 5223178240 bytes (802.56 MiB less), elapsed 23.824 to 8.453 seconds, object 16392400 to 11827144 bytes (27.85% smaller), all at 13360 words under unchanged caps. Continue shared representation; whole-composition memory and full correctness remain open. Retained comparison arithmetic and provenance independently rechecked by review.py --iteration 1.
 
 - [ ] R1: Exact producer/run, archives, logs, measurements, state breakdown, remaining obligations and restart instructions are retained in a clean pushed checkpoint; no pilot job remains active.
   EVIDENCE: pending

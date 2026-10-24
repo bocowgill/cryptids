@@ -1,0 +1,16 @@
+{
+  "cell": 1,
+  "changed": [
+    0,
+    1,
+    5167
+  ],
+  "changed_word_rejected": true,
+  "original": [
+    0,
+    1,
+    5168
+  ],
+  "positive_matched": true,
+  "scope": "External row-binding negative control; not a kernel parser theorem"
+}

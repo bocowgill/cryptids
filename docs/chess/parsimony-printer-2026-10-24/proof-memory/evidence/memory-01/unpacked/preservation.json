@@ -1,0 +1,12 @@
+{
+  "all_words_preserved_by_shared_constructor": true,
+  "baseline_source_sha256": "32b25d704a13f5c1c729b4db5f0f2f79709806a1f4d39fb26ac6e9595801628c",
+  "candidate_rows_sha256": "b9cf384e5470f3c9f5c501bd8c13555f15d4ea134469f5d159cd1bdb363cbf45",
+  "generic_source_sha256": "2317ad63aab9eb6796508ba6e2df1bb33a61816afd77b55ceb363dab2b20d6ac",
+  "new_accepted_savings": 0,
+  "new_states": 0,
+  "operational_instance_sha256": "b8ade05e01ea731a935e25290c81b0619fa4523d3a7effda8324811831e205f9",
+  "operational_instance_statement_and_proof_identical": true,
+  "raw_word_bound": 8192,
+  "words": 13360
+}
