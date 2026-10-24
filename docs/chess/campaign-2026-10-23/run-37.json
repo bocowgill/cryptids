@@ -1,0 +1,11 @@
+{
+  "run_id": 40045525079,
+  "source": "3e7613e11b70f7c132d9450e208f6c5ce1dc1f33",
+  "mode": "full",
+  "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-37",
+  "status": "dispatched",
+  "change": "Generic symbolic main-write theorem and extra initial0/both-bit gate before original samples",
+  "resource_caps_changed": false,
+  "accepted_states": 769344,
+  "prospective_states": 310029
+}

@@ -344,3 +344,8 @@ initial0/both bits under60s before original64/512/4096samples and negative.
 Main completed-sample counters/claims unchanged. No original checks or roots
 removed, same6GiB/1200s total and120/180/210s samples. No accepted machine.
 New helper is unverified pending remote run; AST/template text inspected only.
+
+Full remote run40045525079 at3e7613e dispatched after exact fork-head check.
+Retain certificate-37. Source/complete packet36 pushed normally to fork. See
+SYMBOLIC-WRITE-PILOT.md forS1/S2/S3gates. Last usage query6% consumed; no reset.
+All original sample/all-state claims, negative control and resource caps remain.
