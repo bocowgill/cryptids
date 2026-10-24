@@ -1,0 +1,17 @@
+{
+  "run_id": 40140890739,
+  "source": "2c66d69f81a02f72687b064c12fe5ce95d7b2309",
+  "artifact": "chess-parsimony-proof-2c66d69f81a02f72687b064c12fe5ce95d7b2309",
+  "iteration": 2,
+  "status": "running",
+  "launch": "one manual dispatch after completed push and exact fork-ref verification",
+  "correction": "Probe optional cgroup v1/v2 memory metadata conditionally; preflight every generated Lean file before cache and proof stages",
+  "driver_seconds": 900,
+  "lean_heap_mib": 5120,
+  "group_plus_driver_gib": 6,
+  "driver_mib": 512,
+  "accepted_machine_states": 769344,
+  "candidate_states": 609247,
+  "certified_saving": 0,
+  "next": "Retain exact diagnostics before any changed proof iteration; no unchanged retry or resource escalation."
+}
