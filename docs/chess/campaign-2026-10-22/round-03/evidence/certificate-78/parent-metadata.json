@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40085661511,
+  "commit": "7fc5885d5b82938334b27f42137fe8d12bd1a902",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": true,
+  "actual_rows": 0,
+  "negative_control": "kernel_rejected",
+  "diagnosis": "All cache tiers128/8192/65536, typed loader, controls and full private audits pass. 65536Data9.219+3.245s, fidelity100.196+3.652s peak3341131776bytes;8192fidelity17.113s peak3284226048bytes vsprior5614432256. Core15roots and final516roots/5131deps onlypropext/Quot.sound. Lookup definition confirms tree.brecOn; next bounded same-data8192comparison tests height-certified short-fuel getter equaloriginal. Cache-only, zero SourceRows or new-machine credit.",
+  "new_accepted_machine": false
+}

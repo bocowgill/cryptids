@@ -268,3 +268,14 @@ measured per-cell text-elaboration category; bounded validation chunks compose
 the same exact cache predicate. Same caps and complete-source gates. This is
 a clearly identified dependency for reusable numeric observations; no additive
 state saving, no credible complete-machine cost estimate yet.
+
+
+Checkpoint78/79: numerical cache65536 passes100.196s+3.652audit with bounded
+proof memory; data loading9.219s. This does not certify source rows. Rank1
+still459,315 prospective full-machine states, accepted769,344/target310,029/
+new saving0. Confirmed tree-brecOn lookup motivates a controlled same-data
+short-fuel getter comparison with universal semantic equality and certified
+actual heights. A material gain could remove cache materialization entirely,
+a clearly identified larger-proof dependency. High proof difficulty/moderate
+effort; no new state-count improvement or full-machine cost estimate yet.
+Other rankings and original completion gates unchanged.

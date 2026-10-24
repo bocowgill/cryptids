@@ -1,0 +1,17 @@
+{
+  "schema": "chess-goal-retention-v1",
+  "repository": "bocowgill/cryptids",
+  "run_id": 40085661511,
+  "run_url": "https://github.com/bocowgill/cryptids/actions/runs/40085661511",
+  "run_conclusion": "success",
+  "workflow_commit": "7fc5885d5b82938334b27f42137fe8d12bd1a902",
+  "computation_commit": "7fc5885d5b82938334b27f42137fe8d12bd1a902",
+  "artifact_id": 12556894399,
+  "artifact_name": "chess-body-certificate-7fc5885d5b82938334b27f42137fe8d12bd1a902",
+  "artifact_sha256": "a259a1a00c3f47ee52aa4d6609ab7d5d00b9506f13cb68d4583e3c03cdd532bc",
+  "artifact_bytes": 3426725,
+  "logs_sha256": "38b9680bd6b4509ca9489322dc1c68ed54664b65860db3367d4b0c4f182d8deb",
+  "logs_bytes": 24915,
+  "evidence_scope": "Retained remote provenance and byte hashes only; no local model execution",
+  "certifies_new_machine": false
+}

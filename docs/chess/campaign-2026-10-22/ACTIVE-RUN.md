@@ -41,22 +41,24 @@ Pilot75 retained/reviewed: compact recipes4roots/23,032deps pass, actual-write
 180.073s at4,168,212,480bytes after442records; no larger module/audit/quarter.
 Reject packaging alone as scaling solution; retain verified generic constructor.
 
-Lookup77 retained/reviewed: generic14roots/3,837deps,128/8192 cache fidelity,
-counts/body bounds/fallback, corruptions and all private audits PASS. Only
-propext/Quot.sound. 8192 data25.101+3.143s, checker17.420+3.450s, checker peak
-5,614,432,256bytes. Cache65536 DATA text elaboration times out60.036s below
-memory3,774,545,920bytes, before checker. SourceRows/new-machine creditZERO.
+Lookup78 retained/reviewed PASS: all128/8192/65536cache fidelity/count/range/
+fallback/controls and private audits. 65536data9.219+3.245s, checker100.196
++3.652s at3,341,131,776bytes; audit516roots/5,131deps, onlypropext/Quot.sound.
+8192checker17.113s at3.284GB versus prior5.614GB. Driver545.109s total.
+This is data fidelity only: ZERO SourceRows or new-machine credit.
 
-Current lookup78: run40085661511 at
-7fc5885d5b82938334b27f42137fe8d12bd1a902, mode lookup; retain certificate-78.
-It replaces source-text cell elaboration with typed expression
-loading (ordinary kernel-checked data) and composes <=256-cell validation
-facts with new generic validate_branch root15. Every chunk/branch proof is
-an explicit audit root. Same validator/count/range/fallback/control obligations
-and same budgets: loader/data60s, fidelity60/120/180s including audits,
-controls60/negative45, global1200s and6GiB. No new permissions/resources.
-Read retained lookup #print diagnostic before further indexing hypotheses.
-Local SOURCE tiers/assertions stay intact; cache-only success cannot closeS8.
+Diagnostic confirms original lookup uses tree.brecOn. Next79 appends a
+controlled SAME8192data/256cell-chunk comparison of a short-fuel getter.
+Must prove lookup equality at all indices/fallbacks with certified ACTUAL
+map/Q heights, all-node height proofs/audits, cache-checker agreement and
+fresh explicit kernel wrong-extent rejection. Getter benefit is UNTESTED.
+Potential payoff removes whole observation-cache preparation category for
+the same459,315state opportunity; no extra state reduction.
+
+Existing3cache tiers replay. Generic60/heights120/agreement60/comparison120/
+negative45, including audits, within same1200s/6GiB. No new workflow/permission.
+See FUEL-LOOKUP-PILOT.md. Source coefficient integration and complete larger
+SOURCE tiers remain mandatory, as do all-source/global/linkage/final review.
 
 NEXT: require generic checker proof and private audit, then completed substantial
 coverage and resource evidence. Decide continue/redesign from those results.
@@ -66,4 +68,4 @@ global_rows_pilot.py and full_link_pilot.py retain an explicit all-source
 hypothesis and have no final-theorem credit.
 
 See ../campaign-2026-10-23/RESUME.md, GATES.md, STRUCTURAL-CHECKER-GATES.md,
-run-69.json through run-78.json and STATE-COUNTS-AND-OPPORTUNITIES.md. Last account usage 11%; no reset.
+run-69.json through run-79.json and STATE-COUNTS-AND-OPPORTUNITIES.md. Last account usage 11%; no reset.

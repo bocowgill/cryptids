@@ -63,6 +63,7 @@ def main():
                   'scripts/chess_body_20261022/structural_check_pilot.py',
                   'scripts/chess_body_20261022/source_recipe_pilot.py',
                   'scripts/chess_body_20261022/lookup_cache_pilot.py',
+                  'scripts/chess_body_20261022/fuel_lookup_pilot.py',
                   'scripts/chess_body_20261022/local_chunk_pilot.py',
                   'scripts/chess_body_20261022/source_scope_tools_pilot.py',
                   'scripts/chess_body_20261022/source_scope_pilot.py',
@@ -117,6 +118,11 @@ def main():
         assert detail['numeric_observation_cache_soundness_checked'] is True
         assert detail['numeric_observation_cache_loader_checked'] is True
         assert detail['numeric_lookup_cache_corruption_controls_checked'] is True
+        assert detail['fuel_lookup_comparison_checked'] is True
+        assert detail['fuel_lookup_kernel_corruption_rejected'] is True
+        assert detail['fuel_comparison_proposed']['kernel_checked'] is True
+        assert detail['fuel_comparison_proposed']['same_data_as_original'] is True
+        assert detail['fuel_comparison_proposed']['source_rows_certified'] == 0
         for entries in (128, 8192, 65536):
             cache_scope = detail[f'lookup_cache_{entries}_proposed']
             assert cache_scope['kernel_checked'] is True

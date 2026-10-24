@@ -226,6 +226,7 @@ def generate_data(driver, api, count):
         return name
 
     root = tree(0, count)
+    driver.emit(f'lookup-cache-{count}-nodes.json', json.dumps(nodes, indent=2) + '\n')
     parts.append(f'noncomputable def cache : Balanced.RowTree Cell := {root}\n'
                  f'end {namespace}\n')
     driver.emit(stem + 'Data.lean', ''.join(parts) + api.audit_and_end(driver, stem + 'Data',
@@ -338,6 +339,8 @@ def run(driver, api):
             driver.run('LookupCacheControls', 60, 'Cache class and word corruption rejected')
             driver.run('LookupCacheNegative', 45, negative=True)
             driver.summary['numeric_lookup_cache_corruption_controls_checked'] = True
+    import fuel_lookup_pilot
+    fuel_lookup_pilot.run(driver, api)
     driver.summary.update(status='lookup_cache_passed')
     driver.checkpoint()
     print('Numeric observation cache fidelity pilot passed', flush=True)

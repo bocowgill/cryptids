@@ -1158,3 +1158,31 @@ composed fidelity/audits for128/8192/65536, controls and kernel rejection.
 A successful smaller cache alone cannot justify full-source scaling. Do not
 restart live job; no cap/axiom/spec change or outreach. All accepted/source
 coverage requirements remain. GoalACTIVE; last account usage11%, no reset.
+
+
+### Lookup78: typed loading and composed proofs succeed through65536entries
+
+Run40085661511 at7fc5885d5b82938334b27f42137fe8d12bd1a902 is retained/reviewed
+as certificate78. All three cache tiers, extents/body bounds/global fallback,
+class/word controls and kernel wrong-extent rejection pass. Generic15roots
+and final65536audit516roots/5,131deps pass; only propext/Quot.sound.
+65536data9.219+3.245s, checker100.196+3.652s at3,341,131,776bytes. 8192data
+5.579s, checker17.113s at3,284,226,048bytes (prior25.101s data and5.614GB
+checker). Total driver545.109s. This is numerical-cache progress, ZERO
+SourceRows/full-machine/state-saving credit. S8/G4 remain OPEN.
+
+Retained #print confirms Balanced.RowTree.lookup uses tree.brecOn with motive
+Nat→α→α. Next bounded pilot79 appends a controlled8192comparison using a
+short-fuel path getter, with universal equality including fallbacks and
+kernel-certified actual table heights. See FUEL-LOOKUP-PILOT.md. This could
+eliminate whole cache-materialization costs if materially faster; it is a
+hypothesis, not an accepted improvement. Existing128/8192/65536 cache checks
+replay and the SAME8192data/256cell chunks are used for both getters in one
+run. New generic3roots, actual all-node height proofs, checker equivalence,
+full-private audits and fresh wrong-extent kernel rejection required.
+
+No cap increases: generic60/heights120/agreement60/comparison120/negative45,
+all within existing1200s/6GiB. Native height calculations propose bounds only.
+No frozen or accepted-source change, local heavy work, resource purchase or
+outreach. Full source coefficient integration and old larger SOURCE tiers
+still required before continuing to complete-machine acceptance.
