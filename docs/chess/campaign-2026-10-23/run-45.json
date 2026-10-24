@@ -1,0 +1,11 @@
+{
+  "run_id": 40055883230,
+  "source": "ffa26727cd19fb94bfb1c31eb97e3e563b978f16",
+  "mode": "source",
+  "status": "remote_running",
+  "change": "Meta import supplies transitive IR for untrusted source opcode proposal",
+  "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-45",
+  "accepted_states": 769344,
+  "prospective_states": 310029,
+  "new_accepted_machine": false
+}

@@ -7,8 +7,9 @@ At source `6280710c00f66d21fc0eaa073955b9d43d61b0cc`:
 
 - Full run 40055408911, retain certificate-43: qualify Lean.mkConst in the
   false-row harness; larger samples remain gated on explicit kernel rejection.
-- Source run 40055420927, retain certificate-44: native untrusted opcode
-  proposal followed by complete frozen chunk fidelity and corruption checks.
+- Source run 40055883230 at ffa26727, retain certificate-45: explicit meta import
+  supplies native IR for untrusted opcode proposal and one complete chunk.
+  Prior source run40055420927 is retained/reviewed as44: missing-IR abort.
 
 Certificates 40/41 check 64 states / 128 actual quotient rows, including
 full-private foundation audits. Their negative controls had source errors,
