@@ -1113,3 +1113,10 @@ checkers and budgets. No cache window, numeric fidelity or runtime scaling
 credit. Decision: corrected bounded pilot77; fourteen generic roots and
 128/8192/65536 data windows/controls remain required before integration.
 G4/S8 still open. GoalACTIVE; accepted769,344/target310,029 unchanged.
+
+Corrected lookup77 dispatched: run40083300011, source
+0c9063bd353fde18db4b7c96bbb9ac30cdf3b2ec, mode lookup; retain certificate-77.
+No new automatic smoke: workflow definition unchanged. NEXT inspect generic
+proof/audit and every data/fidelity/control stage; a live run must not be
+restarted. SourceRows integration/larger source gates remain open regardless
+of cache-only status. GoalACTIVE, accepted769,344 unchanged, no outreach.

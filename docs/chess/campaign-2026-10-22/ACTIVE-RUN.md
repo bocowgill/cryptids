@@ -46,7 +46,9 @@ no resource stop or data-window attempt. Case equation rewrites branch goal
 to reflexivity; one term corrected to rfl. Statements/checker/budgets unchanged.
 Companion smoke40082347435 passed and retained separately.
 
-Corrected pilot77 in lookup mode must prove14generic cache roots/private audit,
+Current corrected pilot77: run40083300011 at
+0c9063bd353fde18db4b7c96bbb9ac30cdf3b2ec, mode lookup; retain certificate-77.
+It must prove14generic cache roots/private audit,
 then128/8192/65536-entry windows, exact counts/body range, actual class/word
 corruptions and fresh kernel rejection of wrong extent. Cache-only success
 earnsZERO source-row/full-machine/state-saving credit. Original source tiers
