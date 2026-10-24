@@ -2,7 +2,7 @@
   "run_id": 40113309464,
   "source": "f168f11f8954a244c8dfbc43adc34e4753c1e619",
   "mode": "local",
-  "status": "remote_running",
+  "status": "remote_in_progress_no_steps_observer_jobs_502",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-91",
   "route": "Compact validated chunks plus quantified Window/list fidelity; shared return table; unchanged substantial SOURCE16/4",
   "overall_seconds": 1200,
@@ -35,5 +35,17 @@
   "specific_correction": "Generic window_checked and cons_checked; explicit Window/list arguments, no inline show tactics",
   "wiring_stage_seconds": 60,
   "required_wiring_roots": 6,
-  "last_usage_percent": 14
+  "last_usage_percent": 14,
+  "last_authoritative_observation": {
+    "checked_at_utc": "2026-10-24T16:56:58Z",
+    "run_status": "in_progress",
+    "run_conclusion": null,
+    "job_id": 120929350122,
+    "job_status": "in_progress",
+    "job_conclusion": null,
+    "job_steps": 0,
+    "runner_name": "GitHub Actions 1000000339",
+    "jobs_listing_http_status": 502,
+    "remote_experiment_restarted": false
+  }
 }
