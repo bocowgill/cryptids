@@ -505,3 +505,8 @@ stop, no source chunk credit. Replace#eval with ordinary run_cmd liftIO and
 explicit public meta importLean; no linter disabled. Complete-source draft has
 nine final roots, including all-label original source meaning, but stays unwired
 until the one-chunk gate passes. Current frozen sources/pins/counts unchanged.
+
+Corrected SOURCE40056753980 at4b9f07d is independently recoverable; retain47.
+Complete-source draft remains unwired. Both syntax and private foundation gates
+remain strict; failed native proposal module banners never count as successful
+proofs or source fidelity. Accepted769344/target310029 unchanged.

@@ -1,0 +1,11 @@
+{
+  "run_id": 40056753980,
+  "source": "4b9f07d6ad04e3c8ef8ea36d504662910acda7e0",
+  "mode": "source",
+  "status": "remote_running",
+  "change": "Strict-lint native proposal through run_cmd IO; one complete chunk still required",
+  "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-47",
+  "accepted_states": 769344,
+  "prospective_states": 310029,
+  "new_accepted_machine": false
+}
