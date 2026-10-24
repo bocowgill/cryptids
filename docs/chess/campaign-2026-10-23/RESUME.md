@@ -369,3 +369,27 @@ all symbolic/initial/original sample/full-state gates and caps preserved. Lean
 source confirms attribute validation runs before environment modification.
 STRUCTURAL-TABLE-FALLBACK.md records a further unproved source-op finite-table
 reification route; no implementation or proof credit for that design.
+
+PACKED-BINARY-CACHE-DESIGN.md records a more concrete UNIMPLEMENTED complete
+certificate design. Existing frozen findReturn_returnAt lets a faithful forward
+return decoder replace old inverse computation for writes. Proposed packed
+cache stores ten binary-row lanes/node, checks local source-node equations,
+inducts only on pure children, and checks allmain/halt/bounce rows againstQ.
+Source-op reification/graph/entry/return fidelity, codec bounds, soundness and
+complete relation remain unproved. Same459315payoff, not additive; high proof
+difficulty/effort. No acceptance claims or budget changes.
+
+
+Run40046430397 at7758f0d retained and byte-reviewed as certificate-38. S1/S2
+PASS: SymbolicTransitions4.971s plus1root/14209dep audit3.151s; Rows1 initial0
+both bits6.183s/3304136704bytes plus23root/18326dep audit3.750s. Standard
+3axioms only. See packet symbolic-entry-review.json; main sample counters0
+intentionally distinct from these2accepted entry rows. Rows64 initial actual
+proofs43/42ms versus prior9s, but module times out120.038s at5545701376bytes.
+Return-address setup now dominates77s, far-end10.8s; negative/512/4096unrun.
+Next implements RETURN-ADDRESS-PILOT: generic bounceIndex_val, named rank.val
+facts, scoped opaque returnIndex/bounceIndex during concrete address proofs.
+Generic helper gets fresh13root ActualTools audit; all original claims/caps
+and additional entry gate preserved. New numeric helper/concrete addresses
+remain unverified pending remote pilot; no accepted full-machine saving.
+PACKED-BINARY-CACHE-DESIGN.md remains unimplemented full-checker design.

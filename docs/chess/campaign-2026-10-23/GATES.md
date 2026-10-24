@@ -20,7 +20,7 @@ evidence and pins stay fixed. No outreach or bulk upstream migration.
 - [ ] G4: Every actual accepted body transition is related to the complete quotient,
   preserving missing transitions and both bits; a meaningful false-row control
   fails in the kernel, and both halting directions are proved.
-  EVIDENCE: pending
+  EVIDENCE: certificate-38 checks symbolic main-write and initial0/both bits with full-private audits (23entry roots); complete573802state relation and false-row control remain pending.
 - [ ] G5: The complete blank-tape binary machine has exactly 310,029 paid states
   and the original not-draw equivalence; all actual rows, independent fixtures,
   corruption controls, regressions and foundation audits pass remotely.

@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40046430397,
+  "commit": "7758f0d342a8d5ec4b57ac0d9fce4d48736a96d2",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": true,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "Symbolic main-write passes4.971s and1root/14209dependency audit3.151s; Rows1 initial0/both bits passes6.183s and23root/18326dependency audit3.750s, standard3axioms only. First actual0 proofs inRows64 now43/42ms. Rows64 times out120.038s at5545701376bytes; bounce setup77s with far-end10.8s; no complete64module or negative credit. Next generic bounce numeric value interface, named rank values and scoped opaque index definitions; same rows and caps.",
+  "new_accepted_machine": false
+}

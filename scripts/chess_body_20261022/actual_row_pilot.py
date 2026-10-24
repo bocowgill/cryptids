@@ -152,6 +152,15 @@ theorem returnIndex_val (q : Fin 4042) (p : Syntax 4042)
     FieldSelectiveLayout.liveReturn_val q
       (i.cast (congrArg (fun p ↦ 1 + FieldReturns.writeCount p) same).symm) value
 
+theorem bounceIndex_val (q : Fin 4042) (p : Syntax 4042)
+    (same : FieldPacked.syntaxRows.get q = p)
+    (i : Fin (1 + FieldReturns.writeCount p)) (value : Fin 5) :
+    (bounceIndex q p same i value).val =
+      533341 + (1 + (FieldSelectiveLayout.offset q + i.val) * 5 + value.val) := by
+  unfold bounceIndex
+  rewrite [SelectiveBinary.bounceState_val, returnIndex_val]
+  rfl
+
 theorem entry_syntax (q : Fin 4042) (p : Syntax 4042)
     (same : FieldPacked.syntaxRows.get q = p) :
     FieldPacked.getter.entry q = slotIndex q p same p.root := by
@@ -193,7 +202,7 @@ theorem decode_bit_1 : Binary.decodeSymbol 1 = true := rfl
 
 def generate_tools(driver, header, audit_and_end, module):
     roots = ['mainIndex', 'haltedMain', 'returnIndex', 'bounceIndex',
-             'returnIndex_val', 'entry_syntax', 'findReturn_syntax',
+             'returnIndex_val', 'bounceIndex_val', 'entry_syntax', 'findReturn_syntax',
              'returnAt_syntax', 'post_halted', 'haltedMain_address',
              'decode_bit_0', 'decode_bit_1']
     driver.emit('ActualTools.lean', header([module + '.RowWitnesses']) + TOOLS +
@@ -264,6 +273,8 @@ def generate_rows(driver, selected, snapshot, expected_sha, header, audit_and_en
     for q, rank in sorted({(q, rank) for q, rank, _ in plan['return_pairs']}):
         parts.append(f'def rank_{q}_{rank} : Fin (1 + FieldReturns.writeCount syntax_{q}) :=\n'
                      f'  ⟨{rank}, by decide +kernel⟩\n')
+        add(f'rank_val_{q}_{rank}',
+            f'theorem rank_val_{q}_{rank} : rank_{q}_{rank}.val = {rank} := by rfl')
     marker(f'ranks-{count}', 0)
     for q, node, rank in sorted(plan['find_targets']):
         add(f'find_{q}_{node}', f'theorem find_{q}_{node} :\n'
@@ -280,16 +291,18 @@ def generate_rows(driver, selected, snapshot, expected_sha, header, audit_and_en
         if index % 16 == 15 or index + 1 == len(plan['main_pairs']):
             marker(f'main-address-{count}', encoded(node, store))
     marker(f'before-bounce-{count}', 0)
+    parts.append('section\n'
+                 'attribute [local irreducible] returnIndex bounceIndex\n')
     for q, rank, store in sorted(plan['return_pairs']):
         target = 533341 + 1 + 5 * (data['return_offsets'][q] + rank) + store
         add(f'bounce_address_{q}_{rank}_{store}',
             f'theorem bounce_address_{q}_{rank}_{store} :\n'
             f'    bounceIndex {q} syntax_{q} syntax_eq_{q} rank_{q}_{rank} {store} =\n'
             f'      {target} := by\n  apply Fin.ext\n'
-            f'  change 533341 + (returnIndex {q} syntax_{q} syntax_eq_{q}\n'
-            f'    rank_{q}_{rank} {store}).val = {target}\n'
-            f'  rw [returnIndex_val, return_offset_{q}]\n  rfl')
+            f'  simpa only [return_offset_{q}, rank_val_{q}_{rank}] using\n'
+            f'    bounceIndex_val {q} syntax_{q} syntax_eq_{q} rank_{q}_{rank} {store}')
         marker(f'bounce-address-{count}', target)
+    parts.append('end\n')
     marker(f'before-aux-{count}', 0)
     for fact_index, ((node, bit, store), result) in enumerate(sorted(plan['facts'].items())):
         instruction = data['getter_samples'][node][1]

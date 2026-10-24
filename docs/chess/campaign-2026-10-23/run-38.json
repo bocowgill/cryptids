@@ -3,9 +3,14 @@
   "source": "7758f0d342a8d5ec4b57ac0d9fce4d48736a96d2",
   "mode": "full",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-38",
-  "status": "dispatched",
+  "status": "retained_symbolic_and_entry_pass_64_timeout",
   "change": "Remove rejected local reducible attributes; check symbolic theorem and initial0/both bits with normal validation",
   "resource_caps_changed": false,
   "accepted_states": 769344,
-  "prospective_states": 310029
+  "prospective_states": 310029,
+  "symbolic_generic_checked": true,
+  "additional_initial_rows_checked": 2,
+  "original_sample_states_completed": 0,
+  "diagnosis": "Generic and initial both-bit proofs/audits pass;64stage times out120.038s at5.546GB,77s return-address setup",
+  "new_accepted_machine": false
 }

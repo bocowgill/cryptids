@@ -1,7 +1,7 @@
 # Conditional return-address proof pilot
 
-Status: proposed, unverified, not yet implemented. Await run35's correctness
-outcome first. Certificate-34's largest setup gaps are between return-address
+Status: implemented for the next bounded remote pilot, not yet verified.
+Certificate-38 passes the symbolic interface and initial0/both-bit audits. Certificate-34's largest setup gaps are between return-address
 markers: several 5–8 seconds, including 8.007 seconds for q4041/rank0/store4.
 It has no full Rows64 credit because later proof errors reject the module.
 
@@ -54,3 +54,12 @@ identity: write-target order, roots, every literal write child and inverse looku
 must be proved. Start with a bounded constructor/field pilot and a corrupted slot.
 This could replace repeated dependent layout reasoning across all paid returns,
 and would also supply required return-table fidelity for the full shared checker.
+
+
+Current implementation adds generic bounceIndex_val to ActualTools/audit roots,
+checks rank.val once, and proves concrete addresses through that interface.
+Only during the address-proof section, returnIndex/bounceIndex are irreducible;
+normal status returns before actual transition proofs. This blocks unintentional
+closed index normalization. There is no reducibility override on a frozen/indexed
+definition. Same64/512/4096gates and caps. The original initial0/both-bit gate
+also reruns with its full-private audit. No machine savings accepted by this step.

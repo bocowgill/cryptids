@@ -19,12 +19,12 @@ per-row proof evaluation rather than changing any machine transition.
 
 Acceptance gates before execution:
 
-- [ ] S1: Generic symbolic_main_write builds and receives a full-private root
+- [x] S1: Generic symbolic_main_write builds and receives a full-private root
   audit under the existing60second/6GiB helper limit. Every premise explicitly
   binds the actual getter, syntax correspondence, node evaluation, local lookup
   and all numeric source/target/return addresses. No extra axioms or unsafe proof
   authority. Source and generator hashes retained.
-- [ ] S2: Initial state0, both bits, proves the unchanged actual transition and
+- [x] S2: Initial state0, both bits, proves the unchanged actual transition and
   RowAt predicates in Rows1, with all explicit roots fully audited under60seconds.
   Record setup/actual-row markers and memory. This is an additional gate; it
   never substitutes for the original64/512/4096 samples or universal relation.
@@ -41,3 +41,12 @@ If symbolic instantiation retains the same costly expansion, retain the exact
 obstruction and move to the shared structural-table/cache architecture. Even if
 small samples pass, a million named row theorems may not scale; certify the full
 relation with a shared checker before claiming the310029state machine.
+
+
+Evidence for S1/S2: run40046430397 at7758f0d, certificate-38. Symbolic interface
+build4.971s; full-private1root/14209dependency audit3.151s. Rows1 build6.183s,
+peak3304136704bytes; full-private23root/18326dependency audit3.750s. Only
+propext/Classical.choice/Quot.sound. Both original entry-state transition/RowAt
+proofs checked; main sample counters remain0 by design. Initial actual proofs
+inRows64 now43/42ms. S3 still fails120.038s wall, peak5545701376bytes, with
+return-address setup dominating77s. No negative/512/4096or universal credit.
