@@ -5,13 +5,29 @@
   "cwd": "/home/runner/work/cryptids/cryptids",
   "exit": 0,
   "exit_evidence": "Terminal successful workflow step; no continue-on-error",
-  "manual_recovery_gate": "pending complete payload push and final remote status/ref verification",
+  "manual_recovery_gate": {
+    "checkpoint_pushes_started_no_further_run": true,
+    "fork_ref_matched": true,
+    "met": true,
+    "payload_commit": "95d47d645fe190ef04d38fcade23176ee8c2fa64",
+    "pilot_conclusion": "success",
+    "pilot_run": 40143132066,
+    "pilot_status": "completed",
+    "push_exit": 0,
+    "tracked_artifact_members": 23,
+    "working_tree_clean_after_payload_push": true
+  },
   "matches": {
     "B1": "PARSIMONY_MEMORY_BINDING_PASSED",
     "K1": "PARSIMONY_MEMORY_KERNEL_PASSED",
     "M1": "PARSIMONY_MEMORY_COMPARISON_PASSED"
   },
   "path": "/home/runner/.elan/bin:/snap/bin:/home/runner/.local/bin:/opt/pipx_bin:/home/runner/.cargo/bin:/home/runner/.config/composer/vendor/bin:/usr/local/.ghcup/bin:/home/runner/.dotnet/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+  "phase_gate_counts": {
+    "abandoned": 0,
+    "met": 4,
+    "unmet": 0
+  },
   "producer": "5e978b16ee8269943ef4e9999b6f34cafc965801",
   "run_id": 40143132066,
   "shell": "/bin/bash",

@@ -8,8 +8,12 @@ accepted/frozen pins fixed and outreach on hold. Never push origin (upstream).
 Branch: `codex/chess-openevolve-pilot`.
 Workspace: `/Users/bocowgill/.codex/worktrees/6ba9/cryptids`.
 Fork push: `git@github.com:bocowgill/cryptids.git`.
-Recovery payload push/ref verification: pending final retention commit.
-Three runnable gates are met; R1 remains pending that final push and status check.
+Complete recovery payload pushed at
+`95d47d645fe190ef04d38fcade23176ee8c2fa64`; push exited zero, fork ref matched,
+all 23 artifact members are tracked and the working tree was clean. The sole
+memory run is terminal success and checkpoint pushes launched no further run.
+All four bounded phase gates are met; zero unmet or abandoned. This does not
+claim complete-printer certification. Final metadata records the completed push.
 
 ## Results to preserve
 

@@ -23,8 +23,8 @@ the experimental 160,097-state reduction, without claiming full certification.
   EXPECT: PARSIMONY_MEMORY_COMPARISON_PASSED
   EVIDENCE: Same zero-exit run and comparison token. Paired peak 6064721920 to 5223178240 bytes (802.56 MiB less), elapsed 23.824 to 8.453 seconds, object 16392400 to 11827144 bytes (27.85% smaller), all at 13360 words under unchanged caps. Continue shared representation; whole-composition memory and full correctness remain open. Retained comparison arithmetic and provenance independently rechecked by review.py --iteration 1.
 
-- [ ] R1: Exact producer/run, archives, logs, measurements, state breakdown, remaining obligations and restart instructions are retained in a clean pushed checkpoint; no pilot job remains active.
-  EVIDENCE: pending
+- [x] R1: Exact producer/run, archives, logs, measurements, state breakdown, remaining obligations and restart instructions are retained in a clean pushed checkpoint; no pilot job remains active.
+  EVIDENCE: Complete recovery payload 95d47d645fe190ef04d38fcade23176ee8c2fa64 pushed with exit zero and fork ref independently matched. All 23 artifact members are tracked, full archive/log digests and exact producer hashes verified. The sole memory run is terminal success; checkpoint pushes produced no new run. Working tree was clean after payload push. RESULTS.md and CHECKPOINT.md preserve every state category, measured limits, uncertainty, unresolved obligations and next task. Four gates met, zero unmet or abandoned; no automatic continuation.
 
 ## Bounds and decision rule fixed before execution
 

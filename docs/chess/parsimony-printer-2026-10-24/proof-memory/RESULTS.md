@@ -177,5 +177,8 @@ available; the new memory headroom does not solve those proofs.
 
 This bounded pilot is complete. No subsequent proof job or old-goal resumption
 is launched automatically. Outreach, upstream issues and PRs remain on hold.
-Complete recovery payload push and final ref verification are recorded in
-CHECKPOINT.md and the manual R1 gate after they have actually completed.
+All four phase gates are met, zero unmet or abandoned. The complete recovery
+payload is pushed at `95d47d645fe190ef04d38fcade23176ee8c2fa64`, with exit zero,
+fork ref verified and all 23 artifact members tracked. The sole memory pilot
+is terminal success; checkpoint pushes launched no further job. CHECKPOINT.md
+and the manual R1 gate record this completed recovery verification.
