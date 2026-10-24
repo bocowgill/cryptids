@@ -31,7 +31,9 @@ but Scope16 still times out 180.104 s after 421 records, peak 4,861,300,736 byte
 Main-coherence timings unchanged; reject literalization as scaling solution.
 Packet retained/reviewed. No larger completed module/audit or quarter.
 
-Next pilot 73 uses a reusable root-and-children structural certificate. Its
+Current pilot 73: run 40077567555 at
+7d861fab2527f9f07b8e40209f2fa6c8fa4b4160 (mode local; retain certificate-73).
+It uses a reusable root-and-children structural certificate. Its
 runtime traverses each syntax constructor once and never uses an indexed
 node getter. A universal Lean induction must prove every original slot is
 covered; subtree embeddings preserve exact global postorder addresses. Actual
@@ -48,4 +50,4 @@ global_rows_pilot.py and full_link_pilot.py retain an explicit all-source
 hypothesis and have no final-theorem credit.
 
 See ../campaign-2026-10-23/RESUME.md, GATES.md, STRUCTURAL-CHECKER-GATES.md,
-run-69.json and STATE-COUNTS-AND-OPPORTUNITIES.md. Last account usage 11%; no reset.
+run-69.json through run-73.json and STATE-COUNTS-AND-OPPORTUNITIES.md. Last account usage 11%; no reset.
