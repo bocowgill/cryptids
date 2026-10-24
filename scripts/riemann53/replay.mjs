@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 
 assert.equal(process.env.RH53_REMOTE, '1');
 assert.equal(process.env.GITHUB_ACTIONS, 'true');
-const directory = '.lake/riemann53/';
+const directory = (process.env.RH53_OUTPUT_DIR || '.lake/riemann53') + '/';
 const read = name => JSON.parse(fs.readFileSync(directory + name, 'utf8'));
 const sha = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
 function table(bytes) {
@@ -121,6 +121,11 @@ replay(old, witness.frames.old_input, witness.frames.old_next_root);
 replay(newer, witness.frames.new_input, witness.frames.new_next_root);
 assert.deepEqual(witness.frames.old_next_root.relative_ones,
                  witness.frames.expected_old_next.ones);
+assert.deepEqual(witness.frames.new_next_root.relative_ones,
+                 witness.frames.expected_new_control_next.ones);
+assert.deepEqual(witness.label, ['outside', 44]);
+assert.equal(witness.cont, false);
+assert.equal(witness.k, 1);
 const result = {
   status: 'witness-reproduced', baseline_sha256: sha(originalBytes),
   candidate_sha256: sha(candidateBytes), states: newer.length,

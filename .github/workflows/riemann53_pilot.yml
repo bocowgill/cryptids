@@ -1,4 +1,4 @@
-name: RH state-53 bounded pilot
+name: RH53 counterexample replay and Lean check
 on:
   push:
     branches: ['codex/riemann-reduction']
@@ -18,6 +18,8 @@ jobs:
     env:
       RH53_REMOTE: '1'
       RH53_PUBLIC: '${{ !github.event.repository.private }}'
+      RH53_REPLAY02: '1'
+      RH53_OUTPUT_DIR: '.lake/riemann53-replay02'
       LEAN_NUM_THREADS: '1'
       OMP_NUM_THREADS: '1'
       ELAN_NO_UPDATE_CHECK: '1'
@@ -28,12 +30,31 @@ jobs:
         timeout-minutes: 14
         with:
           fetch-depth: 8
-      - name: Run one fixed candidate under aggregate limits
+      - uses: leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6
+        timeout-minutes: 8
+        with:
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'false'
+          use-github-cache: 'false'
+      - uses: actions/cache/restore@caa296126883cff596d87d8935842f9db880ef25
+        timeout-minutes: 4
+        with:
+          path: |
+            .lake/packages
+            .lake/build
+          key: rh53-replay-${{ runner.os }}-${{ github.sha }}
+          restore-keys: |
+            lake-Linux-X64-
+            chess-body-certificate-20261022-Linux-
+      - name: Replay the fixed counterexample and check Lean under aggregate limits
         run: python3 scripts/riemann53/driver.py
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
-          name: rh53-pilot-${{ github.sha }}
-          path: .lake/riemann53/**
+          name: rh53-replay02-${{ github.sha }}
+          path: .lake/riemann53-replay02/**
           include-hidden-files: true
           retention-days: 30

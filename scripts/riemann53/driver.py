@@ -18,7 +18,7 @@ import sys
 import time
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT = ROOT / '.lake/riemann53'
+OUT = ROOT / os.environ.get('RH53_OUTPUT_DIR', '.lake/riemann53')
 TOTAL = 3180
 MEMORY = 6 << 30
 DRIVER_MEMORY = 512 << 20
@@ -67,7 +67,7 @@ def main():
                     environment=os.environ['RUNNER_ENVIRONMENT'],
                     cgroup=Path('/proc/self/cgroup').read_text(),
                     visible_cgroup_files=cgroup_files,
-                    probe_revision='optional-v1-v2-files; unexecuted after first-run failure')
+                    probe_revision='optional-v1-v2-files; second authorized job')
     summary = dict(status='running', candidate_limit=1, total_limit_seconds=TOTAL,
                    aggregate_limit_bytes=MEMORY, driver_limit_bytes=DRIVER_MEMORY,
                    stage_caps=dict(setup=900, generation=120, screening=180,
@@ -90,12 +90,21 @@ def main():
             available = min(available, int(limit) - int(usage))
     if available < MEMORY + (2 << 30):
         raise RuntimeError('Insufficient free-runner headroom; no larger runner allowed')
+    assert os.environ.get('RH53_REPLAY02') == '1'
+    assert os.environ.get('GITHUB_RUN_ATTEMPT') == '1', 'No automatic or manual retry'
+    setup_remaining = 900 - elapsed_setup
     stages = [('generation', 120, [sys.executable, 'scripts/riemann53/pilot.py', 'generate']),
-              ('screening', 180, [sys.executable, 'scripts/riemann53/pilot.py', 'screen']),
-              ('audits', 450, ['node', 'scripts/riemann53/replay.mjs'])]
+              ('screening', 180, [sys.executable, 'scripts/riemann53/pilot.py', 'fixed44']),
+              ('independent-replay', 60, ['node', 'scripts/riemann53/replay.mjs']),
+              ('setup', setup_remaining, [sys.executable, 'scripts/riemann53/setup_replay.py']),
+              ('kernel', 600, ['lake', '--wfail', '-f', 'lakefile.riemann53.toml',
+                               'build', 'Rh53Counterexample']),
+              ('audits', 390, [sys.executable, 'scripts/riemann53/check_lean.py'])]
     try:
         for name, cap, argv in stages:
             before = time.monotonic()
+            if name == 'setup':
+                cap = min(cap, 900 - (before - start))
             remaining = TOTAL - (before - start)
             allowed = min(cap, remaining)
             if allowed <= 0:
@@ -135,9 +144,11 @@ def main():
                 raise RuntimeError('Failed stage: ' + name)
         result = json.loads((OUT / 'screen.json').read_text())
         replay = json.loads((OUT / 'independent-replay.json').read_text())
-        if result['status'] == 'obstruction' and replay['status'] == 'witness-reproduced':
-            summary['status'] = 'obstruction-reproduced'
-            print('PILOT_OBSTRUCTION_REPRODUCED', flush=True)
+        lean = json.loads((OUT / 'lean-verification.json').read_text())
+        if (result['status'] == 'obstruction' and replay['status'] == 'witness-reproduced'
+                and lean['status'] == 'lean-counterexample-checked'):
+            summary['status'] = 'counterexample-replayed-and-lean-checked'
+            print('COUNTEREXAMPLE_REPLAYED_AND_LEAN_CHECKED', flush=True)
         else:
             summary['status'] = 'open-universal-encoding-obligation'
             raise RuntimeError('No negative witness; universal encoding proof remains open')
@@ -149,6 +160,9 @@ def main():
     finally:
         summary['total_seconds'] = time.monotonic() - start
         summary['driver_peak_rss_bytes'] = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss * 1024
+        invocation_log = OUT / 'lean-invocations.txt'
+        summary['lean_runs'] = (len(invocation_log.read_text().splitlines())
+                                if invocation_log.exists() else 0)
         save('resource-summary.json', summary)
 
 

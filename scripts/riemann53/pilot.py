@@ -16,7 +16,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT = ROOT / '.lake/riemann53'
+OUT = ROOT / os.environ.get('RH53_OUTPUT_DIR', '.lake/riemann53')
 BASE = '6c28d8524fa008c6fb5aadb759df74a55ce96423'
 TABLE = 'artifacts/riemann_95/machine.txt'
 SHA = '7e9731ed1b7c63d4e67c0f8d646f8498d9645f26e237a8604d4b7f91a6ab398d'
@@ -122,7 +122,10 @@ def generate():
     sources = [TABLE, SCHEMA, CONTROL, 'Cryptids/Semantics/Riemann120/Backend.lean',
                'Cryptids/Semantics/Riemann/Gadgets.lean',
                'scripts/riemann53/pilot.py', 'scripts/riemann53/driver.py',
-               'scripts/riemann53/replay.mjs', '.github/workflows/riemann53_pilot.yml']
+               'scripts/riemann53/replay.mjs', '.github/workflows/riemann53_pilot.yml',
+               'scripts/riemann53/Rh53Counterexample.lean',
+               'scripts/riemann53/ReplayAudit.lean', 'scripts/riemann53/check_lean.py',
+               'scripts/riemann53/setup_replay.py', 'lakefile.riemann53.toml']
     save('provenance.json', dict(base=BASE, producer=os.environ['GITHUB_SHA'],
                                 hashes={p: digest((ROOT / p).read_bytes()) for p in sources},
                                 machine94_sha256=digest(output),
@@ -248,7 +251,7 @@ def run_to_root(table, frame, limit=20000):
     return dict(inconclusive=True, steps=limit, state=q, head=h, ones=sorted(ones))
 
 
-def screen():
+def screen(fixed44=False):
     table = parse_table((ROOT / TABLE).read_bytes())
     candidate = parse_table((OUT / 'machine94.txt').read_bytes())
     schema = (ROOT / SCHEMA).read_text()
@@ -262,6 +265,9 @@ def screen():
     # The fixed outside-word tier alone can supply a decisive negative witness.
     # Deeper cases are unnecessary after the first false required equation.
     cases.sort(key=lambda c: (len(c['walked']), c['walked'], c['label']))
+    if fixed44:
+        cases = [c for c in cases if c['label'] == ['outside', 44]]
+        assert len(cases) == 1 and cases[0]['effect'] == dict(kind='decnz', reg=0)
     history, witness = [], None
     for case in cases:
         word, walked, effect = case['word'], case['walked'], case['effect']
@@ -278,7 +284,7 @@ def screen():
         if effect['kind'] == 'inc':
             options = [(False, 0)]
         elif effect['kind'] == 'decnz':
-            options = [(False, 0), (False, 1)]
+            options = [(False, 1)] if fixed44 else [(False, 0), (False, 1)]
         elif effect['kind'] == 'jump':
             options = [(effect['cont'], effect['k'])]
         for cont, k in options:
@@ -318,6 +324,7 @@ def screen():
         expected_old = root_frame(pad + extra, witness['old_return'], next_bank)
         assert old_run['relative_ones'] == expected_old['ones']
         expected_new_control = root_frame(new_pad + extra, witness['return_of_encoded'], next_bank)
+        assert new_run['relative_ones'] == expected_new_control['ones']
         witness['frames'] = dict(old_input=old_frame, new_input=new_frame,
                                   old_next_root=old_run, new_next_root=new_run,
                                   expected_old_next=expected_old,
@@ -333,4 +340,4 @@ def screen():
 
 
 if __name__ == '__main__':
-    {'generate': generate, 'screen': screen}[sys.argv[1]]()
+    {'generate': generate, 'screen': screen, 'fixed44': lambda: screen(True)}[sys.argv[1]]()
