@@ -1,0 +1,39 @@
+name: RH state-53 bounded pilot
+on:
+  push:
+    branches: ['codex/riemann-reduction']
+    paths:
+      - 'scripts/riemann53/**'
+      - '.github/workflows/riemann53_pilot.yml'
+permissions:
+  contents: read
+concurrency:
+  group: rh53-fixed-pilot-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  pilot:
+    if: github.repository == 'bocowgill/cryptids' && !github.event.repository.private
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    env:
+      RH53_REMOTE: '1'
+      RH53_PUBLIC: '${{ !github.event.repository.private }}'
+      LEAN_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      ELAN_NO_UPDATE_CHECK: '1'
+    steps:
+      - name: Start whole-job setup clock
+        run: echo "RH53_JOB_START=$(date +%s)" >> "$GITHUB_ENV"
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        timeout-minutes: 14
+        with:
+          fetch-depth: 8
+      - name: Run one fixed candidate under aggregate limits
+        run: python3 scripts/riemann53/driver.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: rh53-pilot-${{ github.sha }}
+          path: .lake/riemann53/**
+          include-hidden-files: true
+          retention-days: 30
