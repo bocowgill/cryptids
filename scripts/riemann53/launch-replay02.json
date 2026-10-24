@@ -1,0 +1,17 @@
+{
+  "schema": "rh53-counterexample-replay-launch-v2",
+  "authorization_date": "2026-10-24",
+  "source_transport_commit": "5f2db4542af6c69fd109bb7b080c7f3a72b87490",
+  "baseline_commit": "6c28d8524fa008c6fb5aadb759df74a55ce96423",
+  "fixed_witness": "outside44 zero DEC bank0",
+  "additional_jobs_authorized": 1,
+  "total_seconds": 3180,
+  "aggregate_memory_bytes": 6442450944,
+  "driver_memory_bytes": 536870912,
+  "maximum_concurrent_lean_processes": 1,
+  "lean_allocator_mib": 6144,
+  "automatic_retry": false,
+  "paid_resources": false,
+  "chess_paused": true,
+  "broader_search_on_hold": true
+}
