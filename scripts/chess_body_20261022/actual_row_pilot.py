@@ -299,8 +299,10 @@ def generate_rows(driver, selected, snapshot, expected_sha, header, audit_and_en
             f'theorem bounce_address_{q}_{rank}_{store} :\n'
             f'    bounceIndex {q} syntax_{q} syntax_eq_{q} rank_{q}_{rank} {store} =\n'
             f'      {target} := by\n  apply Fin.ext\n'
-            f'  simpa only [return_offset_{q}, rank_val_{q}_{rank}] using\n'
-            f'    bounceIndex_val {q} syntax_{q} syntax_eq_{q} rank_{q}_{rank} {store}')
+            f'  have numeric :=\n'
+            f'    bounceIndex_val {q} syntax_{q} syntax_eq_{q} rank_{q}_{rank} {store}\n'
+            f'  rewrite [return_offset_{q}, rank_val_{q}_{rank}] at numeric\n'
+            f'  exact numeric.trans (by decide +kernel)')
         marker(f'bounce-address-{count}', target)
     parts.append('end\n')
     marker(f'before-aux-{count}', 0)

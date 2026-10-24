@@ -400,3 +400,18 @@ R1/R2/R3acceptance gates. Generic finite callback reification/reconstruction
 plus twoactual source jumps and noncommutative25cell/corruption fixtures are
 proposed. Whole source-chunk fidelity, raw ranges and full checker unproved.
 Await current return-address pilot; do not claim this new producer compiled.
+
+Current return-address FULL run40048622763 atd794f55, dispatched after exact
+fork-head check. Retain certificate-39. Source table producer in later e2413c1
+is unwired/unexecuted and is NOT part of run39. Same original sample/negative
+and extra entry gates,13root ActualTools, standard proof authority and caps.
+
+
+Run40048622763 atd794f55 retained and byte-reviewed as certificate-39.
+Generic bounceIndex_val and all13ActualTools roots pass4.944s+2.624s audit,
+standard3axioms. Rows1 exits3.934s/3220529152bytes, sole error: simpa only
+leaves closed Fin/Nat numeral arithmetic unnormalized. No new entry/sample
+credit from39; prior38entry proofs remain checked. Repair uses a named
+bounce value equality, explicit offset/rank rewrites and Eq.trans with a
+closed decide+kernel arithmetic proof. Same statement, local opaque scope,
+original caps and gates. SourceTable producer stays UNWIRED/unexecuted.

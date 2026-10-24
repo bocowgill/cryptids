@@ -1,0 +1,9 @@
+Chess command diagnostics probe
+
+/home/runner/work/cryptids/cryptids/Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows1.lean:170:2: error: Type mismatch: After simplification, term
+  bounceIndex_val 1 syntax_1 syntax_eq_1 rank_1_0 0
+ has type
+  @Eq ℕ (↑(bounceIndex 1 syntax_1 syntax_eq_1 rank_1_0 0)) (533341 + (1 + (1 + 0) * 5 + ↑0))
+but is expected to have type
+  @Eq ℕ ↑(bounceIndex 1 syntax_1 syntax_eq_1 rank_1_0 0) ↑533347
+

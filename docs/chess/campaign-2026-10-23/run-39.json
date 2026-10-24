@@ -1,0 +1,14 @@
+{
+  "run_id": 40048622763,
+  "source": "d794f55a00c2935077c7790556329d5594387a27",
+  "mode": "full",
+  "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-39",
+  "status": "retained_generic_bounce_pass_concrete_arithmetic_error",
+  "change": "Generic bounceIndex_val, named rank values and scoped opaque index definitions during addresses",
+  "resource_caps_changed": false,
+  "accepted_states": 769344,
+  "prospective_states": 310029,
+  "generic_bounce_value_checked": true,
+  "diagnosis": "ActualTools13root audit passes;Rows1 simpa only fails closed Fin/Nat normalization,3.934s,no resource stop",
+  "new_accepted_machine": false
+}

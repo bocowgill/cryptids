@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40048622763,
+  "commit": "d794f55a00c2935077c7790556329d5594387a27",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": true,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "Generic bounceIndex_val and13root ActualTools audit pass4.944s+2.624s. Rows1 rejected3.934s/3.221GB solely because simpa only does not normalize the closed Fin/Nat RHS. No new entry/sample credit from39. Replace concrete step with named generic equality, explicit offset/rank rewrites and Eq.trans of closed decide+kernel arithmetic. Same statement, opaque scope, original gates and caps.",
+  "new_accepted_machine": false
+}
