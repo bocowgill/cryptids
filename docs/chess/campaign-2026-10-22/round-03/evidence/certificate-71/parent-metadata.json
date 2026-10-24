@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40074836709,
+  "commit": "3b23bac46fadfc7517274fb3f2f662b8fb722c9f",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": true,
+  "actual_rows": 4370,
+  "negative_control": "kernel_rejected",
+  "diagnosis": "Direct Boolean soundness 12 roots and full audit pass, 4.039+2.930s. Block and corruption pass. Scope16 still hits180.098s wall at4543590400bytes after405records; no completed larger module/audit and no quarter. Abandon Boolean finite-check replacement as scaling remedy; inspect literal syntax representation to remove repeated source lowering rather than vary finite deciders.",
+  "new_accepted_machine": false
+}

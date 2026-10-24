@@ -21,16 +21,17 @@ no complete 448-label/39,240-state certificate or audit, no quarter attempted.
 Remaining cost is literal coherence decisions (2.332 s at q442). Both packets
 are retained/reviewed; historical evidence stays fixed.
 
-Decision: redesign repeated finite decisions before another scaling attempt.
-Pilot 70 is retained/reviewed: generic checker proof API/unfold/Boolean
-simplification errors and naming warning, 25.103 s / 3,187,347,456 bytes; no
-throughput test. Corrected pilot 71: run 40074836709 at
-3b23bac46fadfc7517274fb3f2f662b8fb722c9f (mode local; retain certificate-71).
-It uses a reusable Boolean checker with ordinary Lean soundness
-into the original Coherent/ReturnCoherent propositions. It decodes each syntax
-node before all ten cases and checks both actual transition words together.
-Same complete block/corruption controls, 1/16 and 1/4 targets, 120/180/210 s
-including full audits, 1200 s overall, 6 GiB. No relaxed proof obligations.
+Pilot 71 proves the 12-root Boolean checker (4.039+2.930 s), full block and
+corruption control, but Scope16 again times out at 180.098 s after 405 records,
+peak 4,543,590,400 bytes. No larger module/audit, no quarter. Packet retained
+and reviewed. Decision: abandon finite-loop replacement as the scaling remedy.
+
+Next pilot 72 changes representation: literal syntax trees plus kernel-checked
+exact lowering identities replace syntax defined by repeatedly calling lower.
+Every frozen-source/row/return/census proof is still required; native proposal
+untrusted. Literal source identity gets its own timing marker. Same 6 GiB,
+120/180/210 s stages including audits, 1200 s overall. If this still fails to
+scale, use structural traversal/lookup certificates, not another finite loop.
 
 NEXT: require generic checker proof and private audit, then completed substantial
 coverage and resource evidence. Decide continue/redesign from those results.
@@ -40,4 +41,4 @@ global_rows_pilot.py and full_link_pilot.py retain an explicit all-source
 hypothesis and have no final-theorem credit.
 
 See ../campaign-2026-10-23/RESUME.md, GATES.md, STRUCTURAL-CHECKER-GATES.md,
-run-69.json and STATE-COUNTS-AND-OPPORTUNITIES.md. Last account usage 10%; no reset.
+run-69.json and STATE-COUNTS-AND-OPPORTUNITIES.md. Last account usage 11%; no reset.

@@ -59,6 +59,7 @@ def main():
                   'scripts/chess_body_20261022/numeric_phase_pilot.py',
                   'scripts/chess_body_20261022/local_rule_pilot.py',
                   'scripts/chess_body_20261022/direct_check_pilot.py',
+                  'scripts/chess_body_20261022/literal_syntax_pilot.py',
                   'scripts/chess_body_20261022/local_chunk_pilot.py',
                   'scripts/chess_body_20261022/source_scope_tools_pilot.py',
                   'scripts/chess_body_20261022/source_scope_pilot.py',

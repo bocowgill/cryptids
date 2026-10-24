@@ -209,3 +209,16 @@ have higher proof/implementation effort than closing the measured quotient.
 
 Memory comparison is final: 6/10 GiB yielded zero completed modules in the old
 route, so RAM did not establish scalability. No new memory experiment is active.
+
+
+Checkpoint 71/72: direct Boolean checker soundness/audit and the complete small
+block pass, but the 1/16 scope times out at 180.098 s after 405 records. No
+substantial certificate or full-machine saving. Abandon finite-decider variants
+as a scaling remedy. Rank 1 stays the same prospective 459,315-state saving,
+high proof difficulty/moderate effort. Next bounded representation pilot uses
+literal syntax with an exact per-operation Lean lowering identity, eliminating
+source compiler calls from repeated node/size/return normalization. This small
+representation pilot is justified only as a dependency for full-body coverage.
+Same caps and larger coverage gates; no additional memory. If it fails, move
+to structural traversal/lookup certificates. Other architecture/packet routes
+remain ranked below this measured quotient; accepted paid breakdown unchanged.

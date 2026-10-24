@@ -2,7 +2,7 @@
   "run_id": 40074836709,
   "source": "3b23bac46fadfc7517274fb3f2f662b8fb722c9f",
   "mode": "local",
-  "status": "remote_queued",
+  "status": "retained_reviewed_wall_obstruction",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-71",
   "correction": "Fix pilot70 generic proof rewrite/unfold/Boolean simplification and naming diagnostics",
   "requested_body_fractions": [
@@ -19,5 +19,14 @@
   "memory_gib": 6,
   "accepted_states": 769344,
   "target_states": 310029,
-  "new_accepted_machine": false
+  "new_accepted_machine": false,
+  "direct_checker_build_seconds": 4.03858896,
+  "direct_checker_audit_seconds": 2.929964273,
+  "direct_checker_roots": 12,
+  "scope16_wall_seconds": 180.098275772,
+  "scope16_peak_bytes": 4543590400,
+  "completed_records_before_stop": 405,
+  "completed_scope_modules": 0,
+  "quarter_attempted": false,
+  "decision": "Abandon finite-checker replacement as scaling remedy; test literal syntax representation with exact lowering identities"
 }

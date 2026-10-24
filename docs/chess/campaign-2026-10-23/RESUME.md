@@ -929,3 +929,32 @@ No actual block or substantial scope was attempted, and this run gives no
 performance evidence. Decision: one corrected bounded preflight/scaling trial;
 same 6 GiB, 60/120/180/210-second stages, 1200-second overall budget.
 Accepted 769,344 and prospective 310,029 unchanged.
+
+
+### Pilot 71: Boolean checker verified; route still does not scale
+
+Run 40074836709 at 3b23bac46fadfc7517274fb3f2f662b8fb722c9f is retained and
+reviewed as certificate-71. DirectChecks builds/audits in 4.039/2.930 s, 12
+explicit roots, peak audit 5,053,833,216 bytes, standard axioms only. Complete
+block builds/audits in 14.838/3.237 s; corruption controls pass. Scope16 still
+hits 180.098 s at 4,543,590,400 bytes after 405 records, with no complete larger
+module/audit and no quarter attempt. Main-coherence timings remain comparable:
+q400 247 ms versus prior 234 ms. Runner variation prevents attributing all
+slowdown to code, but there is no evidence of a material throughput benefit.
+
+Decision: ABANDON Boolean finite-check replacement as a scaling remedy. Keep
+its proved soundness, but do not repeat variants of its finite loops. Next
+representation pilot 72 emits literal syntax constructors and proves each
+`lower op_q = syntax_q` identity in Lean before using the row. Current rows
+instead define syntax_q as lower op_q, leaving source compilation in every
+node/size/return normalization. Literal subtrees are split at bounded depth
+only for manageable source and line width. Native postorder proposals remain
+untrusted; exact lowering identity, frozen-source identity, all actual row
+obligations, censuses and full-private roots remain required. A new explicit
+source_literal timing marker separates fidelity from coherence cost.
+
+Same 6 GiB, 120/180/210-second block/substantial stages and 1200 overall. If
+literal trees do not materially improve complete substantial certificates,
+move to a structural traversal/lookup certificate; do not vary deciders again.
+No credible full cost estimate; accepted 769,344, target 310,029 and prospective
+459,315 saving unchanged. Shared controls plus full linkage/review still open.

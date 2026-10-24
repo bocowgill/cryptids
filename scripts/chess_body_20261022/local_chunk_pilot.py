@@ -10,6 +10,7 @@ import json
 
 from raw_chunk_pilot import raw_op
 from source_chunk_pilot import indent
+from literal_syntax_pilot import render as literal_syntax
 
 
 TOOLS = r'''open ConjectureMachines.Optimisation
@@ -30,17 +31,19 @@ def append_operation(parts, q, operations, data):
     parts.append(f'def label_{q} : Fin 4042 := ⟨{q}, by decide +kernel⟩\n'
                  f'noncomputable def raw_{q} : RawOp :=\n' +
                  indent(raw_op(operations[q])) + '\n'
-                 f'noncomputable def op_{q} : Op 4042 := (restore 4042 raw_{q}).getD .halt\n'
-                 f'noncomputable def syntax_{q} : Syntax 4042 := lower op_{q}\n'
+                 f'noncomputable def op_{q} : Op 4042 := (restore 4042 raw_{q}).getD .halt\n' +
+                 literal_syntax(q, data['syntax'][q]) +
                  f'theorem source_raw_{q} :\n'
                  f'    erase (toTableOp (Snapshot.program label_{q})) = raw_{q} := by\n'
                  '  decide +kernel\n'
                  f'theorem source_op_{q} : op_{q} = Snapshot.program label_{q} :=\n'
                  f'  restored_literal (Snapshot.program label_{q}) raw_{q} source_raw_{q}\n'
+                 f'theorem source_literal_{q} : lower op_{q} = syntax_{q} := by\n'
+                 '  rfl\n'
                  f'theorem source_syntax_{q} :\n'
                  f'    FieldPacked.syntaxRows.get label_{q} = syntax_{q} :=\n'
                  f'  (FieldAware.syntaxRows_get label_{q}).trans\n'
-                 f'    (congrArg lower source_op_{q}).symm\n'
+                 f'    ((congrArg lower source_op_{q}).symm.trans source_literal_{q})\n'
                  f'theorem coherent_{q} : Coherent label_{q} syntax_{q} := by\n'
                  f'  exact DirectCheckPilot.checkMain_sound label_{q} syntax_{q}\n'
                  '    (by decide +kernel)\n'
@@ -64,7 +67,8 @@ def append_operation(parts, q, operations, data):
                  '  decide +kernel\n'
                  f'theorem returns_{q} : 1 + FieldReturns.writeCount syntax_{q} =\n'
                  f'    {len(data["return_local_targets"][q])} := by decide +kernel\n')
-    return [prefix + str(q) for prefix in ['source_raw_', 'source_op_', 'source_syntax_',
+    return [prefix + str(q) for prefix in ['source_raw_', 'source_op_', 'source_literal_',
+                                           'source_syntax_',
                                            'coherent_', 'returned_', 'main_rows_',
                                            'return_rows_', 'nodes_', 'returns_']]
 
@@ -158,6 +162,7 @@ submit_false_local_word
         main_nodes=node_count, return_ranks=return_count,
         finite_state_domain=state_count, finite_row_domain=row_count,
         every_bit_and_store=True, all_paid_local_returns=True,
+        syntax_representation='literal constructors with kernel-checked lowering identities',
         counts_are_proposals_until_required_roots_pass=True,
         kernel_checked=False, full_quotient_certified=False, new_accepted_machine=False)
     driver.checkpoint()

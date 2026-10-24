@@ -43,7 +43,8 @@ def generate(driver, snapshot, expected_sha, header, audit_and_end, progress_mar
              'open NumericLocalPilot LocalRulePilot SourceScopeToolsPilot LocalChunkPilot\n'
              f'namespace {namespace}\n']
     roots, owners = [], dict(inherited)
-    prefixes = ['source_raw_', 'source_op_', 'source_syntax_', 'coherent_', 'returned_',
+    prefixes = ['source_raw_', 'source_op_', 'source_literal_', 'source_syntax_',
+                'coherent_', 'returned_',
                 'main_rows_', 'return_rows_', 'nodes_', 'returns_']
     for q in range(end):
         if q not in inherited:
@@ -52,7 +53,7 @@ def generate(driver, snapshot, expected_sha, header, audit_and_end, progress_mar
             # Fine-grained markers diagnose the next measured bottleneck.
             source = parts.pop()
             assert len(parts) == begin
-            for kind in ['source_raw', 'coherent', 'returned', 'nodes']:
+            for kind in ['source_raw', 'source_literal', 'coherent', 'returned', 'nodes']:
                 needle = f'theorem {kind}_{q}'
                 assert source.count(needle) == 1
                 source = source.replace(needle, progress_marker(
@@ -112,6 +113,7 @@ def generate(driver, snapshot, expected_sha, header, audit_and_end, progress_mar
         finite_state_domain=states, finite_row_domain=rows, source_body_states=573802,
         main_nodes=nodes, return_ranks=returns, required_roots=len(roots),
         every_bit_and_store=True, all_paid_local_returns=True,
+        syntax_representation='literal constructors with kernel-checked lowering identities',
         kernel_checked=False, full_quotient_certified=False, new_accepted_machine=False)
     driver.checkpoint()
     return {q: owners[q] for q in range(end)}
