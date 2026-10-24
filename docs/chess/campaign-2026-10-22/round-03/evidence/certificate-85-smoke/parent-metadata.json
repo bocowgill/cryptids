@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40095691471,
+  "commit": "c7191c539ce33684f5516065fb1e047e3e1de432",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": false,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "Automatic smoke passes130.829s after workflow mode addition: strict fresh target builds/private audits including ActualTools and SymbolicTransitions. This is orchestration/preflight evidence only, no substantial source scaling or accepted machine credit. Separate profile85 remains the exact live diagnostic.",
+  "new_accepted_machine": false
+}

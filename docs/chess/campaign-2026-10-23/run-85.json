@@ -24,5 +24,7 @@
   "substantial_source_scaling_established": false,
   "new_accepted_machine": false,
   "automatic_smoke_run": 40095691471,
-  "automatic_smoke_evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-85-smoke"
+  "automatic_smoke_evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-85-smoke",
+  "automatic_smoke_status": "passed_retained_reviewed",
+  "automatic_smoke_driver_seconds": 130.829242658
 }

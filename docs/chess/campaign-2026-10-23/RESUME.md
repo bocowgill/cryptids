@@ -1394,3 +1394,8 @@ structural corrective change before re-running larger source gates.
 Existing local-mode SOURCE16/4 assertions untouched. All heavy work remote.
 Accepted769,344/target310,029/new savings0; last usage12%, goalACTIVE/no reset.
 No frozen/accepted/historical changes or outreach. Do not restart live jobs.
+
+
+Automatic smoke40095691471 atc7191c53 PASSES130.829s; retained/reviewed
+certificate-85-smoke. Preflight only, no source-scaling or accepted savings.
+Component profile40095774726 remains the exact live target; do not restart.

@@ -1,0 +1,415 @@
+{
+  "ActualTools.log": {
+    "bytes": 1617,
+    "sha256": "6416614133b5f6519743c8b63823b17672d62866d9dec9342f2c3d0501224e8e",
+    "crc32": 2867581274,
+    "compressed_bytes": 521,
+    "compression": 8
+  },
+  "ActualToolsAudit.log": {
+    "bytes": 217,
+    "sha256": "49aac395a04b538a7058eb0a226e5ad5cabbdd06dfd99d2aac93f78374dcf18c",
+    "crc32": 4157146466,
+    "compressed_bytes": 169,
+    "compression": 8
+  },
+  "AuditExecutable.log": {
+    "bytes": 254,
+    "sha256": "49cddf1009828cef824e2a6b9bc1266752c304c8d28d6deb8683df03deba10a8",
+    "crc32": 659836251,
+    "compressed_bytes": 151,
+    "compression": 8
+  },
+  "DiagnosticsSmoke.log": {
+    "bytes": 368,
+    "sha256": "5bf3c1a4d24908174b5c8533baa614f9bf0f0d2376f69de7bdf50401144e86ff",
+    "crc32": 481212285,
+    "compressed_bytes": 192,
+    "compression": 8
+  },
+  "DiagnosticsSmokeAudit.log": {
+    "bytes": 180,
+    "sha256": "8f017e8fb5da5faa8c8a77cfae69e1761acac88cb507648118e732192bdefada",
+    "crc32": 1572363418,
+    "compressed_bytes": 142,
+    "compression": 8
+  },
+  "Loaders.log": {
+    "bytes": 235,
+    "sha256": "b60334af367e54ec88ebe42fef0f0f0f61bd40c3fb76cab6eca018566d13bfe2",
+    "crc32": 3589407337,
+    "compressed_bytes": 163,
+    "compression": 8
+  },
+  "OperationWeights.log": {
+    "bytes": 744,
+    "sha256": "501a83292bbeb559ea9ca60fda1545af5a5790247d4c979fc3f0594feadc9e47",
+    "crc32": 4084220300,
+    "compressed_bytes": 341,
+    "compression": 8
+  },
+  "OperationWeightsAudit.log": {
+    "bytes": 220,
+    "sha256": "b72e9bf34d0bff537bfe9de31648bb14bc443fedbc7e2948875b0451c9d28b49",
+    "crc32": 1034887533,
+    "compressed_bytes": 171,
+    "compression": 8
+  },
+  "RowTools.log": {
+    "bytes": 712,
+    "sha256": "ae43cfa7cf125b49dd73a62667ec869f701c0053d85c91d0bea3c1b36e748482",
+    "crc32": 1604981390,
+    "compressed_bytes": 326,
+    "compression": 8
+  },
+  "RowToolsAudit.log": {
+    "bytes": 213,
+    "sha256": "494f9db093532b95c75d0cd698dcb13e64cab3bd24d7861016c7c39c19d2195a",
+    "crc32": 1329063852,
+    "compressed_bytes": 168,
+    "compression": 8
+  },
+  "RowWitnesses.log": {
+    "bytes": 1396,
+    "sha256": "8e963905f21f1d7c7119e697dfe96a7600e1ffbf51fe009c1a5b309363245337",
+    "crc32": 745225574,
+    "compressed_bytes": 487,
+    "compression": 8
+  },
+  "RowWitnessesAudit.log": {
+    "bytes": 218,
+    "sha256": "5df1de1fa1614a3025a3f5618f290e6b98292c9db182a65339f09bc698d6ce7c",
+    "crc32": 3009514414,
+    "compressed_bytes": 171,
+    "compression": 8
+  },
+  "SymbolicTransitions.log": {
+    "bytes": 1842,
+    "sha256": "0960f0f14d3dde8aa153a52cd040328e71c8dd97495b3532074c59e8a3522618",
+    "crc32": 2829571082,
+    "compressed_bytes": 561,
+    "compression": 8
+  },
+  "SymbolicTransitionsAudit.log": {
+    "bytes": 224,
+    "sha256": "cb45a0caf0e743d7c83826078ed169617c379aaf575e58fee19fddda70eef4cf",
+    "crc32": 34212416,
+    "compressed_bytes": 174,
+    "compression": 8
+  },
+  "TemplateSmoke.log": {
+    "bytes": 916,
+    "sha256": "0c35ff588a1b27884f56fe06330ba2f29e7a490076afc8874c876499d8ec6d95",
+    "crc32": 3726521016,
+    "compressed_bytes": 357,
+    "compression": 8
+  },
+  "TemplateSmokeAudit.log": {
+    "bytes": 200,
+    "sha256": "1d4bbc3a11b7e2e676944d288ad531bd7ec020d82ded648da147d87d1678d454",
+    "crc32": 1805447505,
+    "compressed_bytes": 161,
+    "compression": 8
+  },
+  "WeightTables.log": {
+    "bytes": 976,
+    "sha256": "3271feb72dba167527eeebf0ecf4b4a340d9e98fff5ea2799ee7579b1d7f521d",
+    "crc32": 2267709136,
+    "compressed_bytes": 397,
+    "compression": 8
+  },
+  "WeightTablesAudit.log": {
+    "bytes": 217,
+    "sha256": "c6c909c08dadcd8cc6ba4b9040fd21fc724fad7690309ab16f545c8b2126c72f",
+    "crc32": 4242704874,
+    "compressed_bytes": 171,
+    "compression": 8
+  },
+  "certificate-summary.json": {
+    "bytes": 35256,
+    "sha256": "de816ef60a80069c0ec12f43441565620974af232f233bde5640ade18a0e0fd1",
+    "crc32": 962473353,
+    "compressed_bytes": 6402,
+    "compression": 8
+  },
+  "command-diagnostics.log": {
+    "bytes": 33,
+    "sha256": "0580116dd136c5c8de276bd7e25e2409500842d2e5b724c8eb1a841d4472c6cb",
+    "crc32": 983238601,
+    "compressed_bytes": 35,
+    "compression": 8
+  },
+  "commands/1792846512956583907.json": {
+    "bytes": 1102,
+    "sha256": "81a0c23c60237da3f3d568db4445797726970f2451030af23181b75bf5e42f3d",
+    "crc32": 774218,
+    "compressed_bytes": 548,
+    "compression": 8
+  },
+  "commands/1792846643834841622.json": {
+    "bytes": 703,
+    "sha256": "454afd4418ba60a706bbf82583566c081e96eb72ba9f068c4be1bd95bc820111",
+    "crc32": 663388389,
+    "compressed_bytes": 370,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/ActualTools.lean": {
+    "bytes": 3747,
+    "sha256": "6838068c1cc87e86dbaf85029b90e1b61d406ca33f8b2245d7e74e62012d4c02",
+    "crc32": 990106151,
+    "compressed_bytes": 1050,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/Audit.lean": {
+    "bytes": 3029,
+    "sha256": "9d2a7db1fd5d82bbdadf4f6e0db0571af956741f42a89c3086c61414d52512df",
+    "crc32": 1238549105,
+    "compressed_bytes": 1202,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/ActualTools.roots": {
+    "bytes": 701,
+    "sha256": "4d2c4e0893e58e8c1a09b22e671a5a28b02239d4f325e124cdd59dd68c8cfba6",
+    "crc32": 3756687111,
+    "compressed_bytes": 144,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/Diagnostics.lean": {
+    "bytes": 686,
+    "sha256": "3ade3c144efb4e5597d18b3b1e17f716601189f1330fb4c66b3c28a9cc7696d1",
+    "crc32": 742099739,
+    "compressed_bytes": 362,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/DiagnosticsSmoke.lean": {
+    "bytes": 508,
+    "sha256": "f8f8e2ed5ca5dcbecb434225063ebd56e63b983ca7d16f265f55a49955b215c2",
+    "crc32": 1189819000,
+    "compressed_bytes": 253,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/DiagnosticsSmoke.roots": {
+    "bytes": 65,
+    "sha256": "71c10f08bf30e09758ed03daa93555a48b32c961c1d7c57b387fa71fc0552849",
+    "crc32": 993285171,
+    "compressed_bytes": 64,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/Loaders.lean": {
+    "bytes": 2294,
+    "sha256": "a6aa518047e6a778c5d6417ddd1b5230269c699ec34a0233527b22d2dbbb1a2b",
+    "crc32": 2402260792,
+    "compressed_bytes": 828,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/OperationWeights.lean": {
+    "bytes": 2096,
+    "sha256": "2621decadb62c1c60cf85282cdcc6e92834c70f161f552f6abebb874db8c3311",
+    "crc32": 3045851695,
+    "compressed_bytes": 772,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/OperationWeights.roots": {
+    "bytes": 346,
+    "sha256": "cb2fae1a991bad31f73968c6356b05c7ffe14e2272c1c96fa16e3a6c9fa25c14",
+    "crc32": 1050274631,
+    "compressed_bytes": 95,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/Packed.lean": {
+    "bytes": 8499,
+    "sha256": "9ac2214fe25ac603fff6be3a418392cab4dce3a07625a61de8932338b5b53014",
+    "crc32": 214906386,
+    "compressed_bytes": 2220,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/RowTools.lean": {
+    "bytes": 1950,
+    "sha256": "08ee7b4cbd9017eb33e6505214f11150723f93a6ae9cb2e58a9210bd83538aad",
+    "crc32": 3051963281,
+    "compressed_bytes": 790,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/RowTools.roots": {
+    "bytes": 217,
+    "sha256": "5042fe2b03d2d53ed3a0669204da414c7fe7657c7d507a8bd45ea02809504e0d",
+    "crc32": 3297186023,
+    "compressed_bytes": 90,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/RowWitnesses.lean": {
+    "bytes": 5611,
+    "sha256": "b0e5c4751a66298a0e7aab71e379c872fe30c8723e2972361ae5f32220adc34a",
+    "crc32": 2006324436,
+    "compressed_bytes": 1240,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/RowWitnesses.roots": {
+    "bytes": 752,
+    "sha256": "77161304151190867f6ba4e139e12c9a628341d17f3abe74acc5e83540df4245",
+    "crc32": 691352819,
+    "compressed_bytes": 142,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/SymbolicTransitions.lean": {
+    "bytes": 1982,
+    "sha256": "6cef548e24e7f56ceb4e8d6124f96488af2905925c34f58043554e9734ee175c",
+    "crc32": 2315861918,
+    "compressed_bytes": 838,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/SymbolicTransitions.roots": {
+    "bytes": 60,
+    "sha256": "c2eaab601a2f334b839f6c396d862eee53f8932c9e9d549fde30f52a27bd1416",
+    "crc32": 3089032606,
+    "compressed_bytes": 62,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/TemplateSmoke.lean": {
+    "bytes": 22481,
+    "sha256": "6d5db36dfc49e13aafe54e161e936d8af6461dfeb5b4283b8dc73a62210e5266",
+    "crc32": 1336989614,
+    "compressed_bytes": 3147,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/WeightTables.lean": {
+    "bytes": 223539,
+    "sha256": "93693e42f74f6c35e372004d34f1f5f2dd80d36782929f5af5914caaebf22123",
+    "crc32": 1566688966,
+    "compressed_bytes": 19004,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/TemplateSmoke.roots": {
+    "bytes": 2117,
+    "sha256": "17f07cc884ce43374ad0ffd3b25c5fe3dc30cfbefe3d64a9e868368b0efafd4d",
+    "crc32": 2331585688,
+    "compressed_bytes": 279,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/WeightTables.roots": {
+    "bytes": 503,
+    "sha256": "40c06b3976bf456c2e559e971562fc78ca0f63da783960ef6e48dbf9885b1d01",
+    "crc32": 4235910208,
+    "compressed_bytes": 121,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/smoke-map.txt": {
+    "bytes": 8,
+    "sha256": "e4749bc7f4f9360cf6a2e56321b815c8de72808a8ee756a48722cc9b287ddc24",
+    "crc32": 440241192,
+    "compressed_bytes": 10,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/smoke-packed.rows": {
+    "bytes": 8,
+    "sha256": "d9b5bddeb8b223ab1ee660ea6a3e1523d09eab53580b32ade066d846ec4ba036",
+    "crc32": 2929631411,
+    "compressed_bytes": 10,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/smoke-quotient.rows": {
+    "bytes": 16,
+    "sha256": "9cf063c5b38fbeee723e221f55fcf558989c106d98ff9cd409dde9271a7f7c1a",
+    "crc32": 3798896032,
+    "compressed_bytes": 18,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/smokeMap-chunks/000000-0001.map": {
+    "bytes": 2,
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "crc32": 2118831378,
+    "compressed_bytes": 4,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/smokeMap-chunks/000001-0001.map": {
+    "bytes": 2,
+    "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+    "crc32": 1733426259,
+    "compressed_bytes": 4,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/smokeMap-chunks/000002-0001.map": {
+    "bytes": 2,
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "crc32": 2118831378,
+    "compressed_bytes": 4,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/smokeMap-chunks/000003-0001.map": {
+    "bytes": 2,
+    "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+    "crc32": 1733426259,
+    "compressed_bytes": 4,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/smokeMap-chunks.json": {
+    "bytes": 3311,
+    "sha256": "2c66c387ca83bab65d77ad06591e79392291a347680e4aa220a3b69c340dfba4",
+    "crc32": 630123541,
+    "compressed_bytes": 672,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/smokeQuotient-chunks/000000-0001.rows": {
+    "bytes": 4,
+    "sha256": "13316410c3243a6b30a5a799aabf36a1e1a8f2aec49fd3af6869c33441dabea7",
+    "crc32": 1265010185,
+    "compressed_bytes": 6,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/smokeQuotient-chunks/000001-0001.rows": {
+    "bytes": 4,
+    "sha256": "665ae877edd92e755fe8504188724e0438a217c62edad817b262fb85e6289a88",
+    "crc32": 3834108978,
+    "compressed_bytes": 6,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/smokeQuotient-chunks.json": {
+    "bytes": 1912,
+    "sha256": "821b7d721bac21efa29e3fe3fbd0f6410b944aca4868b55fc7b258fdaa51a0d0",
+    "crc32": 3083212758,
+    "compressed_bytes": 607,
+    "compression": 8
+  },
+  "row-witness-progress.tsv": {
+    "bytes": 133,
+    "sha256": "7f451e131bc8993934506a730fb9e1c076ef5e87fe4649bf6ae8692b2596f252",
+    "crc32": 8642096,
+    "compressed_bytes": 79,
+    "compression": 8
+  },
+  "smoke-map-facts-progress.tsv": {
+    "bytes": 30,
+    "sha256": "c028068cf8442859e65a763b0f16390485548e9d3351af282139a28885d380f0",
+    "crc32": 3817768779,
+    "compressed_bytes": 25,
+    "compression": 8
+  },
+  "smoke-map-valid-progress.tsv": {
+    "bytes": 30,
+    "sha256": "db96eab6156532fd0b0bf2c8aad5c08801ab6786af00a2ec6e562531eb352c64",
+    "crc32": 4101913356,
+    "compressed_bytes": 25,
+    "compression": 8
+  },
+  "source-manifest.json": {
+    "bytes": 465743,
+    "sha256": "3651fbcf0b5dea608e46d9c4c0e4b652b8619f7880b499f96c7994774f8b7515",
+    "crc32": 4023559074,
+    "compressed_bytes": 126752,
+    "compression": 8
+  },
+  "verification.json": {
+    "bytes": 505110,
+    "sha256": "77c380bbbda67562a9a64b9c8d5d4181f49f9e98f304cb988eb366f0bc8d3c5d",
+    "crc32": 1464294142,
+    "compressed_bytes": 133846,
+    "compression": 8
+  },
+  "weight-chunks-progress.tsv": {
+    "bytes": 186,
+    "sha256": "0a80c0597187bb9932e9dc7afb1479a5cde27bb1ee0d584f8f558a9e63731f15",
+    "crc32": 1821410571,
+    "compressed_bytes": 86,
+    "compression": 8
+  }
+}
