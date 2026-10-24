@@ -1608,3 +1608,16 @@ preparation. No new axioms or weakened claims. Corrected substantial trial90
 keeps180/210s and1200s/6GiB global. No unchanged retry/cap increase.
 Accepted769,344/target310,029/new full savings0. Strongest completed source
 39,240states/78,480rows. GoalACTIVE/frozen/remote/no-outreach unchanged.
+
+
+Corrected90 dispatched: run40111992559 at
+50b2464bd189cca3d1eb83e8cbae1580a74401ae, mode local. Retain certificate-90
+ONLY once terminal. Specific constructor API fix plus early SAME-generator
+FamilyWiring4root/private audit within60s; large family setup and unchanged
+SOURCE16/4 follow only on success. Trial89source-failure packet retained and
+metadata-reviewed, all accepted pins/source/log/generated hashes match.
+No valid scalability verdict from89. No cap, statement, linter or domain change.
+Re-poll exact live90handle; observer timeout does not warrant restart.
+Accepted769,344/target310,029/new full savings0; strongest complete aggregate
+39,240states/78,480rows. Quarter/full still open. GoalACTIVE; remote/free,
+frozen3116pins and no outreach fixed; lastusage13%, no reset.

@@ -26,8 +26,9 @@ evidence and pins stay fixed. No outreach or bulk upstream migration.
   return rank, census and full-private audit. Quarter146,200states/292,400rows
   and complete573,802state relation remain unproved. Trial88 proves reusable
   Window/list fidelity and exact World transport (11generic roots) and controlled
-  small profiles, without larger-source or machine credit. Trial89run40110449962
-  tests compact family setup plus the unchanged180/210s substantial tiers.
+  small profiles, without larger-source or machine credit. Trial89stopped on a generated conjunction-constructor API error before the
+  substantial tiers. Corrected90run40111992559 adds early4root wiring check,
+  then compact family setup plus unchanged180/210s substantial tiers.
 - [ ] G5: The complete blank-tape binary machine has exactly 310,029 paid states
   and the original not-draw equivalence; all actual rows, independent fixtures,
   corruption controls, regressions and foundation audits pass remotely.
