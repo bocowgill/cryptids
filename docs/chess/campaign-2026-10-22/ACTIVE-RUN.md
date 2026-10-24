@@ -701,3 +701,23 @@ shared controls/bidirectional halting/exact310,029paid/fixtures/final review
 remain. Same459,315potential saving, high proof/high effort; no additive state
 saving. Accepted769,344/target310,029/new full savings0. GoalACTIVE; frozen/
 remote/existing free infrastructure/no-outreach unchanged, lastusage15%, noreset.
+
+
+Numeric control93dispatched: run40118884137 at
+3f59f3756997c8f20af766317832b81d27e780a8, mode smoke; retain certificate-93.
+NEXT29root NumericControl60s/private audit, fresh explicit wrong-rank kernel
+negative45s, all NumericTree20roots/negative and old smoke; global300s/6GiB
+unchanged. No new workflow mode/automatic run, paid host or local heavy work.
+Do not restart for observer timeout/stale step metadata; inspect exact run
+AND artifacts. All NEW29root proofs remain UNVERIFIED pending result.
+
+Abstract observation/layout correctness is NOT original-source compatibility.
+Next bind numeric targets/addresses/mapQ functions to old DirectChecks and
+StructuralChecks; preserve exact SourceCertificate conclusion, then actual
+355load/445write/356move same-host total-cost/corruption pilot. Full-source/
+shared controls/both halting directions/exact310,029/fixtures/final review
+remain open. Same459,315prospective payoff/high proof/high effort, accepted
+769,344/target310,029/new full savings0. Strongest source39,240states/78,480
+rows. GoalACTIVE; lastusage15%, no reset; frozen/remote/no-outreach fixed.
+Previous goal turn PROGRESS: implemented and verified20root core92 and pushed
+complete audited evidence, not smaller-scope completion. No pending old jobs.
