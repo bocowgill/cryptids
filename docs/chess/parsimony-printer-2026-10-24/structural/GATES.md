@@ -29,8 +29,8 @@ Keep accepted pins, frozen specification, prior evidence and outreach unchanged.
   EXPECT: PARSIMONY_STRUCTURAL_AUDIT_PASSED
   EVIDENCE: Same zero-exit command and audit token; all six roots and three instances depend only on propext/Classical.choice/Quot.sound. All positive logs warning-free; changed real write row fails with False (expected exit one). New source widths checked before proof stages; native execution used only for export, never as a proof oracle. See foundations.log, scale logs and changed-row-corruption.log.
 
-- [ ] R1: A clean pushed checkpoint retains exact producer/run, complete artifacts/logs, state breakdown, proof coverage, unresolved printer/link obligations and a continue/redesign decision.
-  EVIDENCE: pending; manual provenance and fork-ref review after terminal execution
+- [x] R1: A clean pushed checkpoint retains exact producer/run, complete artifacts/logs, state breakdown, proof coverage, unresolved printer/link obligations and a continue/redesign decision.
+  EVIDENCE: Complete recovery payload pushed in d4f8d54c014f38047f3b97906836a081d5fc9fe8; push exited zero and fork ref matched. All four jobs terminal. Archive/log digests, exact committed producers, proof/scaling objects and exports independently verified; accepted pins unchanged. RESULTS.md/CHECKPOINT.md distinguish component proofs, transport evidence and zero accepted savings, rank next tasks and retain the 5.64 GiB integration risk. Manual provenance review only.
 
 ## Bounds and limits of this phase
 

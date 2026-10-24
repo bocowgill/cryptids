@@ -9,6 +9,9 @@ this bounded authorization did not resume the old body-quotient campaign.
 Branch: `codex/chess-openevolve-pilot`.
 Workspace: `/Users/bocowgill/.codex/worktrees/6ba9/cryptids`.
 Push checkpoints only to `git@github.com:bocowgill/cryptids.git`, never `origin`.
+Complete payload pushed and fork-ref verified at
+`d4f8d54c014f38047f3b97906836a081d5fc9fe8`. All five bounded phase gates are met;
+there are zero unmet or abandoned phase gates. Full-machine certification remains open.
 
 ## Status that must be preserved
 
