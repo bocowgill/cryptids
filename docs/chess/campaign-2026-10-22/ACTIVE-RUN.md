@@ -41,7 +41,10 @@ Pilot75 retained/reviewed: compact recipes4roots/23,032deps pass, actual-write
 180.073s at4,168,212,480bytes after442records; no larger module/audit/quarter.
 Reject packaging alone as scaling solution; retain verified generic constructor.
 
-Next pilot76 tests numeric observation cache fidelity in dedicated lookup mode.
+Current pilot76: run40082368945 at
+4a9d8f43935c7338fda0b664f700219aa312bbd3, mode lookup; retain certificate-76.
+Companion automatic smoke40082347435; retain certificate-76-smoke separately.
+It tests numeric observation cache fidelity in dedicated lookup mode.
 One-pass validator checks classId/both Q words and every cached branch extent
 against actual map/Q data. Generic hybrid cache views must equal original
 functions on ALL addresses, including fallback. Data-only128/8192/65536-entry

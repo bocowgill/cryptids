@@ -1088,3 +1088,14 @@ claims or acceptance. New helper/proofs are UNVERIFIED before remote tests.
 Same6GiB/1200s; no paid resources or new workflow permissions. Adding lookup
 choice also triggers the workflow's existing automatic smoke once; monitor
 that separate run and distinguish its artifact from lookup76.
+
+Lookup76 dispatched: run40082368945, source
+4a9d8f43935c7338fda0b664f700219aa312bbd3, mode lookup; retain certificate-76.
+Companion automatic smoke40082347435 at the same source has separate artifact
+and evidence folder certificate-76-smoke. Poll exact live handles, do not
+restart. NEXT: require generic fourteen-root cache proof/audit, fresh128-entry
+data/fidelity/audit, corruption and wrong-extent kernel rejection, then8192
+and65536. Record exact runtime/RSS plus fixed overhead; no source-row credit
+or full-cost extrapolation from a helper/sample alone. Source checker coefficient
+integration and original larger SOURCE gates still required. GoalACTIVE; last
+account usage11%, no reset, frozen pins fixed, all heavy work remote, no outreach.
