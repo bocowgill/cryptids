@@ -1,0 +1,108 @@
+ℹ [3254/3320] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.Loaders
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/Loaders.lean:47:0: Body certificate loaders checked
+ℹ [3255/3320] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.MapData
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/MapData.lean:13322:0: Complete body class map loaded
+ℹ [3256/3320] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.MapPrelude
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/MapPrelude.lean:105:0: Body class map prelude checked
+ℹ [3257/3320] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.MapCount
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/MapCount.lean:15572:0: Complete body class map count checked
+ℹ [3258/3320] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.MapValid
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/MapValid.lean:13:0: Complete body class map caches checked
+ℹ [3259/3320] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.MapBounded
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/MapBounded.lean:13:0: Complete body class map range checked
+ℹ [3260/3320] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.MapChecks
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/MapChecks.lean:22:0: Complete body class map checks passed
+ℹ [3261/3320] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.QuotientData
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/QuotientData.lean:1674:0: Complete body quotient rows loaded
+ℹ [3262/3320] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.QuotientChecks
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/QuotientChecks.lean:1977:0: Complete packed quotient checks passed
+ℹ [3263/3320] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.Data
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/Data.lean:13:0: Complete body certificate data assembled
+ℹ [3920/3959] Replayed Cryptids.Chess.Compilation.SourceCertificate
+info: Cryptids/Chess/Compilation/SourceCertificate.lean:226:0: Source certificate: 7076 checked lemmas, 7037 cache hits
+info: Cryptids/Chess/Compilation/SourceCertificate.lean:230:0: Literal row certificate: 5952 checked rows in 186 chunks
+ℹ [3931/3959] Replayed Cryptids.Chess.Compilation.Input
+info: Cryptids/Chess/Compilation/Input.lean:128:0: Checked 186 literal row chunks: 141042 stack symbols
+ℹ [3950/3959] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.BodyRelation
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/BodyRelation.lean:18:0: Actual body row predicate checked
+ℹ [3951/3959] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.RowTools
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/RowTools.lean:44:0: Structural body row helpers checked
+ℹ [3952/3959] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.OperationWeights
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/OperationWeights.lean:59:0: Universal frozen operation weight summaries checked
+ℹ [3953/3959] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.WeightTables
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/WeightTables.lean:5162:0: Complete source weights and shared prefix correspondence checked
+ℹ [3954/3959] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.RowWitnesses
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/RowWitnesses.lean:136:0: Actual local syntax and far-end address witnesses checked
+ℹ [3955/3959] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.ActualTools
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/ActualTools.lean:88:0: Structural main and return row transport helpers checked
+ℹ [3956/3959] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.PrefixScan
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/PrefixScan.lean:16755:0: Complete linear prefix certificates agree with frozen offsets
+ℹ [3957/3959] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.ObservedCache
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/ObservedCache.lean:119:0: Generic observed cache and source-slot coverage checked
+ℹ [3958/3959] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.BinaryObservation
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/BinaryObservation.lean:143:0: Local equations cover every paid binary control
+✖ [3959/3959] Building Cryptids.Chess.Optimisation.BodyCertificatePilot.NumericLocal (2.5s)
+trace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean -M6144 /home/runner/work/cryptids/cryptids/Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericLocal.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericLocal.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericLocal.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericLocal.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericLocal.setup.json --json
+warning: Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericLocal.lean:52:74: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericLocal.lean:54:13: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericLocal.lean:59:13: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericLocal.lean:61:13: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericLocal.lean:68:13: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericLocal.lean:101:11: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑(classMap ?s)
+in the target expression
+  (match some (Binary.encodeSymbol.f written, dir, classMap state) with
+    | none => 0
+    | some (write, direction, next) => 4 * ↑next + 2 * packedDirCode direction + ↑write + 1) =
+    (4 * mapTree.lookup (↑state) 0 + 2 * packedDirCode dir + if written = true then 1 else 0) + 1
+
+written : Bool
+dir : Dir
+state : Fin 573802
+⊢ (match some (Binary.encodeSymbol.f written, dir, classMap state) with
+    | none => 0
+    | some (write, direction, next) => 4 * ↑next + 2 * packedDirCode direction + ↑write + 1) =
+    (4 * mapTree.lookup (↑state) 0 + 2 * packedDirCode dir + if written = true then 1 else 0) + 1
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericLocal.lean:107:69: Application type mismatch: The argument
+  classMap
+has type
+  Fin 573802 → Fin 114487
+but is expected to have type
+  Fin (CompactPost.stateCount 106668 5 + ?m.15) → Fin 114487
+in the application
+  BinaryObservationPilot.expected FieldPacked.getter classMap
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericLocal.lean:169:2: Type mismatch: After simplification, term
+  result
+ has type
+  @Eq ℕ
+    (packedEncode
+      (BinaryObservationPilot.observe FieldPacked.getter FieldSelectiveLayout.findReturn classMap bit
+        ((some (slotIndex label (FieldPacked.syntaxRows.get label) ⋯ (FieldPacked.syntaxRows.get label).root), value),
+          TM0.Stmt.write bit)))
+    (commandWord bit Dir.right (returnAddress (returnPrefixes.lookup (↑label) 0) (↑0) value))
+but is expected to have type
+  @Eq ℕ
+    (packedEncode
+      (BinaryObservationPilot.observe FieldPacked.getter FieldSelectiveLayout.findReturn classMap bit
+        ((some (slotIndex label (FieldPacked.syntaxRows.get label) ⋯ (FieldPacked.syntaxRows.get label).root), value),
+          TM0.Stmt.write bit)))
+    (commandWord bit Dir.right (returnAddress (returnPrefixes.lookup (↑label) 0) 0 value))
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericLocal.lean:174:0: Numeric local projections preserve actual source observations
+Some required targets logged failures:
+- Cryptids.Chess.Optimisation.BodyCertificatePilot.NumericLocal
+error: build failed

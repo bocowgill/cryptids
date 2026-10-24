@@ -1,0 +1,19 @@
+{
+  "run_id": 40065269931,
+  "source": "9cce033e7cb12e591a9fc3f0d53541c936543ed3",
+  "mode": "local",
+  "status": "retained_numeric_source_proof_failure",
+  "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-65",
+  "accepted_states": 769344,
+  "target_states": 310029,
+  "new_accepted_machine": false,
+  "actual_rows": 0,
+  "complete_prefix_scan_checked": true,
+  "prefix_build_seconds": 27.94684091099998,
+  "prefix_audit_seconds": 3.2474453450000738,
+  "prefix_roots": 13,
+  "prefix_dependencies": 14959,
+  "numeric_build_seconds": 5.37,
+  "numeric_peak_rss_bytes": 3176202240,
+  "numeric_interface_checked": false
+}

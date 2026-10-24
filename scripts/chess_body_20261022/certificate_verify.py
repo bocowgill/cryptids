@@ -56,7 +56,8 @@ def main():
                   'scripts/chess_body_20261022/binary_observation_pilot.py',
                   'scripts/chess_body_20261022/prefix_scan_pilot.py',
                   'scripts/chess_body_20261022/numeric_local_pilot.py',
-                  'scripts/chess_body_20261022/numeric_phase_pilot.py']
+                  'scripts/chess_body_20261022/numeric_phase_pilot.py',
+                  'scripts/chess_body_20261022/local_rule_pilot.py']
     manifest = dict(commit=os.environ.get('GITHUB_SHA'), run_id=os.environ.get('GITHUB_RUN_ID'),
                     workflow_commit=os.environ.get('GITHUB_SHA'),
                     source_sha256={p: runner.sha(ROOT / p) for p in paths},
@@ -106,6 +107,7 @@ def main():
         assert detail['completed_positive_unique_rows'] == 0
     if local:
         assert detail['numeric_local_interface_checked'] is True
+        assert detail['source_local_rule_soundness_checked'] is True
         assert detail['complete_prefix_scan_checked'] is True
         assert detail['complete_typed_candidate_data_checked'] is True
         assert detail['completed_positive_unique_rows'] == 0

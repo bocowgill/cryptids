@@ -764,3 +764,23 @@ budgets, normal6GiB; no old sampled-row stage is run. All data/foundation roots
 remain checked. Next: numeric local-rule checker and complete real-chunk coverage
 with corruption controls, then1/16and1/4paid-body coverage. No scaling claim from
 this interface gate. New workflow choice also runs ordinary smoke on its push.
+
+Numeric65 retained/reviewed: PrefixScan PASSES all13roots/14959dependencies,
+27.947s fresh build +3.247s full-private audit, peak4904083456bytes. Both full
+4043entry prefix scans and every frozen offset are now certified without any
+per-label closed take/sum fact. Complete candidate data and32root audit pass
+again. NumericLocal fails source proof5.370s/3176202240bytes, no resource stop:
+packed some-row match must be reduced before classMap_val rewrite; expected's
+Nat return-count parameter must be explicit40461; root rank needs Fin.val_zero;
+replace newly deprecated if_pos/if_neg with current ite_eq_left/right. Preserve
+all17roots and60s/6GiB cap. No numeric-module/audit or actual-row credit yet.
+
+LocalRules producer is now wired AFTER NumericLocal's successful audit. It
+proposes finite Coherent/ReturnCoherent deciders with explicit audited instance
+roots, numeric-rule soundness, source-local pure-child induction, and universal
+actual RowAt main/return conclusions for a complete source operation. Unlike
+the global observed theorem, this local theorem needs conditions only within
+the current source operation, enabling meaningful partial actual-body coverage.
+It is UNVERIFIED. First real chunk/corruption/scaling pilots must follow its
+successful build/audit. No resource cap changes, frozen edits, outreach or
+accepted machine savings. Target310029stillprospective; accepted769344.

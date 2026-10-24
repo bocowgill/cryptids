@@ -46,6 +46,13 @@ def run(driver, api):
     import numeric_local_pilot
     numeric_local_pilot.generate(driver, api.header, api.audit_and_end, api.MODULE)
     driver.run('NumericLocal', 60, 'Numeric local projections preserve actual source observations')
+    driver.summary['numeric_local_interface_checked'] = True
+    driver.checkpoint()
+    import local_rule_pilot
+    local_rule_pilot.generate(driver, api.header, api.audit_and_end, api.MODULE)
+    driver.run('LocalRules', 60,
+               'Finite numeric local checks imply exact main and paid-return equations')
+    driver.summary['source_local_rule_soundness_checked'] = True
     driver.summary.update(status='numeric_local_passed', numeric_local_interface_checked=True)
     driver.checkpoint()
     print('Numeric source-local projection pilot passed', flush=True)

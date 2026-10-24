@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40065269931,
+  "commit": "9cce033e7cb12e591a9fc3f0d53541c936543ed3",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": true,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "Complete PrefixScan13root audit PASS; complete candidate data and32root audit PASS. NumericLocal fails only match reduction for packed some-row, uninferrable Nat return-count parameter, finite-zero coercion and deprecated if lemmas.5.370s/3176202240bytes, no resource stop. Correct explicit reductions/parameter/Fin.val_zero/current lemma names; no weakening or cap change; no NumericLocal module/audit or new actual-row credit.",
+  "new_accepted_machine": false
+}

@@ -45,23 +45,23 @@ theorem encoded_main_val (pc : Fin 106668) (value : Fin 5) :
     change (CompactPost.rawEncode (some pc, value)).val = 0 at numeric
     rewrite [rawval] at numeric
     omega
-  rewrite [CompactPost.encode, permutation_numeric, Equiv.swap_apply_def, if_neg nonzero]
+  rewrite [CompactPost.encode, permutation_numeric, Equiv.swap_apply_def, ite_eq_right nonzero]
   by_cases same : CompactPost.rawEncode (some pc, value) = (1 : Fin 533341)
-  · rewrite [if_pos same]
+  · rewrite [ite_eq_left same]
     have numeric := congrArg Fin.val same
     change (CompactPost.rawEncode (some pc, value)).val = 1 at numeric
     rewrite [rawval] at numeric
     unfold mainAddress
-    rewrite [if_pos numeric]
+    rewrite [ite_eq_left numeric]
     rfl
-  · rewrite [if_neg same]
+  · rewrite [ite_eq_right same]
     have numeric : 1 + 5 * pc.val + value.val ≠ 1 := by
       intro equal
       apply same
       apply Fin.ext
       exact rawval.trans equal
     unfold mainAddress
-    rewrite [if_neg numeric]
+    rewrite [ite_eq_right numeric]
     exact rawval
 
 theorem mainIndex_val (pc : Fin 106668) (value : Fin 5) :
@@ -93,14 +93,18 @@ theorem expected_word (state : Fin 573802) (bit : Bool) :
 theorem command_word (written : Bool) (dir : Dir) (state : Fin 573802) :
     packedEncode (some (Binary.encodeSymbol written, dir, classMap state)) =
       commandWord written dir state.val := by
-  unfold packedEncode commandWord
+  change (4 * (classMap state).val + 2 * packedDirCode dir +
+    (Binary.encodeSymbol written).val) + 1 =
+      (4 * mapTree.lookup state.val 0 + 2 * packedDirCode dir +
+        (if written then 1 else 0)) + 1
   rewrite [classMap_val]
   cases written <;> rfl
 
 theorem expected_slot_word (q : Fin 4042) (p : Syntax 4042)
     (same : FieldPacked.syntaxRows.get q = p) (slot : Fin p.size)
     (bit : Bool) (value : Fin 5) :
-    packedEncode (BinaryObservationPilot.expected FieldPacked.getter classMap quotient bit
+    packedEncode (BinaryObservationPilot.expected (returns := 40461)
+      FieldPacked.getter classMap quotient bit
       (slotIndex q p same slot) value) =
       rowWord (mainAddress (nodePrefixes.lookup q.val 0 + slot.val) value) bit := by
   change packedEncode (quotient.transition
@@ -162,7 +166,7 @@ theorem entry_result_word (label : Fin 4042) (value : Fin 5) (bit : Bool) :
   rewrite [entry_syntax label (FieldPacked.syntaxRows.get label) rfl]
   have result := write_result_word label (FieldPacked.syntaxRows.get label) rfl
     (FieldPacked.syntaxRows.get label).root value bit bit
-  simpa only [root_target_rank] using result
+  simpa only [root_target_rank, Fin.val_zero] using result
 
 end NumericLocalPilot
 '''
