@@ -2,7 +2,7 @@
   "run_id": 40113309464,
   "source": "f168f11f8954a244c8dfbc43adc34e4753c1e619",
   "mode": "local",
-  "status": "proof_artifact_retained_bounded_obstruction_workflow_metadata_pending",
+  "status": "retained_reviewed_bounded_obstruction",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-91",
   "route": "Compact validated chunks plus quantified Window/list fidelity; shared return table; unchanged substantial SOURCE16/4",
   "overall_seconds": 1200,
@@ -35,7 +35,7 @@
   "specific_correction": "Generic window_checked and cons_checked; explicit Window/list arguments, no inline show tactics",
   "wiring_stage_seconds": 60,
   "required_wiring_roots": 6,
-  "last_usage_percent": 14,
+  "last_usage_percent": 15,
   "last_authoritative_observation": {
     "checked_at_utc": "2026-10-24T16:56:58Z",
     "run_status": "in_progress",
@@ -62,5 +62,9 @@
   "complete_source_rows": 78480,
   "workflow_final_metadata_pending": true,
   "artifact_id": 12568256449,
-  "decision": "Abandon wrapper/cache variants as scalability remedy; redesign as structural numeric checker with exact source and return fidelity"
+  "decision": "Abandon wrapper/cache variants as scalability remedy; redesign as structural numeric checker with exact source and return fidelity",
+  "workflow_terminal_status_retained": true,
+  "workflow_terminal_conclusion": "failure",
+  "workflow_log_archive_retained": true,
+  "jobs_api_final_pending": true
 }

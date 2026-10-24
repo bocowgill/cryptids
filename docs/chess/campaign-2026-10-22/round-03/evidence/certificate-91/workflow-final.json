@@ -1,0 +1,17 @@
+{
+  "run_id": 40113309464,
+  "status": "completed",
+  "conclusion": "failure",
+  "updated_at": "2026-10-24T17:21:52Z",
+  "workflow_commit": "f168f11f8954a244c8dfbc43adc34e4753c1e619",
+  "terminal_status_source": "run-api.json",
+  "workflow_log_archive": "logs-final.zip",
+  "workflow_log_sha256": "15e1fdf1615f4fdebde7fc1e7cf64ebc186829af79980ea761a6ffdda1a1ab51",
+  "workflow_log_bytes": 19226,
+  "workflow_log_entries": 6,
+  "jobs_api_final_pending": true,
+  "jobs_api_obstruction": "Intermittent HTTP502; complete workflow text logs and terminal run API retained",
+  "original_retention_snapshot_preserved": true,
+  "proof_stage_status": "bounded_obstruction",
+  "new_accepted_machine": false
+}

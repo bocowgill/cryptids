@@ -1733,3 +1733,22 @@ saving; structural numeric certificate now high proof/high implementation
 effort, not additive. Packet compression lower priority with no paid net
 estimate; no defensible new-interpreter estimate. GoalACTIVE; lastusage14%,
 no reset; frozen/heavyremote/existing free infrastructure/no-outreach fixed.
+
+
+91workflow is now AUTHORITATIVELY TERMINAL failure (updated17:21:52UTC),
+matching the driver's bounded_obstruction; no live research job remains.
+Artifact-only retainer captured a terminal run-api.json because the API
+recovered during retention. Original retention/status bytes remain unchanged.
+Appended workflow-final.json plus complete logs-final.zip; HTTP2archive
+stream cancellation was fixed by one HTTP1transport retry, no proof/cap change.
+Final jobs-list API still intermittent502; optional jobs-api-final snapshot
+pending, explicitly labelled. All actual proof-stage sources/logs/audits and
+workflow text logs/terminal status are retained, verified and recoverable.
+No need to rerun91or await API repair to begin the new structural design.
+
+NEXT implement STRUCTURAL-NUMERIC-CHECKER-GATES.md, beginning generic
+first-order numeric node/return fidelity and checker soundness. Pilot actual
+heavy load355/write445/move356 on same host, include fidelity/setup/audit
+costs. No new implementation or proof of that design yet. Keep1200s/6GiB
+and all existing correctness/remote/frozen/outreach constraints. GoalACTIVE;
+lastusage15%, no reset. Accepted769,344/target310,029/new full savings0.

@@ -79,3 +79,23 @@ and why the next change removes that category. No hidden hypothesis may replace
 actual source/return fidelity. Full body/shared controls, both halting directions,
 310,029paid controls, independent fixtures/regressions and distinct final review
 remain mandatory. No credible full-machine cost estimate exists yet.
+
+## Fidelity hazards for implementation
+
+- A literal Syntax.halt node uses the existing command to shared halt-return
+  control533341. It is not automatically the missing-transition word0. Preserve
+  the two separately shared body controls and their old transition semantics.
+- Root/child positions follow the existing postorder layout. Branch right-child
+  offsets, table bit/store order and paid return-target preorder must agree
+  with the frozen compiler exactly; a generic renaming/indexing proof is needed.
+- Fin erasure may expose Nat addresses, but never restore by modulo/clipping.
+  Exact source fidelity plus explicit bounds must rule out out-of-range labels,
+  children and ranks. Do not silently accept a default halt/lookup fallback.
+- All store-dependent callback tables retain all10bit/store cells. A loader may
+  emit ordinary constructors; kernel source fidelity must identify their values.
+- Avoid recomputing original Syntax.size/FieldReturns.targets for each node.
+  A decorated structural representation may cache counts/targets, provided its
+  annotations and numeric inverse are proved to match the original definitions.
+- Generic correctness and proposed serialization remain separate from concrete
+  closed proof timings. If fidelity consumes the old checker cost again, reject
+  that representation before expanding to substantial/full coverage.
