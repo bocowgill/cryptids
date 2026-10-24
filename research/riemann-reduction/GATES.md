@@ -1,5 +1,9 @@
 # Gates: bounded Riemann reduction audit
 
+Historical initial-audit ledger. Current route closure and the unexecuted next
+proposal are recorded in [CHECKPOINT.md](CHECKPOINT.md); these met audit gates
+do not authorize new execution or certify the next operator.
+
 OWNS: research/riemann-reduction/**
 
 Scope: audit the current accepted machine and propose one bounded optimization pilot.

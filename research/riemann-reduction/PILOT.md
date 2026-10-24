@@ -1,5 +1,11 @@
 # First pilot: one-state pass-through decoder removal
 
+**Historical proposal; canonical route now closed.** The verified return-pop
+counterexample retires the skipped-bit/unchanged-return construction described
+below. Read [pilot-53/CLOSED.md](pilot-53/CLOSED.md). The current next proposal is
+[decoder sharing](pilot-decoder-sharing/PROPOSAL.md), pending explicit approval.
+Nothing in this retained document authorizes another job.
+
 Proposal only. The initial audit ends before implementation or execution.
 Target: one certified state saved, 95 -> 94. No larger saving is promised.
 

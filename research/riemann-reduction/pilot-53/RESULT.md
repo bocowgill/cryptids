@@ -1,5 +1,8 @@
 # State-53 pilot result — 2026-10-24
 
+**Route closed:** see [CLOSED.md](CLOSED.md) for the durable retirement record.
+No repeat or repair job is authorized.
+
 **Latest verification:** the one additional user-authorized job independently
 replayed the fixed counterexample and Lean-checked it successfully, with a passing
 full-private audit. See [replay-02/RESULT.md](replay-02/RESULT.md).

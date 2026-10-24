@@ -1,75 +1,69 @@
-# Recoverable audit checkpoint
+# Recoverable RH reduction checkpoint
 
-Status: the state-53 canonical skipped-bit counterexample has now been independently
-replayed and Lean-checked in the one additional authorized job, run 40134606435.
-The full-private audit passed (10 roots, 815 dependencies, only propext). Read
-`pilot-53/replay-02/RESULT.md` first. The first failed run remains preserved.
-No 94-state RH result is certified. Chess remains paused and broader search held.
-Do not rerun the false E/pop claim or launch a fallback search automatically.
 Date: 2026-10-24, America/New_York.
 Branch: `codex/riemann-reduction`.
 Path: `/Users/bocowgill/.codex/worktrees/4e0d/cryptids`.
-Base: `6c28d8524fa008c6fb5aadb759df74a55ce96423`.
-The initial audit authored only `research/riemann-reduction/**`. The authorized
-pilot additionally authored `scripts/riemann53/**` and its dedicated workflow.
-The audit commit itself supplies a recoverable Git checkpoint; its ID is reported
-outside its own content to avoid a self-referential hash.
+Pinned base: `6c28d8524fa008c6fb5aadb759df74a55ce96423`.
 
-Read order on continuation: REPORT, BASELINE, STATE-ACCOUNTING, PILOT, OPPORTUNITIES.
-The literal machine stays at `artifacts/riemann_95/machine.txt` with SHA-256
-`7e9731ed1b7c63d4e67c0f8d646f8498d9645f26e237a8604d4b7f91a6ab398d`.
-Successful historical PR10 inputs were retrieved by test-merge SHA
-`f9b305bf68a8112125586a5a1d1d67cc4d5458cd` and compared equal in the scoped inputs.
-No baseline Lean replay was run. The evidence directory contains compact original
-log excerpts plus metadata, not a claim that new proof terms were checked here.
+**Canonical state-53 bypass closed. Next pilot proposed; no job authorized.**
+The user requested this route closure and a bounded proposal, with explicit
+approval required before another remote job. Broader search remains on hold.
 
-## Boundaries still in force
+Read [pilot-53/CLOSED.md](pilot-53/CLOSED.md) for the exact retired route,
+[pilot-53/replay-02/RESULT.md](pilot-53/replay-02/RESULT.md) for verified evidence,
+and [pilot-decoder-sharing/PROPOSAL.md](pilot-decoder-sharing/PROPOSAL.md) for
+the next decision. The old PILOT document is historical, not a current action.
 
-- Chess remains paused. Its separate branch/checkpoint was read through Git only.
-  Never resume its goal or touch its remote jobs as a side effect of RH work.
-- Do not change accepted pinned sources, frozen specifications or historical
-  evidence. New code belongs in separate RH reduction paths when work proceeds.
-- All Lean/Lake/LSP/LeanProbe, generation, simulations and executable state counts
-  remain remote on existing free infrastructure. No paid resources or model API.
-- No outreach, issue/comment posting, contributor messages or upstream PRs.
-- No broad OpenEvolve search before an RH-specific complete-state evaluator and
-  a bounded pilot verdict. Existing PR7 search-loop code remains unavailable.
-- New/generated Lean lines <=100, strict linting, no sorry/new hypotheses/native
-  proof oracle; public target stays blank-tape `Halts candidate ↔ ¬ RH`.
+## Settled evidence and negative knowledge
 
-## Negative knowledge
+- The canonical E map deletes a return delimiter at `.outside 44`, zero DEC0:
+  W = `1001110110`, E(B_1(W)) = `100111`, B_1(E(W)) = `101`.
+- The independently replayed tapes and Lean theorem reject that local equation.
+  Run 40134606435 passed; its full-private audit checked 10 roots and 815
+  dependencies and used only propext. No blank-reachability claim is made.
+- The original startup-failure run 40132242492 and all historical evidence remain
+  retained. The successful result checkpoint is
+  `727f7b47bed5e17993b2e6ba5e28aad3ee646aff`.
+- New certified RH savings: zero. Accepted complete baseline: 95 states.
+- No bypass repair, alternative E map or return edit is authorized. Do not retry
+  the false equation under new notation. Closure does not exclude other machines.
+- Auxiliary 98 -> physical 95 projection, MoveXM removal and the retained FOLD
+  counter are already accepted. Logical-row deletion is not a physical saving.
+- The finite bootstrap's lack of a 41/ONE visit does not establish deadness.
+  Pop 2/11 and scanner 5/7/10 distinctions need their existing invariants.
+- Chess's numeric correspondence provides no RH quotient theorem; its full
+  310,029-state candidate remains uncertified and paused.
 
-No optimization was executed; there are no experimental rejection traces to cite.
-Source review rejects the following accounting/proof shortcuts:
+## Next proposal, pending approval
 
-1. 98 -> 95 auxiliary projection is already present. It is not a new reduction.
-2. MoveXM removal and retained FOLD counter are already in the accepted machine.
-3. A logical row deletion or a faster initializer is not a physical-state saving.
-4. The bootstrap's zero visits to 41/ONE do not prove unbounded deadness.
-5. Skipping state 53 on unchanged tape loses a consumed symbol. The encoded
-   return/pop frame relation is the first named unproved kernel.
-6. Zero-DEC's 2/11 pop distinction and scanner 5/7/10 zero-streak distinction
-   cannot be discarded without a stronger invariant.
-7. Historical Python theorem-text/hash reports do not establish Lean equivalence.
-   Third-party issue14 claims were not independently replayed here.
-8. Chess's numeric correspondence does not prove a whole-recipe speedup or an
-   RH quotient theorem. Its full 310,029-state candidate is not certified.
+Analyze only the six-state common-ZERO family {26,46,50,86,87,94}: 15 pairs,
+two fixed representative choices each, with unchanged words/tapes/returns.
+Use symbolic alias analysis for at most 30 choices and export at most one
+complete candidate. Stop at exact typed-word witnesses, the first universal
+parser gap, a complete certificate, or a resource obstruction. There is no
+fallback to another survivor after selecting one and no broader search.
 
-Operational issues: initial sandbox network resolution failed; approved read-only
-Git fetch resolved it. Creating the unused branch required access to the shared
-Git worktree metadata outside this sandbox; no other checkout was modified.
-An unfetched PR-head SHA could not be compared locally. Fetching the exact
-historical tested merge SHA resolved that provenance question. No proof failure,
-memory failure, timeout or retry of a compute job occurred in this audit.
+The proposed ceiling remains one free ordinary remote job, 3180 seconds,
+6 GiB aggregate RSS, 512 MiB driver, one real Lean invocation at a time,
+-M6144, no retry. Local executable mathematics remains prohibited.
+The proposal is source/document work only; its execution gates remain unrun.
 
-## Next concrete work item
+## Preserved boundaries
 
-Work only on PILOT's state-53 viability kernel. Define the complete frame encoding
-and prove or refute its compatibility with both continuation pops and padding.
-Use the pilot's explicit remote caps before any executable work. A failed frame
-equation is grounds to stop this operator and retain the witness, not to silently
-expand the edit family. No candidate or proof credit exists yet.
+- Accepted files, artifact, manifest, toolchain, specification and historical
+  evidence stay pinned. Table SHA-256:
+  `7e9731ed1b7c63d4e67c0f8d646f8498d9645f26e237a8604d4b7f91a6ab398d`.
+- The older Chess campaign remains paused. Its pause file is byte-identical to
+  historical checkpoint `b971fa888c84b5a62900171fa17eef7cf2cda6d9`. A read-only
+  Git inspection observed its shared branch at
+  `80d7175e107b3f237961c89d8b83be77530011bc`, advanced by separate Parsimony
+  work. That work's recorded run is outside this RH task; no Chess/Parsimony
+  source, job or goal was changed here. Do not reset or resume that checkout.
+- All Lean/Lake/LSP/LeanProbe, generation, simulations and executable census
+  remain on existing free remote infrastructure after approval. No paid APIs.
+- No outreach, issue/comment posting, upstream PR, automation or model calls.
+- New Lean must keep strict warnings/linting, lines <=100, no new hypotheses,
+  sorry or native oracle. Public target remains blank-tape `Halts candidate ↔ ¬ RH`.
 
-If the pilot later rejects, the next proposal may be the six-state same-ZERO
-decoder-sharing family in OPPORTUNITIES, bounded to at most 30 choices and a
-typed-language distinguishing-word analysis. That fallback is not launched here.
+This checkpoint update launches zero jobs and implements zero new candidates.
+Its Git commit is reported separately to avoid a self-referential hash.

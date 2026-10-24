@@ -1,25 +1,31 @@
 # Ranked optimization opportunities
 
-Every saving below is a hypothesis about the **complete** physical machine.
-No smaller candidate has been generated, tested or certified. Ranges are planning
+The canonical state-53 route is now [closed](pilot-53/CLOSED.md). A 94-state
+rejected-route artifact was generated for its verified counterexample; no smaller
+RH machine is certified. The next [bounded decoder-sharing proposal](pilot-decoder-sharing/PROPOSAL.md)
+is pending approval. All other saving estimates below concern the **complete**
+physical machine. Ranges are planning
 estimates from the affected state pools, not achieved bounds or a probability of
 success. Decoder costs need not track logical instruction counts.
 
 | Rank | Concrete change to investigate | Plausible absolute net saving | Proof difficulty | Implementation effort |
 | --- | --- | --- | --- | --- |
-| 1 | Remove pass-through decoder 53 by shortening the affected control words | 1 if the exact one-state pilot closes; otherwise 0 | Medium/high: encoded returns are the obstruction | Tiny table edit; substantial encoding bridge |
-| 2 | Share a decoder state under the complete typed-word language | 0-1 in a bounded pair family | Medium if words stay fixed; potentially impossible | Low candidate cost; moderate invariant work |
+| Closed | Canonical skipped-bit removal of decoder 53 with unchanged returns | 0 certified; bridge refuted | Exact zero-DEC counterexample verified | Retired; preserve evidence |
+| Next proposed | Share a decoder state under the complete typed-word language | 0-1 in the fixed pair family | Medium if words stay fixed; potentially impossible | Low candidate cost; moderate invariant work |
 | 3 | Eliminate a whole register-program transfer or duplicate update | 0-4, very uncertain | High: new stage/register relation | High: logical and physical program changes |
 | 4 | Reuse a temporary bank across non-overlapping phases | 0-4, before any staging cost | High: phase-dependent liveness and frames | High |
 | 5 | Reorder/reverse operand-bank layout to share selection/return work | 0-3 | High for tape reversal; medium/high for a permutation | Medium/high |
 | 6 | Share branch-return / padding / jump micro-routines | 0-2 | High: must retain branch and root-fence information | Medium |
 
-Rank 1 is recommended for its small, explicit edit and decisive rejection gate,
-not because an equivalence is known. Rank 2 is a cheap fallback, not an invitation
-to start a broad search. Larger speculative ranges should not guide a search
-score until an explicit complete machine realizes them.
+The fixed decoder-sharing family is the next proposed bounded test. It has not
+been run and is not approved for launch. Larger speculative ranges should not
+guide a search score until an explicit complete machine realizes them.
 
 ## 1. Pass-through state 53 and control-word encoding
+
+Historical rationale and obligations below are retained for context. The canonical
+E/pop equation was refuted at `.outside 44` and independently replayed/Lean-checked.
+Do not retry it. A different encoding or return rewrite would require a new scope.
 
 Literal rows include `40/ONE = 1R53` and `53 = (0R68, 1R68)`.
 State 53 consumes a bit without branching on its value. A proposed shorter
@@ -45,7 +51,8 @@ An explicit small family is {26, 46, 50, 86, 87, 94}. Each ZERO cell is `0R58`;
 their ONE targets are respectively 33, 60, 64, 89, 94, 43. A two-state fusion
 could choose either ONE target, redirect all incoming edges and remove one ID.
 The six-member family has 15 unordered pairs and at most 30 such choices.
-This is a proposed future family; none has been enumerated or run here.
+The next proposal bounds this to symbolic aliases and at most one exported table;
+none of these aliases has been executed here. See its exact transformation and caps.
 
 Matching one column is insufficient. Each valid typed caller word, including
 all recursion depths, must retain its native operation and continuation. Distinct
@@ -138,7 +145,8 @@ stronger language invariant loses fence detection.
   complete physical-state objective.
 - State 41/ONE is unvisited by the retained bootstrap check. This finite fact
   neither proves global unreachability nor frees a physical state by itself.
-- Merely redirecting around 53 on the old tape skips a symbol. Its new encoding
-  and return closure are unproved; no halting claim is made for that redirect.
-- No experimental candidate failed here because no optimization was executed.
-  These are source-level exclusions and open obligations, not simulated failures.
+- Merely redirecting around 53 on the old tape skips a symbol. The canonical
+  shorter encoding also fails the verified E/pop equation; its route is closed.
+- The state-53 result is a verified local encoding rejection, with independent
+  tape replay. It does not establish blank-run inequivalence. Other opportunities
+  remain source-level proposals with open proof obligations.
