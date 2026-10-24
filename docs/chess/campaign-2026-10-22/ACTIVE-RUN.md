@@ -26,7 +26,9 @@ corruption control, but Scope16 again times out at 180.098 s after 405 records,
 peak 4,543,590,400 bytes. No larger module/audit, no quarter. Packet retained
 and reviewed. Decision: abandon finite-loop replacement as the scaling remedy.
 
-Next pilot 72 changes representation: literal syntax trees plus kernel-checked
+Current pilot 72: run 40076137294 at
+576364d2a1e217a1afa61ef42fc6db43f53f4b94 (mode local; retain certificate-72).
+It changes representation: literal syntax trees plus kernel-checked
 exact lowering identities replace syntax defined by repeatedly calling lower.
 Every frozen-source/row/return/census proof is still required; native proposal
 untrusted. Literal source identity gets its own timing marker. Same 6 GiB,
