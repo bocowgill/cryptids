@@ -690,3 +690,12 @@ out-of-range target. All roots, strict warnings,60s component/180s total and6GiB
 limits remain. Native JSON is untrusted proposal data. No full source claim or
 actual quotient-row credit is permitted from this trial. Accepted769344;
 target310029; prospective saving459315; new accepted full-machine saving0.
+
+## Upcoming structural bridge
+
+Raw chunk trial59 is run40063451158 at fb4cdccaed7dcfa85e3ed90df3583590fa11b7ea.
+Reserve certificate59 for retention. Generic cache mode now gates a proposed
+all-paid-control BinaryObservation bridge on the already certified ObservedCache
+interface. No actual local closure premises or new machine follow automatically.
+The unexecuted raw_complete_pilot.py is an unwired source-only draft pending the
+complete chunk gate. Normal caps stay fixed; memory comparison51/52 remains final.

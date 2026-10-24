@@ -80,3 +80,24 @@ from those substantial scopes, with explicit uncertainty and peak-memory growth.
 This is high proof difficulty and substantial implementation effort within the
 same459315opportunity. It removes named categories of repeated certification
 work; its scalability remains a testable hypothesis, not an accepted result.
+
+## Universal interface gate and next bridge
+
+Certificate56 at dd6946357df60b58d59223c71810e3869c3b19b6 PASSES the generic
+observed-cache/source-slot interface:6explicit roots,2506dependencies,8.805s
+build and8.095s full-private audit; standard3foundation axioms only. This is an
+intermediate generic theorem, with0actual quotient rows credited.
+
+The next cache-mode bounded trial adds BinaryObservation: exact binary projection
+of an auxiliary result, exhaustive CompactPost control coverage including the
+initial/halt permutation, and a universal all_rows_from_local theorem. It must
+retain all main/halt/paid-return premises; none is discharged by sampling or a
+reachability assumption. It receives60s per component within the unchanged180s
+orchestration and6GiB process-group cap. Any failure needs exact-log diagnosis.
+
+An unwired complete raw-source producer is also drafted. It proposes127balanced
+chunk fidelity/bounds facts and universal reconstruction, restoration, lookup,
+lowering and source meaning. It reuses only9small field/store-bound constants.
+Do not run it before the one-complete-chunk gate passes. No full-source or actual
+row credit is claimed from source text alone. Accepted769344; target310029;
+new accepted full-machine saving0; prospective quotient opportunity459315.

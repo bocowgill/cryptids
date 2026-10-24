@@ -41,7 +41,8 @@ def main():
                   'scripts/chess_body_20261022/source_chunk_pilot.py',
                   'scripts/chess_body_20261022/source_complete_pilot.py']
     if args.mode == 'cache':
-        paths += ['scripts/chess_body_20261022/observed_cache_pilot.py']
+        paths += ['scripts/chess_body_20261022/observed_cache_pilot.py',
+                  'scripts/chess_body_20261022/binary_observation_pilot.py']
     if args.mode == 'raw':
         paths += ['scripts/chess_body_20261022/source_table_pilot.py',
                   'scripts/chess_body_20261022/raw_label_pilot.py',
@@ -87,6 +88,7 @@ def main():
         assert detail['actual_frozen_source_operations_checked'] == 4042
     if cache:
         assert detail['generic_observed_cache_interface_checked'] is True
+        assert detail['generic_all_paid_controls_checked'] is True
         assert detail['completed_positive_unique_rows'] == 0
     if raw:
         assert detail['raw_label_decoder_checked'] is True
@@ -98,7 +100,7 @@ def main():
         mode=args.mode, detail=detail,
         scope=('Raw-label decoder and one complete source chunk; no full source/quotient or machine'
                if raw else
-               'Generic observed-cache/source-slot interface only; no actual quotient rows or machine'
+               'Generic local equations to all paid controls; no actual quotient rows or machine'
                if cache else
                'Complete frozen source-operation reconstruction and format/corruption fixtures; '
                'no graph fidelity, quotient relation or accepted machine' if source else

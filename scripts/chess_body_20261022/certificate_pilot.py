@@ -1504,6 +1504,7 @@ def main():
         if args.observed_cache_only:
             driver.summary.update(classification="GENERIC_OBSERVED_CACHE_INTERFACE_PILOT",
                                   generic_observed_cache_interface_checked=False,
+                                  generic_all_paid_controls_checked=False,
                                   complete_opcode_snapshot_checked=False,
                                   graph_fidelity_checked=False)
             driver.emit("Audit.lean", AUDIT)
@@ -1514,8 +1515,13 @@ def main():
             driver.run("Audit", 120, "Build completed successfully", audit_build=True)
             driver.run("ObservedCache", 60,
                        "Generic observed cache and source-slot coverage checked")
+            driver.summary["generic_observed_cache_interface_checked"] = True
+            driver.checkpoint()
+            import binary_observation_pilot
+            binary_observation_pilot.generate(driver, header, audit_and_end, MODULE)
+            driver.run("BinaryObservation", 60, "Local equations cover every paid binary control")
             driver.summary.update(status="observed_cache_passed",
-                                  generic_observed_cache_interface_checked=True)
+                                  generic_all_paid_controls_checked=True)
             driver.checkpoint()
             driver.monitor_stop.set()
             signal.setitimer(signal.ITIMER_REAL, 0)
