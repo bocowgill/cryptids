@@ -1,0 +1,16 @@
+{
+  "run_id": 40140596450,
+  "source": "4919c0ccd88befa5d5fb96027125138a0ae1e9ae",
+  "artifact": "chess-parsimony-proof-4919c0ccd88befa5d5fb96027125138a0ae1e9ae",
+  "iteration": 1,
+  "status": "running",
+  "launch": "single workflow-file registration push; no manual duplicate",
+  "driver_seconds": 900,
+  "lean_heap_mib": 5120,
+  "group_plus_driver_gib": 6,
+  "driver_mib": 512,
+  "accepted_machine_states": 769344,
+  "candidate_states": 609247,
+  "certified_saving": 0,
+  "next": "Retain exact remote diagnostics and source before any diagnosed correction; at most four source-bound iterations."
+}
