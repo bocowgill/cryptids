@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40072864470,
+  "commit": "b4789c2426ad80a8686587360f5f711bb73871a7",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": true,
+  "actual_rows": 4370,
+  "negative_control": "kernel_rejected",
+  "diagnosis": "Generic maker and 7-root audit pass. Scope16 stops at 180.036s wall, peak 4638756864 bytes, after 443 records; no completed scope/audit. Maker post-node time stays near 32-70ms versus prior 7.273s at q42; remaining time is in literal coherence decisions. No quarter attempted; accepted count unchanged.",
+  "new_accepted_machine": false
+}

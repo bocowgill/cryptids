@@ -2,7 +2,7 @@
   "run_id": 40072864470,
   "source": "b4789c2426ad80a8686587360f5f711bb73871a7",
   "mode": "local",
-  "status": "remote_queued",
+  "status": "retained_reviewed_wall_obstruction",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-69",
   "correction": "Generic abstract certificate constructor replaces concrete dependent record fields",
   "requested_body_fractions": [
@@ -18,5 +18,11 @@
   "memory_gib": 6,
   "accepted_states": 769344,
   "target_states": 310029,
-  "new_accepted_machine": false
+  "new_accepted_machine": false,
+  "scope16_wall_seconds": 180.035584881,
+  "scope16_peak_bytes": 4638756864,
+  "completed_records_before_stop": 443,
+  "completed_scope_modules": 0,
+  "quarter_attempted": false,
+  "decision": "Constructor bottleneck removed; redesign repeated finite coherence decisions before another substantial scaling run"
 }

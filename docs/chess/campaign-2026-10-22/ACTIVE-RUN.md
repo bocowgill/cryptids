@@ -1,45 +1,39 @@
-# Active Chess Cryptid campaign — October24,2026
+# Active Chess Cryptid campaign — October 24, 2026
 
-GoalACTIVE. Accepted769344 / target310029; prospective459315saving;
-new accepted full-machine saving0. Frozen3116pinsfixed. Heavy work REMOTE;
-local inspection lightweight; outreachheld; no paid resources; normal cap6GiB.
+Goal ACTIVE. Accepted **769,344** states; target **310,029**. Prospective full
+saving **459,315**; new accepted full-machine saving **zero**. Frozen 3,116 pins
+fixed. Heavy work remote only; local inspections lightweight; outreach held.
+No paid resources. Normal process-group plus driver cap 6 GiB.
 
-Memory51/52final:6/10GiB bothfailold64state monolithic normalization at memory,
-0completed modules; abandon that route. No12GiBtest. Structural prerequisites
-56/62/63/65/66and source-local rules67PASS. Complete block67labels256..287:
-375nodes/62returns,2185original body states/4370rows;12.917+3.027s build/audit,
-295roots, source/census/range/callback/wrong-rank controls and fresh kernel false
-word rejection PASS. Only standard3axioms. No full quotient or new machine.
+The authorized memory comparison (51/52) is complete: 6 and 10 GiB both fail
+old 64-state monolithic normalization, with zero completed row modules. That
+route is abandoned. No 12 GiB test or further memory increase is planned.
 
-Scaling68FAILED180.058swall below memory (peak4776136704bytes), no source errors.
-Target448labels/39240states/78480rows remains UNPROVED. Only43records assembled;
-no1/16module/audit or quarter credit. SourceScopeTools6root theorem/audit PASS.
-Hash-bound timings show concrete record assembly grows0.368s(q0)→7.273s(q42),
-while early source/coherence/return phases stay about0.17s/operation. This closed
-record assembly route cannot scale unchanged. Full cost still not credible.
-68retained/reviewed as certificate68; all historical evidence stays fixed.
+Structural prerequisites and complete block 67 pass: labels 256..287,
+375 nodes/62 returns, 2,185 original states/4,370 rows, complete private audits
+and actual false-word rejection. Source-local induction preserves all physical
+goto cycles and every paid return. These are partial proofs, not a new machine.
 
-CORRECTION: makeCertificate verifies frozen-source count/row transport once with
-abstract label/syntax. Concrete records call it with literal syntax and existing
-checked facts, avoiding dependent frozen getter field goals. Original record
-schema and6roots remain; maker is7th required root. No weakened obligations.
+Scaling 68 times out after 43 concrete records. Generic constructor 69 removes
+the dependent record bottleneck: assembly at q42 falls from 7.273 s to 23 ms.
+Pilot 69 still times out at 180.036 s (peak 4,638,756,864 bytes) after 443 records;
+no complete 448-label/39,240-state certificate or audit, no quarter attempted.
+Remaining cost is literal coherence decisions (2.332 s at q442). Both packets
+are retained/reviewed; historical evidence stays fixed.
 
-CURRENT bounded69: run40072864470 at
-b4789c2426ad80a8686587360f5f711bb73871a7; retain certificate69.
-Modelocal replays prerequisites/block/corruption, tests7root collection helper,
-then identical at-least1/16and1/4paid-body prefixes under180/210s including audits,
-1200soverall/6GiB. Same detailed per-field markers. No change to limits/lint/spec.
-NEXT: read exact69summary/logs, retain/review; require flat record construction
-and completed substantial audits before a scaling/full-cost claim. If still
-blocked by resource growth, change representation/category; do not repeat or
-raise caps. Shared halt controls/global rows/full310029linkage/review remain open.
+Decision: redesign repeated finite decisions before another scaling attempt.
+Current pilot 70 uses a reusable Boolean checker with ordinary Lean soundness
+into the original Coherent/ReturnCoherent propositions. It decodes each syntax
+node before all ten cases and checks both actual transition words together.
+Same complete block/corruption controls, 1/16 and 1/4 targets, 120/180/210 s
+including full audits, 1200 s overall, 6 GiB. No relaxed proof obligations.
 
-Unwired UNVERIFIED drafts: global_rows_pilot.py (shared controls/all-source to
-all-old-rows/arbitrary-tape equivalence), full_link_pilot.py (unchanged frozen
-writer+table decoder+seed decoder+bridges and paid310029allocation). They retain
-an explicit complete-source hypothesis and are NOT an accepted final theorem.
-Use only after substantial scaling succeeds; no extra implementation detour.
+NEXT: require generic checker proof and private audit, then completed substantial
+coverage and resource evidence. Decide continue/redesign from those results.
+No credible full-cost estimate yet. Shared controls/global rows/full linkage,
+independent full regressions and distinct final review remain open. Unwired
+global_rows_pilot.py and full_link_pilot.py retain an explicit all-source
+hypothesis and have no final-theorem credit.
 
-Handoff: ../campaign-2026-10-23/RESUME.md, STRUCTURAL-CHECKER-GATES.md, GATES.md,
-run-68.json/run-69.json and STATE-COUNTS-AND-OPPORTUNITIES.md. Lastusage10%, noreset.
-Previous goal turnPROGRESS; current turnPROGRESS via68diagnosis/constructor69.
+See ../campaign-2026-10-23/RESUME.md, GATES.md, STRUCTURAL-CHECKER-GATES.md,
+run-69.json and STATE-COUNTS-AND-OPPORTUNITIES.md. Last account usage 10%; no reset.

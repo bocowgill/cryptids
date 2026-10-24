@@ -883,3 +883,34 @@ Require flat concrete constructor timing and successful complete module/audit.
 This goal turn is PROGRESS: authoritative68failure retained/diagnosed and a
 specific generic-constructor redesign checkpointed/dispatched. New helpers for
 global rows/full packaging remain unwired, unverified and explicitly conditional.
+
+
+### Pilot 69: constructor correction works; finite coherence remains too expensive
+
+Run 40072864470 at b4789c2426ad80a8686587360f5f711bb73871a7 is retained
+and byte/provenance reviewed in certificate-69. SourceScopeTools and its 7-root
+full-private audit pass. LocalScope16 hits its unchanged 180-second wall cap
+(180.035585 s, peak 4,638,756,864 bytes), after 443 of the proposed 448 source
+records. No complete 1/16 module/audit; no quarter attempt. Only the previously
+checked 32-operation block has actual row credit. Accepted machine: 769,344;
+new accepted full-machine saving: zero; target 310,029 remains prospective.
+
+The detailed trace confirms the constructor fix: post-node record assembly
+measures 21/23/30/35/45 ms at labels 0/42/300/400/442. The previous pilot cost
+7,273 ms at label 42. Remaining main-coherence decisions cost 35/36/68/234/2332
+ms at those labels, growing with syntax work. Retrying unchanged or increasing
+the cap is not justified. Decision: REDESIGN repeated finite decisions.
+
+Bounded pilot 70 replaces nested finite-universal decisions with a reusable
+Boolean checker. It matches each syntax node before the ten bit/store cases,
+shares a write's inverse lookup, and checks both actual row words together.
+Generic ordinary Lean soundness must imply exactly the existing Coherent and
+ReturnCoherent obligations; no native oracle or relaxed foundation checks.
+The old complete block/false-word test and 1/16, 1/4 tests replay under the same
+120/180/210-second budgets, overall 1200 seconds, process-group/driver 6 GiB.
+Producer source manifest includes the new checker. A source error is a failed
+proof preflight, not evidence of faster certification.
+
+No full-machine cost estimate is credible until substantial certificates and
+their complete audits succeed. Conditional global-row/link drafts remain
+unverified and unwired. Frozen pins and historical evidence unchanged.

@@ -54,6 +54,11 @@ def run(driver, api):
                'Finite numeric local checks imply exact main and paid-return equations')
     driver.summary['source_local_rule_soundness_checked'] = True
     driver.checkpoint()
+    import direct_check_pilot
+    direct_check_pilot.generate(driver, api.header, api.audit_and_end, api.MODULE)
+    driver.run('DirectChecks', 60, 'Direct Boolean checker preserves all local row obligations')
+    driver.summary['direct_boolean_row_checker_soundness_checked'] = True
+    driver.checkpoint()
     import source_table_pilot
     source_table_pilot.generate(driver, api.header, api.audit_and_end, api.MODULE)
     driver.run('SourceTables', 60, 'Finite source-operation table reconstruction checked')
