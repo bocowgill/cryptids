@@ -1,0 +1,417 @@
+{
+  "actual_frozen_source_operations_checked": 34,
+  "audit_execution": "compiled_lean_executable",
+  "audited_modules": [
+    {
+      "full_private_environment": true,
+      "module": "Cryptids.Chess.Optimisation.BodyCertificatePilot.SourceTables",
+      "required_roots": 13
+    },
+    {
+      "full_private_environment": true,
+      "module": "Cryptids.Chess.Optimisation.BodyCertificatePilot.RawLabels",
+      "required_roots": 24
+    },
+    {
+      "full_private_environment": true,
+      "module": "Cryptids.Chess.Optimisation.BodyCertificatePilot.RawChunk",
+      "required_roots": 8
+    }
+  ],
+  "auditor_executable": {
+    "info": {
+      "bytes": 118591176,
+      "sha256": "9d815f916dc156b36a44a967165e2d256e0459d97df27c5dd8621b6088e27eed"
+    },
+    "path": "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_body_certificate_audit",
+    "source": {
+      "bytes": 3029,
+      "sha256": "9d2a7db1fd5d82bbdadf4f6e0db0571af956741f42a89c3086c61414d52512df"
+    }
+  },
+  "classification": "RAW_LABEL_DECODER_PILOT",
+  "commit": "fb4cdccaed7dcfa85e3ed90df3583590fa11b7ea",
+  "complete_opcode_snapshot_checked": false,
+  "complete_typed_candidate_data_checked": false,
+  "completed_positive_sample_states": 0,
+  "completed_positive_unique_rows": 0,
+  "data_stage_group": {
+    "completed_stages": [],
+    "required_stages": [
+      "MapPrelude",
+      "MapCount",
+      "MapValid",
+      "MapBounded",
+      "MapChecks",
+      "QuotientChecks",
+      "Data",
+      "BodyRelation"
+    ],
+    "wall_seconds": 120
+  },
+  "driver_peak_rss_kib": 28832,
+  "driver_source": {
+    "bytes": 84673,
+    "sha256": "0eb429e11eda314de63384084f0310328b8c8e721f7ebacf3b6b8d4682dae6d6"
+  },
+  "elapsed_seconds": 50.732537605999994,
+  "full_quotient_certified": false,
+  "generated_files": {
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/Audit.lean": {
+      "bytes": 3029,
+      "sha256": "9d2a7db1fd5d82bbdadf4f6e0db0571af956741f42a89c3086c61414d52512df"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/RawChunk.lean": {
+      "bytes": 7525,
+      "sha256": "46de638faa35bf4a17983eb09df2b5e8e1bac6fbc05e97c9dd765f282bcacc55"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/RawChunk.roots": {
+      "bytes": 595,
+      "sha256": "cfa0d229f25ecb1c22c41a33f988f239ebb522310c4bacd1f86b6bd3aef7579c"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/RawLabels.lean": {
+      "bytes": 5825,
+      "sha256": "85287a0046fb3718e08e86e1e17c9905e0a2c8dc47710cfcf5930018b1ba0930"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/RawLabels.roots": {
+      "bytes": 1614,
+      "sha256": "dcca926ef88e0cb72cf67a5caebe52ad6da429960b50f89bce7d4a8b51b9e7b1"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/SourceTableProposal.lean": {
+      "bytes": 1955,
+      "sha256": "469449deda537b513624f403d48f499eea31e445fe3e02670cbabd10b811fb3a"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/SourceTables.lean": {
+      "bytes": 4053,
+      "sha256": "69174447f1c688054128a4ba3d9989229448f3afb023788a29df027df2a028de"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/SourceTables.roots": {
+      "bytes": 740,
+      "sha256": "407745710ead534e6204de907d65342266c4ac807e2f330de735a9dc03cf809d"
+    }
+  },
+  "graph_fidelity_checked": false,
+  "limits": {
+    "address_space_limit": null,
+    "audit_allocator_limit_bytes": null,
+    "driver_rss_bytes": 536870912,
+    "memory_enforcement": "sampled resident memory",
+    "process_group_rss_bytes": 6442450944,
+    "rss_sampling_seconds": 0.1,
+    "wall_seconds": 180
+  },
+  "map_invariant_proof": "single_pass_checked_count_cache_range",
+  "map_native_code_generation": false,
+  "map_representation": "named_literal_nat_midpoint_subtrees_with_composed_kernel_proofs",
+  "negative_control": {
+    "status": "not_run"
+  },
+  "new_accepted_machine": false,
+  "partial_certificate_only": true,
+  "quotient_representation": "packed_nat_pairs_executable_noinline_midpoint_subtrees",
+  "quotient_states": 114487,
+  "raw_chunk_proposed": {
+    "kernel_checked": true,
+    "label_bound_declarations": 0,
+    "length": 32,
+    "nonconstant_load": 285,
+    "small_bound_defs": 9,
+    "start": 256
+  },
+  "raw_label_decoder_checked": true,
+  "raw_source_chunk_checked": true,
+  "requested_sample_states": [],
+  "requested_scope": "raw_label_decoder_only",
+  "run_id": "40063451158",
+  "source_operation_proposal": {
+    "info": {
+      "bytes": 85804,
+      "sha256": "f9224d484ec7961f0360fea6530dc6f68a31feafb900a8f39606fb2c2dfd114e"
+    },
+    "path": "source-operation-proposal.json",
+    "scope": "Untrusted finite opcode proposal; only checked chunk receives fidelity credit"
+  },
+  "source_states": 573802,
+  "stage": "RawChunkAudit",
+  "stages": [
+    {
+      "argv": [
+        "lake",
+        "--wfail",
+        "-f",
+        "lakefile.chess-body-certificate-20261022.toml",
+        "build",
+        "chess_body_certificate_audit"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "elapsed_seconds": 7.176774115000001,
+      "executable": {
+        "info": {
+          "bytes": 118591176,
+          "sha256": "9d815f916dc156b36a44a967165e2d256e0459d97df27c5dd8621b6088e27eed"
+        },
+        "path": "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_body_certificate_audit"
+      },
+      "exit": 0,
+      "expected_banner": "Build completed successfully",
+      "expected_banner_found": true,
+      "kind": "auditor_build",
+      "log": "AuditExecutable.log",
+      "log_info": {
+        "bytes": 256,
+        "sha256": "791746707aabe3edeac4a1ada17675ebeb2eab32399dc134e5fbbf4c7954accc"
+      },
+      "module": "Cryptids.Chess.Optimisation.BodyCertificatePilot.Audit",
+      "olean": {
+        "bytes": 341824,
+        "sha256": "8e6c81a2c9598c92344257a5f5665ce7c0083a980a21db2dc22b9e7f9c62bc47"
+      },
+      "peak_group_plus_driver_rss_bytes": 2449932288,
+      "resource_stop": null,
+      "shell": false,
+      "timeout_seconds": 120
+    },
+    {
+      "argv": [
+        "lake",
+        "--wfail",
+        "-f",
+        "lakefile.chess-body-certificate-20261022.toml",
+        "build",
+        "Cryptids.Chess.Optimisation.BodyCertificatePilot.SourceTables"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "elapsed_seconds": 10.103363903999991,
+      "exit": 0,
+      "expected_banner": "Finite source-operation table reconstruction checked",
+      "expected_banner_found": true,
+      "kind": "kernel_build",
+      "log": "SourceTables.log",
+      "log_info": {
+        "bytes": 265,
+        "sha256": "3f9f85276a46bf11da5ec861e1a6f6a3018f4b36ee2dc79ab05a66c6133fb334"
+      },
+      "module": "Cryptids.Chess.Optimisation.BodyCertificatePilot.SourceTables",
+      "olean": {
+        "bytes": 498016,
+        "sha256": "2d0a1af407948f34be82d4ab44be47ef8f559a8cabc252a0494513158013e734"
+      },
+      "peak_group_plus_driver_rss_bytes": 2758758400,
+      "resource_stop": null,
+      "shell": false,
+      "timeout_seconds": 60
+    },
+    {
+      "argv": [
+        "lake",
+        "--wfail",
+        "-f",
+        "lakefile.chess-body-certificate-20261022.toml",
+        "env",
+        "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_body_certificate_audit",
+        "Cryptids.Chess.Optimisation.BodyCertificatePilot.SourceTables",
+        "Cryptids/Chess/Optimisation/BodyCertificatePilot/SourceTables.roots",
+        "13"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "elapsed_seconds": 13.025785372999962,
+      "executable": {
+        "info": {
+          "bytes": 118591176,
+          "sha256": "9d815f916dc156b36a44a967165e2d256e0459d97df27c5dd8621b6088e27eed"
+        },
+        "path": "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_body_certificate_audit",
+        "source": {
+          "bytes": 3029,
+          "sha256": "9d2a7db1fd5d82bbdadf4f6e0db0571af956741f42a89c3086c61414d52512df"
+        }
+      },
+      "exit": 0,
+      "expected_banner": "Body full-private kernel root audit passed",
+      "expected_banner_found": true,
+      "kind": "full_private_audit",
+      "log": "SourceTablesAudit.log",
+      "log_info": {
+        "bytes": 217,
+        "sha256": "f061b41aad5517676b0d32bfe592acfb1f48c4c82243e9a50495bac21e162d38"
+      },
+      "module": "Cryptids.Chess.Optimisation.BodyCertificatePilot.SourceTables",
+      "peak_group_plus_driver_rss_bytes": 4484485120,
+      "resource_stop": null,
+      "shell": false,
+      "timeout_seconds": 49.891241288
+    },
+    {
+      "argv": [
+        "lake",
+        "--wfail",
+        "-f",
+        "lakefile.chess-body-certificate-20261022.toml",
+        "build",
+        "Cryptids.Chess.Optimisation.BodyCertificatePilot.RawLabels"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "elapsed_seconds": 5.757753607000041,
+      "exit": 0,
+      "expected_banner": "Raw labels decode exactly and reject out-of-range targets",
+      "expected_banner_found": true,
+      "kind": "kernel_build",
+      "log": "RawLabels.log",
+      "log_info": {
+        "bytes": 484,
+        "sha256": "f0e42b06d221905aa03af76833a75beda38af2ada7fcef874385c900a1ccafe5"
+      },
+      "module": "Cryptids.Chess.Optimisation.BodyCertificatePilot.RawLabels",
+      "olean": {
+        "bytes": 451880,
+        "sha256": "f5fd5b1c8a53672f40872bbccce45bd54a2625eba1739d3f45eae504dce67391"
+      },
+      "peak_group_plus_driver_rss_bytes": 2759958528,
+      "resource_stop": null,
+      "shell": false,
+      "timeout_seconds": 60
+    },
+    {
+      "argv": [
+        "lake",
+        "--wfail",
+        "-f",
+        "lakefile.chess-body-certificate-20261022.toml",
+        "env",
+        "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_body_certificate_audit",
+        "Cryptids.Chess.Optimisation.BodyCertificatePilot.RawLabels",
+        "Cryptids/Chess/Optimisation/BodyCertificatePilot/RawLabels.roots",
+        "24"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "elapsed_seconds": 2.524702058999992,
+      "executable": {
+        "info": {
+          "bytes": 118591176,
+          "sha256": "9d815f916dc156b36a44a967165e2d256e0459d97df27c5dd8621b6088e27eed"
+        },
+        "path": "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_body_certificate_audit",
+        "source": {
+          "bytes": 3029,
+          "sha256": "9d2a7db1fd5d82bbdadf4f6e0db0571af956741f42a89c3086c61414d52512df"
+        }
+      },
+      "exit": 0,
+      "expected_banner": "Body full-private kernel root audit passed",
+      "expected_banner_found": true,
+      "kind": "full_private_audit",
+      "log": "RawLabelsAudit.log",
+      "log_info": {
+        "bytes": 214,
+        "sha256": "05e112806fe15ec56c57a49b09eb05c08bfb6984c3cd1ccdef056149e6608551"
+      },
+      "module": "Cryptids.Chess.Optimisation.BodyCertificatePilot.RawLabels",
+      "peak_group_plus_driver_rss_bytes": 4509339648,
+      "resource_stop": null,
+      "shell": false,
+      "timeout_seconds": 54.23917458300002
+    },
+    {
+      "argv": [
+        "lake",
+        "--wfail",
+        "-f",
+        "lakefile.chess-body-certificate-20261022.toml",
+        "build",
+        "Cryptids.Chess.Optimisation.BodyCertificatePilot.SourceTableProposal"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "elapsed_seconds": 4.750940734000039,
+      "exit": 0,
+      "expected_banner": "Untrusted finite source operations exported",
+      "expected_banner_found": true,
+      "kind": "kernel_build",
+      "log": "SourceTableProposal.log",
+      "log_info": {
+        "bytes": 489,
+        "sha256": "f9b8ee8309a0798619e199f9cfd919b45274d870103dc0f9fdafb4def6ef3b07"
+      },
+      "module": "Cryptids.Chess.Optimisation.BodyCertificatePilot.SourceTableProposal",
+      "olean": {
+        "bytes": 43952,
+        "sha256": "ae1f3d0851617efaaffd1bcb52e87fd85b6c5a5de8ec26f5f35172f16934b96d"
+      },
+      "peak_group_plus_driver_rss_bytes": 3034140672,
+      "resource_stop": null,
+      "shell": false,
+      "timeout_seconds": 60
+    },
+    {
+      "argv": [
+        "lake",
+        "--wfail",
+        "-f",
+        "lakefile.chess-body-certificate-20261022.toml",
+        "build",
+        "Cryptids.Chess.Optimisation.BodyCertificatePilot.RawChunk"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "elapsed_seconds": 4.349566792000019,
+      "exit": 0,
+      "expected_banner": "Raw source chunk bounds and restoration checked",
+      "expected_banner_found": true,
+      "kind": "kernel_build",
+      "log": "RawChunk.log",
+      "log_info": {
+        "bytes": 691,
+        "sha256": "51bce63cfd6c462c2d8d0fa8a90111430bce9674d1e3c36bea4bb46dc0f4858b"
+      },
+      "module": "Cryptids.Chess.Optimisation.BodyCertificatePilot.RawChunk",
+      "olean": {
+        "bytes": 50032,
+        "sha256": "3953eb262c811ba27aacde1709f28cf02b6f469226facc401b337ee77db8d2d8"
+      },
+      "peak_group_plus_driver_rss_bytes": 2811740160,
+      "resource_stop": null,
+      "shell": false,
+      "timeout_seconds": 60
+    },
+    {
+      "argv": [
+        "lake",
+        "--wfail",
+        "-f",
+        "lakefile.chess-body-certificate-20261022.toml",
+        "env",
+        "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_body_certificate_audit",
+        "Cryptids.Chess.Optimisation.BodyCertificatePilot.RawChunk",
+        "Cryptids/Chess/Optimisation/BodyCertificatePilot/RawChunk.roots",
+        "8"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "elapsed_seconds": 2.528087744000004,
+      "executable": {
+        "info": {
+          "bytes": 118591176,
+          "sha256": "9d815f916dc156b36a44a967165e2d256e0459d97df27c5dd8621b6088e27eed"
+        },
+        "path": "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_body_certificate_audit",
+        "source": {
+          "bytes": 3029,
+          "sha256": "9d2a7db1fd5d82bbdadf4f6e0db0571af956741f42a89c3086c61414d52512df"
+        }
+      },
+      "exit": 0,
+      "expected_banner": "Body full-private kernel root audit passed",
+      "expected_banner_found": true,
+      "kind": "full_private_audit",
+      "log": "RawChunkAudit.log",
+      "log_info": {
+        "bytes": 212,
+        "sha256": "b904f04bc27762860bf7e4e454e40a7ec5c4f29667539deb87abdad069831d20"
+      },
+      "module": "Cryptids.Chess.Optimisation.BodyCertificatePilot.RawChunk",
+      "peak_group_plus_driver_rss_bytes": 4511277056,
+      "resource_stop": null,
+      "shell": false,
+      "timeout_seconds": 55.647870157
+    }
+  ],
+  "status": "raw_labels_passed",
+  "template_smoke_checked": false
+}

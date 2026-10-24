@@ -47,7 +47,8 @@ def main():
         paths += ['scripts/chess_body_20261022/source_table_pilot.py',
                   'scripts/chess_body_20261022/raw_label_pilot.py',
                   'scripts/chess_body_20261022/source_chunk_pilot.py',
-                  'scripts/chess_body_20261022/raw_chunk_pilot.py']
+                  'scripts/chess_body_20261022/raw_chunk_pilot.py',
+                  'scripts/chess_body_20261022/raw_complete_pilot.py']
     manifest = dict(commit=os.environ.get('GITHUB_SHA'), run_id=os.environ.get('GITHUB_RUN_ID'),
                     workflow_commit=os.environ.get('GITHUB_SHA'),
                     source_sha256={p: runner.sha(ROOT / p) for p in paths},
@@ -94,11 +95,13 @@ def main():
         assert detail['raw_label_decoder_checked'] is True
         assert detail['raw_source_chunk_checked'] is True
         assert detail['raw_chunk_proposed']['kernel_checked'] is True
-        assert detail['actual_frozen_source_operations_checked'] == 34
+        assert detail['complete_opcode_snapshot_checked'] is True
+        assert detail['complete_raw_source_proposed']['kernel_checked'] is True
+        assert detail['actual_frozen_source_operations_checked'] == 4042
         assert detail['completed_positive_unique_rows'] == 0
     (WORK / 'verification.json').write_text(json.dumps(dict(manifest, status='passed', checks=checks,
         mode=args.mode, detail=detail,
-        scope=('Raw-label decoder and one complete source chunk; no full source/quotient or machine'
+        scope=('Complete raw source reconstruction, bounds and meaning; no quotient or new machine'
                if raw else
                'Generic local equations to all paid controls; no actual quotient rows or machine'
                if cache else

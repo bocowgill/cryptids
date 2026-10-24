@@ -1494,8 +1494,16 @@ def main():
             raw_chunk_pilot.generate(driver, header, audit_and_end, MODULE)
             driver.run("RawChunk", 60, "Raw source chunk bounds and restoration checked")
             driver.summary["raw_chunk_proposed"]["kernel_checked"] = True
-            driver.summary.update(status="raw_labels_passed", raw_source_chunk_checked=True,
+            driver.summary.update(raw_source_chunk_checked=True,
                                   actual_frozen_source_operations_checked=34)
+            driver.checkpoint()
+            import raw_complete_pilot
+            raw_complete_pilot.generate(driver, header, audit_and_end, progress_marker, MODULE)
+            driver.run("CompleteRawSource", 60,
+                       "All frozen raw source operations reconstructed with exact bounds")
+            driver.summary["complete_raw_source_proposed"]["kernel_checked"] = True
+            driver.summary.update(status="raw_labels_passed", complete_opcode_snapshot_checked=True,
+                                  actual_frozen_source_operations_checked=4042)
             driver.checkpoint()
             driver.monitor_stop.set()
             signal.setitimer(signal.ITIMER_REAL, 0)

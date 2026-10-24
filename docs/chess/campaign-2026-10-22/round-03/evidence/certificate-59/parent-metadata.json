@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40063451158,
+  "commit": "fb4cdccaed7dcfa85e3ed90df3583590fa11b7ea",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": false,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "PASS: exact raw-label narrowing/restoration and complete frozen chunk256..287, including nonconstant load285, callback corruption rejection and out-of-range target rejection. Required full-private roots audited; no actual quotient rows or new machine.",
+  "new_accepted_machine": false
+}

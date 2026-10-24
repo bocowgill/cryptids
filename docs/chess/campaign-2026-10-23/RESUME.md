@@ -699,3 +699,10 @@ all-paid-control BinaryObservation bridge on the already certified ObservedCache
 interface. No actual local closure premises or new machine follow automatically.
 The unexecuted raw_complete_pilot.py is an unwired source-only draft pending the
 complete chunk gate. Normal caps stay fixed; memory comparison51/52 remains final.
+
+Raw trial59 PASS: all required decoder and one-complete-chunk proofs/audits pass.
+Retain certificate59 before declaring exact resource measures. CompleteRawSource
+is now wired after those gates; it must freshly check all4042operations and all
+raw labels, then the17root audit, within60s. Cache bridge trial60 is
+run40063802014 at6e0ccbe7b714a5a3e085a8c05f2f51da634ad3e8, independently bounded.
+No source or generic proof alone changes the accepted769344machine count.

@@ -29,7 +29,8 @@ theorem bounds_append (a b : List RawOp)
     (ha : a.all (labelsBounded 4042) = true)
     (hb : b.all (labelsBounded 4042) = true) :
     (a ++ b).all (labelsBounded 4042) = true := by
-  simp only [List.all_append, ha, hb, Bool.and_self]
+  rewrite [List.all_append]
+  exact congrArg₂ (· && ·) ha hb
 
 theorem restore_entries (entries : List Snapshot.Entry) :
     (entries.map (fun row ↦ rawSource row.1)).map (restore 4042) =

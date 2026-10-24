@@ -2,9 +2,13 @@
   "run_id": 40063451158,
   "source": "fb4cdccaed7dcfa85e3ed90df3583590fa11b7ea",
   "mode": "raw",
-  "status": "remote_running",
+  "status": "retained_decoder_and_complete_chunk_passed",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-59",
   "accepted_states": 769344,
   "target_states": 310029,
-  "new_accepted_machine": false
+  "new_accepted_machine": false,
+  "raw_label_decoder_checked": true,
+  "raw_source_chunk_checked": true,
+  "actual_source_operations": 34,
+  "actual_rows": 0
 }
