@@ -1218,3 +1218,18 @@ a full linter or mathematical execution. NEXT inspect completed cache tiers
 then fuel generic/height/agreement/comparison/audit/negative evidence. Do not
 restart a live run. Full source and full-machine acceptance requirements fixed.
 GoalACTIVE; no accepted state change, local heavy work or outreach.
+
+
+Pilot80 retained/reviewed: generic fuel theorem3roots passes5.068+3.144s;
+all actual2047map/255quotient node heights and4final roots pass60.828+3.449s.
+Certified heights20/17 justify fuel33. FuelObservation induction stops on
+reflexive match equality; explicit rfl added. No fuel throughput measured.
+Same-run8192baseline15.895+3.447s, peak3,298,336,768bytes.
+Decision: one corrected comparison; new fuel stages now run just after8192
+baseline and before unchanged65536dependency. All original checks/caps remain.
+This proof correction adds zero source/full-machine credit. Accepted769,344,
+target310,029, new accepted savings0; G4-G6/S8-S9 remain open.
+Next: demand audited agreement, same-data8192comparison and kernel rejection;
+material speedup must then pass unchanged substantial SOURCE tiers, not merely
+cache samples. Otherwise reject fuel as scaling remedy and integrate the
+verified cache. No credible full-machine cost estimate yet.

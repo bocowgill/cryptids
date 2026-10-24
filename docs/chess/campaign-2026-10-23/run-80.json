@@ -2,7 +2,7 @@
   "run_id": 40088305779,
   "source": "27f1d983da440a39227607f112e0a4c1d94a7d2d",
   "mode": "lookup",
-  "status": "remote_queued",
+  "status": "failure_retained_reviewed",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-80",
   "route": "Controlled same8192data/256cell-chunk comparison: original tree-brecOn vs height-certified short-fuel path lookup",
   "required_generic_fuel_roots": 3,
@@ -26,5 +26,15 @@
   "source_rows_credit": 0,
   "new_accepted_machine": false,
   "correction": "Missing stdlib json import added; identical same-data height-certified lookup comparison",
-  "static_global_reference_check": "stdlib symtable inspection on lookup/fuel generators: no unresolved global references"
+  "static_global_reference_check": "stdlib symtable inspection on lookup/fuel generators: no unresolved global references",
+  "generic_roots": 3,
+  "height_roots": 2306,
+  "map_height": 20,
+  "quotient_height": 17,
+  "fuel": 33,
+  "generic_seconds": 5.067614522,
+  "height_seconds": 60.827754594,
+  "comparison_attempted": false,
+  "obstruction": "Agreement induction leaves reflexive match equality; explicit rfl required",
+  "decision": "Correct proof, run new comparison immediately after same8192baseline; retain65536tier and all caps"
 }

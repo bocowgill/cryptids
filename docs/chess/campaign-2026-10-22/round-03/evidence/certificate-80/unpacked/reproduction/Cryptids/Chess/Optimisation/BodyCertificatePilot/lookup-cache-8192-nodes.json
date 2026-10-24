@@ -1,0 +1,473 @@
+[
+  {
+    "name": "cache_0_256",
+    "first": 0,
+    "size": 256,
+    "kind": "chunk"
+  },
+  {
+    "name": "cache_256_256",
+    "first": 256,
+    "size": 256,
+    "kind": "chunk"
+  },
+  {
+    "name": "cache_0_512",
+    "first": 0,
+    "size": 512,
+    "kind": "branch",
+    "half": 256,
+    "left": "cache_0_256",
+    "right": "cache_256_256"
+  },
+  {
+    "name": "cache_512_256",
+    "first": 512,
+    "size": 256,
+    "kind": "chunk"
+  },
+  {
+    "name": "cache_768_256",
+    "first": 768,
+    "size": 256,
+    "kind": "chunk"
+  },
+  {
+    "name": "cache_512_512",
+    "first": 512,
+    "size": 512,
+    "kind": "branch",
+    "half": 256,
+    "left": "cache_512_256",
+    "right": "cache_768_256"
+  },
+  {
+    "name": "cache_0_1024",
+    "first": 0,
+    "size": 1024,
+    "kind": "branch",
+    "half": 512,
+    "left": "cache_0_512",
+    "right": "cache_512_512"
+  },
+  {
+    "name": "cache_1024_256",
+    "first": 1024,
+    "size": 256,
+    "kind": "chunk"
+  },
+  {
+    "name": "cache_1280_256",
+    "first": 1280,
+    "size": 256,
+    "kind": "chunk"
+  },
+  {
+    "name": "cache_1024_512",
+    "first": 1024,
+    "size": 512,
+    "kind": "branch",
+    "half": 256,
+    "left": "cache_1024_256",
+    "right": "cache_1280_256"
+  },
+  {
+    "name": "cache_1536_256",
+    "first": 1536,
+    "size": 256,
+    "kind": "chunk"
+  },
+  {
+    "name": "cache_1792_256",
+    "first": 1792,
+    "size": 256,
+    "kind": "chunk"
+  },
+  {
+    "name": "cache_1536_512",
+    "first": 1536,
+    "size": 512,
+    "kind": "branch",
+    "half": 256,
+    "left": "cache_1536_256",
+    "right": "cache_1792_256"
+  },
+  {
+    "name": "cache_1024_1024",
+    "first": 1024,
+    "size": 1024,
+    "kind": "branch",
+    "half": 512,
+    "left": "cache_1024_512",
+    "right": "cache_1536_512"
+  },
+  {
+    "name": "cache_0_2048",
+    "first": 0,
+    "size": 2048,
+    "kind": "branch",
+    "half": 1024,
+    "left": "cache_0_1024",
+    "right": "cache_1024_1024"
+  },
+  {
+    "name": "cache_2048_256",
+    "first": 2048,
+    "size": 256,
+    "kind": "chunk"
+  },
+  {
+    "name": "cache_2304_256",
+    "first": 2304,
+    "size": 256,
+    "kind": "chunk"
+  },
+  {
+    "name": "cache_2048_512",
+    "first": 2048,
+    "size": 512,
+    "kind": "branch",
+    "half": 256,
+    "left": "cache_2048_256",
+    "right": "cache_2304_256"
+  },
+  {
+    "name": "cache_2560_256",
+    "first": 2560,
+    "size": 256,
+    "kind": "chunk"
+  },
+  {
+    "name": "cache_2816_256",
+    "first": 2816,
+    "size": 256,
+    "kind": "chunk"
+  },
+  {
+    "name": "cache_2560_512",
+    "first": 2560,
+    "size": 512,
+    "kind": "branch",
+    "half": 256,
+    "left": "cache_2560_256",
+    "right": "cache_2816_256"
+  },
+  {
+    "name": "cache_2048_1024",
+    "first": 2048,
+    "size": 1024,
+    "kind": "branch",
+    "half": 512,
+    "left": "cache_2048_512",
+    "right": "cache_2560_512"
+  },
+  {
+    "name": "cache_3072_256",
+    "first": 3072,
+    "size": 256,
+    "kind": "chunk"
+  },
+  {
+    "name": "cache_3328_256",
+    "first": 3328,
+    "size": 256,
+    "kind": "chunk"
+  },
+  {
+    "name": "cache_3072_512",
+    "first": 3072,
+    "size": 512,
+    "kind": "branch",
+    "half": 256,
+    "left": "cache_3072_256",
+    "right": "cache_3328_256"
+  },
+  {
+    "name": "cache_3584_256",
+    "first": 3584,
+    "size": 256,
+    "kind": "chunk"
+  },
+  {
+    "name": "cache_3840_256",
+    "first": 3840,
+    "size": 256,
+    "kind": "chunk"
+  },
+  {
+    "name": "cache_3584_512",
+    "first": 3584,
+    "size": 512,
+    "kind": "branch",
+    "half": 256,
+    "left": "cache_3584_256",
+    "right": "cache_3840_256"
+  },
+  {
+    "name": "cache_3072_1024",
+    "first": 3072,
+    "size": 1024,
+    "kind": "branch",
+    "half": 512,
+    "left": "cache_3072_512",
+    "right": "cache_3584_512"
+  },
+  {
+    "name": "cache_2048_2048",
+    "first": 2048,
+    "size": 2048,
+    "kind": "branch",
+    "half": 1024,
+    "left": "cache_2048_1024",
+    "right": "cache_3072_1024"
+  },
+  {
+    "name": "cache_0_4096",
+    "first": 0,
+    "size": 4096,
+    "kind": "branch",
+    "half": 2048,
+    "left": "cache_0_2048",
+    "right": "cache_2048_2048"
+  },
+  {
+    "name": "cache_4096_256",
+    "first": 4096,
+    "size": 256,
+    "kind": "chunk"
+  },
+  {
+    "name": "cache_4352_256",
+    "first": 4352,
+    "size": 256,
+    "kind": "chunk"
+  },
+  {
+    "name": "cache_4096_512",
+    "first": 4096,
+    "size": 512,
+    "kind": "branch",
+    "half": 256,
+    "left": "cache_4096_256",
+    "right": "cache_4352_256"
+  },
+  {
+    "name": "cache_4608_256",
+    "first": 4608,
+    "size": 256,
+    "kind": "chunk"
+  },
+  {
+    "name": "cache_4864_256",
+    "first": 4864,
+    "size": 256,
+    "kind": "chunk"
+  },
+  {
+    "name": "cache_4608_512",
+    "first": 4608,
+    "size": 512,
+    "kind": "branch",
+    "half": 256,
+    "left": "cache_4608_256",
+    "right": "cache_4864_256"
+  },
+  {
+    "name": "cache_4096_1024",
+    "first": 4096,
+    "size": 1024,
+    "kind": "branch",
+    "half": 512,
+    "left": "cache_4096_512",
+    "right": "cache_4608_512"
+  },
+  {
+    "name": "cache_5120_256",
+    "first": 5120,
+    "size": 256,
+    "kind": "chunk"
+  },
+  {
+    "name": "cache_5376_256",
+    "first": 5376,
+    "size": 256,
+    "kind": "chunk"
+  },
+  {
+    "name": "cache_5120_512",
+    "first": 5120,
+    "size": 512,
+    "kind": "branch",
+    "half": 256,
+    "left": "cache_5120_256",
+    "right": "cache_5376_256"
+  },
+  {
+    "name": "cache_5632_256",
+    "first": 5632,
+    "size": 256,
+    "kind": "chunk"
+  },
+  {
+    "name": "cache_5888_256",
+    "first": 5888,
+    "size": 256,
+    "kind": "chunk"
+  },
+  {
+    "name": "cache_5632_512",
+    "first": 5632,
+    "size": 512,
+    "kind": "branch",
+    "half": 256,
+    "left": "cache_5632_256",
+    "right": "cache_5888_256"
+  },
+  {
+    "name": "cache_5120_1024",
+    "first": 5120,
+    "size": 1024,
+    "kind": "branch",
+    "half": 512,
+    "left": "cache_5120_512",
+    "right": "cache_5632_512"
+  },
+  {
+    "name": "cache_4096_2048",
+    "first": 4096,
+    "size": 2048,
+    "kind": "branch",
+    "half": 1024,
+    "left": "cache_4096_1024",
+    "right": "cache_5120_1024"
+  },
+  {
+    "name": "cache_6144_256",
+    "first": 6144,
+    "size": 256,
+    "kind": "chunk"
+  },
+  {
+    "name": "cache_6400_256",
+    "first": 6400,
+    "size": 256,
+    "kind": "chunk"
+  },
+  {
+    "name": "cache_6144_512",
+    "first": 6144,
+    "size": 512,
+    "kind": "branch",
+    "half": 256,
+    "left": "cache_6144_256",
+    "right": "cache_6400_256"
+  },
+  {
+    "name": "cache_6656_256",
+    "first": 6656,
+    "size": 256,
+    "kind": "chunk"
+  },
+  {
+    "name": "cache_6912_256",
+    "first": 6912,
+    "size": 256,
+    "kind": "chunk"
+  },
+  {
+    "name": "cache_6656_512",
+    "first": 6656,
+    "size": 512,
+    "kind": "branch",
+    "half": 256,
+    "left": "cache_6656_256",
+    "right": "cache_6912_256"
+  },
+  {
+    "name": "cache_6144_1024",
+    "first": 6144,
+    "size": 1024,
+    "kind": "branch",
+    "half": 512,
+    "left": "cache_6144_512",
+    "right": "cache_6656_512"
+  },
+  {
+    "name": "cache_7168_256",
+    "first": 7168,
+    "size": 256,
+    "kind": "chunk"
+  },
+  {
+    "name": "cache_7424_256",
+    "first": 7424,
+    "size": 256,
+    "kind": "chunk"
+  },
+  {
+    "name": "cache_7168_512",
+    "first": 7168,
+    "size": 512,
+    "kind": "branch",
+    "half": 256,
+    "left": "cache_7168_256",
+    "right": "cache_7424_256"
+  },
+  {
+    "name": "cache_7680_256",
+    "first": 7680,
+    "size": 256,
+    "kind": "chunk"
+  },
+  {
+    "name": "cache_7936_256",
+    "first": 7936,
+    "size": 256,
+    "kind": "chunk"
+  },
+  {
+    "name": "cache_7680_512",
+    "first": 7680,
+    "size": 512,
+    "kind": "branch",
+    "half": 256,
+    "left": "cache_7680_256",
+    "right": "cache_7936_256"
+  },
+  {
+    "name": "cache_7168_1024",
+    "first": 7168,
+    "size": 1024,
+    "kind": "branch",
+    "half": 512,
+    "left": "cache_7168_512",
+    "right": "cache_7680_512"
+  },
+  {
+    "name": "cache_6144_2048",
+    "first": 6144,
+    "size": 2048,
+    "kind": "branch",
+    "half": 1024,
+    "left": "cache_6144_1024",
+    "right": "cache_7168_1024"
+  },
+  {
+    "name": "cache_4096_4096",
+    "first": 4096,
+    "size": 4096,
+    "kind": "branch",
+    "half": 2048,
+    "left": "cache_4096_2048",
+    "right": "cache_6144_2048"
+  },
+  {
+    "name": "cache_0_8192",
+    "first": 0,
+    "size": 8192,
+    "kind": "branch",
+    "half": 4096,
+    "left": "cache_0_4096",
+    "right": "cache_4096_4096"
+  }
+]

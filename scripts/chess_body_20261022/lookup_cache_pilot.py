@@ -340,8 +340,11 @@ def run(driver, api):
             driver.run('LookupCacheControls', 60, 'Cache class and word corruption rejected')
             driver.run('LookupCacheNegative', 45, negative=True)
             driver.summary['numeric_lookup_cache_corruption_controls_checked'] = True
-    import fuel_lookup_pilot
-    fuel_lookup_pilot.run(driver, api)
+        if count == 8192:
+            # Fail fast on the new generic/comparison proof before replaying
+            # the already established larger numeric-cache dependency.
+            import fuel_lookup_pilot
+            fuel_lookup_pilot.run(driver, api)
     driver.summary.update(status='lookup_cache_passed')
     driver.checkpoint()
     print('Numeric observation cache fidelity pilot passed', flush=True)

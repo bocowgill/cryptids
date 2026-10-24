@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40088305779,
+  "commit": "27f1d983da440a39227607f112e0a4c1d94a7d2d",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": true,
+  "actual_rows": 0,
+  "negative_control": "kernel_rejected",
+  "diagnosis": "Generic fuel getter3roots proof/audit pass5.068+3.144s. All2047map/255Qnode heights and4finalheight/fuel roots pass60.828+3.449s: heights20/17fuel33certified. FuelObservation agreement branch leaves identical match expressions; explicit rfl missing. No fuel performance comparison. Add proof rfl; reorder new comparison before unchanged65536dependency, retaining all tiers and caps.",
+  "new_accepted_machine": false
+}

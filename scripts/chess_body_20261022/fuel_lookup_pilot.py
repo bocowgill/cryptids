@@ -135,6 +135,7 @@ theorem validate_eq (tree : Balanced.RowTree Cell) (start : Nat) :
   | leaf cell => simp only [validate, LookupCachePilot.validate, checkCell_eq]
   | branch leftCount left right ihLeft ihRight =>
     simp only [validate, LookupCachePilot.validate, ihLeft, ihRight]
+    rfl
 
 theorem validate_branch (leftCount : Nat) (left right : Balanced.RowTree Cell)
     (start middle finish : Nat) (leftChecked : validate left start = some middle)
