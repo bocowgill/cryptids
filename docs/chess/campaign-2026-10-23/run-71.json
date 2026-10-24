@@ -1,0 +1,23 @@
+{
+  "run_id": 40074836709,
+  "source": "3b23bac46fadfc7517274fb3f2f662b8fb722c9f",
+  "mode": "local",
+  "status": "remote_queued",
+  "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-71",
+  "correction": "Fix pilot70 generic proof rewrite/unfold/Boolean simplification and naming diagnostics",
+  "requested_body_fractions": [
+    "1/16",
+    "1/4"
+  ],
+  "stage_seconds": {
+    "direct_checker": 60,
+    "complete_block": 120,
+    "scope16": 180,
+    "scope4": 210
+  },
+  "overall_seconds": 1200,
+  "memory_gib": 6,
+  "accepted_states": 769344,
+  "target_states": 310029,
+  "new_accepted_machine": false
+}

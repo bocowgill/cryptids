@@ -24,7 +24,9 @@ are retained/reviewed; historical evidence stays fixed.
 Decision: redesign repeated finite decisions before another scaling attempt.
 Pilot 70 is retained/reviewed: generic checker proof API/unfold/Boolean
 simplification errors and naming warning, 25.103 s / 3,187,347,456 bytes; no
-throughput test. Corrected pilot 71 (mode local) uses a reusable Boolean checker with ordinary Lean soundness
+throughput test. Corrected pilot 71: run 40074836709 at
+3b23bac46fadfc7517274fb3f2f662b8fb722c9f (mode local; retain certificate-71).
+It uses a reusable Boolean checker with ordinary Lean soundness
 into the original Coherent/ReturnCoherent propositions. It decodes each syntax
 node before all ten cases and checks both actual transition words together.
 Same complete block/corruption controls, 1/16 and 1/4 targets, 120/180/210 s
