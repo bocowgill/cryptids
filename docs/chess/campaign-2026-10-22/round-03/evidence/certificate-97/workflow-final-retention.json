@@ -1,0 +1,8 @@
+{
+  "run_id": 40124813215,
+  "status": "completed",
+  "conclusion": "failure",
+  "logs_sha256": "d878d742eac753d321b65bc122968e6bcb39ebaa44c18e21e6a4bfabc1ab2c49",
+  "logs_bytes": 26184,
+  "workflow_final_metadata_pending": false
+}

@@ -1,0 +1,23 @@
+ℹ [3853/3856] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.NumericTree
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericTree.lean:152:0: Decorated numeric syntax preserves node positions and paid return targets
+ℹ [3854/3856] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.NumericControl
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericControl.lean:232:0: Numeric node and paid-return checks preserve all bit and store cases
+ℹ [3855/3856] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.NumericSourceCore
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericSourceCore.lean:178:0: Numeric trace and return checks cover every original typed source slot
+✖ [3856/3856] Building Cryptids.Chess.Optimisation.BodyCertificatePilot.NumericSourceCoreNegative (2.1s)
+trace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean -M6144 /home/runner/work/cryptids/cryptids/Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericSourceCoreNegative.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericSourceCoreNegative.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericSourceCoreNegative.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericSourceCoreNegative.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericSourceCoreNegative.setup.json --json
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericSourceCoreNegative.lean:20:0: (kernel) declaration type mismatch, 'Chess.Optimisation.BodyCertificatePilot.deliberately_false_numeric_source_target' has type
+  (Chess.Optimisation.BodyCertificatePilot.NumericTreePilot.paidTargets
+          (Chess.Optimisation.BodyCertificatePilot.NumericTreePilot.encode 0
+            ConjectureMachines.Compilation.FieldCompiler.Syntax.halt)).getD
+      0 999 =
+    0
+but it is expected to have type
+  (Chess.Optimisation.BodyCertificatePilot.NumericTreePilot.paidTargets
+          (Chess.Optimisation.BodyCertificatePilot.NumericTreePilot.encode 0
+            ConjectureMachines.Compilation.FieldCompiler.Syntax.halt)).getD
+      0 999 =
+    1
+Some required targets logged failures:
+- Cryptids.Chess.Optimisation.BodyCertificatePilot.NumericSourceCoreNegative
+error: build failed

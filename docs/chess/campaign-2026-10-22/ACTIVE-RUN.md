@@ -956,3 +956,14 @@ identical. SourceScope numeric constructor is prepared but UNWIRED/UNVERIFIED,
 requires same-run actual profile/control pass before use.97is not a new RAM
 comparison. GoalACTIVE; accepted769344/target310029/new full savings0.
 No restart for observer timeout/HTTP502; inspect exact run/artifact. Lastusage15%.
+
+
+97TERMINAL source-conversion failure retained/reviewed;506.426sdriver,
+5.170sadapter/3267637248bytes, no memory/time stop.96LHS wrapper is resolved
+but simp unfolded observation/layout arguments before matching typedStep_eq;
+RHS staystypedStep. Specific98fix orders rewrite[typedStep_eq]atword FIRST,
+then simpa only wrapperdefinitions/fastNodeAt_eq. Same8statements, hypotheses,
+all correctness/control/resource gates; actual profile still UNATTEMPTED.
+All20/29/17cores/audits/negativecontrols pass again. No throughput/scaling
+credit or accepted machine saving. Terminal metadata/logs appended; complete
+archives retained. GoalACTIVE; accepted769344/target310029/newfullsavings0.

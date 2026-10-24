@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40124813215,
+  "commit": "da9816d5900c401775e5919b4a9c8e7060eec316",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": true,
+  "actual_rows": 4370,
+  "negative_control": "kernel_rejected",
+  "diagnosis": "Explicit wrapper unfolding succeeds on the left, but simp unfolds typedStep arguments before matching typedStep_eq on the right. Rewrite typedStep_eq first, then simplify only row/layout wrappers. No time or memory obstruction and no actual profile credit.",
+  "new_accepted_machine": false
+}
