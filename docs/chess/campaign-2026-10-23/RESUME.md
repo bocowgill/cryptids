@@ -1941,3 +1941,29 @@ corruption pilot before substantial/full source/all shared controls/both
 halting directions/exact310,029paid/fixtures/final review. Same459,315potential
 saving/high proof/high effort; accepted769,344/target310,029/new full savings0.
 GoalACTIVE/frozen/remote/free/no-outreach fixed; lastusage15%, no reset.
+
+
+Typed numeric source-core94dispatched: run40120625408 at
+a2d008342cdf30e3126939bbf776f2ea49995743, mode smoke; retain certificate-94.
+NEXT17root source core60s/private audit and false-source-target kernel
+negative45s; all previous numeric/tree/control and oldsmoke replays;
+global300s/6GiB unchanged. No workflow change/automatic extra run. AllNEW17
+proofs UNVERIFIED pendingremote result. Exact run AND artifact endpoint must
+be polled; stale empty steps/observer502does not warrant restart.
+
+If core passes: concrete Data adapter should define Observation.pairAt as
+quotientTree.lookup(mapTree.lookup address0)(0,0), command=NumericLocal.commandWord;
+Layout.main uses NumericLocal.mainAddress (prefix+slot) value, returned uses
+returnAddress qprefix rankvalue, entry uses label returnprefix rank0, halt533341.
+Preserve mainAddress's initial-control swap (raw1maps0), NOT naive1+5*index;
+shared mainhalt and haltreturn still need separate full-global proofs. typedStep
+should match LocalRule.stepWord by cases/rfl, Coherent via fastNodeAt_eq and
+return equations by definitions. Then exact raw/fragment/count Boolean fidelity
+feeds unchanged makeCertificate. NumericTree Node/Trace/Fragment may need
+DecidableEq for concrete literal fidelity; no unsafe/native proof oracle.
+Only after binding, actual355load/445write/356move same-host full-cost and
+corruption tests, then original substantial/full-source/all-shared/halting/
+310,029paid/fixtures/final-review gates. Accepted769,344/target310,029/new full
+savings0; strongest source39,240states/78,480rows; same459,315prospective payoff.
+GoalACTIVE/frozen/remote/free/no-outreach fixed; lastusage15%, no reset.
+Previous goal turn PROGRESS:29root numeric control implemented/proved/pushed.
