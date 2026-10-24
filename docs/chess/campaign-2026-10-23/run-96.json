@@ -1,0 +1,30 @@
+{
+  "run_id": 40123780160,
+  "source": "cb6d1ed3768e0aad377b9635f9b818dec5e6371d",
+  "mode": "profile",
+  "status": "dispatched",
+  "route": "Concrete numeric tree checker using actual mapQ without observation-cache materialization",
+  "artifact": "chess-body-certificate-cb6d1ed3768e0aad377b9635f9b818dec5e6371d",
+  "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-96",
+  "overall_seconds": 1200,
+  "memory_gib": 6,
+  "driver_mib": 512,
+  "lean_memory_mib": 6144,
+  "concrete_adapter_roots": 8,
+  "actual_data_roots": 15,
+  "actual_profile_roots": 42,
+  "labels": [
+    355,
+    445,
+    356
+  ],
+  "expected_timing_events": 60,
+  "new_accepted_machine": false,
+  "accepted_states": 769344,
+  "target_states": 310029,
+  "accepted_full_machine_savings": 0,
+  "prior_complete_source_states": 39240,
+  "prior_complete_source_rows": 78480,
+  "last_usage_percent": 15,
+  "next_gate": "Retain exact result; evaluate actual source fidelity, full cost and all corruption controls before substantial tiers."
+}

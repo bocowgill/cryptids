@@ -2059,3 +2059,26 @@ payoff/highproof/higheffort; accepted769,344/target310,029/new full savings0;
 strongest source39,240states/78,480rows. GoalACTIVE; lastusage15%, no reset;
 frozen/remote/free/no-outreach fixed. This goal turnPROGRESS: implemented generic
 coverage, diagnosed94, fixed/proved95 and retained all evidence; not completion.
+
+
+96 concrete profile DISPATCHED: run40123780160 at
+cb6d1ed3768e0aad377b9635f9b818dec5e6371d, existing manual profile mode.
+Retain artifact chess-body-certificate-cb6d1ed3768e0aad377b9635f9b818dec5e6371d
+as certificate-96. No other live pilot at dispatch. The new profile branch
+replays numeric20/29/17 cores and controls, proves actual8root adapter, loads
+15root literals, audits42roots for actual load355/write445/move356 and tests
+six corruptions plus explicit kernel-negative. 60same-host timing events.
+Standalone observation-cache construction and fidelity are eliminated. Old
+complete candidate/prefix/raw/block/count/source controls remain in the prefix.
+No extra source hypothesis, no original row obligation dropped. All new source
+was statically parsed and templates width-checked; remote Driver.emit checks
+all generated Lean before proofs. See NUMERIC-ACTUAL-PROFILE-GATES.md.
+
+Caps: adapter60/data60/profile120/negative45s inclaudits, global1200s,6GiB
+group+driver/Lean-M6144/driver512MiB; free existing runner. Small pass is ONLY
+screening evidence: substantial1/16,1/4thenlarger/full source gates remain open.
+If source fidelity or setup defeats payoff, REDESIGN rather than retry unchanged.
+Retained memory51/52already resolves user6/10GiB question: both0completedrow
+modules;10GiBmerely delaysfailure, no12GiBtest. GoalACTIVE/frozen/remote/nooutreach.
+Accepted769344/target310029/newfullsavings0; strongest39240states/78480rows;
+459315prospective payoff. Lastusage15%; source checkpoint pushed before run.
