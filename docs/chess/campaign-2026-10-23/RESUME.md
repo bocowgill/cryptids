@@ -552,3 +552,8 @@ New workflow's OWN-FILE PUSH triggers the two jobs. DO NOT dispatch a duplicate.
 No12GiB run, paid resources, outreach or local heavy computation. Retain each
 matrix artifact separately (same runID, names suffix6gib/10gib) as49/50. Both
 source and proof/resource outcomes must be recovered before a route decision.
+
+Paired memory workflow AUTO-STARTED once bypush at sourcee2ad4f98d4348f6812c28c3fa6f87ce6fe2a6253,
+run40058400225. TWO matrix jobs only,6then10GiB (maxparallel1,failfastfalse).
+Retain49artifact chess-memory-e2ad4f98d4348f6812c28c3fa6f87ce6fe2a6253-6gib and
+retain50sameprefix-10gib after entire run completes. No duplicate dispatch made.
