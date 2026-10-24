@@ -914,3 +914,18 @@ proof preflight, not evidence of faster certification.
 No full-machine cost estimate is credible until substantial certificates and
 their complete audits succeed. Conditional global-row/link drafts remain
 unverified and unwired. Frozen pins and historical evidence unchanged.
+
+
+### Pilot 70: generic checker proof preflight, no scaling evidence
+
+Run 40074071004 at dcac08165dec63dea8dd9a67315ce1253caf852e is retained and
+byte/provenance reviewed as certificate-70. DirectChecks fails source/proof
+checking in 25.103 s, peak 3,187,347,456 bytes, without resource stop. Errors:
+Bool.and_eq_true is a rewrite fact rather than an .mp theorem in this toolchain;
+checkNode needs explicit unfolding before allValues_sound; Boolean ite cases
+need explicit reduction. Strict naming linter rejects zero binders. Corrected
+in the generator without changing the checker or its soundness statements.
+No actual block or substantial scope was attempted, and this run gives no
+performance evidence. Decision: one corrected bounded preflight/scaling trial;
+same 6 GiB, 60/120/180/210-second stages, 1200-second overall budget.
+Accepted 769,344 and prospective 310,029 unchanged.

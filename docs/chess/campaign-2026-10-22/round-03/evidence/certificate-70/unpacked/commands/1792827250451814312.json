@@ -1,0 +1,24 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_body_20261022/certificate_pilot.py",
+    "--lakefile",
+    "lakefile.chess-body-certificate-20261022.toml",
+    "--output",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-body-certificate-20261022",
+    "--seconds",
+    "1200",
+    "--memory-gib",
+    "6",
+    "--numeric-local-only"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "Bounded body kernel certificate pilot stopped: DirectChecks: Lean source/proof failure; inspect retained log\n",
+  "output_sha256": "dbee33b5c29fe5e319f1dcd19c462dde502d306ebf3d54e66c0ecb10f6abc31f",
+  "timed_out": false,
+  "timeout_seconds": 1260,
+  "elapsed_seconds": 386.06689883499996,
+  "cumulative_children_peak_rss_kib": 4034548
+}

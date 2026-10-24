@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40074071004,
+  "commit": "dcac08165dec63dea8dd9a67315ce1253caf852e",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": true,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "DirectChecks source failure in 25.103s, peak 3187347456 bytes; no memory/time stop and no throughput coverage. Unknown Bool.and_eq_true.mp, missing checkNode unfold and Boolean ite simplification; zero binder naming warning. Correct these in generator; preserve every obligation and cap.",
+  "new_accepted_machine": false
+}

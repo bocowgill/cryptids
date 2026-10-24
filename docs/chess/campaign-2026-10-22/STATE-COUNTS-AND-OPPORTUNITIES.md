@@ -186,3 +186,26 @@ constructor to eliminate repeated frozen-source dependent-type normalization.
 Same459315payoff/high proof difficulty, small targeted implementation effort;
 full-machine saving still0. Retest identical substantial scopes/caps and demand
 flat assembly plus completed audits before continuing. No full cost estimate.
+
+
+Checkpoint 69/70 decision (October 24): accepted paid breakdown stays 769,344;
+writer/decoder/bridges 195,542 plus old body 573,802. Candidate body 114,487
+would give 310,029, prospective saving 459,315; accepted new saving remains zero.
+The constructor fix removes label-dependent record assembly (q42: 7.273 s to
+23 ms), but the 448-label prefix still times out at 180.036 s after 443 records,
+without a completed module/audit. Main-coherence work is now the measured cost.
+
+Rank 1 remains the same 459,315-state opportunity, high proof difficulty and
+moderate implementation effort: pilot 70 tests a reusable Boolean checker that
+decodes each syntax node once for its ten cases, shares the write inverse and
+checks both actual words together. Its soundness must imply the existing exact
+Coherent/ReturnCoherent propositions. This is a direct dependency, not additive
+savings. Same 6 GiB and 180/210-second substantial coverage/audit budgets apply.
+Complete 1/16 and 1/4 tests are necessary before a full-cost estimate. If repeated
+closed checks remain dominant, redesign the representation rather than repeat
+local repairs or increase caps. Rank 2 packet grammar compression and rank 3
+interpreter redesign are deferred: their net savings remain unproved and they
+have higher proof/implementation effort than closing the measured quotient.
+
+Memory comparison is final: 6/10 GiB yielded zero completed modules in the old
+route, so RAM did not establish scalability. No new memory experiment is active.

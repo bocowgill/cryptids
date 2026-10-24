@@ -20,7 +20,8 @@ theorem allBelow_sound (n : Nat) (f : Nat → Bool) (checked : allBelow n f = tr
   induction n with
   | zero => omega
   | succ n ih =>
-    have parts := Bool.and_eq_true.mp checked
+    have parts : allBelow n f = true ∧ f n = true := by
+      simpa only [allBelow, Bool.and_eq_true] using checked
     by_cases before : i < n
     · exact ih parts.1 before
     · have same : i = n := by omega
@@ -35,15 +36,15 @@ theorem allValues_sound (f : Fin 5 → Bool) (checked : allValues f = true)
   simpa only [value.isLt, ↓reduceDIte] using selected
 
 -- Match the actual pair once, before checking its two words.
-noncomputable def checkPair (address zero one : Nat) : Bool :=
+noncomputable def checkPair (address zeroWord oneWord : Nat) : Bool :=
   match quotientTree.lookup (mapTree.lookup address 0) (0, 0) with
-  | (first, second) => (first == zero) && (second == one)
+  | (first, second) => (first == zeroWord) && (second == oneWord)
 
-theorem checkPair_sound (address zero one : Nat)
-    (checked : checkPair address zero one = true) (bit : Bool) :
-    rowWord address bit = if bit then one else zero := by
-  have parts : (quotientTree.lookup (mapTree.lookup address 0) (0, 0)).1 = zero ∧
-      (quotientTree.lookup (mapTree.lookup address 0) (0, 0)).2 = one := by
+theorem checkPair_sound (address zeroWord oneWord : Nat)
+    (checked : checkPair address zeroWord oneWord = true) (bit : Bool) :
+    rowWord address bit = if bit then oneWord else zeroWord := by
+  have parts : (quotientTree.lookup (mapTree.lookup address 0) (0, 0)).1 = zeroWord ∧
+      (quotientTree.lookup (mapTree.lookup address 0) (0, 0)).2 = oneWord := by
     cases row : quotientTree.lookup (mapTree.lookup address 0) (0, 0) with
     | mk first second =>
       simpa only [checkPair, row, Bool.and_eq_true, beq_iff_eq] using checked
@@ -92,21 +93,22 @@ theorem checkNode_sound (q : Fin 4042) (p : Syntax 4042) (slot : Fin p.size)
       stepWord q p node bit value := by
   cases node with
   | move dir child | load dir child | branch dir child other | goto dir | halt =>
+    simp only [checkNode] at checked
     have selected := allValues_sound _ checked value
     have word := checkPair_sound _ _ _ selected bit
-    cases bit <;> exact word
+    cases bit <;> simpa only [stepWord, Bool.false_eq_true, ↓reduceIte] using word
   | write table child =>
     cases found : FieldReturns.findTarget p child with
     | none =>
       simp only [checkNode, found] at checked
       have selected := allValues_sound _ checked value
       have word := checkPair_sound _ _ _ selected bit
-      cases bit <;> simpa only [stepWord, found] using word
+      cases bit <;> simpa only [stepWord, found, Bool.false_eq_true, ↓reduceIte] using word
     | some rank =>
       simp only [checkNode, found] at checked
       have selected := allValues_sound _ checked value
       have word := checkPair_sound _ _ _ selected bit
-      cases bit <;> simpa only [stepWord, found] using word
+      cases bit <;> simpa only [stepWord, found, Bool.false_eq_true, ↓reduceIte] using word
 
 noncomputable def checkMain (q : Fin 4042) (p : Syntax 4042) : Bool :=
   allBelow p.size fun i ↦
