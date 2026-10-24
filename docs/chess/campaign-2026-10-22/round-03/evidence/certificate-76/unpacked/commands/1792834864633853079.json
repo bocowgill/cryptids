@@ -1,0 +1,24 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_body_20261022/certificate_pilot.py",
+    "--lakefile",
+    "lakefile.chess-body-certificate-20261022.toml",
+    "--output",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-body-certificate-20261022",
+    "--seconds",
+    "1200",
+    "--memory-gib",
+    "6",
+    "--lookup-cache-only"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "Bounded body kernel certificate pilot stopped: LookupCache: Lean source/proof failure; inspect retained log\n",
+  "output_sha256": "a099bb9b0d98fdbcb8161a02d2b89847c0f7ac0d94dc4aa58e09c82d7fc70e42",
+  "timed_out": false,
+  "timeout_seconds": 1260,
+  "elapsed_seconds": 326.307672202,
+  "cumulative_children_peak_rss_kib": 4034928
+}

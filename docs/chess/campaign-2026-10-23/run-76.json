@@ -2,7 +2,7 @@
   "run_id": 40082368945,
   "source": "4a9d8f43935c7338fda0b664f700219aa312bbd3",
   "mode": "lookup",
-  "status": "remote_queued",
+  "status": "retained_reviewed_source_failure",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-76",
   "route": "Checked numerical observations and exact hybrid lookup/fallback functions; cache-only dependency",
   "required_generic_roots": 14,
@@ -26,5 +26,10 @@
   "target_states": 310029,
   "source_rows_credit": 0,
   "new_accepted_machine": false,
-  "companion_smoke_run_id": 40082347435
+  "companion_smoke_run_id": 40082347435,
+  "failed_stage": "LookupCache",
+  "generic_build_seconds": 5.262251202,
+  "generic_peak_bytes": 3188592640,
+  "cache_windows_attempted": false,
+  "decision": "Correct branch case proof to rfl after equation rewrite; no cache throughput inference"
 }

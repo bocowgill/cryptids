@@ -63,3 +63,14 @@ peak4.776GB. No substantial coverage accepted. Record assembly grows linearly
 with label index; the next bounded pilot uses a generic abstract makeCertificate
 constructor. All obligations/caps remain. This is a category-level assembly
 redesign, not an unchanged retry or a new state-count claim.
+
+Checkpoint75/76: the abstract record constructor removes the label-dependent
+assembly bottleneck. Boolean loops, literal syntax, structural traversal alone,
+and compact recipe packaging do not complete the1/16 source tier. The latest
+source pilot75 reaches442records before180.073s; no larger module/audit/quarter.
+Structural13root and compact4root generic proofs/controls pass and are retained,
+but S8 remains OPEN. The next category is amortized numerical map/Q lookup.
+Dedicated lookup mode checks128/8192/65536cached observation entries, counts,
+fallback semantics, corruption and foundations. Cache fidelity is not SourceRows
+coverage, so it cannot close S8 or S9. Require actual checker integration and
+the unchanged larger SOURCE tiers before claiming scalable full certification.

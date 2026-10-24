@@ -21,6 +21,10 @@ evidence and pins stay fixed. No outreach or bulk upstream migration.
   preserving missing transitions and both bits; a meaningful false-row control
   fails in the kernel, and both halting directions are proved.
   EVIDENCE: certificate-40 checks original64states/128rows and1271roots/20528dependencies by full-private audit, standard3axioms. Certificate-43 kernel rejects explicit false initial row in4.968s; Rows512 then stops at180.117s below memory cap, before getter/actual proofs. Complete573802state relation and both halting directions remain unproved.
+  LATEST: certificate67 and subsequent regression replays certify one complete
+  source block:2185original states/4370rows. Structural traversal13roots and
+  compact source recipes4roots are verified dependencies (74/75). No completed
+  1/16 source certificate/audit or quarter; the complete relation remains open.
 - [ ] G5: The complete blank-tape binary machine has exactly 310,029 paid states
   and the original not-draw equivalence; all actual rows, independent fixtures,
   corruption controls, regressions and foundation audits pass remotely.
@@ -28,3 +32,7 @@ evidence and pins stay fixed. No outreach or bulk upstream migration.
 - [ ] G6: A distinct final review and saved-evidence checks pass; the new accepted
   machine, full cost breakdown, immutable pins and clean handoff are pushed.
   EVIDENCE: pending
+
+Numeric observation cache pilot76 is a dependency experiment only. Even complete
+lookup fidelity at65536addresses earns zero G4 source-row or G5/G6 machine credit.
+Local-mode1/16and1/4 source assertions and all completion requirements stay fixed.

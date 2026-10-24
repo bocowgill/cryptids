@@ -41,19 +41,18 @@ Pilot75 retained/reviewed: compact recipes4roots/23,032deps pass, actual-write
 180.073s at4,168,212,480bytes after442records; no larger module/audit/quarter.
 Reject packaging alone as scaling solution; retain verified generic constructor.
 
-Current pilot76: run40082368945 at
-4a9d8f43935c7338fda0b664f700219aa312bbd3, mode lookup; retain certificate-76.
-Companion automatic smoke40082347435; retain certificate-76-smoke separately.
-It tests numeric observation cache fidelity in dedicated lookup mode.
-One-pass validator checks classId/both Q words and every cached branch extent
-against actual map/Q data. Generic hybrid cache views must equal original
-functions on ALL addresses, including fallback. Data-only128/8192/65536-entry
-windows, exact counts/body range, corruptions and full-private audits.
-ZERO source-row/full-machine/state-saving credit from cache-only success.
-Local-mode1/16/1/4 source assertions remain intact. Generic interface unverified.
-Same6GiB/global1200s; data60s, fidelity60/120/180s, controls60s, negative45s.
-No permissions/resources purchase. Workflow choice edit triggers one automatic
-smoke too; monitor separately. See LOOKUP-CACHE-PLAN.md for integration gates.
+Pilot76 retained/reviewed: generic cache proof fails5.262s at3,188,592,640bytes,
+no resource stop or data-window attempt. Case equation rewrites branch goal
+to reflexivity; one term corrected to rfl. Statements/checker/budgets unchanged.
+Companion smoke40082347435 passed and retained separately.
+
+Corrected pilot77 in lookup mode must prove14generic cache roots/private audit,
+then128/8192/65536-entry windows, exact counts/body range, actual class/word
+corruptions and fresh kernel rejection of wrong extent. Cache-only success
+earnsZERO source-row/full-machine/state-saving credit. Original source tiers
+and local verification assertions remain intact. Same6GiB/global1200s; data60s,
+fidelity60/120/180s, controls60s, negative45s. No new permission or paid resource.
+See LOOKUP-CACHE-PLAN.md for integration and full SOURCE acceptance gates.
 
 NEXT: require generic checker proof and private audit, then completed substantial
 coverage and resource evidence. Decide continue/redesign from those results.
@@ -63,4 +62,4 @@ global_rows_pilot.py and full_link_pilot.py retain an explicit all-source
 hypothesis and have no final-theorem credit.
 
 See ../campaign-2026-10-23/RESUME.md, GATES.md, STRUCTURAL-CHECKER-GATES.md,
-run-69.json through run-76.json and STATE-COUNTS-AND-OPPORTUNITIES.md. Last account usage 11%; no reset.
+run-69.json through run-77.json and STATE-COUNTS-AND-OPPORTUNITIES.md. Last account usage 11%; no reset.

@@ -59,7 +59,7 @@ theorem branch_checked (leftCount : Nat) (left right : Balanced.RowTree Cell)
   | none => simp only [validate, leftScan, reduceCtorEq] at checked
   | some middle =>
     by_cases splitAt : middle = start + leftCount
-    · exact ⟨middle, leftScan, splitAt,
+    · exact ⟨middle, rfl, splitAt,
         by simpa only [validate, leftScan, ite_eq_left splitAt] using checked⟩
     · simp only [validate, leftScan, ite_eq_right splitAt, reduceCtorEq] at checked
 

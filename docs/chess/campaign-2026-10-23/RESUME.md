@@ -1099,3 +1099,17 @@ and65536. Record exact runtime/RSS plus fixed overhead; no source-row credit
 or full-cost extrapolation from a helper/sample alone. Source checker coefficient
 integration and original larger SOURCE gates still required. GoalACTIVE; last
 account usage11%, no reset, frozen pins fixed, all heavy work remote, no outreach.
+
+
+### Lookup76: one generic case-analysis proof fix, zero cache data attempts
+
+Automatic smoke40082347435 passes and is retained/reviewed separately as
+certificate-76-smoke. Lookup40082368945 at4a9d8f4 is retained/reviewed as
+certificate-76. Generic LookupCache fails in5.262s at3,188,592,640bytes;
+no resource stop. In branch_checked, `cases leftScan` rewrites the existential
+goal's left equation to `some middle = some middle`, so its proof must be rfl
+rather than leftScan. Corrected that one term, preserving all statements,
+checkers and budgets. No cache window, numeric fidelity or runtime scaling
+credit. Decision: corrected bounded pilot77; fourteen generic roots and
+128/8192/65536 data windows/controls remain required before integration.
+G4/S8 still open. GoalACTIVE; accepted769,344/target310,029 unchanged.
