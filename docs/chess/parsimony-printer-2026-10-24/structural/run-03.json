@@ -1,0 +1,17 @@
+{
+  "run_id": 40141259554,
+  "source": "cd91d8810121a4fb98a3080a1cd6789c7c66d6cd",
+  "artifact": "chess-parsimony-proof-cd91d8810121a4fb98a3080a1cd6789c7c66d6cd",
+  "iteration": 3,
+  "status": "running",
+  "launch": "one manual dispatch after completed push and exact fork-ref verification",
+  "correction": "Supply i <= last explicitly in two row proofs and remove unused simp arguments; use explicit kernel-only decisions for generated Fin value bounds",
+  "driver_seconds": 900,
+  "lean_heap_mib": 5120,
+  "group_plus_driver_gib": 6,
+  "driver_mib": 512,
+  "accepted_machine_states": 769344,
+  "candidate_states": 609247,
+  "certified_saving": 0,
+  "next": "Retain exact results, assess reusable operational proof and real-data scaling; at most one further diagnosed iteration remains."
+}
