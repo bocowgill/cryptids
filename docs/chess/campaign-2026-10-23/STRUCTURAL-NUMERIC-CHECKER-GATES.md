@@ -120,3 +120,10 @@ bit/store and every paid finite return rank. NumericTree/Control/Source cores
 nowverified. N1still needs actual mapQ/prefix/address binding and unchanged
 SourceCertificate transport; N2-N4remain open. Next do concrete binding and
 actual three-case cost/corruption comparison, not another generic cache variant.
+
+
+99 verifies N1concrete mapQ/source/address binding and N2actual three-case
+certificates/controls. N3material TOTAL cost gain and N4substantial/full-machine
+scaling remain OPEN. Whole-recipe numeric timings are slightly worse/tied.
+One decisive unchanged-budget substantial test100 assesses elimination of424s
+cache-family setup; failure mandates lookup/fidelity category redesign.

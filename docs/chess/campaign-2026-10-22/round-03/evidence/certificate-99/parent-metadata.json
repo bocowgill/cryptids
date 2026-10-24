@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40125909771,
+  "commit": "ea3530e8aa5af1fb394a7f9a8c604ab19049ba3c",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": true,
+  "actual_rows": 4370,
+  "negative_control": "kernel_rejected",
+  "diagnosis": "Concrete8root adapter and actual15data/42profile roots pass private audits with standard3axioms; six real controls and fresh kernel-negative pass. Whole numeric load3145ms vs3038, write3069vs2993, move285vs285: no material total recipe speedup. Keep aggregate scaling gates open; analyze repeated global lookups before expanding.",
+  "new_accepted_machine": false
+}

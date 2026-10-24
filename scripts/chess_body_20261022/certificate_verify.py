@@ -131,7 +131,7 @@ def main():
                                 'source_tables_passed' if source else
                                 'smoke_passed' if smoke else 'passed')
     assert detail['full_quotient_certified'] is False
-    if smoke or profile:
+    if smoke or profile or local:
         assert detail['numeric_tree_core_checked'] is True
         assert detail['numeric_tree_proposed']['required_roots'] == 20
         assert detail['numeric_tree_proposed']['kernel_checked'] is True
@@ -149,7 +149,7 @@ def main():
         assert detail['numeric_source_core_kernel_corruption_rejected'] is True
         assert detail['numeric_source_core_proposed']['actual_source_rows_certified'] == 0
         assert detail['numeric_source_core_proposed']['concrete_map_q_binding_checked'] is False
-    if profile:
+    if profile or local:
         assert detail['source_component_profile_checked'] is True
         adapter = detail['numeric_source_adapter_proposed']
         assert adapter['kernel_checked'] is True
@@ -206,19 +206,6 @@ def main():
         assert detail['complete_prefix_scan_checked'] is True
         assert detail['completed_positive_unique_rows'] == 0
     if local:
-        assert detail['compact_family_wiring_checked'] is True
-        assert detail['compact_family_wiring_roots'] == 6
-        assert detail['operation_local_source_cache_checked'] is True
-        assert detail['operation_local_source_controls_checked'] is True
-        assert detail['operation_local_source_kernel_corruption_rejected'] is True
-        assert detail['local_source_cache_proposed']['kernel_checked'] is True
-        assert detail['local_source_cache_proposed'][
-            'universal_fidelity_claims_preserved'] is True
-        assert detail['local_source_cache_proposed']['generic_working_roots'] == 11
-        for batch in detail['local_source_cache_proposed']['batches']:
-            assert batch['kernel_checked'] is True
-            assert batch['entries'] <= 16384
-            assert len(batch['labels']) <= 128
         assert detail['numeric_local_interface_checked'] is True
         assert detail['source_local_rule_soundness_checked'] is True
         assert detail['complete_prefix_scan_checked'] is True
@@ -230,6 +217,11 @@ def main():
         for divisor in (16, 4):
             scope = detail[f'local_scope_{divisor}_proposed']
             assert scope['kernel_checked'] is True
+            assert scope['recipe_constructor'] == 'NumericSourceAdapterPilot.fromRaw'
+            assert scope['independent_block_roots_preserved'] is True
+            assert scope['every_bit_and_store'] is True
+            assert scope['all_paid_local_returns'] is True
+            assert scope['domain_census_kernel_checked'] is True
             assert divisor * scope['finite_state_domain'] >= 573802
         assert detail['local_scope_4_proposed']['finite_state_domain'] > detail[
             'local_scope_16_proposed']['finite_state_domain']

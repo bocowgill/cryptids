@@ -2140,3 +2140,25 @@ stages,global1200s/6GiB/Lean-M6144/driver512MiB. Allsource/corruption/audit
 obligations unchanged. Watch99exactly; no observation-timeout restart.
 GoalACTIVE; accepted769344/target310029/newfullsavings0,strongest39240states/
 78480rows. Actual3case screening and substantial/fullsource/machine gatesOPEN.
+
+
+99SUCCESS retained/reviewed: run40125909771 atea3530e8. Concrete8rootadapter/
+23221deps,15data roots,42profile roots/23484deps, standard3axioms; all6real
+corruptions and fresh kernelnegative pass. Driver589.968s. Adapter5.377+3.855s;
+data6.994+3.347;profile32.616+3.894;negative5.171s;maxprofileaudit5251014656bytes.
+All60timingevents/source/generated/log/pin/widthprovenance checked and retained.
+Whole numeric load3553145ms vsoriginal3038,write4453069vs2993,move356285vs285.
+Fidelity212/270/43ms included in whole numeric again. Thus NO material per-recipe
+speedup and no positive scaling claim. N1concrete binding/N2actual correctness
+met; N3TOTALcost/N4substantial/fullmachine gates stayOPEN.
+
+Decision: ONE decisive substantial100pilot, because eliminating old424s cache
+family preparation may offset slower uncached checks and restores full quarter
+time budget. Use same proven recipe, same original180/210s1/16then1/4 tiers,
+global1200s/6GiB, all original collection/census/order/independentblock roots.
+See NUMERIC-SUBSTANTIAL-GATES.md. If first tier fails or full quarter still
+impractical, REDESIGN repeatedglobal lookup/fidelity category; no more wrapper/
+cache variants or limit increases. Small99pass does not justify fullcertification.
+Accepted769344/target310029/newfullsavings0; strongestprior39240states/78480rows.
+GoalACTIVE,lastusage15%, frozen/remote/free/nooutreach unchanged.98terminal
+cancellation confirmed and proofstepSKIPPED in run-98-terminal.json.

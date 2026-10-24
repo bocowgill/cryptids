@@ -2,7 +2,7 @@
   "run_id": 40125909771,
   "source": "ea3530e8aa5af1fb394a7f9a8c604ab19049ba3c",
   "mode": "profile",
-  "status": "dispatched_verified_producer",
+  "status": "retained_reviewed_success",
   "route": "Concrete numeric tree checker using actual mapQ without observation-cache materialization",
   "artifact": "chess-body-certificate-ea3530e8aa5af1fb394a7f9a8c604ab19049ba3c",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-99",
@@ -26,6 +26,36 @@
   "prior_complete_source_states": 39240,
   "prior_complete_source_rows": 78480,
   "last_usage_percent": 15,
-  "next_gate": "One specific proof-conversion correction, then same concrete three-case cost/corruption pilot. Substantial option remains unwired. No scalability credit.",
-  "specific_correction": "rewrite typedStep_eq at word first; then simplify row/layout wrappers. Identical statements, hypotheses and caps."
+  "next_gate": "ONE decisive original1/16and1/4 numeric source test,180/210s incl audits. Eliminates424s cache-family setup, but whole recipe speed unchanged/slightly worse; failure means redesign lookup/fidelity category.",
+  "specific_correction": "rewrite typedStep_eq at word first; then simplify row/layout wrappers. Identical statements, hypotheses and caps.",
+  "driver_seconds": 589.9679766879999,
+  "adapter_kernel_checked": true,
+  "actual_profile_kernel_checked": true,
+  "all_six_corruptions_and_kernel_negative_pass": true,
+  "adapter_dependencies": 23221,
+  "profile_dependencies": 23484,
+  "standard_axioms_only": true,
+  "whole_recipe_ms": {
+    "355": {
+      "original": 3038,
+      "numeric": 3145
+    },
+    "445": {
+      "original": 2993,
+      "numeric": 3069
+    },
+    "356": {
+      "original": 285,
+      "numeric": 285
+    }
+  },
+  "fidelity_ms": {
+    "355": 212,
+    "445": 270,
+    "356": 43
+  },
+  "profile_build_seconds": 32.615537554999946,
+  "profile_audit_seconds": 3.894202412000027,
+  "profile_peak_bytes": 5251014656,
+  "substantial_source_scaling_established": false
 }
