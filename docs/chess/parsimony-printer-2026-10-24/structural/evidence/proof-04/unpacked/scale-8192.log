@@ -1,0 +1,2 @@
+'ParsimonyScale8192.runData' depends on axioms: [propext, Classical.choice, Quot.sound]
+PARSIMONY_SCALE_EXPORTED

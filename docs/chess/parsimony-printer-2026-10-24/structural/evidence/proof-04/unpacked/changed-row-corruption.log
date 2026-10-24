@@ -1,0 +1,7 @@
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-proof-20261024/CorruptedData.lean:79:48: error: unsolved goals
+last : ℕ
+values : Array (Fin (last + 1))
+i : ℕ
+bound : i < last
+le : i ≤ last
+⊢ False

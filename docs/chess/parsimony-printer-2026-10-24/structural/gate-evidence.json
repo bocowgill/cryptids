@@ -1,0 +1,19 @@
+{
+  "run_id": 40141647723,
+  "producer": "ce6afbdda2650a792b2fb3ff11479f31abc9a5ce",
+  "exit": 0,
+  "command": "python3 scripts/chess_parsimony_proof_20261024/verify.py",
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": "/bin/bash",
+  "path_sha256": "2230ad804465ff7ac2c8d191545dc5ccb77f3e022f8402928bf232e1e1c90e20",
+  "path_entries": 17,
+  "workflow_log_entry": "proof/5_Bounded reusable proof and exact data scaling.txt",
+  "workflow_log_entry_sha256": "7db02c456ee21b53c544f9ee162e6646af4c4bbd54139d4a7897bf9e0fe7204b",
+  "workflow_log_entry_bytes": 742,
+  "matched_success_tokens": [
+    "PARSIMONY_STRUCTURAL_KERNEL_PASSED",
+    "PARSIMONY_STRUCTURAL_SCALING_PASSED",
+    "PARSIMONY_STRUCTURAL_BINDING_PASSED",
+    "PARSIMONY_STRUCTURAL_AUDIT_PASSED"
+  ]
+}

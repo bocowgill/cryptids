@@ -1,0 +1,6 @@
+'ConjectureMachines.Compilation.Parsimony.Data.step_cell' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ConjectureMachines.Compilation.Parsimony.Data.unary_run' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ConjectureMachines.Compilation.Parsimony.Data.row_zero_more' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ConjectureMachines.Compilation.Parsimony.Data.row_zero_last' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ConjectureMachines.Compilation.Parsimony.Data.row_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ConjectureMachines.Compilation.Parsimony.Data.query_run' depends on axioms: [propext, Classical.choice, Quot.sound]

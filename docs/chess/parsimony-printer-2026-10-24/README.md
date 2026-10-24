@@ -4,9 +4,16 @@ The authorized boundary follow-up passed: all 261 fixtures and both independent
 complete-machine censuses agree on a **609,247-state experimental candidate**,
 160,097 below the accepted machine. The failure was an oracle origin error,
 corrected from cell 34 to cell 33 without changing the printer's transitions.
-Read [the latest results](boundary-fix/RESULTS.md) and
-[recovery checkpoint](boundary-fix/CHECKPOINT.md). Certification has not started;
-the accepted machine remains **769,344 states**.
+The first structural certification phase has now proved the reusable data routine
+and scaled it to all 13,360 actual words. Read
+[the structural results](structural/RESULTS.md) and
+[latest recovery checkpoint](structural/CHECKPOINT.md). Complete-machine
+certification remains unfinished; the accepted size is **769,344 states**.
+
+The preceding [boundary/census results](boundary-fix/RESULTS.md) retain the complete
+609,247-state candidate and all finite fixtures. Full-size structural data checking
+passed in 27 seconds, with sampled peak 5.64 GiB under a 6 GiB group cap. Improving
+data materialization overhead is the next prerequisite for integration.
 
 The original failed two-run pilot and its missing-diagnostic limitation remain
 documented unchanged in [the original results](RESULTS.md). The follow-up has its

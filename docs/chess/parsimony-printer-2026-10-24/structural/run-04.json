@@ -3,7 +3,7 @@
   "source": "ce6afbdda2650a792b2fb3ff11479f31abc9a5ce",
   "artifact": "chess-parsimony-proof-ce6afbdda2650a792b2fb3ff11479f31abc9a5ce",
   "iteration": 4,
-  "status": "running",
+  "status": "success_retained",
   "launch": "one manual dispatch after completed push and exact fork-ref verification",
   "correction": "Remove exactly two compiler-reported unused simp arguments; balanced 256-word chunks avoid a long generated data constructor spine",
   "driver_seconds": 900,
@@ -13,5 +13,12 @@
   "accepted_machine_states": 769344,
   "candidate_states": 609247,
   "certified_saving": 0,
-  "next": "Retain all terminal results, assess actual proof/scaling evidence and remaining full-printer obligations, then stop this four-iteration phase."
+  "next": "Stop this bounded phase; first improve proof-data materialization headroom, then certify counter, insertion, full startup and direct link. All full-machine savings remain experimental.",
+  "retained_evidence": "evidence/proof-04",
+  "driver_elapsed_seconds": 106.05598005,
+  "scale_full_seconds": 26.910111041,
+  "scale_full_peak_group_bytes": 6059950080,
+  "actual_data_rows_compared": 26720,
+  "generic_component_proved": true,
+  "complete_printer_certified": false
 }
