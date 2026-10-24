@@ -124,7 +124,7 @@ def emit(name, obj):
     table = b''.join(RECORD.pack(*row) for row in obj['rows'])
     assert len(table) == obj['allocated_probe_states'] * 2 * RECORD.size
     (WORK / (name + '.bin')).write_bytes(table)
-    metadata = {k: v for k, v in obj.items() if k != 'rows'}
+    metadata = {k: v for k, v in obj.items() if k not in ('rows', 'framed_payload')}
     save(name + '.json', metadata)
     return WORK / (name + '.bin')
 
@@ -161,15 +161,52 @@ def simulate(name, obj, cap, seconds):
     return result
 
 
-def fixtures():
+def exact_boundary(result, obj, bits, positions_key='ones'):
+    return (result['status'] == 'boundary' and result['state'] == obj['out'] and
+            result['head'] == obj['packet_start'] and result[positions_key] ==
+            [obj['packet_start'] + i for i, bit in enumerate(bits) if bit == '1'])
+
+
+def adapter_controls():
+    bits = '01011010'
+    obj = printer.guarded(bits, 2)
+    positive = reference(obj['rows'], obj['out'], obj['error'], 2000000)
+    assert exact_boundary(positive, obj, bits), 'Adapter positive control failed'
+    records = [dict(name='unmodified_adapter', exact_boundary=True, result=positive)]
+    # Actual emitted transition mutations: a dirty separator, wrong entry head,
+    # and an unerased tail sentinel must each fail the same exact-boundary oracle.
+    clear_run = obj['out'] - 2
+    tail_end = obj['raw_parsimony_printer_states'] + 2
+    mutations = [('dirty_separator', 2 * clear_run, (1, 1, obj['out'])),
+                 ('wrong_decoder_head', 2 * clear_run, (0, 0, obj['out'])),
+                 ('unerased_tail', 2 * tail_end + 1, (1, 0, tail_end + 1))]
+    for name, index, row in mutations:
+        bad = list(obj['rows'])
+        bad[index] = row
+        result = reference(bad, obj['out'], obj['error'], 2000000)
+        rejected = not exact_boundary(result, obj, bits)
+        records.append(dict(name=name, rejected=rejected, mutated_cell=index,
+                            mutated_row=row, result=result))
+        save('adapter-controls.json', records)
+        assert rejected, 'Adapter corruption accepted: ' + name
+    return records
+
+
+def fixtures(guarded=False):
     records = []
     for i, bits in enumerate([format(value, '08b') for value in range(256)] +
         ['0' * 24, '1' * 24, '01' * 12, '10' * 12, '001101011001110100101011']):
         width = 2 if i < 256 else 3
-        obj = printer.build(bits, width)
-        assert printer.reconstruct(obj['rows'], obj['words'], obj['width']).startswith(bits)
+        obj = printer.guarded(bits, width) if guarded else printer.build(bits, width)
+        reconstructed = printer.reconstruct(obj['rows'], obj['words'], obj['width'])
+        assert reconstructed.startswith(obj['framed_payload'] if guarded else bits)
         expected = reference(obj['rows'], obj['out'], obj['error'], 2000000)
+        save('current-fixture.json', dict(index=i, bits=bits, width=width,
+            metadata={k: v for k, v in obj.items() if k not in ('rows', 'framed_payload')},
+            reference_result=expected))
         assert expected['status'] == 'boundary', 'Small physical fixture did not complete'
+        if guarded:
+            assert exact_boundary(expected, obj, bits), 'Incorrect packet, exterior or head'
         # Two independently implemented step engines compare every nonblank cell,
         # terminal head, control and exact step count, not merely a digest.
         actual = simulate('fixture-' + str(i), obj, 2000000, 15)
@@ -177,8 +214,65 @@ def fixtures():
         assert actual['ones_positions'] == expected['ones']
         records.append(dict(bits=bits, width=width, words=obj['words'], pad=obj['pad_bits'],
             steps=actual['steps'], head=actual['head'], ones=expected['ones']))
-    save('physical-fixtures.json', records)
+        save('physical-fixtures.json', records)
+        if i % 32 == 0:
+            SUMMARY['completed_physical_fixtures'] = len(records)
+            checkpoint()
     return records
+
+
+def linked_candidate(obj):
+    """Emit every full-machine row, relocating the pinned accepted suffix exactly."""
+    path = ROOT / (BASE + '/final/unpacked/full-rows.bin')
+    old = path.read_bytes()
+    assert hashlib.sha256(old).hexdigest() == \
+        '29989c45b9281c91f33349b23610a7e335a9e352f6647f10fedd61cb4497d086'
+    assert len(old) == 769344 * 2 * RECORD.size
+    p = obj['replacement_states']
+    assert obj['out'] == p and obj['boundary_counted_in_retained_suffix']
+    rows = list(obj['rows'][:2 * p])
+    for written, direction, target in RECORD.iter_unpack(old[173642 * 2 * RECORD.size:]):
+        if written == 2:
+            assert (written, direction, target) == (2, 0, 0)
+            rows.append((written, direction, target))
+        else:
+            assert written in (0, 1) and direction in (0, 1)
+            assert 173642 <= target < 769344, 'Retained suffix returns to old writer'
+            rows.append((written, direction, p + target - 173642))
+    full = p + 595702
+    assert len(rows) == 2 * full
+    assert all(w == 2 or (w in (0, 1) and d in (0, 1) and 0 <= t < full)
+               for w, d, t in rows)
+    raw = b''.join(RECORD.pack(*row) for row in rows)
+    (WORK / 'full-candidate-rows.bin').write_bytes(raw)
+    # Independently parse the serialized allocation, not the producer's list length.
+    parsed, missing = 0, 0
+    for w, d, t in RECORD.iter_unpack(raw):
+        parsed += 1
+        if w == 2:
+            assert d == t == 0
+            missing += 1
+        else:
+            assert w in (0, 1) and d in (0, 1) and t < full
+    assert parsed == 2 * full and missing == 2
+    census = dict(replacement_states=p, retained_decoder_states=21682,
+        new_decoder_bridge=1, retained_seed_expander=216, retained_expander_bridge=1,
+        interpreter_main=533341, interpreter_returns=40461,
+        retained_suffix_states=595702, full_candidate_states=full,
+        full_candidate_cells=parsed, full_candidate_missing_cells=missing,
+        full_candidate_sha256=hashlib.sha256(raw).hexdigest(),
+        old_full_states=769344, experimental_net_saving=769344 - full,
+        old_writer_states=173642, new_writer_categories={k: v for k, v in
+            obj['categories'].items() if k != 'retained_decoder_boundary'},
+        additional_bridge_states_outside_printer=0,
+        retained_decoder_boundary_already_paid=True, new_accepted_machine=False,
+        certified_saving=0, complete_halting_equivalence_proved=False)
+    assert sum(census['new_writer_categories'].values()) == p
+    assert p + sum(census[key] for key in ['retained_decoder_states', 'new_decoder_bridge',
+        'retained_seed_expander', 'retained_expander_bridge', 'interpreter_main',
+        'interpreter_returns']) == full
+    save('full-candidate-census.json', census)
+    return census
 
 
 def provenance():
@@ -201,6 +295,8 @@ def provenance():
         'scripts/chess_parsimony_20261024/upstream/LICENSE']
     save('source-manifest.json', dict(commit=os.environ['GITHUB_SHA'],
         workflow_commit=os.environ['GITHUB_SHA'], run_id=os.environ['GITHUB_RUN_ID'],
+        cwd=str(ROOT), shell=os.environ.get('SHELL'), path=os.environ.get('PATH'),
+        command='python3 scripts/chess_parsimony_20261024/pilot.py',
         source_sha256={name: sha(ROOT / name) for name in paths},
         frozen_source_sha256=pins, packet_sha256=PACKET_SHA, packet_path=PACKET,
         parsimony_commit=SUMMARY['parsimony_commit']))
@@ -217,14 +313,26 @@ def provenance():
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--phase', choices=['probe'], default='probe')
+    parser.add_argument('--phase', choices=['probe', 'pilot'], default='pilot')
     args = parser.parse_args()
     WORK.mkdir(parents=True, exist_ok=True)
     SUMMARY['phase'] = args.phase
     bits = provenance()
-    obj = printer.build(bits)
+    if args.phase == 'pilot':
+        # Retain the raw zero-only failure as a bounded regression control.
+        raw_zero = printer.build('00000000', 2)
+        raw_failure = reference(raw_zero['rows'], raw_zero['out'], raw_zero['error'], 10000)
+        assert raw_failure['status'] != 'boundary'
+        save('original-zero-framing-obstruction.json', raw_failure)
+    obj = printer.guarded(bits) if args.phase == 'pilot' else printer.build(bits)
     output = printer.reconstruct(obj['rows'], obj['words'], obj['width'])
-    assert output == bits + '0' * obj['pad_bits']
+    payload = obj['framed_payload'] if args.phase == 'pilot' else bits
+    assert output == payload + '0' * obj['pad_bits']
+    if args.phase == 'pilot':
+        marker = obj['marker_bits']
+        assert output[:marker + 1] == '1' * marker + '0'
+        assert output[marker + 1:marker + 1 + len(bits)] == bits
+        assert output[marker + 1 + len(bits):] == '100' + '0' * obj['pad_bits']
     controls = []
     bad = copy.deepcopy(obj['rows'])
     i = 6 + obj['words'] - 1
@@ -257,9 +365,30 @@ def main():
     checkpoint()
     run('compile-simulator', ['g++', '-O3', '-std=c++17', '-Wall', '-Wextra', '-Werror',
         'scripts/chess_parsimony_20261024/simulate.cpp', '-o', str(WORK / 'simulate')], 60)
-    records = fixtures()
+    if args.phase == 'pilot':
+        SUMMARY['adapter_corruption_controls'] = adapter_controls()
+    records = fixtures(guarded=args.phase == 'pilot')
     full = simulate('exact-packet-probe', obj, 500000000, 120)
     save('exact-packet-probe.json', {k: v for k, v in full.items() if k != 'ones_positions'})
+    if args.phase == 'pilot':
+        assert full['status'] in ('boundary', 'step_cap'), 'Full printer reached an error/halt'
+        if full['status'] == 'boundary':
+            assert exact_boundary(full, obj, bits, 'ones_positions')
+        SUMMARY['raw_transition_packet_identity']['full_physical_startup_checked'] = \
+            full['status'] == 'boundary'
+        census = linked_candidate(obj)
+        SUMMARY['gates'].update(G2=True, G3=True, G4=True)
+        SUMMARY.update(status='bounded_pilot_passed', physical_fixture_count=len(records),
+            full_printer_probe={k: v for k, v in full.items() if k != 'ones_positions'},
+            full_machine_savings=census['experimental_net_saving'],
+            completed_packet_adapter=True, full_machine_census=census,
+            full_physical_startup_completed=full['status'] == 'boundary',
+            next='Assess measured savings and proof obligations; stop before certification.')
+        for banner in ['PARSIMONY_COMPLETE_PRINTER_CENSUS_PASSED',
+                       'PARSIMONY_PACKET_AND_FIXTURES_PASSED', 'PARSIMONY_NET_SAVINGS_ASSESSED']:
+            print(banner, flush=True)
+        checkpoint()
+        return
     SUMMARY.update(status='raw_framing_probe_passed', physical_fixture_count=len(records),
         full_printer_probe={k: v for k, v in full.items() if k != 'ones_positions'},
         full_machine_savings=None, completed_packet_adapter=False,

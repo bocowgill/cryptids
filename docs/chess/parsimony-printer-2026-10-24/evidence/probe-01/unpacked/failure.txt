@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/runner/work/cryptids/cryptids/scripts/chess_parsimony_20261024/pilot.py", line 282, in <module>
+    main()
+  File "/home/runner/work/cryptids/cryptids/scripts/chess_parsimony_20261024/pilot.py", line 260, in main
+    records = fixtures()
+              ^^^^^^^^^^
+  File "/home/runner/work/cryptids/cryptids/scripts/chess_parsimony_20261024/pilot.py", line 172, in fixtures
+    assert expected['status'] == 'boundary', 'Small physical fixture did not complete'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Small physical fixture did not complete

@@ -1,0 +1,9 @@
+{
+  "meminfo": "MemTotal:       16372440 kB\nMemFree:         8742456 kB\nMemAvailable:   15089376 kB\nBuffers:          127500 kB\nCached:          6260920 kB\nSwapCached:            0 kB\nActive:           699784 kB\nInactive:        5979308 kB\nActive(anon):     342908 kB\nInactive(anon):        0 kB\nActive(file):     356876 kB\nInactive(file):  5979308 kB\nUnevictable:       45352 kB\nMlocked:           42280 kB\nSwapTotal:       3145724 kB\nSwapFree:        3145724 kB\nZswap:                 0 kB\nZswapped:              0 kB\nDirty:           1839692 kB\nWriteback:         19368 kB\nAnonPages:        325928 kB\nMapped:           326012 kB\nShmem:             44684 kB\nKReclaimable:     356696 kB\nSlab:             462780 kB\nSReclaimable:     356696 kB\nSUnreclaim:       106084 kB\nKernelStack:        3792 kB\nPageTables:         6292 kB\nSecPageTables:         0 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:    11331944 kB\nCommitted_AS:    2034208 kB\nVmallocTotal:   13743895347199 kB\nVmallocUsed:       37524 kB\nVmallocChunk:          0 kB\nPercpu:             2240 kB\nHardwareCorrupted:     0 kB\nAnonHugePages:     92160 kB\nShmemHugePages:        0 kB\nShmemPmdMapped:        0 kB\nFileHugePages:         0 kB\nFilePmdMapped:         0 kB\nCmaTotal:              0 kB\nCmaFree:               0 kB\nUnaccepted:            0 kB\nBalloon:               0 kB\nHugePages_Total:       0\nHugePages_Free:        0\nHugePages_Rsvd:        0\nHugePages_Surp:        0\nHugepagesize:       2048 kB\nHugetlb:               0 kB\nDirectMap4k:      113792 kB\nDirectMap2M:     4075520 kB\nDirectMap1G:    14680064 kB\n",
+  "memory_max": null,
+  "rlimit_as": [
+    -1,
+    -1
+  ],
+  "runner_environment": "github-hosted"
+}

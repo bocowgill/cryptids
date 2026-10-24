@@ -1,0 +1,20 @@
+{
+  "id": 12576404701,
+  "node_id": "MDg6QXJ0aWZhY3QxMjU3NjQwNDcwMQ==",
+  "name": "chess-parsimony-printer-9b37cd3a96d3c64f2cee7d30da513df1e5095edb",
+  "size_in_bytes": 243969,
+  "url": "https://api.github.com/repos/bocowgill/cryptids/actions/artifacts/12576404701",
+  "archive_download_url": "https://api.github.com/repos/bocowgill/cryptids/actions/artifacts/12576404701/zip",
+  "expired": false,
+  "digest": "sha256:abada3eb0f1cc666ee05ad85e7805401158bb6b02c8a85265f00dca887e25a28",
+  "created_at": "2026-10-24T21:55:14Z",
+  "updated_at": "2026-10-24T21:55:14Z",
+  "expires_at": "2026-11-23T21:55:14Z",
+  "workflow_run": {
+    "id": 40136287158,
+    "repository_id": 1426408147,
+    "head_repository_id": 1426408147,
+    "head_branch": "codex/chess-openevolve-pilot",
+    "head_sha": "9b37cd3a96d3c64f2cee7d30da513df1e5095edb"
+  }
+}

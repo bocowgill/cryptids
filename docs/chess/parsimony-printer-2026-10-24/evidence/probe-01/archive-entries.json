@@ -1,0 +1,65 @@
+{
+  "corruption-controls.json": {
+    "bytes": 142,
+    "sha256": "bda0fb3b1912f81be7950ebddd7119e18ee68ba88089dc818005bfa96ade0555",
+    "crc32": 934902589,
+    "compressed_bytes": 80,
+    "compression": 8
+  },
+  "exact-packet-raw-printer.bin": {
+    "bytes": 162072,
+    "sha256": "1ef6600c109bd4a2ec824be9901a1a389ffee07f6024863905d9f456027749b4",
+    "crc32": 1997172449,
+    "compressed_bytes": 57480,
+    "compression": 8
+  },
+  "compile-simulator.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "crc32": 0,
+    "compressed_bytes": 2,
+    "compression": 8
+  },
+  "exact-packet-raw-printer.json": {
+    "bytes": 350933,
+    "sha256": "3b13318e9315ebbc3fbe0e5470d7f3269fd3f34990b27f31fff48d52e28a3744",
+    "crc32": 3522947705,
+    "compressed_bytes": 48176,
+    "compression": 8
+  },
+  "failure.txt": {
+    "bytes": 609,
+    "sha256": "d2ca8dec2b8f159c5aef920e01226d522b9a1ea111b09018145c156323dadfcc",
+    "crc32": 906069876,
+    "compressed_bytes": 248,
+    "compression": 8
+  },
+  "pilot-summary.json": {
+    "bytes": 2157,
+    "sha256": "9653d4c08edfd544e5bd6b333e95a3e64b2739a137a4d71b04c4fcbb11b74246",
+    "crc32": 3780403,
+    "compressed_bytes": 975,
+    "compression": 8
+  },
+  "runner-capacity.json": {
+    "bytes": 1796,
+    "sha256": "804588087616bbb791293e7927067fe9569afd28f6bcd6c928520cda80e9fba9",
+    "crc32": 2136554294,
+    "compressed_bytes": 666,
+    "compression": 8
+  },
+  "simulate": {
+    "bytes": 28080,
+    "sha256": "ea9699e4a5f0b4f0f0b806af7aba507f35c3163d74a379f9a949e14174bfd41c",
+    "crc32": 2689333538,
+    "compressed_bytes": 8475,
+    "compression": 8
+  },
+  "source-manifest.json": {
+    "bytes": 465482,
+    "sha256": "d75ed5db7e35aa27c3c70b37fb40869be0f42355bcb431290a28a5ec76a573a5",
+    "crc32": 3005902249,
+    "compressed_bytes": 126659,
+    "compression": 8
+  }
+}

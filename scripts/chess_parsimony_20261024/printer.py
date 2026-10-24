@@ -140,3 +140,55 @@ def reconstruct(rows, words, width, data_start=6):
         assert 0 <= value < 2 ** width
         result.append(format(value, '0' + str(width) + 'b'))
     return ''.join(result)
+
+
+def guarded(bits, width=None):
+    """Protect arbitrary packet bits from the upstream code-marker epilogue.
+
+    Prefix a 32-one marker and a zero separator; append 100. The packet has no
+    32-one run. The original epilogue finds the appended one. Explicit cleanup
+    erases it, scans left without changing packet cells, erases the left marker,
+    and enters the retained decoder on the first packet bit. This contract is
+    experimental until proved; all new controls are emitted and counted.
+    """
+    marker = 32
+    assert '1' * marker not in bits
+    framed = '1' * marker + '0' + bits + '100'
+    obj = build(framed, width)
+    n = obj['raw_parsimony_printer_states']
+    old_out, old_error = obj['out'], obj['error']
+    cleanup = list(range(n, n + 3))
+    scan = list(range(n + 3, n + 3 + marker))
+    clear_init, clear_run = n + 3 + marker, n + 4 + marker
+    error, out = n + 5 + marker, n + 6 + marker
+    rows = []
+    for written, direction, target in obj['rows'][:2 * n]:
+        target = cleanup[0] if target == old_out else error if target == old_error else target
+        rows.append((written, direction, target))
+    rows += [(0, 0, cleanup[1]), (1, 1, error)]
+    rows += [(0, 0, cleanup[2]), (1, 1, error)]
+    rows += [(0, 1, error), (0, 0, scan[0])]
+    for i in range(marker):
+        rows += [(0, 0, scan[0]), (1, 0, scan[i + 1] if i + 1 < marker else clear_init)]
+    rows += [(0, 1, clear_run), (1, 1, error)]
+    rows += [(0, 1, out), (0, 1, clear_run)]
+    rows += [(0, 1, error), (1, 1, error)]
+    assert len(rows) == 2 * out
+    rows += [(2, 0, 0), (2, 0, 0)]
+    categories = {k: v for k, v in obj['categories'].items()
+                  if k not in ('error_trap', 'probe_boundary')}
+    categories.update(tail_cleanup=3, nondestructive_marker_scan=marker,
+                      marker_erasure_and_decoder_connection=2, error_trap=1,
+                      retained_decoder_boundary=1)
+    assert sum(categories.values()) == out + 1
+    names = obj['names'][:n] + ['tail-' + str(i) for i in range(3)] + [
+        'marker-scan-' + str(i) for i in range(marker)] + ['clear-init', 'clear-marker',
+                                                          'ERROR', 'RETAINED_DECODER']
+    obj.update(rows=rows, names=names, out=out, error=error, categories=categories,
+        allocated_probe_states=out + 1, replacement_states=out,
+        completed_packet_adapter=True, marker_bits=marker, framed_bits=len(framed),
+        exact_packet_bits=len(bits), packet_start=marker + 2,
+        boundary_counted_in_retained_suffix=True,
+        connection='last marker-erasure row directly enters retained decoder state 0',
+        framed_payload=framed)
+    return obj
