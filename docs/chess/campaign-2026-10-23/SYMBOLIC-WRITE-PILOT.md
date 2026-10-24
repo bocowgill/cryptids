@@ -1,7 +1,7 @@
 # Symbolic write-transition interface
 
 Accepted machine769344; target310029; prospective saving459315. No accepted
-full-machine saving or complete sampled module yet. All heavy work remote.
+full-machine saving; the64-state sampled module and kernel control now pass. All heavy work remote.
 
 Evidence: certificate-36 falsifies the immediate rw-reflexivity hypothesis.
 Same frontier encoded3781,113.497seconds,6459891712bytes at the6GiB cap,
@@ -56,3 +56,10 @@ Certificate-40 advances S3's positive64part:59.743s build at3.650GB and
 1271root/20528dependency audit3.954s, standard3axioms. Negative harness then
 fails syntax/private imports rather than reaching kernel rejection;512/4096
 remain unrun. S3 stays open. No complete quotient or full-machine saving.
+
+Certificate-43 at6280710:64states/128rows build62.889s plus full-private audit
+3.751s pass. Required negative reaches explicit kernel type mismatch in4.968s.
+Rows512 then stops180.117s/3595235328bytes; offset markers reach label3917,
+with no512getter/actual-row completion.4096unattempted. S3larger-sample scaling
+remains open; do not repeat unchanged or raise caps. The complete structural
+source/cache route avoids millions of named row declarations and is preferred.

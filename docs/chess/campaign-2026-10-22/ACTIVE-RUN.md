@@ -1,23 +1,19 @@
 # Active resumed campaign — October 23, 2026
 
-Goal active. Accepted 769,344; target 310,029; prospective saving 459,315.
+Goal active. Accepted769344; target310029; prospective saving459315.
 G1/G2/G3 met; G4/G5/G6 open. No new accepted full-machine savings.
 
-At source `6280710c00f66d21fc0eaa073955b9d43d61b0cc`:
+Source run40056313267 at2066ce2973e3007869e118e57324ccd6d932fa1f is pending;
+retain certificate-46. Only the native proposer is now public meta section.
+First complete frozen source chunk remains a prerequisite for all127chunks.
+The drafted complete-source producer is unwired and has not run.
 
-- Full run 40055408911, retain certificate-43: qualify Lean.mkConst in the
-  false-row harness; larger samples remain gated on explicit kernel rejection.
-- Source run 40055883230 at ffa26727, retain certificate-45: explicit meta import
-  supplies native IR for untrusted opcode proposal and one complete chunk.
-  Prior source run40055420927 is retained/reviewed as44: missing-IR abort.
+Full run40055408911 retained/reviewed43:64states/128actual quotient rows pass;
+negative now explicitly rejected by the kernel4.968s. Rows512 times out180.117s
+below memory cap during repeated offset setup;4096unattempted. Do not repeat an
+unchanged test or raise caps. Structural source/cache route is preferred.
 
-Certificates 40/41 check 64 states / 128 actual quotient rows, including
-full-private foundation audits. Their negative controls had source errors,
-so neither received negative-control or larger-sample credit. Certificate-42
-checks typed finite callback reconstruction and format fixtures; complete
-source, graph, quotient and full-machine claims remain open.
-
-Current handoff/gates: ../campaign-2026-10-23/RESUME.md and GATES.md.
-All heavy computation remote; all 3,116 accepted pins fixed; outreach on hold.
-Approved fixed artifact transfer completed; evidence is retained and pushed.
-Root owns work; no new agents. Last usage 8% consumed; no reset performed.
+Source45retained/reviewed: explicit phase error, corrected specifically in46.
+Approved artifact transfer complete. All3116accepted pins fixed. All heavy work
+remote, outreach on hold, no new agents. Last account usage9% consumed; no reset.
+Handoff/gates: ../campaign-2026-10-23/RESUME.md and GATES.md.

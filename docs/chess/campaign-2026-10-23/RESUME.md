@@ -487,3 +487,14 @@ Dir.left. IR issue is replaced by an explicit Lean phase error. Place only the
 untrusted proposal module in public meta section, matching its native-only role.
 No chunk proof credit, no resource stop, no limit changes. Complete-source
 producer is drafted as unexecuted text only, unwired; firstchunk R3still gates it.
+
+FULL40055408911 at6280710 retained/reviewed certificate-43. Original64states/
+128rows pass62.889s plus full-private audit3.751s. Negative reaches ordinary
+kernel rejection4.968s: actual some(0,right,533347) cannot prove none. Rows512
+stops180.117s/3595235328bytes while emitting main offset facts; markers reach
+label3917, before getter/actual rows.4096unattempted. No universal or fullmachine
+credit. Named rows still repeat closed take/sum prefixes; full structural tables/
+packed cache remain preferred over unchanged row scaling. Generic prefix-table
+certification could remove this specific setup overhead if the complete checker
+needs it, but is not implemented. Source40056313267 at2066ce2 tests corrected
+native meta phase; retain46. Complete-source producer remains UNWIRED/unexecuted.

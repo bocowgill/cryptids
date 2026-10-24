@@ -20,7 +20,7 @@ evidence and pins stay fixed. No outreach or bulk upstream migration.
 - [ ] G4: Every actual accepted body transition is related to the complete quotient,
   preserving missing transitions and both bits; a meaningful false-row control
   fails in the kernel, and both halting directions are proved.
-  EVIDENCE: certificate-40 checks original64states/128rows and1271roots/20528dependencies by full-private audit, standard3axioms. False-row harness needs syntax/meta-import repair; complete573802state relation, negative and larger samples remain pending.
+  EVIDENCE: certificate-40 checks original64states/128rows and1271roots/20528dependencies by full-private audit, standard3axioms. Certificate-43 kernel rejects explicit false initial row in4.968s; Rows512 then stops at180.117s below memory cap, before getter/actual proofs. Complete573802state relation and both halting directions remain unproved.
 - [ ] G5: The complete blank-tape binary machine has exactly 310,029 paid states
   and the original not-draw equivalence; all actual rows, independent fixtures,
   corruption controls, regressions and foundation audits pass remotely.

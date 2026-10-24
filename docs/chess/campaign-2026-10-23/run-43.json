@@ -2,10 +2,16 @@
   "run_id": 40055408911,
   "source": "6280710c00f66d21fc0eaa073955b9d43d61b0cc",
   "mode": "full",
-  "status": "remote_running",
+  "status": "retained_negative_passed_512_wall_obstruction",
   "change": "Qualify Lean.mkConst in required false-row kernel control",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-43",
   "accepted_states": 769344,
   "prospective_states": 310029,
-  "new_accepted_machine": false
+  "new_accepted_machine": false,
+  "actual_rows_checked": 128,
+  "negative_control": "kernel_rejected",
+  "larger_stage": "Rows512",
+  "larger_stage_seconds": 180.117,
+  "larger_stage_peak_bytes": 3595235328,
+  "full_quotient_certified": false
 }

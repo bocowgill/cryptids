@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40055408911,
+  "commit": "6280710c00f66d21fc0eaa073955b9d43d61b0cc",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": true,
+  "actual_rows": 128,
+  "negative_control": "kernel_rejected",
+  "diagnosis": "Original64states/128rows build62.889s plus full-private audit3.751s pass. Negative4.968s reaches explicit kernel declaration type mismatch some(0,right,533347) versus none. Rows512 stops180.117s at3.595GB, stage wall cap;4096unattempted. No universal relation or new full-machine saving. Shift toward complete structural tables/cache rather than unchanged row scaling.",
+  "new_accepted_machine": false
+}
