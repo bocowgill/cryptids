@@ -2162,3 +2162,21 @@ cache variants or limit increases. Small99pass does not justify fullcertificatio
 Accepted769344/target310029/newfullsavings0; strongestprior39240states/78480rows.
 GoalACTIVE,lastusage15%, frozen/remote/free/nooutreach unchanged.98terminal
 cancellation confirmed and proofstepSKIPPED in run-98-terminal.json.
+
+
+100DECISIVE substantial numeric pilot DISPATCHED:run40127457883 atverified
+aa390226c93b71907df341b4bb6c1451a935c9d8, manuallocal. Artifact
+chess-body-certificate-aa390226c93b71907df341b4bb6c1451a935c9d8 ->certificate100.
+Pushcompleted AND forkref matched BEFORE dispatch; exact runhead matched too.
+Same common original/data/source/block/count/corruption checks plus verified
+20/29/17/8numericcore/adapter and actual3case profile/controls replay. Then
+original LocalScope16/4with numeric SourceCertificate recipe; no cachefamily
+construction. Every original sourcecollection/census/order/independentblock
+root retained, everybit/store/return.180/210s inclaudits,global1200s/6GiBfixed.
+Small99profileperopgain absent; this ONE test resolves whether removal of424s
+setup leaves a credible substantial/full path. If firsttierfails or fullquarter
+budgetstillimpractical, REDESIGN global lookup/fidelity rather than wrappertune.
+Do not claim new full-machine savings: accepted769344/target310029/savings0;
+strongestprioraggregate39240states/78480rows. GoalACTIVE,frozen/remote/free/
+nooutreach. Exact successful99packet/allarchives and terminal98cancelproofskipped
+metadata are pushed;100source and complete recovery checkpoint saved.

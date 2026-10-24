@@ -1,0 +1,31 @@
+{
+  "run_id": 40127457883,
+  "source": "aa390226c93b71907df341b4bb6c1451a935c9d8",
+  "mode": "local",
+  "status": "dispatched_verified_producer",
+  "artifact": "chess-body-certificate-aa390226c93b71907df341b4bb6c1451a935c9d8",
+  "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-100",
+  "route": "Decisive original substantial source tiers with certified numeric trace backend and no observation cache preparation",
+  "source_tiers": [
+    {
+      "divisor": 16,
+      "seconds_including_audit": 180
+    },
+    {
+      "divisor": 4,
+      "seconds_including_audit": 210
+    }
+  ],
+  "overall_seconds": 1200,
+  "memory_gib": 6,
+  "lean_memory_mib": 6144,
+  "driver_mib": 512,
+  "accepted_states": 769344,
+  "target_states": 310029,
+  "accepted_full_machine_savings": 0,
+  "prior_complete_source_states": 39240,
+  "prior_complete_source_rows": 78480,
+  "new_accepted_machine": false,
+  "last_usage_percent": 15,
+  "next_gate": "Retain result and assess complete audited tiers with effective budgets. Failure of first tier or impractical full quarter budget means redesign repeated global lookup/fidelity category, no more wrapper/cache variants."
+}
