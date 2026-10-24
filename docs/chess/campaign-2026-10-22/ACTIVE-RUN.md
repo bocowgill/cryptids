@@ -360,3 +360,25 @@ estimate; G4-G6/S8-S9 remain open. Accepted769,344/target310,029/new full
 savings0. Same459,315prospective opportunity; high proof/moderate effort.
 GoalACTIVE; last usage13%, no reset, frozen/remote/no-outreach constraints fixed.
 No live remote jobs remain after87terminal; begin next bounded structural pilot.
+
+
+New structural working-set pilot implemented but UNVERIFIED: WorkingViews
+Window/list Boolean certificate + universal count/bound/class/word properties,
+all-address overlay/list World equivalence and unchanged SourceCertificate
+constructor (11generic roots). Intended to replace repeated per-window proof
+wrappers with a reusable quantified certificate. Working sets add own returns,
+outgoing-label five-entry stores and shared halt return to main-only views.
+
+Controlled profile now compares original/global/main-only/working on same
+3actual cases, reverse second-heavy order. Actual labels and return offsets
+checked too.63profile roots/102ordered timing events and4certificates per
+case required, plus3list validation/property/data receipts. All mathematical
+fidelity claims retained; exact fallback outside windows. No zero-fallback
+claim without coverage evidence. See WORKING-SET-GATES.md. Stage60/60/60/120,
+global1200s/6GiB unchanged; no new workflow mode/auto-smoke needed.
+
+Only material measured improvement justifies original SOURCE16/4 integration.
+Strongest aggregate source39,240states/78,480rows, quarter/full open. Accepted
+769,344/target310,029/new accepted savings0. Same459,315prospective saving,
+high proof/moderate effort. No full-cost estimate yet. Frozen/remote/no paid/
+no outreach constraints fixed. GoalACTIVE, last usage13%, no reset.

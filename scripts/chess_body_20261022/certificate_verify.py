@@ -70,6 +70,7 @@ def main():
                   'scripts/chess_body_20261022/source_profile_pilot.py',
                   'scripts/chess_body_20261022/local_view_pilot.py',
                   'scripts/chess_body_20261022/local_source_cache_pilot.py',
+                  'scripts/chess_body_20261022/working_view_pilot.py',
                   'scripts/chess_body_20261022/local_chunk_pilot.py',
                   'scripts/chess_body_20261022/source_scope_tools_pilot.py',
                   'scripts/chess_body_20261022/source_scope_pilot.py',
@@ -126,14 +127,16 @@ def main():
     if profile:
         assert detail['source_component_profile_checked'] is True
         assert detail['source_component_profile_proposed']['kernel_checked'] is True
-        assert detail['source_component_profile_proposed']['required_roots'] == 45
+        assert detail['source_component_profile_proposed']['required_roots'] == 63
         assert detail['operation_local_view_proposed']['kernel_checked'] is True
+        assert detail['working_set_proposed']['kernel_checked'] is True
+        assert detail['working_set_proposed']['generic_roots'] == 11
         assert detail['source_component_profile_proposed'][
             'substantial_source_scaling_established'] is False
         assert detail['cache_world_source_checker_agreement_checked'] is True
         assert detail['cache_world_actual_source_controls_checked'] is True
         assert detail['cache_world_kernel_corruption_rejected'] is True
-        assert detail['source_component_timing']['events'] == 72
+        assert detail['source_component_timing']['events'] == 102
         assert detail['new_accepted_machine'] is False
     if lookup:
         assert detail['complete_typed_candidate_data_checked'] is True
