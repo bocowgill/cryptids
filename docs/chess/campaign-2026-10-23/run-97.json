@@ -1,0 +1,31 @@
+{
+  "run_id": 40124813215,
+  "source": "da9816d5900c401775e5919b4a9c8e7060eec316",
+  "mode": "profile",
+  "status": "dispatched",
+  "route": "Concrete numeric tree checker using actual mapQ without observation-cache materialization",
+  "artifact": "chess-body-certificate-da9816d5900c401775e5919b4a9c8e7060eec316",
+  "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-97",
+  "overall_seconds": 1200,
+  "memory_gib": 6,
+  "driver_mib": 512,
+  "lean_memory_mib": 6144,
+  "concrete_adapter_roots": 8,
+  "actual_data_roots": 15,
+  "actual_profile_roots": 42,
+  "labels": [
+    355,
+    445,
+    356
+  ],
+  "expected_timing_events": 60,
+  "new_accepted_machine": false,
+  "accepted_states": 769344,
+  "target_states": 310029,
+  "accepted_full_machine_savings": 0,
+  "prior_complete_source_states": 39240,
+  "prior_complete_source_rows": 78480,
+  "last_usage_percent": 15,
+  "next_gate": "One specific proof-conversion correction, then same concrete three-case cost/corruption pilot. Substantial option remains unwired. No scalability credit.",
+  "specific_correction": "Explicit unfolding of identical rowWord/observation/layout wrappers in coherent_of; statements and hypotheses fixed."
+}
