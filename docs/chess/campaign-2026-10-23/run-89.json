@@ -1,0 +1,35 @@
+{
+  "run_id": 40110449962,
+  "source": "975ed2a3346e7f93fc188fdfd9aea2ba3b907564",
+  "mode": "local",
+  "status": "remote_running",
+  "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-89",
+  "route": "Compact validated chunks plus quantified Window/list fidelity; shared return table; unchanged substantial SOURCE16/4",
+  "overall_seconds": 1200,
+  "memory_gib": 6,
+  "source_stage_seconds": {
+    "16": 180,
+    "4": 210
+  },
+  "accepted_states": 769344,
+  "target_states": 310029,
+  "accepted_full_machine_savings": 0,
+  "prior_complete_source_states": 39240,
+  "prior_complete_source_rows": 78480,
+  "substantial_source_scaling_established": false,
+  "new_accepted_machine": false,
+  "all_mathematical_window_fidelity_claims_preserved": true,
+  "individual_old_wrapper_names_retained": false,
+  "zero_fallback_claim": false,
+  "next_gate": "All bounded batch audits/control/negative receipts; complete both original SOURCE16/4 tiers; measure setup versus source overhead",
+  "accepted_components": {
+    "writer": 173642,
+    "structured_decoder": 21682,
+    "new_bridge": 1,
+    "seed_expander": 216,
+    "retained_bridge": 1,
+    "interpreter_main": 533341,
+    "interpreter_returns": 40461,
+    "total": 769344
+  }
+}
