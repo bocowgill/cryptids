@@ -1,0 +1,43 @@
+{
+  "run_id": 40101931288,
+  "source": "cb60aa5fdc3bffe09a1d2d48272663b9d407cbae",
+  "mode": "local",
+  "status": "remote_queued",
+  "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-87",
+  "route": "Batched operation-local main views plus shared verified return cache; original substantial SOURCE16/4 requirements",
+  "maximum_batch_labels": 128,
+  "maximum_batch_entries": 16384,
+  "all_individual_cache_fidelity_roots_retained": true,
+  "dense_global_main_cache_built": false,
+  "native_observations_read_once": true,
+  "stage_seconds": {
+    "data_each": 60,
+    "batch_fidelity_each": 120,
+    "shared_return_fidelity": 180,
+    "generic": 60,
+    "source16": 180,
+    "source4": 210,
+    "negative": 45
+  },
+  "overall_seconds": 1200,
+  "memory_gib": 6,
+  "accepted_states": 769344,
+  "target_states": 310029,
+  "accepted_full_machine_savings": 0,
+  "prior_complete_source_states": 39240,
+  "prior_complete_source_rows": 78480,
+  "new_accepted_machine": false,
+  "source_coverage_obligations_unchanged": true,
+  "decision_gate": "Require both full substantial source modules/private audits, report setup/recipe/assembly/audit costs; then decide continue/redesign from measurements",
+  "accepted_components": {
+    "writer": 173642,
+    "structured_decoder": 21682,
+    "new_bridge": 1,
+    "seed_expander": 216,
+    "retained_bridge": 1,
+    "interpreter_main": 533341,
+    "interpreter_returns": 40461,
+    "total": 769344
+  },
+  "prospective_combined_body": 114487
+}

@@ -1466,3 +1466,25 @@ and setup/source/assembly costs before full-cost/scaling claim. Same1200s/6GiB
 global/driver512MiB/Lean-M6144, no paid runners. Prior coverage39,240states/
 78,480rows; accepted769,344/target310,029/new savings0; same459,315prospective
 payoff, high proof/moderate effort. Frozen/remote/outreach fixed, goalACTIVE.
+
+
+Batched local-source87 dispatched: run40101931288, source
+cb60aa5fdc3bffe09a1d2d48272663b9d407cbae, mode local; retain certificate-87.
+NEXT generic21/15/3root agreements, common class/word/kernel extent controls,
+shared return cache, ALL bounded operation-local batches data/fidelity/UNION
+private audits, actual-write/count anchor controls/fresh kernel negative,
+then original complete SOURCE16/4 modules/audits180/210s. New assembly
+markers identify tree/check/census time only; no proof credit from markers.
+Every individual old cache fidelity root retained; batches<=128labels/16,384
+cells, data60/fidelity120, global1200s/6GiB unchanged. No per-op process or
+unneeded global main-cache build. Native proposed observations read once.
+No workflow change/extra smoke. Do not restart live run or raise caps.
+
+Backend-specific receipts refer to verified universal local family, replacing
+unused old global-cache receipts; source predicates/domains/bits/store/ranks/
+count/source/order/corruption/foundation/lint requirements unchanged. Need
+both substantial SOURCE gates before cost/scaling claim and all sources/shared
+controls/full linkage/review before new machine acceptance. Prior39,240states/
+78,480rows, accepted769,344/target310,029/new savings0. Same459,315potential
+saving; high proof/moderate implementation effort; no additive state claim.
+GoalACTIVE, frozen/remote/no-outreach fixed, last usage12%, no reset.
