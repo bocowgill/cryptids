@@ -1980,3 +1980,35 @@ statements/coverage/controls/caps remain EXACTLY unchanged; no new hypothesis.
 No checker/data redesign or budget increase follows from this source error.
 GoalACTIVE; accepted769,344/target310,029/new full savings0, strongest source
 39,240states/78,480rows. Frozen/remote/free/no-outreach unchanged.
+
+
+Corrected typed-source95dispatched: run40121592620 at
+b2d13080063a0f16dd53e11ef12060141ceae7da, mode smoke; retain certificate-95.
+Specific proof-only fix uses change on the local word equality, then explicit
+mapChild_id rewrite. All17statements/coverage/controls/caps identical. NEXT
+17root60s/private audit, fresh false-source-target kernel negative45s, old
+numeric/tree/control/smoke replays. Global300s/6GiB unchanged. No workflow
+change, extra automatic run or local heavy work.94source failure retained and
+metadata reviewed, completearchives pushed. Do not restart on observer timeout.
+
+If95passes, concrete adapter can be small: observation pairAt actual map/Q,
+commandNumericLocal.commandWord; base layout physical mainAddress (including
+raw1->0swap), returnAddress exact q/rank, entry labelprefix rank0, halt533341.
+Prove typedStep matches LocalRule.stepWord by cases/rfl; transport Coherent
+using fastNodeAt_eq; returned predicate should match by definitions. New
+executable recipe must kernel-check actual raw source, fragment=encode0(syntax
+raw), exact native base/return prefix, fragment count/paidTargets length, numeric
+trace and return checks. fromRaw must yield old SourceCertificate with NO
+unproved original-source hypothesis. Concrete literal fidelity will need
+DecidableEq Node/Trace/Fragment (ordinary constructive derive) and strict
+finite callback/child/label checks; native data only proposes witnesses.
+No standalone observation-cache build. Use frozen snapshot numeric node/table/
+ordered-return proposal, literal syntax depth names if needed, all10tablecells
+in original order. Then actual355load/445write/356move same-host full costs and
+callback/target/row corruption before substantial and full-machine gates.
+
+Accepted769,344/target310,029/new full savings0; strongest source39,240states/
+78,480rows; same459,315potentialsaving/high proof/high effort. GoalACTIVE,
+lastusage15%, no reset; frozen/remote/free/no-outreach fixed. Previous goal
+turnPROGRESS(29rootcore93verified); currentturndiagnoses94andimplements95fix,
+not smaller-scope completion. Generic95stillUNVERIFIED pendingresult.
