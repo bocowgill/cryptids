@@ -1,0 +1,30 @@
+{
+  "run_id": 40088305779,
+  "source": "27f1d983da440a39227607f112e0a4c1d94a7d2d",
+  "mode": "lookup",
+  "status": "remote_queued",
+  "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-80",
+  "route": "Controlled same8192data/256cell-chunk comparison: original tree-brecOn vs height-certified short-fuel path lookup",
+  "required_generic_fuel_roots": 3,
+  "comparison_entries": 8192,
+  "existing_cache_tiers": [
+    128,
+    8192,
+    65536
+  ],
+  "stage_seconds": {
+    "generic": 60,
+    "actual_heights": 120,
+    "checker_agreement": 60,
+    "fuel_comparison": 120,
+    "fuel_negative": 45
+  },
+  "overall_seconds": 1200,
+  "memory_gib": 6,
+  "accepted_states": 769344,
+  "target_states": 310029,
+  "source_rows_credit": 0,
+  "new_accepted_machine": false,
+  "correction": "Missing stdlib json import added; identical same-data height-certified lookup comparison",
+  "static_global_reference_check": "stdlib symtable inspection on lookup/fuel generators: no unresolved global references"
+}

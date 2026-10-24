@@ -52,7 +52,9 @@ Pilot79 retained/reviewed: new chunk-manifest generation fails NameError
 stdlib import added. AST/template widths pass; no available ruff/pyflakes.
 No performance inference or mathematical change.
 
-Corrected80 repeats controlled SAME8192data/256cell-chunk comparison. Must
+Current corrected80: run40088305779 at
+27f1d983da440a39227607f112e0a4c1d94a7d2d, mode lookup; retain certificate-80.
+Repeats controlled SAME8192data/256cell-chunk comparison. Must
 prove short-fuel getter equal original at every index/fallback using actual
 map/Q height proofs, then checker agreement, all private audits and fresh
 wrong-extent kernel rejection. Existing3cache tiers replay. Same6GiB/1200s,

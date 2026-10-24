@@ -1209,3 +1209,12 @@ No local mathematical generation or Lean was run. No fuel/height/comparison
 was attempted. Previous78cache-fidelity evidence remains fixed.
 Decision: corrected controlled comparison80, identical obligations and limits.
 Accepted769,344/target310,029/new accepted savings0; G4-G6/S8-S9 remain open.
+
+Corrected80 dispatched: run40088305779, source
+27f1d983da440a39227607f112e0a4c1d94a7d2d, mode lookup; retain certificate-80.
+Additional lightweight stdlib symtable inspection of lookup_cache_pilot.py
+and fuel_lookup_pilot.py finds no unresolved global references; this is not
+a full linter or mathematical execution. NEXT inspect completed cache tiers
+then fuel generic/height/agreement/comparison/audit/negative evidence. Do not
+restart a live run. Full source and full-machine acceptance requirements fixed.
+GoalACTIVE; no accepted state change, local heavy work or outreach.
