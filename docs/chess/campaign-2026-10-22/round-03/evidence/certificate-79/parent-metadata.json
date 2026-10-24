@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40087367681,
+  "commit": "be3124fc9ddbce2640d3458fe34b0d4f8e4d3949",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": true,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "Generator NameError json not defined while emitting new cache-node manifest; no fuel/height comparison attempted. Existing generic cache/loader replay pass; prior78fidelity evidence unchanged. Add missing stdlib json import; no mathematical checker, source data, limits or proof obligations changed.",
+  "new_accepted_machine": false
+}

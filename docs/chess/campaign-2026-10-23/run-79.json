@@ -2,7 +2,7 @@
   "run_id": 40087367681,
   "source": "be3124fc9ddbce2640d3458fe34b0d4f8e4d3949",
   "mode": "lookup",
-  "status": "remote_queued",
+  "status": "retained_reviewed_generation_failure",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-79",
   "route": "Controlled same8192data/256cell-chunk comparison: original tree-brecOn vs height-certified short-fuel path lookup",
   "required_generic_fuel_roots": 3,
@@ -24,5 +24,9 @@
   "accepted_states": 769344,
   "target_states": 310029,
   "source_rows_credit": 0,
-  "new_accepted_machine": false
+  "new_accepted_machine": false,
+  "failed_stage": "cache_node_manifest_generation",
+  "obstruction": "NameError: json not defined",
+  "fuel_comparison_attempted": false,
+  "decision": "Add missing stdlib json import; identical controlled comparison and budgets"
 }

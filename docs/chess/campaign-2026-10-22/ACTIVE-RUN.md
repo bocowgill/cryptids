@@ -47,20 +47,17 @@ fallback/controls and private audits. 65536data9.219+3.245s, checker100.196
 8192checker17.113s at3.284GB versus prior5.614GB. Driver545.109s total.
 This is data fidelity only: ZERO SourceRows or new-machine credit.
 
-Current79: run40087367681 at
-be3124fc9ddbce2640d3458fe34b0d4f8e4d3949, mode lookup; retain certificate-79.
-Diagnostic confirms original lookup uses tree.brecOn. This pilot appends a
-controlled SAME8192data/256cell-chunk comparison of a short-fuel getter.
-Must prove lookup equality at all indices/fallbacks with certified ACTUAL
-map/Q heights, all-node height proofs/audits, cache-checker agreement and
-fresh explicit kernel wrong-extent rejection. Getter benefit is UNTESTED.
-Potential payoff removes whole observation-cache preparation category for
-the same459,315state opportunity; no extra state reduction.
+Pilot79 retained/reviewed: new chunk-manifest generation fails NameError
+(json import missing) before fuel/height/comparison. Authored Python error;
+stdlib import added. AST/template widths pass; no available ruff/pyflakes.
+No performance inference or mathematical change.
 
-Existing3cache tiers replay. Generic60/heights120/agreement60/comparison120/
-negative45, including audits, within same1200s/6GiB. No new workflow/permission.
-See FUEL-LOOKUP-PILOT.md. Source coefficient integration and complete larger
-SOURCE tiers remain mandatory, as do all-source/global/linkage/final review.
+Corrected80 repeats controlled SAME8192data/256cell-chunk comparison. Must
+prove short-fuel getter equal original at every index/fallback using actual
+map/Q height proofs, then checker agreement, all private audits and fresh
+wrong-extent kernel rejection. Existing3cache tiers replay. Same6GiB/1200s,
+generic60/heights120/agreement60/comparison120/negative45 including audits.
+No new permission/resources/outreach. Source tiers and full acceptance open.
 
 NEXT: require generic checker proof and private audit, then completed substantial
 coverage and resource evidence. Decide continue/redesign from those results.
@@ -70,4 +67,4 @@ global_rows_pilot.py and full_link_pilot.py retain an explicit all-source
 hypothesis and have no final-theorem credit.
 
 See ../campaign-2026-10-23/RESUME.md, GATES.md, STRUCTURAL-CHECKER-GATES.md,
-run-69.json through run-79.json and STATE-COUNTS-AND-OPPORTUNITIES.md. Last account usage 11%; no reset.
+run-69.json through run-80.json and STATE-COUNTS-AND-OPPORTUNITIES.md. Last account usage 11%; no reset.

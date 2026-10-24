@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Remote-only numerical observation cache; this does not certify source rows."""
 import os
+import json
 
 if os.environ.get('CHESS_REMOTE') != '1' or os.environ.get('GITHUB_ACTIONS') != 'true':
     raise SystemExit('Remote GitHub Actions execution required before import')

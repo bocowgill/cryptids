@@ -1195,3 +1195,17 @@ fresh fuel wrong-extent kernel rejection. Do not restart live job. A material
 measured benefit and proved equality are both required before coefficient
 integration. Full source tiers and complete-machine acceptance remain open.
 Frozen reference fixed; all heavy work remote; no outreach. GoalACTIVE.
+
+
+### Pilot79: generator import error before comparison
+
+Run40087367681 atbe3124fc9ddbce2640d3458fe34b0d4f8e4d3949 is retained and
+reviewed as certificate79. New cache-node JSON manifest emission raises
+NameError because lookup_cache_pilot.py lacked import json. This is an
+authored Python error, not a proof/resource or lookup-throughput result.
+Added the missing stdlib import. AST and authored Lean template widths pass;
+ruff/pyflakes are unavailable locally, so no claim of a passed static linter.
+No local mathematical generation or Lean was run. No fuel/height/comparison
+was attempted. Previous78cache-fidelity evidence remains fixed.
+Decision: corrected controlled comparison80, identical obligations and limits.
+Accepted769,344/target310,029/new accepted savings0; G4-G6/S8-S9 remain open.
