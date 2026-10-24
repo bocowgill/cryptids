@@ -38,6 +38,7 @@ def main():
              'scripts/chess_body_20261022/diagnostics_pilot.py',
              'scripts/chess_body_20261022/symbolic_transition_pilot.py',
              'scripts/chess_body_20261022/numeric_tree_pilot.py',
+             'scripts/chess_body_20261022/numeric_control_pilot.py',
              'scripts/chess_body_20261022/certificate_verify.py']
     if args.mode == 'source':
         paths += ['scripts/chess_body_20261022/source_table_pilot.py',
@@ -132,6 +133,12 @@ def main():
         assert detail['numeric_tree_proposed']['kernel_checked'] is True
         assert detail['numeric_tree_kernel_corruption_rejected'] is True
         assert detail['numeric_tree_proposed']['actual_source_rows_certified'] == 0
+        assert detail['numeric_control_core_checked'] is True
+        assert detail['numeric_control_proposed']['required_roots'] == 29
+        assert detail['numeric_control_proposed']['kernel_checked'] is True
+        assert detail['numeric_control_kernel_corruption_rejected'] is True
+        assert detail['numeric_control_proposed']['actual_source_rows_certified'] == 0
+        assert detail['numeric_control_proposed']['concrete_source_transport_checked'] is False
     if profile:
         assert detail['source_component_profile_checked'] is True
         assert detail['source_component_profile_proposed']['kernel_checked'] is True

@@ -676,3 +676,28 @@ GoalACTIVE; lastusage15%, no reset; frozen/remote/no-paid/no-outreach fixed.
 No live remote research job remains after92terminal success. Previous goal
 turn PROGRESS (decisive91route verdict and full artifact checkpoint); this
 turn implements/proves next representation's generic fidelity, not completion.
+
+
+Numeric control core93implemented but UNVERIFIED: rank lookup by Nat idxOf,
+Fin.val index preservation, exact findTarget/targetAt simulation and rank bound;
+abstract observation/layout functions; first-order Boolean node checker with
+all six constructor/both-bit/five-store soundness, complete Trace fold and
+all paid return soundness.29roots plus some/none and good/wrong pair controls;
+fresh forged false-rank kernel harness. No modulo/clipping, source assumptions
+hidden as hypotheses, or new axiom. All proof conclusions remain ABSTRACT
+until concrete map/Q/source/address/targets compatibility is certified.
+
+Existing manual smoke mode; core60/negative45/global300s/6GiB incldriver,
+Lean-M6144/driver512MiB unchanged. NumericTree92proofs/control replay, then
+newNumericControl, then originalsmoke. Source AST/symtable/template width<=100
+and mutable-path pin exclusion checked locally; no local Lean/model run.
+See NUMERIC-CONTROL-GATES.md, all R1-R4unmet pending remote evidence.
+
+NEXT if core passes: bind abstract functions and ordered targets to original
+DirectChecks/StructuralChecks, prove exact numeric checker/reference trace
+compatibility and unchanged SourceCertificate transport. Then355load/445write/
+356move same-host total-cost/corruption pilot; original substantial/all-source/
+shared controls/bidirectional halting/exact310,029paid/fixtures/final review
+remain. Same459,315potential saving, high proof/high effort; no additive state
+saving. Accepted769,344/target310,029/new full savings0. GoalACTIVE; frozen/
+remote/existing free infrastructure/no-outreach unchanged, lastusage15%, noreset.

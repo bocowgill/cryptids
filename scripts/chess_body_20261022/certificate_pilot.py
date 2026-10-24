@@ -1638,6 +1638,8 @@ def main():
         if args.smoke_only:
             import numeric_tree_pilot
             numeric_tree_pilot.run(driver, sys.modules[__name__])
+            import numeric_control_pilot
+            numeric_control_pilot.run(driver, sys.modules[__name__])
         driver.run("DiagnosticsSmoke", 60, "Diagnostic command capture smoke checked")
         require("Chess command diagnostics probe" in
                 (driver.args.output / "command-diagnostics.log").read_text(),
