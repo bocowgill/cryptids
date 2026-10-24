@@ -1,0 +1,79 @@
+{
+  "AuditExecutable.log": {
+    "bytes": 256,
+    "sha256": "aa68170e5b54b866b0b64d154289654d62071a9656acff72182c682df8ad9741",
+    "crc32": 1706686825,
+    "compressed_bytes": 155,
+    "compression": 8
+  },
+  "ObservedCache.log": {
+    "bytes": 271,
+    "sha256": "a4e0870e380c464d52c3456b6cd59513b51bee13785e09c63c5235ab3a1b2c52",
+    "crc32": 987851835,
+    "compressed_bytes": 191,
+    "compression": 8
+  },
+  "ObservedCacheAudit.log": {
+    "bytes": 217,
+    "sha256": "540773cc6eaf2667b76afad85c8c5d87b9f2a7d3adb0ec96708bc3404462c630",
+    "crc32": 622460785,
+    "compressed_bytes": 169,
+    "compression": 8
+  },
+  "certificate-summary.json": {
+    "bytes": 6965,
+    "sha256": "e0f51e842511a5c546dc86fb582536883e840cea9ac891ff9a1c8d278698d89e",
+    "crc32": 77074387,
+    "compressed_bytes": 2082,
+    "compression": 8
+  },
+  "commands/1792815676958103812.json": {
+    "bytes": 528,
+    "sha256": "126a02f2d4aceb4ae17c61ec2c91ea83dfdf5a3233d2a28fda6dd2809d57ace0",
+    "crc32": 1109238744,
+    "compressed_bytes": 345,
+    "compression": 8
+  },
+  "commands/1792815701509704174.json": {
+    "bytes": 707,
+    "sha256": "01fafa20e14a60d2f5672e37bba913fe45114981b61609c9753eb2c25182bada",
+    "crc32": 1189132939,
+    "compressed_bytes": 375,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/Audit.lean": {
+    "bytes": 3029,
+    "sha256": "9d2a7db1fd5d82bbdadf4f6e0db0571af956741f42a89c3086c61414d52512df",
+    "crc32": 1238549105,
+    "compressed_bytes": 1202,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/ObservedCache.lean": {
+    "bytes": 6140,
+    "sha256": "388f1571f441e80279ebb1e4506c237c1dda90068447fca8dab2e22050089ef9",
+    "crc32": 504241601,
+    "compressed_bytes": 1677,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/ObservedCache.roots": {
+    "bytes": 454,
+    "sha256": "b9512cf822c5ad5c8228c0f5a45f0b277f8677cca38cdcf5bc3b4e677d2e3a29",
+    "crc32": 944822098,
+    "compressed_bytes": 111,
+    "compression": 8
+  },
+  "source-manifest.json": {
+    "bytes": 465870,
+    "sha256": "30e0bf029d39ad792da20938de336d2d142443c875ea174f95d24f2ddbe0321b",
+    "crc32": 2818651729,
+    "compressed_bytes": 126813,
+    "compression": 8
+  },
+  "verification.json": {
+    "bytes": 474820,
+    "sha256": "c883aeb9ad7381aadeb72276fb2863b25bf475332d9654abfa3f525282657d2b",
+    "crc32": 2015019413,
+    "compressed_bytes": 129352,
+    "compression": 8
+  }
+}

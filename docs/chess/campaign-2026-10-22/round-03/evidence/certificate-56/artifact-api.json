@@ -1,0 +1,20 @@
+{
+  "id": 12547951440,
+  "node_id": "MDg6QXJ0aWZhY3QxMjU0Nzk1MTQ0MA==",
+  "name": "chess-body-certificate-dd6946357df60b58d59223c71810e3869c3b19b6",
+  "size_in_bytes": 264342,
+  "url": "https://api.github.com/repos/bocowgill/cryptids/actions/artifacts/12547951440",
+  "archive_download_url": "https://api.github.com/repos/bocowgill/cryptids/actions/artifacts/12547951440/zip",
+  "expired": false,
+  "digest": "sha256:0c06f576e21bf8cd275a72c68f37316eb68745c61c1a996d9d1f77b6a7d04ecf",
+  "created_at": "2026-10-24T04:21:42Z",
+  "updated_at": "2026-10-24T04:21:42Z",
+  "expires_at": "2026-11-23T04:21:41Z",
+  "workflow_run": {
+    "id": 40061868931,
+    "repository_id": 1426408147,
+    "head_repository_id": 1426408147,
+    "head_branch": "codex/chess-openevolve-pilot",
+    "head_sha": "dd6946357df60b58d59223c71810e3869c3b19b6"
+  }
+}

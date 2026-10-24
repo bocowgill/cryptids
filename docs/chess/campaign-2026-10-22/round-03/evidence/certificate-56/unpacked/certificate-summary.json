@@ -1,0 +1,203 @@
+{
+  "audit_execution": "compiled_lean_executable",
+  "audited_modules": [
+    {
+      "full_private_environment": true,
+      "module": "Cryptids.Chess.Optimisation.BodyCertificatePilot.ObservedCache",
+      "required_roots": 6
+    }
+  ],
+  "auditor_executable": {
+    "info": {
+      "bytes": 118591176,
+      "sha256": "9d815f916dc156b36a44a967165e2d256e0459d97df27c5dd8621b6088e27eed"
+    },
+    "path": "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_body_certificate_audit",
+    "source": {
+      "bytes": 3029,
+      "sha256": "9d2a7db1fd5d82bbdadf4f6e0db0571af956741f42a89c3086c61414d52512df"
+    }
+  },
+  "classification": "GENERIC_OBSERVED_CACHE_INTERFACE_PILOT",
+  "commit": "dd6946357df60b58d59223c71810e3869c3b19b6",
+  "complete_opcode_snapshot_checked": false,
+  "complete_typed_candidate_data_checked": false,
+  "completed_positive_sample_states": 0,
+  "completed_positive_unique_rows": 0,
+  "data_stage_group": {
+    "completed_stages": [],
+    "required_stages": [
+      "MapPrelude",
+      "MapCount",
+      "MapValid",
+      "MapBounded",
+      "MapChecks",
+      "QuotientChecks",
+      "Data",
+      "BodyRelation"
+    ],
+    "wall_seconds": 120
+  },
+  "driver_peak_rss_kib": 26944,
+  "driver_source": {
+    "bytes": 82305,
+    "sha256": "99d14330f414bda0c820ba0fdf552ae09891bd0a3b06808d4d8db10c1c386c2b"
+  },
+  "elapsed_seconds": 24.47268796999998,
+  "full_quotient_certified": false,
+  "generated_files": {
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/Audit.lean": {
+      "bytes": 3029,
+      "sha256": "9d2a7db1fd5d82bbdadf4f6e0db0571af956741f42a89c3086c61414d52512df"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/ObservedCache.lean": {
+      "bytes": 6140,
+      "sha256": "388f1571f441e80279ebb1e4506c237c1dda90068447fca8dab2e22050089ef9"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/ObservedCache.roots": {
+      "bytes": 454,
+      "sha256": "b9512cf822c5ad5c8228c0f5a45f0b277f8677cca38cdcf5bc3b4e677d2e3a29"
+    }
+  },
+  "generic_observed_cache_interface_checked": true,
+  "graph_fidelity_checked": false,
+  "limits": {
+    "address_space_limit": null,
+    "audit_allocator_limit_bytes": null,
+    "driver_rss_bytes": 536870912,
+    "memory_enforcement": "sampled resident memory",
+    "process_group_rss_bytes": 6442450944,
+    "rss_sampling_seconds": 0.1,
+    "wall_seconds": 180
+  },
+  "map_invariant_proof": "single_pass_checked_count_cache_range",
+  "map_native_code_generation": false,
+  "map_representation": "named_literal_nat_midpoint_subtrees_with_composed_kernel_proofs",
+  "negative_control": {
+    "status": "not_run"
+  },
+  "new_accepted_machine": false,
+  "observed_cache_generator_source": {
+    "bytes": 6531,
+    "sha256": "2bf5e909be44cd4ae2c4c543f8f887f3f6eea72ae87c921293e4b2a0a8852086"
+  },
+  "partial_certificate_only": true,
+  "quotient_representation": "packed_nat_pairs_executable_noinline_midpoint_subtrees",
+  "quotient_states": 114487,
+  "requested_sample_states": [],
+  "requested_scope": "generic_observed_cache_interface_only",
+  "run_id": "40061868931",
+  "source_states": 573802,
+  "stage": "ObservedCacheAudit",
+  "stages": [
+    {
+      "argv": [
+        "lake",
+        "--wfail",
+        "-f",
+        "lakefile.chess-body-certificate-20261022.toml",
+        "build",
+        "chess_body_certificate_audit"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "elapsed_seconds": 7.290090117000034,
+      "executable": {
+        "info": {
+          "bytes": 118591176,
+          "sha256": "9d815f916dc156b36a44a967165e2d256e0459d97df27c5dd8621b6088e27eed"
+        },
+        "path": "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_body_certificate_audit"
+      },
+      "exit": 0,
+      "expected_banner": "Build completed successfully",
+      "expected_banner_found": true,
+      "kind": "auditor_build",
+      "log": "AuditExecutable.log",
+      "log_info": {
+        "bytes": 256,
+        "sha256": "aa68170e5b54b866b0b64d154289654d62071a9656acff72182c682df8ad9741"
+      },
+      "module": "Cryptids.Chess.Optimisation.BodyCertificatePilot.Audit",
+      "olean": {
+        "bytes": 341824,
+        "sha256": "8e6c81a2c9598c92344257a5f5665ce7c0083a980a21db2dc22b9e7f9c62bc47"
+      },
+      "peak_group_plus_driver_rss_bytes": 2451722240,
+      "resource_stop": null,
+      "shell": false,
+      "timeout_seconds": 120
+    },
+    {
+      "argv": [
+        "lake",
+        "--wfail",
+        "-f",
+        "lakefile.chess-body-certificate-20261022.toml",
+        "build",
+        "Cryptids.Chess.Optimisation.BodyCertificatePilot.ObservedCache"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "elapsed_seconds": 8.804518521000034,
+      "exit": 0,
+      "expected_banner": "Generic observed cache and source-slot coverage checked",
+      "expected_banner_found": true,
+      "kind": "kernel_build",
+      "log": "ObservedCache.log",
+      "log_info": {
+        "bytes": 271,
+        "sha256": "a4e0870e380c464d52c3456b6cd59513b51bee13785e09c63c5235ab3a1b2c52"
+      },
+      "module": "Cryptids.Chess.Optimisation.BodyCertificatePilot.ObservedCache",
+      "olean": {
+        "bytes": 54656,
+        "sha256": "9537cd6de0431d4084f3de53f2d57ee0d06dba9daef2817cae7810bd935eb124"
+      },
+      "peak_group_plus_driver_rss_bytes": 2738581504,
+      "resource_stop": null,
+      "shell": false,
+      "timeout_seconds": 60
+    },
+    {
+      "argv": [
+        "lake",
+        "--wfail",
+        "-f",
+        "lakefile.chess-body-certificate-20261022.toml",
+        "env",
+        "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_body_certificate_audit",
+        "Cryptids.Chess.Optimisation.BodyCertificatePilot.ObservedCache",
+        "Cryptids/Chess/Optimisation/BodyCertificatePilot/ObservedCache.roots",
+        "6"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "elapsed_seconds": 8.094888458000014,
+      "executable": {
+        "info": {
+          "bytes": 118591176,
+          "sha256": "9d815f916dc156b36a44a967165e2d256e0459d97df27c5dd8621b6088e27eed"
+        },
+        "path": "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_body_certificate_audit",
+        "source": {
+          "bytes": 3029,
+          "sha256": "9d2a7db1fd5d82bbdadf4f6e0db0571af956741f42a89c3086c61414d52512df"
+        }
+      },
+      "exit": 0,
+      "expected_banner": "Body full-private kernel root audit passed",
+      "expected_banner_found": true,
+      "kind": "full_private_audit",
+      "log": "ObservedCacheAudit.log",
+      "log_info": {
+        "bytes": 217,
+        "sha256": "540773cc6eaf2667b76afad85c8c5d87b9f2a7d3adb0ec96708bc3404462c630"
+      },
+      "module": "Cryptids.Chess.Optimisation.BodyCertificatePilot.ObservedCache",
+      "peak_group_plus_driver_rss_bytes": 4481077248,
+      "resource_stop": null,
+      "shell": false,
+      "timeout_seconds": 51.19089948299995
+    }
+  ],
+  "status": "observed_cache_passed",
+  "template_smoke_checked": false
+}

@@ -1,28 +1,20 @@
-# Active Chess Cryptid campaign — October24UTC / October23ET
+# Active Chess Cryptid campaign — October24,2026
 
-GoalACTIVE. Accepted769344; target310029; prospective saving459315. No new
-accepted full-machine savings. Frozen3116pinsfixed. HeavyworkREMOTE, outreachhold.
+GoalACTIVE, accepted769344/target310029, prospective459315saving. No accepted
+full-machine savings in resumed round. All3116pinsfixed, heavyworkREMOTE,
+outreachhold, no paidrunners orlocalLean. Normalmemorycap6GiB.
 
-Memorycomparison COMPLETE: validrun40059035050 at a2879c2, retained/reviewed51/52.
-Identicalhistoricalproof/data,6/10GiB coordinatedLean+RSS, originaltimegates.
-Data+32rootaudits passboth; Rows64hitsmemory43.284s/6GiB and60.559s/10GiB,
-0completedactual-rowmodules. REDESIGN; abandonmonolithicclosed-row normalization,
-no12GiB run. See MEMORY-COMPARISON-VERDICT.md. Oldsetup49/50arenotmemorytests.
+Memorydecision51/52 complete:6/10GiB bothfailactualRows64 atmemory43.284/60.559s,
+0completedrowmodules. Rejectmonolithicclosed-rownormalization; no12GiBtrial.
+Generic structuralinterface nowPASSES in56:6roots/2506deps,8.805sbuild+8.095saudit,
+standard3axioms. Noactualquotientconditionschecked. Source54catalog variant
+fails60s at88chunksafter4051bounddefs; abandonit. No unchangedsource retries.
 
-Next bounded alternatives ready but not dispatched: modecache generic observed/
-source-slot interface (6roots,60s+audit/6GiB) and modesource complete finite
-source reconstruction (13finalroots,sharedexactFinbounds,genericcongruence,
-finaltimingmarkers;60s/6GiB).180sorchestrationeach. Generic is independent ofR4;
-actualsource checkingstillrequiresR4. Noactualrowornewmachinecredit from helpers.
-Workflowmodeaddition auto-runs the unchangedsmoke regression. Record allrunIDs
-andretainnext cache/source packets as53/54; no additionalmemoryexperiment.
+NEXT: newmoderaw universal24root checkedNat-label decoder/range/source-restore
+pilot (not yetdispatched). SourceTables13root prerequisite;60scomponents,
+180stotal/6GiB. Afterthat actual32row rawchunk+corruptions, thenall127chunks.
+Newmodechoiceautosmoke isregressiononly. Actual local-rule checker must then
+cover substantial1/16and1/4paidbody before fullcost/scalingclaims.
 
-Scalabilityclaims require actuallocalrule checks, corruptioncontrols, increasing
-1/16and1/4paidbodycoverage, totalcost/audit/memory accounting; smallsamplesinsufficient.
-Currenthandoff ../campaign-2026-10-23/RESUME.md, GATES.md, DIRECT-QUOTIENT-CERTIFICATE.md.
-Last usage9% consumed; no reset. No newagents; root ownsGit/dispatch/retention.
-
-CURRENT REMOTE at0cc4a23b8a1ac537ce716f335f85fd38ad686902:
-cache40060683147→retain53; source40060687397→retain54. Both normal6GiB,
-60sbuild+audit/180stotal. Auto-smoke40060575062is regression-only. Memorypair
-is complete, verdictsaved, no more memorytrials scheduled. Record all outcomes.
+Handoff: ../campaign-2026-10-23/RESUME.md, GATES.md, MEMORY-COMPARISON-VERDICT.md,
+DIRECT-QUOTIENT-CERTIFICATE.md, RAW-LABEL-SOURCE-PILOT.md. Lastusage9%, noreset.

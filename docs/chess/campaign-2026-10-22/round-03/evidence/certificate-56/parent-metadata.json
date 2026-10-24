@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40061868931,
+  "commit": "dd6946357df60b58d59223c71810e3869c3b19b6",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": false,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "Generic observed-cache soundness and exact arbitrary source-slot transport/surjectivity pass8.805s; full-private6root/2506dependency audit8.095s, standard3axioms. No actual quotient-row conditions checked;0actual-row/new-machine credit. Reusable theorem supports direct local-rule checker rather than per-row compiler normalization.",
+  "new_accepted_machine": false
+}

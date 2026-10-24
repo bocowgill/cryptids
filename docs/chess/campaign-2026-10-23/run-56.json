@@ -1,0 +1,16 @@
+{
+  "run_id": 40061868931,
+  "source": "dd6946357df60b58d59223c71810e3869c3b19b6",
+  "mode": "cache",
+  "status": "retained_generic_observed_interface_passed",
+  "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-56",
+  "accepted_states": 769344,
+  "target_states": 310029,
+  "new_accepted_machine": false,
+  "actual_rows": 0,
+  "build_seconds": 8.805,
+  "audit_seconds": 8.095,
+  "audit_roots": 6,
+  "audit_dependencies": 2506,
+  "generic_interface_checked": true
+}

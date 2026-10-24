@@ -15,7 +15,7 @@ def main():
     if os.environ.get('CHESS_REMOTE') != '1' or os.environ.get('GITHUB_ACTIONS') != 'true':
         raise SystemExit('Remote GitHub Actions execution required')
     parser = argparse.ArgumentParser()
-    parser.add_argument('--mode', choices=['smoke', 'full', 'source', 'cache'], default='smoke')
+    parser.add_argument('--mode', choices=['smoke', 'full', 'source', 'cache', 'raw'], default='smoke')
     args = parser.parse_args()
     spec = importlib.util.spec_from_file_location('accepted_runner', ROOT / 'scripts/chess_field_reverse/verify.py')
     runner = importlib.util.module_from_spec(spec)
@@ -42,6 +42,9 @@ def main():
                   'scripts/chess_body_20261022/source_complete_pilot.py']
     if args.mode == 'cache':
         paths += ['scripts/chess_body_20261022/observed_cache_pilot.py']
+    if args.mode == 'raw':
+        paths += ['scripts/chess_body_20261022/source_table_pilot.py',
+                  'scripts/chess_body_20261022/raw_label_pilot.py']
     manifest = dict(commit=os.environ.get('GITHUB_SHA'), run_id=os.environ.get('GITHUB_RUN_ID'),
                     workflow_commit=os.environ.get('GITHUB_SHA'),
                     source_sha256={p: runner.sha(ROOT / p) for p in paths},
@@ -49,7 +52,7 @@ def main():
     (WORK / 'source-manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
     lakefile = 'lakefile.chess-body-certificate-20261022.toml'
     targets = (['Cryptids.Compilation.FieldPacking.Graph'] if args.mode == 'cache' else
-               ['Cryptids.Compilation.FieldCompiler.Snapshot'] if args.mode == 'source' else
+               ['Cryptids.Compilation.FieldCompiler.Snapshot'] if args.mode in ('source', 'raw') else
                ['Cryptids.Chess.Optimisation.FieldSelective',
                 'Cryptids.Compilation.BalancedTable', 'Cryptids.Compilation.LocalCertificate'])
     checks = [runner.run(['lake', '--wfail', '-f', lakefile, 'build', *targets],
@@ -57,12 +60,14 @@ def main():
     smoke = args.mode == 'smoke'
     source = args.mode == 'source'
     cache = args.mode == 'cache'
-    seconds = '180' if source or cache else '300' if smoke else '1200'
-    expected = ('Generic observed cache pilot passed' if cache else
+    raw = args.mode == 'raw'
+    seconds = '180' if source or cache or raw else '300' if smoke else '1200'
+    expected = ('Raw label pilot passed' if raw else 'Generic observed cache pilot passed' if cache else
                 'Finite source table pilot passed' if source else
                 'Body certificate compiled-audit smoke passed' if smoke else
                 'Bounded body kernel certificate pilot passed')
-    options = (['--observed-cache-only'] if cache else ['--source-tables-only'] if source else
+    options = (['--raw-labels-only'] if raw else ['--observed-cache-only'] if cache else
+               ['--source-tables-only'] if source else
                ['--smoke-only'] if smoke else [])
     checks.append(runner.run([sys.executable, 'scripts/chess_body_20261022/certificate_pilot.py',
                               '--lakefile', lakefile, '--output', str(WORK),
@@ -70,7 +75,8 @@ def main():
                              options, expected,
                              timeout=int(seconds) + 60))
     detail = json.loads((WORK / 'certificate-summary.json').read_text())
-    assert detail['status'] == ('observed_cache_passed' if cache else 'source_tables_passed' if source else
+    assert detail['status'] == ('raw_labels_passed' if raw else 'observed_cache_passed' if cache else
+                                'source_tables_passed' if source else
                                 'smoke_passed' if smoke else 'passed')
     assert detail['full_quotient_certified'] is False
     if source:
@@ -80,15 +86,21 @@ def main():
     if cache:
         assert detail['generic_observed_cache_interface_checked'] is True
         assert detail['completed_positive_unique_rows'] == 0
+    if raw:
+        assert detail['raw_label_decoder_checked'] is True
+        assert detail['completed_positive_unique_rows'] == 0
     (WORK / 'verification.json').write_text(json.dumps(dict(manifest, status='passed', checks=checks,
         mode=args.mode, detail=detail,
-        scope=('Generic observed-cache/source-slot interface only; no actual quotient rows or machine'
+        scope=('Raw-label decoder/range/source restoration only; no full source/quotient or machine'
+               if raw else
+               'Generic observed-cache/source-slot interface only; no actual quotient rows or machine'
                if cache else
                'Complete frozen source-operation reconstruction and format/corruption fixtures; '
                'no graph fidelity, quotient relation or accepted machine' if source else
                'Bounded concrete certificate pilot only; no complete quotient proof or accepted machine')),
         indent=2) + '\n')
-    print('Generic observed cache verification passed' if cache else
+    print('Raw label verification passed' if raw else
+          'Generic observed cache verification passed' if cache else
           'Finite source table verification passed' if source else
           'Bounded quotient certificate verification passed')
 
