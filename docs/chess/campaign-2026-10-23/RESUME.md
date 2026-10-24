@@ -520,3 +520,9 @@ chunks, balanced shared proofs, exact frozen tree shape, restoration/lowering/
 length/all-label source meaning;9root audit andsame60s/6GiB,180sorchestration.
 No complete source credit yet. DIRECT-SOURCE-CACHE-PILOT.md proposes avoiding a
 separate106668node dump after R4; unimplemented/unproved and same459315payoff.
+
+All-source SOURCE40057188968 at44ce90c dispatched; retain48. Original R3gate
+still rechecks first, then complete-source theorem/audit. Source manifest binds
+the new producer. Verifier requires complete_opcode_snapshot_checked=true and
+4042checked operations only after audited success; graph/fullquotient/newmachine
+flags remainfalse. Remote generated-source width check applies before build.

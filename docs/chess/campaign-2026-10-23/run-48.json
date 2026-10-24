@@ -1,0 +1,11 @@
+{
+  "run_id": 40057188968,
+  "source": "44ce90ce4d9078ab541aa261e894e1f62ee6ab4d",
+  "mode": "source",
+  "status": "remote_running",
+  "change": "Complete4042operation reconstruction through127frozenchunks,9root audit",
+  "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-48",
+  "accepted_states": 769344,
+  "prospective_states": 310029,
+  "new_accepted_machine": false
+}

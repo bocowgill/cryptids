@@ -1,20 +1,20 @@
 # Active resumed campaign — October 23, 2026
 
 Goal active. Accepted769344; target310029; prospective saving459315.
-G1/G2/G3 met; G4/G5/G6 open. No new accepted full-machine savings.
+G1/G2/G3 met; G4/G5/G6 open. No accepted full-machine savings this resume.
 
-Source run40056753980 at4b9f07d6ad04e3c8ef8ea36d504662910acda7e0 is pending;
-retain certificate-47. Native proposer uses public meta imports/section and
-run_cmd IO, preserving strict hashCommand lint.46retains the prior lint failure.
-First complete frozen source chunk remains a prerequisite for all127chunks.
-The drafted complete-source producer is unwired and has not run.
+SOURCE40057188968 at44ce90ce4d9078ab541aa261e894e1f62ee6ab4d is running;
+retain48. It checks all4042source operations through127frozen chunks, original
+source-tree shape, restoration/lowering/length/all-label source meaning and a
+9root full-private audit. Original60s/6GiB component,180s source-mode caps.
+R3prerequisite now passes in47: complete chunk256..287 and corrupted callback
+rejection,5.470s build+2.842s4root audit. No complete-source credit until48passes.
 
-Full run40055408911 retained/reviewed43:64states/128actual quotient rows pass;
-negative now explicitly rejected by the kernel4.968s. Rows512 times out180.117s
-below memory cap during repeated offset setup;4096unattempted. Do not repeat an
-unchanged test or raise caps. Structural source/cache route is preferred.
+Full43checks64states/128rows and explicit false-row kernel rejection.512stage
+hits180s during offset setup, below memory cap;4096unattempted. Structural
+source/cache route preferred. DIRECT-SOURCE-CACHE-PILOT.md is a proposed
+alternative avoiding a separate106668node dump, not implemented or proved.
 
-Source45retained/reviewed: explicit phase error, corrected specifically in46.
 Approved artifact transfer complete. All3116accepted pins fixed. All heavy work
 remote, outreach on hold, no new agents. Last account usage9% consumed; no reset.
 Handoff/gates: ../campaign-2026-10-23/RESUME.md and GATES.md.
