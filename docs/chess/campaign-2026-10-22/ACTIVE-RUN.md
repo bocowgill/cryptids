@@ -616,3 +616,29 @@ coverage; core alone does not close N1/N2/N3/N4 or machine gates. Same459,315
 prospective full-machine payoff, high proof/high effort; no additive saving.
 Accepted769,344/target310,029/new full savings0. Prior source39,240states/
 78,480rows. GoalACTIVE, lastusage15%, no reset. Frozen/remote/no-outreach fixed.
+
+
+Numeric decorated-tree92 dispatched: run40117525615 at
+b8695666b42a445a87f6e3df789aef89abcc20cf, mode smoke, retain certificate-92.
+All edited files checked absent from3116acceptedpins. NEXT fresh NumericTree
+20root/private audit and explicit false-annotation kernel negative, then all
+old smoke helpers. Core60/negative45/global300s/6GiB/Lean-M6144 unchanged;
+no full candidate Map/Q/cache preparation needed for this generic core.
+No workflow edit/automatic extra smoke. Do not restart for observer timeout.
+
+PROPOSED core count/root/trace/ordered paid-target proofs not yet verified;
+actual source-row credit0. This unlocks SAME459,315prospective full reduction,
+not a smaller end goal. If core passes, numeric node checker must preserve
+old DirectChecks/StructuralChecks semantics with exact natural return inverse
+and original source/return table fidelity. Concrete profile355load/445write/
+356move must include serialization/setup/checking/audit and all negative
+controls; original substantial gates remain. Accepted769,344/target310,029/
+new full savings0; strongest source39,240states/78,480rows. GoalACTIVE;
+lastusage15%, no reset, frozen/remote/free infrastructure/no-outreach fixed.
+
+GitHub job-step reporting was stale in91while proof work actually ran.
+Poll exact run AND artifact-list endpoint; an uploaded final driver artifact
+can establish proof-stage completion before job metadata recovers. Retain
+using pinned normal retainer once terminal, or mutable proof-artifact helper
+with workflow metadata explicitly pending; never restart solely on observer
+HTTP502 or empty steps. 91is terminal and its full archives are pushed.
