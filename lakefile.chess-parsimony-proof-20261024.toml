@@ -1,0 +1,24 @@
+name = "Cryptids"
+version = "0.1.0"
+weakLeanArgs = ["-M5120"]
+defaultTargets = ["Cryptids.Compilation.Parsimony.Data"]
+
+[leanOptions]
+pp.unicode.fun = true
+relaxedAutoImplicit = false
+weak.linter.mathlibStandardSet = true
+weak.linter.style.header = false
+maxSynthPendingDepth = 3
+
+[[require]]
+name = "verso"
+scope = "leanprover"
+rev = "v4.35.0-rc4"
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.35.0-rc4"
+
+[[lean_lib]]
+name = "Cryptids"

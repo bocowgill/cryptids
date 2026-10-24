@@ -1,0 +1,43 @@
+name: Bounded Parsimony structural proof pilot
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: chess-parsimony-proof-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  proof:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      CHESS_REMOTE: '1'
+      ELAN_NO_UPDATE_CHECK: '1'
+      LEAN_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+      - uses: leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6
+        with:
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'false'
+          use-github-cache: 'false'
+      - uses: actions/cache/restore@caa296126883cff596d87d8935842f9db880ef25
+        with:
+          path: |
+            .lake/packages
+            .lake/build
+          key: chess-parsimony-proof-${{ github.sha }}
+          restore-keys: |
+            chess-body-certificate-20261022-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-
+      - name: Bounded reusable proof and exact data scaling
+        run: python3 scripts/chess_parsimony_proof_20261024/verify.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: chess-parsimony-proof-${{ github.sha }}
+          include-hidden-files: true
+          path: .lake/chess-parsimony-proof-20261024/**
+          retention-days: 30
