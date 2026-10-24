@@ -73,5 +73,10 @@ through287 includes actual nonconstant load285. Exact table/reconstruction/lengt
 and corrupted-cell rejection pass5.470s; full-private4root/2182dependency audit
 2.842s, standard3axioms. Untrusted native JSON85804bytes, SHA256f9224d48;
 its bytes are bound in retained metadata. Complete source flagfalse. R4nowwired
-with9final roots; retains60s/6GiB component and180s total caps. This is a new
+with13final roots; retains60s/6GiB component and180s total caps. This is a new
 complete-source trial, not extrapolated credit from32rows.
+
+Source48times out60.067s/3.548GB after127chunk markers; module/audit incomplete,
+R4stillopen. Prepared correction shares exact raw Fin bounds and assembles global
+claims by generic congruence rather than rewriting closed lists.13final roots,
+new final-theorem markers; same budgets. No new source execution or credit yet.

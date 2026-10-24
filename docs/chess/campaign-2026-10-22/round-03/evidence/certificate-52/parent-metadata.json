@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40059035050,
+  "commit": "a2879c2545bba07282be2f1fb64a6bf8c6448e14",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": true,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "Valid10GiB comparison: exact same historical proof/data sources and timegates; coordinated-M10240/group10, capacity admitted. Data/template/audits pass. Rows64hits10GiB memory cap60.559s/10742341632bytes, still no completed row module;512/4096not reached. Additional RAM only delays failure. Abandon monolithic closed-row normalization as full-certificate route; pursue reusable local-rule certificates. No12GiB run justified.",
+  "new_accepted_machine": false
+}

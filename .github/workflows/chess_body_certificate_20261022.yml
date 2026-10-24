@@ -8,7 +8,7 @@ on:
       mode:
         description: Bounded compiled-audit preflight, finite source tables, or certificate trial
         type: choice
-        options: [smoke, full, source]
+        options: [smoke, full, source, cache]
         default: smoke
 permissions:
   contents: read

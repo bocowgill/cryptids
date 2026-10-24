@@ -136,3 +136,12 @@ comparison is a bounded route decision for the same459315opportunity, not a new
 state saving. If it merely delays failure, abandon monolithic closed-row proofs
 and prioritize reusable structural certificates. Any positive scaling claim must
 survive increasing substantial coverage and fully priced proof/audit overhead.
+
+Memorydecision51/52:6→10GiB merely delays failure43.284→60.559s,0completed row
+modules. CompleteMap/Qdata/audits fitboth. Abandon monolithicclosed-row route;
+no12GiB test. Accepted769344/target310029 breakdownunchanged, saving459315still
+prospective. Preferred structural redesign checks Q/classMap local source rules
+with a reusable observation theorem, avoiding extra graph/cache/global-return
+dump categories. Highproofdifficulty/effort; generic/source prereqs next under
+old6GiB caps. Credible fullcost requires increasing1/16and1/4actualbodycoverage,
+not helper success. No fullmachinecostestimate yet and no additional stateclaim.

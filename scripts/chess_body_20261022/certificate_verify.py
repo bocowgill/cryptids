@@ -15,7 +15,7 @@ def main():
     if os.environ.get('CHESS_REMOTE') != '1' or os.environ.get('GITHUB_ACTIONS') != 'true':
         raise SystemExit('Remote GitHub Actions execution required')
     parser = argparse.ArgumentParser()
-    parser.add_argument('--mode', choices=['smoke', 'full', 'source'], default='smoke')
+    parser.add_argument('--mode', choices=['smoke', 'full', 'source', 'cache'], default='smoke')
     args = parser.parse_args()
     spec = importlib.util.spec_from_file_location('accepted_runner', ROOT / 'scripts/chess_field_reverse/verify.py')
     runner = importlib.util.module_from_spec(spec)
@@ -40,44 +40,56 @@ def main():
         paths += ['scripts/chess_body_20261022/source_table_pilot.py',
                   'scripts/chess_body_20261022/source_chunk_pilot.py',
                   'scripts/chess_body_20261022/source_complete_pilot.py']
+    if args.mode == 'cache':
+        paths += ['scripts/chess_body_20261022/observed_cache_pilot.py']
     manifest = dict(commit=os.environ.get('GITHUB_SHA'), run_id=os.environ.get('GITHUB_RUN_ID'),
                     workflow_commit=os.environ.get('GITHUB_SHA'),
                     source_sha256={p: runner.sha(ROOT / p) for p in paths},
                     frozen_source_sha256=pins)
     (WORK / 'source-manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
     lakefile = 'lakefile.chess-body-certificate-20261022.toml'
-    targets = (['Cryptids.Compilation.FieldCompiler.Snapshot'] if args.mode == 'source' else
+    targets = (['Cryptids.Compilation.FieldPacking.Graph'] if args.mode == 'cache' else
+               ['Cryptids.Compilation.FieldCompiler.Snapshot'] if args.mode == 'source' else
                ['Cryptids.Chess.Optimisation.FieldSelective',
                 'Cryptids.Compilation.BalancedTable', 'Cryptids.Compilation.LocalCertificate'])
     checks = [runner.run(['lake', '--wfail', '-f', lakefile, 'build', *targets],
                         'Build completed successfully', timeout=900)]
     smoke = args.mode == 'smoke'
     source = args.mode == 'source'
-    seconds = '180' if source else '300' if smoke else '1200'
-    expected = ('Finite source table pilot passed' if source else
+    cache = args.mode == 'cache'
+    seconds = '180' if source or cache else '300' if smoke else '1200'
+    expected = ('Generic observed cache pilot passed' if cache else
+                'Finite source table pilot passed' if source else
                 'Body certificate compiled-audit smoke passed' if smoke else
                 'Bounded body kernel certificate pilot passed')
-    options = ['--source-tables-only'] if source else ['--smoke-only'] if smoke else []
+    options = (['--observed-cache-only'] if cache else ['--source-tables-only'] if source else
+               ['--smoke-only'] if smoke else [])
     checks.append(runner.run([sys.executable, 'scripts/chess_body_20261022/certificate_pilot.py',
                               '--lakefile', lakefile, '--output', str(WORK),
                               '--seconds', seconds, '--memory-gib', '6'] +
                              options, expected,
                              timeout=int(seconds) + 60))
     detail = json.loads((WORK / 'certificate-summary.json').read_text())
-    assert detail['status'] == ('source_tables_passed' if source else
+    assert detail['status'] == ('observed_cache_passed' if cache else 'source_tables_passed' if source else
                                 'smoke_passed' if smoke else 'passed')
     assert detail['full_quotient_certified'] is False
     if source:
         assert detail['complete_opcode_snapshot_checked'] is True
         assert detail['complete_source_proposed']['kernel_checked'] is True
         assert detail['actual_frozen_source_operations_checked'] == 4042
+    if cache:
+        assert detail['generic_observed_cache_interface_checked'] is True
+        assert detail['completed_positive_unique_rows'] == 0
     (WORK / 'verification.json').write_text(json.dumps(dict(manifest, status='passed', checks=checks,
         mode=args.mode, detail=detail,
-        scope=('Complete frozen source-operation reconstruction and format/corruption fixtures; '
+        scope=('Generic observed-cache/source-slot interface only; no actual quotient rows or machine'
+               if cache else
+               'Complete frozen source-operation reconstruction and format/corruption fixtures; '
                'no graph fidelity, quotient relation or accepted machine' if source else
                'Bounded concrete certificate pilot only; no complete quotient proof or accepted machine')),
         indent=2) + '\n')
-    print('Finite source table verification passed' if source else
+    print('Generic observed cache verification passed' if cache else
+          'Finite source table verification passed' if source else
           'Bounded quotient certificate verification passed')
 
 

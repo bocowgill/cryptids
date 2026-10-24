@@ -72,31 +72,35 @@ def vector(values):
     return '⟨#[\n' + ',\n'.join(indent(value) for value in values) + '\n], rfl⟩'
 
 
-def cells(values, bound):
-    return vector([fin(value, bound) for value in values])
+def cells(values, bound, fin_renderer=fin):
+    return vector([fin_renderer(value, bound) for value in values])
 
 
-def render(row):
+def render(row, fin_renderer=fin):
     assert isinstance(row, list) and row and type(row[0]) is int
     tag = row[0]
     assert tag in range(9) and len(row) == [3, 4, 4, 3, 3, 4, 4, 2, 1][tag]
     if tag == 0:
         assert type(row[1]) is int and row[1] in (-1, 1)
-        args = ['Dir.left' if row[1] == -1 else 'Dir.right', fin(row[2], 4042)]
+        args = ['Dir.left' if row[1] == -1 else 'Dir.right', fin_renderer(row[2], 4042)]
     elif tag == 1:
-        args = [fin(row[1], 4), cells(row[2], 5), fin(row[3], 4042)]
+        args = [fin_renderer(row[1], 4), cells(row[2], 5, fin_renderer),
+                fin_renderer(row[3], 4042)]
     elif tag == 2:
-        args = [fin(row[1], 4), vector([cells(xs, 5) for xs in row[2]]), fin(row[3], 4042)]
+        args = [fin_renderer(row[1], 4),
+                vector([cells(xs, 5, fin_renderer) for xs in row[2]]),
+                fin_renderer(row[3], 4042)]
     elif tag == 3:
-        args = [cells(row[1], 5), fin(row[2], 4042)]
+        args = [cells(row[1], 5, fin_renderer), fin_renderer(row[2], 4042)]
     elif tag in (4, 5):
-        args = ([fin(row[1], 4)] if tag == 5 else []) + [fin(x, 4042) for x in row[-2:]]
+        args = ([fin_renderer(row[1], 4)] if tag == 5 else []) + [
+            fin_renderer(x, 4042) for x in row[-2:]]
     elif tag == 6:
         assert all(type(value) is bool for value in row[1])
         args = [vector(['true' if value else 'false' for value in row[1]]),
-                fin(row[2], 4042), fin(row[3], 4042)]
+                fin_renderer(row[2], 4042), fin_renderer(row[3], 4042)]
     elif tag == 7:
-        args = [cells(row[1], 4042)]
+        args = [cells(row[1], 4042, fin_renderer)]
     else:
         args = []
     constructor = ['move', 'write', 'load', 'pureLoad', 'marker',

@@ -58,12 +58,12 @@ previous tier succeeds. Overall orchestration remains1200s, job45minutes.
 
 ## Acceptance and decision gates
 
-- [ ] P1: Retain both capacity reports, exact manifests/configuration differences,
+- [x] P1: Retain both capacity reports, exact manifests/configuration differences,
   full logs, resource outcomes, runtime, peak RSS and freshly audited coverage.
-- [ ] P2: Compare both trials together. A partially elaborated module earns zero
+- [x] P2: Compare both trials together. A partially elaborated module earns zero
   completed row-module credit. Distinguish data coverage, actual rows, kernel
   controls already retained in43, and remaining universal/full-machine work.
-- [ ] P3: Decide explicitly whether to continue, redesign or abandon the tested
+- [x] P3: Decide explicitly whether to continue, redesign or abandon the tested
   route. If10GiB merely postpones memory failure or reaches a time limit without
   useful row coverage, abandon monolithic closed-row normalization as the full
   certificate route; continue the target through reusable structural certificates.
@@ -88,3 +88,9 @@ output directory. No memory comparison occurred and no route verdict follows.
 Correct the output alias only, preserving every proof byte, then manually dispatch
 ONE corrected two-job matrix. The attempted cancellation arrived after both jobs
 had already ended. No active remote jobs or hidden retry remain from that run.
+
+Final decision51/52: both valid measured trials hit their memory cap in43.284s/
+60.559s with0completed actual-row modules. Exact same source bytes and120s row
+budget verified. Extra RAM merely delays failure. Abandon monolithic closed-row
+normalization; no12GiB run. P4conditional continuation is NOT activated. See
+MEMORY-COMPARISON-VERDICT.md. Goal remainsactive through a structural redesign.

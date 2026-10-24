@@ -584,3 +584,35 @@ findReturn_syntax/findTarget plus returnAt_syntax, with complete return coverage
 and checked fast numeric prefixes still unproved. Generic theorem is independent
 of fullsourceR4; actual decodedsource application still requires R4. No remote
 alternative pilot before initial memory comparison's route decision.
+
+Corrected6GiB pilot preview51 uploaded/run40059035050: historicalbytechecks,
+TemplateSmoke, completeMap/Qdata andunion32root audit PASS. Rows64reproduces
+process_group_memory_budget43.284s/6455455744bytes; completedactualrowmodule0.
+10GiBjob stillrunning. PreviewZIP /private/tmp/chess-memory-51-preview.zip;
+wait for completeworkflow before official retain51/52 and pairedverdict.
+
+Prepared UNEXECUTED source-complete correction after48: reuse exact Fin bound
+catalog instead of repeated bound tactics, and generic congruence assembly on
+variable lists instead of rewriting closed4000row terms. New final-theorem IO
+markers distinguish boundary proof/export costs. CompleteSource roots now13,
+all prior conclusions retained. Shared render default is unchanged; optional
+catalog hook only used for complete source. No additional remote source trial
+started; initial memory comparison still gates next execution decision.
+
+MEMORY VERDICT COMPLETE: valid paired40059035050 at a2879c2 retained/reviewed
+51/52. Bothproof/data byte sets identical to19; onlyLake-M6144→-M10240 plus
+matchinggroupcap differs. Full candidateData8+32root audit passboth. Rows64hits
+6GiB43.284s/6455455744bytes and10GiB60.559s/10742341632bytes;0completedrowmodules,
+512/4096unreached. No credible fullcostestimate. Abandon monolithic closed-row
+normalization; no12GiB test. See MEMORY-COMPARISON-VERDICT.md and machine-readable
+memory-comparison-51-52.json. Accepted769344 remainsfixed; no new fullmachine saving.
+
+Nextmodecache is now wired for generic observed-cache/source-slot theorem only,
+6roots,60s build+fullprivateaudit,180sorchestration,6GiB. It is mathematically
+independent of fullsourceR4; actualdecoded-source checker stillrequiresR4. No
+actualrow/newmachine credit from generic theorem. SourceR4producer nowshares4051
+exact Fin bound constants (no modulo) and uses generic congruence on variable
+lists, avoiding closed-global rewrite searches;13final roots plus final markers.
+Both changes UNEXECUTED pending next bounded remote pilots. Originalsmoke/full
+checks unchanged. Workflowmodechoiceaddition triggers an ordinarysmoke regression
+onpush; explicit cache/source jobs use independentmodequeues. No resourcecapsraised.

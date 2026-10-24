@@ -1,8 +1,9 @@
 # Proposed direct local certificate for the complete quotient
 
 Status: unimplemented and unproved. The generic theorem producer
-observed_cache_pilot.py is TEXT ONLY, unwired and unexecuted. Initial memory
-comparison must finish before another remote route pilot starts. Accepted769344;
+observed_cache_pilot.py is now wired in modecache but UNEXECUTED. Initial memory
+comparison51/52 is complete and rejects the old route; bounded alternatives may
+now run. Accepted769344;
 target310029; prospective full-machine saving459315, not an additional saving.
 
 The current quotient data already defines an expected row at every source main

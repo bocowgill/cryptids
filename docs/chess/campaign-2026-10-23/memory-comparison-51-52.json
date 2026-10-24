@@ -1,0 +1,24 @@
+{
+  "scope": "Byte/provenance/resource receipt comparison only; no local proof execution",
+  "run_id": 40059035050,
+  "source": "a2879c2545bba07282be2f1fb64a6bf8c6448e14",
+  "all_historical_generated_proof_and_data_hashes_identical": true,
+  "only_lake_setting_difference": "-M6144 to -M10240",
+  "unchanged_row_time_budget_seconds": 120,
+  "baseline": {
+    "budget_gib": 6,
+    "seconds": 43.284,
+    "peak_rss_bytes": 6455455744,
+    "completed_actual_rows": 0
+  },
+  "increased": {
+    "budget_gib": 10,
+    "seconds": 60.559,
+    "peak_rss_bytes": 10742341632,
+    "completed_actual_rows": 0
+  },
+  "decision": "Abandon monolithic closed-row normalization; redesign using reusable local rules",
+  "new_accepted_machine": false,
+  "accepted_states": 769344,
+  "target_states": 310029
+}

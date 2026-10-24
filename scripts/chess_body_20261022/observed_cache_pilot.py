@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Unwired remote-only proof prototype: observed caches over exact source slots."""
+"""Remote-only proof pilot: observed caches over exact source slots; unverified."""
 import os
 
 if os.environ.get('CHESS_REMOTE') != '1' or os.environ.get('GITHUB_ACTIONS') != 'true':
@@ -35,30 +35,30 @@ theorem observed_cache_sound {n k labels : Nat} {α : Type}
   rewrite [checked bit i value]
   cases row : g.node i with
   | move dir child =>
-    simp only [observedStep, row]
+    change observe bit ((some child, value), .move dir) = _
     rewrite [LazyGraph.trAux_move g bit i child value dir row]
     rfl
   | write table child =>
-    simp only [observedStep, row]
+    change observe bit ((some child, value), .write (table.read bit value)) = _
     rewrite [LazyGraph.trAux_write g bit i child value table row]
     rfl
   | load table child =>
-    simp only [observedStep, row]
+    change cache bit child (table.read bit value) = _
     rewrite [LazyGraph.trAux_load g bit i child value table row]
     exact observed_cache_sound g observe cache checked bit child (table.read bit value)
   | branch table left right =>
-    simp only [observedStep, row]
+    change (if table.read bit value then cache bit left value else cache bit right value) = _
     rewrite [LazyGraph.trAux_branch g bit i left right value table row]
     cases test : table.read bit value <;>
       simp only [test, Bool.false_eq_true, ↓reduceIte]
     · exact observed_cache_sound g observe cache checked bit right value
     · exact observed_cache_sound g observe cache checked bit left value
   | goto table =>
-    simp only [observedStep, row]
+    change observe bit ((some (g.entry (table.read bit value)), value), .write bit) = _
     rewrite [LazyGraph.trAux_goto g bit i value table row]
     rfl
   | halt =>
-    simp only [observedStep, row]
+    change observe bit ((none, value), .write bit) = _
     rewrite [LazyGraph.trAux_halt g bit i value row]
     rfl
 termination_by i.val
@@ -86,11 +86,11 @@ theorem sourceIndex_surjective {labels total : Nat} (rows : Vector (Syntax label
     Function.Surjective (fun slot : (Σ q, Fin (syntax q).size) ↦
       sourceIndex rows layout slot.1 (syntax slot.1) (same slot.1) slot.2) := by
   intro i
-  obtain ⟨⟨q, local⟩, rfl⟩ := layout.code.surjective i
+  obtain ⟨⟨q, slot⟩, rfl⟩ := layout.code.surjective i
   let size_eq := congrArg Syntax.size (same q)
-  refine ⟨⟨q, local.cast size_eq⟩, ?_⟩
-  have cancelled : (local.cast size_eq).cast size_eq.symm = local := Fin.ext rfl
-  change layout.code ⟨q, (local.cast size_eq).cast size_eq.symm⟩ = layout.code ⟨q, local⟩
+  refine ⟨⟨q, slot.cast size_eq⟩, ?_⟩
+  have cancelled : (slot.cast size_eq).cast size_eq.symm = slot := Fin.ext rfl
+  change layout.code ⟨q, (slot.cast size_eq).cast size_eq.symm⟩ = layout.code ⟨q, slot⟩
   rewrite [cancelled]
   rfl
 
@@ -98,19 +98,19 @@ theorem source_cache_sound {labels total : Nat} {α : Type}
     (rows : Vector (Syntax labels) labels) (layout : FieldPacking.Layout rows total)
     (syntax : Fin labels → Syntax labels) (same : ∀ q, rows.get q = syntax q)
     (observe : Bool → Result total 5 → α) (cache : Bool → Fin total → Fin 5 → α)
-    (checked : ∀ q bit local value,
-      cache bit (sourceIndex rows layout q (syntax q) (same q) local) value =
+    (checked : ∀ q bit slot value,
+      cache bit (sourceIndex rows layout q (syntax q) (same q) slot) value =
         observedStep (FieldPacking.graph rows layout).entry observe cache bit
           (TemplateGraph.mapNode (sourceIndex rows layout q (syntax q) (same q))
-            ((syntax q).fastNodeAt local)) value)
+            ((syntax q).fastNodeAt slot)) value)
     (bit : Bool) (i : Fin total) (value : Fin 5) :
     cache bit i value = observe bit (LazyGraph.trAux (FieldPacking.graph rows layout)
       bit i value) := by
   refine observed_cache_sound (FieldPacking.graph rows layout) observe cache ?_ bit i value
   intro scanned index store
-  obtain ⟨⟨q, local⟩, address⟩ := sourceIndex_surjective rows layout syntax same index
-  rewrite [← address, source_node rows layout q (syntax q) (same q) local]
-  exact checked q scanned local store
+  obtain ⟨⟨q, slot⟩, address⟩ := sourceIndex_surjective rows layout syntax same index
+  rewrite [← address, source_node rows layout q (syntax q) (same q) slot]
+  exact checked q scanned slot store
 
 end ObservedCachePilot
 '''

@@ -82,6 +82,7 @@ class Driver:
         self.audit_roots = {}
         self.stage = "input_and_generation"
         source_only = getattr(args, "source_tables_only", False)
+        cache_only = getattr(args, "observed_cache_only", False)
         self.summary = {
             "status": "running", "classification": "FINITE_PARTIAL_KERNEL_SCALABILITY_PILOT",
             "partial_certificate_only": True, "full_quotient_certified": False,
@@ -92,10 +93,12 @@ class Driver:
                        "audit_allocator_limit_bytes": None,
                        "address_space_limit": None, "memory_enforcement": "sampled resident memory"},
             "source_states": N, "quotient_states": K,
-            "requested_scope": ("finite_source_operation_tables_only" if source_only else
+            "requested_scope": ("generic_observed_cache_interface_only" if cache_only else
+                                "finite_source_operation_tables_only" if source_only else
                                 "compiled_audit_smoke_only" if args.smoke_only else
                                 "full_bounded_pilot"),
-            "requested_sample_states": [] if source_only or args.smoke_only else [64, 512, 4096],
+            "requested_sample_states": [] if cache_only or source_only or args.smoke_only else
+                                       [64, 512, 4096],
             "audit_execution": "compiled_lean_executable",
             "map_representation": "named_literal_nat_midpoint_subtrees_with_composed_kernel_proofs",
             "map_invariant_proof": "single_pass_checked_count_cache_range",
@@ -1449,14 +1452,37 @@ def main():
                         help="Stop after compiled auditor and complete packed-codec template smoke audit")
     parser.add_argument("--source-tables-only", action="store_true",
                         help="Check finite source-operation reconstruction and format fixtures only")
+    parser.add_argument("--observed-cache-only", action="store_true",
+                        help="Check generic observed-cache/source-slot soundness only")
     args = parser.parse_args()
     require(sys.platform == "linux" and 10 <= args.seconds <= 1200 and 2 <= args.memory_gib <= 6,
             "Linux and bounded resource settings required")
-    require(not (args.smoke_only and args.source_tables_only), "Choose one bounded pilot scope")
+    require(sum((args.smoke_only, args.source_tables_only, args.observed_cache_only)) <= 1,
+            "Choose one bounded pilot scope")
     args.output.mkdir(parents=True, exist_ok=True)
     require(args.lakefile.is_file(), "root-owned lakefile missing")
     driver = Driver(args)
     try:
+        if args.observed_cache_only:
+            driver.summary.update(classification="GENERIC_OBSERVED_CACHE_INTERFACE_PILOT",
+                                  generic_observed_cache_interface_checked=False,
+                                  complete_opcode_snapshot_checked=False,
+                                  graph_fidelity_checked=False)
+            driver.emit("Audit.lean", AUDIT)
+            import observed_cache_pilot
+            driver.summary["observed_cache_generator_source"] = info(
+                Path(observed_cache_pilot.__file__))
+            observed_cache_pilot.generate(driver, header, audit_and_end)
+            driver.run("Audit", 120, "Build completed successfully", audit_build=True)
+            driver.run("ObservedCache", 60,
+                       "Generic observed cache and source-slot coverage checked")
+            driver.summary.update(status="observed_cache_passed",
+                                  generic_observed_cache_interface_checked=True)
+            driver.checkpoint()
+            driver.monitor_stop.set()
+            signal.setitimer(signal.ITIMER_REAL, 0)
+            print("Generic observed cache pilot passed", flush=True)
+            return 0
         if args.source_tables_only:
             driver.summary.update(classification="FINITE_SOURCE_OPERATION_TABLE_PILOT",
                                   complete_opcode_snapshot_checked=False,

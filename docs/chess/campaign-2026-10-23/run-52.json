@@ -3,11 +3,19 @@
   "source": "a2879c2545bba07282be2f1fb64a6bf8c6448e14",
   "mode": "paired_memory_comparison",
   "memory_gib": 10,
-  "status": "corrected_remote_matrix_running",
+  "status": "retained_valid_memory_obstruction",
   "artifact": "chess-memory-a2879c2545bba07282be2f1fb64a6bf8c6448e14-10gib",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-52",
   "historical_proof_certificate": 19,
   "accepted_states": 769344,
   "prospective_states": 310029,
-  "new_accepted_machine": false
+  "new_accepted_machine": false,
+  "valid_memory_comparison": true,
+  "certified_actual_rows": 0,
+  "complete_candidate_data": true,
+  "route_decision": "abandon_monolithic_closed_row_normalization",
+  "memory_stage": "Rows64",
+  "memory_stage_seconds": 60.559,
+  "peak_rss_bytes": 10742341632,
+  "source_bytes_verified": true
 }
