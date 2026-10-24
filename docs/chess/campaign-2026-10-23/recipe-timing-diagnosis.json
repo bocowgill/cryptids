@@ -1,0 +1,61 @@
+{
+  "scope": "Retained diagnostic timing metadata only; not machine generation/counting or Lean execution",
+  "evidence": "certificate-75/unpacked/LocalScope16-{details,progress}.tsv",
+  "completed_noninherited_records": 410,
+  "raw_ms": 13039,
+  "combined_recipe_ms": 153210,
+  "first64_median_recipe_ms": 81.0,
+  "last64_median_recipe_ms": 274.5,
+  "largest_combined_recipe_times": [
+    {
+      "label": 355,
+      "raw_ms": 48,
+      "combined_recipe_ms": 3235
+    },
+    {
+      "label": 384,
+      "raw_ms": 34,
+      "combined_recipe_ms": 2932
+    },
+    {
+      "label": 354,
+      "raw_ms": 33,
+      "combined_recipe_ms": 2927
+    },
+    {
+      "label": 379,
+      "raw_ms": 34,
+      "combined_recipe_ms": 2892
+    },
+    {
+      "label": 292,
+      "raw_ms": 33,
+      "combined_recipe_ms": 2880
+    },
+    {
+      "label": 295,
+      "raw_ms": 34,
+      "combined_recipe_ms": 2879
+    },
+    {
+      "label": 359,
+      "raw_ms": 30,
+      "combined_recipe_ms": 2806
+    },
+    {
+      "label": 381,
+      "raw_ms": 31,
+      "combined_recipe_ms": 2729
+    }
+  ],
+  "conclusion": "Combined recipe checking dominates and tail grows; cannot isolate source equality vs coherence vs returns from these markers. Await integrated cache result before changing category.",
+  "representative_retained_source": {
+    "label": 355,
+    "source_kind": "RawOp.load",
+    "recorded_nodes": 142,
+    "recorded_return_ranks": 1,
+    "recipe_ms": 3235,
+    "source": "certificate-75/unpacked/reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/LocalScope16.lean:10821",
+    "interpretation": "Many-node load with one return rank: repeated write inverse lookup alone cannot explain all slow records; row-observation reuse remains a plausible category to test. No isolated cause claim."
+  }
+}
