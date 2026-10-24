@@ -1,5 +1,11 @@
 # Fixed state-53 pilot runner
 
+Current disposition: the first remote run failed before generation because the
+capacity probe assumed a missing cgroup-v2 file. The optional v1/v2 probe repair
+is unexecuted. A direct source proof then refuted the canonical E/pop equation
+at outside44 (see research/riemann-reduction/pilot-53/COUNTEREXAMPLE.md).
+Do not rerun this route or treat any planned checks below as executed evidence.
+
 Execute only through the dedicated remote workflow. Local use, including fixture
 execution, generation and counting, is intentionally rejected by the scripts.
 

@@ -1,11 +1,16 @@
 # Recoverable audit checkpoint
 
-Status: initial bounded audit complete; optimization implementation not started.
+Status: initial audit complete; the state-53 skipped-bit encoding has a direct
+counterexample. Its one remote job failed before candidate generation. The runner
+capacity fix is unexecuted. Read `pilot-53/RESULT.md` and `pilot-53/COUNTEREXAMPLE.md`
+first; they supersede the earlier next-work suggestion below. Do not rerun the
+false E/pop claim or launch a fallback search automatically.
 Date: 2026-10-24, America/New_York.
 Branch: `codex/riemann-reduction`.
 Path: `/Users/bocowgill/.codex/worktrees/4e0d/cryptids`.
 Base: `6c28d8524fa008c6fb5aadb759df74a55ce96423`.
-Only `research/riemann-reduction/**` is authored by this audit.
+The initial audit authored only `research/riemann-reduction/**`. The authorized
+pilot additionally authored `scripts/riemann53/**` and its dedicated workflow.
 The audit commit itself supplies a recoverable Git checkpoint; its ID is reported
 outside its own content to avoid a self-referential hash.
 

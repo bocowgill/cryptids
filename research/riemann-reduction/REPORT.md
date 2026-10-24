@@ -1,5 +1,12 @@
 # Bounded RH95 compression audit — 2026-10-24
 
+Follow-up: the authorized state-53 pilot now has an exact source-level
+counterexample to its skipped-bit encoding. Its one remote job failed before
+generation; no executable witness replay or new certification was completed.
+Read [the pilot result](pilot-53/RESULT.md) and
+[the direct counterexample](pilot-53/COUNTEREXAMPLE.md) before acting on the
+initial-audit recommendation below. No broader search was launched.
+
 The reviewed accepted baseline remains **95 states**. No smaller machine was
 implemented or certified in this audit. The best first bounded probe is removing
 the bit-insensitive decoder state **53**, conditional on a sound shorter control

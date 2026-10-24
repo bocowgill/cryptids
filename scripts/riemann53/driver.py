@@ -28,6 +28,13 @@ def save(name, value):
     (OUT / name).write_text(json.dumps(value, indent=2) + '\n')
 
 
+def optional_read(path):
+    try:
+        return Path(path).read_text().strip()
+    except (FileNotFoundError, PermissionError):
+        return None
+
+
 def rss_group(group):
     """Aggregate RSS of the isolated child session plus this watchdog."""
     total = 0
@@ -51,11 +58,16 @@ def main():
     mem = dict((line.split(':')[0], int(line.split()[1]) * 1024)
                for line in Path('/proc/meminfo').read_text().splitlines()
                if line.startswith(('MemTotal:', 'MemAvailable:')))
+    cgroup_files = {p: optional_read(p) for p in [
+        '/sys/fs/cgroup/memory.max', '/sys/fs/cgroup/memory.current',
+        '/sys/fs/cgroup/memory/memory.limit_in_bytes',
+        '/sys/fs/cgroup/memory/memory.usage_in_bytes',
+        '/sys/fs/cgroup/memory.limit_in_bytes', '/sys/fs/cgroup/memory.usage_in_bytes']}
     capacity = dict(host=mem, runner=os.environ.get('RUNNER_NAME'),
                     environment=os.environ['RUNNER_ENVIRONMENT'],
                     cgroup=Path('/proc/self/cgroup').read_text(),
-                    memory_max=Path('/sys/fs/cgroup/memory.max').read_text().strip(),
-                    memory_current=Path('/sys/fs/cgroup/memory.current').read_text().strip())
+                    visible_cgroup_files=cgroup_files,
+                    probe_revision='optional-v1-v2-files; unexecuted after first-run failure')
     summary = dict(status='running', candidate_limit=1, total_limit_seconds=TOTAL,
                    aggregate_limit_bytes=MEMORY, driver_limit_bytes=DRIVER_MEMORY,
                    stage_caps=dict(setup=900, generation=120, screening=180,
@@ -68,9 +80,14 @@ def main():
     if elapsed_setup > 900:
         raise RuntimeError('Setup cap reached before generation')
     available = mem['MemAvailable']
-    if capacity['memory_max'].isdigit():
-        available = min(available, int(capacity['memory_max'])
-                        - int(capacity['memory_current']))
+    for limit_path, usage_path in [
+            ('/sys/fs/cgroup/memory.max', '/sys/fs/cgroup/memory.current'),
+            ('/sys/fs/cgroup/memory/memory.limit_in_bytes',
+             '/sys/fs/cgroup/memory/memory.usage_in_bytes'),
+            ('/sys/fs/cgroup/memory.limit_in_bytes', '/sys/fs/cgroup/memory.usage_in_bytes')]:
+        limit, usage = cgroup_files[limit_path], cgroup_files[usage_path]
+        if limit and usage and limit.isdigit() and usage.isdigit() and int(limit) < 1 << 60:
+            available = min(available, int(limit) - int(usage))
     if available < MEMORY + (2 << 30):
         raise RuntimeError('Insufficient free-runner headroom; no larger runner allowed')
     stages = [('generation', 120, [sys.executable, 'scripts/riemann53/pilot.py', 'generate']),

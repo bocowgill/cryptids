@@ -1,0 +1,32 @@
+Historical remote run: https://github.com/bocowgill/cryptids/actions/runs/40132242492
+Job: 120986248652. Producer: 471387388084c3e973b88f0c5039987501d5ccff
+Retrieved 2026-10-24; original log excerpt follows.
+2026-10-24T20:59:52.3843167Z   LEAN_NUM_THREADS: 1
+2026-10-24T20:59:52.3844561Z   OMP_NUM_THREADS: 1
+2026-10-24T20:59:52.3845792Z   ELAN_NO_UPDATE_CHECK: 1
+2026-10-24T20:59:52.3847046Z   RH53_JOB_START: 1792875590
+2026-10-24T20:59:52.3848319Z ##[endgroup]
+2026-10-24T20:59:52.4836397Z Traceback (most recent call last):
+2026-10-24T20:59:52.4839926Z   File "/home/runner/work/cryptids/cryptids/scripts/riemann53/driver.py", line 139, in <module>
+2026-10-24T20:59:52.4843249Z     main()
+2026-10-24T20:59:52.4846442Z   File "/home/runner/work/cryptids/cryptids/scripts/riemann53/driver.py", line 57, in main
+2026-10-24T20:59:52.4851023Z     memory_max=Path('/sys/fs/cgroup/memory.max').read_text().strip(),
+2026-10-24T20:59:52.4854177Z                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-24T20:59:52.4856487Z   File "/usr/lib/python3.12/pathlib.py", line 1029, in read_text
+2026-10-24T20:59:52.4859287Z     with self.open(mode='r', encoding=encoding, errors=errors) as f:
+2026-10-24T20:59:52.4861669Z          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-24T20:59:52.4864032Z   File "/usr/lib/python3.12/pathlib.py", line 1015, in open
+2026-10-24T20:59:52.4866835Z     return io.open(self, mode, buffering, encoding, errors, newline)
+2026-10-24T20:59:52.4869352Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-24T20:59:52.4872376Z FileNotFoundError: [Errno 2] No such file or directory: '/sys/fs/cgroup/memory.max'
+2026-10-24T20:59:52.5013313Z ##[error]Process completed with exit code 1.
+2026-10-24T20:59:52.5232773Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-10-24T20:59:52.5234868Z with:
+2026-10-24T20:59:52.5236021Z   name: rh53-pilot-471387388084c3e973b88f0c5039987501d5ccff
+2026-10-24T20:59:52.5237561Z   path: .lake/riemann53/**
+2026-10-24T20:59:52.5238795Z   include-hidden-files: true
+2026-10-24T20:59:52.5239846Z   retention-days: 30
+2026-10-24T20:59:52.5240859Z   if-no-files-found: warn
+2026-10-24T20:59:52.5241882Z   compression-level: 6
+2026-10-24T20:59:52.5242799Z   overwrite: false
+2026-10-24T20:59:52.5243793Z env:
