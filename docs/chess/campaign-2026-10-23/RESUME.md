@@ -1380,3 +1380,17 @@ Rank1same459,315prospective states, high proof/moderate implementation effort;
 no additive saving or credible full cost yet. New source16proof is substantive
 intermediate coverage, not acceptance. Frozen/remote/outreach/checkpoint rules
 fixed. Last usage12%; goalACTIVE, no reset.
+
+
+Controlled source-component85 dispatched: run40095774726, source
+c7191c539ce33684f5516065fb1e047e3e1de432, mode profile; retain certificate-85.
+Workflow mode-list change also triggers normal smoke40095691471, SAMEsource,
+retain separately as certificate-85-smoke. Distinct concurrency groups.
+NEXT exact30root SourceProfile build/private audit,48ordered monotone timing
+events, source/count/main/return/whole original-vs-cached durations, reverse
+second-heavy order. Global1200s/6GiB and profile120s unchanged. No substantial
+scaling/full-machine credit from these3cases; use them to choose a measured
+structural corrective change before re-running larger source gates.
+Existing local-mode SOURCE16/4 assertions untouched. All heavy work remote.
+Accepted769,344/target310,029/new savings0; last usage12%, goalACTIVE/no reset.
+No frozen/accepted/historical changes or outreach. Do not restart live jobs.
