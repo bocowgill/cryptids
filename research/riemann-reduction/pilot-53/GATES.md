@@ -1,5 +1,8 @@
 # Gates: fixed state-53 pilot
 
+Historical first-job ledger. The separately authorized successful verification is
+recorded in replay-02/GATES.md; original abandoned execution gates remain below.
+
 OWNS: research/riemann-reduction/pilot-53/**, scripts/riemann53/**,
   .github/workflows/riemann53_pilot.yml
 

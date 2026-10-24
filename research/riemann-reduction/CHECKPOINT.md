@@ -1,10 +1,11 @@
 # Recoverable audit checkpoint
 
-Status: initial audit complete; the state-53 skipped-bit encoding has a direct
-counterexample. Its one remote job failed before candidate generation. The runner
-capacity fix is unexecuted. Read `pilot-53/RESULT.md` and `pilot-53/COUNTEREXAMPLE.md`
-first; they supersede the earlier next-work suggestion below. Do not rerun the
-false E/pop claim or launch a fallback search automatically.
+Status: the state-53 canonical skipped-bit counterexample has now been independently
+replayed and Lean-checked in the one additional authorized job, run 40134606435.
+The full-private audit passed (10 roots, 815 dependencies, only propext). Read
+`pilot-53/replay-02/RESULT.md` first. The first failed run remains preserved.
+No 94-state RH result is certified. Chess remains paused and broader search held.
+Do not rerun the false E/pop claim or launch a fallback search automatically.
 Date: 2026-10-24, America/New_York.
 Branch: `codex/riemann-reduction`.
 Path: `/Users/bocowgill/.codex/worktrees/4e0d/cryptids`.

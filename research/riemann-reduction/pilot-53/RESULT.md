@@ -1,5 +1,11 @@
 # State-53 pilot result — 2026-10-24
 
+**Latest verification:** the one additional user-authorized job independently
+replayed the fixed counterexample and Lean-checked it successfully, with a passing
+full-private audit. See [replay-02/RESULT.md](replay-02/RESULT.md).
+The remainder of this page preserves the result/status after the original failed
+job, before that separate verification. The 95-state RH baseline is still unchanged.
+
 **The proposed skipped-bit encoding is rejected by an exact source-level
 counterexample. No 94-state RH machine is certified.**
 See [COUNTEREXAMPLE.md](COUNTEREXAMPLE.md) for the full direct proof:

@@ -1,0 +1,12 @@
+Source: https://github.com/bocowgill/cryptids/actions/runs/40134606435
+Job: 120993347606. Selected original log lines, retrieved 2026-10-24.
+2026-10-24T21:31:41.7097264Z aed235c1001984528478268f4de834a1110cad77
+2026-10-24T21:31:56.6218711Z   key: rh53-replay-Linux-aed235c1001984528478268f4de834a1110cad77
+2026-10-24T21:31:57.3733337Z {"name": "generation", "argv": ["/usr/bin/python3", "scripts/riemann53/pilot.py", "generate"], "exit": 0, "seconds": 0.09197739399996863, "effective_cap_seconds": 120, "stop": null}
+2026-10-24T21:31:57.4405478Z {"name": "screening", "argv": ["/usr/bin/python3", "scripts/riemann53/pilot.py", "fixed44"], "exit": 0, "seconds": 0.06651426600001287, "effective_cap_seconds": 180, "stop": null}
+2026-10-24T21:31:57.7081919Z {"name": "independent-replay", "argv": ["node", "scripts/riemann53/replay.mjs"], "exit": 0, "seconds": 0.26703462199998285, "effective_cap_seconds": 60, "stop": null}
+2026-10-24T21:33:40.8550623Z {"name": "setup", "argv": ["/usr/bin/python3", "scripts/riemann53/setup_replay.py"], "exit": 0, "seconds": 103.14620450000007, "effective_cap_seconds": 882.2920384356137, "stop": null}
+2026-10-24T21:37:14.8702849Z {"name": "kernel", "argv": ["lake", "--wfail", "-f", "lakefile.riemann53.toml", "build", "Rh53Counterexample"], "exit": 0, "seconds": 214.01428955799997, "effective_cap_seconds": 600, "stop": null}
+2026-10-24T21:37:32.0136245Z {"name": "audits", "argv": ["/usr/bin/python3", "scripts/riemann53/check_lean.py"], "exit": 0, "seconds": 17.14290704200016, "effective_cap_seconds": 390, "stop": null}
+2026-10-24T21:37:32.0138435Z COUNTEREXAMPLE_REPLAYED_AND_LEAN_CHECKED
+2026-10-24T21:37:32.0282700Z   name: rh53-replay02-aed235c1001984528478268f4de834a1110cad77

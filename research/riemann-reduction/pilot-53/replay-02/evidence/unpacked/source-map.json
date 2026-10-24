@@ -1,0 +1,472 @@
+[
+  {
+    "old": 0,
+    "new": 0,
+    "charge": "C"
+  },
+  {
+    "old": 1,
+    "new": 1,
+    "charge": "L"
+  },
+  {
+    "old": 2,
+    "new": 2,
+    "charge": "P"
+  },
+  {
+    "old": 3,
+    "new": 3,
+    "charge": "I"
+  },
+  {
+    "old": 4,
+    "new": 4,
+    "charge": "I"
+  },
+  {
+    "old": 5,
+    "new": 5,
+    "charge": "S"
+  },
+  {
+    "old": 6,
+    "new": 6,
+    "charge": "I"
+  },
+  {
+    "old": 7,
+    "new": 7,
+    "charge": "S"
+  },
+  {
+    "old": 8,
+    "new": 8,
+    "charge": "R"
+  },
+  {
+    "old": 9,
+    "new": 9,
+    "charge": "R"
+  },
+  {
+    "old": 10,
+    "new": 10,
+    "charge": "S"
+  },
+  {
+    "old": 11,
+    "new": 11,
+    "charge": "P"
+  },
+  {
+    "old": 12,
+    "new": 12,
+    "charge": "S"
+  },
+  {
+    "old": 13,
+    "new": 13,
+    "charge": "J"
+  },
+  {
+    "old": 14,
+    "new": 14,
+    "charge": "J"
+  },
+  {
+    "old": 15,
+    "new": 15,
+    "charge": "D"
+  },
+  {
+    "old": 16,
+    "new": 16,
+    "charge": "D"
+  },
+  {
+    "old": 17,
+    "new": 17,
+    "charge": "D"
+  },
+  {
+    "old": 18,
+    "new": 18,
+    "charge": "L"
+  },
+  {
+    "old": 19,
+    "new": 19,
+    "charge": "J"
+  },
+  {
+    "old": 20,
+    "new": 20,
+    "charge": "D"
+  },
+  {
+    "old": 21,
+    "new": 21,
+    "charge": "D"
+  },
+  {
+    "old": 22,
+    "new": 22,
+    "charge": "C"
+  },
+  {
+    "old": 23,
+    "new": 23,
+    "charge": "L"
+  },
+  {
+    "old": 24,
+    "new": 24,
+    "charge": "D"
+  },
+  {
+    "old": 25,
+    "new": 25,
+    "charge": "J"
+  },
+  {
+    "old": 26,
+    "new": 26,
+    "charge": "D"
+  },
+  {
+    "old": 27,
+    "new": 27,
+    "charge": "D"
+  },
+  {
+    "old": 28,
+    "new": 28,
+    "charge": "C"
+  },
+  {
+    "old": 29,
+    "new": 29,
+    "charge": "L"
+  },
+  {
+    "old": 30,
+    "new": 30,
+    "charge": "D"
+  },
+  {
+    "old": 31,
+    "new": 31,
+    "charge": "L"
+  },
+  {
+    "old": 32,
+    "new": 32,
+    "charge": "L"
+  },
+  {
+    "old": 33,
+    "new": 33,
+    "charge": "D"
+  },
+  {
+    "old": 34,
+    "new": 34,
+    "charge": "D"
+  },
+  {
+    "old": 35,
+    "new": 35,
+    "charge": "D"
+  },
+  {
+    "old": 36,
+    "new": 36,
+    "charge": "I"
+  },
+  {
+    "old": 37,
+    "new": 37,
+    "charge": "I"
+  },
+  {
+    "old": 38,
+    "new": 38,
+    "charge": "I"
+  },
+  {
+    "old": 39,
+    "new": 39,
+    "charge": "D"
+  },
+  {
+    "old": 40,
+    "new": 40,
+    "charge": "D"
+  },
+  {
+    "old": 41,
+    "new": 41,
+    "charge": "C"
+  },
+  {
+    "old": 42,
+    "new": 42,
+    "charge": "C"
+  },
+  {
+    "old": 43,
+    "new": 43,
+    "charge": "J"
+  },
+  {
+    "old": 44,
+    "new": 44,
+    "charge": "D"
+  },
+  {
+    "old": 45,
+    "new": 45,
+    "charge": "D"
+  },
+  {
+    "old": 46,
+    "new": 46,
+    "charge": "D"
+  },
+  {
+    "old": 47,
+    "new": 47,
+    "charge": "D"
+  },
+  {
+    "old": 48,
+    "new": 48,
+    "charge": "R"
+  },
+  {
+    "old": 49,
+    "new": 49,
+    "charge": "C"
+  },
+  {
+    "old": 50,
+    "new": 50,
+    "charge": "D"
+  },
+  {
+    "old": 51,
+    "new": 51,
+    "charge": "D"
+  },
+  {
+    "old": 52,
+    "new": 52,
+    "charge": "D"
+  },
+  {
+    "old": 54,
+    "new": 53,
+    "charge": "C"
+  },
+  {
+    "old": 55,
+    "new": 54,
+    "charge": "L"
+  },
+  {
+    "old": 56,
+    "new": 55,
+    "charge": "L"
+  },
+  {
+    "old": 57,
+    "new": 56,
+    "charge": "D"
+  },
+  {
+    "old": 58,
+    "new": 57,
+    "charge": "L"
+  },
+  {
+    "old": 59,
+    "new": 58,
+    "charge": "J"
+  },
+  {
+    "old": 60,
+    "new": 59,
+    "charge": "D"
+  },
+  {
+    "old": 61,
+    "new": 60,
+    "charge": "H"
+  },
+  {
+    "old": 62,
+    "new": 61,
+    "charge": "R"
+  },
+  {
+    "old": 63,
+    "new": 62,
+    "charge": "C"
+  },
+  {
+    "old": 64,
+    "new": 63,
+    "charge": "J"
+  },
+  {
+    "old": 65,
+    "new": 64,
+    "charge": "D"
+  },
+  {
+    "old": 66,
+    "new": 65,
+    "charge": "D"
+  },
+  {
+    "old": 67,
+    "new": 66,
+    "charge": "D"
+  },
+  {
+    "old": 68,
+    "new": 67,
+    "charge": "D"
+  },
+  {
+    "old": 69,
+    "new": 68,
+    "charge": "J"
+  },
+  {
+    "old": 70,
+    "new": 69,
+    "charge": "I"
+  },
+  {
+    "old": 71,
+    "new": 70,
+    "charge": "J"
+  },
+  {
+    "old": 72,
+    "new": 71,
+    "charge": "C"
+  },
+  {
+    "old": 73,
+    "new": 72,
+    "charge": "J"
+  },
+  {
+    "old": 74,
+    "new": 73,
+    "charge": "J"
+  },
+  {
+    "old": 75,
+    "new": 74,
+    "charge": "D"
+  },
+  {
+    "old": 76,
+    "new": 75,
+    "charge": "D"
+  },
+  {
+    "old": 77,
+    "new": 76,
+    "charge": "L"
+  },
+  {
+    "old": 78,
+    "new": 77,
+    "charge": "C"
+  },
+  {
+    "old": 79,
+    "new": 78,
+    "charge": "D"
+  },
+  {
+    "old": 80,
+    "new": 79,
+    "charge": "D"
+  },
+  {
+    "old": 81,
+    "new": 80,
+    "charge": "D"
+  },
+  {
+    "old": 82,
+    "new": 81,
+    "charge": "D"
+  },
+  {
+    "old": 83,
+    "new": 82,
+    "charge": "D"
+  },
+  {
+    "old": 84,
+    "new": 83,
+    "charge": "C"
+  },
+  {
+    "old": 85,
+    "new": 84,
+    "charge": "D"
+  },
+  {
+    "old": 86,
+    "new": 85,
+    "charge": "D"
+  },
+  {
+    "old": 87,
+    "new": 86,
+    "charge": "D"
+  },
+  {
+    "old": 88,
+    "new": 87,
+    "charge": "D"
+  },
+  {
+    "old": 89,
+    "new": 88,
+    "charge": "D"
+  },
+  {
+    "old": 90,
+    "new": 89,
+    "charge": "D"
+  },
+  {
+    "old": 91,
+    "new": 90,
+    "charge": "D"
+  },
+  {
+    "old": 92,
+    "new": 91,
+    "charge": "D"
+  },
+  {
+    "old": 93,
+    "new": 92,
+    "charge": "D"
+  },
+  {
+    "old": 94,
+    "new": 93,
+    "charge": "D"
+  }
+]

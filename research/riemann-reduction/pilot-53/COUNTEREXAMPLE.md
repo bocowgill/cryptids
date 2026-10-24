@@ -1,10 +1,12 @@
 # Exact obstruction: skipped-bit encoding does not commute with zero DEC
 
-Evidence basis: a direct, manually checked counterexample from the pinned literal
-table and source definitions. This was **not** executed, independently replayed
-or Lean-checked: the single remote job failed during capacity inspection before
-generation. See RESULT.md for that separate operational failure. The calculations
-below establish a false local equation, not a new RH theorem or a nonexistence bound.
+The direct proof below was initially derived manually after the first job failed
+before generation. A separately authorized additional job has now independently
+replayed both complete tapes and Lean-checked the exact local counterexample using
+the accepted definitions. See [replay-02/RESULT.md](replay-02/RESULT.md) for the
+certificate, dependency audit and retained evidence. The original failed run is
+preserved separately. This establishes a false local equation, not a new RH theorem
+or a nonexistence bound.
 
 ## Claim being tested
 
@@ -145,11 +147,12 @@ The encoded input's support is
 The required encoded output has support
 {-1,0,3,4,5,21,23,25,27,29,31,33,35,37,39}; the incompatible return word gives
 {-1,0,2,21,23,25,27,29,31,33,35,37,39}. State and relative head are 15 and 0.
-These sets are manual expansions of F, not outputs of an executed simulator.
+These sets were initially manual expansions of F; the additional authorized replay
+has now independently confirmed the corresponding full finite tapes.
 
 The disproved equation alone is enough to reject this canonical encoding route.
-The full-frame discussion explains its physical significance; it is not a fresh
-machine simulation or Lean certification. It does not prove either blank run's
+The word-level counterexample is now Lean-checked; the full-frame discussion is
+also supported by the independent finite replay. It does not prove either blank run's
 halting behavior, show this frame is blank-reachable, or exclude a more elaborate
 encoding. Such alternatives would need a new bounded proposal and proof contract.
 

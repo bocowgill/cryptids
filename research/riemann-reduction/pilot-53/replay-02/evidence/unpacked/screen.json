@@ -1,0 +1,20 @@
+{
+  "status": "obstruction",
+  "checked_equations": [
+    {
+      "label": [
+        "outside",
+        44
+      ],
+      "cont": false,
+      "k": 1,
+      "commutes": false
+    }
+  ],
+  "fixed_tier_size": 1,
+  "witness": true,
+  "total_tm_steps": 159,
+  "certified": false,
+  "fuel_limit": 2000000,
+  "scope": "canonical skipped-bit encoding; not a global RH refutation"
+}

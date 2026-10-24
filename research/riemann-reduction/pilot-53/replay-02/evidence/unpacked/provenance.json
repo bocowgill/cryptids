@@ -1,0 +1,77 @@
+{
+  "base": "6c28d8524fa008c6fb5aadb759df74a55ce96423",
+  "producer": "aed235c1001984528478268f4de834a1110cad77",
+  "hashes": {
+    "artifacts/riemann_95/machine.txt": "7e9731ed1b7c63d4e67c0f8d646f8498d9645f26e237a8604d4b7f91a6ab398d",
+    "Cryptids/ReductionSupport/Riemann95/ControllerSchema95.lean": "3bf839878cb1c8f5e1d754c543c76f37e6992b4bcdfe45e893921edb9c890f8b",
+    "Cryptids/ReductionSupport/Riemann95/ControlStep95.lean": "f2e883bbf94184590e57814b2a58166d24538b5f15adf3383d8c8e550e479e99",
+    "Cryptids/Semantics/Riemann120/Backend.lean": "4b5caa7da99ff17f3013c2eedcdfcd7c9726f81b8f0cd2be7ac04c053b308ec1",
+    "Cryptids/Semantics/Riemann/Gadgets.lean": "3c1aa55083a7a6b77a4f06c76c4840416dd4160ef09cc25b83051e147e2cbdb8",
+    "scripts/riemann53/pilot.py": "13e0e240141fe372db85594e1fc0df0cc069fad64ae7498025db426d74f80c2e",
+    "scripts/riemann53/driver.py": "005ae6d1cd1714f86ce073f5b472acb21bc4feab5deeeeb9a83df4e9f5de9955",
+    "scripts/riemann53/replay.mjs": "40b7e584a3ef56cb7d93e9c47eea33f845ab481254fe23fe3b13c6d9274dde1a",
+    ".github/workflows/riemann53_pilot.yml": "4fc8d28e7dd4ac8dceb2f30de05d4bb4e6213ddeffe0380a800c250d8cb5a061",
+    "scripts/riemann53/Rh53Counterexample.lean": "3e61cd63bbd426b9e088140962ae3579ad0773077a8ce224bde5d90777ecfe79",
+    "scripts/riemann53/ReplayAudit.lean": "576fc235603308891ab509f095541a321362f83f56e2e34c7980cc685642ce01",
+    "scripts/riemann53/check_lean.py": "90601758a0e362b3f1a47db4728ce1ebffb6dbbaa50b4ee58a427c1cf8789ec0",
+    "scripts/riemann53/setup_replay.py": "4233140546e1043bd0457bf7e7ff601beead9acf8b9f694722c3219165262685",
+    "lakefile.riemann53.toml": "c226ef5c384351e958aee3bd106bb4e18f53ac731d13b1e1df24112b2220fc7b"
+  },
+  "machine94_sha256": "ac185d9dbb7cee481c4b3b575532e2987ea5c9f46b90f66231dd5d76d10f0c6d",
+  "baseline": {
+    "states": 95,
+    "symbols": 2,
+    "cells": 190,
+    "defined": 189,
+    "absent": [
+      [
+        61,
+        1
+      ]
+    ]
+  },
+  "candidate": {
+    "states": 94,
+    "symbols": 2,
+    "cells": 188,
+    "defined": 187,
+    "absent": [
+      [
+        60,
+        1
+      ]
+    ]
+  },
+  "incoming53": [
+    [
+      40,
+      1
+    ]
+  ],
+  "ledger_counts": {
+    "C": 11,
+    "L": 10,
+    "P": 2,
+    "I": 7,
+    "S": 4,
+    "R": 4,
+    "J": 11,
+    "D": 45,
+    "H": 1
+  },
+  "candidate_counts": {
+    "C": 11,
+    "L": 10,
+    "P": 2,
+    "I": 7,
+    "S": 4,
+    "R": 4,
+    "J": 11,
+    "D": 44,
+    "H": 1
+  },
+  "controls": {
+    "wrong_cell_detected": true,
+    "wrong_count_rejected": true
+  }
+}

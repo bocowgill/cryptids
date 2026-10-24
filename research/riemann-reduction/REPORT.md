@@ -1,9 +1,9 @@
 # Bounded RH95 compression audit — 2026-10-24
 
-Follow-up: the authorized state-53 pilot now has an exact source-level
-counterexample to its skipped-bit encoding. Its one remote job failed before
-generation; no executable witness replay or new certification was completed.
-Read [the pilot result](pilot-53/RESULT.md) and
+Follow-up: the state-53 skipped-bit counterexample has now been independently
+replayed and Lean-checked by the one additional authorized job. Its full-private
+audit passed with only propext. The initial failed run remains preserved.
+Read [the verified result](pilot-53/replay-02/RESULT.md) and
 [the direct counterexample](pilot-53/COUNTEREXAMPLE.md) before acting on the
 initial-audit recommendation below. No broader search was launched.
 
