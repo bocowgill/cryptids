@@ -393,3 +393,10 @@ Generic helper gets fresh13root ActualTools audit; all original claims/caps
 and additional entry gate preserved. New numeric helper/concrete addresses
 remain unverified pending remote pilot; no accepted full-machine saving.
 PACKED-BINARY-CACHE-DESIGN.md remains unimplemented full-checker design.
+
+Unverified scripts/chess_body_20261022/source_table_pilot.py prepared as TEXT
+ONLY, not wired into driver/manifest or executed. SOURCE-TABLE-PILOT.md writes
+R1/R2/R3acceptance gates. Generic finite callback reification/reconstruction
+plus twoactual source jumps and noncommutative25cell/corruption fixtures are
+proposed. Whole source-chunk fidelity, raw ranges and full checker unproved.
+Await current return-address pilot; do not claim this new producer compiled.
