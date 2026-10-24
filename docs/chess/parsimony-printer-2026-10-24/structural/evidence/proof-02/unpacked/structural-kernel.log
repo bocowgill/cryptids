@@ -1,0 +1,39 @@
+✖ [3813/3813] Building Cryptids.Compilation.Parsimony.Data (6.5s)
+trace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean -M5120 /home/runner/work/cryptids/cryptids/Cryptids/Compilation/Parsimony/Data.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Compilation/Parsimony/Data.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Compilation/Parsimony/Data.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Compilation/Parsimony/Data.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Compilation/Parsimony/Data.setup.json --json
+error: Cryptids/Compilation/Parsimony/Data.lean:79:48: unsolved goals
+last : ℕ
+values : Array (Fin (last + 1))
+i : ℕ
+bound : i < last
+⊢ i ≤ last
+warning: Cryptids/Compilation/Parsimony/Data.lean:81:4: This simp argument is unused:
+  show i < last + 1 by omega
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [machine, control, Nat.min_eq_left (by omega : i ≤ last), bound,
+    Nat.min_eq_left (by omega : i + 1 ≤ last)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Cryptids/Compilation/Parsimony/Data.lean:81:32: This simp argument is unused:
+  Nat.min_eq_left (by omega : i + 1 ≤ last)
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [machine, control, Nat.min_eq_left (by omega : i ≤ last), bound, show i < last + 1 by omega]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+error: Cryptids/Compilation/Parsimony/Data.lean:90:76: unsolved goals
+last : ℕ
+values : Array (Fin (last + 1))
+i : ℕ
+bound : i ≤ last
+⊢ i ≤ last
+warning: Cryptids/Compilation/Parsimony/Data.lean:91:49: This simp argument is unused:
+  show i < last + 1 by omega
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [machine, control, Nat.min_eq_left bound]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Some required targets logged failures:
+- Cryptids.Compilation.Parsimony.Data
+error: build failed

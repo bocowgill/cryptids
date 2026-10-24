@@ -61,7 +61,7 @@ def scale_source(count, values):
     lines = ['import ' + TARGET, '', 'open Turing ConjectureMachines',
         'open ConjectureMachines.Compilation', 'namespace ' + name,
         'def values : Array (Fin 13360) := #[']
-    lines += ['  ⟨' + str(value) + ', by decide⟩' + (',' if i + 1 < count else '')
+    lines += ['  ⟨' + str(value) + ', by decide +kernel⟩' + (',' if i + 1 < count else '')
               for i, value in enumerate(values[:count])]
     lines += [']', '', 'attribute [local irreducible] values', '',
         '/-- One generic proof, without unfolding the data array or the physical run. -/',
@@ -77,7 +77,7 @@ def scale_source(count, values):
         'def main : IO Unit := do',
         '  let file ← IO.FS.Handle.mk "' + str(WORK / (name + '.rows')) + '" .write',
         '  for i in List.range ' + str(count) + ' do',
-        '    let state : Fin 13361 := ⟨i % 13361, Nat.mod_lt i (by decide)⟩',
+        '    let state : Fin 13361 := ⟨i % 13361, Nat.mod_lt i (by decide +kernel)⟩',
         '    for bit in ([0, 1] : List (Fin 2)) do',
         '      match (Parsimony.Data.machine 13359 ' + name + '.values).transition state bit with',
         '      | none => file.putStrLn "halt"',
