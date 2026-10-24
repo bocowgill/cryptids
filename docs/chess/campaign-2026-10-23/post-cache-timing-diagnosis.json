@@ -1,0 +1,144 @@
+{
+  "scope": "Lightweight retained timing/metadata analysis only; no Lean/model/counting/generation",
+  "source_packet": "certificate-87",
+  "observations": [
+    {
+      "module": "LocalScope16",
+      "label": 350,
+      "proposed_raw_tag": 0,
+      "literal_ms": 29,
+      "recipe_ms": 146
+    },
+    {
+      "module": "LocalScope16",
+      "label": 351,
+      "proposed_raw_tag": 5,
+      "literal_ms": 32,
+      "recipe_ms": 862
+    },
+    {
+      "module": "LocalScope16",
+      "label": 352,
+      "proposed_raw_tag": 7,
+      "literal_ms": 34,
+      "recipe_ms": 83
+    },
+    {
+      "module": "LocalScope16",
+      "label": 353,
+      "proposed_raw_tag": 3,
+      "literal_ms": 34,
+      "recipe_ms": 93
+    },
+    {
+      "module": "LocalScope16",
+      "label": 354,
+      "proposed_raw_tag": 1,
+      "literal_ms": 33,
+      "recipe_ms": 1534
+    },
+    {
+      "module": "LocalScope16",
+      "label": 355,
+      "proposed_raw_tag": 2,
+      "literal_ms": 48,
+      "recipe_ms": 1427
+    },
+    {
+      "module": "LocalScope16",
+      "label": 356,
+      "proposed_raw_tag": 0,
+      "literal_ms": 31,
+      "recipe_ms": 148
+    },
+    {
+      "module": "LocalScope16",
+      "label": 441,
+      "proposed_raw_tag": 0,
+      "literal_ms": 31,
+      "recipe_ms": 151
+    },
+    {
+      "module": "LocalScope16",
+      "label": 442,
+      "proposed_raw_tag": 1,
+      "literal_ms": 35,
+      "recipe_ms": 1537
+    },
+    {
+      "module": "LocalScope16",
+      "label": 443,
+      "proposed_raw_tag": 0,
+      "literal_ms": 32,
+      "recipe_ms": 150
+    },
+    {
+      "module": "LocalScope16",
+      "label": 444,
+      "proposed_raw_tag": 5,
+      "literal_ms": 32,
+      "recipe_ms": 1384
+    },
+    {
+      "module": "LocalScope16",
+      "label": 445,
+      "proposed_raw_tag": 1,
+      "literal_ms": 34,
+      "recipe_ms": 1517
+    },
+    {
+      "module": "LocalScope16",
+      "label": 446,
+      "proposed_raw_tag": 7,
+      "literal_ms": 37,
+      "recipe_ms": 89
+    },
+    {
+      "module": "LocalScope4",
+      "label": 472,
+      "proposed_raw_tag": 0,
+      "literal_ms": 28,
+      "recipe_ms": 141
+    },
+    {
+      "module": "LocalScope4",
+      "label": 473,
+      "proposed_raw_tag": 1,
+      "literal_ms": 32,
+      "recipe_ms": 1501
+    },
+    {
+      "module": "LocalScope4",
+      "label": 474,
+      "proposed_raw_tag": 0,
+      "literal_ms": 28,
+      "recipe_ms": 142
+    },
+    {
+      "module": "LocalScope4",
+      "label": 475,
+      "proposed_raw_tag": 5,
+      "literal_ms": 28,
+      "recipe_ms": 1344
+    },
+    {
+      "module": "LocalScope4",
+      "label": 476,
+      "proposed_raw_tag": 1,
+      "literal_ms": 31,
+      "recipe_ms": 1492
+    }
+  ],
+  "interpretation": "After local observation caches, actual load355 remains1427ms versus write4451517ms on the same runner. Earlier75already ruled out write-inverse-only explanations; this confirms that concern persists after the cache redesign.",
+  "limitations": [
+    "Recipe markers cover combined certificate work, not an isolated main checker cost",
+    "Different operation shapes; not a controlled causal comparison",
+    "No across-run speed ratio because host variation is substantial",
+    "No full-machine time estimate or new proof/state-count credit"
+  ],
+  "next_decision": "Keep waiting exact91; if substantial tiers do not scale, do not prioritize a write-inverse-only repair or more cache variants. Any controlled checker/serialization pilot must include heavy actual load355 as well as write445, plus small356; both heavyweight regimes matter.",
+  "accepted_states": 769344,
+  "target_states": 310029,
+  "new_accepted_machine": false,
+  "accepted_full_machine_savings": 0
+}

@@ -1677,3 +1677,23 @@ handles; only terminal/missing authoritative state permits a new decision.
 No new source/machine proof credit or paid/local-heavy work. Sourcef168f11f,
 artifact chess-body-certificate-f168f11f8954a244c8dfbc43adc34e4753c1e619,
 retain certificate-91 when TERMINAL. GoalACTIVE; all constraints unchanged.
+
+
+17:09UTC independent lightweight timing review (no model/Lean/counting):
+retained87actual load355 recipe1427ms versus write4451517ms on SAME runner;
+small move356148ms. Source/count/raw grouping alone does not isolate main
+cause, so no causal/full-cost claim. Earlier75already cautioned that a
+write-inverse-only remedy cannot explain a many-node one-return load;87
+confirms the concern persists after local numerical caches. Record in
+post-cache-timing-diagnosis.json. If91fails substantial tiers after setup,
+checker/serialization diagnosis MUST include heavy load355 and write445,
+plus small356. Existing85-88controlled heavy cases were both writes; do not
+generalize them to every compiler family without substantial coverage.
+This is diagnostic evidence, no new source proof or machine credit.
+
+91run40113309464 still authoritative in_progress, no artifact at17:01UTC;
+direct job endpoint now also intermittent502. Do not treat observer errors
+as terminal or rerun. Sourcef168f11f and exact job120929350122 preserved.
+Previous goal turn VERIFIED WAIT. Current turn adds retained evidence that
+narrows the next checker diagnostic, while waiting on the same live run.
+Accepted769,344/target310,029/new full savings0. Constraints unchanged.
