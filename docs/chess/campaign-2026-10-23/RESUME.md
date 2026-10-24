@@ -876,3 +876,10 @@ halt controls, all-source to global rows, arbitrary-tape halting equivalence,
 and reuse of exact frozen table/seed decoders and writer. They remain UNVERIFIED
 and explicitly CONDITIONAL on every source's row certificate. No final theorem
 with an undischarged source hypothesis can satisfy G4/G5or be accepted as310029.
+
+Corrected scaling69dispatched40072864470 atb4789c2426ad80a8686587360f5f711bb73871a7;
+retain certificate69. Same448label1/16then1/4scopes and all prior gates/caps.
+Require flat concrete constructor timing and successful complete module/audit.
+This goal turn is PROGRESS: authoritative68failure retained/diagnosed and a
+specific generic-constructor redesign checkpointed/dispatched. New helpers for
+global rows/full packaging remain unwired, unverified and explicitly conditional.

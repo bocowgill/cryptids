@@ -1,46 +1,45 @@
 # Active Chess Cryptid campaign — October24,2026
 
-GoalACTIVE. Accepted769344 / target310029. Prospective459315saving;
-new accepted full-machine saving0. Frozen3116pinsfixed. All heavy work REMOTE;
-local inspection light; outreachheld; no paid resources. Normal cap6GiB.
-Usage last10%, no reset used. The historical October22deadline is past.
+GoalACTIVE. Accepted769344 / target310029; prospective459315saving;
+new accepted full-machine saving0. Frozen3116pinsfixed. Heavy work REMOTE;
+local inspection lightweight; outreachheld; no paid resources; normal cap6GiB.
 
-Memory51/52FINAL:6/10GiB bothfailoriginal64state monolithic row normalization
-at memory43.284/60.559s,0completed modules. No12GiB test; ABANDON that route.
-See ../campaign-2026-10-23/MEMORY-COMPARISON-VERDICT.md.
+Memory51/52final:6/10GiB bothfailold64state monolithic normalization at memory,
+0completed modules; abandon that route. No12GiBtest. Structural prerequisites
+56/62/63/65/66and source-local rules67PASS. Complete block67labels256..287:
+375nodes/62returns,2185original body states/4370rows;12.917+3.027s build/audit,
+295roots, source/census/range/callback/wrong-rank controls and fresh kernel false
+word rejection PASS. Only standard3axioms. No full quotient or new machine.
 
-Structural accepted intermediate results:
--56generic observed/source-slot interface6roots.
--62generic all-paid-control bridge9roots; actual closure premises required.
--63complete4042operation raw source17roots,46.202+3.250s.
--65complete linear node/return prefix tables13roots,27.947+3.247s.
--66numeric facade for actual full Q/classMap17roots,4.040+2.926s.
--67source-local rules11roots, then complete actual source block256..287:
- 375main nodes/62return ranks,2185original body states/4370rows, everybit/store.
- 12.917s build +3.027s full-private295root audit; peak5056147456bytes.
- Fresh corrupted Nat-word proof reaches KERNEL TYPE MISMATCH in3.634s.
- Wrong-rank/callback/range/source/census fixtures pass. Standard3axioms only.
- Entire packet67retained and byte/provenance reviewed. This is small coverage,
- not yet a scaling verdict or a new machine.
+Scaling68FAILED180.058swall below memory (peak4776136704bytes), no source errors.
+Target448labels/39240states/78480rows remains UNPROVED. Only43records assembled;
+no1/16module/audit or quarter credit. SourceScopeTools6root theorem/audit PASS.
+Hash-bound timings show concrete record assembly grows0.368s(q0)→7.273s(q42),
+while early source/coherence/return phases stay about0.17s/operation. This closed
+record assembly route cannot scale unchanged. Full cost still not credible.
+68retained/reviewed as certificate68; all historical evidence stays fixed.
 
-CURRENT bounded scaling pilot68: run40071460885 at
-be302e9a0855bd9a1561478ab37bc3b28d351041, modelocal. Retain certificate68.
-It first replays required source/data/helper/block/negative gates, then tests a
-new6root proof-carrying source-record collection checker under60s. Only after
-that passes: actual source prefixes with at least1/16and1/4of573802paid body
-states,180/210s including audits. Overall1200s/6GiB unchanged. Prefixes select
-by actual weights, reuse earlier operation proofs, certify label coverage and
-real node/return census, retain detailed source/coherence/return timing markers.
-No credit from markers or proposed counts. No unchanged failed retries.
+CORRECTION: makeCertificate verifies frozen-source count/row transport once with
+abstract label/syntax. Concrete records call it with literal syntax and existing
+checked facts, avoiding dependent frozen getter field goals. Original record
+schema and6roots remain; maker is7th required root. No weakened obligations.
 
-NEXT: read68exact logs/summary; retain/review bytes. Diagnose source errors versus
-memory/time. A resource obstruction needs a category-level corrective change,
-not raised caps. Decide continue/redesign/abandon from substantial coverage and
-full-cost estimate with uncertainty, including one-time data, assembly/audits
-and unchanged full-machine linkage. No full-cost extrapolation from67alone.
-G4/G5/G6and final shared halt controls/all-source/full310029linkage remain open.
+CURRENT bounded69: run40072864470 at
+b4789c2426ad80a8686587360f5f711bb73871a7; retain certificate69.
+Modelocal replays prerequisites/block/corruption, tests7root collection helper,
+then identical at-least1/16and1/4paid-body prefixes under180/210s including audits,
+1200soverall/6GiB. Same detailed per-field markers. No change to limits/lint/spec.
+NEXT: read exact69summary/logs, retain/review; require flat record construction
+and completed substantial audits before a scaling/full-cost claim. If still
+blocked by resource growth, change representation/category; do not repeat or
+raise caps. Shared halt controls/global rows/full310029linkage/review remain open.
 
-Resume: ../campaign-2026-10-23/RESUME.md and STRUCTURAL-CHECKER-GATES.md.
-Scripts: numeric_phase_pilot.py, source_scope_tools_pilot.py, source_scope_pilot.py
-under scripts/chess_body_20261022. New source-record count/coverage producer is
-UNVERIFIED until68; it uses no new axioms or native proof oracle. No agents spawned.
+Unwired UNVERIFIED drafts: global_rows_pilot.py (shared controls/all-source to
+all-old-rows/arbitrary-tape equivalence), full_link_pilot.py (unchanged frozen
+writer+table decoder+seed decoder+bridges and paid310029allocation). They retain
+an explicit complete-source hypothesis and are NOT an accepted final theorem.
+Use only after substantial scaling succeeds; no extra implementation detour.
+
+Handoff: ../campaign-2026-10-23/RESUME.md, STRUCTURAL-CHECKER-GATES.md, GATES.md,
+run-68.json/run-69.json and STATE-COUNTS-AND-OPPORTUNITIES.md. Lastusage10%, noreset.
+Previous goal turnPROGRESS; current turnPROGRESS via68diagnosis/constructor69.
