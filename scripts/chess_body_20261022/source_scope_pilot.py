@@ -13,8 +13,14 @@ from source_chunk_pilot import indent
 
 
 def generate(driver, snapshot, expected_sha, header, audit_and_end, progress_marker, module,
-             divisor, inherited):
+             divisor, inherited, recipe_constructor='SourceRecipePilot.fromRaw'):
     assert divisor in (16, 4)
+    assert recipe_constructor in ('SourceRecipePilot.fromRaw', 'FuelWorldPilot.fromFuelRaw')
+    fast_world = recipe_constructor == 'FuelWorldPilot.fromFuelRaw'
+    if fast_world:
+        assert driver.summary['fuel_world_source_checker_agreement_checked']
+        assert driver.summary['fuel_world_actual_source_controls_checked']
+        assert driver.summary['fuel_world_kernel_corruption_rejected']
     assert driver.summary['local_chunk_proposed']['kernel_checked']
     assert driver.summary['local_chunk_kernel_corruption_rejected']
     assert hashlib.sha256(snapshot.read_bytes()).hexdigest() == expected_sha
@@ -37,6 +43,8 @@ def generate(driver, snapshot, expected_sha, header, audit_and_end, progress_mar
     parent_stems = sorted(set(inherited.values()))
     imports = ([module + '.SourceRecipes'] +
                [module + '.' + name for name in parent_stems])
+    if fast_world:
+        imports.append(module + '.FuelWorldControls')
     parts = [header(imports + ['Lean']).replace(
         'public import Lean\n', 'public meta import Lean\n'),
              'open ConjectureMachines.Optimisation\n'
@@ -72,7 +80,7 @@ def generate(driver, snapshot, expected_sha, header, audit_and_end, progress_mar
             parts.append(progress_marker('recipe_check', q,
                                          driver.args.output / f'{stem}-details.tsv'))
             parts.append(f'noncomputable def {record} : SourceCertificate :=\n'
-                         f'  SourceRecipePilot.fromRaw label_{q} raw_{q}\n'
+                         f'  {recipe_constructor} label_{q} raw_{q}\n'
                          f'    {data["row_sizes"][q]} {len(data["return_local_targets"][q])}\n'
                          '    (by decide +kernel)\n')
         roots.append(namespace + '.' + record)
@@ -121,6 +129,7 @@ def generate(driver, snapshot, expected_sha, header, audit_and_end, progress_mar
         every_bit_and_store=True, all_paid_local_returns=True,
         syntax_representation='lower restored raw operation; exact raw-source equality checked',
         proof_representation='compact Boolean recipe implies identical SourceRows and census',
+        recipe_constructor=recipe_constructor,
         independent_block_roots_preserved=True,
         kernel_checked=False, full_quotient_certified=False, new_accepted_machine=False)
     driver.checkpoint()
