@@ -727,3 +727,40 @@ already certified exact weight lists. A universal lookup theorem identifies all
 frozen node/return offsets without new per-label take/sum facts. Use named chunks
 of at most32leaves, avoiding a declaration for every literal. Same60scomponent,
 180stotal,6GiB limits; no actual quotient-row or machine credit follows.
+
+Bridge62 PASS and retained/reviewed:9roots/4823dependencies,6.281s fresh build,
+3.141s audit, standard3axioms, peakaudit4501635072bytes. It proves every paid
+binary control is covered GIVEN the local equations plus all halt/return rows.
+No actual quotient-data hypotheses are discharged. All3116accepted pins fixed.
+
+Currently running63raw40064505645 and64cache40064507213, both ata0f3418ba1c98439b159349c3cb64c604689c6d9.
+63fixes only List.getD_map explicit entries/default call;64adds complete linear
+prefix certificates after the generic all-state bridge. Retain corresponding
+certificate63/64. Unchanged60scomponent/180stotal/6GiB limits. Next mathematical
+work is numeric local-rule checking, using Q/classMap expected rows directly and
+local syntax return ranks. Avoid emitting individual closed prefix facts. Scope
+first all slots/bits/stores/returns of a real chunk; then1/16and1/4actual paid
+body states before estimating complete cost. Raw source reconstruction alone
+cannot demonstrate machine scalability. Accepted769344, target310029, new accepted
+full-machine saving0, prospective459315.
+
+Complete raw source63 PASS retained/reviewed: all4042operations, all raw range,
+exact restoration, universal lookup/lowering/source meaning.17roots/24790deps,
+46.202s build +3.250s full-private audit, peak4760358912bytes. Only standard3
+axioms; no actual quotient-row or new-machine acceptance. L1-L4now have evidence.
+
+Prefix64 fails reserved binder at in universal lookup proof and unscoped
+maxHeartbeats under strict lint. All other declarations report no errors;
+20.097s/3697389568bytes, no resource stop. Retained/reviewed. Rename lookup_eq;
+remove unnecessary option entirely, preserving13roots and60s/6GiB caps.
+
+New mode local proposes numeric projection lemmas tied to the ACTUAL full
+Q/classMap data. PrefixScan is a required early gate; it must pass before large
+candidate-data stages. The new facade17roots translates expected main rows,
+move/write/goto/halt observations and local return ranks into numeric addresses
+using checked prefix lookups. No concrete local closure condition is yet proved.
+The driver uses the original full-pilot1200sorchestration and established per-stage
+budgets, normal6GiB; no old sampled-row stage is run. All data/foundation roots
+remain checked. Next: numeric local-rule checker and complete real-chunk coverage
+with corruption controls, then1/16and1/4paid-body coverage. No scaling claim from
+this interface gate. New workflow choice also runs ordinary smoke on its push.

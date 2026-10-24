@@ -1,0 +1,9 @@
+ℹ [3850/3853] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.SourceTables
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/SourceTables.lean:99:0: Finite source-operation table reconstruction checked
+ℹ [3851/3853] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.RawLabels
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/RawLabels.lean:144:0: Raw labels decode exactly and reject out-of-range targets
+ℹ [3852/3853] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.RawChunk
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/RawChunk.lean:422:0: Raw source chunk bounds and restoration checked
+ℹ [3853/3853] Built Cryptids.Chess.Optimisation.BodyCertificatePilot.CompleteRawSource (43s)
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/CompleteRawSource.lean:28676:0: All frozen raw source operations reconstructed with exact bounds
+Build completed successfully (3853 jobs).

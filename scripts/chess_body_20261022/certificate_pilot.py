@@ -84,6 +84,7 @@ class Driver:
         source_only = getattr(args, "source_tables_only", False)
         cache_only = getattr(args, "observed_cache_only", False)
         raw_only = getattr(args, "raw_labels_only", False)
+        numeric_only = getattr(args, "numeric_local_only", False)
         self.summary = {
             "status": "running", "classification": "FINITE_PARTIAL_KERNEL_SCALABILITY_PILOT",
             "partial_certificate_only": True, "full_quotient_certified": False,
@@ -94,12 +95,14 @@ class Driver:
                        "audit_allocator_limit_bytes": None,
                        "address_space_limit": None, "memory_enforcement": "sampled resident memory"},
             "source_states": N, "quotient_states": K,
-            "requested_scope": ("raw_label_decoder_only" if raw_only else
+            "requested_scope": ("numeric_source_local_interface_only" if numeric_only else
+                                "raw_label_decoder_only" if raw_only else
                                 "generic_observed_cache_interface_only" if cache_only else
                                 "finite_source_operation_tables_only" if source_only else
                                 "compiled_audit_smoke_only" if args.smoke_only else
                                 "full_bounded_pilot"),
-            "requested_sample_states": [] if raw_only or cache_only or source_only or args.smoke_only else
+            "requested_sample_states": [] if numeric_only or raw_only or cache_only or source_only or
+                                       args.smoke_only else
                                        [64, 512, 4096],
             "audit_execution": "compiled_lean_executable",
             "map_representation": "named_literal_nat_midpoint_subtrees_with_composed_kernel_proofs",
@@ -1458,16 +1461,24 @@ def main():
                         help="Check generic observed-cache/source-slot soundness only")
     parser.add_argument("--raw-labels-only", action="store_true",
                         help="Check fallible raw-label decoding and exact source restoration only")
+    parser.add_argument("--numeric-local-only", action="store_true",
+                        help="Check numeric local interfaces against exact quotient data only")
     args = parser.parse_args()
     require(sys.platform == "linux" and 10 <= args.seconds <= 1200 and 2 <= args.memory_gib <= 6,
             "Linux and bounded resource settings required")
     require(sum((args.smoke_only, args.source_tables_only,
-                 args.observed_cache_only, args.raw_labels_only)) <= 1,
+                 args.observed_cache_only, args.raw_labels_only, args.numeric_local_only)) <= 1,
             "Choose one bounded pilot scope")
     args.output.mkdir(parents=True, exist_ok=True)
     require(args.lakefile.is_file(), "root-owned lakefile missing")
     driver = Driver(args)
     try:
+        if args.numeric_local_only:
+            import numeric_phase_pilot
+            numeric_phase_pilot.run(driver, sys.modules[__name__])
+            driver.monitor_stop.set()
+            signal.setitimer(signal.ITIMER_REAL, 0)
+            return 0
         if args.raw_labels_only:
             driver.summary.update(classification="RAW_LABEL_DECODER_PILOT",
                                   raw_label_decoder_checked=False,

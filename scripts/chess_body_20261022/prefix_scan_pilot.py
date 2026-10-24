@@ -11,8 +11,6 @@ import json
 
 TOOLS = r'''open Chess.Optimisation
 namespace PrefixScanPilot
--- Literal checks retain the driver's wall/RSS limits, as in the existing data stage.
-set_option maxHeartbeats 0
 
 def prefixes : List Nat → Nat → List Nat
   | [], initial => [initial]
@@ -41,8 +39,8 @@ theorem lookup_prefix (tree : Balanced.RowTree Nat) (valid : tree.WellFormed)
     (index : Nat) (bounded : index ≤ values.length) :
     tree.lookup index 0 = (values.take index).sum := by
   rewrite [Balanced.RowTree.lookup_eq_getD tree valid]
-  have at := congrArg (fun xs : List Nat ↦ xs.getD index 0) same
-  exact at.trans (by simpa only [Nat.zero_add] using prefixes_get values 0 index bounded)
+  have lookup_eq := congrArg (fun xs : List Nat ↦ xs.getD index 0) same
+  exact lookup_eq.trans (by simpa only [Nat.zero_add] using prefixes_get values 0 index bounded)
 '''
 
 

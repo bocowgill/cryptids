@@ -1,0 +1,43 @@
+ℹ [3909/3941] Replayed Cryptids.Chess.Compilation.SourceCertificate
+info: Cryptids/Chess/Compilation/SourceCertificate.lean:226:0: Source certificate: 7076 checked lemmas, 7037 cache hits
+info: Cryptids/Chess/Compilation/SourceCertificate.lean:230:0: Literal row certificate: 5952 checked rows in 186 chunks
+ℹ [3920/3941] Replayed Cryptids.Chess.Compilation.Input
+info: Cryptids/Chess/Compilation/Input.lean:128:0: Checked 186 literal row chunks: 141042 stack symbols
+ℹ [3939/3941] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.OperationWeights
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/OperationWeights.lean:59:0: Universal frozen operation weight summaries checked
+ℹ [3940/3941] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.WeightTables
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/WeightTables.lean:5162:0: Complete source weights and shared prefix correspondence checked
+✖ [3941/3941] Building Cryptids.Chess.Optimisation.BodyCertificatePilot.PrefixScan (17s)
+trace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean -M6144 /home/runner/work/cryptids/cryptids/Cryptids/Chess/Optimisation/BodyCertificatePilot/PrefixScan.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Chess/Optimisation/BodyCertificatePilot/PrefixScan.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Chess/Optimisation/BodyCertificatePilot/PrefixScan.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Chess/Optimisation/BodyCertificatePilot/PrefixScan.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Chess/Optimisation/BodyCertificatePilot/PrefixScan.setup.json --json
+warning: Cryptids/Chess/Optimisation/BodyCertificatePilot/PrefixScan.lean:13:0: Unscoped option maxHeartbeats is not allowed:
+Please scope this to individual declarations, as in
+```
+set_option maxHeartbeats in
+-- comment explaining why this is necessary
+example : ... := ...
+```
+
+Note: This linter can be disabled with `set_option linter.style.setOption false`
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/PrefixScan.lean:40:53: unsolved goals
+case this
+tree : Balanced.RowTree ℕ
+valid : tree.WellFormed
+values : List ℕ
+same : tree.flatten = prefixes values 0
+index : ℕ
+bounded : index ≤ values.length
+⊢ ?m.22
+
+tree : Balanced.RowTree ℕ
+valid : tree.WellFormed
+values : List ℕ
+same : tree.flatten = prefixes values 0
+index : ℕ
+bounded : index ≤ values.length
+this : ?m.22
+⊢ tree.flatten.getD index 0 = (List.take index values).sum
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/PrefixScan.lean:42:7: unexpected token 'at'; expected command
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/PrefixScan.lean:16757:0: Complete linear prefix certificates agree with frozen offsets
+Some required targets logged failures:
+- Cryptids.Chess.Optimisation.BodyCertificatePilot.PrefixScan
+error: build failed

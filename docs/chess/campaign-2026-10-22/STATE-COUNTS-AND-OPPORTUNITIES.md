@@ -145,3 +145,14 @@ with a reusable observation theorem, avoiding extra graph/cache/global-return
 dump categories. Highproofdifficulty/effort; generic/source prereqs next under
 old6GiB caps. Credible fullcost requires increasing1/16and1/4actualbodycoverage,
 not helper success. No fullmachinecostestimate yet and no additional stateclaim.
+
+Checkpoint62: accepted complete breakdown above remains769344, target310029;
+new accepted savings0. Generic observed/source-slot interface56, raw decoder+
+complete32op chunk59, universal all-paid-control bridge62 PASS with full-private
+roots. Raw complete61 reaches all127chunks in36.829s but has a diagnosed single
+library call mismatch; corrected63pending. Prefix64checks all numeric offsets
+once via linear scan and balanced lookup, eliminating repeated per-label sums.
+These high-difficulty/moderate-effort dependencies share rank1's459315payoff,
+not additive savings. Actual local checker still pending; substantial paid-state
+coverage1/16and1/4is required before any credible full-runtime/memory estimate.
+Rank1remains structural certification of the measured quotient; no new count.

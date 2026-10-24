@@ -1,0 +1,24 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_body_20261022/certificate_pilot.py",
+    "--lakefile",
+    "lakefile.chess-body-certificate-20261022.toml",
+    "--output",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-body-certificate-20261022",
+    "--seconds",
+    "180",
+    "--memory-gib",
+    "6",
+    "--observed-cache-only"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "Bounded body kernel certificate pilot stopped: PrefixScan: Lean source/proof failure; inspect retained log\n",
+  "output_sha256": "e89aa5b62a041991d3124e9c4e109a1e3243b8d6720142d3a1cf018cc350bb0f",
+  "timed_out": false,
+  "timeout_seconds": 240,
+  "elapsed_seconds": 84.525376903,
+  "cumulative_children_peak_rss_kib": 3883612
+}

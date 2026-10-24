@@ -1,24 +1,35 @@
 # Active Chess Cryptid campaign — October24,2026
 
-GoalACTIVE, accepted769344/target310029, prospective459315saving. No accepted
-full-machine savings in resumed round. All3116pinsfixed, heavyworkREMOTE,
-outreachhold, no paidrunners orlocalLean. Normalmemorycap6GiB.
+Goal ACTIVE. Accepted769344 / target310029. Prospective quotient saving459315;
+new accepted full-machine saving0. Frozen3116pins fixed, heavy work REMOTE,
+local inspections lightweight, outreach held, no paid runners/resources.
+Normal memory cap6GiB. Usage last10%, no reset used.
 
-Memorydecision51/52 complete:6/10GiB bothfailactualRows64 atmemory43.284/60.559s,
-0completedrowmodules. Rejectmonolithicclosed-rownormalization; no12GiBtrial.
-Generic structuralinterface nowPASSES in56:6roots/2506deps,8.805sbuild+8.095saudit,
-standard3axioms. Noactualquotientconditionschecked. Source54catalog variant
-fails60s at88chunksafter4051bounddefs; abandonit. No unchangedsource retries.
+Memory comparison51/52 is FINAL:6/10GiB both exhaust memory at the same original
+64state actual-row module (43.284/60.559s),0completed modules. No12GiB test;
+abandon monolithic closed-row normalization. See MEMORY-COMPARISON-VERDICT.md.
 
-NEXT: newmoderaw universal24root checkedNat-label decoder/range/source-restore
-pilot (not yetdispatched). SourceTables13root prerequisite;60scomponents,
-180stotal/6GiB. Afterthat actual32row rawchunk+corruptions, thenall127chunks.
-Newmodechoiceautosmoke isregressiononly. Actual local-rule checker must then
-cover substantial1/16and1/4paidbody before fullcost/scalingclaims.
+Structural prerequisites:
+-56PASS generic observed-cache/source-slot interface,6roots/2506dependencies.
+-59PASS exact fallible rawNat-label decoder24roots and complete32operation
+  chunk256..287 plus corruption/range controls8roots. Actual source coverage34
+  operations including first2jumps;0new quotient-row coverage.
+-62PASS universal binary projection and exhaustive main/halt/paid-return bridge,
+ 9roots/4823dependencies,6.281s build +3.141s audit. Local premises remain open.
+-61raw complete source reached all127chunks/allfinal stages in36.829s/3.161GB,
+  but sole List.getD_map argument error prevents module/audit credit. Corrected.
 
-Handoff: ../campaign-2026-10-23/RESUME.md, GATES.md, MEMORY-COMPARISON-VERDICT.md,
-DIRECT-QUOTIENT-CERTIFICATE.md, RAW-LABEL-SOURCE-PILOT.md. Lastusage9%, noreset.
+RUNNING at a0f3418ba1c98439b159349c3cb64c604689c6d9:
+-63raw:40064505645, complete raw source correction; retain certificate63.
+-64cache:40064507213, certified bridge plus complete linear numeric prefix data;
+  retain certificate64.60scomponents/180stotal/6GiB unchanged.
 
-CURRENT: moderaw40062813797 at ccc66fb645cd72acdc1a40fc22d4ed78a2a5a799,
-retain57,24roots. Auto-smoke40062722201regression. Cache56fullyretained/audited;
-oldcatalogvariantabandoned. No additionalmemorytests; frozenreferencefixed.
+NEXT: Diagnose/retain both. Do not rerun unchanged failures. Build a numeric
+local-rule checker using these reusable interfaces, exact prefix lookups and
+Q/classMap directly. Cover all local nodes/both bits/all stores/paid returns of
+one actual complete source chunk, including meaningful corruptions. Then require
+at least1/16and1/4actual paid body-state coverage before a full-cost/scaling claim.
+Source coverage and generic helper proofs are not actual quotient-row coverage.
+
+Handoff: ../campaign-2026-10-23/RESUME.md, GATES.md,
+DIRECT-QUOTIENT-CERTIFICATE.md, RAW-LABEL-SOURCE-PILOT.md and run-NN.json ledgers.

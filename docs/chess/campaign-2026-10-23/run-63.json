@@ -1,0 +1,13 @@
+{
+  "run_id": 40064505645,
+  "source": "a0f3418ba1c98439b159349c3cb64c604689c6d9",
+  "mode": "raw",
+  "status": "retained_complete_raw_source_passed",
+  "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-63",
+  "accepted_states": 769344,
+  "target_states": 310029,
+  "new_accepted_machine": false,
+  "actual_rows": 0,
+  "complete_source_operations": 4042,
+  "complete_opcode_snapshot_checked": true
+}

@@ -1,0 +1,184 @@
+{
+  "AuditExecutable.log": {
+    "bytes": 256,
+    "sha256": "b1a2c7d1c15dee0ba2cd843f36100269c830738de2b3f5f50f7b3cf077ce0c77",
+    "crc32": 2456647732,
+    "compressed_bytes": 155,
+    "compression": 8
+  },
+  "BinaryObservation.log": {
+    "bytes": 496,
+    "sha256": "9a2c5f440de4f5673a0531252e93436834acb436558d03ce8896a50f43a93ccc",
+    "crc32": 1471352906,
+    "compressed_bytes": 252,
+    "compression": 8
+  },
+  "BinaryObservationAudit.log": {
+    "bytes": 221,
+    "sha256": "2dc20410d5055eb2f06a770411f727ee5803b5496413554303c4edb27a19e971",
+    "crc32": 154747068,
+    "compressed_bytes": 170,
+    "compression": 8
+  },
+  "ObservedCache.log": {
+    "bytes": 271,
+    "sha256": "ad91d9300e794816330aa670cf7cecc7c16af0a98b41e6bfd4294ecbd7cbf160",
+    "crc32": 2534436887,
+    "compressed_bytes": 191,
+    "compression": 8
+  },
+  "ObservedCacheAudit.log": {
+    "bytes": 217,
+    "sha256": "540773cc6eaf2667b76afad85c8c5d87b9f2a7d3adb0ec96708bc3404462c630",
+    "crc32": 622460785,
+    "compressed_bytes": 169,
+    "compression": 8
+  },
+  "OperationWeights.log": {
+    "bytes": 744,
+    "sha256": "5dcc946e8dae8168781ff71a9ac5e4a6f48f1413749e956f0310a702ac70088f",
+    "crc32": 3205048391,
+    "compressed_bytes": 341,
+    "compression": 8
+  },
+  "OperationWeightsAudit.log": {
+    "bytes": 220,
+    "sha256": "b72e9bf34d0bff537bfe9de31648bb14bc443fedbc7e2948875b0451c9d28b49",
+    "crc32": 1034887533,
+    "compressed_bytes": 171,
+    "compression": 8
+  },
+  "PrefixScan.log": {
+    "bytes": 4079,
+    "sha256": "82874e88d1a635b00748588a34cbf85c19fa7385cbbef1604e84520e78e46380",
+    "crc32": 1510827492,
+    "compressed_bytes": 1084,
+    "compression": 8
+  },
+  "WeightTables.log": {
+    "bytes": 976,
+    "sha256": "921aaed183c12b774b0192a5a7c5931b41bd96798fdd7c4b424f229ad5e60819",
+    "crc32": 905143762,
+    "compressed_bytes": 397,
+    "compression": 8
+  },
+  "WeightTablesAudit.log": {
+    "bytes": 217,
+    "sha256": "c6c909c08dadcd8cc6ba4b9040fd21fc724fad7690309ab16f545c8b2126c72f",
+    "crc32": 4242704874,
+    "compressed_bytes": 171,
+    "compression": 8
+  },
+  "certificate-summary.json": {
+    "bytes": 18239,
+    "sha256": "7182d8040e28c0b39b1ff33e6e1a14162d20fb6a47bb8d3dfe841b0f5963cdaa",
+    "crc32": 3792034060,
+    "compressed_bytes": 3811,
+    "compression": 8
+  },
+  "commands/1792818182115127326.json": {
+    "bytes": 528,
+    "sha256": "083813e58edeeb13c1da749eb18db267062aa0837ff880848e1040570920e6b3",
+    "crc32": 3097424675,
+    "compressed_bytes": 346,
+    "compression": 8
+  },
+  "commands/1792818266640733204.json": {
+    "bytes": 773,
+    "sha256": "60b06b5e8be721e8f3de9a49d0d7a41404edabe85f290b4602cf75eccb6b04c2",
+    "crc32": 2881315247,
+    "compressed_bytes": 424,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/Audit.lean": {
+    "bytes": 3029,
+    "sha256": "9d2a7db1fd5d82bbdadf4f6e0db0571af956741f42a89c3086c61414d52512df",
+    "crc32": 1238549105,
+    "compressed_bytes": 1202,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/BinaryObservation.lean": {
+    "bytes": 7658,
+    "sha256": "54605440a955fede15f2146c827a17b9108c66b2d1e5bfe11de4708488afd66c",
+    "crc32": 4132024674,
+    "compressed_bytes": 1698,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/ObservedCache.lean": {
+    "bytes": 6140,
+    "sha256": "388f1571f441e80279ebb1e4506c237c1dda90068447fca8dab2e22050089ef9",
+    "crc32": 504241601,
+    "compressed_bytes": 1677,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/BinaryObservation.roots": {
+    "bytes": 696,
+    "sha256": "d0c4509cd4fce6e2e7e870ea32ba5e181672cc0f92170c6ceb26b433f502830f",
+    "crc32": 3411177045,
+    "compressed_bytes": 129,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/ObservedCache.roots": {
+    "bytes": 454,
+    "sha256": "b9512cf822c5ad5c8228c0f5a45f0b277f8677cca38cdcf5bc3b4e677d2e3a29",
+    "crc32": 944822098,
+    "compressed_bytes": 111,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/OperationWeights.lean": {
+    "bytes": 2096,
+    "sha256": "2621decadb62c1c60cf85282cdcc6e92834c70f161f552f6abebb874db8c3311",
+    "crc32": 3045851695,
+    "compressed_bytes": 772,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/PrefixScan.lean": {
+    "bytes": 399857,
+    "sha256": "3ddc0cffc20298db1871fe95fb10f606cc510b3ae88aa22712801d4843b39849",
+    "crc32": 3615621251,
+    "compressed_bytes": 36203,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/OperationWeights.roots": {
+    "bytes": 346,
+    "sha256": "cb2fae1a991bad31f73968c6356b05c7ffe14e2272c1c96fa16e3a6c9fa25c14",
+    "crc32": 1050274631,
+    "compressed_bytes": 95,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/PrefixScan.roots": {
+    "bytes": 948,
+    "sha256": "c7a1b218f724677bc6f4885243d510adfe9621c3a15ed0578223713c5f6d3c40",
+    "crc32": 3590064270,
+    "compressed_bytes": 146,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/WeightTables.lean": {
+    "bytes": 223539,
+    "sha256": "93693e42f74f6c35e372004d34f1f5f2dd80d36782929f5af5914caaebf22123",
+    "crc32": 1566688966,
+    "compressed_bytes": 19004,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/WeightTables.roots": {
+    "bytes": 503,
+    "sha256": "40c06b3976bf456c2e559e971562fc78ca0f63da783960ef6e48dbf9885b1d01",
+    "crc32": 4235910208,
+    "compressed_bytes": 121,
+    "compression": 8
+  },
+  "source-manifest.json": {
+    "bytes": 466125,
+    "sha256": "166406a2f44cd63d0f738629f45504897741e339ae44a5da1a230f7b5a9984ee",
+    "crc32": 467253329,
+    "compressed_bytes": 126909,
+    "compression": 8
+  },
+  "weight-chunks-progress.tsv": {
+    "bytes": 186,
+    "sha256": "6cac078cde061aa627d4a1ea8b773e6d6b7c0172ec47610a7803de6f77bb20ff",
+    "crc32": 1547513119,
+    "compressed_bytes": 87,
+    "compression": 8
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40064507213,
+  "commit": "a0f3418ba1c98439b159349c3cb64c604689c6d9",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": false,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "PrefixScan source/lint failure: reserved binder at in universal lookup proof and unscoped maxHeartbeats. No timeout/memory stop. All other numeric prefix declarations report no errors; no module/audit credit. Rename binder lookup_eq, remove unnecessary unscoped option, preserve all13roots and60s/6GiB caps.",
+  "new_accepted_machine": false
+}

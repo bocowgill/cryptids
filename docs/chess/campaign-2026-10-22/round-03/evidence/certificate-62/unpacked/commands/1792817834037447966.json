@@ -1,0 +1,24 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_body_20261022/certificate_pilot.py",
+    "--lakefile",
+    "lakefile.chess-body-certificate-20261022.toml",
+    "--output",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-body-certificate-20261022",
+    "--seconds",
+    "180",
+    "--memory-gib",
+    "6",
+    "--observed-cache-only"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 0,
+  "output": "Generic observed cache pilot passed\n",
+  "output_sha256": "8d5130bd352bbfdede9b5d02f5e7a64e411c9f5ddf563a8a9749ece911797107",
+  "timed_out": false,
+  "timeout_seconds": 240,
+  "elapsed_seconds": 35.59677128599992,
+  "cumulative_children_peak_rss_kib": 3550844
+}
