@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40053606695,
+  "commit": "f374c4101fd55ca2625dba9041dd2fa9b67031ea",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": true,
+  "actual_rows": 128,
+  "negative_control": "not_run",
+  "diagnosis": "Original64sample/128rows and full-private audit pass again. Negative now parses/imports but mkConst is ambiguous between Term.mkConst and Lean.mkConst,4.553s,no resource stop. Qualify Lean.mkConst exactly as diagnostic indicates; retain strict explicit kernel-type-mismatch requirement.512/4096unrun, no complete quotient/machine.",
+  "new_accepted_machine": false
+}

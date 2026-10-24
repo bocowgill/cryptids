@@ -37,7 +37,8 @@ def main():
              'scripts/chess_body_20261022/symbolic_transition_pilot.py',
              'scripts/chess_body_20261022/certificate_verify.py']
     if args.mode == 'source':
-        paths.append('scripts/chess_body_20261022/source_table_pilot.py')
+        paths += ['scripts/chess_body_20261022/source_table_pilot.py',
+                  'scripts/chess_body_20261022/source_chunk_pilot.py']
     manifest = dict(commit=os.environ.get('GITHUB_SHA'), run_id=os.environ.get('GITHUB_RUN_ID'),
                     workflow_commit=os.environ.get('GITHUB_SHA'),
                     source_sha256={p: runner.sha(ROOT / p) for p in paths},
@@ -67,7 +68,8 @@ def main():
     assert detail['full_quotient_certified'] is False
     (WORK / 'verification.json').write_text(json.dumps(dict(manifest, status='passed', checks=checks,
         mode=args.mode, detail=detail,
-        scope=('Finite source-operation reconstruction/format fixtures; no complete source data, '
+        scope=('Finite source reconstruction/format fixtures and one source chunk; '
+               'no complete source data, '
                'graph fidelity, quotient relation or accepted machine' if source else
                'Bounded concrete certificate pilot only; no complete quotient proof or accepted machine')),
         indent=2) + '\n')

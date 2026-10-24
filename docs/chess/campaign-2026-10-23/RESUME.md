@@ -435,3 +435,34 @@ an explicit get/ofFn lemma based on frozen syntaxRows_get pattern. Independent
 mode concurrency groups prevent queued source probes canceling full runs.
 Source mode requires no new workflow permissions (contents:read unchanged).
 No accepted full-machine saving:769344→310029 remains prospective459315.
+
+Atf374c41, FULL run40053606695 (retain41) checks repaired kernel control and
+larger samples. SOURCE run40053616954 (retain42) checks finite source tables
+only. Both exact-head-verified, independent mode queues, contents:read only.
+An automatic smoke run is expected because the mode-choice workflow changed.
+No accepted full-machine savings. Last usage8% consumed; no reset.
+
+
+SOURCE run40053616954 atf374c41 retained and byte-reviewed certificate-42.
+R1/R2PASS: SourceTables8.992s plus13root/2567dependency full-private audit
+8.076s, standard3axioms;24.021s proof-stage total. Universal typed callback
+reconstruction/injectivity/source/lowering preservation,2actual frozen jumps,
+and noncommutative25cell/corruption fixtures checked. Fullsource/graph/cache/
+quotient/machine unproved. Next R3proposes finite opcode data natively and
+kernel-checks one complete frozen32row chunk plus corrupted-cell rejection.
+FULL run40053606695 still independently pending retention41. No state saving.
+
+
+FULL run40053606695 atf374c41 retained and byte-reviewed41.64sample/128rows
+passes/audits again. Negative now parses and imports, but mkConst ambiguous
+betweenTerm.mkConst andLean.mkConst. Sole source failure4.553s,no resource
+stop, no kernel control credit, larger samplesunrun. Qualify Lean.mkConst;
+keep required explicit kernel type mismatch strict.
+Source-chunk producer now implements nextR3pilot: native#eval proposes all4042
+finite op tables as UNTRUSTED JSON. Remote generator chooses a32row frozen
+chunk containing an actual nonconstant load/callback, emits Fin.mk with exact
+kernel bounds (no modulo), and checks complete source-table equality, restored
+original operations, chunk length and changed-cell rejection. New4root chunk
+module and each component60s/6GiB; total source mode180s unchanged. Native
+proposal bytes/hashes retained; no complete-source/graph/quotient acceptance.
+New source_chunk_pilot.py hash bound in source-mode manifest; no local execution.

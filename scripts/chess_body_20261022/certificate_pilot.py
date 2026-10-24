@@ -1424,7 +1424,8 @@ elab "submit_false_body_row" : command => do
     let rhs ← elabTerm (← `(term| (none : Option (Fin 2 × Dir × Fin {N})))) none
     synthesizeSyntheticMVarsNoPostponing
     let proposition ← instantiateMVars (← mkEq lhs rhs)
-    let falseProof := mkConst `{NS}.Sample64.actual_0_0
+    let falseProof :=
+      Lean.mkConst `{NS}.Sample64.actual_0_0
     Lean.addDecl (.thmDecl {{
       name := `{NS}.deliberately_false_row
       levelParams := []
@@ -1467,10 +1468,19 @@ def main():
             driver.run("Audit", 120, "Build completed successfully", audit_build=True)
             driver.run("SourceTables", 60,
                        "Finite source-operation table reconstruction checked")
-            driver.summary["status"] = "source_tables_passed"
             driver.summary["finite_source_reconstruction_checked"] = True
             driver.summary["source_format_fixtures_checked"] = True
             driver.summary["actual_frozen_source_operations_checked"] = 2
+            driver.checkpoint()
+            import source_chunk_pilot
+            driver.summary["source_chunk_generator_source"] = info(Path(source_chunk_pilot.__file__))
+            source_chunk_pilot.generate_proposer(driver, header, MODULE, NS)
+            driver.run("SourceTableProposal", 60, "Untrusted finite source operations exported")
+            source_chunk_pilot.generate_chunk(driver, header, audit_and_end, MODULE)
+            driver.run("SourceChunk", 60,
+                       "Actual frozen source chunk reconstructed and corruption rejected")
+            driver.summary["source_chunk_proposed"]["kernel_checked"] = True
+            driver.summary["status"] = "source_tables_passed"
             driver.checkpoint()
             driver.monitor_stop.set()
             signal.setitimer(signal.ITIMER_REAL, 0)

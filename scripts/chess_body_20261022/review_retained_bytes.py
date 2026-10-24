@@ -43,6 +43,11 @@ def main():
         path = unpacked / stage['log']
         assert path.stat().st_size == stage['log_info']['bytes']
         assert digest(path) == stage['log_info']['sha256'], path.name
+    proposal = summary.get('source_operation_proposal')
+    if proposal:
+        path = unpacked / proposal['path']
+        assert path.stat().st_size == proposal['info']['bytes']
+        assert digest(path) == proposal['info']['sha256'], path.name
     if args.preview:
         assert digest(args.preview) == retention['artifact_sha256']
     review = dict(scope='Retained source/generated/log/provenance bytes only; no proof execution',

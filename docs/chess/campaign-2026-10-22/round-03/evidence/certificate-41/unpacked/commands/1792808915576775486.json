@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_body_20261022/certificate_pilot.py",
+    "--lakefile",
+    "lakefile.chess-body-certificate-20261022.toml",
+    "--output",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-body-certificate-20261022",
+    "--seconds",
+    "1200",
+    "--memory-gib",
+    "6"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "Bounded body kernel certificate pilot stopped: negative control did not produce the required kernel type mismatch\n",
+  "output_sha256": "a259bb2d2163504f6c4e1e15994537778d66f905ba3f1e090959f2988a3d0267",
+  "timed_out": false,
+  "timeout_seconds": 1260,
+  "elapsed_seconds": 384.479224262,
+  "cumulative_children_peak_rss_kib": 4029852
+}

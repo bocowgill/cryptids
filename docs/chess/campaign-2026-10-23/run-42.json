@@ -1,0 +1,15 @@
+{
+  "run_id": 40053616954,
+  "source": "f374c4101fd55ca2625dba9041dd2fa9b67031ea",
+  "mode": "source",
+  "status": "retained_source_tables_passed",
+  "change": "Focused finite source-operation reconstruction and format/corruption fixtures",
+  "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-42",
+  "accepted_states": 769344,
+  "prospective_states": 310029,
+  "new_accepted_machine": false,
+  "roots": 13,
+  "dependencies": 2567,
+  "proof_stage_seconds": 24.021,
+  "complete_opcode_snapshot_checked": false
+}

@@ -1,0 +1,14 @@
+{
+  "run_id": 40053606695,
+  "source": "f374c4101fd55ca2625dba9041dd2fa9b67031ea",
+  "mode": "full",
+  "status": "retained_64_pass_negative_name_ambiguity",
+  "change": "Repair malformed negative harness to reach actual kernel type rejection; preserve64/512/4096",
+  "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-41",
+  "accepted_states": 769344,
+  "prospective_states": 310029,
+  "new_accepted_machine": false,
+  "positive_states": 64,
+  "positive_rows": 128,
+  "diagnosis": "Negative mkConst ambiguous; qualify Lean.mkConst; strict kernel rejection still required"
+}

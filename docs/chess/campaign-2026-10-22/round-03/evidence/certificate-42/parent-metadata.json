@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40053616954,
+  "commit": "f374c4101fd55ca2625dba9041dd2fa9b67031ea",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": false,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "Focused source PASS24.021s: SourceTables8.992s and13root/2567dependency full-private audit8.076s, standard3axioms. Universal typed callback reconstruction/source/lowering preservation, two frozen jumps and noncommutative25cell/corruption fixtures checked. Complete opcode data, raw chunk fidelity, graph/cache/quotient/full-machine unproved. Next untrusted native proposal plus one complete frozen source chunk and changed-cell rejection.",
+  "new_accepted_machine": false
+}
