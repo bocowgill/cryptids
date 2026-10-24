@@ -189,3 +189,21 @@ Accepted769,344/target310,029/new accepted savings0; same459,315prospective
 state opportunity, high proof difficulty/moderate implementation effort.
 Generic21root progress is a dependency only. G4-G6/S8-S9 stay open. GoalACTIVE,
 all heavy work remote, frozen pins fixed, no outreach. Corrected84 next.
+
+
+Whole-batch formatting-preflight84 dispatched: run40093211672, source
+6f1a0e9fd5f0b7f58aae0de3d8f7daf17199005e, mode local; retain certificate-84.
+Short cache filenames; ALL planned data/fidelity/world/control sources now
+emitted and width-checked before first expensive cache proof. No claim/cap/
+source coverage change. NEXT require all four cache windows, CacheWorld7root
+proof/audit/controls/kernel negative, then completed1/16and1/4SOURCE modules
+with audits and resource outcomes. Do not restart a live job. Accepted769,344,
+target310,029, new accepted savings0. GoalACTIVE, frozen/remote/outreach fixed.
+
+If actual source checking still fails after successful cache integration,
+inspect exact source/recipe/control timings before any further representation
+change. Source reconstruction is already generically certified (S2), and
+operation-local cache views could avoid repeatedly indexing large global
+cache trees; both are conditional hypotheses, not measured improvements.
+Do not activate them merely because helpers or formatting fail. Need a clear
+continue/redesign decision from actual substantial source outcomes.

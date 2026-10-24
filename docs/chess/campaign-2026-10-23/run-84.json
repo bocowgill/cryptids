@@ -1,0 +1,30 @@
+{
+  "run_id": 40093211672,
+  "source": "6f1a0e9fd5f0b7f58aae0de3d8f7daf17199005e",
+  "mode": "local",
+  "status": "remote_queued",
+  "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-84",
+  "route": "Validated observation cache coefficients; exact checker agreement and original SourceCertificate; unchanged1/16and1/4SOURCE tiers",
+  "required_generic_world_roots": 21,
+  "required_cached_world_roots": 7,
+  "maximum_main_cache_windows": 3,
+  "cache_window_entries_at_most": 65536,
+  "return_cache_range": [
+    533341,
+    573802
+  ],
+  "source_stage_seconds": {
+    "1/16": 180,
+    "1/4": 210
+  },
+  "cache_data_stage_seconds": 60,
+  "cache_fidelity_stage_seconds": 180,
+  "overall_seconds": 1200,
+  "memory_gib": 6,
+  "accepted_states": 769344,
+  "target_states": 310029,
+  "accepted_full_machine_savings": 0,
+  "new_accepted_machine": false,
+  "producer_static_checks": "AST/template widths/stdlb symtable globals; no local generation or Lean",
+  "correction": "Short cache paths; emit every planned data/fidelity/world/control module before first expensive cache build, so width guard checks whole batch"
+}
