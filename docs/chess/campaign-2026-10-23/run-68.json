@@ -1,0 +1,21 @@
+{
+  "run_id": 40071460885,
+  "source": "be302e9a0855bd9a1561478ab37bc3b28d351041",
+  "mode": "local",
+  "status": "remote_queued",
+  "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-68",
+  "requested_body_fractions": [
+    "1/16",
+    "1/4"
+  ],
+  "stage_seconds": {
+    "collection_theorem": 60,
+    "scope16": 180,
+    "scope4": 210
+  },
+  "overall_seconds": 1200,
+  "memory_gib": 6,
+  "accepted_states": 769344,
+  "target_states": 310029,
+  "new_accepted_machine": false
+}

@@ -832,3 +832,16 @@ its prerequisite fails. These new producers are unverified/unexecuted. No full
 cost estimate from the small67sample; require both substantial scopes and account
 for fixed data, assembly, audits, full-machine linkage and uncertainty. Accepted
 machine769344, target310029, prospective saving459315; new accepted saving0.
+
+Scaling68dispatched:40071460885 atbe302e9a0855bd9a1561478ab37bc3b28d351041,
+retain certificate68. Source checkpoint24d2234plus explicit main-block size in
+SourceRows return-control type (be302e9). Every dependency test and the complete
+67block/negative control replay before SourceScopeTools6roots, then180/210s
+source prefixes. Read exact command summary/logs when complete. No substantial
+coverage has yet been accepted. AllSourceRecord field proofs establish source
+rows and true weights; scan_covers/scan_sizes must prove collection coverage/count
+soundness before concrete reflection. Scope16/4reuse already checked operation
+proofs and include every source label in a complete prefix, all slots/bits/stores
+and paid local returns. Native counts stay proposals until complete root/audit
+success. Detailed progress files are hash-bound by checkpoint/review tooling.
+Keep6GiB and1200soverall; no12GiBtest/no paid hosts/no local heavy computation.
