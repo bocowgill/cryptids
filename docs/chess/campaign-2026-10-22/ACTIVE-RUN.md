@@ -762,3 +762,26 @@ GoalACTIVE, lastusage15%, no reset; frozen/remote/free/no-outreach fixed.
 No live research job remains after93terminal success. Previous goal turn
 PROGRESS (20root numeric representation implemented/proved/pushed). Current
 turn implements/proves29root numeric control, not smaller-scope completion.
+
+
+Numeric source core94implemented but UNVERIFIED:17roots. Exact erasure of
+unary/branch child renamings, offset composition, structural proof covering
+EVERY Fin p.size node/bit/store from reference TraceRows; canonical paid-target
+layout and typed-node step equivalence; full main Coherent. Nat getD of paid
+targets matches every original finite targetAt, giving full typed return
+Coherent. Includes correct/wrong return-target control and fresh explicit
+forged source-target kernel harness. No concrete map/Q/cache materialization
+needed for this generic layer. All source/return/coverage obligations retained.
+
+Existing manual smoke; new core60s inclaudit/negative45s, global300s/6GiB
+unchanged; NumericTree/Control and all old smoke/control replays required.
+No workflow edit/automatic extra run. Local AST/symtable/templatewidth<=100 and
+pin-exclusion inspections passed; no local Lean/model. All17proofs unverified
+pending remote result. See NUMERIC-SOURCE-CORE-GATES.md, S1-S4unmet.
+If it passes, final concrete adapter must bind actual mapQ/prefix/address/
+source functions and exact raw/fragment/count fidelity to unchanged original
+SourceCertificate. Then actual355load/445write/356move same-host full-cost and
+corruption pilot before substantial/full source/all shared controls/both
+halting directions/exact310,029paid/fixtures/final review. Same459,315potential
+saving/high proof/high effort; accepted769,344/target310,029/new full savings0.
+GoalACTIVE/frozen/remote/free/no-outreach fixed; lastusage15%, no reset.
