@@ -6,8 +6,35 @@
 #include <string>
 #include <vector>
 struct Row { unsigned char write, right; uint32_t target; };
+int census(const char* path) {
+  std::ifstream in(path, std::ios::binary);
+  if (!in) throw std::runtime_error("census open failed");
+  uint64_t cells = 0, missing = 0; uint32_t maximum = 0;
+  while (true) {
+    unsigned char b[6]; in.read(reinterpret_cast<char*>(b), 6);
+    if (in.gcount() == 0 && in.eof()) break;
+    if (in.gcount() != 6) throw std::runtime_error("census short record");
+    uint32_t t = b[2] | (uint32_t(b[3]) << 8) | (uint32_t(b[4]) << 16)
+                 | (uint32_t(b[5]) << 24);
+    if (b[0] == 2) {
+      if (b[1] != 0 || t != 0) throw std::runtime_error("census invalid halt");
+      ++missing;
+    } else {
+      if (b[0] > 1 || b[1] > 1) throw std::runtime_error("census invalid action");
+      if (t > maximum) maximum = t;
+    }
+    ++cells;
+  }
+  if (cells == 0 || cells % 2 != 0) throw std::runtime_error("census incomplete state");
+  if (maximum >= cells / 2) throw std::runtime_error("census invalid target");
+  std::cout << "{\"states\":" << cells / 2 << ",\"cells\":" << cells
+    << ",\"missing_cells\":" << missing << ",\"bytes\":" << cells * 6
+    << ",\"maximum_target\":" << maximum << "}\n";
+  return 0;
+}
 int main(int argc, char** argv) {
   try {
+    if (argc == 3 && std::string(argv[1]) == "--census") return census(argv[2]);
     if (argc != 7) throw std::runtime_error("table states out error cap prefix");
     uint32_t states = std::stoul(argv[2]), out = std::stoul(argv[3]);
     uint32_t error = std::stoul(argv[4]); uint64_t cap = std::stoull(argv[5]);

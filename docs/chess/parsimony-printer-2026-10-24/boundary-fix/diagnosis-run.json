@@ -3,7 +3,7 @@
   "source": "d72ac3da4dbf747d35e598a92d165ebc64d09105",
   "artifact": "chess-parsimony-printer-d72ac3da4dbf747d35e598a92d165ebc64d09105",
   "phase": "diagnose",
-  "status": "dispatched",
+  "status": "success_retained",
   "driver_seconds": 60,
   "group_plus_driver_gib": 6,
   "driver_mib": 512,
@@ -11,5 +11,9 @@
   "failing_printer_transitions_unchanged": true,
   "certification_started": false,
   "accepted_machine_states": 769344,
-  "next": "Retain the exact trace and both simulator results before editing the diagnosed boundary."
+  "next": "Apply the diagnosed one-cell origin correction and run all fixtures and full-machine census, without certification.",
+  "retained_evidence": "../evidence/diagnosis-03",
+  "cause": "Oracle expected head 34; two independent engines confirmed exact payload and blank exterior at head 33",
+  "steps": 3725,
+  "measured_head": 33
 }

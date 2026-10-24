@@ -1,0 +1,10 @@
+{
+  "run_id": 40138030294,
+  "workflow_commit": "d72ac3da4dbf747d35e598a92d165ebc64d09105",
+  "conclusion": "success",
+  "artifact_sha256": "068b2d7769aeeefde96f6166f2ea3e59989f802ee7a27c393a79db5708a689db",
+  "logs_sha256": "11c624595f02d290917b07666398b48d31cde78d5185f9a10ef434e7fb4292ef",
+  "pilot_status": "bounded_diagnosis_passed",
+  "no_local_machine_execution": true,
+  "new_accepted_machine": false
+}

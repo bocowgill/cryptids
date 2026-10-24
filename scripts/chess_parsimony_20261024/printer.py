@@ -187,7 +187,9 @@ def guarded(bits, width=None):
     obj.update(rows=rows, names=names, out=out, error=error, categories=categories,
         allocated_probe_states=out + 1, replacement_states=out,
         completed_packet_adapter=True, marker_bits=marker, framed_bits=len(framed),
-        exact_packet_bits=len(bits), packet_start=marker + 2,
+        # The upstream counter writes its first output bit at absolute cell 0.
+        # Diagnosis-03 measured the exact packet at cell 33, not cell 34.
+        exact_packet_bits=len(bits), packet_start=marker + 1,
         boundary_counted_in_retained_suffix=True,
         connection='last marker-erasure row directly enters retained decoder state 0',
         framed_payload=framed)

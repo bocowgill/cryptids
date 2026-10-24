@@ -176,6 +176,8 @@ def diagnose_boundary():
     """Observe the existing failed contract before editing any printer control."""
     bits = '01011010'
     obj = printer.guarded(bits, 2)
+    # Preserve the old oracle for reproducibility after correcting the metadata.
+    obj['packet_start'] = obj['marker_bits'] + 2
     n = obj['raw_parsimony_printer_states']
     trace = []
     result = reference(obj['rows'], obj['out'], obj['error'], 2000000, trace,
@@ -288,21 +290,60 @@ def linked_candidate(obj):
     raw = b''.join(RECORD.pack(*row) for row in rows)
     (WORK / 'full-candidate-rows.bin').write_bytes(raw)
     # Independently parse the serialized allocation, not the producer's list length.
-    parsed, missing = 0, 0
-    for w, d, t in RECORD.iter_unpack(raw):
+    parsed, missing, prefix_connections = 0, 0, 0
+    suffix_roundtrip = hashlib.sha256()
+    for index, (w, d, t) in enumerate(RECORD.iter_unpack(raw)):
         parsed += 1
         if w == 2:
             assert d == t == 0
             missing += 1
         else:
             assert w in (0, 1) and d in (0, 1) and t < full
+        if index < 2 * p:
+            assert w != 2, 'New printer contains a premature halting transition'
+            assert (w, d, t) == obj['rows'][index]
+            if t >= p:
+                assert t == p, 'Printer bypasses the retained decoder entry'
+                prefix_connections += 1
+        else:
+            inverse = (w, d, 0 if w == 2 else t - p + 173642)
+            assert w == 2 or p <= t < full
+            offset = (2 * 173642 + index - 2 * p) * RECORD.size
+            assert inverse == RECORD.unpack_from(old, offset)
+            suffix_roundtrip.update(RECORD.pack(*inverse))
     assert parsed == 2 * full and missing == 2
+    assert prefix_connections == 1
+    suffix_sha = hashlib.sha256(old[173642 * 2 * RECORD.size:]).hexdigest()
+    assert suffix_roundtrip.hexdigest() == suffix_sha
+    native = json.loads(run('full-candidate-native-census', [str(WORK / 'simulate'),
+        '--census', str(WORK / 'full-candidate-rows.bin')], 30))
+    assert native['states'] == full and native['cells'] == parsed
+    assert native['missing_cells'] == missing and native['bytes'] == len(raw)
+    save('full-candidate-native-census.json', native)
+    # Exercise the same native census against corrupted actual serialized tables.
+    controls = []
+    bad = bytearray(raw)
+    struct.pack_into('<I', bad, 2, 0xffffffff)
+    (WORK / 'census-invalid-target.bin').write_bytes(bad)
+    text = run('census-invalid-target', [str(WORK / 'simulate'), '--census',
+        str(WORK / 'census-invalid-target.bin')], 30, expected_exit=1)
+    assert 'census invalid target' in text
+    controls.append(dict(name='actual_full_table_invalid_target', rejected=True))
+    (WORK / 'census-truncated.bin').write_bytes(raw[:-1])
+    text = run('census-truncated', [str(WORK / 'simulate'), '--census',
+        str(WORK / 'census-truncated.bin')], 30, expected_exit=1)
+    assert 'census short record' in text
+    controls.append(dict(name='actual_full_table_truncated_record', rejected=True))
+    save('full-candidate-census-controls.json', controls)
     census = dict(replacement_states=p, retained_decoder_states=21682,
         new_decoder_bridge=1, retained_seed_expander=216, retained_expander_bridge=1,
         interpreter_main=533341, interpreter_returns=40461,
         retained_suffix_states=595702, full_candidate_states=full,
         full_candidate_cells=parsed, full_candidate_missing_cells=missing,
         full_candidate_sha256=hashlib.sha256(raw).hexdigest(),
+        retained_suffix_roundtrip_sha256=suffix_sha,
+        all_retained_transition_rows_checked=True,
+        printer_edges_into_decoder=prefix_connections, independent_native_census=native,
         old_full_states=769344, experimental_net_saving=769344 - full,
         old_writer_states=173642, new_writer_categories={k: v for k, v in
             obj['categories'].items() if k != 'retained_decoder_boundary'},
@@ -334,7 +375,11 @@ def provenance():
         'scripts/chess_parsimony_20261024/printer.py',
         'scripts/chess_parsimony_20261024/simulate.cpp',
         'scripts/chess_parsimony_20261024/upstream/programmer.py',
-        'scripts/chess_parsimony_20261024/upstream/LICENSE']
+        'scripts/chess_parsimony_20261024/upstream/LICENSE',
+        'docs/chess/parsimony-printer-2026-10-24/evidence/pilot-02/'
+            'unpacked/exact-packet-raw-printer.bin',
+        'docs/chess/parsimony-printer-2026-10-24/evidence/diagnosis-03/'
+            'unpacked/boundary-diagnosis.json']
     save('source-manifest.json', dict(commit=os.environ['GITHUB_SHA'],
         workflow_commit=os.environ['GITHUB_SHA'], run_id=os.environ['GITHUB_RUN_ID'],
         cwd=str(ROOT), shell=os.environ.get('SHELL'), path=os.environ.get('PATH'),
@@ -407,6 +452,12 @@ def main():
     controls.append(dict(name='wrong_actual_data_chain', rejected=True))
     save('corruption-controls.json', controls)
     emit('exact-packet-raw-printer', obj)
+    if args.phase == 'pilot':
+        # The diagnosis changes the oracle's absolute origin, not the emitted TM.
+        old_table = ROOT / ('docs/chess/parsimony-printer-2026-10-24/evidence/'
+                            'pilot-02/unpacked/exact-packet-raw-printer.bin')
+        assert sha(WORK / 'exact-packet-raw-printer.bin') == sha(old_table)
+        SUMMARY['printer_transitions_unchanged_from_failed_pilot'] = True
     SUMMARY['raw_printer_census'] = {key: obj[key] for key in
         ['width', 'words', 'pad_bits', 'categories', 'raw_parsimony_printer_states',
          'allocated_probe_states', 'completed_packet_adapter']}
