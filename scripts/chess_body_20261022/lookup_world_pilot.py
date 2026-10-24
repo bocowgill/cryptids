@@ -115,39 +115,6 @@ end LookupWorldPilot
 '''
 
 
-FUEL = r'''open ConjectureMachines.Optimisation
-open LookupWorldPilot FuelLookupPilot FuelHeightsPilot
-namespace FuelWorldPilot
-set_option backward.isDefEq.respectTransparency false
-
-noncomputable def fuelWorld : World where
-  classAt address := lookupFuel 33 mapTree address 0
-  pairAt address := lookupFuel 33 quotientTree
-    (lookupFuel 33 mapTree address 0) (0, 0)
-
-theorem fuelWorld_correct : fuelWorld = actualWorld := by
-  have classes : (fun address ↦ lookupFuel 33 mapTree address 0) =
-      (fun address ↦ mapTree.lookup address 0) := by
-    funext address
-    exact lookupFuel_eq 33 mapTree address 0 map_fuel
-  have pairs : (fun address ↦ lookupFuel 33 quotientTree
-      (lookupFuel 33 mapTree address 0) (0, 0)) =
-      (fun address ↦ quotientTree.lookup (mapTree.lookup address 0) (0, 0)) := by
-    funext address
-    rewrite [lookupFuel_eq 33 mapTree address 0 map_fuel]
-    exact lookupFuel_eq 33 quotientTree (mapTree.lookup address 0) (0, 0) quotient_fuel
-  exact congrArg₂ World.mk classes pairs
-
-noncomputable def fromFuelRaw (q : Fin 4042) (raw : RawLabelPilot.RawOp)
-    (nodes returns : Nat) (checked :
-      LookupWorldPilot.checkRecipe fuelWorld q raw nodes returns = true) :
-    SourceScopeToolsPilot.SourceCertificate :=
-  LookupWorldPilot.fromRaw fuelWorld fuelWorld_correct q raw nodes returns checked
-
-end FuelWorldPilot
-'''
-
-
 def _definition(source, first, following):
     """Reuse the exact reviewed checker shape, changing its coefficients only."""
     assert source.count(first) == 1 and source.count(following) == 1
@@ -212,10 +179,6 @@ def generate(driver, api):
     driver.emit('LookupWorld.lean', api.header([api.MODULE + '.SourceRecipes']) + source +
                 api.audit_and_end(driver, 'LookupWorld', ['LookupWorldPilot.' + n for n in names],
                     'Coefficient substitution preserves every original source obligation'))
-    driver.emit('FuelWorld.lean', api.header([api.MODULE + '.LookupWorld',
-                api.MODULE + '.FuelHeights']) + FUEL + api.audit_and_end(driver, 'FuelWorld',
-                ['FuelWorldPilot.' + n for n in ['fuelWorld', 'fuelWorld_correct', 'fromFuelRaw']],
-                'Height-certified lookup world yields unchanged source certificates'))
 
 
 def controls(driver, api):
@@ -223,40 +186,40 @@ def controls(driver, api):
     nodes = driver.summary['recipe_anchor_nodes']
     returns = driver.summary['recipe_anchor_returns']
     source = f'''open ConjectureMachines.Optimisation
-open Chess.Optimisation FieldCompiler LocalChunkPilot FuelWorldPilot
-namespace FuelWorldControlsPilot
+open Chess.Optimisation FieldCompiler LocalChunkPilot CacheWorldPilot
+namespace CacheWorldControlsPilot
 
-theorem anchor_recipe : LookupWorldPilot.checkRecipe fuelWorld label_{anchor} raw_{anchor}
+theorem anchor_recipe : LookupWorldPilot.checkRecipe cacheWorld label_{anchor} raw_{anchor}
     {nodes} {returns} = true := by decide +kernel
 
 noncomputable def anchor_certificate : SourceScopeToolsPilot.SourceCertificate :=
-  fromFuelRaw label_{anchor} raw_{anchor} {nodes} {returns} anchor_recipe
+  fromCachedRaw label_{anchor} raw_{anchor} {nodes} {returns} anchor_recipe
 
 theorem wrong_node_count_rejected :
-    LookupWorldPilot.checkRecipe fuelWorld label_{anchor} raw_{anchor}
+    LookupWorldPilot.checkRecipe cacheWorld label_{anchor} raw_{anchor}
       {nodes + 1} {returns} = false := by decide +kernel
 
 theorem wrong_return_count_rejected :
-    LookupWorldPilot.checkRecipe fuelWorld label_{anchor} raw_{anchor}
+    LookupWorldPilot.checkRecipe cacheWorld label_{anchor} raw_{anchor}
       {nodes} {returns + 1} = false := by decide +kernel
 
-end FuelWorldControlsPilot
+end CacheWorldControlsPilot
 '''
     roots = ['anchor_recipe', 'anchor_certificate', 'wrong_node_count_rejected',
              'wrong_return_count_rejected']
-    driver.emit('FuelWorldControls.lean', api.header([api.MODULE + '.FuelWorld']) + source +
-                api.audit_and_end(driver, 'FuelWorldControls',
-                    ['FuelWorldControlsPilot.' + name for name in roots],
+    driver.emit('CacheWorldControls.lean', api.header([api.MODULE + '.CacheWorld']) + source +
+                api.audit_and_end(driver, 'CacheWorldControls',
+                    ['CacheWorldControlsPilot.' + name for name in roots],
                     'Fast coefficients preserve real write and source-count controls'))
     negative = f'''module
-public import {api.MODULE}.FuelWorldControls
+public import {api.MODULE}.CacheWorldControls
 public meta import Lean
 public meta section
 open Lean Elab Term Meta Command
 
-elab "submit_false_fuel_recipe" : command => do
+elab "submit_false_cached_recipe" : command => do
   liftTermElabM do
-    let name := `{api.NS}.FuelWorldControlsPilot.anchor_recipe
+    let name := `{api.NS}.CacheWorldControlsPilot.anchor_recipe
     let info ← getConstInfo name
     let equality ← whnf info.type
     unless equality.isAppOfArity ``Eq 3 do throwError "Expected recipe equality"
@@ -264,40 +227,11 @@ elab "submit_false_fuel_recipe" : command => do
     unless args[0]!.isConstOf ``Bool do throwError "Expected checked Bool"
     let proposition ← mkEq args[1]! (Lean.mkConst ``Bool.false)
     Lean.addDecl (.thmDecl {{
-      name := `{api.NS}.deliberately_false_fuel_recipe
+      name := `{api.NS}.deliberately_false_cached_recipe
       levelParams := []
       type := proposition
       value := Lean.mkConst name
     }}) true
-submit_false_fuel_recipe
+submit_false_cached_recipe
 '''
-    driver.emit('FuelWorldNegative.lean', negative)
-
-
-def run(driver, api):
-    """Only call after the controlled lookup benchmark justifies integration."""
-    import lookup_cache_pilot
-    import fuel_lookup_pilot
-    lookup_cache_pilot.generate_tools(driver, api)
-    driver.run('LookupCache', 60,
-               'Numeric observation cache preserves every lookup including fallback')
-    fuel_lookup_pilot.generate_core(driver, api)
-    driver.run('FuelLookup', 60,
-               'Fuel-bounded path lookup equals original lookup at every address')
-    fuel_lookup_pilot.generate_heights(driver, api)
-    driver.run('FuelHeights', 120, 'Actual map and quotient heights certify sufficient lookup fuel')
-    for proposal in driver.summary['fuel_height_proposals'].values():
-        proposal['kernel_checked'] = True
-    generate(driver, api)
-    driver.run('LookupWorld', 60,
-               'Coefficient substitution preserves every original source obligation')
-    driver.run('FuelWorld', 60,
-               'Height-certified lookup world yields unchanged source certificates')
-    driver.summary['fuel_world_source_checker_agreement_checked'] = True
-    controls(driver, api)
-    driver.run('FuelWorldControls', 60,
-               'Fast coefficients preserve real write and source-count controls')
-    driver.summary['fuel_world_actual_source_controls_checked'] = True
-    driver.run('FuelWorldNegative', 45, negative=True)
-    driver.summary['fuel_world_kernel_corruption_rejected'] = True
-    driver.checkpoint()
+    driver.emit('CacheWorldNegative.lean', negative)

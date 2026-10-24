@@ -1,0 +1,5 @@
+Chess.Optimisation.BodyCertificatePilot.FuelObservationPilot.checkCell
+Chess.Optimisation.BodyCertificatePilot.FuelObservationPilot.checkCell_eq
+Chess.Optimisation.BodyCertificatePilot.FuelObservationPilot.validate
+Chess.Optimisation.BodyCertificatePilot.FuelObservationPilot.validate_eq
+Chess.Optimisation.BodyCertificatePilot.FuelObservationPilot.validate_branch

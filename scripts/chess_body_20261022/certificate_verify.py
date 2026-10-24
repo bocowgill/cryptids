@@ -64,6 +64,8 @@ def main():
                   'scripts/chess_body_20261022/source_recipe_pilot.py',
                   'scripts/chess_body_20261022/lookup_cache_pilot.py',
                   'scripts/chess_body_20261022/fuel_lookup_pilot.py',
+                  'scripts/chess_body_20261022/lookup_world_pilot.py',
+                  'scripts/chess_body_20261022/cached_world_pilot.py',
                   'scripts/chess_body_20261022/local_chunk_pilot.py',
                   'scripts/chess_body_20261022/source_scope_tools_pilot.py',
                   'scripts/chess_body_20261022/source_scope_pilot.py',
@@ -141,6 +143,9 @@ def main():
         assert detail['complete_prefix_scan_checked'] is True
         assert detail['completed_positive_unique_rows'] == 0
     if local:
+        assert detail['cache_world_source_checker_agreement_checked'] is True
+        assert detail['cache_world_actual_source_controls_checked'] is True
+        assert detail['cache_world_kernel_corruption_rejected'] is True
         assert detail['numeric_local_interface_checked'] is True
         assert detail['source_local_rule_soundness_checked'] is True
         assert detail['complete_prefix_scan_checked'] is True

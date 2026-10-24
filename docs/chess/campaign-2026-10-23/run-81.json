@@ -2,7 +2,7 @@
   "run_id": 40089492268,
   "source": "8165f8b37accce8f543b96afb9a279c13c3694bc",
   "mode": "lookup",
-  "status": "remote_queued",
+  "status": "passed_retained_reviewed",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-81",
   "route": "Controlled same8192data/256cell-chunk comparison: original tree-brecOn vs height-certified short-fuel path lookup",
   "required_generic_fuel_roots": 3,
@@ -26,5 +26,14 @@
   "source_rows_credit": 0,
   "new_accepted_machine": false,
   "correction": "Explicit reflexivity proof; compare fuel immediately after same8192baseline, preserving65536tier",
-  "static_global_reference_check": "stdlib symtable inspection on lookup/fuel generators: no unresolved global references"
+  "static_global_reference_check": "stdlib symtable inspection on lookup/fuel generators: no unresolved global references",
+  "fuel_lookup_comparison_checked": true,
+  "baseline_build_seconds": 16.09901695,
+  "fuel_build_seconds": 18.726624526,
+  "baseline_peak_bytes": 3292389376,
+  "fuel_peak_bytes": 3330084864,
+  "height_build_seconds": 61.935722435,
+  "height_audit_seconds": 3.446825549,
+  "driver_seconds": 645.070757993,
+  "decision": "Abandon fuel as speedup: slower on identical data. Integrate previously verified observation cache into unchanged substantial source tiers."
 }

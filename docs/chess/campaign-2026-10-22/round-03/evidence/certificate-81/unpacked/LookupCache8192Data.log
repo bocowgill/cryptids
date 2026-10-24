@@ -1,0 +1,57 @@
+ℹ [3254/3267] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.Loaders
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/Loaders.lean:47:0: Body certificate loaders checked
+ℹ [3255/3267] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.MapData
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/MapData.lean:13322:0: Complete body class map loaded
+ℹ [3256/3267] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.MapPrelude
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/MapPrelude.lean:105:0: Body class map prelude checked
+ℹ [3257/3267] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.MapCount
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/MapCount.lean:15572:0: Complete body class map count checked
+ℹ [3258/3267] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.MapValid
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/MapValid.lean:13:0: Complete body class map caches checked
+ℹ [3259/3267] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.MapBounded
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/MapBounded.lean:13:0: Complete body class map range checked
+ℹ [3260/3267] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.MapChecks
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/MapChecks.lean:22:0: Complete body class map checks passed
+ℹ [3261/3267] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.QuotientData
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/QuotientData.lean:1674:0: Complete body quotient rows loaded
+ℹ [3262/3267] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.QuotientChecks
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/QuotientChecks.lean:1977:0: Complete packed quotient checks passed
+ℹ [3263/3267] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.Data
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/Data.lean:13:0: Complete body certificate data assembled
+ℹ [3920/3962] Replayed Cryptids.Chess.Compilation.SourceCertificate
+info: Cryptids/Chess/Compilation/SourceCertificate.lean:226:0: Source certificate: 7076 checked lemmas, 7037 cache hits
+info: Cryptids/Chess/Compilation/SourceCertificate.lean:230:0: Literal row certificate: 5952 checked rows in 186 chunks
+ℹ [3931/3962] Replayed Cryptids.Chess.Compilation.Input
+info: Cryptids/Chess/Compilation/Input.lean:128:0: Checked 186 literal row chunks: 141042 stack symbols
+ℹ [3950/3962] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.BodyRelation
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/BodyRelation.lean:18:0: Actual body row predicate checked
+ℹ [3951/3962] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.RowTools
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/RowTools.lean:44:0: Structural body row helpers checked
+ℹ [3952/3962] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.OperationWeights
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/OperationWeights.lean:59:0: Universal frozen operation weight summaries checked
+ℹ [3953/3962] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.WeightTables
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/WeightTables.lean:5162:0: Complete source weights and shared prefix correspondence checked
+ℹ [3954/3962] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.RowWitnesses
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/RowWitnesses.lean:136:0: Actual local syntax and far-end address witnesses checked
+ℹ [3955/3962] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.ActualTools
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/ActualTools.lean:88:0: Structural main and return row transport helpers checked
+ℹ [3956/3962] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.PrefixScan
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/PrefixScan.lean:16755:0: Complete linear prefix certificates agree with frozen offsets
+ℹ [3957/3962] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.ObservedCache
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/ObservedCache.lean:119:0: Generic observed cache and source-slot coverage checked
+ℹ [3958/3962] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.BinaryObservation
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/BinaryObservation.lean:143:0: Local equations cover every paid binary control
+ℹ [3959/3962] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.NumericLocal
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericLocal.lean:178:0: Numeric local projections preserve actual source observations
+ℹ [3960/3962] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.LookupCache
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/LookupCache.lean:151:0: Numeric observation cache preserves every lookup including fallback
+ℹ [3961/3962] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.LookupCacheLoaders
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/LookupCacheLoaders.lean:33:0: @[expose] def ConjectureMachines.Compilation.Balanced.RowTree.lookup.{u_1} : {α : Type u_1} →
+  ConjectureMachines.Compilation.Balanced.RowTree α → ℕ → α → α :=
+fun {α} x x_1 x_2 ↦
+  ConjectureMachines.Compilation.Balanced.RowTree.brecOn (motive := fun x ↦ ℕ → α → α) x
+    ConjectureMachines.Compilation.Balanced.RowTree.lookup._f x_1 x_2
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/LookupCacheLoaders.lean:34:0: Typed observation cache loader checked
+ℹ [3962/3962] Built Cryptids.Chess.Optimisation.BodyCertificatePilot.LookupCache8192Data (2.6s)
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/LookupCache8192Data.lean:174:0: Numeric observation cache data loaded: 8192
+Build completed successfully (3962 jobs).

@@ -1243,3 +1243,27 @@ timing, audits and kernel negative. Do not restart a live job. If materially
 faster, integrate coefficient-parametric checks into original source recipe
 and run unchanged1/16and1/4SOURCE gates. No acceptance or cost projection from
 data-only samples. GoalACTIVE, all frozen/remote/outreach constraints fixed.
+
+
+Pilot81 PASS retained/reviewed at8165f8b, run40089492268. Correctness and
+fresh kernel false-extent rejection pass, but fuel getter is SLOWER: same8192
+validation18.727s vs original16.099s; peak3,330,084,864 vs3,292,389,376bytes.
+Height setup61.936+3.447s; total driver645.071s. Decision: ABANDON fuel as
+throughput remedy. Its proved correctness is retained, no source integration.
+
+Next bounded pilot82 integrates the already verified observation cache into
+the unchanged source checker via generic World equality. Checks are identical
+SourceRows/census obligations; only class/pair lookup coefficients change.
+Plan exact quarter main-address prefix in <=3windows of <=65536entries plus
+full high return range533341..573801. Each data60s/fidelity180s with all roots
+audited. Generic agreement60s runs before expensive cache generation. Retain
+old block/source/count/range/callback/class/word/order controls and add fresh
+explicit kernel false-cached-recipe rejection. Source tiers180/210s, global
+1200s/6GiB, Lean-M6144, driver512MiB all fixed. No paid resources/outreach.
+
+Need complete1/16and1/4 SOURCE modules/audits before claiming scalability;
+cache/helper progress is not source coverage. If reuse still fails, diagnose
+source vs validation/assembly cost and redesign repeated proof computation.
+Accepted769,344/target310,029/new savings0. Rank1:459,315 prospective states,
+high proof difficulty/moderate effort; cache integration unlocks same payoff,
+no additive saving. No credible full cost yet. GoalACTIVE, last usage12%.

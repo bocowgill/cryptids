@@ -195,12 +195,14 @@ run_cmd Lean.logInfo "Typed observation cache loader checked"
     driver.emit('LookupCacheLoaders.lean', loaders)
 
 
-def generate_data(driver, api, count):
+def generate_data(driver, api, count, start=0, stem=None):
     mapping = api.words(driver.args.input / 'class-map.u32le', api.N)
     path = api.ROOT / api.PREFIX / 'quotient-packed.rows'
     pairs = [tuple(map(int, line.split())) for line in path.read_text().splitlines()]
-    assert len(pairs) == api.K and 0 < count <= api.N
-    stem, namespace = f'LookupCache{count}', f'LookupCache{count}Pilot'
+    assert len(pairs) == api.K and 0 < count and 0 <= start < start + count <= api.N
+    stem = stem or f'LookupCache{count}'
+    namespace = stem + 'Pilot'
+    cache_id = str(count) if start == 0 and stem == f'LookupCache{count}' else f'{start}-{count}'
     parts = [api.header([api.MODULE + '.LookupCacheLoaders']),
              'open LookupCachePilot\n' + f'namespace {namespace}\n']
     nodes = []
@@ -208,7 +210,7 @@ def generate_data(driver, api, count):
     def tree(first, size):
         name = f'cache_{first}_{size}'
         if size <= 256:
-            filename = f'lookup-cache-{count}-chunks/{first:06d}-{size:04d}.cache'
+            filename = f'lookup-cache-{cache_id}-chunks/{first:06d}-{size:04d}.cache'
             rows = []
             for address in range(first, first + size):
                 cls = mapping[address]
@@ -226,8 +228,8 @@ def generate_data(driver, api, count):
         parts.append(f'noncomputable def {name} : Balanced.RowTree Cell :=\n{body}\n')
         return name
 
-    root = tree(0, count)
-    driver.emit(f'lookup-cache-{count}-nodes.json', json.dumps(nodes, indent=2) + '\n')
+    root = tree(start, count)
+    driver.emit(f'lookup-cache-{cache_id}-nodes.json', json.dumps(nodes, indent=2) + '\n')
     parts.append(f'noncomputable def cache : Balanced.RowTree Cell := {root}\n'
                  f'end {namespace}\n')
     driver.emit(stem + 'Data.lean', ''.join(parts) + api.audit_and_end(driver, stem + 'Data',
@@ -247,21 +249,21 @@ def generate_data(driver, api, count):
                           f'    checked_{first}_{half} rfl checked_{middle}_{size - half}\n')
     checked = (api.header([api.MODULE + '.' + stem + 'Data']) +
                'open LookupCachePilot\n' + f'namespace {namespace}\n' + ''.join(proofs) + f'''
-theorem checked : validate cache 0 = some {count} := checked_0_{count}
+theorem checked : validate cache {start} = some {start + count} := checked_{start}_{count}
 
 theorem count_exact : cache.count = {count} := by
-  have extent := validate_extent cache 0 {count} checked
-  simpa only [Nat.zero_add] using extent.symm
+  have extent := validate_extent cache {start} {start + count} checked
+  omega
 
-theorem within_body : {count} ≤ 573802 := by decide +kernel
+theorem within_body : {start + count} ≤ 573802 := by decide +kernel
 
 theorem all_cached_classes (address : Nat) :
-    cachedClass cache 0 {count} address = mapTree.lookup address 0 :=
-  cachedClass_eq cache 0 {count} checked address
+    cachedClass cache {start} {start + count} address = mapTree.lookup address 0 :=
+  cachedClass_eq cache {start} {start + count} checked address
 
 theorem all_cached_words (address : Nat) :
-    cachedPair cache 0 {count} address = observedPair address :=
-  cachedPair_eq cache 0 {count} checked address
+    cachedPair cache {start} {start + count} address = observedPair address :=
+  cachedPair_eq cache {start} {start + count} checked address
 
 end {namespace}
 ''')
@@ -272,7 +274,7 @@ end {namespace}
                  'within_body', 'all_cached_classes', 'all_cached_words']],
                 f'Numeric observation cache fidelity checked: {count}'))
     cls, (a, b) = mapping[0], pairs[mapping[0]]
-    if count == 128:
+    if start == 0 and count == 128:
         controls = api.header([api.MODULE + '.' + stem]) + f'''open LookupCachePilot
 namespace LookupCacheControlsPilot
 theorem bad_class_rejected : checkCell 0 ⟨{cls + 1}, {a}, {b}⟩ = false := by
@@ -308,8 +310,9 @@ elab "submit_wrong_cache_extent" : command => do
 submit_wrong_cache_extent
 '''
         driver.emit('LookupCacheNegative.lean', negative)
-    driver.summary[f'lookup_cache_{count}_proposed'] = dict(
-        first_address=0, end_address=count, entries=count, fields_per_entry=3,
+    key = f'lookup_cache_{count}_proposed' if cache_id == str(count) else stem + '_proposed'
+    driver.summary[key] = dict(
+        first_address=start, end_address=start + count, entries=count, fields_per_entry=3,
         data_representation='typed expression loader, ordinary Cell/RowTree constructors',
         validation_representation='composed independently checked chunks of at most 256 cells',
         chunk_limit=256, required_chunk_and_branch_proofs=len(nodes),

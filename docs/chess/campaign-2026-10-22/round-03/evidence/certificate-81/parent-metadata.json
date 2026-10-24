@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40089492268,
+  "commit": "8165f8b37accce8f543b96afb9a279c13c3694bc",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": true,
+  "actual_rows": 0,
+  "negative_control": "kernel_rejected",
+  "diagnosis": "Same8192data fuel18.727s vs original16.099s; height setup61.936+3.447s. All generic3/height2306/agreement5/cache proofs and audits pass; fresh kernel false extent rejected. Abandon fuel as throughput solution. Next bounded integrated source pilot uses verified observation cache, unchanged source gates and caps. No SourceRows or accepted machine credit.",
+  "new_accepted_machine": false
+}
