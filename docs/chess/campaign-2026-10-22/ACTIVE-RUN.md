@@ -18,3 +18,7 @@ cover substantial1/16and1/4paidbody before fullcost/scalingclaims.
 
 Handoff: ../campaign-2026-10-23/RESUME.md, GATES.md, MEMORY-COMPARISON-VERDICT.md,
 DIRECT-QUOTIENT-CERTIFICATE.md, RAW-LABEL-SOURCE-PILOT.md. Lastusage9%, noreset.
+
+CURRENT: moderaw40062813797 at ccc66fb645cd72acdc1a40fc22d4ed78a2a5a799,
+retain57,24roots. Auto-smoke40062722201regression. Cache56fullyretained/audited;
+oldcatalogvariantabandoned. No additionalmemorytests; frozenreferencefixed.

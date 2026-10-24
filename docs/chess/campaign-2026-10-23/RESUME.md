@@ -664,3 +664,10 @@ originalsource restoration/listlifting, labelboundsBool soundness,2actualjumps
 andbad4042/large labels rejection. UNEXECUTED. Newmodeworkflowchangealso runs
 ordinaryunchangedsmoke regression. No unchangedcatalog/source retry. Actual32row
 rawchunk and all127rawsourcechunks remainUNIMPLEMENTED pending universalpilot.
+
+RAW57 run40062813797 at ccc66fb645cd72acdc1a40fc22d4ed78a2a5a799 dispatched,
+24root decoder/range/restoration prototype,60s/6GiB/180stotal. Retain57.
+Auto-smoke40062722201is unchanged regression from modeaddition; no machinecredit.
+No other active proof trial or memory experiment. Next afterrawuniversalpass:
+complete32operation rawchunk256..287includingload285, explicit rawlabelbounds,
+restoration and callback/invalid-target controls. That producer notyetimplemented.
