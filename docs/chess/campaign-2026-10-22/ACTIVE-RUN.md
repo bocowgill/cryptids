@@ -541,3 +541,39 @@ as terminal or rerun. Sourcef168f11f and exact job120929350122 preserved.
 Previous goal turn VERIFIED WAIT. Current turn adds retained evidence that
 narrows the next checker diagnostic, while waiting on the same live run.
 Accepted769,344/target310,029/new full savings0. Constraints unchanged.
+
+
+91FINISHED PROOF ARTIFACT retained/reviewed (not workflow-terminal metadata):
+artifact12568256449, exact GitHub ZIPdigest and source/generated/log/3116pins
+match. GitHub job API continued to show0steps despite completed artifact;
+those snapshots did not show actual proof execution. No experiment restart.
+New mutable retain_proof_artifact.py imports the PINNED retainer's streaming
+transport/ZIP validation; accepted retain.py is unchanged. Packetcertificate-91
+labels workflow-final metadata PENDING; append separate final API/log snapshots
+when truly terminal, never overwrite retained snapshots.
+
+Generic11roots, constructor6roots, all11family batch audits, actual controls
+and explicit kernel negative PASS. SOURCE16passes116.341+3.567s, same39,240
+states/78,480rows,773roots/33,204deps, standard3axioms. Driver1196.117s;
+non-source/setup/driver986.487s. Quarter receives89.637s of nominal210,
+stops89.722s at602record markers; no quarter module/audit. Peak5,237,465,088
+bytes (<6GiB); no memory failure. NOT a complete210s quarter experiment.
+
+C1/C2/C4met, C3UNMET. Decision ABANDON more wrapper/cache variants as scaling
+remedy: family batch data/build/audit424.333s versus87~402.206s, no setup
+improvement; source16timeunchanged. Do NOT retry unchanged or raise caps.
+REDESIGN certificate as first-order structural numeric checker consuming
+already certified map/Q directly, with exact source/child/table/paid-return
+correspondence proved generically. Need heavy load355 plus write445 and
+small356in controlled profile; inverse-only repair insufficient. Proposed
+architecture UNIMPLEMENTED/UNPROVED. See STRUCTURAL-NUMERIC-CHECKER-GATES.md.
+
+Keep generic60/profile120/source180/210/global1200s/6GiB incldriver fixed,
+Lean-M6144/driver512MiB. Every source/count/store/bit/rank/corruption/strict
+lint/private-foundation obligation stays. No credible full-cost estimate
+until substantial coverage finishes. Accepted769,344/target310,029/new full
+savings0; strongest source39,240states/78,480rows. Rank1same459,315potential
+saving; structural numeric certificate now high proof/high implementation
+effort, not additive. Packet compression lower priority with no paid net
+estimate; no defensible new-interpreter estimate. GoalACTIVE; lastusage14%,
+no reset; frozen/heavyremote/existing free infrastructure/no-outreach fixed.

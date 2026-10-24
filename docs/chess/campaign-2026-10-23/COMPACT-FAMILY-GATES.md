@@ -14,13 +14,13 @@ Retain one shared40461return cache; avoid duplicating thousands of tiny
 return/target data declarations for the measured4-7%additional runtime gain.
 Exact fallback remains.
 
-- [ ] C1: All bounded batch data/validation roots, per-operation list checks,
+- [x] C1: All bounded batch data/validation roots, per-operation list checks,
   universal member fidelity and exact SourceCertificate makers pass fresh
   strict Lean builds and full-private audits. Every former mathematical
   fidelity claim remains; individual wrapper theorem names need not remain.
   CHECK: remote local-mode producer recorded in run-89.json
   EXPECT: all batches kernel_checked plus universal_fidelity_claims_preserved.
-- [ ] C2: Class/word/extent corruption controls, actual-write/count controls
+- [x] C2: Class/word/extent corruption controls, actual-write/count controls
   and explicit fresh kernel false-recipe rejection all pass.
   CHECK: same bounded remote local-mode run
   EXPECT: all original backend-specific control receipts true.
@@ -28,7 +28,7 @@ Exact fallback remains.
   bit/store/rank/domain/order/census obligations finish within180/210s.
   CHECK: same bounded remote local-mode run
   EXPECT: both complete aggregate receipts, not partial progress counters.
-- [ ] C4: Retain all source/log/metadata evidence; decide continue/redesign/
+- [x] C4: Retain all source/log/metadata evidence; decide continue/redesign/
   abandon by setup, source, assembly and audit costs. Failed or clamped tiers
   get no proof credit. No full-cost estimate from small profiles alone.
   CHECK: retained terminal packet plus metadata-only provenance review
@@ -77,3 +77,16 @@ Need full batch and substantial tiers before throughput conclusion. If the
 closed checker remains impractical after setup removal, redesign checker,
 not more cache variants. Frozen/remote/no-outreach fixed. Accepted769,344,
 target310,029/new full savings0; strongest source39,240states/78,480rows.
+
+
+91proof artifact completed and retained with exact GitHub archive digest/source/
+generated/log/pin checks. Workflow API still says in_progress; final workflow
+metadata is explicitly PENDING and must be appended later without overwriting
+retained bytes. The proof stage itself reports bounded_obstruction,1196.117s.
+C1/C2pass: generic11, constructors6, all11family batches/controls/private audits
+and explicit kernel negative. C3UNMET: SOURCE16passes116.341+3.567s, quarter
+receives89.637s of210and stops89.722s at602records; no full quarter audit.
+Non-source/driver overhead986.487s; family batch total424.333s, no setup gain.
+C4decision ABANDON more wrapper/cache variants as main scalability remedy;
+REDESIGN structural numeric checker. See STRUCTURAL-NUMERIC-CHECKER-GATES.md.
+No full-cost estimate, new source-prefix record or full-machine saving.

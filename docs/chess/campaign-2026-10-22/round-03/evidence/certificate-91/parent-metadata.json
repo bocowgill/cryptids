@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40113309464,
+  "commit": "f168f11f8954a244c8dfbc43adc34e4753c1e619",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": true,
+  "actual_rows": 78480,
+  "negative_control": "kernel_rejected",
+  "diagnosis": "Finished proof artifact retained with workflow-final metadata explicitly pending because run/job API remains stale. Generic11 plus constructor6 audits, all11family batches and controls/kernel negative PASS. SOURCE16passes116.341+3.567s for39240states/78480rows. SOURCE4 receives89.637s of nominal210 and stops89.722s at602records; no quarter proof/audit. Driver1196.117s, setup986.487s, maxpeak5237465088bytes. Familybatch424.333s versus87approximately402.206s; wrappers do not remedy setup. Abandon further wrapper/cache variants as scalability remedy; use a cache-free structural numeric checker/serialization representation, preserving all source and return fidelity and limits. Accepted769344/target310029/new full savings0.",
+  "new_accepted_machine": false
+}

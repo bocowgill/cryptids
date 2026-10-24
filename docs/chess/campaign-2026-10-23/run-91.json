@@ -2,7 +2,7 @@
   "run_id": 40113309464,
   "source": "f168f11f8954a244c8dfbc43adc34e4753c1e619",
   "mode": "local",
-  "status": "remote_in_progress_no_steps_observer_jobs_502",
+  "status": "proof_artifact_retained_bounded_obstruction_workflow_metadata_pending",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-91",
   "route": "Compact validated chunks plus quantified Window/list fidelity; shared return table; unchanged substantial SOURCE16/4",
   "overall_seconds": 1200,
@@ -21,7 +21,7 @@
   "all_mathematical_window_fidelity_claims_preserved": true,
   "individual_old_wrapper_names_retained": false,
   "zero_fallback_claim": false,
-  "next_gate": "Six-root generic/window/list wiring audit, all bounded batches/controls/negative and complete SOURCE16/4 under original180/210s",
+  "next_gate": "STRUCTURAL-NUMERIC-CHECKER-GATES.md; generic/fidelity/same-host comparison with load355/write445/move356 before unchanged substantial tiers",
   "accepted_components": {
     "writer": 173642,
     "structured_decoder": 21682,
@@ -47,5 +47,20 @@
     "runner_name": "GitHub Actions 1000000339",
     "jobs_listing_http_status": 502,
     "remote_experiment_restarted": false
-  }
+  },
+  "proof_driver_seconds": 1196.116763109,
+  "setup_and_other_driver_seconds": 986.4871990100003,
+  "family_batch_total_seconds": 424.3331093090003,
+  "source16_build_seconds": 116.34072373599997,
+  "source16_audit_seconds": 3.567032167999969,
+  "quarter_actual_limit_seconds": 89.63661527699992,
+  "quarter_elapsed_seconds": 89.721808195,
+  "quarter_completed_record_markers": 602,
+  "quarter_kernel_checked": false,
+  "peak_group_plus_driver_rss_bytes": 5237465088,
+  "complete_source_states": 39240,
+  "complete_source_rows": 78480,
+  "workflow_final_metadata_pending": true,
+  "artifact_id": 12568256449,
+  "decision": "Abandon wrapper/cache variants as scalability remedy; redesign as structural numeric checker with exact source and return fidelity"
 }

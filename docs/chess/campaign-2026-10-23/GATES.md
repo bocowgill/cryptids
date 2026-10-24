@@ -26,11 +26,14 @@ evidence and pins stay fixed. No outreach or bulk upstream migration.
   return rank, census and full-private audit. Quarter146,200states/292,400rows
   and complete573,802state relation remain unproved. Trial88 proves reusable
   Window/list fidelity and exact World transport (11generic roots) and controlled
-  small profiles, without larger-source or machine credit. Trial89stopped on a generated conjunction-constructor API error before the
-  substantial tiers. Trial90early wiring check caught propositional-list conversion and style
-  errors. Corrected91run40113309464 uses generic proved-constructor proposals,
-  a6root wiring audit and unchanged180/210s substantial tiers. No scalability
-  verdict follows from these source failures.
+  small profiles, without larger-source or machine credit. Trials89/90caught
+  constructor/list proof-conversion/style errors before substantial coverage.
+  Corrected91artifact completes generic11/constructor6/all11family audits and
+  controls; SOURCE16same39,240states/78,480rows. Quarter receives89.637s
+  of210then stops; no quarter audit. Non-source/driver overhead986.487s,
+  no end-to-end gain. Abandon more wrapper/cache variants; next structural
+  numeric checker must preserve exact source and paid-return fidelity.
+  Workflow-final metadata91pending; proof artifact retained/reviewed.
 - [ ] G5: The complete blank-tape binary machine has exactly 310,029 paid states
   and the original not-draw equivalence; all actual rows, independent fixtures,
   corruption controls, regressions and foundation audits pass remotely.
