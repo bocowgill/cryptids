@@ -47,7 +47,11 @@ end NativeSourceProposal
 
 
 def generate_proposer(driver, header, module, namespace):
-    source = header([module + '.SourceTables', 'Lean.Data.Json']) + PROPOSER
+    # Native #eval needs transitive IR. A normal module import exposes logical
+    # definitions but does not load their executable implementations in Lean 4.35.
+    source = header([module + '.SourceTables', 'Lean.Data.Json']).replace(
+        'public import ' + module + '.SourceTables',
+        'public meta import ' + module + '.SourceTables') + PROPOSER
     source += '\nend ' + namespace + '\n'
     source += 'run_cmd Lean.logInfo "Untrusted finite source operations exported"\n'
     driver.emit('SourceTableProposal.lean', source)

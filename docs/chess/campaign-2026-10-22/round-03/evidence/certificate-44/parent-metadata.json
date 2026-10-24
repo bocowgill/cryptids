@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40055420927,
+  "commit": "6280710c00f66d21fc0eaa073955b9d43d61b0cc",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": false,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "SourceTables builds and 13-root audit pass. Native untrusted proposer aborts with missing Snapshot.entries IR (exit134); no resource stop, source-chunk generation unrun. Correct proposer import to meta so transitive IR is available; no proof credit for proposal or chunk.",
+  "new_accepted_machine": false
+}

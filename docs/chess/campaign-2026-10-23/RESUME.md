@@ -466,3 +466,17 @@ original operations, chunk length and changed-cell rejection. New4root chunk
 module and each component60s/6GiB; total source mode180s unchanged. Native
 proposal bytes/hashes retained; no complete-source/graph/quotient acceptance.
 New source_chunk_pilot.py hash bound in source-mode manifest; no local execution.
+
+Exact source6280710 dispatched as FULL40055408911 (retain43) and
+SOURCE40055420927 (retain44). These are independently recoverable remote jobs.
+The former tests the corrected kernel control before larger samples; the latter
+checks one complete frozen chunk, not all4042operations. Approved fixed artifact
+transfer is complete, retained and pushed. No further approval is needed for it.
+
+SOURCE run40055420927 at6280710 retained/reviewed as certificate-44.
+SourceTables and13root audit pass again. Untrusted native proposer aborts
+exit134 because Snapshot.entries IR is unavailable; no resource stop or source
+chunk credit. Lean4.35 Environment import documentation confirms meta import
+loads transitive IR; change only proposer SourceTables import to public meta.
+Existing frozen definitions, proofs, native-untrusted boundary and caps fixed.
+Full40055408911 is still independent; retain43 on completion.

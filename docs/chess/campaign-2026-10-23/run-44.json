@@ -1,0 +1,13 @@
+{
+  "run_id": 40055420927,
+  "source": "6280710c00f66d21fc0eaa073955b9d43d61b0cc",
+  "mode": "source",
+  "status": "retained_native_proposer_missing_IR",
+  "change": "Untrusted finite opcode proposal and one complete frozen chunk fidelity test",
+  "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-44",
+  "accepted_states": 769344,
+  "prospective_states": 310029,
+  "new_accepted_machine": false,
+  "source_tables_passed": true,
+  "source_chunk_checked": false
+}
