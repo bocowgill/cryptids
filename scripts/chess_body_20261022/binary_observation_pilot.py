@@ -131,7 +131,7 @@ theorem all_rows_from_local (g : LazyGraph.Graph n k labels)
     · exact (halt_observed g returnAt findReturn rename bit).trans (halted bit).symm
     · have row := main_from_local g returnAt findReturn rename quotient checked
         (Binary.decodeSymbol bit) pc value
-      simpa only [Binary.encode_decode] using row
+      simpa only [Binary.encode_decode, SelectiveBinary.mainState] using row
   · exact (return_observed g returnAt findReturn rename r bit).trans (returned r bit).symm
 
 end BinaryObservationPilot

@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40063802014,
+  "commit": "6e0ccbe7b714a5a3e085a8c05f2f51da634ad3e8",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": false,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "BinaryObservation proof failure only at final live-control case: simpa leaves mainState versus Fin.castAdd. Explicitly unfold SelectiveBinary.mainState in that simplification; retain every premise/root and all budgets. Other module declarations report no source errors, but no BinaryObservation proof/audit credit until whole module passes.",
+  "new_accepted_machine": false
+}

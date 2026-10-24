@@ -1,0 +1,22 @@
+ℹ [3854/3858] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.ObservedCache
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/ObservedCache.lean:119:0: Generic observed cache and source-slot coverage checked
+✖ [3858/3858] Building Cryptids.Chess.Optimisation.BodyCertificatePilot.BinaryObservation (2.8s)
+trace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean -M6144 /home/runner/work/cryptids/cryptids/Cryptids/Chess/Optimisation/BodyCertificatePilot/BinaryObservation.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Chess/Optimisation/BodyCertificatePilot/BinaryObservation.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Chess/Optimisation/BodyCertificatePilot/BinaryObservation.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Chess/Optimisation/BodyCertificatePilot/BinaryObservation.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Chess/Optimisation/BodyCertificatePilot/BinaryObservation.setup.json --json
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/BinaryObservation.lean:137:6: Type mismatch: After simplification, term
+  row
+ has type
+  @Eq (Option (Fin 2 × Dir × Fin target))
+    (Option.map (fun x ↦ (x.1, x.2.1, rename x.2.2))
+      ((SelectiveBinary.compile (CompactPost.machine g) returnAt findReturn).transition
+        (SelectiveBinary.mainState (CompactPost.encode g (some pc, value))) bit))
+    (quotient.transition (rename (SelectiveBinary.mainState (CompactPost.encode g (some pc, value)))) bit)
+but is expected to have type
+  @Eq (Option (Fin 2 × Dir × Fin target))
+    (Option.map (fun x ↦ (x.1, x.2.1, rename x.2.2))
+      ((SelectiveBinary.compile (CompactPost.machine g) returnAt findReturn).transition
+        (Fin.castAdd returns (CompactPost.encode g (some pc, value))) bit))
+    (quotient.transition (rename (Fin.castAdd returns (CompactPost.encode g (some pc, value)))) bit)
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/BinaryObservation.lean:143:0: Local equations cover every paid binary control
+Some required targets logged failures:
+- Cryptids.Chess.Optimisation.BodyCertificatePilot.BinaryObservation
+error: build failed

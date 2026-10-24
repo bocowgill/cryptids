@@ -706,3 +706,9 @@ is now wired after those gates; it must freshly check all4042operations and all
 raw labels, then the17root audit, within60s. Cache bridge trial60 is
 run40063802014 at6e0ccbe7b714a5a3e085a8c05f2f51da634ad3e8, independently bounded.
 No source or generic proof alone changes the accepted769344machine count.
+
+Bridge trial60 retained/reviewed: BinaryObservation fails only its last live-state
+simpa because mainState and Fin.castAdd wrappers are not unfolded in the same
+form. Build6.688s/2.732GB, no resource stop. Explicitly unfold mainState in that
+simp; all premises/roots/caps unchanged. ObservedCache6root audit passes again.
+No bridge module credit until full build/audit. Complete raw source61 stillremote.
