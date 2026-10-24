@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40058400225,
+  "commit": "e2ad4f98d4348f6812c28c3fa6f87ce6fe2a6253",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": false,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "10GiB admission verified15.615GiB host/14.600GiB available with2GiBreserve; cgroup max/high unlimited. Same fixed diagnostic path setup error before target. Both preliminary setup jobs provide no memory-bottleneck comparison. Historical source bytes fixed; correct IO path only before two measured trials.",
+  "new_accepted_machine": false
+}

@@ -1,0 +1,21 @@
+ℹ [3254/3354] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.Loaders
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/Loaders.lean:47:0: Body certificate loaders checked
+ℹ [3911/3941] Replayed Cryptids.Chess.Compilation.SourceCertificate
+info: Cryptids/Chess/Compilation/SourceCertificate.lean:226:0: Source certificate: 7076 checked lemmas, 7037 cache hits
+info: Cryptids/Chess/Compilation/SourceCertificate.lean:230:0: Literal row certificate: 5952 checked rows in 186 chunks
+ℹ [3922/3941] Replayed Cryptids.Chess.Compilation.Input
+info: Cryptids/Chess/Compilation/Input.lean:128:0: Checked 186 literal row chunks: 141042 stack symbols
+✖ [3941/3941] Building Cryptids.Chess.Optimisation.BodyCertificatePilot.TemplateSmoke (4.4s)
+trace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean -M6144 /home/runner/work/cryptids/cryptids/Cryptids/Chess/Optimisation/BodyCertificatePilot/TemplateSmoke.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Chess/Optimisation/BodyCertificatePilot/TemplateSmoke.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Chess/Optimisation/BodyCertificatePilot/TemplateSmoke.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Chess/Optimisation/BodyCertificatePilot/TemplateSmoke.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Chess/Optimisation/BodyCertificatePilot/TemplateSmoke.setup.json --json
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/TemplateSmoke.lean:208:0: no such file or directory (error code: 2)
+  file: .lake/chess-body-certificate-20261022/smoke-map-valid-progress.tsv
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/TemplateSmoke.lean:272:0: no such file or directory (error code: 2)
+  file: .lake/chess-body-certificate-20261022/smoke-map-valid-progress.tsv
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/TemplateSmoke.lean:333:0: no such file or directory (error code: 2)
+  file: .lake/chess-body-certificate-20261022/smoke-map-facts-progress.tsv
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/TemplateSmoke.lean:394:0: no such file or directory (error code: 2)
+  file: .lake/chess-body-certificate-20261022/smoke-map-facts-progress.tsv
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/TemplateSmoke.lean:510:0: Body certificate template smoke checked
+Some required targets logged failures:
+- Cryptids.Chess.Optimisation.BodyCertificatePilot.TemplateSmoke
+error: build failed

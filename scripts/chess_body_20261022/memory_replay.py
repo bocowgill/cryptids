@@ -67,6 +67,19 @@ def main():
         if args.capacity_only:
             driver.summary['status'] = 'capacity_admitted'
             return 0
+        # Historical proof commands use this fixed diagnostic output path.
+        # Redirect only IO, preserving every compared proof-source byte.
+        legacy_output = pilot.ROOT / '.lake/chess-body-certificate-20261022'
+        if legacy_output.is_symlink():
+            assert legacy_output.resolve() == args.output
+        else:
+            if legacy_output.exists():
+                assert legacy_output.is_dir() and not any(legacy_output.iterdir())
+                legacy_output.rmdir()
+            legacy_output.symlink_to(args.output, target_is_directory=True)
+        driver.summary['historical_diagnostic_output_alias'] = dict(
+            path=str(legacy_output.relative_to(pilot.ROOT)),
+            target=str(args.output.relative_to(pilot.ROOT)), proof_bytes_changed=False)
         config = (pilot.ROOT / 'lakefile.chess-body-certificate-20261022.toml').read_text()
         assert config.count('"-M6144"') == 1
         config = config.replace('"-M6144"', f'"-M{args.memory_gib * 1024}"')

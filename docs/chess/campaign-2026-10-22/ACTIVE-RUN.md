@@ -9,7 +9,10 @@ MEMORY-COMPARISON-PLAN.md is the next phase. New workflow own-file push starts
 exactly TWO matrix jobs [6,10]. DO NOT dispatch a duplicate. No12GiB scheduled.
 Replay certificate19 immutable proof bytes at its diagnosed memory bottleneck;
 original64/512/4096budgets and every data/root/audit obligation preserved.
-Run40058400225 at e2ad4f98 auto-started once, matrix6/10GiB.
+Run40058400225 at e2ad4f98 is retained49/50: both stop during setup, before
+memory target, due missing historical diagnostic directory. Capacity confirms
+15.615GiB host and no finite cgroup ceiling. IO alias fix preserves proof bytes.
+Next corrected pair needs ONE manual dispatch; retain51/52. No active old jobs.
 Retain the6/10suffix artifacts separately as certificates49/50, then make an
 explicit continue/redesign/abandon decision. Small samples are insufficient to
 establish full scaling; increasing substantial coverage is required if RAM helps.

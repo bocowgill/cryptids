@@ -3,11 +3,14 @@
   "source": "e2ad4f98d4348f6812c28c3fa6f87ce6fe2a6253",
   "mode": "paired_memory_comparison",
   "memory_gib": 10,
-  "status": "remote_matrix_pending",
+  "status": "retained_setup_failure_before_memory_target",
   "artifact": "chess-memory-e2ad4f98d4348f6812c28c3fa6f87ce6fe2a6253-10gib",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-50",
   "historical_proof_certificate": 19,
   "accepted_states": 769344,
   "prospective_states": 310029,
-  "new_accepted_machine": false
+  "new_accepted_machine": false,
+  "valid_memory_comparison": false,
+  "capacity_admitted": true,
+  "certified_actual_rows": 0
 }

@@ -557,3 +557,15 @@ Paired memory workflow AUTO-STARTED once bypush at sourcee2ad4f98d4348f6812c28c3
 run40058400225. TWO matrix jobs only,6then10GiB (maxparallel1,failfastfalse).
 Retain49artifact chess-memory-e2ad4f98d4348f6812c28c3fa6f87ce6fe2a6253-6gib and
 retain50sameprefix-10gib after entire run completes. No duplicate dispatch made.
+
+Initial workflow40058400225 at e2ad4f9 completed BOTH setup jobs before cancel
+couldapply; no jobs remain. Retained/reviewed49and50. Both confirm freeVM15.615GiB,
+available14.588/14.600GiB, visible cgroup max/high=max, rlimitsunlimited. Both
+failTemplateSmoke on missing historical .lake/chess-body-certificate-20261022
+IO directory, before Data/actualrowtarget. NOT memory failures and NOT a RAM
+throughput comparison. Sourcebyte replay verified. Specific correction creates
+remote diagnostic-output symlink to the corresponding retained output directory;
+changes NO proof/data bytes. Normal memorycaps/timegates remainidentical.
+Corrected comparison must be MANUALLY dispatched ONCE after sourcepush (workflow
+fileunchanged, no automatic trigger). This supplies the two requested measured
+pilots, not an unchanged retry. Retain next6/10artifacts as51/52.

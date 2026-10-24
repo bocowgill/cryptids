@@ -1,0 +1,20 @@
+{
+  "id": 12546119354,
+  "node_id": "MDg6QXJ0aWZhY3QxMjU0NjExOTM1NA==",
+  "name": "chess-memory-e2ad4f98d4348f6812c28c3fa6f87ce6fe2a6253-6gib",
+  "size_in_bytes": 2961809,
+  "url": "https://api.github.com/repos/bocowgill/cryptids/actions/artifacts/12546119354",
+  "archive_download_url": "https://api.github.com/repos/bocowgill/cryptids/actions/artifacts/12546119354/zip",
+  "expired": false,
+  "digest": "sha256:e7278354e4cbb96cc19c536631bcf343e1cd8b5bf91f5a7dd20c30e1baffe0f8",
+  "created_at": "2026-10-24T03:30:23Z",
+  "updated_at": "2026-10-24T03:30:23Z",
+  "expires_at": "2026-11-23T03:30:21Z",
+  "workflow_run": {
+    "id": 40058400225,
+    "repository_id": 1426408147,
+    "head_repository_id": 1426408147,
+    "head_branch": "codex/chess-openevolve-pilot",
+    "head_sha": "e2ad4f98d4348f6812c28c3fa6f87ce6fe2a6253"
+  }
+}

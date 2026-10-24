@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40058400225,
+  "commit": "e2ad4f98d4348f6812c28c3fa6f87ce6fe2a6253",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": true,
+  "complete_candidate_data": false,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "Capacity verified15.615GiB host/14.588GiB available, no finite visible cgroup max/high. Historical proof bytes match. Setup stopsTemplateSmoke7.591s because fixed diagnostic directory missing, before candidate-data/actual-row memory target. No RAM throughput inference. Fix only remote diagnostic path alias, preserve proof bytes and limits.",
+  "new_accepted_machine": false
+}

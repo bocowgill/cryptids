@@ -80,3 +80,11 @@ normalization and a separate literal graph-fidelity stage. See
 DIRECT-SOURCE-CACHE-PILOT.md. It remains unimplemented and unproved. Complete
 source trial48's remaining boundary overhead also remains unlocalized; do not
 repeat it unchanged while this memory comparison is pending.
+
+Setup checkpoint: run40058400225, packets49/50, verifies15.615GiB physicalRAM,
+14.588/14.600GiB available and no finite visible cgroup max/high. Both fail before
+the measured memory target because exact historical diagnostics name a missing
+output directory. No memory comparison occurred and no route verdict follows.
+Correct the output alias only, preserving every proof byte, then manually dispatch
+ONE corrected two-job matrix. The attempted cancellation arrived after both jobs
+had already ended. No active remote jobs or hidden retry remain from that run.
