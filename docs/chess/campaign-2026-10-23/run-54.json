@@ -1,0 +1,14 @@
+{
+  "run_id": 40060687397,
+  "source": "0cc4a23b8a1ac537ce716f335f85fd38ad686902",
+  "mode": "source",
+  "status": "remote_running",
+  "change": "All4042source operations with shared exact Fin bounds and generic13root assembly",
+  "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-54",
+  "memory_gib": 6,
+  "component_seconds": 60,
+  "orchestration_seconds": 180,
+  "accepted_states": 769344,
+  "target_states": 310029,
+  "new_accepted_machine": false
+}

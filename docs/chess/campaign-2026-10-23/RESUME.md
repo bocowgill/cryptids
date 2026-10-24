@@ -616,3 +616,11 @@ lists, avoiding closed-global rewrite searches;13final roots plus final markers.
 Both changes UNEXECUTED pending next bounded remote pilots. Originalsmoke/full
 checks unchanged. Workflowmodechoiceaddition triggers an ordinarysmoke regression
 onpush; explicit cache/source jobs use independentmodequeues. No resourcecapsraised.
+
+At source0cc4a23b8a1ac537ce716f335f85fd38ad686902 dispatched cache40060683147
+(retain53) and source40060687397(retain54), both6GiB,60scomponent+audit,
+180sorchestration. Separate modequeues. Automatic unchangedsmoke regression
+40060575062also runs from workflowmodechoicechange; no actualrowcredit from it.
+Alljobs independently recoverable; no extraRAMexperiment, no paidrunner.
+Next after success: actual local-rule checker and meaningful corruptions, then
+substantial1/16and1/4bodycoverage. Generic proofs/fullsourcealonearenot scaling.

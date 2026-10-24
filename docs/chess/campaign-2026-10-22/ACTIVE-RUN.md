@@ -21,3 +21,8 @@ Scalabilityclaims require actuallocalrule checks, corruptioncontrols, increasing
 1/16and1/4paidbodycoverage, totalcost/audit/memory accounting; smallsamplesinsufficient.
 Currenthandoff ../campaign-2026-10-23/RESUME.md, GATES.md, DIRECT-QUOTIENT-CERTIFICATE.md.
 Last usage9% consumed; no reset. No newagents; root ownsGit/dispatch/retention.
+
+CURRENT REMOTE at0cc4a23b8a1ac537ce716f335f85fd38ad686902:
+cache40060683147→retain53; source40060687397→retain54. Both normal6GiB,
+60sbuild+audit/180stotal. Auto-smoke40060575062is regression-only. Memorypair
+is complete, verdictsaved, no more memorytrials scheduled. Record all outcomes.
