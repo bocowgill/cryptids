@@ -721,3 +721,44 @@ remain open. Same459,315prospective payoff/high proof/high effort, accepted
 rows. GoalACTIVE; lastusage15%, no reset; frozen/remote/no-outreach fixed.
 Previous goal turn PROGRESS: implemented and verified20root core92 and pushed
 complete audited evidence, not smaller-scope completion. No pending old jobs.
+
+
+93SUCCESS retained/reviewed: run40118884137 at3f59f375. NumericControl29roots/
+2,910deps pass standard3axioms; build5.269s/audit2.842s, peak2,815,746,048/
+4,539,326,464bytes; explicit forged false-rank kernel rejection4.761s.
+NumericTree20roots/negative and oldsmoke replay pass, driver138.586s. Full
+source/generated/log/pin/width provenance reviewed; completearchives retained.
+R1-R4met. N1full original compatibility/N2-N4/source/machine gates stillOPEN.
+No actual source-row credit from the abstract core, no full-machine saving.
+
+NEXT keep most new proof iteration generic/small (smoke300/6GiB), avoiding
+complete concrete mapQ/cache prep until the final binding. Suggested numeric
+source core: define canonicalLayout layout p updating targets to paidTargets
+(encode0p), and a typedStep over original BoolGraph.Node p.size using finite
+findTarget. Prove step_erase by cases/rankOf_paid. Prove TraceRows(reference
+offset p) covers EVERY Fin p.size slot as step(mapChild(offset+)(eraseNode
+(p.nodeAt slot))) via structural induction/Fin.lastCases/Fin.addCases. Small
+erase_castSucc/erase_left/erase_right and mapChild_add_assoc lemmas remove
+all dependent child renaming; no whole-size embed needed. Use verified
+encode_trace and offset0 to get full typed Coherent over original syntax.
+
+For returns, prove getD of the Nat paidTargets at rank.val equals original
+(FieldReturns.targetAt p rank).val. Generic helper: (values.map Fin.val).getD
+i.val0=(values.get i).val for values:List(Fin n),i:Fin values.length, using
+List.getD_eq_getElem/List.getElem_map/List.get_eq_getElem (read-only search
+found them). This avoids Fin default/modulo. Combine checkReturns_sound
+with paidTargets_length to obtain every original paid rank's typed equation.
+Then FINAL concrete adapter binds Observation pairAt/command and Layout
+main/returned/entry/halt to original NumericLocal/LocalRules; original typed
+step should agree by definitions. Reuse old Coherent/makeCertificate and
+exact raw/fragment/count fidelity, no hidden premise. That concrete adapter
+needs full Data; generic source core should not. Then actual355load/445write/
+356move same-host total fidelity/checking/setup/audit/corruption pilot before
+original increasing substantial coverage and full machine proof.
+
+Same459,315prospective payoff, high proof/high effort; accepted769,344,
+target310,029/new full savings0; strongest source39,240states/78,480rows.
+GoalACTIVE, lastusage15%, no reset; frozen/remote/free/no-outreach fixed.
+No live research job remains after93terminal success. Previous goal turn
+PROGRESS (20root numeric representation implemented/proved/pushed). Current
+turn implements/proves29root numeric control, not smaller-scope completion.

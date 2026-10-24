@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40118884137,
+  "commit": "3f59f3756997c8f20af766317832b81d27e780a8",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": false,
+  "actual_rows": 0,
+  "negative_control": "kernel_rejected",
+  "diagnosis": "PASS numeric return/node/trace core29roots/2910dependencies, standard3axioms. Build5.269s peak2815746048bytes; private audit2.842s peak4539326464bytes; explicit false-rank kernel rejection4.761s. All20root NumericTree and original smoke pass, driver138.586s. Fin.val idxOf preservation, exact findTarget/targetAt rank correspondence, all6node/both-bit/five-store cases, trace and every paid return soundness proved over abstract observation/layout. No concrete original source transport, source-scaling or accepted machine credit. Next structural typed-source compatibility in small generic context, then concrete mapQ/address binding and actual355/445/356 same-host cost pilot.",
+  "new_accepted_machine": false
+}

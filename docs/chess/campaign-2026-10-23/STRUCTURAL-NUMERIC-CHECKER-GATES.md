@@ -1,7 +1,8 @@
 # Cache-free structural numeric checker: next bounded phase
 
 Status: decorated numeric serialization core IMPLEMENTED/VERIFIED in92.
-Numeric row checker/source transport/concrete scaling remain UNIMPLEMENTED. Target fully certified310,029; accepted769,344; accepted new
+Generic numeric return/node/trace checker VERIFIED in93. Original typed-source
+compatibility/concrete source transport/scaling remain UNIMPLEMENTED. Target fully certified310,029; accepted769,344; accepted new
 full-machine savings0. Candidate body114,487 replaces573,802: same459,315
 prospective payoff. Prior aggregate source39,240states/78,480rows.
 
@@ -106,3 +107,9 @@ N1remains open because return inverse/plain-node checker/trace soundness and
 unchanged SourceCertificate transport are not yet proved. N2-N4remain open.
 The complete original source count/root/trace and paid-target order now have
 generic fidelity proofs without per-cell observation caches; next use them.
+
+
+93closes numeric-control R1-R4:29roots prove exact natural return inverse and
+all-node/trace/paid-return checking over abstract observation/layout functions.
+N1still needs original typed-source compatibility and concrete SourceCertificate
+transport. N2-N4/source throughput/full-machine acceptance remain open.
