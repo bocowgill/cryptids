@@ -1,0 +1,11 @@
+{
+  "run_id": 40046430397,
+  "source": "7758f0d342a8d5ec4b57ac0d9fce4d48736a96d2",
+  "mode": "full",
+  "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-38",
+  "status": "dispatched",
+  "change": "Remove rejected local reducible attributes; check symbolic theorem and initial0/both bits with normal validation",
+  "resource_caps_changed": false,
+  "accepted_states": 769344,
+  "prospective_states": 310029
+}

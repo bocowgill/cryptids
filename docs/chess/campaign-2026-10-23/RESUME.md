@@ -362,3 +362,10 @@ command logs captured wrapped theorem errors, not attributes. Their measured
 memory stops and no-module/audit-credit status remain valid; they were not
 established source-error-free. Next same symbolic helper/entry/64pilot tests
 normal reducibility, with ordinary full-private audits. No new machine.
+
+Full remote run40046430397 at7758f0d dispatched after exact fork-head check.
+Retain certificate-38. Narrow removal of invalid local reducible attributes;
+all symbolic/initial/original sample/full-state gates and caps preserved. Lean
+source confirms attribute validation runs before environment modification.
+STRUCTURAL-TABLE-FALLBACK.md records a further unproved source-op finite-table
+reification route; no implementation or proof credit for that design.

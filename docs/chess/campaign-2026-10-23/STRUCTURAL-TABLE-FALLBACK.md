@@ -52,3 +52,34 @@ high proof difficulty); this fallback is a certificate dependency for that same
 saving (high proof difficulty, moderate-to-high implementation effort). Packet
 compression comes next only with fully paid decoder/control estimates. An entirely
 new interpreter has no defensible net estimate and remains lower priority.
+
+## Source-operation reification before graph serialization
+
+Further design only, unimplemented and unproved. Inspection of the frozen Op
+constructors shows their callbacks have finite5or25cell domains: write/pureLoad/
+branch/jump use5cells; load uses25. The original lower operation then expands
+these into many syntax nodes and ten-cell bit/store tables. Reifying the small
+callback tables first may avoid repeatedly evaluating original callbacks inside
+each lowered node proof.
+
+A candidate prerequisite is a universal finite-tabulation reconstruction theorem,
+then a typed raw operation representation with decode(encode op)=op for every
+constructor, including arbitrary callback values and labels. Check source-chunk
+reification against the frozen127operation chunks using named balanced-parent
+congruences; do not evaluate Snapshot.program independently for every numeric
+node. This would bind every callback cell to the exact original source.
+
+Next prove graph serialization commutes with decoding/reconstruction and lowering.
+Shape-only summaries can use the existing universal operation weights; actual
+write/load/branch/goto table values still need exact equality. Propose literal
+node, entry and return tables natively, but kernel-check their complete fidelity
+through those source-operation facts. Range proofs must prevent Fin.ofNat/modulo
+from concealing an out-of-range raw label or child. Preserve return-target order
+and all halt/missing transitions.
+
+This is a possible certificate format, not a new runtime interpreter and not a
+state-count result. Its purpose is to make the existing459315state quotient
+certifiable without millions of named transition proofs. Pilot one constructor
+family and source chunk with a corrupted callback cell before expanding. Existing
+60second helper and6GiB limits remain. A failed fidelity or scaling pilot must be
+recorded before a specific representation correction, not a budget increase.
