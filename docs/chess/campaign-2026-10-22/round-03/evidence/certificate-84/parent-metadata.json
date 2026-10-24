@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40093211672,
+  "commit": "6f1a0e9fd5f0b7f58aae0de3d8f7daf17199005e",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": true,
+  "actual_rows": 78480,
+  "negative_control": "kernel_rejected",
+  "diagnosis": "All4cache windows and World7root agreement/controls/kernel negative pass. FIRST complete SOURCE16:39240states/78480rows,108.433+3.443s,773roots/31627private deps, standard3axioms, audit peak5225627648bytes. SOURCE4 timesout210.105s atcompleted868records (next868started),4.033GB, no full module/audit. Global892.133s, not memory/global cap. Cannot credit quarter or claim source scaling. Host cache65k57.487vs prior105.401s prevents attributing source gain to cache alone. Profile source/count/main/return fields and same-host original-vs-cached checks before structural redesign. Accepted machine unchanged.",
+  "new_accepted_machine": false
+}

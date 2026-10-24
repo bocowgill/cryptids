@@ -15,7 +15,8 @@ def main():
     if os.environ.get('CHESS_REMOTE') != '1' or os.environ.get('GITHUB_ACTIONS') != 'true':
         raise SystemExit('Remote GitHub Actions execution required')
     parser = argparse.ArgumentParser()
-    parser.add_argument('--mode', choices=['smoke', 'full', 'source', 'cache', 'raw', 'local', 'lookup'],
+    parser.add_argument('--mode', choices=['smoke', 'full', 'source', 'cache', 'raw', 'local',
+                                         'lookup', 'profile'],
                         default='smoke')
     args = parser.parse_args()
     spec = importlib.util.spec_from_file_location('accepted_runner', ROOT / 'scripts/chess_field_reverse/verify.py')
@@ -51,7 +52,7 @@ def main():
                   'scripts/chess_body_20261022/source_chunk_pilot.py',
                   'scripts/chess_body_20261022/raw_chunk_pilot.py',
                   'scripts/chess_body_20261022/raw_complete_pilot.py']
-    if args.mode in ('local', 'lookup'):
+    if args.mode in ('local', 'lookup', 'profile'):
         paths += ['scripts/chess_body_20261022/observed_cache_pilot.py',
                   'scripts/chess_body_20261022/binary_observation_pilot.py',
                   'scripts/chess_body_20261022/prefix_scan_pilot.py',
@@ -66,6 +67,7 @@ def main():
                   'scripts/chess_body_20261022/fuel_lookup_pilot.py',
                   'scripts/chess_body_20261022/lookup_world_pilot.py',
                   'scripts/chess_body_20261022/cached_world_pilot.py',
+                  'scripts/chess_body_20261022/source_profile_pilot.py',
                   'scripts/chess_body_20261022/local_chunk_pilot.py',
                   'scripts/chess_body_20261022/source_scope_tools_pilot.py',
                   'scripts/chess_body_20261022/source_scope_pilot.py',
@@ -91,14 +93,17 @@ def main():
     raw = args.mode == 'raw'
     local = args.mode == 'local'
     lookup = args.mode == 'lookup'
+    profile = args.mode == 'profile'
     seconds = '180' if source or cache or raw else '300' if smoke else '1200'
-    expected = ('Numeric observation cache fidelity pilot passed' if lookup else
+    expected = ('Controlled source component profile passed' if profile else
+                'Numeric observation cache fidelity pilot passed' if lookup else
                 'Numeric source-local projection pilot passed' if local else
                 'Raw label pilot passed' if raw else 'Generic observed cache pilot passed' if cache else
                 'Finite source table pilot passed' if source else
                 'Body certificate compiled-audit smoke passed' if smoke else
                 'Bounded body kernel certificate pilot passed')
-    options = (['--lookup-cache-only'] if lookup else
+    options = (['--numeric-source-profile-only'] if profile else
+               ['--lookup-cache-only'] if lookup else
                ['--numeric-local-only'] if local else
                ['--raw-labels-only'] if raw else ['--observed-cache-only'] if cache else
                ['--source-tables-only'] if source else
@@ -109,12 +114,24 @@ def main():
                              options, expected,
                              timeout=int(seconds) + 60))
     detail = json.loads((WORK / 'certificate-summary.json').read_text())
-    assert detail['status'] == ('lookup_cache_passed' if lookup else
+    assert detail['status'] == ('source_profile_passed' if profile else
+                                'lookup_cache_passed' if lookup else
                                 'numeric_local_passed' if local else
                                 'raw_labels_passed' if raw else 'observed_cache_passed' if cache else
                                 'source_tables_passed' if source else
                                 'smoke_passed' if smoke else 'passed')
     assert detail['full_quotient_certified'] is False
+    if profile:
+        assert detail['source_component_profile_checked'] is True
+        assert detail['source_component_profile_proposed']['kernel_checked'] is True
+        assert detail['source_component_profile_proposed']['required_roots'] == 30
+        assert detail['source_component_profile_proposed'][
+            'substantial_source_scaling_established'] is False
+        assert detail['cache_world_source_checker_agreement_checked'] is True
+        assert detail['cache_world_actual_source_controls_checked'] is True
+        assert detail['cache_world_kernel_corruption_rejected'] is True
+        assert detail['source_component_timing']['events'] == 48
+        assert detail['new_accepted_machine'] is False
     if lookup:
         assert detail['complete_typed_candidate_data_checked'] is True
         assert detail['numeric_observation_cache_soundness_checked'] is True

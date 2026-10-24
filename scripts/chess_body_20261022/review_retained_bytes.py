@@ -44,6 +44,11 @@ def main():
         assert path.stat().st_size == stage['log_info']['bytes']
         assert digest(path) == stage['log_info']['sha256'], path.name
     proposal = summary.get('source_operation_proposal')
+    profile = summary.get('source_component_timing')
+    if profile:
+        path = unpacked / profile['path']
+        assert path.stat().st_size == profile['info']['bytes']
+        assert digest(path) == profile['info']['sha256']
     if proposal:
         path = unpacked / proposal['path']
         assert path.stat().st_size == proposal['info']['bytes']

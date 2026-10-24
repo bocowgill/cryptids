@@ -36,3 +36,9 @@ evidence and pins stay fixed. No outreach or bulk upstream migration.
 Numeric observation cache pilot76 is a dependency experiment only. Even complete
 lookup fidelity at65536addresses earns zero G4 source-row or G5/G6 machine credit.
 Local-mode1/16and1/4 source assertions and all completion requirements stay fixed.
+
+
+Latest84: SOURCE16complete39,240states/78,480rows,773root private audit passes.
+SOURCE4fails210s before full module/audit; no quarter scaling or full-machine
+credit. G4-G6/S8-S9 stay OPEN. See SOURCE-PROFILE-GATES.md for controlled
+same-host component diagnosis before structural redesign.

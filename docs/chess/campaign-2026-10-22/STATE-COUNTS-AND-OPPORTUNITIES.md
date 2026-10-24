@@ -363,3 +363,28 @@ Accepted769,344/target310,029/new accepted savings0; same459,315prospective
 state opportunity, high proof difficulty/moderate implementation effort.
 Generic21root progress is a dependency only. G4-G6/S8-S9 stay open. GoalACTIVE,
 all heavy work remote, frozen pins fixed, no outreach. Corrected84 next.
+
+
+Pilot84 retained/reviewed: FIRST complete SOURCE16 certificate/audit,39,240old
+states/78,480rows;108.433+3.443s,773roots/31,627deps, standard3axioms; audit
+peak5,225,627,648bytes. All4cache windows, World7root agreement and actual
+controls/fresh kernel negative pass. SOURCE4 stops at210.105s,4,032,585,728
+bytes after868total records,868next started;960target. No quarter module/audit.
+Driver892.133s: stage limit, NOT memory/global cap. S8/G4 remain incomplete.
+New accepted full-machine saving0; accepted769,344/target310,029 unchanged.
+
+Same65536cache57.487s here vs105.401s in83shows host variation, so do not
+attribute SOURCE16success to cache alone. New controlled component profile
+will compare actual source/count/main/return/whole proofs on same runner/data,
+labels445/476slowcases and356small control, reverse second-heavy comparison
+order,30roots/private audit and48durable timing events. Explicit profile mode
+earns no source-scaling/full-machine credit; local mode's original180/210s
+tiers remain unchanged. Profile stage120s, global1200s/6GiB, no cap increase.
+See SOURCE-PROFILE-GATES.md. This is diagnosis for structural redesign, NOT
+an unchanged retry of the failed quarter tier. Select a measured dominant
+category before implementing source reconstruction reuse/local cache views.
+
+Rank1same459,315prospective states, high proof/moderate implementation effort;
+no additive saving or credible full cost yet. New source16proof is substantive
+intermediate coverage, not acceptance. Frozen/remote/outreach/checkpoint rules
+fixed. Last usage12%; goalACTIVE, no reset.

@@ -74,3 +74,9 @@ Dedicated lookup mode checks128/8192/65536cached observation entries, counts,
 fallback semantics, corruption and foundations. Cache fidelity is not SourceRows
 coverage, so it cannot close S8 or S9. Require actual checker integration and
 the unchanged larger SOURCE tiers before claiming scalable full certification.
+
+
+Latest84: SOURCE16complete39,240states/78,480rows,773root private audit passes.
+SOURCE4fails210s before full module/audit; no quarter scaling or full-machine
+credit. G4-G6/S8-S9 stay OPEN. See SOURCE-PROFILE-GATES.md for controlled
+same-host component diagnosis before structural redesign.

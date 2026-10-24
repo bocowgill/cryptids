@@ -6,8 +6,9 @@ if os.environ.get('CHESS_REMOTE') != '1' or os.environ.get('GITHUB_ACTIONS') != 
     raise SystemExit('Remote GitHub Actions execution required before import')
 
 
-def run(driver, api, lookup_only=False):
-    driver.summary.update(classification='NUMERIC_SOURCE_LOCAL_INTERFACE_PILOT',
+def run(driver, api, lookup_only=False, profile_only=False):
+    driver.summary.update(classification=('CONTROLLED_SOURCE_COMPONENT_COST_PROFILE' if
+                                         profile_only else 'NUMERIC_SOURCE_LOCAL_INTERFACE_PILOT'),
                           numeric_local_interface_checked=False,
                           generic_all_paid_controls_checked=False,
                           complete_prefix_scan_checked=False)
@@ -126,6 +127,10 @@ def run(driver, api, lookup_only=False):
     driver.checkpoint()
     import cached_world_pilot
     cached_world_pilot.run(driver, api)
+    if profile_only:
+        import source_profile_pilot
+        source_profile_pilot.run(driver, api)
+        return
     inherited = {q: 'LocalChunk' for q in range(coverage['first_label'], coverage['end_label'])}
     import source_scope_pilot
     for divisor, seconds in [(16, 180), (4, 210)]:
