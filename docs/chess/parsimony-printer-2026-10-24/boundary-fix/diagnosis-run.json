@@ -1,0 +1,15 @@
+{
+  "run_id": 40138030294,
+  "source": "d72ac3da4dbf747d35e598a92d165ebc64d09105",
+  "artifact": "chess-parsimony-printer-d72ac3da4dbf747d35e598a92d165ebc64d09105",
+  "phase": "diagnose",
+  "status": "dispatched",
+  "driver_seconds": 60,
+  "group_plus_driver_gib": 6,
+  "driver_mib": 512,
+  "manual_dispatch_count": 1,
+  "failing_printer_transitions_unchanged": true,
+  "certification_started": false,
+  "accepted_machine_states": 769344,
+  "next": "Retain the exact trace and both simulator results before editing the diagnosed boundary."
+}
