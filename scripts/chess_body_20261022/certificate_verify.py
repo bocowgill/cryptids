@@ -57,7 +57,12 @@ def main():
                   'scripts/chess_body_20261022/prefix_scan_pilot.py',
                   'scripts/chess_body_20261022/numeric_local_pilot.py',
                   'scripts/chess_body_20261022/numeric_phase_pilot.py',
-                  'scripts/chess_body_20261022/local_rule_pilot.py']
+                  'scripts/chess_body_20261022/local_rule_pilot.py',
+                  'scripts/chess_body_20261022/local_chunk_pilot.py',
+                  'scripts/chess_body_20261022/source_table_pilot.py',
+                  'scripts/chess_body_20261022/source_chunk_pilot.py',
+                  'scripts/chess_body_20261022/raw_label_pilot.py',
+                  'scripts/chess_body_20261022/raw_chunk_pilot.py']
     manifest = dict(commit=os.environ.get('GITHUB_SHA'), run_id=os.environ.get('GITHUB_RUN_ID'),
                     workflow_commit=os.environ.get('GITHUB_SHA'),
                     source_sha256={p: runner.sha(ROOT / p) for p in paths},
@@ -110,7 +115,12 @@ def main():
         assert detail['source_local_rule_soundness_checked'] is True
         assert detail['complete_prefix_scan_checked'] is True
         assert detail['complete_typed_candidate_data_checked'] is True
-        assert detail['completed_positive_unique_rows'] == 0
+        assert detail['local_chunk_proposed']['kernel_checked'] is True
+        assert detail['local_chunk_kernel_corruption_rejected'] is True
+        assert detail['negative_control']['status'] == 'kernel_rejected'
+        assert detail['completed_positive_unique_rows'] == detail['local_chunk_proposed'][
+            'finite_row_domain']
+        assert detail['completed_positive_unique_rows'] > 0
     if raw:
         assert detail['raw_label_decoder_checked'] is True
         assert detail['raw_source_chunk_checked'] is True
@@ -121,7 +131,7 @@ def main():
         assert detail['completed_positive_unique_rows'] == 0
     (WORK / 'verification.json').write_text(json.dumps(dict(manifest, status='passed', checks=checks,
         mode=args.mode, detail=detail,
-        scope=('Numeric source-local interfaces with complete data; no actual closure or new machine'
+        scope=('One complete actual source-block row certificate; no full quotient or new machine'
                if local else
                'Complete raw source reconstruction, bounds and meaning; no quotient or new machine'
                if raw else

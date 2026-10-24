@@ -67,8 +67,11 @@ theorem step_word_sound (q : Fin 4042) (p : Syntax 4042)
         (slotIndex q p same left) value
       else BinaryObservationPilot.expected (returns := 40461)
         FieldPacked.getter classMap quotient bit
-        (slotIndex q p same right) value) = _
-    cases table.read bit value
+        (slotIndex q p same right) value) =
+      if table.read bit value then
+        rowWord (mainAddress (nodePrefixes.lookup q.val 0 + left.val) value) bit
+      else rowWord (mainAddress (nodePrefixes.lookup q.val 0 + right.val) value) bit
+    cases table.read bit value <;> simp only [Bool.false_eq_true, ↓reduceIte]
     · exact expected_slot_word q p same right bit value
     · exact expected_slot_word q p same left bit value
   | goto table => exact entry_result_word (table.read bit value) value bit
@@ -212,7 +215,8 @@ end LocalRulePilot
 
 def generate(driver, header, audit_and_end, module):
     names = ['stepWord', 'Coherent', 'coherentDecidable', 'step_word_sound', 'coherent_sound',
-             'ReturnCoherent', 'returnCoherentDecidable', 'return_coherent_sound', 'local_cache_sound',
+             'ReturnCoherent', 'returnCoherentDecidable', 'return_coherent_sound',
+             'local_cache_sound',
              'main_rows_local', 'return_rows_local']
     driver.emit('LocalRules.lean', header([module + '.NumericLocal']) + SOURCE + audit_and_end(
         driver, 'LocalRules', ['LocalRulePilot.' + name for name in names],

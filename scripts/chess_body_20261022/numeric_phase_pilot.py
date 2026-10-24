@@ -53,6 +53,36 @@ def run(driver, api):
     driver.run('LocalRules', 60,
                'Finite numeric local checks imply exact main and paid-return equations')
     driver.summary['source_local_rule_soundness_checked'] = True
+    driver.checkpoint()
+    import source_table_pilot
+    source_table_pilot.generate(driver, api.header, api.audit_and_end, api.MODULE)
+    driver.run('SourceTables', 60, 'Finite source-operation table reconstruction checked')
+    import raw_label_pilot
+    raw_label_pilot.generate(driver, api.header, api.audit_and_end, api.MODULE)
+    driver.run('RawLabels', 60, 'Raw labels decode exactly and reject out-of-range targets')
+    driver.summary['raw_label_decoder_checked'] = True
+    import source_chunk_pilot
+    source_chunk_pilot.generate_proposer(driver, api.header, api.MODULE, api.NS)
+    driver.run('SourceTableProposal', 60, 'Untrusted finite source operations exported')
+    import raw_chunk_pilot
+    raw_chunk_pilot.generate(driver, api.header, api.audit_and_end, api.MODULE)
+    driver.run('RawChunk', 60, 'Raw source chunk bounds and restoration checked')
+    driver.summary['raw_chunk_proposed']['kernel_checked'] = True
+    driver.summary['raw_source_chunk_checked'] = True
+    driver.checkpoint()
+    import local_chunk_pilot
+    local_chunk_pilot.generate(driver, api.SNAPSHOT, api.SNAPSHOT_SHA,
+                               api.header, api.audit_and_end, api.progress_marker,
+                               api.MODULE, api.NS)
+    driver.run('LocalChunk', 120, 'Complete actual source block main and return rows checked')
+    coverage = driver.summary['local_chunk_proposed']
+    coverage['kernel_checked'] = True
+    driver.summary.update(completed_positive_source_blocks=1,
+                          completed_positive_sample_states=coverage['finite_state_domain'],
+                          completed_positive_unique_rows=coverage['finite_row_domain'])
+    driver.checkpoint()
+    driver.run('LocalNegative', 45, negative=True)
+    driver.summary['local_chunk_kernel_corruption_rejected'] = True
     driver.summary.update(status='numeric_local_passed', numeric_local_interface_checked=True)
     driver.checkpoint()
     print('Numeric source-local projection pilot passed', flush=True)

@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40066089503,
+  "commit": "4f18cc552bd844d58b0fadd43af09e3ec31b1801",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": true,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "NumericLocal17root build/audit PASS against actual complete data;4.040s/2.926s audit, standard3axioms. LocalRules fails only step_word_sound branch cases because stepWord RHS remains folded when splitting table.read. Expose both RHS conditional branches before split, retain all11roots and60s/6GiB cap.3.732s/3191513088bytes no resource stop; no LocalRules module/audit or actual-row credit.",
+  "new_accepted_machine": false
+}

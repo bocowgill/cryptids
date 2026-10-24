@@ -156,3 +156,13 @@ These high-difficulty/moderate-effort dependencies share rank1's459315payoff,
 not additive savings. Actual local checker still pending; substantial paid-state
 coverage1/16and1/4is required before any credible full-runtime/memory estimate.
 Rank1remains structural certification of the measured quotient; no new count.
+
+Checkpoint66: same accepted769344breakdown, target310029, new full-machine savings0.
+Complete raw source63, complete numeric prefix65, generic all-controls62 and actual
+data numeric facade66 PASS. The facade17roots builds4.040s/audits2.926s; local
+source-rule branch proof needs a diagnosed fold/unfold correction. The next
+bounded test covers an entire real source block and all paid return controls,
+with a kernel corruption control, then substantial1/16and1/4state coverage.
+Rank1same459315payoff, high proof difficulty; remaining implementation effort is
+local checker/coverage assembly plus full-machine linkage. Small helper successes
+are proof dependencies, not extra savings. Still no credible complete-cost estimate.

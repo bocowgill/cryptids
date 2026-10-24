@@ -784,3 +784,24 @@ the current source operation, enabling meaningful partial actual-body coverage.
 It is UNVERIFIED. First real chunk/corruption/scaling pilots must follow its
 successful build/audit. No resource cap changes, frozen edits, outreach or
 accepted machine savings. Target310029stillprospective; accepted769344.
+
+Numeric66 retained/reviewed: NumericLocal17roots/22620dependencies PASS4.040s
+build +2.926s full-private audit, peak5054083072bytes, standard3axioms. All numeric
+observation/lookup/return projections now certified against full Q/classMap.
+LocalRules fails ONLY the branch case in step_word_sound: stepWord RHS stays
+folded when splitting table.read; expose its conditional before the split.
+3.732s/3191513088bytes, no resource stop. Other local declarations, including
+source-local induction and actual main/return RowAt transport, report no errors;
+no whole LocalRules module/audit credit yet. Keep11explicit roots and60s cap.
+
+Next local-mode source also gates a complete actual source-block pilot after
+LocalRules. local_chunk_pilot.py selects32consecutive actual operations containing
+a literal write, checks source fidelity, every local slot/both bits/all5stores,
+all paid returns, individual sizes and aggregate state/row domain census. It
+requires fresh raw-source callback/range fixtures and a wrong-return-rank fixture.
+LocalNegative must submit the checked anchor proof against the successor of its
+actual Nat row word, reaching explicit KERNEL TYPE MISMATCH; resource/source
+failures cannot count as a negative success.120s actual-block+audit and45s
+negative budgets are the existing first-row/negative tier limits;1200s total,
+6GiB normal cap unchanged. No new test has yet run. Numerical domain proposals
+receive no credit before all required row/census/audit roots pass. G4/G5/G6open.

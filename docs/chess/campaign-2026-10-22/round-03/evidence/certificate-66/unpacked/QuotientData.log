@@ -1,0 +1,5 @@
+ℹ [3255/3256] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.Loaders
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/Loaders.lean:47:0: Body certificate loaders checked
+ℹ [3256/3256] Built Cryptids.Chess.Optimisation.BodyCertificatePilot.QuotientData (35s)
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/QuotientData.lean:1674:0: Complete body quotient rows loaded
+Build completed successfully (3256 jobs).
