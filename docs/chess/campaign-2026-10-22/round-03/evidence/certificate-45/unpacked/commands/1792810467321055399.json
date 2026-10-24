@@ -1,0 +1,24 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_body_20261022/certificate_pilot.py",
+    "--lakefile",
+    "lakefile.chess-body-certificate-20261022.toml",
+    "--output",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-body-certificate-20261022",
+    "--seconds",
+    "180",
+    "--memory-gib",
+    "6",
+    "--source-tables-only"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "Bounded body kernel certificate pilot stopped: SourceTableProposal: Lean source/proof failure; inspect retained log\n",
+  "output_sha256": "9973a0eae25f2b595b27ee45cf70db5df913315a9227a8c565313d64d10d1782",
+  "timed_out": false,
+  "timeout_seconds": 240,
+  "elapsed_seconds": 32.159316399999966,
+  "cumulative_children_peak_rss_kib": 3532292
+}

@@ -29,8 +29,8 @@ Cumulative accepted saving2135279; latest accepted saving228832.
 
 The finite pilot's114487-state quotient replaces the573802-state body. Counts
 include every main/return/halt control. Its459315saving is still prospective,
-since no actual-body quotient transition row has passed its complete proof/audit
-stage. Same-node store339898, cross-main86900, return31317 and cross-family1200
+because the universal actual-body relation remains unproved. The original
+64-state sample now passes its proof and full-private audit (128 rows). Same-node store339898, cross-main86900, return31317 and cross-family1200
 are diagnostics within that same partition, not independent reductions.
 
 ## New certificate progress, separated from machine savings
@@ -117,3 +117,12 @@ first. Shared packed binary-cache/source-table/forward-return certificates are
 high-difficulty/high-effort dependencies for that same saving, not additive
 opportunities. A focused source-table proof mode will measure the next format
 kernel; old modes, full-machine acceptance requirements and limits stay fixed.
+
+Checkpoint44: finite typed source-operation reconstruction and13root full-private
+audit pass in42and44. The first native source-chunk proposer in44aborts because
+Snapshot.entries IR is unavailable. A documented meta-import correction is now
+being tested in45; no source-chunk acceptance yet. Original64row positive/audit
+passes in40/41; corrected negative/larger-sample run43 is pending. Accepted full
+count769344 and every paid component above are unchanged. Priority1remains the
+whole-body quotient459315. Complete finite source tables and packed cache are
+proof dependencies for it, high difficulty/effort, and earn no additive saving.

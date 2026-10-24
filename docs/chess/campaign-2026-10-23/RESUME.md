@@ -480,3 +480,10 @@ chunk credit. Lean4.35 Environment import documentation confirms meta import
 loads transitive IR; change only proposer SourceTables import to public meta.
 Existing frozen definitions, proofs, native-untrusted boundary and caps fixed.
 Full40055408911 is still independent; retain43 on completion.
+
+SOURCE run40055883230 atffa2672 retained/reviewed45. Generic proof/audit pass;
+proposer5.777s source failure: ordinary encode cannot access meta-imported
+Dir.left. IR issue is replaced by an explicit Lean phase error. Place only the
+untrusted proposal module in public meta section, matching its native-only role.
+No chunk proof credit, no resource stop, no limit changes. Complete-source
+producer is drafted as unexecuted text only, unwired; firstchunk R3still gates it.

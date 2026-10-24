@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40055883230,
+  "commit": "ffa26727cd19fb94bfb1c31eb97e3e563b978f16",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": false,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "Generic source proofs and audit pass. Meta import exposes IR but ordinary encode definition cannot access meta-imported Dir.left; proposer compile failure in5.777s, no resource stop. Put the entire untrusted proposal module in public meta section. No source chunk attempted or credited.",
+  "new_accepted_machine": false
+}
