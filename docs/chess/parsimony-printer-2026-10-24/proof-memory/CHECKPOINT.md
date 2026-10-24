@@ -4,7 +4,10 @@ Only this bounded memory experiment is authorized. The older goal stays paused;
 heavy work stays remote, accepted/frozen pins stay fixed and outreach stays held.
 The workflow is now manual-only with explicit phase `memory`. Launch no automatic
 research continuation after this phase. See GATES.md for predeclared caps and
-decision criteria. No remote job has yet been launched for this phase.
+decision criteria. Iteration 1 is dispatched as run **40143132066**, exact producer
+`5e978b16ee8269943ef4e9999b6f34cafc965801`, phase `memory`. Its fork push exited
+zero and the remote ref was verified before dispatch. Inspect this run before
+launching anything else; do not duplicate it. Results are pending.
 
 Accepted machine: **769,344 states** at
 `100ed947d612079dc454070189e506efc2b7a780`. Experimental candidate: **609,247**,
