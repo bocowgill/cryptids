@@ -2,12 +2,13 @@
   "run_id": 40062813797,
   "source": "ccc66fb645cd72acdc1a40fc22d4ed78a2a5a799",
   "mode": "raw",
-  "status": "remote_running",
+  "status": "source_proof_failure",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-57",
   "roots": 24,
   "memory_gib": 6,
   "component_seconds": 60,
   "accepted_states": 769344,
   "target_states": 310029,
-  "new_accepted_machine": false
+  "new_accepted_machine": false,
+  "decision": "Correct definitional bind reduction and strict warnings; unchanged caps and obligations"
 }

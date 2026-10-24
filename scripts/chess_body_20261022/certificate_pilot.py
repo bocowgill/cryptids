@@ -1471,6 +1471,7 @@ def main():
         if args.raw_labels_only:
             driver.summary.update(classification="RAW_LABEL_DECODER_PILOT",
                                   raw_label_decoder_checked=False,
+                                  raw_source_chunk_checked=False,
                                   complete_opcode_snapshot_checked=False,
                                   graph_fidelity_checked=False)
             driver.emit("Audit.lean", AUDIT)
@@ -1483,8 +1484,18 @@ def main():
                        "Finite source-operation table reconstruction checked")
             driver.run("RawLabels", 60,
                        "Raw labels decode exactly and reject out-of-range targets")
-            driver.summary.update(status="raw_labels_passed", raw_label_decoder_checked=True,
+            driver.summary.update(raw_label_decoder_checked=True,
                                   actual_frozen_source_operations_checked=2)
+            driver.checkpoint()
+            import source_chunk_pilot
+            source_chunk_pilot.generate_proposer(driver, header, MODULE, NS)
+            driver.run("SourceTableProposal", 60, "Untrusted finite source operations exported")
+            import raw_chunk_pilot
+            raw_chunk_pilot.generate(driver, header, audit_and_end, MODULE)
+            driver.run("RawChunk", 60, "Raw source chunk bounds and restoration checked")
+            driver.summary["raw_chunk_proposed"]["kernel_checked"] = True
+            driver.summary.update(status="raw_labels_passed", raw_source_chunk_checked=True,
+                                  actual_frozen_source_operations_checked=34)
             driver.checkpoint()
             driver.monitor_stop.set()
             signal.setitimer(signal.ITIMER_REAL, 0)

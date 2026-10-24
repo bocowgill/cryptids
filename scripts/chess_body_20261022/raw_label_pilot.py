@@ -37,7 +37,7 @@ def narrow (n value : Nat) : Option (Fin n) :=
 
 theorem narrow_val {n : Nat} (value : Fin n) : narrow n value.val = some value := by
   unfold narrow
-  rewrite [dif_pos value.isLt]
+  rewrite [dite_eq_left value.isLt]
   rfl
 
 theorem narrow_preserves_value {n value : Nat} (result : Fin n)
@@ -65,7 +65,7 @@ def narrow5 (n : Nat) (values : Vector Nat 5) : Option (Vector (Fin n) 5) := do
 
 theorem narrow5_erase {n : Nat} (values : Vector (Fin n) 5) :
     narrow5 n (Vector.ofFn fun i ↦ (values.get i).val) = some values := by
-  simp only [narrow5, table_vector_get_ofFn, narrow_val, Option.bind_some]
+  simp only [narrow5, table_vector_get_ofFn, narrow_val]
   exact congrArg some (vector5_eta values)
 
 def decode (n : Nat) : RawOp → Option (TableOp n)
@@ -80,7 +80,7 @@ def decode (n : Nat) : RawOp → Option (TableOp n)
   | .halt => some .halt
 
 theorem decode_erase {n : Nat} (op : TableOp n) : decode n (erase op) = some op := by
-  cases op <;> simp only [decode, erase, narrow_val, narrow5_erase, Option.bind_some]
+  cases op <;> simp only [decode, erase, narrow_val, narrow5_erase] <;> rfl
 
 theorem erase_injective {n : Nat} : Function.Injective (erase (n := n)) := by
   intro first second same

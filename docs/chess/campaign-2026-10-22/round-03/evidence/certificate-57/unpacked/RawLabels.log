@@ -1,0 +1,101 @@
+ℹ [3850/3851] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.SourceTables
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/SourceTables.lean:99:0: Finite source-operation table reconstruction checked
+✖ [3851/3851] Building Cryptids.Chess.Optimisation.BodyCertificatePilot.RawLabels (2.0s)
+trace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean -M6144 /home/runner/work/cryptids/cryptids/Cryptids/Chess/Optimisation/BodyCertificatePilot/RawLabels.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Chess/Optimisation/BodyCertificatePilot/RawLabels.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Chess/Optimisation/BodyCertificatePilot/RawLabels.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Chess/Optimisation/BodyCertificatePilot/RawLabels.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Chess/Optimisation/BodyCertificatePilot/RawLabels.setup.json --json
+warning: Cryptids/Chess/Optimisation/BodyCertificatePilot/RawLabels.lean:42:11: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: Cryptids/Chess/Optimisation/BodyCertificatePilot/RawLabels.lean:70:57: This simp argument is unused:
+  Option.bind_some
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [narrow5, table_vector_get_ofFn, narrow_val]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/RawLabels.lean:84:83: unsolved goals
+case move
+n : ℕ
+dir✝ : Dir
+next✝ : Fin n
+⊢ (do
+      let __do_lift ← some next✝
+      pure (TableOp.move dir✝ __do_lift)) =
+    some (TableOp.move dir✝ next✝)
+
+case write
+n : ℕ
+field✝ : Fin 4
+value✝ : Vector (Fin 5) 5
+next✝ : Fin n
+⊢ (do
+      let __do_lift ← some next✝
+      pure (TableOp.write field✝ value✝ __do_lift)) =
+    some (TableOp.write field✝ value✝ next✝)
+
+case load
+n : ℕ
+field✝ : Fin 4
+value✝ : Vector (Vector (Fin 5) 5) 5
+next✝ : Fin n
+⊢ (do
+      let __do_lift ← some next✝
+      pure (TableOp.load field✝ value✝ __do_lift)) =
+    some (TableOp.load field✝ value✝ next✝)
+
+case pureLoad
+n : ℕ
+value✝ : Vector (Fin 5) 5
+next✝ : Fin n
+⊢ (do
+      let __do_lift ← some next✝
+      pure (TableOp.pureLoad value✝ __do_lift)) =
+    some (TableOp.pureLoad value✝ next✝)
+
+case marker
+n : ℕ
+yes✝ no✝ : Fin n
+⊢ (do
+      let __do_lift ← some yes✝
+      let __do_lift_1 ← some no✝
+      pure (TableOp.marker __do_lift __do_lift_1)) =
+    some (TableOp.marker yes✝ no✝)
+
+case absent
+n : ℕ
+field✝ : Fin 4
+yes✝ no✝ : Fin n
+⊢ (do
+      let __do_lift ← some yes✝
+      let __do_lift_1 ← some no✝
+      pure (TableOp.absent field✝ __do_lift __do_lift_1)) =
+    some (TableOp.absent field✝ yes✝ no✝)
+
+case branch
+n : ℕ
+test✝ : Vector Bool 5
+yes✝ no✝ : Fin n
+⊢ (do
+      let __do_lift ← some yes✝
+      let __do_lift_1 ← some no✝
+      pure (TableOp.branch test✝ __do_lift __do_lift_1)) =
+    some (TableOp.branch test✝ yes✝ no✝)
+
+case jump
+n : ℕ
+target✝ : Vector (Fin n) 5
+⊢ (do
+      let __do_lift ← some target✝
+      pure (TableOp.jump __do_lift)) =
+    some (TableOp.jump target✝)
+warning: Cryptids/Chess/Optimisation/BodyCertificatePilot/RawLabels.lean:85:68: This simp argument is unused:
+  Option.bind_some
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [decode, erase, narrow_val, narrow5_erase]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/RawLabels.lean:144:0: Raw labels decode exactly and reject out-of-range targets
+Some required targets logged failures:
+- Cryptids.Chess.Optimisation.BodyCertificatePilot.RawLabels
+error: build failed

@@ -1,0 +1,239 @@
+{
+  "audit_execution": "compiled_lean_executable",
+  "audited_modules": [
+    {
+      "full_private_environment": true,
+      "module": "Cryptids.Chess.Optimisation.BodyCertificatePilot.SourceTables",
+      "required_roots": 13
+    }
+  ],
+  "auditor_executable": {
+    "info": {
+      "bytes": 118591176,
+      "sha256": "9d815f916dc156b36a44a967165e2d256e0459d97df27c5dd8621b6088e27eed"
+    },
+    "path": "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_body_certificate_audit",
+    "source": {
+      "bytes": 3029,
+      "sha256": "9d2a7db1fd5d82bbdadf4f6e0db0571af956741f42a89c3086c61414d52512df"
+    }
+  },
+  "classification": "RAW_LABEL_DECODER_PILOT",
+  "commit": "ccc66fb645cd72acdc1a40fc22d4ed78a2a5a799",
+  "complete_opcode_snapshot_checked": false,
+  "complete_typed_candidate_data_checked": false,
+  "completed_positive_sample_states": 0,
+  "completed_positive_unique_rows": 0,
+  "data_stage_group": {
+    "completed_stages": [],
+    "required_stages": [
+      "MapPrelude",
+      "MapCount",
+      "MapValid",
+      "MapBounded",
+      "MapChecks",
+      "QuotientChecks",
+      "Data",
+      "BodyRelation"
+    ],
+    "wall_seconds": 120
+  },
+  "driver_peak_rss_kib": 27092,
+  "driver_source": {
+    "bytes": 83945,
+    "sha256": "ee402c9fbe41e8e491f2473583548b519e75165962c6cf1b8ea31788f73333f9"
+  },
+  "elapsed_seconds": 38.70225507599997,
+  "full_quotient_certified": false,
+  "generated_files": {
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/Audit.lean": {
+      "bytes": 3029,
+      "sha256": "9d2a7db1fd5d82bbdadf4f6e0db0571af956741f42a89c3086c61414d52512df"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/RawLabels.lean": {
+      "bytes": 5848,
+      "sha256": "145dc892f4bd35454a56f137e4d52f78cbbdbc53d412923c2cf439ed7f9dc8e3"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/RawLabels.roots": {
+      "bytes": 1614,
+      "sha256": "dcca926ef88e0cb72cf67a5caebe52ad6da429960b50f89bce7d4a8b51b9e7b1"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/SourceTables.lean": {
+      "bytes": 4053,
+      "sha256": "69174447f1c688054128a4ba3d9989229448f3afb023788a29df027df2a028de"
+    },
+    "Cryptids/Chess/Optimisation/BodyCertificatePilot/SourceTables.roots": {
+      "bytes": 740,
+      "sha256": "407745710ead534e6204de907d65342266c4ac807e2f330de735a9dc03cf809d"
+    }
+  },
+  "graph_fidelity_checked": false,
+  "limits": {
+    "address_space_limit": null,
+    "audit_allocator_limit_bytes": null,
+    "driver_rss_bytes": 536870912,
+    "memory_enforcement": "sampled resident memory",
+    "process_group_rss_bytes": 6442450944,
+    "rss_sampling_seconds": 0.1,
+    "wall_seconds": 180
+  },
+  "map_invariant_proof": "single_pass_checked_count_cache_range",
+  "map_native_code_generation": false,
+  "map_representation": "named_literal_nat_midpoint_subtrees_with_composed_kernel_proofs",
+  "negative_control": {
+    "status": "not_run"
+  },
+  "new_accepted_machine": false,
+  "obstruction": {
+    "later_stages_not_attempted": true,
+    "message": "RawLabels: Lean source/proof failure; inspect retained log",
+    "stage": "RawLabels",
+    "type": "RuntimeError"
+  },
+  "partial_certificate_only": true,
+  "quotient_representation": "packed_nat_pairs_executable_noinline_midpoint_subtrees",
+  "quotient_states": 114487,
+  "raw_label_decoder_checked": false,
+  "requested_sample_states": [],
+  "requested_scope": "raw_label_decoder_only",
+  "run_id": "40062813797",
+  "source_states": 573802,
+  "stage": "RawLabels",
+  "stages": [
+    {
+      "argv": [
+        "lake",
+        "--wfail",
+        "-f",
+        "lakefile.chess-body-certificate-20261022.toml",
+        "build",
+        "chess_body_certificate_audit"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "elapsed_seconds": 9.52851430200002,
+      "executable": {
+        "info": {
+          "bytes": 118591176,
+          "sha256": "9d815f916dc156b36a44a967165e2d256e0459d97df27c5dd8621b6088e27eed"
+        },
+        "path": "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_body_certificate_audit"
+      },
+      "exit": 0,
+      "expected_banner": "Build completed successfully",
+      "expected_banner_found": true,
+      "kind": "auditor_build",
+      "log": "AuditExecutable.log",
+      "log_info": {
+        "bytes": 256,
+        "sha256": "d809f98e7690b6350f6df0b74dfac651799c6383e056f28a92c82202782d1025"
+      },
+      "module": "Cryptids.Chess.Optimisation.BodyCertificatePilot.Audit",
+      "olean": {
+        "bytes": 341824,
+        "sha256": "8e6c81a2c9598c92344257a5f5665ce7c0083a980a21db2dc22b9e7f9c62bc47"
+      },
+      "peak_group_plus_driver_rss_bytes": 2465095680,
+      "resource_stop": null,
+      "shell": false,
+      "timeout_seconds": 120
+    },
+    {
+      "argv": [
+        "lake",
+        "--wfail",
+        "-f",
+        "lakefile.chess-body-certificate-20261022.toml",
+        "build",
+        "Cryptids.Chess.Optimisation.BodyCertificatePilot.SourceTables"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "elapsed_seconds": 11.250791929000002,
+      "exit": 0,
+      "expected_banner": "Finite source-operation table reconstruction checked",
+      "expected_banner_found": true,
+      "kind": "kernel_build",
+      "log": "SourceTables.log",
+      "log_info": {
+        "bytes": 265,
+        "sha256": "3e0fbbec8673f1095a1edaf2290bef9a5d93f62b00526b0fac7dc8b3ece142ff"
+      },
+      "module": "Cryptids.Chess.Optimisation.BodyCertificatePilot.SourceTables",
+      "olean": {
+        "bytes": 498016,
+        "sha256": "2d0a1af407948f34be82d4ab44be47ef8f559a8cabc252a0494513158013e734"
+      },
+      "peak_group_plus_driver_rss_bytes": 2754113536,
+      "resource_stop": null,
+      "shell": false,
+      "timeout_seconds": 60
+    },
+    {
+      "argv": [
+        "lake",
+        "--wfail",
+        "-f",
+        "lakefile.chess-body-certificate-20261022.toml",
+        "env",
+        "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_body_certificate_audit",
+        "Cryptids.Chess.Optimisation.BodyCertificatePilot.SourceTables",
+        "Cryptids/Chess/Optimisation/BodyCertificatePilot/SourceTables.roots",
+        "13"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "elapsed_seconds": 10.940682275999961,
+      "executable": {
+        "info": {
+          "bytes": 118591176,
+          "sha256": "9d815f916dc156b36a44a967165e2d256e0459d97df27c5dd8621b6088e27eed"
+        },
+        "path": "/home/runner/work/cryptids/cryptids/.lake/build/bin/chess_body_certificate_audit",
+        "source": {
+          "bytes": 3029,
+          "sha256": "9d2a7db1fd5d82bbdadf4f6e0db0571af956741f42a89c3086c61414d52512df"
+        }
+      },
+      "exit": 0,
+      "expected_banner": "Body full-private kernel root audit passed",
+      "expected_banner_found": true,
+      "kind": "full_private_audit",
+      "log": "SourceTablesAudit.log",
+      "log_info": {
+        "bytes": 217,
+        "sha256": "f061b41aad5517676b0d32bfe592acfb1f48c4c82243e9a50495bac21e162d38"
+      },
+      "module": "Cryptids.Chess.Optimisation.BodyCertificatePilot.SourceTables",
+      "peak_group_plus_driver_rss_bytes": 4482072576,
+      "resource_stop": null,
+      "shell": false,
+      "timeout_seconds": 48.743313957
+    },
+    {
+      "argv": [
+        "lake",
+        "--wfail",
+        "-f",
+        "lakefile.chess-body-certificate-20261022.toml",
+        "build",
+        "Cryptids.Chess.Optimisation.BodyCertificatePilot.RawLabels"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "elapsed_seconds": 6.68965263900003,
+      "exit": 1,
+      "expected_banner": "Raw labels decode exactly and reject out-of-range targets",
+      "expected_banner_found": true,
+      "kind": "kernel_build",
+      "log": "RawLabels.log",
+      "log_info": {
+        "bytes": 5089,
+        "sha256": "d1c61401d646e12a9829d65f14adc03debc88ca2c8916efeab48843eba82c38e"
+      },
+      "module": "Cryptids.Chess.Optimisation.BodyCertificatePilot.RawLabels",
+      "peak_group_plus_driver_rss_bytes": 2758234112,
+      "resource_stop": null,
+      "shell": false,
+      "timeout_seconds": 60
+    }
+  ],
+  "status": "failed",
+  "template_smoke_checked": false
+}

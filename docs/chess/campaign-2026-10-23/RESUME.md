@@ -671,3 +671,22 @@ Auto-smoke40062722201is unchanged regression from modeaddition; no machinecredit
 No other active proof trial or memory experiment. Next afterrawuniversalpass:
 complete32operation rawchunk256..287includingload285, explicit rawlabelbounds,
 restoration and callback/invalid-target controls. That producer notyetimplemented.
+
+## Raw-label pilot57 diagnosis and bounded correction
+
+Run40062813797 at ccc66fb645cd72acdc1a40fc22d4ed78a2a5a799 failed RawLabels
+with an unsolved do-notation bind reduction in decode_erase, unused
+Option.bind_some arguments, and deprecated dif_pos. SourceTables still passed.
+Retained certificate57 and byte/provenance review are complete. No decoder,
+full-source, actual-row, or machine credit follows. This was a source proof
+failure, not resource exhaustion. Replace the deprecated lemma, remove the unused
+simp arguments, and close definitionally equal residual binds with rfl.
+
+Next raw-mode trial also gates one complete32operation source chunk on a successful
+24root RawLabels audit. RawChunk uses only9small field/store-bound constants and
+Nat target labels. It must prove all raw labels bounded, exact frozen-source
+correspondence and restoration, and reject both a corrupted callback and an
+out-of-range target. All roots, strict warnings,60s component/180s total and6GiB
+limits remain. Native JSON is untrusted proposal data. No full source claim or
+actual quotient-row credit is permitted from this trial. Accepted769344;
+target310029; prospective saving459315; new accepted full-machine saving0.

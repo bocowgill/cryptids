@@ -40,3 +40,8 @@ all-state relation, both halting directions, exact310029allocation and final rev
 
 The independent observed-cache/source-slot theorem pilot proceeds separately.
 Raw source reconstruction is required before its actual decoded-source application.
+
+Pilot57 failed a residual definitional bind reduction and strict warnings;
+certificate57 retains the exact log. Correct those issues without changing caps
+or obligations. RawChunk is now wired after the decoder's successful audit and
+checks L3 in the same bounded remote trial. L1-L4 remain unchecked until evidence.

@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40062813797,
+  "commit": "ccc66fb645cd72acdc1a40fc22d4ed78a2a5a799",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": false,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "RawLabels source proof failure: do-notation binds remain after narrow-value simplification; Option.bind_some unused and dif_pos deprecated under strict warnings. No resource limit reached, no module/audit credit. Replace deprecated lemma, remove unused simp, close definitional bind reductions by rfl; retain all roots and caps.",
+  "new_accepted_machine": false
+}
