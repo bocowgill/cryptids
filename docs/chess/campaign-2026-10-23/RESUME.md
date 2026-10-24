@@ -1752,3 +1752,23 @@ heavy load355/write445/move356 on same host, include fidelity/setup/audit
 costs. No new implementation or proof of that design yet. Keep1200s/6GiB
 and all existing correctness/remote/frozen/outreach constraints. GoalACTIVE;
 lastusage15%, no reset. Accepted769,344/target310,029/new full savings0.
+
+
+New numeric_tree_pilot.py implements an UNVERIFIED decorated numeric syntax
+core: plain Nat child positions and fixed tables; fragment cached count/root,
+trace and ordered write targets; generic erasure/renaming and exact original
+Syntax count/root/trace/FieldReturns target-list/cardinality lemmas.20roots;
+actual-source row credit0. Explicit wrong-annotation Boolean control and fresh
+kernel false-annotation harness. No proof oracle/sorry/new axiom. Source/basic
+AST/symtable/template width inspection passed locally; NO local Lean execution.
+
+Bounded92tests core via existing manual smoke mode, immediately after template
+smoke (before old prefix helpers). New generic60s inclprivate audit, negative45s;
+original global300s/6GiB/Lean-M6144/driver512MiB unchanged. No workflow change/
+automatic extra run. See NUMERIC-TREE-GATES.md; T1-T3unmet untilremoteevidence.
+If core passes, implement numeric checker/return inverse/source transport and
+same-host actual355load/445write/356move comparison, then original substantial
+coverage; core alone does not close N1/N2/N3/N4 or machine gates. Same459,315
+prospective full-machine payoff, high proof/high effort; no additive saving.
+Accepted769,344/target310,029/new full savings0. Prior source39,240states/
+78,480rows. GoalACTIVE, lastusage15%, no reset. Frozen/remote/no-outreach fixed.

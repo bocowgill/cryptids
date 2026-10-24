@@ -37,6 +37,7 @@ def main():
              'scripts/chess_body_20261022/operation_weights_pilot.py',
              'scripts/chess_body_20261022/diagnostics_pilot.py',
              'scripts/chess_body_20261022/symbolic_transition_pilot.py',
+             'scripts/chess_body_20261022/numeric_tree_pilot.py',
              'scripts/chess_body_20261022/certificate_verify.py']
     if args.mode == 'source':
         paths += ['scripts/chess_body_20261022/source_table_pilot.py',
@@ -125,6 +126,12 @@ def main():
                                 'source_tables_passed' if source else
                                 'smoke_passed' if smoke else 'passed')
     assert detail['full_quotient_certified'] is False
+    if smoke:
+        assert detail['numeric_tree_core_checked'] is True
+        assert detail['numeric_tree_proposed']['required_roots'] == 20
+        assert detail['numeric_tree_proposed']['kernel_checked'] is True
+        assert detail['numeric_tree_kernel_corruption_rejected'] is True
+        assert detail['numeric_tree_proposed']['actual_source_rows_certified'] == 0
     if profile:
         assert detail['source_component_profile_checked'] is True
         assert detail['source_component_profile_proposed']['kernel_checked'] is True
