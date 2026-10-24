@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40041134597,
+  "commit": "260ec88dc065a2d5e7f1b7f18211b3ac44936634",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": true,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "Complete data and 12root ActualTools including bit decoding pass. Rows64 killed at6GiB after113.655s; no captured Lean errors, last row marker3781. First actual0 bits each take about9.3s after all auxiliary facts. No full sampled module/audit credit. Test rewrite instead of intermediate rw reflexivity probes, controlled Option.bind reduction and explicit final index congruence; same rows, claims and caps.",
+  "new_accepted_machine": false
+}

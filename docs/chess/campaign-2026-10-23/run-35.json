@@ -3,9 +3,11 @@
   "source": "260ec88dc065a2d5e7f1b7f18211b3ac44936634",
   "mode": "full",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-35",
-  "status": "dispatched",
+  "status": "retained_memory_obstruction",
   "change": "Checked bit decoding, numeric size transparency, explicit directions and default per-row heartbeat limit",
   "resource_caps_changed": false,
   "accepted_states": 769344,
-  "prospective_states": 310029
+  "prospective_states": 310029,
+  "diagnosis": "Rows64 process group exceeds6GiB at113.655s; no command proof errors; no full sampled audit",
+  "new_accepted_machine": false
 }

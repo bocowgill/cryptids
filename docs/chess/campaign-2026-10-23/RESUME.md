@@ -306,3 +306,20 @@ certificate-35. Corrects recorded row typing/bit decoding/direction/lint errors.
 Next result must distinguish full module and foundation-audit success from
 diagnostic markers. All original claims and time/memory caps fixed; per-row
 heartbeat override removed. Accepted769344, target310029; no new saving.
+
+
+Run40041134597 at260ec88 retained and byte-reviewed as certificate-35.
+Complete data passes. ActualTools12roots (including decode_bit0/1) passes
+5.460s build plus2.854s audit, standard3axioms only. Rows64 is killed by
+6GiB process-group memory cap after113.655s, peak6461485056bytes. Durable
+command log contains probe only, no captured proof errors; last marker row
+encoded3781 is diagnostic only. No complete module/audit or negative credit.
+Actual0bits each consume about9.3s after all252auxiliary facts; return-address
+setup still has5–8s gaps. Lean4.35 Init/Tactics.lean source confirms rw adds
+an automatic reducible-reflexivity attempt, while rewrite does not. Hypothesis:
+intermediate rw probes normalize closed compiler lookups before the supplied
+address certificates are applied. Next bounded correction uses rewrite for
+intermediate actual transitions, dsimp only[Option.bind], and exact congrArg
+for final index equality. Same64states/both bits, RowAt, default heartbeat
+limit and120s/6GiB caps; no unrelated source or frozen edits. Test this memory
+obstruction before the separate generic return-address speed pilot/fallback.

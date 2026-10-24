@@ -245,6 +245,10 @@ def generate_rows(driver, selected, snapshot, expected_sha, header, audit_and_en
         write, move, next_state = row
         return f'some (({write} : Fin 2), .{direction(move)}, ({next_state} : Fin 573802))'
 
+    def finish_index(write, move, proof):
+        return (f'  exact congrArg (fun next : Fin 573802 ↦\n'
+                f'    some (({write} : Fin 2), Dir.{direction(move)}, next)) {proof}')
+
     for q in sorted(plan['entry_labels']):
         node = entries[q]
         add(f'root_{q}', f'theorem root_{q} : syntax_{q}.root = slot_{node} := by rfl')
@@ -345,53 +349,57 @@ def generate_rows(driver, selected, snapshot, expected_sha, header, audit_and_en
             compiler = ('SelectiveBinary.compile FieldPacked.post\n'
                         '    FieldSelectiveLayout.returnAt FieldSelectiveLayout.findReturn')
             if state == 1:
-                source += ('  rw [← haltedMain_address]\n'
+                source += ('  rewrite [← haltedMain_address]\n'
                            f'  change ({compiler}).transition haltedMain {bit} = _\n'
                            '  unfold haltedMain\n'
-                           '  rw [SelectiveBinary.compile_main, post_halted]\n  rfl')
+                           '  rewrite [SelectiveBinary.compile_main, post_halted]\n  rfl')
             elif state < 533341:
                 node, store = plan['source_main'][state]
-                source += (f'  rw [← main_address_{node}_{store}]\n'
+                source += (f'  rewrite [← main_address_{node}_{store}]\n'
                            f'  change ({compiler}).transition\n'
                            f'    (mainIndex {node} {store}) {bit} = _\n'
                            '  unfold mainIndex\n'
-                           f'  rw [SelectiveBinary.compile_main, decode_bit_{bit},\n'
+                           f'  rewrite [SelectiveBinary.compile_main, decode_bit_{bit},\n'
                            f'    post_live, aux_{node}_{bit}_{store}]\n'
-                           '  simp only [Option.bind_some]\n')
+                           '  dsimp only [Option.bind]\n')
                 next_node, final_store, command, value = plan['facts'][node, bit, store]
                 if command == 'move':
                     source += (f'  change some (({bit} : Fin 2), Dir.{direction(value)},\n'
                                f'    mainIndex {next_node} {final_store}) = _\n'
-                               f'  rw [main_address_{next_node}_{final_store}]')
+                               + finish_index(bit, value,
+                                              f'main_address_{next_node}_{final_store}'))
                 elif next_node is None:
-                    source += '  rw [FieldSelectiveLayout.findReturn_halt]'
+                    source += '  rewrite [FieldSelectiveLayout.findReturn_halt]\n  rfl'
                 else:
                     q = bisect_right(offsets, next_node) - 1
                     rank = data['return_local_targets'][q].index(next_node - offsets[q])
-                    source += (f'  rw [← address_{next_node}, findReturn_syntax, find_{q}_{next_node}]\n'
+                    source += (f'  rewrite [← address_{next_node}, findReturn_syntax,\n'
+                               f'    find_{q}_{next_node}]\n'
                                f'  change some (({value} : Fin 2), Dir.right,\n'
                                f'    bounceIndex {q} syntax_{q} syntax_eq_{q}\n'
                                f'      rank_{q}_{rank} {final_store}) = _\n'
-                               f'  rw [bounce_address_{q}_{rank}_{final_store}]')
+                               + finish_index(value, 1,
+                                              f'bounce_address_{q}_{rank}_{final_store}'))
             elif state == 533341:
                 source += ('  have address : SelectiveBinary.bounceState (q := 533341)\n'
                            '      FieldSelectiveLayout.haltReturn = (533341 : Fin 573802) := rfl\n'
-                           '  rw [← address]\n'
+                           '  rewrite [← address]\n'
                            f'  change ({compiler}).transition\n'
                            f'    (SelectiveBinary.bounceState FieldSelectiveLayout.haltReturn) {bit} = _\n'
-                           '  rw [SelectiveBinary.compile_bounce, FieldSelectiveLayout.returnAt_halt 0]\n'
+                           '  rewrite [SelectiveBinary.compile_bounce,\n'
+                           '    FieldSelectiveLayout.returnAt_halt 0]\n'
                            f'  change some (({bit} : Fin 2), Dir.left, haltedMain) = _\n'
-                           '  rw [haltedMain_address]')
+                           + finish_index(bit, -1, 'haltedMain_address'))
             else:
                 q, rank, store, node = plan['source_return'][state]
-                source += (f'  rw [← bounce_address_{q}_{rank}_{store}]\n'
+                source += (f'  rewrite [← bounce_address_{q}_{rank}_{store}]\n'
                            f'  change ({compiler}).transition\n'
                            f'    (bounceIndex {q} syntax_{q} syntax_eq_{q} rank_{q}_{rank} {store})\n'
                            f'    {bit} = _\n  unfold bounceIndex\n'
-                           '  rw [SelectiveBinary.compile_bounce, returnAt_syntax,\n'
+                           '  rewrite [SelectiveBinary.compile_bounce, returnAt_syntax,\n'
                            f'    target_{q}_{rank}, address_{node}]\n'
                            f'  change some (({bit} : Fin 2), Dir.left, mainIndex {node} {store}) = _\n'
-                           f'  rw [main_address_{node}_{store}]')
+                           + finish_index(bit, -1, f'main_address_{node}_{store}'))
             add(f'actual_{state}_{bit}', source)
             marker(f'actual-{count}', 2 * state + bit)
             name = f'row_{count}_{state}_{bit}'
