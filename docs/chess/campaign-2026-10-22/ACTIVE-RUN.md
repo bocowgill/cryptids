@@ -85,3 +85,13 @@ Next: demand audited agreement, same-data8192comparison and kernel rejection;
 material speedup must then pass unchanged substantial SOURCE tiers, not merely
 cache samples. Otherwise reject fuel as scaling remedy and integrate the
 verified cache. No credible full-machine cost estimate yet.
+
+
+Corrected lookup81 dispatched: run40089492268, source
+8165f8b37accce8f543b96afb9a279c13c3694bc, mode lookup; retain certificate-81.
+Single explicit rfl correction, new comparison before unchanged65536tier.
+NEXT inspect exact generic/height/agreement proofs, same8192data baseline/fuel
+timing, audits and kernel negative. Do not restart a live job. If materially
+faster, integrate coefficient-parametric checks into original source recipe
+and run unchanged1/16and1/4SOURCE gates. No acceptance or cost projection from
+data-only samples. GoalACTIVE, all frozen/remote/outreach constraints fixed.
