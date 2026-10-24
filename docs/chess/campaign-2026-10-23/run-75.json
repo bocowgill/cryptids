@@ -2,7 +2,7 @@
   "run_id": 40080114913,
   "source": "cc92643ee6ae83389398c7a6543c6adf37ec03ee",
   "mode": "local",
-  "status": "remote_queued",
+  "status": "retained_reviewed_wall_obstruction",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-75",
   "correction": "One compact checked recipe replaces ten per-operation proof declarations and literal syntax; same SourceCertificate obligations",
   "required_new_generic_roots": 4,
@@ -22,5 +22,18 @@
   "memory_gib": 6,
   "accepted_states": 769344,
   "target_states": 310029,
-  "new_accepted_machine": false
+  "new_accepted_machine": false,
+  "recipe_generic_build_seconds": 4.251699168,
+  "recipe_generic_audit_seconds": 2.936807623,
+  "recipe_generic_roots": 4,
+  "recipe_generic_dependencies": 23032,
+  "recipe_controls_build_seconds": 5.964203369,
+  "recipe_controls_audit_seconds": 2.832379843,
+  "recipe_kernel_rejection_seconds": 4.248821715,
+  "scope16_wall_seconds": 180.072920315,
+  "scope16_peak_bytes": 4168212480,
+  "completed_records_before_stop": 442,
+  "completed_scope_modules": 0,
+  "quarter_attempted": false,
+  "decision": "Keep verified recipe constructor; reject packaging alone as scaling fix. Test checked numerical observation cache to amortize global map/Q lookups."
 }

@@ -1,0 +1,5 @@
+ℹ [3854/3858] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.ObservedCache
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/ObservedCache.lean:119:0: Generic observed cache and source-slot coverage checked
+ℹ [3858/3858] Built Cryptids.Chess.Optimisation.BodyCertificatePilot.BinaryObservation (1.0s)
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/BinaryObservation.lean:143:0: Local equations cover every paid binary control
+Build completed successfully (3858 jobs).

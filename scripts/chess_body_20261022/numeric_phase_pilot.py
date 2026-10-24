@@ -6,7 +6,7 @@ if os.environ.get('CHESS_REMOTE') != '1' or os.environ.get('GITHUB_ACTIONS') != 
     raise SystemExit('Remote GitHub Actions execution required before import')
 
 
-def run(driver, api):
+def run(driver, api, lookup_only=False):
     driver.summary.update(classification='NUMERIC_SOURCE_LOCAL_INTERFACE_PILOT',
                           numeric_local_interface_checked=False,
                           generic_all_paid_controls_checked=False,
@@ -48,6 +48,10 @@ def run(driver, api):
     driver.run('NumericLocal', 60, 'Numeric local projections preserve actual source observations')
     driver.summary['numeric_local_interface_checked'] = True
     driver.checkpoint()
+    if lookup_only:
+        import lookup_cache_pilot
+        lookup_cache_pilot.run(driver, api)
+        return
     import local_rule_pilot
     local_rule_pilot.generate(driver, api.header, api.audit_and_end, api.MODULE)
     driver.run('LocalRules', 60,

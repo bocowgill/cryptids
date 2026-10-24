@@ -15,7 +15,7 @@ def main():
     if os.environ.get('CHESS_REMOTE') != '1' or os.environ.get('GITHUB_ACTIONS') != 'true':
         raise SystemExit('Remote GitHub Actions execution required')
     parser = argparse.ArgumentParser()
-    parser.add_argument('--mode', choices=['smoke', 'full', 'source', 'cache', 'raw', 'local'],
+    parser.add_argument('--mode', choices=['smoke', 'full', 'source', 'cache', 'raw', 'local', 'lookup'],
                         default='smoke')
     args = parser.parse_args()
     spec = importlib.util.spec_from_file_location('accepted_runner', ROOT / 'scripts/chess_field_reverse/verify.py')
@@ -51,7 +51,7 @@ def main():
                   'scripts/chess_body_20261022/source_chunk_pilot.py',
                   'scripts/chess_body_20261022/raw_chunk_pilot.py',
                   'scripts/chess_body_20261022/raw_complete_pilot.py']
-    if args.mode == 'local':
+    if args.mode in ('local', 'lookup'):
         paths += ['scripts/chess_body_20261022/observed_cache_pilot.py',
                   'scripts/chess_body_20261022/binary_observation_pilot.py',
                   'scripts/chess_body_20261022/prefix_scan_pilot.py',
@@ -62,6 +62,7 @@ def main():
                   'scripts/chess_body_20261022/literal_syntax_pilot.py',
                   'scripts/chess_body_20261022/structural_check_pilot.py',
                   'scripts/chess_body_20261022/source_recipe_pilot.py',
+                  'scripts/chess_body_20261022/lookup_cache_pilot.py',
                   'scripts/chess_body_20261022/local_chunk_pilot.py',
                   'scripts/chess_body_20261022/source_scope_tools_pilot.py',
                   'scripts/chess_body_20261022/source_scope_pilot.py',
@@ -86,13 +87,16 @@ def main():
     cache = args.mode == 'cache'
     raw = args.mode == 'raw'
     local = args.mode == 'local'
+    lookup = args.mode == 'lookup'
     seconds = '180' if source or cache or raw else '300' if smoke else '1200'
-    expected = ('Numeric source-local projection pilot passed' if local else
+    expected = ('Numeric observation cache fidelity pilot passed' if lookup else
+                'Numeric source-local projection pilot passed' if local else
                 'Raw label pilot passed' if raw else 'Generic observed cache pilot passed' if cache else
                 'Finite source table pilot passed' if source else
                 'Body certificate compiled-audit smoke passed' if smoke else
                 'Bounded body kernel certificate pilot passed')
-    options = (['--numeric-local-only'] if local else
+    options = (['--lookup-cache-only'] if lookup else
+               ['--numeric-local-only'] if local else
                ['--raw-labels-only'] if raw else ['--observed-cache-only'] if cache else
                ['--source-tables-only'] if source else
                ['--smoke-only'] if smoke else [])
@@ -102,11 +106,24 @@ def main():
                              options, expected,
                              timeout=int(seconds) + 60))
     detail = json.loads((WORK / 'certificate-summary.json').read_text())
-    assert detail['status'] == ('numeric_local_passed' if local else
+    assert detail['status'] == ('lookup_cache_passed' if lookup else
+                                'numeric_local_passed' if local else
                                 'raw_labels_passed' if raw else 'observed_cache_passed' if cache else
                                 'source_tables_passed' if source else
                                 'smoke_passed' if smoke else 'passed')
     assert detail['full_quotient_certified'] is False
+    if lookup:
+        assert detail['complete_typed_candidate_data_checked'] is True
+        assert detail['numeric_observation_cache_soundness_checked'] is True
+        assert detail['numeric_lookup_cache_corruption_controls_checked'] is True
+        for entries in (128, 8192, 65536):
+            cache_scope = detail[f'lookup_cache_{entries}_proposed']
+            assert cache_scope['kernel_checked'] is True
+            assert cache_scope['entries'] == entries
+            assert cache_scope['source_rows_certified'] == 0
+        assert detail['completed_numeric_observation_entries'] == 65536
+        assert detail['completed_positive_unique_rows'] == 0
+        assert detail['new_accepted_machine'] is False
     if source:
         assert detail['complete_opcode_snapshot_checked'] is True
         assert detail['complete_source_proposed']['kernel_checked'] is True
@@ -144,7 +161,9 @@ def main():
         assert detail['completed_positive_unique_rows'] == 0
     (WORK / 'verification.json').write_text(json.dumps(dict(manifest, status='passed', checks=checks,
         mode=args.mode, detail=detail,
-        scope=('At least 1/16 and 1/4 of actual paid body; no full quotient or new machine'
+        scope=('Numerical cache lookup fidelity only; zero source row or new machine credit'
+               if lookup else
+               'At least 1/16 and 1/4 of actual paid body; no full quotient or new machine'
                if local else
                'Complete raw source reconstruction, bounds and meaning; no quotient or new machine'
                if raw else
@@ -154,7 +173,8 @@ def main():
                'no graph fidelity, quotient relation or accepted machine' if source else
                'Bounded concrete certificate pilot only; no complete quotient proof or accepted machine')),
         indent=2) + '\n')
-    print('Raw label verification passed' if raw else
+    print('Numeric observation cache verification passed' if lookup else
+          'Raw label verification passed' if raw else
           'Generic observed cache verification passed' if cache else
           'Finite source table verification passed' if source else
           'Bounded quotient certificate verification passed')

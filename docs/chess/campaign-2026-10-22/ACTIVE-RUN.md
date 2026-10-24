@@ -36,20 +36,21 @@ Pilot 74 is retained/reviewed. Generic structural theorem passes 5.783+3.550 s,
 Scope16 still stops at 180.109 s after329 records (peak4,430,049,280bytes).
 No larger module/audit, no quarter. Reject traversal alone as scaling solution.
 
-Current pilot75: run40080114913 at
-cc92643ee6ae83389398c7a6543c6adf37ec03ee (mode local; retain certificate-75).
-It uses compact Boolean source recipes: exact frozen raw-source
-equality + counts + all main and paid-return equations. Generic fromRaw must
-produce the SAME SourceCertificate. New operations use one checked record
-instead of ten separate concrete proof declarations and literal lowering.
-Every truth proof remains inside a fully audited record body. Old independent
-32-op block and roots stay required; new actual-write/count/false-Bool controls
-precede larger scopes. Scope4 reuses completed Scope16 records.
+Pilot75 retained/reviewed: compact recipes4roots/23,032deps pass, actual-write
+/count controls and fresh false-Bool rejection pass. Scope16 still times out
+180.073s at4,168,212,480bytes after442records; no larger module/audit/quarter.
+Reject packaging alone as scaling solution; retain verified generic constructor.
 
-Generic recipes/controls60 s each, fresh false-Bool rejection45 s; existing
-block120 and scopes180/210 s INCLUDING full audits; overall1200 s/6 GiB unchanged.
-No proof weakening or native oracle. New recipe interface UNVERIFIED pending
-remote checks. If insufficient, change lookup/batch representation, not loops.
+Next pilot76 tests numeric observation cache fidelity in dedicated lookup mode.
+One-pass validator checks classId/both Q words and every cached branch extent
+against actual map/Q data. Generic hybrid cache views must equal original
+functions on ALL addresses, including fallback. Data-only128/8192/65536-entry
+windows, exact counts/body range, corruptions and full-private audits.
+ZERO source-row/full-machine/state-saving credit from cache-only success.
+Local-mode1/16/1/4 source assertions remain intact. Generic interface unverified.
+Same6GiB/global1200s; data60s, fidelity60/120/180s, controls60s, negative45s.
+No permissions/resources purchase. Workflow choice edit triggers one automatic
+smoke too; monitor separately. See LOOKUP-CACHE-PLAN.md for integration gates.
 
 NEXT: require generic checker proof and private audit, then completed substantial
 coverage and resource evidence. Decide continue/redesign from those results.
@@ -59,4 +60,4 @@ global_rows_pilot.py and full_link_pilot.py retain an explicit all-source
 hypothesis and have no final-theorem credit.
 
 See ../campaign-2026-10-23/RESUME.md, GATES.md, STRUCTURAL-CHECKER-GATES.md,
-run-69.json through run-75.json and STATE-COUNTS-AND-OPPORTUNITIES.md. Last account usage 11%; no reset.
+run-69.json through run-76.json and STATE-COUNTS-AND-OPPORTUNITIES.md. Last account usage 11%; no reset.

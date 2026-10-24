@@ -1,0 +1,280 @@
+#!/usr/bin/env python3
+"""Remote-only numerical observation cache; this does not certify source rows."""
+import os
+
+if os.environ.get('CHESS_REMOTE') != '1' or os.environ.get('GITHUB_ACTIONS') != 'true':
+    raise SystemExit('Remote GitHub Actions execution required before import')
+
+
+SOURCE = r'''open ConjectureMachines.Optimisation
+open Chess.Optimisation NumericLocalPilot
+namespace LookupCachePilot
+set_option backward.isDefEq.respectTransparency false
+
+structure Cell where
+  classId : Nat
+  zeroWord : Nat
+  oneWord : Nat
+
+noncomputable def checkCell (address : Nat) (cell : Cell) : Bool :=
+  decide (mapTree.lookup address 0 = cell.classId) &&
+    decide (quotientTree.lookup cell.classId (0, 0) = (cell.zeroWord, cell.oneWord))
+
+theorem checkCell_sound (address : Nat) (cell : Cell)
+    (checked : checkCell address cell = true) :
+    mapTree.lookup address 0 = cell.classId ∧
+      quotientTree.lookup (mapTree.lookup address 0) (0, 0) = (cell.zeroWord, cell.oneWord) := by
+  have parts : decide (mapTree.lookup address 0 = cell.classId) = true ∧
+      decide (quotientTree.lookup cell.classId (0, 0) =
+        (cell.zeroWord, cell.oneWord)) = true := by
+    simpa only [checkCell, Bool.and_eq_true] using checked
+  have classes := of_decide_eq_true parts.1
+  refine ⟨classes, ?_⟩
+  rewrite [classes]
+  exact of_decide_eq_true parts.2
+
+noncomputable def validate : Balanced.RowTree Cell → Nat → Option Nat
+  | .empty, start => some start
+  | .leaf cell, start => if checkCell start cell then some (start + 1) else none
+  | .branch leftCount left right, start =>
+      match validate left start with
+      | none => none
+      | some middle => if middle = start + leftCount then validate right middle else none
+
+theorem leaf_checked (cell : Cell) (start finish : Nat)
+    (checked : validate (.leaf cell) start = some finish) :
+    checkCell start cell = true ∧ finish = start + 1 := by
+  by_cases good : checkCell start cell = true
+  · have same : start + 1 = finish :=
+      Option.some.inj (by simpa only [validate, ite_eq_left good] using checked)
+    exact ⟨good, same.symm⟩
+  · simp only [validate, ite_eq_right good, reduceCtorEq] at checked
+
+theorem branch_checked (leftCount : Nat) (left right : Balanced.RowTree Cell)
+    (start finish : Nat) (checked : validate (.branch leftCount left right) start =
+      some finish) :
+    ∃ middle, validate left start = some middle ∧ middle = start + leftCount ∧
+      validate right middle = some finish := by
+  cases leftScan : validate left start with
+  | none => simp only [validate, leftScan, reduceCtorEq] at checked
+  | some middle =>
+    by_cases splitAt : middle = start + leftCount
+    · exact ⟨middle, leftScan, splitAt,
+        by simpa only [validate, leftScan, ite_eq_left splitAt] using checked⟩
+    · simp only [validate, leftScan, ite_eq_right splitAt, reduceCtorEq] at checked
+
+theorem validate_extent (tree : Balanced.RowTree Cell) (start finish : Nat)
+    (checked : validate tree start = some finish) : finish = start + tree.count := by
+  induction tree generalizing start finish with
+  | empty =>
+    have same : start = finish := Option.some.inj checked
+    simpa only [Balanced.RowTree.count, Nat.add_zero] using same.symm
+  | leaf cell =>
+    simpa only [Balanced.RowTree.count] using (leaf_checked cell start finish checked).2
+  | branch leftCount left right ihLeft ihRight =>
+    obtain ⟨middle, leftScan, _splitAt, rightScan⟩ :=
+      branch_checked leftCount left right start finish checked
+    have first := ihLeft start middle leftScan
+    have last := ihRight middle finish rightScan
+    simpa only [Balanced.RowTree.count, Nat.add_assoc] using last.trans
+      (congrArg (fun n ↦ n + right.count) first)
+
+theorem lookup_sound (tree : Balanced.RowTree Cell) (start finish : Nat)
+    (checked : validate tree start = some finish) (i : Nat) (bound : i < finish - start)
+    (fallback : Cell) : checkCell (start + i) (tree.lookup i fallback) = true := by
+  induction tree generalizing start finish i with
+  | empty =>
+    have same : start = finish := Option.some.inj checked
+    omega
+  | leaf cell =>
+    have parts := leaf_checked cell start finish checked
+    have endAt := parts.2
+    have zeroIndex : i = 0 := by omega
+    subst i
+    simpa only [Balanced.RowTree.lookup, ↓reduceIte, Nat.add_zero] using parts.1
+  | branch leftCount left right ihLeft ihRight =>
+    obtain ⟨middle, leftScan, splitAt, rightScan⟩ :=
+      branch_checked leftCount left right start finish checked
+    by_cases before : i < leftCount
+    · have word := ihLeft start middle leftScan i (by omega)
+      simpa only [Balanced.RowTree.lookup, ite_eq_left before] using word
+    · have word := ihRight middle finish rightScan (i - leftCount) (by omega)
+      have address : middle + (i - leftCount) = start + i := by omega
+      simpa only [Balanced.RowTree.lookup, ite_eq_right before, address] using word
+
+def zeroCell : Cell := ⟨0, 0, 0⟩
+
+noncomputable def observedPair (address : Nat) : Nat × Nat :=
+  quotientTree.lookup (mapTree.lookup address 0) (0, 0)
+
+noncomputable def cachedClass (tree : Balanced.RowTree Cell) (start finish address : Nat) : Nat :=
+  if start ≤ address ∧ address < finish then (tree.lookup (address - start) zeroCell).classId
+  else mapTree.lookup address 0
+
+noncomputable def cachedPair (tree : Balanced.RowTree Cell) (start finish address : Nat) :
+    Nat × Nat :=
+  if start ≤ address ∧ address < finish then
+    let cell := tree.lookup (address - start) zeroCell
+    (cell.zeroWord, cell.oneWord)
+  else observedPair address
+
+theorem cachedClass_eq (tree : Balanced.RowTree Cell) (start finish : Nat)
+    (checked : validate tree start = some finish) (address : Nat) :
+    cachedClass tree start finish address = mapTree.lookup address 0 := by
+  by_cases inside : start ≤ address ∧ address < finish
+  · have selected := lookup_sound tree start finish checked (address - start) (by omega) zeroCell
+    have actual := checkCell_sound _ _ selected
+    have position : start + (address - start) = address := by omega
+    simpa only [cachedClass, ite_eq_left inside, position] using actual.1.symm
+  · simp only [cachedClass, ite_eq_right inside]
+
+theorem cachedPair_eq (tree : Balanced.RowTree Cell) (start finish : Nat)
+    (checked : validate tree start = some finish) (address : Nat) :
+    cachedPair tree start finish address = observedPair address := by
+  by_cases inside : start ≤ address ∧ address < finish
+  · have selected := lookup_sound tree start finish checked (address - start) (by omega) zeroCell
+    have actual := checkCell_sound _ _ selected
+    have position : start + (address - start) = address := by omega
+    simpa only [cachedPair, ite_eq_left inside, observedPair, position] using actual.2.symm
+  · simp only [cachedPair, ite_eq_right inside]
+
+end LookupCachePilot
+'''
+
+
+def generate_tools(driver, api):
+    names = ['Cell', 'checkCell', 'checkCell_sound', 'validate', 'leaf_checked',
+             'branch_checked', 'validate_extent', 'lookup_sound', 'zeroCell',
+             'observedPair', 'cachedClass', 'cachedPair', 'cachedClass_eq', 'cachedPair_eq']
+    driver.emit('LookupCache.lean', api.header([api.MODULE + '.NumericLocal']) + SOURCE +
+                api.audit_and_end(driver, 'LookupCache',
+                    ['LookupCachePilot.' + name for name in names],
+                    'Numeric observation cache preserves every lookup including fallback'))
+
+
+def generate_data(driver, api, count):
+    mapping = api.words(driver.args.input / 'class-map.u32le', api.N)
+    path = api.ROOT / api.PREFIX / 'quotient-packed.rows'
+    pairs = [tuple(map(int, line.split())) for line in path.read_text().splitlines()]
+    assert len(pairs) == api.K and 0 < count <= api.N
+    stem, namespace = f'LookupCache{count}', f'LookupCache{count}Pilot'
+    parts = [api.header([api.MODULE + '.LookupCache']),
+             'open LookupCachePilot\n' + f'namespace {namespace}\n']
+
+    def inline(first, size, depth):
+        pad = '  ' * depth
+        if size == 1:
+            cls = mapping[first]
+            a, b = pairs[cls]
+            return [pad + f'(.leaf ⟨{cls}, {a}, {b}⟩)']
+        half = size // 2
+        return ([pad + f'(.branch {half}'] + inline(first, half, depth + 1) +
+                inline(first + half, size - half, depth + 1) + [pad + ')'])
+
+    def tree(first, size):
+        name = f'cache_{first}_{size}'
+        if size <= 256:
+            body = '\n'.join(inline(first, size, 1))
+        else:
+            half = size // 2
+            left, right = tree(first, half), tree(first + half, size - half)
+            body = f'  .branch {half} {left} {right}'
+        parts.append(f'noncomputable def {name} : Balanced.RowTree Cell :=\n{body}\n')
+        return name
+
+    root = tree(0, count)
+    parts.append(f'noncomputable def cache : Balanced.RowTree Cell := {root}\n'
+                 f'end {namespace}\n')
+    driver.emit(stem + 'Data.lean', ''.join(parts) + api.audit_and_end(driver, stem + 'Data',
+                [namespace + '.cache'], f'Numeric observation cache data loaded: {count}'))
+    checked = api.header([api.MODULE + '.' + stem + 'Data']) + f'''open LookupCachePilot
+namespace {namespace}
+
+theorem checked : validate cache 0 = some {count} := by decide +kernel
+
+theorem count_exact : cache.count = {count} := by
+  have extent := validate_extent cache 0 {count} checked
+  simpa only [Nat.zero_add] using extent.symm
+
+theorem within_body : {count} ≤ 573802 := by decide +kernel
+
+theorem all_cached_classes (address : Nat) :
+    cachedClass cache 0 {count} address = mapTree.lookup address 0 :=
+  cachedClass_eq cache 0 {count} checked address
+
+theorem all_cached_words (address : Nat) :
+    cachedPair cache 0 {count} address = observedPair address :=
+  cachedPair_eq cache 0 {count} checked address
+
+end {namespace}
+'''
+    driver.emit(stem + '.lean', checked + api.audit_and_end(driver, stem,
+                [namespace + '.' + name for name in ['checked', 'count_exact',
+                 'within_body', 'all_cached_classes', 'all_cached_words']],
+                f'Numeric observation cache fidelity checked: {count}'))
+    cls, (a, b) = mapping[0], pairs[mapping[0]]
+    if count == 128:
+        controls = api.header([api.MODULE + '.' + stem]) + f'''open LookupCachePilot
+namespace LookupCacheControlsPilot
+theorem bad_class_rejected : checkCell 0 ⟨{cls + 1}, {a}, {b}⟩ = false := by
+  decide +kernel
+theorem bad_word_rejected : checkCell 0 ⟨{cls}, {a + 1}, {b}⟩ = false := by
+  decide +kernel
+end LookupCacheControlsPilot
+'''
+        driver.emit('LookupCacheControls.lean', controls + api.audit_and_end(driver,
+            'LookupCacheControls', ['LookupCacheControlsPilot.bad_class_rejected',
+             'LookupCacheControlsPilot.bad_word_rejected'], 'Cache class and word corruption rejected'))
+        negative = f'''module
+public import {api.MODULE}.{stem}
+public meta import Lean
+public meta section
+open Lean Elab Term Meta Command
+elab "submit_wrong_cache_extent" : command => do
+  liftTermElabM do
+    let name := `{api.NS}.{namespace}.checked
+    let info ← getConstInfo name
+    let equality ← whnf info.type
+    unless equality.isAppOfArity ``Eq 3 do throwError "Expected cache equality"
+    let args := equality.getAppArgs
+    let wrong := mkApp2 (Lean.mkConst ``Option.some [Level.zero])
+      (Lean.mkConst ``Nat) (mkNatLit {count + 1})
+    let proposition ← mkEq args[1]! wrong
+    Lean.addDecl (.thmDecl {{
+      name := `{api.NS}.deliberately_false_cache_extent
+      levelParams := []
+      type := proposition
+      value := Lean.mkConst name
+    }}) true
+submit_wrong_cache_extent
+'''
+        driver.emit('LookupCacheNegative.lean', negative)
+    driver.summary[f'lookup_cache_{count}_proposed'] = dict(
+        first_address=0, end_address=count, entries=count, fields_per_entry=3,
+        kernel_checked=False, source_rows_certified=0, new_accepted_machine=False)
+    driver.checkpoint()
+
+
+def run(driver, api):
+    driver.summary.update(classification='NUMERIC_OBSERVATION_CACHE_FIDELITY_PILOT',
+                          numeric_lookup_cache_only=True,
+                          completed_numeric_observation_entries=0)
+    generate_tools(driver, api)
+    driver.run('LookupCache', 60,
+               'Numeric observation cache preserves every lookup including fallback')
+    driver.summary['numeric_observation_cache_soundness_checked'] = True
+    for count, seconds in [(128, 60), (8192, 120), (65536, 180)]:
+        generate_data(driver, api, count)
+        stem = f'LookupCache{count}'
+        driver.run(stem + 'Data', 60, f'Numeric observation cache data loaded: {count}')
+        driver.run(stem, seconds, f'Numeric observation cache fidelity checked: {count}')
+        driver.summary[f'lookup_cache_{count}_proposed']['kernel_checked'] = True
+        driver.summary['completed_numeric_observation_entries'] = count
+        driver.checkpoint()
+        if count == 128:
+            driver.run('LookupCacheControls', 60, 'Cache class and word corruption rejected')
+            driver.run('LookupCacheNegative', 45, negative=True)
+            driver.summary['numeric_lookup_cache_corruption_controls_checked'] = True
+    driver.summary.update(status='lookup_cache_passed')
+    driver.checkpoint()
+    print('Numeric observation cache fidelity pilot passed', flush=True)

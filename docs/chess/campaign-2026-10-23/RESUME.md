@@ -1065,3 +1065,26 @@ NEXT: inspect SourceRecipes proof/audit, real source-write/count controls and
 fresh RecipeNegative kernel rejection, then complete LocalScope16/4 modules
 and audits. No credit from source markers or helper-only success. Do not
 restart a live job. Frozen references and accepted sources remain unchanged.
+
+
+### Pilot75: compact certificate verified, global lookup cost still blocks scale
+
+Run40080114913 at cc92643ee6ae83389398c7a6543c6adf37ec03ee is retained and
+reviewed as certificate75. SourceRecipes4roots/23,032deps pass4.252+2.937s.
+Real source-write/count controls pass5.964+2.832s; false-Bool kernel rejection
+4.249s. Only standard axioms. Scope16 still times out180.073s below memory
+(peak4,168,212,480bytes) after442records. No complete larger module/audit or
+quarter. Decision: keep generic constructor, reject packaging alone as scaling
+fix. Accepted769,344 / target310,029 / prospective459,315 unchanged.
+
+Next pilot76 is a different numeric lookup representation; see
+LOOKUP-CACHE-PLAN.md. Dedicated lookup mode retains all local-mode source
+coverage assertions. It tests actual class/word-cache fidelity at128/8192/65536
+addresses, exact counts/body bounds, corruptions and full-private foundations.
+Cache-only success earns zero source rows and no new machine. Generic cache
+views must preserve every address including outside-window fallback. Full
+SourceRows integration and larger SOURCE gates remain required before scaling
+claims or acceptance. New helper/proofs are UNVERIFIED before remote tests.
+Same6GiB/1200s; no paid resources or new workflow permissions. Adding lookup
+choice also triggers the workflow's existing automatic smoke once; monitor
+that separate run and distinguish its artifact from lookup76.

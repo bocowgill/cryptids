@@ -247,3 +247,14 @@ block/roots stay required. Same6GiB/global1200/scope180/210budgets; full cost
 unknown until substantial completed modules/audits. If insufficient, next
 category is amortized numeric lookup or composable bounded proof batches,
 not another finite-loop/literalization tweak. Other opportunities unchanged.
+
+
+Checkpoint75/76: compact recipe theorem/controls pass, but no complete1/16
+certificate/audit (442records at180.073s); reject packaging alone as scaling
+fix. Rank1 remains459,315 prospective states, high proof difficulty/moderate
+implementation. Next amortized numeric cache certifies actual class/Q-word
+lookups once for reuse. Data-only128/8192/65536 pilot is explicitly separate
+from source coverage; zero actual SourceRows or state-saving credit until
+integrated and larger SOURCE gates pass. Same memory/global budgets.
+Accepted full breakdown769,344 unchanged; target310,029. Full cache footprint,
+reused-check benefit and complete cost remain unknown. Other rankings unchanged.

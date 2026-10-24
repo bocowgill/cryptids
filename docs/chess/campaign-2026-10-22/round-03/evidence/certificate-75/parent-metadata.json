@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40080114913,
+  "commit": "cc92643ee6ae83389398c7a6543c6adf37ec03ee",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": true,
+  "actual_rows": 4370,
+  "negative_control": "kernel_rejected",
+  "diagnosis": "SourceRecipes4roots/23032deps and controls pass4.252+2.937s and5.964+2.832s; false-Bool kernel rejection4.249s. Scope16 times out180.073s belowmemory4168212480bytes after442records. No complete larger module/audit/quarter. Reject packaging alone as scaling fix. Next bounded data-only cache tests certify map/Q observations once before reuse; no source-row credit for cache-only success.",
+  "new_accepted_machine": false
+}
