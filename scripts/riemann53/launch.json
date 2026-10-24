@@ -1,0 +1,17 @@
+{
+  "schema": "rh53-single-pilot-launch-v1",
+  "authorized_date": "2026-10-24",
+  "source_transport_commit": "e6dc1e9f8bcc9217824266ee46b9503aec6fd8a2",
+  "baseline_commit": "6c28d8524fa008c6fb5aadb759df74a55ce96423",
+  "repository": "bocowgill/cryptids",
+  "branch": "codex/riemann-reduction",
+  "operator": "redirect-40-ONE-to-68-delete-53-dense-relabel",
+  "maximum_jobs": 1,
+  "maximum_candidates": 1,
+  "total_seconds": 3180,
+  "aggregate_memory_bytes": 6442450944,
+  "driver_memory_bytes": 536870912,
+  "paid_resources": false,
+  "automatic_retry": false,
+  "chess_must_remain_paused": true
+}
