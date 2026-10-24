@@ -29,5 +29,52 @@
   "quarter_machine_certified": false,
   "substantial_source_scaling_established": false,
   "new_accepted_machine": false,
-  "decision_gate": "Only material same-host benefit permits integration and unchanged SOURCE16/4 tests; small case success is not machine or substantial scaling acceptance"
+  "decision_gate": "Only material same-host benefit permits integration and unchanged SOURCE16/4 tests; small case success is not machine or substantial scaling acceptance",
+  "accepted_components": {
+    "writer": 173642,
+    "structured_decoder": 21682,
+    "new_bridge": 1,
+    "seed_expander": 216,
+    "retained_bridge": 1,
+    "interpreter_main": 533341,
+    "interpreter_returns": 40461,
+    "total": 769344
+  },
+  "prospective_components": {
+    "writer": 173642,
+    "structured_decoder": 21682,
+    "new_bridge": 1,
+    "seed_expander": 216,
+    "retained_bridge": 1,
+    "combined_interpreter_quotient": 114487,
+    "total": 310029,
+    "accepted": false
+  },
+  "ranked_dependencies": [
+    {
+      "rank": 1,
+      "target": "Complete certified body quotient",
+      "prospective_absolute_full_machine_saving": 459315,
+      "proof_difficulty": "high",
+      "implementation_effort": "moderate",
+      "current_obstruction": "Quarter SOURCE tier times out210s; no accepted quotient yet"
+    },
+    {
+      "rank": 2,
+      "target": "Operation-local cached coefficients",
+      "payoff": "Unlocks same459315states; not additive",
+      "proof_difficulty": "moderate; universal generic correctness required",
+      "implementation_effort": "moderate",
+      "status": "Bounded same-host comparison live; requires substantial source tiers afterward"
+    },
+    {
+      "rank": 3,
+      "target": "Reuse source reconstruction/count facts",
+      "payoff": "Same quotient dependency; only~2-3% measured heavy-case proof work",
+      "proof_difficulty": "moderate",
+      "implementation_effort": "moderate",
+      "status": "Deprioritized by controlled profile85; main checks dominate"
+    }
+  ],
+  "component_provenance": "Accepted allocation from pinned100ed947; prospective allocation unchanged from full body quotient plan; these literals report existing counts, no local machine generation/counting."
 }
