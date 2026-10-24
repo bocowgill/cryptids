@@ -258,3 +258,13 @@ from source coverage; zero actual SourceRows or state-saving credit until
 integrated and larger SOURCE gates pass. Same memory/global budgets.
 Accepted full breakdown769,344 unchanged; target310,029. Full cache footprint,
 reused-check benefit and complete cost remain unknown. Other rankings unchanged.
+
+
+Checkpoint77/78: cache8192 fidelity/audits/controls pass, but65536 DATA loading
+fails60s before validation. Zero source-row/full-machine credit; accepted
+769,344 and target310,029 unchanged. Rank1 remains459,315 prospective states,
+high proof difficulty/moderate effort. Typed expression loading removes the
+measured per-cell text-elaboration category; bounded validation chunks compose
+the same exact cache predicate. Same caps and complete-source gates. This is
+a clearly identified dependency for reusable numeric observations; no additive
+state saving, no credible complete-machine cost estimate yet.

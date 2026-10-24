@@ -115,6 +115,7 @@ def main():
     if lookup:
         assert detail['complete_typed_candidate_data_checked'] is True
         assert detail['numeric_observation_cache_soundness_checked'] is True
+        assert detail['numeric_observation_cache_loader_checked'] is True
         assert detail['numeric_lookup_cache_corruption_controls_checked'] is True
         for entries in (128, 8192, 65536):
             cache_scope = detail[f'lookup_cache_{entries}_proposed']

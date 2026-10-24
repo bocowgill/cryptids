@@ -63,6 +63,12 @@ theorem branch_checked (leftCount : Nat) (left right : Balanced.RowTree Cell)
         by simpa only [validate, leftScan, ite_eq_left splitAt] using checked⟩
     · simp only [validate, leftScan, ite_eq_right splitAt, reduceCtorEq] at checked
 
+theorem validate_branch (leftCount : Nat) (left right : Balanced.RowTree Cell)
+    (start middle finish : Nat) (leftChecked : validate left start = some middle)
+    (middleAt : middle = start + leftCount) (rightChecked : validate right middle =
+      some finish) : validate (.branch leftCount left right) start = some finish := by
+  simpa only [validate, leftChecked, ite_eq_left middleAt] using rightChecked
+
 theorem validate_extent (tree : Balanced.RowTree Cell) (start finish : Nat)
     (checked : validate tree start = some finish) : finish = start + tree.count := by
   induction tree generalizing start finish with
@@ -144,12 +150,48 @@ end LookupCachePilot
 
 def generate_tools(driver, api):
     names = ['Cell', 'checkCell', 'checkCell_sound', 'validate', 'leaf_checked',
-             'branch_checked', 'validate_extent', 'lookup_sound', 'zeroCell',
+             'branch_checked', 'validate_branch', 'validate_extent', 'lookup_sound', 'zeroCell',
              'observedPair', 'cachedClass', 'cachedPair', 'cachedClass_eq', 'cachedPair_eq']
     driver.emit('LookupCache.lean', api.header([api.MODULE + '.NumericLocal']) + SOURCE +
                 api.audit_and_end(driver, 'LookupCache',
                     ['LookupCachePilot.' + name for name in names],
                     'Numeric observation cache preserves every lookup including fallback'))
+    loaders = f'''module
+public import {api.MODULE}.LookupCache
+
+meta section
+namespace {api.NS}.LookupCacheGenerator
+open Lean Elab Term Meta Command ConjectureMachines
+
+elab "load_observation_cache% " path:str : term <= expectedType? => do
+  let expected ← instantiateMVars expectedType?
+  unless expected.isAppOfArity ``Compilation.Balanced.RowTree 1 do
+    throwError "Expected observation tree"
+  let rowType := expected.getAppArgs[0]!
+  let cellName := ``{api.NS}.LookupCachePilot.Cell
+  unless rowType.isConstOf cellName do throwError "Expected observation cells"
+  let maker := Lean.mkConst
+    ``{api.NS}.LookupCachePilot.Cell.mk
+  let content ← liftM (m := IO) (IO.FS.readFile path.getString)
+  let mut entries : Array Expr := #[]
+  for raw in content.splitOn "\\n" do
+    let line := raw.trimAscii.toString
+    if !line.isEmpty then
+      match (line.splitOn " ").filter (fun cell ↦ !cell.isEmpty) with
+      | [classText, zeroText, oneText] =>
+          let some cls := classText.toNat? | throwError "Malformed class"
+          let some first := zeroText.toNat? | throwError "Malformed zero word"
+          let some second := oneText.toNat? | throwError "Malformed one word"
+          entries := entries.push (mkApp3 maker (mkNatLit cls) (mkNatLit first) (mkNatLit second))
+      | _ => throwError "Expected exactly three natural fields"
+  TableSyntax.balancedRowsExpr rowType entries 0 entries.size
+end {api.NS}.LookupCacheGenerator
+end
+set_option pp.proofs false in
+#print ConjectureMachines.Compilation.Balanced.RowTree.lookup
+run_cmd Lean.logInfo "Typed observation cache loader checked"
+'''
+    driver.emit('LookupCacheLoaders.lean', loaders)
 
 
 def generate_data(driver, api, count):
@@ -158,27 +200,28 @@ def generate_data(driver, api, count):
     pairs = [tuple(map(int, line.split())) for line in path.read_text().splitlines()]
     assert len(pairs) == api.K and 0 < count <= api.N
     stem, namespace = f'LookupCache{count}', f'LookupCache{count}Pilot'
-    parts = [api.header([api.MODULE + '.LookupCache']),
+    parts = [api.header([api.MODULE + '.LookupCacheLoaders']),
              'open LookupCachePilot\n' + f'namespace {namespace}\n']
-
-    def inline(first, size, depth):
-        pad = '  ' * depth
-        if size == 1:
-            cls = mapping[first]
-            a, b = pairs[cls]
-            return [pad + f'(.leaf ⟨{cls}, {a}, {b}⟩)']
-        half = size // 2
-        return ([pad + f'(.branch {half}'] + inline(first, half, depth + 1) +
-                inline(first + half, size - half, depth + 1) + [pad + ')'])
+    nodes = []
 
     def tree(first, size):
         name = f'cache_{first}_{size}'
         if size <= 256:
-            body = '\n'.join(inline(first, size, 1))
+            filename = f'lookup-cache-{count}-chunks/{first:06d}-{size:04d}.cache'
+            rows = []
+            for address in range(first, first + size):
+                cls = mapping[address]
+                a, b = pairs[cls]
+                rows.append(f'{cls} {a} {b}')
+            driver.emit(filename, '\n'.join(rows) + '\n')
+            body = f'  load_observation_cache%\n    "{api.PREFIX}/{filename}"'
+            nodes.append(dict(name=name, first=first, size=size, kind='chunk'))
         else:
             half = size // 2
             left, right = tree(first, half), tree(first + half, size - half)
             body = f'  .branch {half} {left} {right}'
+            nodes.append(dict(name=name, first=first, size=size, kind='branch',
+                              half=half, left=left, right=right))
         parts.append(f'noncomputable def {name} : Balanced.RowTree Cell :=\n{body}\n')
         return name
 
@@ -187,10 +230,22 @@ def generate_data(driver, api, count):
                  f'end {namespace}\n')
     driver.emit(stem + 'Data.lean', ''.join(parts) + api.audit_and_end(driver, stem + 'Data',
                 [namespace + '.cache'], f'Numeric observation cache data loaded: {count}'))
-    checked = api.header([api.MODULE + '.' + stem + 'Data']) + f'''open LookupCachePilot
-namespace {namespace}
-
-theorem checked : validate cache 0 = some {count} := by decide +kernel
+    proofs = []
+    for node in nodes:
+        first, size = node['first'], node['size']
+        declaration = f'checked_{first}_{size}'
+        proofs.append(f'theorem {declaration} : validate {node["name"]} {first} =\n'
+                      f'    some {first + size} := by\n')
+        if node['kind'] == 'chunk':
+            proofs.append('  decide +kernel\n')
+        else:
+            half, middle = node['half'], first + node['half']
+            proofs.append(f'  exact validate_branch {half} {node["left"]} {node["right"]}\n'
+                          f'    {first} {middle} {first + size}\n'
+                          f'    checked_{first}_{half} rfl checked_{middle}_{size - half}\n')
+    checked = (api.header([api.MODULE + '.' + stem + 'Data']) +
+               'open LookupCachePilot\n' + f'namespace {namespace}\n' + ''.join(proofs) + f'''
+theorem checked : validate cache 0 = some {count} := checked_0_{count}
 
 theorem count_exact : cache.count = {count} := by
   have extent := validate_extent cache 0 {count} checked
@@ -207,8 +262,10 @@ theorem all_cached_words (address : Nat) :
   cachedPair_eq cache 0 {count} checked address
 
 end {namespace}
-'''
+''')
     driver.emit(stem + '.lean', checked + api.audit_and_end(driver, stem,
+                [namespace + '.checked_' + str(node['first']) + '_' + str(node['size'])
+                 for node in nodes] +
                 [namespace + '.' + name for name in ['checked', 'count_exact',
                  'within_body', 'all_cached_classes', 'all_cached_words']],
                 f'Numeric observation cache fidelity checked: {count}'))
@@ -251,6 +308,9 @@ submit_wrong_cache_extent
         driver.emit('LookupCacheNegative.lean', negative)
     driver.summary[f'lookup_cache_{count}_proposed'] = dict(
         first_address=0, end_address=count, entries=count, fields_per_entry=3,
+        data_representation='typed expression loader, ordinary Cell/RowTree constructors',
+        validation_representation='composed independently checked chunks of at most 256 cells',
+        chunk_limit=256, required_chunk_and_branch_proofs=len(nodes),
         kernel_checked=False, source_rows_certified=0, new_accepted_machine=False)
     driver.checkpoint()
 
@@ -263,6 +323,9 @@ def run(driver, api):
     driver.run('LookupCache', 60,
                'Numeric observation cache preserves every lookup including fallback')
     driver.summary['numeric_observation_cache_soundness_checked'] = True
+    driver.checkpoint()
+    driver.run('LookupCacheLoaders', 60, 'Typed observation cache loader checked')
+    driver.summary['numeric_observation_cache_loader_checked'] = True
     for count, seconds in [(128, 60), (8192, 120), (65536, 180)]:
         generate_data(driver, api, count)
         stem = f'LookupCache{count}'

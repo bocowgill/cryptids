@@ -1,0 +1,24 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_body_20261022/certificate_pilot.py",
+    "--lakefile",
+    "lakefile.chess-body-certificate-20261022.toml",
+    "--output",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-body-certificate-20261022",
+    "--seconds",
+    "1200",
+    "--memory-gib",
+    "6",
+    "--lookup-cache-only"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "Bounded body kernel certificate pilot stopped: LookupCache65536Data: stage_wall_budget\n",
+  "output_sha256": "aae3d6a4310641fc9517052ed9bccb9bb61cd8c201c1a169343169a93e32bf12",
+  "timed_out": false,
+  "timeout_seconds": 1260,
+  "elapsed_seconds": 479.63174981400005,
+  "cumulative_children_peak_rss_kib": 4509716
+}

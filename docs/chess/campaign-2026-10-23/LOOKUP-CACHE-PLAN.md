@@ -49,3 +49,21 @@ This is a dependency for the same459,315-state full-body quotient payoff,
 not an additional state reduction. Full cache footprint, source-checker reuse
 benefit and full-machine cost are experimental and currently unproved. All
 heavy work remains on existing free GitHub-hosted runners; no outreach.
+
+
+## Outcome77 and corrected representation78
+
+Fourteen generic roots,128/8192 exact cache views, counts/body bounds/fallback,
+corruptions and private audits pass. 8192 data25.101+3.143s, fidelity17.420+3.450s,
+peak5,614,432,256bytes. 65536 data text elaboration exceeds60s before checking.
+Use typed expression loading and <=256-cell closed checks composed by the same
+validator's branch theorem. Audit all chunk/branch facts plus original final
+roots. Keep data/fidelity budgets unchanged. This is input/proof representation
+work for the same full-source objective; no source coverage is gained yet.
+
+Conditional follow-up: inspect retained #print lookup before choosing another
+indexing change. If it exposes a tree-below recursor, a fuel-indexed path
+getter is a bounded alternative to benchmark on the SAME8192expected cells.
+It requires a proved actual-tree height bound and universal equality with the
+original lookup, including fallback; height must be certified from named
+chunks, not assumed. Do not implement/promote this on speculation alone.

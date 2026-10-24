@@ -41,20 +41,20 @@ Pilot75 retained/reviewed: compact recipes4roots/23,032deps pass, actual-write
 180.073s at4,168,212,480bytes after442records; no larger module/audit/quarter.
 Reject packaging alone as scaling solution; retain verified generic constructor.
 
-Pilot76 retained/reviewed: generic cache proof fails5.262s at3,188,592,640bytes,
-no resource stop or data-window attempt. Case equation rewrites branch goal
-to reflexivity; one term corrected to rfl. Statements/checker/budgets unchanged.
-Companion smoke40082347435 passed and retained separately.
+Lookup77 retained/reviewed: generic14roots/3,837deps,128/8192 cache fidelity,
+counts/body bounds/fallback, corruptions and all private audits PASS. Only
+propext/Quot.sound. 8192 data25.101+3.143s, checker17.420+3.450s, checker peak
+5,614,432,256bytes. Cache65536 DATA text elaboration times out60.036s below
+memory3,774,545,920bytes, before checker. SourceRows/new-machine creditZERO.
 
-Current corrected pilot77: run40083300011 at
-0c9063bd353fde18db4b7c96bbb9ac30cdf3b2ec, mode lookup; retain certificate-77.
-It must prove14generic cache roots/private audit,
-then128/8192/65536-entry windows, exact counts/body range, actual class/word
-corruptions and fresh kernel rejection of wrong extent. Cache-only success
-earnsZERO source-row/full-machine/state-saving credit. Original source tiers
-and local verification assertions remain intact. Same6GiB/global1200s; data60s,
-fidelity60/120/180s, controls60s, negative45s. No new permission or paid resource.
-See LOOKUP-CACHE-PLAN.md for integration and full SOURCE acceptance gates.
+Next lookup78 replaces source-text cell elaboration with typed expression
+loading (ordinary kernel-checked data) and composes <=256-cell validation
+facts with new generic validate_branch root15. Every chunk/branch proof is
+an explicit audit root. Same validator/count/range/fallback/control obligations
+and same budgets: loader/data60s, fidelity60/120/180s including audits,
+controls60/negative45, global1200s and6GiB. No new permissions/resources.
+Read retained lookup #print diagnostic before further indexing hypotheses.
+Local SOURCE tiers/assertions stay intact; cache-only success cannot closeS8.
 
 NEXT: require generic checker proof and private audit, then completed substantial
 coverage and resource evidence. Decide continue/redesign from those results.
@@ -64,4 +64,4 @@ global_rows_pilot.py and full_link_pilot.py retain an explicit all-source
 hypothesis and have no final-theorem credit.
 
 See ../campaign-2026-10-23/RESUME.md, GATES.md, STRUCTURAL-CHECKER-GATES.md,
-run-69.json through run-77.json and STATE-COUNTS-AND-OPPORTUNITIES.md. Last account usage 11%; no reset.
+run-69.json through run-78.json and STATE-COUNTS-AND-OPPORTUNITIES.md. Last account usage 11%; no reset.

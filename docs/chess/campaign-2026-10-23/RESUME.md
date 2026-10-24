@@ -1120,3 +1120,33 @@ No new automatic smoke: workflow definition unchanged. NEXT inspect generic
 proof/audit and every data/fidelity/control stage; a live run must not be
 restarted. SourceRows integration/larger source gates remain open regardless
 of cache-only status. GoalACTIVE, accepted769,344 unchanged, no outreach.
+
+
+### Lookup77: generic/cache8192 certified; large data loading is the obstruction
+
+Run40083300011 at0c9063bd353fde18db4b7c96bbb9ac30cdf3b2ec is retained and
+byte/provenance reviewed as certificate77. Generic14roots/3,837deps pass
+5.470+3.445s, only propext/Quot.sound. Cache128 and8192 exact class/word/count/
+body-range/fallback statements and all private audits pass. Class/word
+corruptions and fresh wrong-extent kernel rejection pass. Cache8192 data
+25.101+3.143s, fidelity17.420+3.450s, checker peak5,614,432,256bytes.
+Cache65536Data hits60.036s wall at3,774,545,920bytes BEFORE its checker/audit.
+No cache65536 credit. No original source rows or new machine credit.
+
+Decision: REDESIGN data ingestion and proof assembly, not caps. The emitter
+currently elaborates every triple/branch from source text. Pilot78 instead
+uses an untrusted typed-expression loader, emitting ordinary Cell and RowTree
+constructors checked by the kernel. Existing map/Q data uses the same pattern.
+Closed <=256-cell validation facts are composed with a generic validate_branch
+theorem (15th audited root). All chunk AND branch proof roots are explicit;
+the same validate predicate, class/Q values, count/fallback/source-body bounds,
+corruption fixtures and source-row zero-credit rule remain. This bounds each
+normalization context;8192monolithic peak was already close to6GiB.
+
+No new permissions or time/memory increases: loader60s, data60s, fidelity
+60/120/180s INCLUDING audits, controls60/negative45, overall1200s and6GiB.
+Loader also retains #print of the original balanced lookup to identify its
+recursor structure; this diagnostic has no mathematical credit. Read that
+output before hypothesizing further indexing changes. Source checker integration
+and complete1/16and1/4 SOURCE coverage remain mandatory before a scaling or
+full-cost claim. G4-G6 and S8-S9 remain OPEN. Accepted769,344 unchanged.

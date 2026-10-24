@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40083300011,
+  "commit": "0c9063bd353fde18db4b7c96bbb9ac30cdf3b2ec",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": true,
+  "actual_rows": 0,
+  "negative_control": "kernel_rejected",
+  "diagnosis": "Generic14roots/3837deps passes5.470+3.445s onlypropext/Quot.sound. Cache128 and8192 fidelity/count/range/fallback audits pass; controls/kernel false extent pass. Cache8192 data25.101s+3.143audit, checker17.420s+3.450audit peak5614432256bytes. Cache65536Data text elaboration times out60.036s belowmemory3774545920bytes, before checker. Change input to typed expression loader; compose <=256-cell checked chunks to bound normalization memory. No SourceRows/new-machine credit.",
+  "new_accepted_machine": false
+}
