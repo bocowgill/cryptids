@@ -399,3 +399,29 @@ restart live run. Only material benefit permits substantial integration.
 Prior aggregate39,240states/78,480rows; accepted769,344/target310,029/new full
 savings0. Same459,315prospective payoff/high proof/moderate effort. GoalACTIVE;
 frozen3116pins and history fixed, outreach on hold, last usage13%, no reset.
+
+
+88terminalPASS retained/reviewed: run40107652971 at811ad59e. Generic11,
+family9 and profile63roots/27,288deps pass; standard3axioms,102ordered
+timing events. Driver889.455s. Heavy whole working1245/1268ms versus
+main-local1343/1317 and original2679/2646. Only4-7%additional gain; this
+alone does NOT justify more small cache variants or a full-scaling claim.
+
+Next89 tests compact quantified family on substantial SOURCE16/4. Keep all
+<=256cell validation/composition proofs and family Fidelity containing every
+validation/count/bound/class/word claim; eliminate individual count/word/class
+wrapper declarations. Retain ONE shared40461return cache to avoid thousands
+of duplicated tiny cache declarations for the modest4-7%gain. Same globally
+correct Window/list World and exact SourceCertificate constructor. Existing
+local source obligations/negative controls/private audit unchanged. Metadata
+now explicitly distinguishes universal preserved claims from individual old
+wrapper names (which are not retained). See COMPACT-FAMILY-GATES.md.
+
+All planned batch sources width-checked before batch proofs;128labels/
+16384maincells max; data60/fidelity120/sharedreturn180/source180/210s;
+global1200s/6GiB incldriver unchanged. If setup shrinks but quarter remains
+impractical, REDESIGN residual checker instead of unchanged retry/cap increase.
+No credible full-cost estimate yet. Prior source39,240states/78,480rows;
+accepted769,344/target310,029/new full savings0. Rank1same459,315potential
+saving, high proof/moderate effort. GoalACTIVE, lastusage13%, no reset;
+frozen3116pins fixed, allheavyremote/free runner, outreach on hold.

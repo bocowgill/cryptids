@@ -9,21 +9,21 @@ changes repeated certificate representation and residual return observations,
 not budgets. 86main-only views improve~21-24% over global caches, but full
 source scalability remains unproved. No unchanged87retry.
 
-- [ ] W1: Generic WorkingViews11roots/private audit pass. Window/list Boolean
+- [x] W1: Generic WorkingViews11roots/private audit pass. Window/list Boolean
   checking implies validation/count/body-bound/class/word properties for EVERY
   member. Overlay/list World equals actualWorld at EVERY Nat address and
   unchanged SourceCertificate construction is proved. Standard3axioms only.
-- [ ] W2: All proposed windows for445/476/356 are checked with ONE list truth
+- [x] W2: All proposed windows for445/476/356 are checked with ONE list truth
   and universal fidelity theorem per operation. Three9root aggregate receipts
   retain each mathematical field obligation; remove repeated per-window
   count/class/word theorem wrappers. Main/own return/outgoing entry/shared
   halt-return data all retained and audited.
-- [ ] W3: On one runner/data set compare original/global/main-only/working-set
+- [x] W3: On one runner/data set compare original/global/main-only/working-set
   main,return,whole proofs. Reverse second-heavy order. Kernel-check actual
   source labels, node/return counts, main offsets and return-prefix lookups.
   Required63profile roots/private audit,102ordered monotone timing events
   and all4exact SourceCertificates per operation.
-- [ ] W4: Decide continue/redesign/abandon from measured dominant costs. Only
+- [x] W4: Decide continue/redesign/abandon from measured dominant costs. Only
   material benefit permits substantial SOURCE16/4 integration. Their original
  180/210s and all domains/bit/store/paid-return/count/corruption/audits stay.
 
@@ -42,3 +42,9 @@ Rank1same459,315prospective full-machine saving, high proof/moderate effort.
 This representation unlocks same opportunity, not additive savings. Full cost
 unknown until substantial evidence. Frozen3116pins and historical evidence
 fixed; all heavy work remote on existing free runner; outreach on hold.
+
+Evidence88run40107652971 at811ad59e retained and metadata reviewed.
+All11/9/63roots/private audits pass;102ordered events. Profile dependencies
+27,288; standard3axioms; driver889.455s. Heavy whole1245/1268ms versus
+main-local1343/1317 and original2679/2646. Only4-7%extra gain; no substantial
+scaling or accepted savings. Continue ONLY setup-wrapper elimination trial89.

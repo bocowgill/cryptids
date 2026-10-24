@@ -1,0 +1,10 @@
+Chess.Optimisation.BodyCertificatePilot.mapAllBelow
+Chess.Optimisation.BodyCertificatePilot.lookup_lt_of_allBelow
+Chess.Optimisation.BodyCertificatePilot.classMap
+Chess.Optimisation.BodyCertificatePilot.map_count_branch
+Chess.Optimisation.BodyCertificatePilot.map_valid_branch
+Chess.Optimisation.BodyCertificatePilot.map_bounded_branch
+Chess.Optimisation.BodyCertificatePilot.MapFacts
+Chess.Optimisation.BodyCertificatePilot.checkMap
+Chess.Optimisation.BodyCertificatePilot.checkMap_sound
+Chess.Optimisation.BodyCertificatePilot.map_facts_branch

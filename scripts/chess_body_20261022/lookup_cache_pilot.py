@@ -327,6 +327,11 @@ submit_wrong_cache_extent
         kernel_checked=False, source_rows_certified=0, new_accepted_machine=False)
     if fragments_only:
         return dict(data=''.join(parts[1:]), checks=checked[len(check_header):],
+                    validation=('open LookupCachePilot\nnamespace ' + namespace + '\n' +
+                        ''.join(proofs) +
+                        f'theorem checked : validate cache {start} = some {start + count} :=\n'
+                        f'  checked_{start}_{count}\nend {namespace}\n'),
+                    validation_roots=check_roots[:len(nodes)] + [namespace + '.checked'],
                     data_roots=data_roots, check_roots=check_roots,
                     summary_key=key, namespace=namespace)
     driver.checkpoint()

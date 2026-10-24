@@ -131,8 +131,8 @@ def run(driver, api, lookup_only=False, profile_only=False):
         import source_profile_pilot
         source_profile_pilot.run(driver, api)
         return
-    import local_source_cache_pilot
-    makers, modules = local_source_cache_pilot.run(driver, api)
+    import compact_family_pilot
+    makers, modules = compact_family_pilot.run(driver, api)
     inherited = {q: 'LocalChunk' for q in range(coverage['first_label'], coverage['end_label'])}
     import source_scope_pilot
     for divisor, seconds in [(16, 180), (4, 210)]:

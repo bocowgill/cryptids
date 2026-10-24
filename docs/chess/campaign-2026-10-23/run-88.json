@@ -2,7 +2,7 @@
   "run_id": 40107652971,
   "source": "811ad59ef560b0635dee3a85dd2b01e7a178084f",
   "mode": "profile",
-  "status": "remote_queued",
+  "status": "retained_reviewed_success",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-88",
   "route": "Universal window-list fidelity + exact all-address working-set World; controlled original/global/main-only/working source comparison",
   "labels": [
@@ -31,7 +31,7 @@
   "new_accepted_machine": false,
   "all_mathematical_window_fidelity_claims_preserved": true,
   "zero_fallback_claim": false,
-  "next_gate": "Require all new proofs/audits and material same-host benefit before substantial source integration; keep original180/210s source gates and all obligations",
+  "next_gate": "Compact quantified family trial89 with unchanged substantial SOURCE16/4 limits",
   "accepted_components": {
     "writer": 173642,
     "structured_decoder": 21682,
@@ -41,5 +41,20 @@
     "interpreter_main": 533341,
     "interpreter_returns": 40461,
     "total": 769344
-  }
+  },
+  "driver_seconds": 889.4549056070001,
+  "profile_dependencies": 27288,
+  "heavy_whole_ms": {
+    "445": {
+      "original": 2679,
+      "main_local": 1343,
+      "working": 1245
+    },
+    "476": {
+      "original": 2646,
+      "main_local": 1317,
+      "working": 1268
+    }
+  },
+  "decision": "Continue only bounded setup-representation trial; extra working-set runtime gain4-7percent insufficient by itself"
 }

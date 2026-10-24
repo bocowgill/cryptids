@@ -70,6 +70,7 @@ def main():
                   'scripts/chess_body_20261022/source_profile_pilot.py',
                   'scripts/chess_body_20261022/local_view_pilot.py',
                   'scripts/chess_body_20261022/local_source_cache_pilot.py',
+                  'scripts/chess_body_20261022/compact_family_pilot.py',
                   'scripts/chess_body_20261022/working_view_pilot.py',
                   'scripts/chess_body_20261022/local_chunk_pilot.py',
                   'scripts/chess_body_20261022/source_scope_tools_pilot.py',
@@ -171,7 +172,8 @@ def main():
         assert detail['operation_local_source_kernel_corruption_rejected'] is True
         assert detail['local_source_cache_proposed']['kernel_checked'] is True
         assert detail['local_source_cache_proposed'][
-            'all_individual_fidelity_roots_retained'] is True
+            'universal_fidelity_claims_preserved'] is True
+        assert detail['local_source_cache_proposed']['generic_working_roots'] == 11
         for batch in detail['local_source_cache_proposed']['batches']:
             assert batch['kernel_checked'] is True
             assert batch['entries'] <= 16384

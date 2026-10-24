@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40107652971,
+  "commit": "811ad59ef560b0635dee3a85dd2b01e7a178084f",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": true,
+  "actual_rows": 4370,
+  "negative_control": "kernel_rejected",
+  "diagnosis": "PASS: generic11 and family9 audits, profile63roots/102ordered events, runtime889.455s. Heavy whole working1245/1268ms versus local1343/1317 and original2679/2646. Only4-7percent additional runtime improvement; no substantial or accepted machine credit. Next bounded trial must remove repeated setup wrappers and test unchanged substantial SOURCE16/4 gates.",
+  "new_accepted_machine": false
+}
