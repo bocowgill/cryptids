@@ -126,10 +126,16 @@ def run(driver, api, lookup_only=False, profile_only=False):
     driver.summary['compact_recipe_kernel_corruption_rejected'] = True
     driver.checkpoint()
     if profile_only:
-        import cached_world_pilot
-        cached_world_pilot.run(driver, api)
-        import source_profile_pilot
-        source_profile_pilot.run(driver, api)
+        import numeric_tree_pilot
+        import numeric_control_pilot
+        import numeric_source_core_pilot
+        import numeric_source_adapter_pilot
+        import numeric_actual_profile_pilot
+        numeric_tree_pilot.run(driver, api)
+        numeric_control_pilot.run(driver, api)
+        numeric_source_core_pilot.run(driver, api)
+        numeric_source_adapter_pilot.run(driver, api)
+        numeric_actual_profile_pilot.run(driver, api)
         return
     import compact_family_pilot
     makers, modules = compact_family_pilot.run(driver, api)

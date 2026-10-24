@@ -40,6 +40,9 @@ def main():
              'scripts/chess_body_20261022/numeric_tree_pilot.py',
              'scripts/chess_body_20261022/numeric_control_pilot.py',
              'scripts/chess_body_20261022/numeric_source_core_pilot.py',
+             'scripts/chess_body_20261022/numeric_source_adapter_pilot.py',
+             'scripts/chess_body_20261022/numeric_trace_literal_pilot.py',
+             'scripts/chess_body_20261022/numeric_actual_profile_pilot.py',
              'scripts/chess_body_20261022/certificate_verify.py']
     if args.mode == 'source':
         paths += ['scripts/chess_body_20261022/source_table_pilot.py',
@@ -128,7 +131,7 @@ def main():
                                 'source_tables_passed' if source else
                                 'smoke_passed' if smoke else 'passed')
     assert detail['full_quotient_certified'] is False
-    if smoke:
+    if smoke or profile:
         assert detail['numeric_tree_core_checked'] is True
         assert detail['numeric_tree_proposed']['required_roots'] == 20
         assert detail['numeric_tree_proposed']['kernel_checked'] is True
@@ -148,17 +151,32 @@ def main():
         assert detail['numeric_source_core_proposed']['concrete_map_q_binding_checked'] is False
     if profile:
         assert detail['source_component_profile_checked'] is True
-        assert detail['source_component_profile_proposed']['kernel_checked'] is True
-        assert detail['source_component_profile_proposed']['required_roots'] == 63
-        assert detail['operation_local_view_proposed']['kernel_checked'] is True
-        assert detail['working_set_proposed']['kernel_checked'] is True
-        assert detail['working_set_proposed']['generic_roots'] == 11
-        assert detail['source_component_profile_proposed'][
-            'substantial_source_scaling_established'] is False
-        assert detail['cache_world_source_checker_agreement_checked'] is True
-        assert detail['cache_world_actual_source_controls_checked'] is True
-        assert detail['cache_world_kernel_corruption_rejected'] is True
-        assert detail['source_component_timing']['events'] == 102
+        adapter = detail['numeric_source_adapter_proposed']
+        assert adapter['kernel_checked'] is True
+        assert adapter['required_roots'] == 8
+        assert adapter['no_extra_source_hypothesis'] is True
+        assert adapter['no_observation_cache'] is True
+        assert detail['numeric_source_adapter_checked'] is True
+        actual = detail['numeric_actual_profile_proposed']
+        assert actual['kernel_checked'] is True
+        assert actual['data_kernel_checked'] is True
+        assert actual['required_roots'] == 42
+        assert actual['data_roots'] == 15
+        assert actual['labels'] == [355, 445, 356]
+        assert len(actual['expected_events']) == 60
+        assert len(detail['source_component_profile_durations']) == 30
+        assert actual['old_and_new_exact_source_certificates'] is True
+        assert actual['six_real_corruption_controls'] is True
+        assert actual['observation_cache_entries'] == 0
+        assert actual['substantial_source_scaling_established'] is False
+        assert detail['numeric_actual_source_profile_checked'] is True
+        assert detail['numeric_actual_kernel_corruption_rejected'] is True
+        for key in ['complete_typed_candidate_data_checked', 'complete_prefix_scan_checked',
+                    'source_local_rule_soundness_checked', 'raw_source_chunk_checked',
+                    'local_chunk_kernel_corruption_rejected',
+                    'compact_recipe_actual_source_and_counts_checked',
+                    'compact_recipe_kernel_corruption_rejected']:
+            assert detail[key] is True
         assert detail['new_accepted_machine'] is False
     if lookup:
         assert detail['complete_typed_candidate_data_checked'] is True

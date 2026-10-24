@@ -18,6 +18,7 @@ inductive Node where
   | branch (table : BoolGraph.Table 5 Bool) (yes no : Nat)
   | go (table : BoolGraph.Table 5 (Fin 4042))
   | halt
+  deriving DecidableEq
 
 def eraseNode {n : Nat} : BoolGraph.Node n 5 4042 → Node
   | .move dir child => .move dir child.val
@@ -51,12 +52,14 @@ inductive Trace where
   | leaf (slot : Nat) (node : Node)
   | unary (slot : Nat) (node : Node) (rest : Trace)
   | branch (slot : Nat) (node : Node) (yes no : Trace)
+  deriving DecidableEq
 
 structure Fragment where
   count : Nat
   root : Nat
   trace : Trace
   targets : List Nat
+  deriving DecidableEq
 
 def encode (offset : Nat) : Syntax 4042 → Fragment
   | .move dir rest =>
