@@ -1,0 +1,18 @@
+{
+  "run_id": 40138445160,
+  "source": "367b2fbebbd8b86a9e4a4b03e83832d680c0255a",
+  "artifact": "chess-parsimony-printer-367b2fbebbd8b86a9e4a4b03e83832d680c0255a",
+  "phase": "pilot",
+  "status": "dispatched",
+  "driver_seconds": 600,
+  "group_plus_driver_gib": 6,
+  "driver_mib": 512,
+  "native_compile_seconds": 60,
+  "full_printer_probe_seconds": 120,
+  "full_printer_probe_steps": 500000000,
+  "manual_dispatch_count": 1,
+  "correction": "Confirmed packet origin is cell 33; expected origin metadata corrected without changing emitted transitions",
+  "certification_started": false,
+  "accepted_machine_states": 769344,
+  "next": "Retain exact terminal artifacts, assess all fixture and full-machine census checks, then stop before certification."
+}
