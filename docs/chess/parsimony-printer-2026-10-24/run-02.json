@@ -1,0 +1,20 @@
+{
+  "run_id": 40137052792,
+  "source": "7c8ff325d3e9f4900c895e56e15f460b1dfdf984",
+  "artifact": "chess-parsimony-printer-7c8ff325d3e9f4900c895e56e15f460b1dfdf984",
+  "phase": "corrected_complete_pilot",
+  "status": "dispatched",
+  "launch": "one manual dispatch after fork-ref verification; no duplicate",
+  "diagnosed_correction": "CORRECTION-02.md",
+  "wall_seconds": 600,
+  "memory_gib": 6,
+  "driver_mib": 512,
+  "native_compile_seconds": 60,
+  "full_printer_probe_seconds": 120,
+  "full_printer_step_cap": 500000000,
+  "accepted_full_machine_states": 769344,
+  "new_accepted_machine": false,
+  "certification_started": false,
+  "older_quotient_goal": "paused",
+  "next": "Retain this exact terminal artifact and logs, assess all paid full-machine states and proof obligations, then stop. No third run or certification."
+}
