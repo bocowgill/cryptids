@@ -144,3 +144,7 @@ this pilot supplies no credible runtime or certification-cost estimate for it.
 No additional jobs, certification, goal resumption or outreach are launched by
 this recommendation. The two-run pilot is closed with a failed validation gate
 and a recoverable handoff, not a successful reduction.
+
+Gate accounting: one met recovery gate (G5), four explicitly abandoned shared
+oracle gates (G1-G4), and zero remaining unclassified gates. Component provenance
+and allocation successes do not override the nonzero exit of the shared oracle.

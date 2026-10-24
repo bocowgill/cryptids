@@ -27,8 +27,8 @@ the user's separately authorized bounded experiment, not an automatic resumption
   EXPECT: PARSIMONY_NET_SAVINGS_ASSESSED
   EVIDENCE: RESULTS.md records conditional allocations, resources and obligations, but the shared remote oracle exited 1 before full-machine census or its success token. No validated net reduction.
 
-- [ ] G5: Exact run, source hashes, generated artifacts, command logs, failures and next actions are retained and pushed in a recoverable checkpoint.
-  EVIDENCE: pending; manual transport/provenance review after the bounded run
+- [x] G5: Exact run, source hashes, generated artifacts, command logs, failures and next actions are retained and pushed in a recoverable checkpoint.
+  EVIDENCE: Complete evidence and CHECKPOINT.md pushed in 52d585931e662e752b13f1291651cabcea6630b3; push exited zero and fork ref matched. Both ZIP digests and exact committed producer hashes independently rechecked; both run handles terminal. Retention command exited zero. No accepted pinned path changed. Manual provenance review only; this does not accept a new machine.
 
 ABANDON: G1 The shared two-run oracle failed; preserve its provenance successes as component evidence, not a zero-exit gate pass.
 ABANDON: G2 The corrected adapter failed before the complete full-machine census; the predeclared two-run budget is exhausted.
