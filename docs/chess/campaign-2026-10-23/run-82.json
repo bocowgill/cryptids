@@ -2,7 +2,7 @@
   "run_id": 40090839005,
   "source": "1a5069ede4373e052937299f9412ff4f196c5113",
   "mode": "local",
-  "status": "remote_queued",
+  "status": "failed_retained_reviewed",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-82",
   "route": "Validated observation cache coefficients; exact checker agreement and original SourceCertificate; unchanged1/16and1/4SOURCE tiers",
   "required_generic_world_roots": 21,
@@ -25,5 +25,13 @@
   "target_states": 310029,
   "accepted_full_machine_savings": 0,
   "new_accepted_machine": false,
-  "producer_static_checks": "AST/template widths/stdlb symtable globals; no local generation or Lean"
+  "producer_static_checks": "AST/template widths/stdlb symtable globals; no local generation or Lean",
+  "obstruction": "Strict --wfail: four redundant all_goals rfl tactics; no unsolved goals reported",
+  "failure_stage": "LookupWorld",
+  "failure_build_seconds": 5.580729488,
+  "failure_peak_bytes": 3284627456,
+  "driver_seconds": 457.022810769,
+  "completed_cache_windows": 0,
+  "larger_source_certificates_completed": 0,
+  "decision": "Remove four redundant tactics only and rerun identical cache/source experiment; preserve strict lint and all obligations/caps"
 }

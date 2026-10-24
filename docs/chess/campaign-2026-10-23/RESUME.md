@@ -1280,3 +1280,27 @@ Do not restart live job; no cap increase or frozen edit. Cache alone is not
 SOURCE progress. Need actual increasing substantial coverage for cost estimates
 and a continue/redesign decision; accepted769,344, target310,029, savings0.
 GoalACTIVE; last account usage12%, no reset, all heavy work remote/no outreach.
+
+
+Pilot82 terminal failure retained/reviewed. Run40090839005 at1a5069e: regression
+block and controls replay, then generic LookupWorld has no unsolved goals but
+strict --wfail rejects FOUR redundant all_goals rfl tactics (lines146/154/168/180).
+5.581s, peak3,284,627,456bytes, driver457.023s. No generic private audit, no
+cache windows or substantial source tiers attempted; no scalability inference.
+Corrective change deletes only the four redundant tactics; necessary node-case
+rfl remains. Claims/lint/caps/data/coverage assertions unchanged. AST/template
+width checks pass locally; no local generation or Lean. Same experiment83 next.
+
+Additional retained-timing diagnosis is recipe-timing-diagnosis.json:410new
+completed records in75spent153.210s combined recipe vs13.039s literal loading.
+First64median recipe81ms, last64median274.5ms. A slow load operation355has142
+recorded nodes/1return and3.235s checking, so write-rank lookup alone cannot
+explain all costs. Markers do not isolate source equality/main/return phases.
+CompleteRawSource already proves all4042source reconstructions and may remove
+duplicate equality work if cache reuse is insufficient; do not change this
+category before measuring the current cache/source integration.
+
+Accepted769,344, target310,029, new accepted savings0. Rank1remains459,315
+prospective states; high proof difficulty/moderate effort; no credible full
+cost estimate until complete1/16and1/4SOURCE certificates/audits. G4-G6/S8-S9
+open. All frozen/remote/outreach/checkpoint requirements preserved; goalACTIVE.

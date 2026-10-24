@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40090839005,
+  "commit": "1a5069ede4373e052937299f9412ff4f196c5113",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": true,
+  "actual_rows": 4370,
+  "negative_control": "kernel_rejected",
+  "diagnosis": "Generic LookupWorld elaborates without unsolved goals but --wfail rejects four redundant all_goals rfl tactics at generated lines146/154/168/180. No module private audit or cache/source-scaling credit. Remove only those four tactics; retain necessary node-case rfl and all statements, strict lint, caps and larger SOURCE gates. Regression block and controls replayed successfully.",
+  "new_accepted_machine": false
+}

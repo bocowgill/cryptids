@@ -69,7 +69,6 @@ theorem checkReturns_eq (world : World) (correct : world = actualWorld)
     checkReturns world q p = DirectCheckPilot.checkReturns q p := by
   simp only [checkReturns, DirectCheckPilot.checkReturns, checkPair_eq world correct,
     commandWord_eq world correct]
-  all_goals rfl
 
 theorem rootCheck_eq (world : World) (correct : world = actualWorld)
     (q : Fin 4042) (whole : Syntax 4042) (offset : Nat)
@@ -77,7 +76,6 @@ theorem rootCheck_eq (world : World) (correct : world = actualWorld)
     rootCheck world q whole offset sub fits =
       StructuralCheckPilot.rootCheck q whole offset sub fits := by
   simp only [rootCheck, StructuralCheckPilot.rootCheck, checkNode_eq world correct]
-  all_goals rfl
 
 theorem checkSub_eq (world : World) (correct : world = actualWorld)
     (q : Fin 4042) (whole : Syntax 4042) (offset : Nat)
@@ -91,7 +89,6 @@ theorem checkSub_eq (world : World) (correct : world = actualWorld)
     simp only [checkSub, StructuralCheckPilot.checkSub, rootCheck_eq world correct, ihYes, ihNo]
   | go t | halt =>
     exact rootCheck_eq world correct q whole offset _ fits
-  all_goals rfl
 
 theorem checkMain_eq (world : World) (correct : world = actualWorld)
     (q : Fin 4042) (whole : Syntax 4042) :
@@ -103,7 +100,6 @@ theorem checkRecipe_eq (world : World) (correct : world = actualWorld)
     checkRecipe world q raw nodes returns = SourceRecipePilot.checkRecipe q raw nodes returns := by
   simp only [checkRecipe, SourceRecipePilot.checkRecipe, checkMain_eq world correct,
     checkReturns_eq world correct]
-  all_goals rfl
 
 noncomputable def fromRaw (world : World) (correct : world = actualWorld)
     (q : Fin 4042) (raw : RawLabelPilot.RawOp) (nodes returns : Nat)
