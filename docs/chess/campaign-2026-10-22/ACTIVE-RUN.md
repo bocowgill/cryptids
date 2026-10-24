@@ -47,7 +47,9 @@ fallback/controls and private audits. 65536data9.219+3.245s, checker100.196
 8192checker17.113s at3.284GB versus prior5.614GB. Driver545.109s total.
 This is data fidelity only: ZERO SourceRows or new-machine credit.
 
-Diagnostic confirms original lookup uses tree.brecOn. Next79 appends a
+Current79: run40087367681 at
+be3124fc9ddbce2640d3458fe34b0d4f8e4d3949, mode lookup; retain certificate-79.
+Diagnostic confirms original lookup uses tree.brecOn. This pilot appends a
 controlled SAME8192data/256cell-chunk comparison of a short-fuel getter.
 Must prove lookup equality at all indices/fallbacks with certified ACTUAL
 map/Q heights, all-node height proofs/audits, cache-checker agreement and

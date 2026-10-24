@@ -1,0 +1,28 @@
+{
+  "run_id": 40087367681,
+  "source": "be3124fc9ddbce2640d3458fe34b0d4f8e4d3949",
+  "mode": "lookup",
+  "status": "remote_queued",
+  "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-79",
+  "route": "Controlled same8192data/256cell-chunk comparison: original tree-brecOn vs height-certified short-fuel path lookup",
+  "required_generic_fuel_roots": 3,
+  "comparison_entries": 8192,
+  "existing_cache_tiers": [
+    128,
+    8192,
+    65536
+  ],
+  "stage_seconds": {
+    "generic": 60,
+    "actual_heights": 120,
+    "checker_agreement": 60,
+    "fuel_comparison": 120,
+    "fuel_negative": 45
+  },
+  "overall_seconds": 1200,
+  "memory_gib": 6,
+  "accepted_states": 769344,
+  "target_states": 310029,
+  "source_rows_credit": 0,
+  "new_accepted_machine": false
+}

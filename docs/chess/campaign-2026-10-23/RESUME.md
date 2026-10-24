@@ -1186,3 +1186,12 @@ all within existing1200s/6GiB. Native height calculations propose bounds only.
 No frozen or accepted-source change, local heavy work, resource purchase or
 outreach. Full source coefficient integration and old larger SOURCE tiers
 still required before continuing to complete-machine acceptance.
+
+Fuel comparison79 dispatched: run40087367681, source
+be3124fc9ddbce2640d3458fe34b0d4f8e4d3949, mode lookup; retain certificate-79.
+NEXT inspect existing3cache tiers, FuelLookup generic proof/audit, every actual
+map/Q node-height proof/audit, checker agreement, same-data8192timings/RSS and
+fresh fuel wrong-extent kernel rejection. Do not restart live job. A material
+measured benefit and proved equality are both required before coefficient
+integration. Full source tiers and complete-machine acceptance remain open.
+Frozen reference fixed; all heavy work remote; no outreach. GoalACTIVE.
