@@ -624,3 +624,29 @@ At source0cc4a23b8a1ac537ce716f335f85fd38ad686902 dispatched cache40060683147
 Alljobs independently recoverable; no extraRAMexperiment, no paidrunner.
 Next after success: actual local-rule checker and meaningful corruptions, then
 substantial1/16and1/4bodycoverage. Generic proofs/fullsourcealonearenot scaling.
+
+Cache53retained/reviewed:8.289s/2.732GB, noresourcefailure. Parser rejects reserved
+binder syntax; strictlint reportsunusedsimp test. Rename sourceSyntax and remove
+unusedargument, same6roots/mathconditions/caps. Corrective sourceprepared, unrun.
+Source54preview:60.063s/3457880064bytes. Boundcatalog4051complete then88/127chunks,
+nofinalmarker. Chunks~2s/8versus~4s before, but catalogsetupcost removesgain.
+ABANDON full label-catalog variant; do not retryitunchanged or raisetimecap.
+
+NEXT SOURCE REPRESENTATION PROPOSAL: RawOp retains fieldsFin4/storevectorsFin5
+(only9sharedbound constants), but ALL targetlabels becomeNat. Universal erase
+from typedTableOp, fallible narrow label(n,x)=ifh:x<nthen someFin.mk(x,h)elseNone,
+explicit5cellvector decode, and decode(erase typed)=some typed. No modulo.
+Then finite source-fidelity checks compare raw Nat-label tables; type/labelbounds
+are discharged once by a generic decoder/range checker, eliminating thousands
+of generated label-bound tactics/declarations. Pilot universal roundtrip, first
+actual jumps plus invalid4042label rejection, then actual32rowchunk with
+nonconstantload285andcallbackcorruption. Only afterthat extendall127chunks.
+This is UNIMPLEMENTED; preserves sourcefidelity, exactbounds-beforeconversion,
+all-labelmeaning and finalfullmachinegates. Same459315prospectivepayoff, no new
+state savings. Generic observed-cache proofcorrective run can proceedindependently.
+
+Official53/54 byte reviewscomplete;54previewmatchesarchive.53mathsame6roots
+parser/lintrepairprepared;54catalog variantabandoned due totalcost. Next cache
+corrective run only; no unchanged sourcecatalogrun. Auto-smoke40060575062passed,
+regression-only (packet55optional). Raw-label universal decoder and actualchunk
+must precede anothercomplete source representation trial. No cap increases.

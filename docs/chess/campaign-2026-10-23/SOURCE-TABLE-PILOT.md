@@ -80,3 +80,12 @@ Source48times out60.067s/3.548GB after127chunk markers; module/audit incomplete,
 R4stillopen. Prepared correction shares exact raw Fin bounds and assembles global
 claims by generic congruence rather than rewriting closed lists.13final roots,
 new final-theorem markers; same budgets. No new source execution or credit yet.
+
+54retained/reviewed: full4051boundcatalog marker, then88/127chunks at60.063s/
+3.458GB, nofinalmarkers. No fullsource credit. ABANDON full label-catalog variant:
+per-chunk throughput improves but totalcompletiondoesnot. Newproposal removes
+individual label-bound proof/declaration overhead using rawNatlabels plus a
+fallible exact-bound decoder/universal roundtrip. Typedfields/stores retain only
+9small shared bounds. Newrepresentation unimplemented; same source/meaning/
+range-before-conversion/completeproof obligations required. Do notdispatch old
+sourcecatalog branch unchanged. See forthcoming RAW-LABEL-SOURCE-PILOT.md.

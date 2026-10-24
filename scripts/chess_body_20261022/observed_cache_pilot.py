@@ -49,8 +49,8 @@ theorem observed_cache_sound {n k labels : Nat} {α : Type}
   | branch table left right =>
     change (if table.read bit value then cache bit left value else cache bit right value) = _
     rewrite [LazyGraph.trAux_branch g bit i left right value table row]
-    cases test : table.read bit value <;>
-      simp only [test, Bool.false_eq_true, ↓reduceIte]
+    cases table.read bit value <;>
+      simp only [Bool.false_eq_true, ↓reduceIte]
     · exact observed_cache_sound g observe cache checked bit right value
     · exact observed_cache_sound g observe cache checked bit left value
   | goto table =>
@@ -81,10 +81,10 @@ theorem source_node {labels total : Nat} (rows : Vector (Syntax labels) labels)
   exact FieldPacking.graphNode_index rows layout q i
 
 theorem sourceIndex_surjective {labels total : Nat} (rows : Vector (Syntax labels) labels)
-    (layout : FieldPacking.Layout rows total) (syntax : Fin labels → Syntax labels)
-    (same : ∀ q, rows.get q = syntax q) :
-    Function.Surjective (fun slot : (Σ q, Fin (syntax q).size) ↦
-      sourceIndex rows layout slot.1 (syntax slot.1) (same slot.1) slot.2) := by
+    (layout : FieldPacking.Layout rows total) (sourceSyntax : Fin labels → Syntax labels)
+    (same : ∀ q, rows.get q = sourceSyntax q) :
+    Function.Surjective (fun slot : (Σ q, Fin (sourceSyntax q).size) ↦
+      sourceIndex rows layout slot.1 (sourceSyntax slot.1) (same slot.1) slot.2) := by
   intro i
   obtain ⟨⟨q, slot⟩, rfl⟩ := layout.code.surjective i
   let size_eq := congrArg Syntax.size (same q)
@@ -96,20 +96,20 @@ theorem sourceIndex_surjective {labels total : Nat} (rows : Vector (Syntax label
 
 theorem source_cache_sound {labels total : Nat} {α : Type}
     (rows : Vector (Syntax labels) labels) (layout : FieldPacking.Layout rows total)
-    (syntax : Fin labels → Syntax labels) (same : ∀ q, rows.get q = syntax q)
+    (sourceSyntax : Fin labels → Syntax labels) (same : ∀ q, rows.get q = sourceSyntax q)
     (observe : Bool → Result total 5 → α) (cache : Bool → Fin total → Fin 5 → α)
     (checked : ∀ q bit slot value,
-      cache bit (sourceIndex rows layout q (syntax q) (same q) slot) value =
+      cache bit (sourceIndex rows layout q (sourceSyntax q) (same q) slot) value =
         observedStep (FieldPacking.graph rows layout).entry observe cache bit
-          (TemplateGraph.mapNode (sourceIndex rows layout q (syntax q) (same q))
-            ((syntax q).fastNodeAt slot)) value)
+          (TemplateGraph.mapNode (sourceIndex rows layout q (sourceSyntax q) (same q))
+            ((sourceSyntax q).fastNodeAt slot)) value)
     (bit : Bool) (i : Fin total) (value : Fin 5) :
     cache bit i value = observe bit (LazyGraph.trAux (FieldPacking.graph rows layout)
       bit i value) := by
   refine observed_cache_sound (FieldPacking.graph rows layout) observe cache ?_ bit i value
   intro scanned index store
-  obtain ⟨⟨q, slot⟩, address⟩ := sourceIndex_surjective rows layout syntax same index
-  rewrite [← address, source_node rows layout q (syntax q) (same q) slot]
+  obtain ⟨⟨q, slot⟩, address⟩ := sourceIndex_surjective rows layout sourceSyntax same index
+  rewrite [← address, source_node rows layout q (sourceSyntax q) (same q) slot]
   exact checked q scanned slot store
 
 end ObservedCachePilot

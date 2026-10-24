@@ -2,7 +2,7 @@
   "run_id": 40060683147,
   "source": "0cc4a23b8a1ac537ce716f335f85fd38ad686902",
   "mode": "cache",
-  "status": "remote_running",
+  "status": "retained_parser_and_strict_lint_failure",
   "change": "Generic observed-cache and exact source-slot soundness,6roots",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-53",
   "memory_gib": 6,
@@ -10,5 +10,8 @@
   "orchestration_seconds": 180,
   "accepted_states": 769344,
   "target_states": 310029,
-  "new_accepted_machine": false
+  "new_accepted_machine": false,
+  "proof_stage_seconds": 8.289,
+  "peak_rss_bytes": 2731749376,
+  "generic_interface_checked": false
 }

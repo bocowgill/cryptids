@@ -1,0 +1,24 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_body_20261022/certificate_pilot.py",
+    "--lakefile",
+    "lakefile.chess-body-certificate-20261022.toml",
+    "--output",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-body-certificate-20261022",
+    "--seconds",
+    "180",
+    "--memory-gib",
+    "6",
+    "--observed-cache-only"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "Bounded body kernel certificate pilot stopped: ObservedCache: Lean source/proof failure; inspect retained log\n",
+  "output_sha256": "2aefc496dbb024f5cf341fc54a7c050cd7254ff91c96dcc172b8361ddd0ec4d6",
+  "timed_out": false,
+  "timeout_seconds": 240,
+  "elapsed_seconds": 15.93735405000001,
+  "cumulative_children_peak_rss_kib": 1756848
+}

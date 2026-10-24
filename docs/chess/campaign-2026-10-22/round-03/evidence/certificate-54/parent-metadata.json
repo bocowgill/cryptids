@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40060687397,
+  "commit": "0cc4a23b8a1ac537ce716f335f85fd38ad686902",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": true,
+  "complete_candidate_data": false,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "CompleteSource60.063s/3457880064bytes wall obstruction:4051boundcatalog marker then88/127chunks, no final-root markers. Faster per-chunk cadence does not offset setup cost; no module/audit/fullsource credit. Abandon label-catalog variant rather than raise caps. Next representation uses raw Nat labels with fallible checked Fin conversion and universal roundtrip, eliminating per-label bounds declarations.",
+  "new_accepted_machine": false
+}

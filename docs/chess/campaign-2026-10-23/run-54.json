@@ -2,7 +2,7 @@
   "run_id": 40060687397,
   "source": "0cc4a23b8a1ac537ce716f335f85fd38ad686902",
   "mode": "source",
-  "status": "remote_running",
+  "status": "retained_catalog_variant_wall_obstruction",
   "change": "All4042source operations with shared exact Fin bounds and generic13root assembly",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-54",
   "memory_gib": 6,
@@ -10,5 +10,12 @@
   "orchestration_seconds": 180,
   "accepted_states": 769344,
   "target_states": 310029,
-  "new_accepted_machine": false
+  "new_accepted_machine": false,
+  "catalog_declarations": 4051,
+  "completed_chunk_markers": 88,
+  "completed_final_markers": 0,
+  "stage_seconds": 60.063,
+  "peak_rss_bytes": 3457880064,
+  "complete_source_checked": false,
+  "route_decision": "abandon_full_label_catalog; pilot_raw_nat_labels_with_checked_decode"
 }

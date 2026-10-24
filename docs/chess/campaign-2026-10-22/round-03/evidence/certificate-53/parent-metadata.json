@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40060683147,
+  "commit": "0cc4a23b8a1ac537ce716f335f85fd38ad686902",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": false,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "Generic proof pilot8.289s/2.732GB has no resource stop. Strict lint flags unused simp test; parser rejects reserved binder name syntax in source-view declarations. No module or audit credit. Rename binder sourceSyntax and omit unused simp argument, keeping theorem statements and all6roots mathematically unchanged.",
+  "new_accepted_machine": false
+}
