@@ -1,3 +1,7 @@
+> **PAUSED at the user’s request, October 24, 2026. Do not resume automatically.**
+> Current recovery checkpoint: [PAUSED-2026-10-24.md](PAUSED-2026-10-24.md).
+> Run 40127457883 cancelled; research step skipped. Earlier ACTIVE/NEXT notes are historical.
+
 # Resumed Chess Cryptid campaign — October 23, 2026
 
 User authorized resuming the existing goal, targeting a certified complete
@@ -2180,3 +2184,10 @@ Do not claim new full-machine savings: accepted769344/target310029/savings0;
 strongestprioraggregate39240states/78480rows. GoalACTIVE,frozen/remote/free/
 nooutreach. Exact successful99packet/allarchives and terminal98cancelproofskipped
 metadata are pushed;100source and complete recovery checkpoint saved.
+
+
+PAUSED October24 at explicit user request. Run100terminalcancelled duringcache
+restore; proofstepSKIPPED, no artifact/coverage. Workflowlogs and metadata
+retained certificate100. Accepted769344/target310029/newfullsavings0.
+See PAUSED-2026-10-24.md for complete recovery, failures, obligations and
+restart evidence. No automatic resume; no further jobs without explicit user.

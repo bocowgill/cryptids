@@ -2,7 +2,7 @@
   "run_id": 40127457883,
   "source": "aa390226c93b71907df341b4bb6c1451a935c9d8",
   "mode": "local",
-  "status": "dispatched_verified_producer",
+  "status": "terminal_cancelled_at_user_request_before_research",
   "artifact": "chess-body-certificate-aa390226c93b71907df341b4bb6c1451a935c9d8",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-100",
   "route": "Decisive original substantial source tiers with certified numeric trace backend and no observation cache preparation",
@@ -27,5 +27,10 @@
   "prior_complete_source_rows": 78480,
   "new_accepted_machine": false,
   "last_usage_percent": 15,
-  "next_gate": "Retain result and assess complete audited tiers with effective budgets. Failure of first tier or impractical full quarter budget means redesign repeated global lookup/fidelity category, no more wrapper/cache variants."
+  "next_gate": "PAUSED. Read PAUSED-2026-10-24.md; no dispatch without a new explicit user resume instruction.",
+  "proof_step": "skipped",
+  "proof_artifacts_available": false,
+  "completed_new_source_states": 0,
+  "completed_new_source_rows": 0,
+  "requires_explicit_user_resumption": true
 }

@@ -1,0 +1,16 @@
+{
+  "schema": "chess-cancelled-before-proof-retention-v1",
+  "run_id": 40127457883,
+  "run_url": "https://github.com/bocowgill/cryptids/actions/runs/40127457883",
+  "producer": "aa390226c93b71907df341b4bb6c1451a935c9d8",
+  "status": "completed",
+  "conclusion": "cancelled",
+  "reason": "Explicit human pause; cancellation during cache restoration",
+  "proof_step": "skipped",
+  "proof_artifacts_available": false,
+  "logs_sha256": "dd64f4715cc8fffb7d05a54e185a9681b53ca9fa0a6f4897613af7ab3d4b066f",
+  "logs_bytes": 18992,
+  "accepted_machine_states": 769344,
+  "new_accepted_machine": false,
+  "requires_explicit_user_resumption": true
+}
