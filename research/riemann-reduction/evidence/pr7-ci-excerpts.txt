@@ -1,0 +1,13 @@
+Source: https://github.com/google-deepmind/cryptids/actions/runs/39213851100
+Selected historical log lines retrieved 2026-10-24. Not a new execution.
+2026-10-19T07:07:51.5703526Z HEAD is now at acef588 Merge fea3ec0374e4e57c62fd06805c439a9e54372dbc into ad110c3856a03e7a9b0fb7670ea66496bfd2163b
+2026-10-19T07:07:51.5768458Z acef5887c8e870613ff3dacce00bbb604eac7229
+2026-10-19T07:08:04.9807535Z Lean (version 4.35.0-rc4, x86_64-unknown-linux-gnu, commit c29b6dda4f7c20e3eeaa717c4e565663c5cfa364, Release)
+2026-10-19T07:08:05.5105390Z   key: lake-Linux-X64-3c2b24993072919ed650b62830bee588921623949ac9eccb57e0a4aa175a602a-bde42df615bf3d0b2c3de3d830418ef6ca27648d54216a409e7994c34d97718f-acef5887c8e870613ff3dacce00bbb604eac7229
+2026-10-19T07:17:05.8525254Z ✔ [3871/3873] Built Cryptids.Semantics.Riemann95 (1.2s)
+2026-10-19T07:17:07.3433676Z   key: lake-Linux-X64-3c2b24993072919ed650b62830bee588921623949ac9eccb57e0a4aa175a602a-bde42df615bf3d0b2c3de3d830418ef6ca27648d54216a409e7994c34d97718f-acef5887c8e870613ff3dacce00bbb604eac7229
+2026-10-19T07:17:25.5409149Z Cache saved with key: lake-Linux-X64-3c2b24993072919ed650b62830bee588921623949ac9eccb57e0a4aa175a602a-bde42df615bf3d0b2c3de3d830418ef6ca27648d54216a409e7994c34d97718f-acef5887c8e870613ff3dacce00bbb604eac7229
+2026-10-19T07:18:29.6917187Z Running Lean default kernel on solution
+2026-10-19T07:22:44.2493654Z Lean default kernel accepts the solution
+2026-10-19T07:22:44.6315391Z [PASS] Riemann 95 bootstrap: all 190 cells + complete tape at t=3,634 (state 15, head -4) verified
+2026-10-19T07:22:44.6318915Z ALL FIRST-PRINCIPLES VERIFICATION CHECKS PASSED IN 0.32s (EXIT 0)

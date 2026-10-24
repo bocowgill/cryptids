@@ -1,0 +1,25 @@
+{
+  "retrieved_date": "2026-10-24",
+  "source": "GitHub connector; historical successful remote runs, not a new replay",
+  "pr7": {
+    "head": "fea3ec0374e4e57c62fd06805c439a9e54372dbc",
+    "merged_commit": "bf17809905a1b9a514b0427e24290c7e860a649e",
+    "tested_commit": "acef5887c8e870613ff3dacce00bbb604eac7229",
+    "run_id": 39213851100,
+    "job_id": 117933119513,
+    "conclusion": "success"
+  },
+  "pr10": {
+    "head": "f532984f0b5916b9b91ee3b6baa4ec5561d41df4",
+    "merged_commit": "3c3faa23510ec9da4cf4531633eb5057500d9a71",
+    "tested_commit": "f9b305bf68a8112125586a5a1d1d67cc4d5458cd",
+    "run_id": 39556745100,
+    "job_id": 119078169816,
+    "conclusion": "success"
+  },
+  "new_execution": {
+    "lean_replays": 0,
+    "compute_jobs": 0,
+    "candidates": 0
+  }
+}
