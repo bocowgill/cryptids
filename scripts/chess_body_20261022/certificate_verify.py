@@ -38,7 +38,8 @@ def main():
              'scripts/chess_body_20261022/certificate_verify.py']
     if args.mode == 'source':
         paths += ['scripts/chess_body_20261022/source_table_pilot.py',
-                  'scripts/chess_body_20261022/source_chunk_pilot.py']
+                  'scripts/chess_body_20261022/source_chunk_pilot.py',
+                  'scripts/chess_body_20261022/source_complete_pilot.py']
     manifest = dict(commit=os.environ.get('GITHUB_SHA'), run_id=os.environ.get('GITHUB_RUN_ID'),
                     workflow_commit=os.environ.get('GITHUB_SHA'),
                     source_sha256={p: runner.sha(ROOT / p) for p in paths},
@@ -66,11 +67,14 @@ def main():
     assert detail['status'] == ('source_tables_passed' if source else
                                 'smoke_passed' if smoke else 'passed')
     assert detail['full_quotient_certified'] is False
+    if source:
+        assert detail['complete_opcode_snapshot_checked'] is True
+        assert detail['complete_source_proposed']['kernel_checked'] is True
+        assert detail['actual_frozen_source_operations_checked'] == 4042
     (WORK / 'verification.json').write_text(json.dumps(dict(manifest, status='passed', checks=checks,
         mode=args.mode, detail=detail,
-        scope=('Finite source reconstruction/format fixtures and one source chunk; '
-               'no complete source data, '
-               'graph fidelity, quotient relation or accepted machine' if source else
+        scope=('Complete frozen source-operation reconstruction and format/corruption fixtures; '
+               'no graph fidelity, quotient relation or accepted machine' if source else
                'Bounded concrete certificate pilot only; no complete quotient proof or accepted machine')),
         indent=2) + '\n')
     print('Finite source table verification passed' if source else

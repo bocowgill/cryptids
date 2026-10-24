@@ -24,7 +24,7 @@ small finite callback tables tied to the4042frozen source operations.
   noncommutative old+read+read load fixture pins outer=old/inner=read ordering
   across all25cells and rejects a corrupted cell. These are typed format/control
   fixtures, not complete source/chess regression coverage.
-- [ ] R3: Propose and kernel-check one complete frozen source-operation chunk,
+- [x] R3: Propose and kernel-check one complete frozen source-operation chunk,
   including an actual nonconstant callback, complete operation reconstruction,
   exact length and deliberately corrupted-cell rejection. Each literal Fin.mk
   retains its raw value and has an exact kernel bound; no modulo conversion.
@@ -33,7 +33,7 @@ small finite callback tables tied to the4042frozen source operations.
   source-table equality, original-operation reconstruction, lowering preservation
   and4042length, plus lookup and original source meaning for every label;
   full-private audit every final root and its private dependencies.
-  The source_complete_pilot.py draft is text-only, UNWIRED and unexecuted. Proposed
+  The source_complete_pilot.py producer is now wired after R3; unverified. Next
   run uses the existing60s component/180s source-mode/6GiB limits. Failed runs
   must retain exact progress before a specific corrective change; no cap increase.
 
@@ -66,4 +66,12 @@ and all generated/log bytes stay bound to exact source and retained hashes.
 Native proposal boundary failures:44missing Snapshot.entries IR;45explicit
 ordinary/meta phase mismatch.46corrects only native proposer phase to public
 meta section. Neither failure ran the chunk proof. The complete-source draft
-has no acceptance or proof credit until wired, run, retained and audited.
+has no acceptance or proof credit until run, retained and audited.
+
+R3evidence: certificate-47, run40056753980 at4b9f07d. Complete frozen chunk256
+through287 includes actual nonconstant load285. Exact table/reconstruction/length
+and corrupted-cell rejection pass5.470s; full-private4root/2182dependency audit
+2.842s, standard3axioms. Untrusted native JSON85804bytes, SHA256f9224d48;
+its bytes are bound in retained metadata. Complete source flagfalse. R4nowwired
+with9final roots; retains60s/6GiB component and180s total caps. This is a new
+complete-source trial, not extrapolated credit from32rows.

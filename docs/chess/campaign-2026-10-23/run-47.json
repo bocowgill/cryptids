@@ -2,10 +2,17 @@
   "run_id": 40056753980,
   "source": "4b9f07d6ad04e3c8ef8ea36d504662910acda7e0",
   "mode": "source",
-  "status": "remote_running",
+  "status": "retained_source_chunk_passed",
   "change": "Strict-lint native proposal through run_cmd IO; one complete chunk still required",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-47",
   "accepted_states": 769344,
   "prospective_states": 310029,
-  "new_accepted_machine": false
+  "new_accepted_machine": false,
+  "source_chunk_start": 256,
+  "source_chunk_length": 32,
+  "nonconstant_load": 285,
+  "chunk_build_seconds": 5.47,
+  "chunk_audit_seconds": 2.842,
+  "chunk_audit_roots": 4,
+  "complete_opcode_snapshot_checked": false
 }

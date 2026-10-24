@@ -1480,6 +1480,16 @@ def main():
             driver.run("SourceChunk", 60,
                        "Actual frozen source chunk reconstructed and corruption rejected")
             driver.summary["source_chunk_proposed"]["kernel_checked"] = True
+            driver.checkpoint()
+            import source_complete_pilot
+            driver.summary["complete_source_generator_source"] = info(
+                Path(source_complete_pilot.__file__))
+            source_complete_pilot.generate(driver, header, audit_and_end, progress_marker, MODULE)
+            driver.run("CompleteSource", 60,
+                       "All frozen source-operation tables reconstructed exactly")
+            driver.summary["complete_source_proposed"]["kernel_checked"] = True
+            driver.summary["complete_opcode_snapshot_checked"] = True
+            driver.summary["actual_frozen_source_operations_checked"] = 4042
             driver.summary["status"] = "source_tables_passed"
             driver.checkpoint()
             driver.monitor_stop.set()

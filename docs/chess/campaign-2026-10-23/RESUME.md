@@ -510,3 +510,13 @@ Corrected SOURCE40056753980 at4b9f07d is independently recoverable; retain47.
 Complete-source draft remains unwired. Both syntax and private foundation gates
 remain strict; failed native proposal module banners never count as successful
 proofs or source fidelity. Accepted769344/target310029 unchanged.
+
+SOURCE40056753980 at4b9f07d retained/reviewed certificate-47: R3PASS. Original
+frozen chunk256..287 contains nonconstant load285; exact reification/restoration,
+length and corrupted-cell rejection pass5.470s plus4root/2182dependency fullprivate
+audit2.842s. Standard3axioms only. Nativeproposal85804bytes/SHAf9224d48bound,
+stilluntrusted outsidecheckedchunk. NextR4wires complete-source producer: all127
+chunks, balanced shared proofs, exact frozen tree shape, restoration/lowering/
+length/all-label source meaning;9root audit andsame60s/6GiB,180sorchestration.
+No complete source credit yet. DIRECT-SOURCE-CACHE-PILOT.md proposes avoiding a
+separate106668node dump after R4; unimplemented/unproved and same459315payoff.

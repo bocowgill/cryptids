@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40056753980,
+  "commit": "4b9f07d6ad04e3c8ef8ea36d504662910acda7e0",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": false,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "R3passes: frozen source chunk256..287 including nonconstant load285 reconstructs exactly and rejects changed callback cell. SourceChunk5.470s plus4root/2182dependency audit2.842s, standard3axioms. R1/R2audit13roots also pass. Native85804byte proposal bound by hash remains untrusted; complete source/graph/quotient/machine flags false. Enable bounded all127chunk proof next.",
+  "new_accepted_machine": false
+}
