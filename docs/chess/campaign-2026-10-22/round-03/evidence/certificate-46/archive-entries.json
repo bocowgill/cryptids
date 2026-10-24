@@ -1,0 +1,93 @@
+{
+  "AuditExecutable.log": {
+    "bytes": 256,
+    "sha256": "ea6ff07c997a0f127f7471c288ce67c3dd7ba904fe457dd493cd266474a6a1cb",
+    "crc32": 2506026003,
+    "compressed_bytes": 155,
+    "compression": 8
+  },
+  "SourceTables.log": {
+    "bytes": 265,
+    "sha256": "6813446b1a851a64269ab811caae5313e6e972536fc0dc47fe790c7ae10afc98",
+    "crc32": 3610483550,
+    "compressed_bytes": 186,
+    "compression": 8
+  },
+  "SourceTableProposal.log": {
+    "bytes": 2666,
+    "sha256": "b51747297bc847de4164bab6c3d6329d46e387f8aa96f93fcb6147b5232d525a",
+    "crc32": 1810290382,
+    "compressed_bytes": 623,
+    "compression": 8
+  },
+  "SourceTablesAudit.log": {
+    "bytes": 217,
+    "sha256": "f061b41aad5517676b0d32bfe592acfb1f48c4c82243e9a50495bac21e162d38",
+    "crc32": 324532968,
+    "compressed_bytes": 170,
+    "compression": 8
+  },
+  "certificate-summary.json": {
+    "bytes": 8595,
+    "sha256": "062a668ee191ccd13fe57c0fffdb0ed5b417cd4230fa7386e72871a7abf0bbd1",
+    "crc32": 4042935124,
+    "compressed_bytes": 2470,
+    "compression": 8
+  },
+  "commands/1792810799188518943.json": {
+    "bytes": 533,
+    "sha256": "571db0c603f423f409ac41b71b7dc004380170cbd78ecdbf6b8fa6f31219c5e0",
+    "crc32": 1343034466,
+    "compressed_bytes": 345,
+    "compression": 8
+  },
+  "commands/1792810832850130865.json": {
+    "bytes": 781,
+    "sha256": "5015d07daeac863936eed829324b60396b66679c9510aa809eb8965508ead0ee",
+    "crc32": 1886254646,
+    "compressed_bytes": 423,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/Audit.lean": {
+    "bytes": 3029,
+    "sha256": "9d2a7db1fd5d82bbdadf4f6e0db0571af956741f42a89c3086c61414d52512df",
+    "crc32": 1238549105,
+    "compressed_bytes": 1202,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/SourceTableProposal.lean": {
+    "bytes": 1933,
+    "sha256": "38bf49092282a21d7601ac95417b43ef790c313ff82a9ee422bbbe7a3df6d325",
+    "crc32": 1873076529,
+    "compressed_bytes": 789,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/SourceTables.lean": {
+    "bytes": 4053,
+    "sha256": "69174447f1c688054128a4ba3d9989229448f3afb023788a29df027df2a028de",
+    "crc32": 3996717160,
+    "compressed_bytes": 1218,
+    "compression": 8
+  },
+  "reproduction/Cryptids/Chess/Optimisation/BodyCertificatePilot/SourceTables.roots": {
+    "bytes": 740,
+    "sha256": "407745710ead534e6204de907d65342266c4ac807e2f330de735a9dc03cf809d",
+    "crc32": 1199426042,
+    "compressed_bytes": 146,
+    "compression": 8
+  },
+  "source-manifest.json": {
+    "bytes": 465993,
+    "sha256": "8a80983867c7e4f7a21876f68c03f083e8d3abef4a2c1bfddfa7c9bca5b14539",
+    "crc32": 944779432,
+    "compressed_bytes": 126852,
+    "compression": 8
+  },
+  "source-operation-proposal.json": {
+    "bytes": 85804,
+    "sha256": "f9224d484ec7961f0360fea6530dc6f68a31feafb900a8f39606fb2c2dfd114e",
+    "crc32": 1740145683,
+    "compressed_bytes": 18422,
+    "compression": 8
+  }
+}

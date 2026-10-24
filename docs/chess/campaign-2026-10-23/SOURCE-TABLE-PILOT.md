@@ -1,7 +1,8 @@
 # Finite source-operation table pilot
 
-Status: producer is now wired into the focused remote `source` mode, not yet
-executed. Its proof file imports only the frozen source-operation snapshot.
+Status: R1/R2 passed in certificate42 and repeated thereafter. The focused
+remote `source` mode is testing the native proposal boundary before R3. The
+mathematical proof file imports only the frozen source-operation snapshot.
 The mode builds the ordinary compiled auditor and checks all13explicit roots
 under60seconds/6GiB, with180seconds total orchestration. It does not generate
 candidate map/Q data or claim graph/quotient/machine acceptance. Existing
@@ -23,12 +24,18 @@ small finite callback tables tied to the4042frozen source operations.
   noncommutative old+read+read load fixture pins outer=old/inner=read ordering
   across all25cells and rejects a corrupted cell. These are typed format/control
   fixtures, not complete source/chess regression coverage.
-- [ ] R3: Later, propose and kernel-check one complete frozen source-operation
-  chunk, including actual nonconstant callbacks, then all127chunks through named
-  balanced-parent facts. One-chunk generation/checking is implemented for the
-  next source run, unverified; all127chunks remain unimplemented.
-  Raw byte/Nat cell bounds must be proved before Fin conversion can hide invalid
-  data; typed reconstruction alone is not a raw range certificate.
+- [ ] R3: Propose and kernel-check one complete frozen source-operation chunk,
+  including an actual nonconstant callback, complete operation reconstruction,
+  exact length and deliberately corrupted-cell rejection. Each literal Fin.mk
+  retains its raw value and has an exact kernel bound; no modulo conversion.
+- [ ] R4: After R3, check all127frozen chunks through named balanced-parent
+  facts, matching the original source-tree shape exactly. Prove complete finite
+  source-table equality, original-operation reconstruction, lowering preservation
+  and4042length, plus lookup and original source meaning for every label;
+  full-private audit every final root and its private dependencies.
+  The source_complete_pilot.py draft is text-only, UNWIRED and unexecuted. Proposed
+  run uses the existing60s component/180s source-mode/6GiB limits. Failed runs
+  must retain exact progress before a specific corrective change; no cap increase.
 
 All roots and source/log/generated hashes must be retained and checked. Failed
 source, proof, memory and time outcomes remain distinct; correct a specific
@@ -55,3 +62,8 @@ carry ordinary-kernel exact bounds. Four roots assert table equality, original
 operation reconstruction, length and corrupted-cell rejection. Each component
 retains60s/6GiB,180s source orchestration; no complete source-data flag. Proposal
 and all generated/log bytes stay bound to exact source and retained hashes.
+
+Native proposal boundary failures:44missing Snapshot.entries IR;45explicit
+ordinary/meta phase mismatch.46corrects only native proposer phase to public
+meta section. Neither failure ran the chunk proof. The complete-source draft
+has no acceptance or proof credit until wired, run, retained and audited.

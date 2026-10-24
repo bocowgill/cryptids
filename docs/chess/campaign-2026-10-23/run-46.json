@@ -2,10 +2,12 @@
   "run_id": 40056313267,
   "source": "2066ce2973e3007869e118e57324ccd6d932fa1f",
   "mode": "source",
-  "status": "remote_running",
+  "status": "retained_proposer_hashCommand_lint",
   "change": "Native-only proposer placed in public meta section",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-46",
   "accepted_states": 769344,
   "prospective_states": 310029,
-  "new_accepted_machine": false
+  "new_accepted_machine": false,
+  "source_tables_passed": true,
+  "source_chunk_checked": false
 }

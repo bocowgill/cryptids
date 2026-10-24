@@ -41,17 +41,16 @@ def propose : IO Unit := do
   IO.FS.writeFile ".lake/chess-body-certificate-20261022/source-operation-proposal.json"
     payload.compress
 
-#eval propose
+run_cmd Lean.Elab.Command.liftIO propose
 end NativeSourceProposal
 '''
 
 
 def generate_proposer(driver, header, module, namespace):
-    # Native #eval needs transitive IR. A normal module import exposes logical
+    # Native IO needs transitive IR. A normal module import exposes logical
     # definitions but does not load their executable implementations in Lean 4.35.
-    source = header([module + '.SourceTables', 'Lean.Data.Json']).replace(
-        'public import ' + module + '.SourceTables',
-        'public meta import ' + module + '.SourceTables').replace(
+    source = header([module + '.SourceTables', 'Lean']).replace(
+        'public import ', 'public meta import ').replace(
             '@[expose] public section', 'public meta section') + PROPOSER
     source += '\nend ' + namespace + '\n'
     source += 'run_cmd Lean.logInfo "Untrusted finite source operations exported"\n'

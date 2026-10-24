@@ -498,3 +498,10 @@ packed cache remain preferred over unchanged row scaling. Generic prefix-table
 certification could remove this specific setup overhead if the complete checker
 needs it, but is not implemented. Source40056313267 at2066ce2 tests corrected
 native meta phase; retain46. Complete-source producer remains UNWIRED/unexecuted.
+
+SOURCE40056313267 at2066ce2 retained/reviewed46. Native proposer now executes;
+only hashCommand warning rejects#eval under strict--wfail.6.180s, no resource
+stop, no source chunk credit. Replace#eval with ordinary run_cmd liftIO and
+explicit public meta importLean; no linter disabled. Complete-source draft has
+nine final roots, including all-label original source meaning, but stays unwired
+until the one-chunk gate passes. Current frozen sources/pins/counts unchanged.

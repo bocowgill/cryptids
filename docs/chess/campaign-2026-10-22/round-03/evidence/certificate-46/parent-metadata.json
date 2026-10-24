@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40056313267,
+  "commit": "2066ce2973e3007869e118e57324ccd6d932fa1f",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": false,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "SourceTables proof/audit pass. Native proposal now executes, but strict hashCommand lint rejects #eval; module exit1 in6.180s, no resource stop. Replace #eval with run_cmd using explicit public meta Lean import; preserve strict lint. No chunk proof attempted or credited.",
+  "new_accepted_machine": false
+}

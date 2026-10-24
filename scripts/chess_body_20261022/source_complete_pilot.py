@@ -70,7 +70,8 @@ def generate(driver, header, audit_and_end, progress_marker, module):
                          f'noncomputable def {tables} : List (TableOp 4042) := {lt} ++ {rt}\n'
                          f'theorem {fact} : {source}.flatten.map\n'
                          f'    (fun row ↦ toTableOp row.1) = {tables} :=\n'
-                         f'  source_tables_branch {cache} {ls} {rs} {lt} {rt} {lf} {rf}\n')
+                         f'  source_tables_branch {cache} {ls} {rs}\n'
+                         f'    {lt} {rt} {lf} {rf}\n')
         return source, tables, fact
 
     source, tables, fact = tree(0, (4042 + 31) // 32)
@@ -101,12 +102,26 @@ theorem complete_source_length : tableOps.length = 4042 := by
   simpa only [List.length_map, ← Balanced.RowTree.count_eq_length,
     Snapshot.entries_count] using same.symm
 
+theorem complete_source_at (q : Fin 4042) :
+    (tableOps.map fromTableOp).getD q.val .halt = Snapshot.program q := by
+  rewrite [complete_source_restored]
+  change (Snapshot.entries.flatten.map Prod.fst).getD q.val
+    ((.halt, .halt) : Snapshot.Entry).1 = _
+  rewrite [List.getD_map]
+  exact (congrArg Prod.fst (Balanced.RowTree.lookup_eq_getD Snapshot.entries
+    Snapshot.entries_wellFormed q.val (.halt, .halt))).symm
+
+theorem complete_source_meaning (q : Fin 4042) :
+    source ((tableOps.map fromTableOp).getD q.val .halt) = SharedModel.machine q := by
+  rewrite [complete_source_at]
+  exact Snapshot.source_program q
+
 end CompleteSourcePilot
 ''')
     roots = ['CompleteSourcePilot.' + name for name in [
         'source_tables_branch', 'restore_source_tables', 'source_tree_eq',
         'complete_source_tables', 'complete_source_restored', 'complete_source_lowered',
-        'complete_source_length']]
+        'complete_source_length', 'complete_source_at', 'complete_source_meaning']]
     parts.append(audit_and_end(driver, 'CompleteSource', roots,
                                'All frozen source-operation tables reconstructed exactly'))
     driver.emit('CompleteSource.lean', ''.join(parts))
