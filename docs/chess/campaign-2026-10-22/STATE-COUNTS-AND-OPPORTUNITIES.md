@@ -388,3 +388,30 @@ Rank1same459,315prospective states, high proof/moderate implementation effort;
 no additive saving or credible full cost yet. New source16proof is substantive
 intermediate coverage, not acceptance. Frozen/remote/outreach/checkpoint rules
 fixed. Last usage12%; goalACTIVE, no reset.
+
+
+Profile85 PASSES/retained/reviewed: run40095774726 atc7191c53,30roots/27,124
+private deps, standard3axioms;48ordered monotone events. Build23.432+3.543s,
+audit peak5,300,289,536bytes; driver690.023s. Heavy445 original->global-cache:
+main2414->1622ms, whole2679->1775ms; source24/count30/return281->188ms.
+Heavy476reversedorder main2382->1611ms, whole2705->1775ms; source22/count29/
+return270->224ms. Real~1.5x gain, but main remains dominant and quarter failed84.
+Do NOT prioritize source-reconstruction reuse: measured source/count only~2-3%.
+
+Decision: redesign active cache representation as small operation-local main
+views, shared verified return cache, exact original fallback. New GENERIC
+LocalView world/forall-address correctness/SourceCertificate constructor3roots
+will reuse existing validator and World equality; no semantic/spec change.
+Bounded3-case pilot compares original/global/local main/return/whole proofs
+on SAMEdata/runner, reverse second-heavy order; source/count and exact source
+main-offset facts also checked. Required45profile roots/72events plus small
+cache fidelity and3root generic private audits. Stage caps unchanged: generic/
+small data/fidelity60s each, profile120s, global1200s/6GiB incl driver.
+Only material gain justifies integrating into unchanged SOURCE16/4 gates.
+Small view proofs are diagnostic, not substantial coverage or new machine.
+
+Prior complete SOURCE1639,240states/78,480rows remains strongest aggregate
+coverage; quarter unproved. Accepted769,344/target310,029/new full savings0.
+Rank1same459,315prospective states, high proof/moderate implementation; local
+views unlock same opportunity, not additive. No full-cost estimate yet.
+Frozen3116pins, heavy remote, no paid runners/outreach, last usage12%, goalACTIVE.

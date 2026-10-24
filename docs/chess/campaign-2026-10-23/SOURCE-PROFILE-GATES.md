@@ -40,3 +40,13 @@ moderate implementation effort. The diagnosis unlocks the same opportunity,
 not an additive reduction. No credible full-machine cost estimate yet.
 Keep heavy work remote, local use low, frozen/accepted sources fixed, outreach
 on hold and checkpoints complete. Goal remains active through this diagnosis.
+
+
+85 closes P1-P3 and supplies P4decision: source/count~2-3%; main dominates.
+Same-host global cache~1.5x, insufficient quarter coverage. Next bounded local
+view variant retains original 85 evidence unchanged. Add universal LocalView
+correctness3roots and three exact small-window fidelity audits. New profile
+checks original/global/local versions, source counts and exact prefix offset:
+45roots,72timing events, all3SourceCertificates per case. Stage profile120s
+and global1200s/6GiB unchanged. Complete substantial tiers still required;
+these small comparisons cannot close source-scaling or machine gates.

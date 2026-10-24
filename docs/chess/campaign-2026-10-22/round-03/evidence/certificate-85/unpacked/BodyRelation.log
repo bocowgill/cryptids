@@ -1,0 +1,28 @@
+ℹ [3254/3264] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.Loaders
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/Loaders.lean:47:0: Body certificate loaders checked
+ℹ [3255/3264] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.MapData
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/MapData.lean:13322:0: Complete body class map loaded
+ℹ [3256/3264] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.QuotientData
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/QuotientData.lean:1674:0: Complete body quotient rows loaded
+ℹ [3257/3264] Built Cryptids.Chess.Optimisation.BodyCertificatePilot.MapPrelude (1.4s)
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/MapPrelude.lean:105:0: Body class map prelude checked
+ℹ [3258/3264] Built Cryptids.Chess.Optimisation.BodyCertificatePilot.MapCount (34s)
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/MapCount.lean:15572:0: Complete body class map count checked
+ℹ [3259/3264] Built Cryptids.Chess.Optimisation.BodyCertificatePilot.MapBounded (1.2s)
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/MapBounded.lean:13:0: Complete body class map range checked
+ℹ [3260/3264] Built Cryptids.Chess.Optimisation.BodyCertificatePilot.MapValid (1.2s)
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/MapValid.lean:13:0: Complete body class map caches checked
+ℹ [3261/3264] Built Cryptids.Chess.Optimisation.BodyCertificatePilot.MapChecks (1.3s)
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/MapChecks.lean:22:0: Complete body class map checks passed
+ℹ [3262/3265] Built Cryptids.Chess.Optimisation.BodyCertificatePilot.QuotientChecks (12s)
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/QuotientChecks.lean:1977:0: Complete packed quotient checks passed
+ℹ [3263/3472] Built Cryptids.Chess.Optimisation.BodyCertificatePilot.Data (1.3s)
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/Data.lean:13:0: Complete body certificate data assembled
+ℹ [3920/3950] Replayed Cryptids.Chess.Compilation.SourceCertificate
+info: Cryptids/Chess/Compilation/SourceCertificate.lean:226:0: Source certificate: 7076 checked lemmas, 7037 cache hits
+info: Cryptids/Chess/Compilation/SourceCertificate.lean:230:0: Literal row certificate: 5952 checked rows in 186 chunks
+ℹ [3931/3950] Replayed Cryptids.Chess.Compilation.Input
+info: Cryptids/Chess/Compilation/Input.lean:128:0: Checked 186 literal row chunks: 141042 stack symbols
+ℹ [3950/3950] Built Cryptids.Chess.Optimisation.BodyCertificatePilot.BodyRelation (1.7s)
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/BodyRelation.lean:18:0: Actual body row predicate checked
+Build completed successfully (3950 jobs).

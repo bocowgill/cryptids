@@ -21,7 +21,11 @@ def run(driver, api):
     assert payload['schema'] == 'finite-source-op-proposal-v1'
     assert len(payload['operations']) == 4042
     cases = [445, 476, 356]
-    parts = [api.header([api.MODULE + '.CacheWorldControls', 'Lean']).replace(
+    import local_view_pilot
+    views = local_view_pilot.prepare(driver, api, data, cases)
+    imports = [api.MODULE + '.CacheWorldControls', api.MODULE + '.LocalViews']
+    imports += [api.MODULE + '.' + views[q]['stem'] for q in cases]
+    parts = [api.header(imports + ['Lean']).replace(
         'public import Lean\n', 'public meta import Lean\n'),
         'open ConjectureMachines.Optimisation\n'
         'open Chess.Optimisation FieldCompiler RawLabelPilot RawChunkPilot\n'
@@ -31,30 +35,43 @@ def run(driver, api):
     for index, q in enumerate(cases):
         nodes = data['row_sizes'][q]
         returns = len(data['return_local_targets'][q])
+        view = views[q]
+        cache_namespace = view['stem'] + 'Pilot'
         parts.append(f'def label_{q} : Fin 4042 := ⟨{q}, by decide +kernel⟩\n'
                      f'noncomputable def raw_{q} : RawOp :=\n' +
                      indent(raw_op(payload['operations'][q])) + '\n'
                      f'noncomputable def syntax_{q} : Syntax 4042 :=\n'
-                     f'  SourceRecipePilot.syntaxOf raw_{q}\n')
+                     f'  SourceRecipePilot.syntaxOf raw_{q}\n'
+                     f'noncomputable def localWorld_{q} : LookupWorldPilot.World :=\n'
+                     f'  LocalViewPilot.world {cache_namespace}.cache\n'
+                     f'    {view["start"]} {view["finish"]}\n')
         statements = {
             'source': f'erase (toTableOp (Snapshot.program label_{q})) = raw_{q}',
             'counts': f'syntax_{q}.size = {nodes} ∧\n'
                       f'      1 + FieldReturns.writeCount syntax_{q} = {returns}',
+            'offset': f'PrefixScanPilot.nodePrefixes.lookup label_{q}.val 0 = {view["base"]}',
             'main_original': f'StructuralCheckPilot.checkMain label_{q} syntax_{q} = true',
             'main_cached': 'LookupWorldPilot.checkMain CacheWorldPilot.cacheWorld\n'
                            f'      label_{q} syntax_{q} = true',
+            'main_local': f'LookupWorldPilot.checkMain localWorld_{q}\n'
+                          f'      label_{q} syntax_{q} = true',
             'return_original': f'DirectCheckPilot.checkReturns label_{q} syntax_{q} = true',
             'return_cached': 'LookupWorldPilot.checkReturns CacheWorldPilot.cacheWorld\n'
                              f'      label_{q} syntax_{q} = true',
+            'return_local': f'LookupWorldPilot.checkReturns localWorld_{q}\n'
+                            f'      label_{q} syntax_{q} = true',
             'whole_original': f'SourceRecipePilot.checkRecipe label_{q} raw_{q}\n'
                               f'      {nodes} {returns} = true',
             'whole_cached': 'LookupWorldPilot.checkRecipe CacheWorldPilot.cacheWorld\n'
                             f'      label_{q} raw_{q} {nodes} {returns} = true',
+            'whole_local': f'LookupWorldPilot.checkRecipe localWorld_{q}\n'
+                           f'      label_{q} raw_{q} {nodes} {returns} = true',
         }
         # Reverse order for the second heavy case to expose warm-up/order bias.
-        order = ['source', 'counts']
+        order = ['source', 'counts', 'offset']
         for component in ['main', 'return', 'whole']:
-            kinds = ['original', 'cached'] if index != 1 else ['cached', 'original']
+            kinds = (['original', 'cached', 'local'] if index != 1 else
+                     ['local', 'cached', 'original'])
             order += [component + '_' + kind for kind in kinds]
         for component in order:
             for phase in ['before', 'after']:
@@ -73,9 +90,14 @@ def run(driver, api):
                      f'noncomputable def certificate_cached_{q} :\n'
                      '    SourceScopeToolsPilot.SourceCertificate :=\n'
                      f'  CacheWorldPilot.fromCachedRaw label_{q} raw_{q} {nodes} {returns}\n'
-                     f'    whole_cached_{q}\n')
+                     f'    whole_cached_{q}\n'
+                     f'noncomputable def certificate_local_{q} :\n'
+                     '    SourceScopeToolsPilot.SourceCertificate :=\n'
+                     f'  LocalViewPilot.fromLocalRaw {cache_namespace}.cache\n'
+                     f'    {view["start"]} {view["finish"]} {cache_namespace}.checked\n'
+                     f'    label_{q} raw_{q} {nodes} {returns} whole_local_{q}\n')
         roots += ['SourceProfilePilot.certificate_' + kind + '_' + str(q)
-                  for kind in ['original', 'cached']]
+                  for kind in ['original', 'cached', 'local']]
     parts.append('end SourceProfilePilot\n')
     driver.emit('SourceProfile.lean', ''.join(parts) + api.audit_and_end(
         driver, 'SourceProfile', roots,
@@ -83,8 +105,10 @@ def run(driver, api):
     driver.summary['source_component_profile_proposed'] = dict(
         labels=cases, required_roots=len(roots), expected_events=expected_events,
         kernel_checked=False, substantial_source_scaling_established=False,
-        new_accepted_machine=False, comparison='same runner/data; reversed second heavy case')
+        new_accepted_machine=False,
+        comparison='same runner/data; original/global/local; reversed second heavy case')
     driver.checkpoint()
+    local_view_pilot.build(driver, views)
     driver.run('SourceProfile', 120,
                'Controlled original and cached source component proofs checked')
     events = [line.split('\t') for line in

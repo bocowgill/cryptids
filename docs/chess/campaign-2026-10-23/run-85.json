@@ -2,7 +2,7 @@
   "run_id": 40095774726,
   "source": "c7191c539ce33684f5516065fb1e047e3e1de432",
   "mode": "profile",
-  "status": "remote_queued",
+  "status": "passed_retained_reviewed",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-85",
   "route": "Controlled same-host source/count/main/return/whole comparisons: original vs globally certified cache; choose dominant structural redesign",
   "profile_labels": [
@@ -26,5 +26,31 @@
   "automatic_smoke_run": 40095691471,
   "automatic_smoke_evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-85-smoke",
   "automatic_smoke_status": "passed_retained_reviewed",
-  "automatic_smoke_driver_seconds": 130.829242658
+  "automatic_smoke_driver_seconds": 130.829242658,
+  "profile_build_seconds": 23.431933069,
+  "profile_audit_seconds": 3.5427073,
+  "profile_audit_peak_bytes": 5300289536,
+  "profile_dependencies": 27124,
+  "driver_seconds": 690.02264398,
+  "heavy445_ms": {
+    "source": 24,
+    "counts": 30,
+    "main_original": 2414,
+    "main_cached": 1622,
+    "return_original": 281,
+    "return_cached": 188,
+    "whole_original": 2679,
+    "whole_cached": 1775
+  },
+  "heavy476_reversed_ms": {
+    "source": 22,
+    "counts": 29,
+    "main_original": 2382,
+    "main_cached": 1611,
+    "return_original": 270,
+    "return_cached": 224,
+    "whole_original": 2705,
+    "whole_cached": 1775
+  },
+  "decision": "Global cache real~1.5x same-host gain but not enough for substantial SOURCE4. Main checks dominate; source/count reuse limited~2-3%, deprioritized. Bounded operation-local cache representation pilot next with universal world correctness, three-way comparison and original substantial gates still required."
 }

@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40095774726,
+  "commit": "c7191c539ce33684f5516065fb1e047e3e1de432",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": true,
+  "actual_rows": 4370,
+  "negative_control": "kernel_rejected",
+  "diagnosis": "Controlled profile30roots/27124private deps,48ordered monotone timing events pass23.432+3.543s; standard3axioms. Heavy445 whole2679->1775ms/main2414->1622; heavy476 reversed-order whole2705->1775/main2382->1611. Source/count22-30ms each, returns188-281ms. Main-row checks dominate, global cache yields real~1.5x but SOURCE4stillfails. Do NOT prioritize source reconstruction reuse (~2-3% only). Next bounded structural pilot operation-local certified cache views, same proof obligations; retain substantial tier gates and all caps. No full-machine savings.",
+  "new_accepted_machine": false
+}
