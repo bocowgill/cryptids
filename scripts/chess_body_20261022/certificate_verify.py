@@ -15,7 +15,7 @@ def main():
     if os.environ.get('CHESS_REMOTE') != '1' or os.environ.get('GITHUB_ACTIONS') != 'true':
         raise SystemExit('Remote GitHub Actions execution required')
     parser = argparse.ArgumentParser()
-    parser.add_argument('--mode', choices=['smoke', 'full'], default='smoke')
+    parser.add_argument('--mode', choices=['smoke', 'full', 'source'], default='smoke')
     args = parser.parse_args()
     spec = importlib.util.spec_from_file_location('accepted_runner', ROOT / 'scripts/chess_field_reverse/verify.py')
     runner = importlib.util.module_from_spec(spec)
@@ -36,34 +36,43 @@ def main():
              'scripts/chess_body_20261022/diagnostics_pilot.py',
              'scripts/chess_body_20261022/symbolic_transition_pilot.py',
              'scripts/chess_body_20261022/certificate_verify.py']
+    if args.mode == 'source':
+        paths.append('scripts/chess_body_20261022/source_table_pilot.py')
     manifest = dict(commit=os.environ.get('GITHUB_SHA'), run_id=os.environ.get('GITHUB_RUN_ID'),
                     workflow_commit=os.environ.get('GITHUB_SHA'),
                     source_sha256={p: runner.sha(ROOT / p) for p in paths},
                     frozen_source_sha256=pins)
     (WORK / 'source-manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
     lakefile = 'lakefile.chess-body-certificate-20261022.toml'
-    checks = [runner.run(['lake', '--wfail', '-f', lakefile, 'build',
-                         'Cryptids.Chess.Optimisation.FieldSelective',
-                         'Cryptids.Compilation.BalancedTable',
-                         'Cryptids.Compilation.LocalCertificate'],
+    targets = (['Cryptids.Compilation.FieldCompiler.Snapshot'] if args.mode == 'source' else
+               ['Cryptids.Chess.Optimisation.FieldSelective',
+                'Cryptids.Compilation.BalancedTable', 'Cryptids.Compilation.LocalCertificate'])
+    checks = [runner.run(['lake', '--wfail', '-f', lakefile, 'build', *targets],
                         'Build completed successfully', timeout=900)]
     smoke = args.mode == 'smoke'
-    seconds = '300' if smoke else '1200'
-    expected = ('Body certificate compiled-audit smoke passed' if smoke else
+    source = args.mode == 'source'
+    seconds = '180' if source else '300' if smoke else '1200'
+    expected = ('Finite source table pilot passed' if source else
+                'Body certificate compiled-audit smoke passed' if smoke else
                 'Bounded body kernel certificate pilot passed')
+    options = ['--source-tables-only'] if source else ['--smoke-only'] if smoke else []
     checks.append(runner.run([sys.executable, 'scripts/chess_body_20261022/certificate_pilot.py',
                               '--lakefile', lakefile, '--output', str(WORK),
                               '--seconds', seconds, '--memory-gib', '6'] +
-                             (['--smoke-only'] if smoke else []), expected,
+                             options, expected,
                              timeout=int(seconds) + 60))
     detail = json.loads((WORK / 'certificate-summary.json').read_text())
-    assert detail['status'] == ('smoke_passed' if smoke else 'passed')
+    assert detail['status'] == ('source_tables_passed' if source else
+                                'smoke_passed' if smoke else 'passed')
     assert detail['full_quotient_certified'] is False
     (WORK / 'verification.json').write_text(json.dumps(dict(manifest, status='passed', checks=checks,
         mode=args.mode, detail=detail,
-        scope='Bounded concrete certificate pilot only; no complete quotient proof or accepted machine'),
+        scope=('Finite source-operation reconstruction/format fixtures; no complete source data, '
+               'graph fidelity, quotient relation or accepted machine' if source else
+               'Bounded concrete certificate pilot only; no complete quotient proof or accepted machine')),
         indent=2) + '\n')
-    print('Bounded quotient certificate verification passed')
+    print('Finite source table verification passed' if source else
+          'Bounded quotient certificate verification passed')
 
 
 if __name__ == '__main__':

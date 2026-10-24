@@ -6,14 +6,14 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: Bounded compiled-audit preflight or complete certificate scalability trial
+        description: Bounded compiled-audit preflight, finite source tables, or certificate trial
         type: choice
-        options: [smoke, full]
+        options: [smoke, full, source]
         default: smoke
 permissions:
   contents: read
 concurrency:
-  group: chess-body-certificate-20261022-${{ github.ref }}
+  group: chess-body-certificate-20261022-${{ github.ref }}-${{ inputs.mode || 'smoke' }}
   cancel-in-progress: false
 jobs:
   pilot:

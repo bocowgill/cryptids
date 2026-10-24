@@ -81,6 +81,7 @@ class Driver:
         self.child = None
         self.audit_roots = {}
         self.stage = "input_and_generation"
+        source_only = getattr(args, "source_tables_only", False)
         self.summary = {
             "status": "running", "classification": "FINITE_PARTIAL_KERNEL_SCALABILITY_PILOT",
             "partial_certificate_only": True, "full_quotient_certified": False,
@@ -91,8 +92,10 @@ class Driver:
                        "audit_allocator_limit_bytes": None,
                        "address_space_limit": None, "memory_enforcement": "sampled resident memory"},
             "source_states": N, "quotient_states": K,
-            "requested_scope": "compiled_audit_smoke_only" if args.smoke_only else "full_bounded_pilot",
-            "requested_sample_states": [] if args.smoke_only else [64, 512, 4096],
+            "requested_scope": ("finite_source_operation_tables_only" if source_only else
+                                "compiled_audit_smoke_only" if args.smoke_only else
+                                "full_bounded_pilot"),
+            "requested_sample_states": [] if source_only or args.smoke_only else [64, 512, 4096],
             "audit_execution": "compiled_lean_executable",
             "map_representation": "named_literal_nat_midpoint_subtrees_with_composed_kernel_proofs",
             "map_invariant_proof": "single_pass_checked_count_cache_range",
@@ -264,7 +267,8 @@ class Driver:
             # A runtime resource failure is never a successful negative control.
             raise Obstruction(stem + ": " + str(cause or "Lean resource/scaling failure"))
         if negative:
-            # addDecl(..., true) must reach the kernel and reject its false term.
+            # Lean.addDecl invokes kernel checking; true controls module exposure.
+            # The false term must reach that kernel check and be rejected.
             # Timeout, missing imports and tactic failures do not count.
             explicit_kernel_rejection = "(kernel)" in output and "type mismatch" in output.lower()
             require(cause is None and exit_code != 0 and explicit_kernel_rejection,
@@ -1404,8 +1408,12 @@ theorem quotient_fidelity (state : Fin {K}) (bit : Fin 2) :
     # Generate each structural sample only after the preceding stage passes.
     # This avoids paying for4096state witnesses before measuring64states.
     negative = f'''module
-import {MODULE}.Rows64
+public import {MODULE}.Rows64
+public meta import Lean
+
+public meta section
 open Lean Elab Term Meta Command Turing ConjectureMachines
+set_option Elab.async false
 -- Deliberately false: the accepted entry's symbol-zero row is defined.
 -- A checked actual-row theorem with an explicit some RHS cannot prove none.
 elab "submit_false_body_row" : command => do
@@ -1414,10 +1422,15 @@ elab "submit_false_body_row" : command => do
       Chess.Optimisation.FieldSelective.body.toMachine.transition
         (0 : Fin {N}) (0 : Fin 2))) none
     let rhs ← elabTerm (← `(term| (none : Option (Fin 2 × Dir × Fin {N})))) none
-    let proposition ← mkEq lhs rhs
+    synthesizeSyntheticMVarsNoPostponing
+    let proposition ← instantiateMVars (← mkEq lhs rhs)
     let falseProof := mkConst `{NS}.Sample64.actual_0_0
-    addDecl (.thmDecl {{name := `{NS}.deliberately_false_row,
-      levelParams := [], type := proposition, value := falseProof}}) true
+    Lean.addDecl (.thmDecl {{
+      name := `{NS}.deliberately_false_row
+      levelParams := []
+      type := proposition
+      value := falseProof
+    }}) true
 submit_false_body_row
 '''
     driver.emit("Negative.lean", negative)
@@ -1433,13 +1446,36 @@ def main():
     parser.add_argument("--memory-gib", type=int, default=6)
     parser.add_argument("--smoke-only", action="store_true",
                         help="Stop after compiled auditor and complete packed-codec template smoke audit")
+    parser.add_argument("--source-tables-only", action="store_true",
+                        help="Check finite source-operation reconstruction and format fixtures only")
     args = parser.parse_args()
     require(sys.platform == "linux" and 10 <= args.seconds <= 1200 and 2 <= args.memory_gib <= 6,
             "Linux and bounded resource settings required")
+    require(not (args.smoke_only and args.source_tables_only), "Choose one bounded pilot scope")
     args.output.mkdir(parents=True, exist_ok=True)
     require(args.lakefile.is_file(), "root-owned lakefile missing")
     driver = Driver(args)
     try:
+        if args.source_tables_only:
+            driver.summary.update(classification="FINITE_SOURCE_OPERATION_TABLE_PILOT",
+                                  complete_opcode_snapshot_checked=False,
+                                  graph_fidelity_checked=False)
+            driver.emit("Audit.lean", AUDIT)
+            import source_table_pilot
+            driver.summary["source_table_generator_source"] = info(Path(source_table_pilot.__file__))
+            source_table_pilot.generate(driver, header, audit_and_end, MODULE)
+            driver.run("Audit", 120, "Build completed successfully", audit_build=True)
+            driver.run("SourceTables", 60,
+                       "Finite source-operation table reconstruction checked")
+            driver.summary["status"] = "source_tables_passed"
+            driver.summary["finite_source_reconstruction_checked"] = True
+            driver.summary["source_format_fixtures_checked"] = True
+            driver.summary["actual_frozen_source_operations_checked"] = 2
+            driver.checkpoint()
+            driver.monitor_stop.set()
+            signal.setitimer(signal.ITIMER_REAL, 0)
+            print("Finite source table pilot passed", flush=True)
+            return 0
         if args.smoke_only:
             generate_setup(driver)
         else:

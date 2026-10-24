@@ -1,0 +1,15 @@
+{
+  "run_id": 40049978567,
+  "source": "f09ec3f4ca69980540277cb3b097c01e25108351",
+  "mode": "full",
+  "status": "retained_64_pass_negative_harness_error",
+  "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-40",
+  "positive_states": 64,
+  "positive_rows": 128,
+  "roots_audited": 1271,
+  "dependencies_audited": 20528,
+  "negative_status": "syntax_and_meta_import_error_not_kernel_rejection",
+  "accepted_states": 769344,
+  "prospective_states": 310029,
+  "new_accepted_machine": false
+}

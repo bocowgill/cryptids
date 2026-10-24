@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40049978567,
+  "commit": "f09ec3f4ca69980540277cb3b097c01e25108351",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": true,
+  "actual_rows": 128,
+  "negative_control": "not_run",
+  "diagnosis": "Rows64 PASS59.743s/3649916928bytes and1271root/20528dependency full-private audit3.954s, standard3axioms. Rows1 also passes24roots. Negative test exits5.066s with syntax/private meta-import errors, not required kernel type mismatch;512/4096unrun. Repair explicit public meta import, aligned declaration fields, completed term elaboration and synchronous Lean.addDecl; true is forceExpose, kernel checking is standard. No universal/full-machine credit.",
+  "new_accepted_machine": false
+}

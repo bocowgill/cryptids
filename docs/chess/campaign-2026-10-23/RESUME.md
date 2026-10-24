@@ -415,3 +415,23 @@ credit from39; prior38entry proofs remain checked. Repair uses a named
 bounce value equality, explicit offset/rank rewrites and Eq.trans with a
 closed decide+kernel arithmetic proof. Same statement, local opaque scope,
 original caps and gates. SourceTable producer stays UNWIRED/unexecuted.
+
+
+Run40049978567 atf09ec3f retained and byte-reviewed certificate-40. Original
+Rows64 PASSES59.743s/3649916928bytes plus1271root/20528dependency full-private
+audit3.954s, standard3axioms only. All128actual/quotient row relations checked.
+Rows1also passes24root audit. Negative exits5.066s with parser/private meta
+import errors; not kernel rejection, correctly blocks512/4096. Repair adds
+public meta importLean/public Rows64 import, aligned thmDecl fields, synthetic
+metavariable completion and synchronous Lean.addDecl. Source confirms true is
+forceExpose, NOT a kernel-check toggle; ordinary Lean.addDecl checks via
+Environment.addDeclAux. Kernel-rejection matcher remains strict.
+Focused mode=source added for SourceTables only: frozen source Snapshot target,
+compiled auditor plus13root module build/full-private audit under60s/6GiB,
+180s orchestration. New mode never sets completeOpcode/graph/quotient/machine
+flags. Original smoke/full gates and caps unchanged. Source producer now wired
+only through this focused mode; not yet executed. Reads correct Vector API via
+an explicit get/ofFn lemma based on frozen syntaxRows_get pattern. Independent
+mode concurrency groups prevent queued source probes canceling full runs.
+Source mode requires no new workflow permissions (contents:read unchanged).
+No accepted full-machine saving:769344→310029 remains prospective459315.

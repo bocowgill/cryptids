@@ -63,3 +63,11 @@ normal status returns before actual transition proofs. This blocks unintentional
 closed index normalization. There is no reducibility override on a frozen/indexed
 definition. Same64/512/4096gates and caps. The original initial0/both-bit gate
 also reruns with its full-private audit. No machine savings accepted by this step.
+
+
+Evidence: generic value interface13root audit passes in39. Its first concrete
+simpa only failed closed Fin/Nat normalization. Certificate-40 uses explicit
+Eq.trans and a closed decide+kernel arithmetic proof; initial both bits and all
+64states/128rows pass, with1271root full-private audit. Build59.743s/3.650GB.
+No limit increased. The required false-row control still needs its harness fix;
+there is no complete quotient or new full-machine saving.

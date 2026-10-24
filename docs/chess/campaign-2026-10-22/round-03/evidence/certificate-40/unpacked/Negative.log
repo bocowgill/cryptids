@@ -1,0 +1,51 @@
+ℹ [3254/3274] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.Loaders
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/Loaders.lean:47:0: Body certificate loaders checked
+ℹ [3255/3274] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.MapData
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/MapData.lean:13322:0: Complete body class map loaded
+ℹ [3256/3274] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.MapPrelude
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/MapPrelude.lean:105:0: Body class map prelude checked
+ℹ [3257/3274] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.MapCount
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/MapCount.lean:15572:0: Complete body class map count checked
+ℹ [3258/3274] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.MapValid
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/MapValid.lean:13:0: Complete body class map caches checked
+ℹ [3259/3274] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.MapBounded
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/MapBounded.lean:13:0: Complete body class map range checked
+ℹ [3260/3274] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.MapChecks
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/MapChecks.lean:22:0: Complete body class map checks passed
+ℹ [3261/3274] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.QuotientData
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/QuotientData.lean:1674:0: Complete body quotient rows loaded
+ℹ [3262/3274] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.QuotientChecks
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/QuotientChecks.lean:1977:0: Complete packed quotient checks passed
+ℹ [3263/3274] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.Data
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/Data.lean:13:0: Complete body certificate data assembled
+ℹ [3920/3959] Replayed Cryptids.Chess.Compilation.SourceCertificate
+info: Cryptids/Chess/Compilation/SourceCertificate.lean:226:0: Source certificate: 7076 checked lemmas, 7037 cache hits
+info: Cryptids/Chess/Compilation/SourceCertificate.lean:230:0: Literal row certificate: 5952 checked rows in 186 chunks
+ℹ [3931/3959] Replayed Cryptids.Chess.Compilation.Input
+info: Cryptids/Chess/Compilation/Input.lean:128:0: Checked 186 literal row chunks: 141042 stack symbols
+ℹ [3950/3959] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.BodyRelation
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/BodyRelation.lean:18:0: Actual body row predicate checked
+ℹ [3951/3959] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.RowTools
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/RowTools.lean:44:0: Structural body row helpers checked
+ℹ [3952/3959] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.OperationWeights
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/OperationWeights.lean:59:0: Universal frozen operation weight summaries checked
+ℹ [3953/3959] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.WeightTables
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/WeightTables.lean:5162:0: Complete source weights and shared prefix correspondence checked
+ℹ [3954/3959] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.RowWitnesses
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/RowWitnesses.lean:136:0: Actual local syntax and far-end address witnesses checked
+ℹ [3955/3959] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.ActualTools
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/ActualTools.lean:88:0: Structural main and return row transport helpers checked
+ℹ [3956/3959] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.SymbolicTransitions
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/SymbolicTransitions.lean:42:0: Symbolic actual main-write interface checked
+ℹ [3958/3959] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.Rows64
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/Rows64.lean:12251:0: Body kernel rows checked: 64 states, 128 rows
+✖ [3959/3959] Building Cryptids.Chess.Optimisation.BodyCertificatePilot.Negative (2.2s)
+trace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean -M6144 /home/runner/work/cryptids/cryptids/Cryptids/Chess/Optimisation/BodyCertificatePilot/Negative.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Chess/Optimisation/BodyCertificatePilot/Negative.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Chess/Optimisation/BodyCertificatePilot/Negative.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Chess/Optimisation/BodyCertificatePilot/Negative.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Chess/Optimisation/BodyCertificatePilot/Negative.setup.json --json
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Negative.lean:14:95: unexpected identifier; expected '}'
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Negative.lean:6:0: Unknown constant `Lean.Elab.Command.CommandElab`
+
+Note: A public declaration `CommandElab` exists but is imported privately; consider adding `public import Lean.Elab.Command`.
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/Negative.lean:16:0: elaboration function for `commandSubmit_false_body_row` has not been implemented
+Some required targets logged failures:
+- Cryptids.Chess.Optimisation.BodyCertificatePilot.Negative
+error: build failed

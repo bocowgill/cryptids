@@ -107,3 +107,13 @@ candidate data still passes. Actual64module has a6GiB memory obstruction at
 Run40043435954 tests controlled intermediate rewrites to avoid eager global
 lookup normalization. This is another bounded dependency test for the same
 459315saving; smaller helper successes are not reported as machine savings.
+
+
+Checkpoint40: first original64states/128rows PASS59.743s plus1271root full-private
+audit3.954s; peak3.650GB. This is accepted intermediate proof progress, not a
+full-machine saving. The false-row harness has a syntax/import defect and has
+not reached kernel rejection. The prospective full459315saving remains ranked
+first. Shared packed binary-cache/source-table/forward-return certificates are
+high-difficulty/high-effort dependencies for that same saving, not additive
+opportunities. A focused source-table proof mode will measure the next format
+kernel; old modes, full-machine acceptance requirements and limits stay fixed.

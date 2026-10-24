@@ -43,8 +43,13 @@ def fromTableOp {n : Nat} : TableOp n → Op n
   | .jump target => .jump (fun old ↦ target.get old)
   | .halt => .halt
 
+theorem table_vector_get_ofFn {α : Type} {n : Nat} (f : Fin n → α) (i : Fin n) :
+    (Vector.ofFn f).get i = f i := by
+  change (Vector.ofFn f)[i.val] = _
+  exact Vector.getElem_ofFn i.isLt
+
 theorem from_toTableOp {n : Nat} (op : Op n) : fromTableOp (toTableOp op) = op := by
-  cases op <;> simp only [toTableOp, fromTableOp, Vector.get_ofFn]
+  cases op <;> simp only [toTableOp, fromTableOp, table_vector_get_ofFn]
 
 theorem toTableOp_injective {n : Nat} : Function.Injective (toTableOp (n := n)) := by
   intro a b same
@@ -92,10 +97,11 @@ theorem load_fixture_bad_cell : toTableOp loadFixture ≠ badLoadTableFixture :=
 
 
 def generate(driver, header, audit_and_end, module):
-    roots = ['TableOp', 'toTableOp', 'fromTableOp', 'from_toTableOp',
+    roots = ['TableOp', 'toTableOp', 'fromTableOp', 'table_vector_get_ofFn', 'from_toTableOp',
              'toTableOp_injective', 'lower_from_toTableOp', 'source_from_toTableOp',
              'source_jump0', 'source_jump1', 'source_bad_jump_cell',
              'load_fixture_reifies', 'load_fixture_bad_cell']
-    driver.emit('SourceTables.lean', header([module + '.ActualTools']) + SOURCE +
+    driver.emit('SourceTables.lean',
+                header(['Cryptids.Compilation.FieldCompiler.Snapshot']) + SOURCE +
                 audit_and_end(driver, 'SourceTables', roots,
                               'Finite source-operation table reconstruction checked'))

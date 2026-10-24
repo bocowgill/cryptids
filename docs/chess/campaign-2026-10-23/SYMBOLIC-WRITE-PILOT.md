@@ -50,3 +50,9 @@ propext/Classical.choice/Quot.sound. Both original entry-state transition/RowAt
 proofs checked; main sample counters remain0 by design. Initial actual proofs
 inRows64 now43/42ms. S3 still fails120.038s wall, peak5545701376bytes, with
 return-address setup dominating77s. No negative/512/4096or universal credit.
+
+
+Certificate-40 advances S3's positive64part:59.743s build at3.650GB and
+1271root/20528dependency audit3.954s, standard3axioms. Negative harness then
+fails syntax/private imports rather than reaching kernel rejection;512/4096
+remain unrun. S3 stays open. No complete quotient or full-machine saving.

@@ -1,9 +1,12 @@
 # Finite source-operation table pilot
 
-Status: text prepared only; producer source_table_pilot.py is NOT wired into the
-remote driver or source manifest yet and has not been executed. Await current
-return-address pilot outcome before integrating it. All heavy verification will
-be remote; local work is source text/AST inspection only.
+Status: producer is now wired into the focused remote `source` mode, not yet
+executed. Its proof file imports only the frozen source-operation snapshot.
+The mode builds the ordinary compiled auditor and checks all13explicit roots
+under60seconds/6GiB, with180seconds total orchestration. It does not generate
+candidate map/Q data or claim graph/quotient/machine acceptance. Existing
+smoke/full paths and checks remain intact. All heavy verification stays remote;
+local work is source text/AST inspection only.
 
 Purpose: a dependency for the existing459315state quotient certificate, not a
 new runtime compiler or accepted state reduction. Accepted769344; target310029.
