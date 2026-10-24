@@ -40,7 +40,8 @@ theorem coherent_of (q : Fin 4042) (p : Syntax 4042)
     LocalRulePilot.Coherent q p := by
   intro slot bit value
   have word := checked slot bit value
-  simpa only [typedStep_eq, Syntax.fastNodeAt_eq] using word
+  simpa only [typedStep_eq, Syntax.fastNodeAt_eq, NumericControlPilot.rowWord,
+    observation, sourceLayout, layout, NumericLocalPilot.rowWord] using word
 
 theorem returned_of (q : Fin 4042) (p : Syntax 4042)
     (checked : NumericSourceCorePilot.ReturnCoherent observation (sourceLayout q) p) :

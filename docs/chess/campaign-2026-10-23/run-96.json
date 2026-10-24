@@ -2,7 +2,7 @@
   "run_id": 40123780160,
   "source": "cb6d1ed3768e0aad377b9635f9b818dec5e6371d",
   "mode": "profile",
-  "status": "dispatched",
+  "status": "retained_reviewed_source_failure",
   "route": "Concrete numeric tree checker using actual mapQ without observation-cache materialization",
   "artifact": "chess-body-certificate-cb6d1ed3768e0aad377b9635f9b818dec5e6371d",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-96",
@@ -26,5 +26,11 @@
   "prior_complete_source_states": 39240,
   "prior_complete_source_rows": 78480,
   "last_usage_percent": 15,
-  "next_gate": "Retain exact result; evaluate actual source fidelity, full cost and all corruption controls before substantial tiers."
+  "next_gate": "One specific proof-conversion correction, then same concrete three-case cost/corruption pilot. Substantial option remains unwired. No scalability credit.",
+  "driver_seconds": 453.12533709800005,
+  "failed_stage": "NumericSourceAdapter",
+  "failed_stage_seconds": 4.2535631389999935,
+  "failed_stage_peak_bytes": 3263127552,
+  "resource_stop": null,
+  "diagnosis": "coherent_of simp left two definitionally identical rowWord/address wrappers folded; both observations already use exactly Q(map(address)). Add explicit wrapper unfolding; theorem and hypotheses unchanged."
 }

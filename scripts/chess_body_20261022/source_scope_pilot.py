@@ -16,9 +16,17 @@ def generate(driver, snapshot, expected_sha, header, audit_and_end, progress_mar
              divisor, inherited, recipe_constructor='SourceRecipePilot.fromRaw',
              recipe_constructors=None, recipe_modules=None):
     assert divisor in (16, 4)
-    assert recipe_constructor in ('SourceRecipePilot.fromRaw', 'CacheWorldPilot.fromCachedRaw')
+    assert recipe_constructor in ('SourceRecipePilot.fromRaw', 'CacheWorldPilot.fromCachedRaw',
+                                  'NumericSourceAdapterPilot.fromRaw')
+    numeric_recipe = recipe_constructor == 'NumericSourceAdapterPilot.fromRaw'
     fast_world = recipe_constructor == 'CacheWorldPilot.fromCachedRaw'
     local_views = recipe_constructors is not None
+    if numeric_recipe:
+        assert not local_views
+        assert driver.summary['numeric_source_adapter_checked']
+        assert driver.summary['numeric_actual_source_profile_checked']
+        assert driver.summary['numeric_actual_kernel_corruption_rejected']
+        import numeric_trace_literal_pilot
     if local_views:
         assert recipe_modules is not None
         assert driver.summary['operation_local_source_cache_checked']
@@ -52,6 +60,8 @@ def generate(driver, snapshot, expected_sha, header, audit_and_end, progress_mar
                [module + '.' + name for name in parent_stems])
     if fast_world:
         imports.append(module + '.CacheWorldControls')
+    if numeric_recipe:
+        imports.append(module + '.NumericActualProfile')
     if local_views:
         imports += sorted({recipe_modules[q] for q in range(end)})
         imports.append(module + '.LocalViewControls')
@@ -88,10 +98,17 @@ def generate(driver, snapshot, expected_sha, header, audit_and_end, progress_mar
             parts.append(f'def label_{q} : Fin 4042 := ⟨{q}, by decide +kernel⟩\n'
                          f'noncomputable def raw_{q} : RawOp :=\n' +
                          indent(raw_op(operations[q])) + '\n')
+            if numeric_recipe:
+                parts.append(numeric_trace_literal_pilot.render(
+                    q, data['syntax'][q], data['return_local_targets'][q]))
             parts.append(progress_marker('recipe_check', q,
                                          driver.args.output / f'{stem}-details.tsv'))
             parts.append(f'noncomputable def {record} : SourceCertificate :=\n'
-                         f'  {constructor} label_{q} raw_{q}\n'
+                         f'  {constructor} label_{q} raw_{q}\n')
+            if numeric_recipe:
+                parts.append(f'    fragment_{q} {data["prefix_offsets"][q]} '
+                             f'{data["return_offsets"][q]}\n')
+            parts.append(
                          f'    {data["row_sizes"][q]} {len(data["return_local_targets"][q])}\n'
                          '    (by decide +kernel)\n')
         roots.append(namespace + '.' + record)
@@ -149,7 +166,9 @@ def generate(driver, snapshot, expected_sha, header, audit_and_end, progress_mar
         finite_state_domain=states, finite_row_domain=rows, source_body_states=573802,
         main_nodes=nodes, return_ranks=returns, required_roots=len(roots),
         every_bit_and_store=True, all_paid_local_returns=True,
-        syntax_representation='lower restored raw operation; exact raw-source equality checked',
+        syntax_representation=('numeric trace equals encoded original source syntax' if
+                               numeric_recipe else
+                               'lower restored raw operation; exact raw-source equality checked'),
         proof_representation='compact Boolean recipe implies identical SourceRows and census',
         recipe_constructor=('certified operation-local family' if local_views else
                             recipe_constructor),

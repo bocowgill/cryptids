@@ -1,0 +1,5 @@
+ℹ [3850/3851] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.SourceTables
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/SourceTables.lean:99:0: Finite source-operation table reconstruction checked
+ℹ [3851/3851] Built Cryptids.Chess.Optimisation.BodyCertificatePilot.RawLabels (2.4s)
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/RawLabels.lean:144:0: Raw labels decode exactly and reject out-of-range targets
+Build completed successfully (3851 jobs).

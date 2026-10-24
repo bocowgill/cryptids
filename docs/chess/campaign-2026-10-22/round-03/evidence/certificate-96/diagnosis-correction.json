@@ -1,0 +1,5 @@
+{
+  "corrects": "parent-metadata.json diagnosis text only",
+  "actual": "Both observations already use Q.lookup(map.lookup address 0)(0,0). The source error is folded rowWord/layout wrappers in coherent_of, not a different quotient index or source machine.",
+  "proof_or_machine_credit": false
+}

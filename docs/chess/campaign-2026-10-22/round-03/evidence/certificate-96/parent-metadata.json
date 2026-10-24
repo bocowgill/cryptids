@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40123780160,
+  "commit": "cb6d1ed3768e0aad377b9635f9b818dec5e6371d",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": true,
+  "actual_rows": 4370,
+  "negative_control": "kernel_rejected",
+  "diagnosis": "NumericSourceAdapter.coherent_of left observation is mapQ at raw address, old rowWord is Q already at quotient index; inspect exact lookup definition before any corrective run. Source proof error, not memory/time/scaling evidence.",
+  "new_accepted_machine": false
+}

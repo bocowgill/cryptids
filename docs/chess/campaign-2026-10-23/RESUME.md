@@ -2082,3 +2082,22 @@ Retained memory51/52already resolves user6/10GiB question: both0completedrow
 modules;10GiBmerely delaysfailure, no12GiBtest. GoalACTIVE/frozen/remote/nooutreach.
 Accepted769344/target310029/newfullsavings0; strongest39240states/78480rows;
 459315prospective payoff. Lastusage15%; source checkpoint pushed before run.
+
+
+96TERMINAL source/proof conversion error retained/reviewed; run40123780160
+atcb6d1ed3. Driver453.125s, NumericSourceAdapter4.254s/3263127552bytes,
+no resource stop. All20/29/17generic core replays/audits/negatives pass,
+including new constructive DecidableEq instances. Only coherent_of fails:
+simp leaves NumericControl.rowWord observation (sourceLayoutq).main folded
+versus NumericLocal.rowWord mainAddress. Definitions on BOTH sides already
+use identical Q(map(address)); initial metadata diagnosis suggesting different
+indexing was incorrect and is explicitly corrected in diagnosis-correction.json.
+Rest of adapter source has no reported errors, but NO adapter/audit/profile
+credit before complete module passes. Actual3case data/profiling unattempted.
+Specific97fix explicitly unfolds rowWord/observation/sourceLayout/layout in
+the existing simpa proof. Statement/hypotheses/coverage/correctness/caps identical.
+Not memory/time evidence and no rationale to raise caps or change checker.
+Terminal workflow logs/metadata appended to proof-only retention; original
+snapshot preserved. Unwired substantial-tier numeric option prepared, never
+dispatched; only activate after actual full-cost/corruption decision. GoalACTIVE,
+accepted769344/target310029/new full savings0; strongest39240states/78480rows.

@@ -699,3 +699,19 @@ payoff/highproof/higheffort; accepted769,344/target310,029/new full savings0;
 strongest source39,240states/78,480rows. GoalACTIVE; lastusage15%, no reset;
 frozen/remote/free/no-outreach fixed. This goal turnPROGRESS: implemented generic
 coverage, diagnosed94, fixed/proved95 and retained all evidence; not completion.
+
+
+Checkpoint96: same accepted paid breakdown769344, no new full-machine saving.
+Rank1 remains certification of the114487body,459315absolute savings to310029;
+high proof difficulty/high implementation effort. Numeric structural certificates
+now replace the abandoned closed-row and observation-cache routes for this SAME
+payoff. Generic20/29/17roots verified; concrete8rootadapter plus actual355/445/356
+full-cost/corruption screening runs40123780160 atcb6d1ed3. Its purpose is to
+remove424s family setup and repeated compiler normalization; estimated net payoff
+is unproved until total cost and substantial source tiers pass. No per-helper
+state saving is claimed. Rank2 packet compression targets remaining173642writer
+and21682decoder, but no fully paid net estimate; higher decoder/cleanup/input
+proof effort, defer pending this route decision. Rank3program-as-data remains
+very high proof/implementation effort with no defensible net saving. Memory
+comparison51/52already rejected increasing RAM for monolithic certification:
+6/10GiBboth0completedrowmodules. No12GiB test or paid infrastructure.

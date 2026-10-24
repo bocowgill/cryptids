@@ -1,0 +1,20 @@
+{
+  "schema": "chess-proof-artifact-retention-v1",
+  "repository": "bocowgill/cryptids",
+  "run_id": 40123780160,
+  "run_url": "https://github.com/bocowgill/cryptids/actions/runs/40123780160",
+  "workflow_status_at_retention": "completed",
+  "run_conclusion": "failure",
+  "workflow_commit": "cb6d1ed3768e0aad377b9635f9b818dec5e6371d",
+  "computation_commit": "cb6d1ed3768e0aad377b9635f9b818dec5e6371d",
+  "artifact_id": 12572158775,
+  "artifact_name": "chess-body-certificate-cb6d1ed3768e0aad377b9635f9b818dec5e6371d",
+  "artifact_sha256": "7d7cdb9e430d1f21624494ba37c60195cb7d5764eaa940fe09fcc7665714eb99",
+  "artifact_bytes": 3045616,
+  "proof_stage_status": "failed",
+  "proof_artifact_only": true,
+  "workflow_final_metadata_pending": true,
+  "workflow_logs_missing_reason": "Retain exact proof-stage logs now; append terminal workflow metadata later",
+  "evidence_scope": "Transport and byte provenance only; no local proof/model execution",
+  "certifies_new_machine": false
+}
