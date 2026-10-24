@@ -1,0 +1,23 @@
+[
+  {
+    "name": "cache_88566_220",
+    "first": 88566,
+    "size": 220,
+    "kind": "chunk"
+  },
+  {
+    "name": "cache_88786_220",
+    "first": 88786,
+    "size": 220,
+    "kind": "chunk"
+  },
+  {
+    "name": "cache_88566_440",
+    "first": 88566,
+    "size": 440,
+    "kind": "branch",
+    "half": 220,
+    "left": "cache_88566_220",
+    "right": "cache_88786_220"
+  }
+]

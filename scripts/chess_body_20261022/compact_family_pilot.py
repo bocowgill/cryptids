@@ -25,9 +25,30 @@ def window_truth(window):
 def list_truth(windows):
     result = 'rfl'
     for window in reversed(windows):
-        result = ('Bool.and_eq_true.mpr ⟨(' + window_truth(window) + '),\n'
+        result = ('Bool.and_eq_true_iff.mpr ⟨(' + window_truth(window) + '),\n'
                   '    ' + result + '⟩')
     return result
+
+
+def wiring_preflight(driver, api):
+    windows = [dict(start=0, finish=128, namespace='LookupCache128Pilot')] * 2
+    source = '''namespace FamilyWiringPilot
+noncomputable def windows : List WorkingViewPilot.Window := [
+  ⟨0, 128, LookupCache128Pilot.cache⟩,
+  ⟨0, 128, LookupCache128Pilot.cache⟩
+]
+theorem checked : WorkingViewPilot.checks windows = true :=
+''' + '  ' + list_truth(windows) + '''
+theorem fidelity : ∀ w ∈ windows, WorkingViewPilot.Fidelity w :=
+  WorkingViewPilot.all_properties windows checked
+theorem world_exact : WorkingViewPilot.world windows = LookupWorldPilot.actualWorld :=
+  WorkingViewPilot.world_correct windows checked
+end FamilyWiringPilot
+'''
+    driver.emit('FamilyWiring.lean', api.header([api.MODULE + '.WorkingViews',
+        api.MODULE + '.LookupCache128']) + source + api.audit_and_end(driver, 'FamilyWiring',
+        ['FamilyWiringPilot.' + n for n in ['windows', 'checked', 'fidelity', 'world_exact']],
+        'Compact family proof wiring checked before large batch preparation'))
 
 
 def run(driver, api):
@@ -47,6 +68,12 @@ def run(driver, api):
     driver.run('LookupCacheControls', 60, 'Cache class and word corruption rejected')
     driver.run('LookupCacheNegative', 45, negative=True)
     working_view_pilot.generate_core(driver, api)
+    wiring_preflight(driver, api)
+    driver.run('WorkingViews', 60,
+               'Universal window-list fidelity and working-set source transport checked')
+    driver.run('FamilyWiring', 60,
+               'Compact family proof wiring checked before large batch preparation')
+    driver.summary['compact_family_wiring_checked'] = True
     assert hashlib.sha256(api.SNAPSHOT.read_bytes()).hexdigest() == api.SNAPSHOT_SHA
     data = json.loads(api.SNAPSHOT.read_text())
     end, covered = 0, 0
@@ -89,7 +116,8 @@ def run(driver, api):
         stem = f'FamilyViews{index:03d}'
         namespace = stem + 'Pilot'
         data_parts = [api.header([api.MODULE + '.LookupCacheLoaders'])]
-        checks = [api.header([api.MODULE + '.' + stem + 'Data', api.MODULE + '.WorkingViews', api.MODULE + '.FamilyReturns'])]
+        checks = [api.header([api.MODULE + '.' + stem + 'Data',
+                             api.MODULE + '.WorkingViews', api.MODULE + '.FamilyReturns'])]
         data_roots, check_roots, definitions, keys = [], [], [], []
         for operation in group:
             q, windows = operation['label'], []
@@ -148,8 +176,6 @@ def run(driver, api):
         kernel_checked=False, new_accepted_machine=False)
     driver.checkpoint()
     # All planned data, batch, control and negative sources passed width guards.
-    driver.run('WorkingViews', 60,
-               'Universal window-list fidelity and working-set source transport checked')
     driver.run('FamilyReturnsData', 60, 'Shared return observation data loaded')
     driver.run('FamilyReturns', 180, 'Shared return bounded validation checked')
     driver.summary[shared['summary_key']]['kernel_checked'] = True

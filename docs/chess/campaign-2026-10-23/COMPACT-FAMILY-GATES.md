@@ -45,3 +45,15 @@ cache views as the speed remedy. Diagnose residual checker normalization and
 pursue a structural routine certificate; no unchanged retry or cap increase.
 Full body/shared controls/bidirectional halting/exact paid allocation and
 distinct final review still mandatory for a new accepted machine.
+
+
+89stopped before substantial source: FamilyViews000 unknown constant
+Bool.and_eq_true.mpr. Shared return bounded proofs/audit pass53.828+3.363s;
+first batch data/audit5.684+2.954s; failing build9.627s, peak3,403,919,360bytes.
+Driver570.208s. This is a source API defect, not memory/time/scaling evidence.
+
+Corrected90 uses Bool.and_eq_true_iff.mpr, already used in certified generic
+map checker. New FamilyWiring4root helper exercises the SAME window_truth and
+list_truth generators over2checked real128entry windows before large cache
+preparation. Its universal fidelity/world equality and private audit must pass
+within60s. Original SOURCE16/4, all mathematical obligations and caps fixed.

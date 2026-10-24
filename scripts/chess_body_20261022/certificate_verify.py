@@ -167,6 +167,7 @@ def main():
         assert detail['complete_prefix_scan_checked'] is True
         assert detail['completed_positive_unique_rows'] == 0
     if local:
+        assert detail['compact_family_wiring_checked'] is True
         assert detail['operation_local_source_cache_checked'] is True
         assert detail['operation_local_source_controls_checked'] is True
         assert detail['operation_local_source_kernel_corruption_rejected'] is True

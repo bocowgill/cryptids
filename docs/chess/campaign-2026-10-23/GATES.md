@@ -21,10 +21,13 @@ evidence and pins stay fixed. No outreach or bulk upstream migration.
   preserving missing transitions and both bits; a meaningful false-row control
   fails in the kernel, and both halting directions are proved.
   EVIDENCE: certificate-40 checks original64states/128rows and1271roots/20528dependencies by full-private audit, standard3axioms. Certificate-43 kernel rejects explicit false initial row in4.968s; Rows512 then stops at180.117s below memory cap, before getter/actual proofs. Complete573802state relation and both halting directions remain unproved.
-  LATEST: certificate67 and subsequent regression replays certify one complete
-  source block:2185original states/4370rows. Structural traversal13roots and
-  compact source recipes4roots are verified dependencies (74/75). No completed
-  1/16 source certificate/audit or quarter; the complete relation remains open.
+  LATEST: certificates84/87 certify complete source labels0..447,39,240
+  original states/78,480rows, including actual source equality, every bit/store,
+  return rank, census and full-private audit. Quarter146,200states/292,400rows
+  and complete573,802state relation remain unproved. Trial88 proves reusable
+  Window/list fidelity and exact World transport (11generic roots) and controlled
+  small profiles, without larger-source or machine credit. Trial89run40110449962
+  tests compact family setup plus the unchanged180/210s substantial tiers.
 - [ ] G5: The complete blank-tape binary machine has exactly 310,029 paid states
   and the original not-draw equivalence; all actual rows, independent fixtures,
   corruption controls, regressions and foundation audits pass remotely.

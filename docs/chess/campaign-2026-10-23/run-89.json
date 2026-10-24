@@ -2,7 +2,7 @@
   "run_id": 40110449962,
   "source": "975ed2a3346e7f93fc188fdfd9aea2ba3b907564",
   "mode": "local",
-  "status": "remote_running",
+  "status": "terminal_lean_source_failure",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-89",
   "route": "Compact validated chunks plus quantified Window/list fidelity; shared return table; unchanged substantial SOURCE16/4",
   "overall_seconds": 1200,
@@ -21,7 +21,7 @@
   "all_mathematical_window_fidelity_claims_preserved": true,
   "individual_old_wrapper_names_retained": false,
   "zero_fallback_claim": false,
-  "next_gate": "All bounded batch audits/control/negative receipts; complete both original SOURCE16/4 tiers; measure setup versus source overhead",
+  "next_gate": "Specific constructor correction plus early four-root generated wiring preflight before expensive batches; unchanged claims/caps",
   "accepted_components": {
     "writer": 173642,
     "structured_decoder": 21682,
@@ -31,5 +31,11 @@
     "interpreter_main": 533341,
     "interpreter_returns": 40461,
     "total": 769344
-  }
+  },
+  "driver_seconds": 570.20823855,
+  "failed_module": "FamilyViews000",
+  "failure": "Unknown constant Bool.and_eq_true.mpr; use existing certified Bool.and_eq_true_iff.mpr",
+  "memory_or_time_failure": false,
+  "source_scaling_verdict_available": false,
+  "completed_new_aggregate_source_rows": 0
 }

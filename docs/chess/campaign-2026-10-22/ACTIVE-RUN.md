@@ -439,3 +439,16 @@ Global1200s/6GiB incldriver, existing free runner only, no cap increase.
 Accepted769,344/target310,029/new full savings0. Strongest completed source
 39,240states/78,480rows; quarter/full still open. Rank1same459,315potential
 payoff/high proof/moderate effort. GoalACTIVE/frozen/remote/no-outreach fixed.
+
+
+89TERMINAL source failure: FamilyViews000 unknown Bool.and_eq_true.mpr,
+driver570.208s. Shared return bounded validation/audit53.828+3.363s passed,
+first batch data/audit5.684+2.954s; failed build9.627s/3,403,919,360bytes.
+No substantial source attempted and NO scalability verdict from this run.
+Correct exact API to Bool.and_eq_true_iff.mpr (existing certified usage).
+Add FamilyWiring4root60s early check using SAME generated window/list proof,
+real128cache, universal Fidelity and all-address WorldEq before large batch
+preparation. No new axioms or weakened claims. Corrected substantial trial90
+keeps180/210s and1200s/6GiB global. No unchanged retry/cap increase.
+Accepted769,344/target310,029/new full savings0. Strongest completed source
+39,240states/78,480rows. GoalACTIVE/frozen/remote/no-outreach unchanged.
