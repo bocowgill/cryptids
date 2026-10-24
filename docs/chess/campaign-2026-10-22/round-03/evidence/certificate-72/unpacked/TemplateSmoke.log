@@ -1,0 +1,10 @@
+ℹ [3254/3373] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.Loaders
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/Loaders.lean:47:0: Body certificate loaders checked
+ℹ [3911/3941] Replayed Cryptids.Chess.Compilation.SourceCertificate
+info: Cryptids/Chess/Compilation/SourceCertificate.lean:226:0: Source certificate: 7076 checked lemmas, 7037 cache hits
+info: Cryptids/Chess/Compilation/SourceCertificate.lean:230:0: Literal row certificate: 5952 checked rows in 186 chunks
+ℹ [3922/3941] Replayed Cryptids.Chess.Compilation.Input
+info: Cryptids/Chess/Compilation/Input.lean:128:0: Checked 186 literal row chunks: 141042 stack symbols
+ℹ [3941/3941] Built Cryptids.Chess.Optimisation.BodyCertificatePilot.TemplateSmoke (3.6s)
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/TemplateSmoke.lean:510:0: Body certificate template smoke checked
+Build completed successfully (3941 jobs).

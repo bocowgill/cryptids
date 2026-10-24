@@ -958,3 +958,32 @@ literal trees do not materially improve complete substantial certificates,
 move to a structural traversal/lookup certificate; do not vary deciders again.
 No credible full cost estimate; accepted 769,344, target 310,029 and prospective
 459,315 saving unchanged. Shared controls plus full linkage/review still open.
+
+
+### Pilot 72: literal identities verified, no material throughput improvement
+
+Run 40076137294 at 576364d2a1e217a1afa61ef42fc6db43f53f4b94 is retained and
+reviewed as certificate-72. All 32 exact lowering identities close by rfl.
+Complete block/audit/control passes in 14.732 + 3.028 s. Scope16 still times
+out at 180.104 s, peak 4,861,300,736 bytes, after 421 records; no complete
+larger module/audit or quarter. Main coherence at q420 costs 1,246 ms versus
+1,204 ms in 69; new literal-fidelity cost 107 ms. Literalization alone does
+not remove the measured work. Decision: REJECT it as the scaling solution.
+
+Bounded pilot 73 is a reusable structural certificate, not another finite
+decider variant: checkSub recursively checks each constructor root and its
+children; a universal induction proves this covers every original syntax
+slot. The runtime checker never calls the indexed fastNodeAt/nodeAt getter.
+rootNode constructs the root directly, and checked subtree embeddings retain
+exact global postorder indices. Existing checkNode equations, actual Q/map
+lookup, every bit/store and all paid-return obligations are unchanged.
+The new generic soundness/root audit has 60 s; complete regression block and
+corruption 120 s; same 1/16 and 1/4 coverage/audit gates 180/210 s, overall
+1200 s and 6 GiB. Source manifest includes the structural checker generator.
+
+The structural interface is UNVERIFIED until remote build/audit. Its proof
+failure would not establish runtime scaling. If it passes, require completed
+substantial coverage and include all fixed loading/audit/assembly costs in
+any full-machine estimate. No such estimate yet. Accepted machine remains
+769,344, target 310,029 and prospective saving 459,315; accepted new saving 0.
+Shared-control/global-row/unchanged-decoder linkage and final review still open.

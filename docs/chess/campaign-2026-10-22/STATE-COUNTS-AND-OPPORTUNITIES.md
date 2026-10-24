@@ -222,3 +222,14 @@ representation pilot is justified only as a dependency for full-body coverage.
 Same caps and larger coverage gates; no additional memory. If it fails, move
 to structural traversal/lookup certificates. Other architecture/packet routes
 remain ranked below this measured quotient; accepted paid breakdown unchanged.
+
+
+Checkpoint 72/73: literal identities and complete block pass; 1/16 still
+fails 180.104 s wall, no material coherence improvement or substantial module.
+Reject literalization as a scaling solution. Rank 1 remains 459,315 prospective
+states, high proof difficulty/moderate effort. The next reusable structural
+certificate removes repeated indexed syntax getters altogether, using a
+generic root/children induction to cover all slots. This is a clearly stated
+dependency for the full quotient saving, with zero additive savings. Same
+resource/coverage gates. All other state counts/rankings unchanged; no credible
+full-cost estimate and no new accepted machine.

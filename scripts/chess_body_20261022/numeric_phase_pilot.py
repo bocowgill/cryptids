@@ -59,6 +59,11 @@ def run(driver, api):
     driver.run('DirectChecks', 60, 'Direct Boolean checker preserves all local row obligations')
     driver.summary['direct_boolean_row_checker_soundness_checked'] = True
     driver.checkpoint()
+    import structural_check_pilot
+    structural_check_pilot.generate(driver, api.header, api.audit_and_end, api.MODULE)
+    driver.run('StructuralChecks', 60, 'Structural syntax traversal covers every original slot')
+    driver.summary['structural_syntax_traversal_soundness_checked'] = True
+    driver.checkpoint()
     import source_table_pilot
     source_table_pilot.generate(driver, api.header, api.audit_and_end, api.MODULE)
     driver.run('SourceTables', 60, 'Finite source-operation table reconstruction checked')

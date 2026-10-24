@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40076137294,
+  "commit": "576364d2a1e217a1afa61ef42fc6db43f53f4b94",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": true,
+  "actual_rows": 4370,
+  "negative_control": "kernel_rejected",
+  "diagnosis": "Literal source identities rfl, complete block and all controls/audit pass; Scope16 hits180.104s at4861300736bytes after421records, no complete larger scope/audit, no quarter. Main costq4201246ms vs earlier1204ms; literal fidelity107ms. Reject literalization as scaling solution. Test universal structural traversal to eliminate repeated indexed node getter, preserving exact Coherent obligations.",
+  "new_accepted_machine": false
+}

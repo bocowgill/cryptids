@@ -26,14 +26,19 @@ corruption control, but Scope16 again times out at 180.098 s after 405 records,
 peak 4,543,590,400 bytes. No larger module/audit, no quarter. Packet retained
 and reviewed. Decision: abandon finite-loop replacement as the scaling remedy.
 
-Current pilot 72: run 40076137294 at
-576364d2a1e217a1afa61ef42fc6db43f53f4b94 (mode local; retain certificate-72).
-It changes representation: literal syntax trees plus kernel-checked
-exact lowering identities replace syntax defined by repeatedly calling lower.
-Every frozen-source/row/return/census proof is still required; native proposal
-untrusted. Literal source identity gets its own timing marker. Same 6 GiB,
-120/180/210 s stages including audits, 1200 s overall. If this still fails to
-scale, use structural traversal/lookup certificates, not another finite loop.
+Pilot 72 literal syntax passes exact lowering identities and complete block,
+but Scope16 still times out 180.104 s after 421 records, peak 4,861,300,736 bytes.
+Main-coherence timings unchanged; reject literalization as scaling solution.
+Packet retained/reviewed. No larger completed module/audit or quarter.
+
+Next pilot 73 uses a reusable root-and-children structural certificate. Its
+runtime traverses each syntax constructor once and never uses an indexed
+node getter. A universal Lean induction must prove every original slot is
+covered; subtree embeddings preserve exact global postorder addresses. Actual
+Q/map equations, all bits/stores/returns and frozen-source identity unchanged.
+Generic soundness/audit 60 s, regression block/corruption 120 s, substantial
+1/16 and 1/4 stages 180/210 s including audits; 1200 overall / 6 GiB unchanged.
+This new generic proof is UNVERIFIED before its remote preflight.
 
 NEXT: require generic checker proof and private audit, then completed substantial
 coverage and resource evidence. Decide continue/redesign from those results.

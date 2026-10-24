@@ -45,7 +45,7 @@ def append_operation(parts, q, operations, data):
                  f'  (FieldAware.syntaxRows_get label_{q}).trans\n'
                  f'    ((congrArg lower source_op_{q}).symm.trans source_literal_{q})\n'
                  f'theorem coherent_{q} : Coherent label_{q} syntax_{q} := by\n'
-                 f'  exact DirectCheckPilot.checkMain_sound label_{q} syntax_{q}\n'
+                 f'  exact StructuralCheckPilot.checkMain_sound label_{q} syntax_{q}\n'
                  '    (by decide +kernel)\n'
                  f'theorem returned_{q} : ReturnCoherent label_{q} syntax_{q} := by\n'
                  f'  exact DirectCheckPilot.checkReturns_sound label_{q} syntax_{q}\n'
@@ -89,7 +89,7 @@ def generate(driver, snapshot, expected_sha, header, audit_and_end, progress_mar
     return_count = sum(len(ranks) for ranks in data['return_local_targets'][start:end])
     state_count = 5 * (node_count + return_count)
     row_count = 2 * state_count
-    parts = [header([module + '.DirectChecks', module + '.RawChunk', 'Lean']).replace(
+    parts = [header([module + '.StructuralChecks', module + '.RawChunk', 'Lean']).replace(
         'public import Lean\n', 'public meta import Lean\n'), TOOLS]
     roots = ['restored_literal']
     for q in range(start, end):
