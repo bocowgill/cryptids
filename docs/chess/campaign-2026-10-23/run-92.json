@@ -2,7 +2,7 @@
   "run_id": 40117525615,
   "source": "b8695666b42a445a87f6e3df789aef89abcc20cf",
   "mode": "smoke",
-  "status": "remote_running",
+  "status": "retained_reviewed_success",
   "route": "Decorated first-order numeric syntax generic fidelity; no observation-cache materialization",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-92",
   "required_numeric_tree_roots": 20,
@@ -20,7 +20,7 @@
   "prior_complete_source_states": 39240,
   "prior_complete_source_rows": 78480,
   "last_usage_percent": 15,
-  "next_gate": "20generic roots/private audit, wrong annotation Boolean and explicit fresh kernel negative; original smoke all passes. Then implement checker/return inverse/source transport and actual same-host355/445/356 comparison before substantial tiers.",
+  "next_gate": "Implement plain numeric return inverse and checker/trace soundness with exact original SourceCertificate conclusion; then355load/445write/356move same-run total-cost pilot. Full source/machine gates stay open.",
   "accepted_components": {
     "writer": 173642,
     "structured_decoder": 21682,
@@ -30,5 +30,14 @@
     "interpreter_main": 533341,
     "interpreter_returns": 40461,
     "total": 769344
-  }
+  },
+  "driver_seconds": 123.86823868900001,
+  "numeric_tree_build_seconds": 5.669015263000006,
+  "numeric_tree_audit_seconds": 2.737914709999984,
+  "numeric_tree_audit_dependencies": 1131,
+  "numeric_tree_build_peak_bytes": 2814410752,
+  "numeric_tree_audit_peak_bytes": 4540456960,
+  "numeric_tree_negative_seconds": 5.066363184000011,
+  "numeric_tree_kernel_checked": true,
+  "numeric_tree_kernel_corruption_rejected": true
 }

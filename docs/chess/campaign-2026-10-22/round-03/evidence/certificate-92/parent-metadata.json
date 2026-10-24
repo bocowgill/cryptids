@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40117525615,
+  "commit": "b8695666b42a445a87f6e3df789aef89abcc20cf",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": false,
+  "actual_rows": 0,
+  "negative_control": "kernel_rejected",
+  "diagnosis": "PASS generic decorated numeric syntax20roots/1131dependencies; ordinary standard3axioms. NumericTreebuild5.669s peak2814410752bytes, audit2.738s peak4540456960bytes; fresh explicit false annotation kernel rejection5.066s. All original smoke helpers pass, driver123.868s. Exact count/root/trace and ordered paid-return target fidelity proved for all source Syntax constructors and arbitrary offsets; no concrete chess source rows or new machine accepted. Next numeric return inverse and plain-node/trace checker soundness tied to old SourceCertificate, then actual355/445/356 same-host fidelity/checking comparison under unchanged limits.",
+  "new_accepted_machine": false
+}

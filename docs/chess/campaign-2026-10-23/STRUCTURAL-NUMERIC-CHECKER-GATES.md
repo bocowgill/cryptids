@@ -1,7 +1,7 @@
 # Cache-free structural numeric checker: next bounded phase
 
-Status: DESIGN ONLY. No new checker/serialization proof is implemented or
-verified yet. Target fully certified310,029; accepted769,344; accepted new
+Status: decorated numeric serialization core IMPLEMENTED/VERIFIED in92.
+Numeric row checker/source transport/concrete scaling remain UNIMPLEMENTED. Target fully certified310,029; accepted769,344; accepted new
 full-machine savings0. Candidate body114,487 replaces573,802: same459,315
 prospective payoff. Prior aggregate source39,240states/78,480rows.
 
@@ -99,3 +99,10 @@ remain mandatory. No credible full-machine cost estimate exists yet.
 - Generic correctness and proposed serialization remain separate from concrete
   closed proof timings. If fidelity consumes the old checker cost again, reject
   that representation before expanding to substantial/full coverage.
+
+
+92closes numeric-tree prerequisite T1-T3 (see NUMERIC-TREE-GATES.md),20roots.
+N1remains open because return inverse/plain-node checker/trace soundness and
+unchanged SourceCertificate transport are not yet proved. N2-N4remain open.
+The complete original source count/root/trace and paid-target order now have
+generic fidelity proofs without per-cell observation caches; next use them.

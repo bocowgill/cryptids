@@ -1798,3 +1798,37 @@ can establish proof-stage completion before job metadata recovers. Retain
 using pinned normal retainer once terminal, or mutable proof-artifact helper
 with workflow metadata explicitly pending; never restart solely on observer
 HTTP502 or empty steps. 91is terminal and its full archives are pushed.
+
+
+92SUCCESS retained/reviewed: run40117525615 atb8695666. NumericTree20roots/
+1,131deps pass, standard3axioms; build5.669s/audit2.738s, peak2,814,410,752/
+4,540,456,960bytes. Explicit false annotation reaches kernel and is rejected
+5.066s; original smoke helpers allpass, driver123.868s. Source/generated/log/
+pin hashes and Leanwidth<=100 reviewed. Full archives also retained/pushed.
+T1-T3met; N1full checker/N2-N4actualsource/scaling and G4-G6remain OPEN.
+No concrete source-row credit and no new full-machine savings from this core.
+
+NEXT numeric control layer: define plain Nat return lookup over ordered
+paidTargets, prove it matches (FieldReturns.findTarget p child).map Fin.val
+for every actual child. A useful prerequisite is idxOf preservation when
+mapping a List(Fin n) through Fin.val; prove by list induction with
+List.idxOf_cons/Fin.ext_iff, no modulo/clipping. Bound numeric return rank by
+list length; preserve none cases. Then define plain-node checker over numeric
+main/return addresses and row/command observations; prove all constructor and
+bit/store cases match old DirectChecks, and fold Trace checks correspond to
+old StructuralChecks via encode_trace/reference. Reuse existing soundness to
+produce unchanged SourceCertificate/SourceRows, with exact raw-source, count,
+callback/child and paid-return fidelity. Generic-only imports should stay
+small where possible, without concrete map/Q/cache materialization.
+
+Only after generic soundness, test actual355load/445write/356move on same
+host with fidelity+checking+setup+audits and deliberate callback/target/row
+corruption. Add DecidableEq/literal constructor handling only when needed,
+no native oracle. Keep60generic/120profile/180-210source/global1200s/6GiB;
+existing smoke300s unchanged. Small prerequisites unlock SAME459,315potential
+saving, not an additive reduction or easier end goal. Accepted769,344,
+target310,029/new full savings0; strongest source39,240states/78,480rows.
+GoalACTIVE; lastusage15%, no reset; frozen/remote/no-paid/no-outreach fixed.
+No live remote research job remains after92terminal success. Previous goal
+turn PROGRESS (decisive91route verdict and full artifact checkpoint); this
+turn implements/proves next representation's generic fidelity, not completion.

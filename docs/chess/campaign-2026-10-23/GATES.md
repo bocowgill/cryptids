@@ -33,7 +33,9 @@ evidence and pins stay fixed. No outreach or bulk upstream migration.
   of210then stops; no quarter audit. Non-source/driver overhead986.487s,
   no end-to-end gain. Abandon more wrapper/cache variants; next structural
   numeric checker must preserve exact source and paid-return fidelity.
-  Workflow-final metadata91pending; proof artifact retained/reviewed.
+  91terminal failure and complete archives retained. Numeric-tree92proves
+  generic exact count/root/trace/ordered paid-target fidelity (20roots), but
+  numeric checker/return inverse/source transport and larger scaling stay open.
 - [ ] G5: The complete blank-tape binary machine has exactly 310,029 paid states
   and the original not-draw equivalence; all actual rows, independent fixtures,
   corruption controls, regressions and foundation audits pass remotely.
