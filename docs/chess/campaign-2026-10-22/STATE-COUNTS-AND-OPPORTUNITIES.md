@@ -98,3 +98,12 @@ is still no accepted full-machine saving. Rank1 remains459315 prospective states
 rank2 now includes the conditional structural-table/cache certificate design in
 ../campaign-2026-10-23/STRUCTURAL-TABLE-FALLBACK.md. It is unimplemented, shares
 rank1's payoff and must remove a measured certificate cost before scaling.
+
+
+Checkpoint through certificate-35: same accepted769344 / target310029 breakdown
+and ranking. Twelve-root structural transport/bit-decoding helpers pass; full
+candidate data still passes. Actual64module has a6GiB memory obstruction at
+113.655s, no captured source error, and no accepted row module or new machine.
+Run40043435954 tests controlled intermediate rewrites to avoid eager global
+lookup normalization. This is another bounded dependency test for the same
+459315saving; smaller helper successes are not reported as machine savings.

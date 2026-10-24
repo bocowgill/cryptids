@@ -1,0 +1,11 @@
+{
+  "run_id": 40043435954,
+  "source": "39dcd4ed7ec10ff5606fc24751f5a0df91b9a3ae",
+  "mode": "full",
+  "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-36",
+  "status": "dispatched",
+  "change": "Intermediate rewrite avoids automatic reflexivity; controlled bind reduction and explicit final index congruence",
+  "resource_caps_changed": false,
+  "accepted_states": 769344,
+  "prospective_states": 310029
+}

@@ -323,3 +323,9 @@ intermediate actual transitions, dsimp only[Option.bind], and exact congrArg
 for final index equality. Same64states/both bits, RowAt, default heartbeat
 limit and120s/6GiB caps; no unrelated source or frozen edits. Test this memory
 obstruction before the separate generic return-address speed pilot/fallback.
+
+Full remote run40043435954 at39dcd4e dispatched after exact fork-head read.
+Retain certificate-36. Controlled intermediate rewrite tests recorded actual
+row memory obstruction; all original claims and caps fixed. Full previous
+packet35 and source pushed normally to fork; no automatic transfer workflow
+changes or additional permissions. No accepted machine or sampled module yet.

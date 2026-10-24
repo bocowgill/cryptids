@@ -3,15 +3,16 @@
 Goal active. Accepted machine: **769,344** states. Target: **310,029**.
 G1/G2/G3 met; G4/G5/G6 open. Accepted full-machine savings this resume: **0**.
 
-Current remote run **40041134597**, source
-`260ec88dc065a2d5e7f1b7f18211b3ac44936634`, full mode. Retain as
-`round-03/evidence/certificate-35` after completion. It corrects recorded
-bit-decoding and numeric-type rewrites, gives directions explicit types, and
-removes the per-row heartbeat override that confused strict scope linting.
-Run34's observer/audit and complete candidate data passed; actual Rows64 ended
-in84.302s with proof errors, below its limits. No actual module credit yet.
-RETURN-ADDRESS-PILOT.md records a conditional generic-value-interface pilot for
-measured5–8second return-address setup gaps. Await current correctness outcome.
+Current remote run **40043435954**, source
+`39dcd4ed7ec10ff5606fc24751f5a0df91b9a3ae`, full mode. Retain as
+`round-03/evidence/certificate-36` after completion. It replaces intermediate
+actual-transition rw probes with rewrite, controlled Option.bind reduction and
+explicit final index congruence. Same64states/both bits and all caps. Run35's
+12-root structural tools and complete data pass, but Rows64 exceeds6GiB at
+113.655seconds without captured proof errors. First actual0bit proofs each
+consume about9.3seconds; all markers are diagnostic, no sampled module credit.
+Lean's own source confirms rw adds a reflexivity attempt while rewrite does
+not. This bounded pilot tests whether those probes caused lookup expansion.
 
 Certificate-31 passes the complete shared source-weight identities and universal
 prefix correspondence: 15.445 seconds plus a nine-root full-private audit.
