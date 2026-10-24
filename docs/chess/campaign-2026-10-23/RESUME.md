@@ -1018,3 +1018,43 @@ after completion and inspect exact StructuralChecks.log/audit plus complete
 scope summaries. Do not restart a live run. No new code depending on successful
 substantial scaling has been wired. Full global/link drafts remain conditional.
 Campaign ACTIVE, no resource stop/reset; last account usage 11%.
+
+
+### Pilot 74: structural theorem verified, no substantial certificate
+
+Run 40078544743 at cc8740869bee349109576482fe9f0387d1a4b3b9 is retained and
+reviewed as certificate-74. StructuralChecks passes 5.783 s + 3.550 s, 13 roots
+and 5,612 dependencies, only standard axioms. Complete block/corruption pass
+in 23.814 + 3.956 s. Scope16 still hits 180.109 s, peak 4,430,049,280 bytes,
+after 329 records, without larger module/audit or quarter. Runner is slower
+than72 (q300 coherence105 vs57 ms, assembly67 vs29 ms), and there is no material
+normalized gain. Decision: keep verified structural theorem, REJECT traversal
+alone as sufficient scaling fix. No full-machine cost estimate is justified.
+
+Pilot 75 changes proof representation rather than another finite loop: one
+compact Boolean recipe checks exact erased frozen source equality, node count,
+return count, all structural main equations and every paid return equation.
+A generic fromRaw theorem converts this truth into the SAME SourceCertificate
+(all SourceRows and both frozen counts). New source operations no longer emit
+ten separate source/coherence/count/duplicate row theorems or literal lowering
+definitions. Their closed kernel truth proof is a field argument of the single
+record root; full-private auditing traverses every such argument. Required
+root count changes because those redundant concrete declarations are not
+emitted in this representation; no mathematical obligation is dropped. The
+independent 32-operation regression block and all its existing roots remain.
+
+The generic raw restoration theorem proves recipe syntax equals the frozen
+source. Out-of-range raw labels cannot pass source equality. New actual-write
+controls check one full recipe/certificate, reject wrong node and return
+counts, and require a fresh explicit kernel false-Bool rejection. Existing
+raw label/callback/rank/word controls are replayed unchanged. Scope4 reuses
+completed Scope16 records, not re-elaborated per-operation facts.
+
+SourceRecipes and controls:60 s each; new false-Bool control45 s. Existing
+block120 s, Scope16/4 180/210 s INCLUDING audits; overall1200 s and6 GiB remain.
+Source manifest includes source_recipe_pilot.py. This is a bounded pilot for
+the same prospective459,315-state reduction; no additional states are saved.
+Full source/global controls/linkage/regressions/distinct review remain open.
+If compact recipes still do not complete substantial coverage, investigate
+amortized numeric lookup certificates or composable bounded proof batches;
+do not repeat finite-loop or literalization variants.

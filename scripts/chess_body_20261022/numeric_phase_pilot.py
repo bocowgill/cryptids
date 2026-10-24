@@ -101,6 +101,25 @@ def run(driver, api):
                'Checked source certificate collection covers every claimed source label')
     driver.summary['source_scope_collection_soundness_checked'] = True
     driver.checkpoint()
+    import source_recipe_pilot
+    source_recipe_pilot.generate(driver, api.header, api.audit_and_end, api.MODULE)
+    driver.run('SourceRecipes', 60,
+               'Compact source recipes preserve every row and census obligation')
+    driver.summary['compact_source_recipe_soundness_checked'] = True
+    import hashlib
+    import json
+    assert hashlib.sha256(api.SNAPSHOT.read_bytes()).hexdigest() == api.SNAPSHOT_SHA
+    recipe_data = json.loads(api.SNAPSHOT.read_text())
+    recipe_anchor = coverage['anchor_write_label']
+    driver.summary['recipe_anchor_nodes'] = recipe_data['row_sizes'][recipe_anchor]
+    driver.summary['recipe_anchor_returns'] = len(
+        recipe_data['return_local_targets'][recipe_anchor])
+    source_recipe_pilot.controls(driver, api.header, api.audit_and_end, api.MODULE, api.NS)
+    driver.run('RecipeControls', 60, 'Compact recipe actual source and count controls checked')
+    driver.summary['compact_recipe_actual_source_and_counts_checked'] = True
+    driver.run('RecipeNegative', 45, negative=True)
+    driver.summary['compact_recipe_kernel_corruption_rejected'] = True
+    driver.checkpoint()
     inherited = {q: 'LocalChunk' for q in range(coverage['first_label'], coverage['end_label'])}
     import source_scope_pilot
     for divisor, seconds in [(16, 180), (4, 210)]:

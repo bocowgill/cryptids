@@ -31,20 +31,23 @@ but Scope16 still times out 180.104 s after 421 records, peak 4,861,300,736 byte
 Main-coherence timings unchanged; reject literalization as scaling solution.
 Packet retained/reviewed. No larger completed module/audit or quarter.
 
-Pilot 73 is retained/reviewed: generic structural proof fails in 6.093 s,
-peak 3,181,682,688 bytes, with embedding eta/leaf Fin1 transparency mismatches.
-No block/substantial attempt or scalability evidence. Corrected with explicit
-function equality and direct Fin.ext leaf-to-root bounds; same checker and
-obligations. Current corrected pilot 74: run 40078544743 at
-cc8740869bee349109576482fe9f0387d1a4b3b9 (mode local; retain certificate-74).
-It requires 13 generic roots and full private audit.
+Pilot 74 is retained/reviewed. Generic structural theorem passes 5.783+3.550 s,
+13 roots/5,612 dependencies, standard axioms only. Block/control pass, but
+Scope16 still stops at 180.109 s after329 records (peak4,430,049,280bytes).
+No larger module/audit, no quarter. Reject traversal alone as scaling solution.
 
-It uses a root-and-children structural certificate without indexed runtime node
-getters. Actual Q/map equations, source identity, all bits/stores/returns remain.
-Generic preflight 60 s, block/corruption 120 s, 1/16 and 1/4 stages 180/210 s
-including audits; 1200 s overall / 6 GiB. Return inversion, numeric lookup, size
-and build/audit work remain; no linear total-runtime claim. Generic proof still
-UNVERIFIED until remote build/audit.
+Next pilot75 uses compact Boolean source recipes: exact frozen raw-source
+equality + counts + all main and paid-return equations. Generic fromRaw must
+produce the SAME SourceCertificate. New operations use one checked record
+instead of ten separate concrete proof declarations and literal lowering.
+Every truth proof remains inside a fully audited record body. Old independent
+32-op block and roots stay required; new actual-write/count/false-Bool controls
+precede larger scopes. Scope4 reuses completed Scope16 records.
+
+Generic recipes/controls60 s each, fresh false-Bool rejection45 s; existing
+block120 and scopes180/210 s INCLUDING full audits; overall1200 s/6 GiB unchanged.
+No proof weakening or native oracle. New recipe interface UNVERIFIED pending
+remote checks. If insufficient, change lookup/batch representation, not loops.
 
 NEXT: require generic checker proof and private audit, then completed substantial
 coverage and resource evidence. Decide continue/redesign from those results.
@@ -54,4 +57,4 @@ global_rows_pilot.py and full_link_pilot.py retain an explicit all-source
 hypothesis and have no final-theorem credit.
 
 See ../campaign-2026-10-23/RESUME.md, GATES.md, STRUCTURAL-CHECKER-GATES.md,
-run-69.json through run-74.json and STATE-COUNTS-AND-OPPORTUNITIES.md. Last account usage 11%; no reset.
+run-69.json through run-75.json and STATE-COUNTS-AND-OPPORTUNITIES.md. Last account usage 11%; no reset.

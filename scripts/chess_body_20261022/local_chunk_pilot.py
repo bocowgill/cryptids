@@ -159,6 +159,7 @@ submit_false_local_word
     driver.emit('LocalNegative.lean', negative)
     driver.summary['local_chunk_proposed'] = dict(
         first_label=start, end_label=end, operations=end - start,
+        anchor_write_label=anchor,
         main_nodes=node_count, return_ranks=return_count,
         finite_state_domain=state_count, finite_row_domain=row_count,
         every_bit_and_store=True, all_paid_local_returns=True,

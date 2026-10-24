@@ -2,7 +2,7 @@
   "run_id": 40078544743,
   "source": "cc8740869bee349109576482fe9f0387d1a4b3b9",
   "mode": "local",
-  "status": "remote_queued",
+  "status": "retained_reviewed_wall_obstruction",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-74",
   "correction": "Explicit embedding function equality and direct leaf-to-root Fin.ext bounds repair structural proof preflight",
   "required_new_generic_roots": 13,
@@ -20,5 +20,15 @@
   "memory_gib": 6,
   "accepted_states": 769344,
   "target_states": 310029,
-  "new_accepted_machine": false
+  "new_accepted_machine": false,
+  "structural_generic_build_seconds": 5.783288224,
+  "structural_generic_audit_seconds": 3.550452103,
+  "structural_generic_audited_roots": 13,
+  "structural_generic_dependencies": 5612,
+  "scope16_wall_seconds": 180.108835081,
+  "scope16_peak_bytes": 4430049280,
+  "completed_records_before_stop": 329,
+  "completed_scope_modules": 0,
+  "quarter_attempted": false,
+  "decision": "Generic structural theorem accepted as dependency; reject traversal alone as scaling fix. Remove per-operation proof-declaration categories using compact recipes."
 }

@@ -233,3 +233,17 @@ generic root/children induction to cover all slots. This is a clearly stated
 dependency for the full quotient saving, with zero additive savings. Same
 resource/coverage gates. All other state counts/rankings unchanged; no credible
 full-cost estimate and no new accepted machine.
+
+
+Checkpoint74/75: structural theorem13roots/5,612deps passes, but no larger
+certificate/audit; Scope16 times out180.109 s after329records. Accepted full
+breakdown769,344 unchanged, target310,029, new accepted saving0. Rank1 stays
+459,315 prospective states, high proof difficulty/moderate implementation.
+Compact source recipes now remove ten separate concrete proof declarations
+per new operation, retaining every source/main/return/count obligation in one
+Boolean check and generic SourceCertificate constructor. This is a full-body
+certificate dependency, not an extra machine reduction. Existing regression
+block/roots stay required. Same6GiB/global1200/scope180/210budgets; full cost
+unknown until substantial completed modules/audits. If insufficient, next
+category is amortized numeric lookup or composable bounded proof batches,
+not another finite-loop/literalization tweak. Other opportunities unchanged.

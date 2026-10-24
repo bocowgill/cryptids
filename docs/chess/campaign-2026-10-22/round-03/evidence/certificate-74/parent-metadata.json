@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40078544743,
+  "commit": "cc8740869bee349109576482fe9f0387d1a4b3b9",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": true,
+  "actual_rows": 4370,
+  "negative_control": "kernel_rejected",
+  "diagnosis": "Generic structural theorem13roots/5612deps passes5.783+3.550s onlystd3axioms. Block/corruption passes23.814+3.956s. Scope16 hits180.109s belowmemory4430049280bytes after329records; no complete larger module or quarter. No material normalized gain; reject traversal alone as scaling solution. Next compact recipe representation removes ten concrete per-operation proof declarations and literal lowering while retaining exact SourceRows/census via generic maker.",
+  "new_accepted_machine": false
+}

@@ -8,7 +8,8 @@ if os.environ.get('CHESS_REMOTE') != '1' or os.environ.get('GITHUB_ACTIONS') != 
 import hashlib
 import json
 
-from local_chunk_pilot import append_operation
+from raw_chunk_pilot import raw_op
+from source_chunk_pilot import indent
 
 
 def generate(driver, snapshot, expected_sha, header, audit_and_end, progress_marker, module,
@@ -34,7 +35,7 @@ def generate(driver, snapshot, expected_sha, header, audit_and_end, progress_mar
     assert divisor * states >= 573802
     stem, namespace = f'LocalScope{divisor}', f'LocalScope{divisor}Pilot'
     parent_stems = sorted(set(inherited.values()))
-    imports = ([module + '.SourceScopeTools'] +
+    imports = ([module + '.SourceRecipes'] +
                [module + '.' + name for name in parent_stems])
     parts = [header(imports + ['Lean']).replace(
         'public import Lean\n', 'public meta import Lean\n'),
@@ -42,33 +43,38 @@ def generate(driver, snapshot, expected_sha, header, audit_and_end, progress_mar
              'open Chess.Optimisation FieldCompiler RawLabelPilot RawChunkPilot\n'
              'open NumericLocalPilot LocalRulePilot SourceScopeToolsPilot LocalChunkPilot\n'
              f'namespace {namespace}\n']
-    roots, owners = [], dict(inherited)
+    roots = []
     prefixes = ['source_raw_', 'source_op_', 'source_literal_', 'source_syntax_',
                 'coherent_', 'returned_',
                 'main_rows_', 'return_rows_', 'nodes_', 'returns_']
     for q in range(end):
-        if q not in inherited:
-            begin = len(parts)
-            append_operation(parts, q, operations, data)
-            # Fine-grained markers diagnose the next measured bottleneck.
-            source = parts.pop()
-            assert len(parts) == begin
-            for kind in ['source_raw', 'source_literal', 'coherent', 'returned', 'nodes']:
-                needle = f'theorem {kind}_{q}'
-                assert source.count(needle) == 1
-                source = source.replace(needle, progress_marker(
-                    kind, q, driver.args.output / f'{stem}-details.tsv') + needle)
-            parts.append(source)
-            owners[q] = stem
-        owner = owners[q] + 'Pilot'
-        roots += [owner + '.' + prefix + str(q) for prefix in prefixes]
         record = f'record_{q}'
-        parts.append(f'noncomputable def {record} : SourceCertificate :=\n'
-                     f'  makeCertificate {owner}.label_{q} {owner}.syntax_{q}\n'
-                     f'    {owner}.source_syntax_{q}\n'
-                     f'    {data["row_sizes"][q]} {len(data["return_local_targets"][q])}\n'
-                     f'    {owner}.nodes_{q} {owner}.returns_{q}\n'
-                     f'    {owner}.coherent_{q} {owner}.returned_{q}\n')
+        if q in inherited and inherited[q] != 'LocalChunk':
+            parts.append(f'noncomputable def {record} : SourceCertificate :=\n'
+                         f'  {inherited[q]}Pilot.{record}\n')
+        elif q in inherited:
+            # Preserve the independently checked regression block and all its
+            # public mathematical roots. Only new operations use compact recipes.
+            owner = inherited[q] + 'Pilot'
+            roots += [owner + '.' + prefix + str(q) for prefix in prefixes]
+            parts.append(f'noncomputable def {record} : SourceCertificate :=\n'
+                         f'  makeCertificate {owner}.label_{q} {owner}.syntax_{q}\n'
+                         f'    {owner}.source_syntax_{q}\n'
+                         f'    {data["row_sizes"][q]} {len(data["return_local_targets"][q])}\n'
+                         f'    {owner}.nodes_{q} {owner}.returns_{q}\n'
+                         f'    {owner}.coherent_{q} {owner}.returned_{q}\n')
+        else:
+            parts.append(progress_marker('recipe_data', q,
+                                         driver.args.output / f'{stem}-details.tsv'))
+            parts.append(f'def label_{q} : Fin 4042 := ⟨{q}, by decide +kernel⟩\n'
+                         f'noncomputable def raw_{q} : RawOp :=\n' +
+                         indent(raw_op(operations[q])) + '\n')
+            parts.append(progress_marker('recipe_check', q,
+                                         driver.args.output / f'{stem}-details.tsv'))
+            parts.append(f'noncomputable def {record} : SourceCertificate :=\n'
+                         f'  SourceRecipePilot.fromRaw label_{q} raw_{q}\n'
+                         f'    {data["row_sizes"][q]} {len(data["return_local_targets"][q])}\n'
+                         '    (by decide +kernel)\n')
         roots.append(namespace + '.' + record)
         parts.append(progress_marker('source-records', q + 1,
                                      driver.args.output / f'{stem}-progress.tsv'))
@@ -113,7 +119,9 @@ def generate(driver, snapshot, expected_sha, header, audit_and_end, progress_mar
         finite_state_domain=states, finite_row_domain=rows, source_body_states=573802,
         main_nodes=nodes, return_ranks=returns, required_roots=len(roots),
         every_bit_and_store=True, all_paid_local_returns=True,
-        syntax_representation='literal constructors with kernel-checked lowering identities',
+        syntax_representation='lower restored raw operation; exact raw-source equality checked',
+        proof_representation='compact Boolean recipe implies identical SourceRows and census',
+        independent_block_roots_preserved=True,
         kernel_checked=False, full_quotient_certified=False, new_accepted_machine=False)
     driver.checkpoint()
-    return {q: owners[q] for q in range(end)}
+    return {q: stem for q in range(end)}
