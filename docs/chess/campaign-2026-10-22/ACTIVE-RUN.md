@@ -47,7 +47,9 @@ propext/Quot.sound. 8192 data25.101+3.143s, checker17.420+3.450s, checker peak
 5,614,432,256bytes. Cache65536 DATA text elaboration times out60.036s below
 memory3,774,545,920bytes, before checker. SourceRows/new-machine creditZERO.
 
-Next lookup78 replaces source-text cell elaboration with typed expression
+Current lookup78: run40085661511 at
+7fc5885d5b82938334b27f42137fe8d12bd1a902, mode lookup; retain certificate-78.
+It replaces source-text cell elaboration with typed expression
 loading (ordinary kernel-checked data) and composes <=256-cell validation
 facts with new generic validate_branch root15. Every chunk/branch proof is
 an explicit audit root. Same validator/count/range/fallback/control obligations

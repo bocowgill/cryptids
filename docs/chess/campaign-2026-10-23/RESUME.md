@@ -1150,3 +1150,11 @@ recursor structure; this diagnostic has no mathematical credit. Read that
 output before hypothesizing further indexing changes. Source checker integration
 and complete1/16and1/4 SOURCE coverage remain mandatory before a scaling or
 full-cost claim. G4-G6 and S8-S9 remain OPEN. Accepted769,344 unchanged.
+
+Typed-loader/chunked lookup78 dispatched: run40085661511 at
+7fc5885d5b82938334b27f42137fe8d12bd1a902, mode lookup; retain certificate-78.
+NEXT: inspect core15root audit, loader/lookup diagnostic, then fresh data and
+composed fidelity/audits for128/8192/65536, controls and kernel rejection.
+A successful smaller cache alone cannot justify full-source scaling. Do not
+restart live job; no cap/axiom/spec change or outreach. All accepted/source
+coverage requirements remain. GoalACTIVE; last account usage11%, no reset.

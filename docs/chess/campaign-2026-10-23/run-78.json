@@ -1,0 +1,31 @@
+{
+  "run_id": 40085661511,
+  "source": "7fc5885d5b82938334b27f42137fe8d12bd1a902",
+  "mode": "lookup",
+  "status": "remote_queued",
+  "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-78",
+  "correction": "Typed ordinary-expression input and <=256-cell checks composed by exact branch theorem; original predicate unchanged",
+  "required_generic_roots": 15,
+  "cache_chunk_limit": 256,
+  "requested_cache_entries": [
+    128,
+    8192,
+    65536
+  ],
+  "stage_seconds": {
+    "generic": 60,
+    "loader": 60,
+    "data_each": 60,
+    "fidelity_128": 60,
+    "fidelity_8192": 120,
+    "fidelity_65536": 180,
+    "controls": 60,
+    "negative": 45
+  },
+  "overall_seconds": 1200,
+  "memory_gib": 6,
+  "accepted_states": 769344,
+  "target_states": 310029,
+  "source_rows_credit": 0,
+  "new_accepted_machine": false
+}
