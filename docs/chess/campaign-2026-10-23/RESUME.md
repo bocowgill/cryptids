@@ -1967,3 +1967,16 @@ corruption tests, then original substantial/full-source/all-shared/halting/
 savings0; strongest source39,240states/78,480rows; same459,315prospective payoff.
 GoalACTIVE/frozen/remote/free/no-outreach fixed; lastusage15%, no reset.
 Previous goal turn PROGRESS:29root numeric control implemented/proved/pushed.
+
+
+94TERMINAL single proof-conversion failure: NumericSourceCore.checkMain_sound
+still had mapChild(fun n=>n) after simp, while step_erase expects the node.
+mapChild_id was unused as a simp rule on that lambda. Driver68.236s;
+failing build4.960s,2,799,169,536bytes, no memory/time obstruction. No new
+17root module/private audit or source credit. All preceding20/29core replays
+passed. Specific95fix: remove unused simp argument, explicitly change the
+local word equality to mapChild id, then rewrite mapChild_id. Theorem
+statements/coverage/controls/caps remain EXACTLY unchanged; no new hypothesis.
+No checker/data redesign or budget increase follows from this source error.
+GoalACTIVE; accepted769,344/target310,029/new full savings0, strongest source
+39,240states/78,480rows. Frozen/remote/free/no-outreach unchanged.

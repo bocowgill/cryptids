@@ -35,3 +35,16 @@ SourceCertificate. Only after actual355load/445write/356move same-host cost and
 corruption pilot, require original substantial180/210s plus full-source/shared
 controls/both halting directions/310,029paid/fixtures/distinct final review.
 N1concrete binding/N2-N4/machine gates remain open; no full-cost estimate yet.
+
+
+94TERMINAL single proof-conversion failure: NumericSourceCore.checkMain_sound
+still had mapChild(fun n=>n) after simp, while step_erase expects the node.
+mapChild_id was unused as a simp rule on that lambda. Driver68.236s;
+failing build4.960s,2,799,169,536bytes, no memory/time obstruction. No new
+17root module/private audit or source credit. All preceding20/29core replays
+passed. Specific95fix: remove unused simp argument, explicitly change the
+local word equality to mapChild id, then rewrite mapChild_id. Theorem
+statements/coverage/controls/caps remain EXACTLY unchanged; no new hypothesis.
+No checker/data redesign or budget increase follows from this source error.
+GoalACTIVE; accepted769,344/target310,029/new full savings0, strongest source
+39,240states/78,480rows. Frozen/remote/free/no-outreach unchanged.

@@ -1,0 +1,28 @@
+ℹ [3853/3855] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.NumericTree
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericTree.lean:149:0: Decorated numeric syntax preserves node positions and paid return targets
+ℹ [3854/3855] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.NumericControl
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericControl.lean:232:0: Numeric node and paid-return checks preserve all bit and store cases
+✖ [3855/3855] Building Cryptids.Chess.Optimisation.BodyCertificatePilot.NumericSourceCore (2.3s)
+trace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean -M6144 /home/runner/work/cryptids/cryptids/Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericSourceCore.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericSourceCore.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericSourceCore.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericSourceCore.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericSourceCore.setup.json --json
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericSourceCore.lean:136:19: Application type mismatch: The argument
+  step_erase observation layout p (p.nodeAt slot) bit value
+has type
+  NumericControlPilot.step observation (canonicalLayout layout p) (eraseNode (p.nodeAt slot)) bit value =
+    typedStep observation layout p (p.nodeAt slot) bit value
+but is expected to have type
+  NumericControlPilot.step observation (canonicalLayout layout p) (mapChild (fun n ↦ n) (eraseNode (p.nodeAt slot))) bit
+      value =
+    typedStep observation layout p (p.nodeAt slot) bit value
+in the application
+  Eq.trans word (step_erase observation layout p (p.nodeAt slot) bit value)
+warning: Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericSourceCore.lean:135:27: This simp argument is unused:
+  mapChild_id
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Nat.zero_add] at word
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericSourceCore.lean:174:0: Numeric trace and return checks cover every original typed source slot
+Some required targets logged failures:
+- Cryptids.Chess.Optimisation.BodyCertificatePilot.NumericSourceCore
+error: build failed

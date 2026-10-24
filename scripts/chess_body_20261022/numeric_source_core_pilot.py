@@ -130,7 +130,11 @@ theorem checkMain_sound (observation : Observation) (layout : Layout) (p : Synta
   have covered := reference_sound observation (canonicalLayout layout p) 0 p rows
   intro slot bit value
   have word := covered slot bit value
-  simp only [Nat.zero_add, mapChild_id] at word
+  simp only [Nat.zero_add] at word
+  change NumericControlPilot.rowWord observation (layout.main slot.val value) bit =
+    NumericControlPilot.step observation (canonicalLayout layout p)
+      (mapChild id (eraseNode (p.nodeAt slot))) bit value at word
+  rewrite [mapChild_id] at word
   exact word.trans (step_erase observation layout p (p.nodeAt slot) bit value)
 
 theorem getD_values {n : Nat} (values : List (Fin n)) (rank : Fin values.length) :

@@ -1,0 +1,24 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_body_20261022/certificate_pilot.py",
+    "--lakefile",
+    "lakefile.chess-body-certificate-20261022.toml",
+    "--output",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-body-certificate-20261022",
+    "--seconds",
+    "300",
+    "--memory-gib",
+    "6",
+    "--smoke-only"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "Bounded body kernel certificate pilot stopped: NumericSourceCore: Lean source/proof failure; inspect retained log\n",
+  "output_sha256": "b8f0fc085fe5a32ef71b7cc982d9b5a9e7bab983ca7f4f16a0b9f86485540334",
+  "timed_out": false,
+  "timeout_seconds": 360,
+  "elapsed_seconds": 68.30660500299996,
+  "cumulative_children_peak_rss_kib": 3862536
+}

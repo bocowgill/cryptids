@@ -2,7 +2,7 @@
   "run_id": 40120625408,
   "source": "a2d008342cdf30e3126939bbf776f2ea49995743",
   "mode": "smoke",
-  "status": "remote_running",
+  "status": "terminal_single_proof_conversion_error",
   "route": "Complete generic original typed-syntax node and paid-return coverage from numeric traces",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-94",
   "required_numeric_source_core_roots": 17,
@@ -21,7 +21,7 @@
   "prior_complete_source_states": 39240,
   "prior_complete_source_rows": 78480,
   "last_usage_percent": 15,
-  "next_gate": "17generic roots/private audit, every original typed slot and paid rank, explicit false-source-target kernel control; all previous smoke replays. Then concrete mapQ/address binding and SourceCertificate adapter before actual355/445/356 cost pilot.",
+  "next_gate": "Explicit definitional conversion from identity lambda to id, rewrite mapChild_id; unchanged17root statements/negative/all old smoke/caps",
   "accepted_components": {
     "writer": 173642,
     "structured_decoder": 21682,
@@ -31,5 +31,12 @@
     "interpreter_main": 533341,
     "interpreter_returns": 40461,
     "total": 769344
-  }
+  },
+  "driver_seconds": 68.236411025,
+  "failed_module": "NumericSourceCore",
+  "failure": "mapChild identity lambda did not match mapChild_id simplifier rule; unused argument warning",
+  "failing_build_seconds": 4.960282600000028,
+  "failing_peak_bytes": 2799169536,
+  "memory_or_time_failure": false,
+  "new_generic_audit_completed": false
 }

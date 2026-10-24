@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40120625408,
+  "commit": "a2d008342cdf30e3126939bbf776f2ea49995743",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": false,
+  "actual_rows": 0,
+  "negative_control": "kernel_rejected",
+  "diagnosis": "Single source conversion error at checkMain_sound: mapChild identity lambda did not match id-named simp rule, unused mapChild_id argument warning. Driver68.236s; module4.960s peak2799169536bytes. No memory/time issue, no new17root module/private audit/source credit. Earlier20/29root cores replay pass. Correct only local definitional conversion and explicit mapChild_id rewrite, preserving every statement, premise, control and cap.",
+  "new_accepted_machine": false
+}
