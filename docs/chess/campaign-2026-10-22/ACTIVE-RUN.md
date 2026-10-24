@@ -278,3 +278,17 @@ coverage; quarter unproved. Accepted769,344/target310,029/new full savings0.
 Rank1same459,315prospective states, high proof/moderate implementation; local
 views unlock same opportunity, not additive. No full-cost estimate yet.
 Frozen3116pins, heavy remote, no paid runners/outreach, last usage12%, goalACTIVE.
+
+
+Operation-local view86 dispatched: run40097651571, source
+661d59cf72d63100bd325bf8099689c6cf2b278d, mode profile; retain certificate-86.
+NEXT generic LocalViews3root all-address correctness/private audit,3small
+cache data/fidelity/private audits, then SourceProfile45roots/72ordered
+timing events and original/global/local main/return/whole comparisons.
+Exact source offsets/counts and all3SourceCertificates per label required.
+Generic/small stages60s, profile120s/global1200s/6GiB unchanged. No new
+workflow/auto-smoke triggered (mode already exists). Do not restart live run.
+Only material benefit justifies integration into original180/210s SOURCE16/4
+coverage gates. Prior source16coverage39,240states/78,480rows, quarter open,
+accepted769,344/target310,029/new accepted savings0. GoalACTIVE; frozen/remote/
+no-outreach constraints fixed, last account usage12%, no reset.

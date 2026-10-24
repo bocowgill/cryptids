@@ -15,16 +15,16 @@ Do not attribute first-tier success to cache alone: same65536validation changed
 from105.401s in83to57.487s in84, showing major host variation. Need same-run
 original/cached timings on the actual expensive source computations.
 
-- [ ] P1: Same pinned inputs/common verified cache environment and all existing
+- [x] P1: Same pinned inputs/common verified cache environment and all existing
   regression, count/corruption/range/callback/kernel-negative controls replay.
-- [ ] P2: Labels445and476 (slow retained cases) plus356 (small control) each
+- [x] P2: Labels445and476 (slow retained cases) plus356 (small control) each
   prove source equality, exact node/return counts, original/cached main checks,
   original/cached return checks, original/cached whole recipes, and BOTH exact
   SourceCertificate constructions. Required30roots/full-private audit.
-- [ ] P3: Durable before/after markers cover every one of the24truth proofs
+- [x] P3: Durable before/after markers cover every one of the24truth proofs
   (48events), exact declared order and monotone clock validated. Reverse
   comparison order for the second heavy case. Retain source/log/event hashes.
-- [ ] P4: Classify dominant time from actual components, choose a structural
+- [x] P4: Classify dominant time from actual components, choose a structural
   corrective change, and state why it should remove that measured category.
   Do not repeat unchanged failed substantial-source tiers or raise budgets.
 
@@ -50,3 +50,16 @@ checks original/global/local versions, source counts and exact prefix offset:
 45roots,72timing events, all3SourceCertificates per case. Stage profile120s
 and global1200s/6GiB unchanged. Complete substantial tiers still required;
 these small comparisons cannot close source-scaling or machine gates.
+
+
+## Local-view variant86 gates (unproved at dispatch)
+
+- [ ] L1: Generic3root local-window world/forall-address equality/constructor
+  builds and full-private audit passes. No new assumptions about callers.
+- [ ] L2: All3actual local cache windows pass data/fidelity/audits. Exact
+  source prefix offsets and node/return counts checked in profile cases.
+- [ ] L3: Original/global/local main/return/whole proofs and3exact certificates
+  per label pass45root audit and72ordered monotone before/after events.
+- [ ] L4: Decide from same-host timings whether local views materially remove
+  dominant main cost; if yes require unchanged substantial tiers next, if no
+  reject this remedy and diagnose syntax/checker overhead. No cap increases.

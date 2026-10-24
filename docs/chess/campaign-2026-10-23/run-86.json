@@ -1,0 +1,33 @@
+{
+  "run_id": 40097651571,
+  "source": "661d59cf72d63100bd325bf8099689c6cf2b278d",
+  "mode": "profile",
+  "status": "remote_queued",
+  "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-86",
+  "route": "Reusable all-address local-window World correctness and controlled original/global/local source comparison",
+  "labels": [
+    445,
+    476,
+    356
+  ],
+  "required_generic_local_view_roots": 3,
+  "required_profile_roots": 45,
+  "required_timing_events": 72,
+  "stage_seconds": {
+    "local_view_generic": 60,
+    "small_cache_data_each": 60,
+    "small_cache_fidelity_each": 60,
+    "profile": 120
+  },
+  "overall_seconds": 1200,
+  "memory_gib": 6,
+  "accepted_states": 769344,
+  "target_states": 310029,
+  "accepted_full_machine_savings": 0,
+  "prior_complete_source_states": 39240,
+  "prior_complete_source_rows": 78480,
+  "quarter_machine_certified": false,
+  "substantial_source_scaling_established": false,
+  "new_accepted_machine": false,
+  "decision_gate": "Only material same-host benefit permits integration and unchanged SOURCE16/4 tests; small case success is not machine or substantial scaling acceptance"
+}
