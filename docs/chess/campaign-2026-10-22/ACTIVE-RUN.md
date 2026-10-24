@@ -22,7 +22,9 @@ Remaining cost is literal coherence decisions (2.332 s at q442). Both packets
 are retained/reviewed; historical evidence stays fixed.
 
 Decision: redesign repeated finite decisions before another scaling attempt.
-Current pilot 70 uses a reusable Boolean checker with ordinary Lean soundness
+Current pilot 70: run 40074071004 at
+dcac08165dec63dea8dd9a67315ce1253caf852e (mode local; retain certificate-70).
+It uses a reusable Boolean checker with ordinary Lean soundness
 into the original Coherent/ReturnCoherent propositions. It decodes each syntax
 node before all ten cases and checks both actual transition words together.
 Same complete block/corruption controls, 1/16 and 1/4 targets, 120/180/210 s
