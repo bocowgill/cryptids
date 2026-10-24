@@ -2,7 +2,7 @@
   "run_id": 40071460885,
   "source": "be302e9a0855bd9a1561478ab37bc3b28d351041",
   "mode": "local",
-  "status": "remote_queued",
+  "status": "retained_scope16_time_obstruction",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-68",
   "requested_body_fractions": [
     "1/16",
@@ -17,5 +17,18 @@
   "memory_gib": 6,
   "accepted_states": 769344,
   "target_states": 310029,
-  "new_accepted_machine": false
+  "new_accepted_machine": false,
+  "collection_theorem_checked": true,
+  "collection_roots": 6,
+  "collection_dependencies": 22724,
+  "proposed_states": 39240,
+  "proposed_rows": 78480,
+  "proposed_labels": 448,
+  "completed_scope16": false,
+  "completed_scope4": false,
+  "scope16_seconds": 180.058,
+  "scope16_peak_rss_bytes": 4776136704,
+  "fully_assembled_records_before_stop": 43,
+  "actual_new_substantial_coverage": 0,
+  "diagnosis": "Concrete proof-record assembly grows with label index; row checks remain about0.17s for measured early operations. Move dependent field transport to one abstract constructor. No new machine or full-cost estimate."
 }

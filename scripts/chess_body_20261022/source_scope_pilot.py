@@ -62,18 +62,11 @@ def generate(driver, snapshot, expected_sha, header, audit_and_end, progress_mar
         owner = owners[q] + 'Pilot'
         roots += [owner + '.' + prefix + str(q) for prefix in prefixes]
         record = f'record_{q}'
-        parts.append(f'noncomputable def {record} : SourceCertificate where\n'
-                     f'  label := {owner}.label_{q}\n'
-                     f'  nodes := {data["row_sizes"][q]}\n'
-                     f'  returns := {len(data["return_local_targets"][q])}\n'
-                     f'  nodes_eq := (congrArg Syntax.size {owner}.source_syntax_{q}).trans\n'
-                     f'    {owner}.nodes_{q}\n'
-                     '  returns_eq := (congrArg\n'
-                     '    (fun p : Syntax 4042 ↦ 1 + FieldReturns.writeCount p)\n'
-                     f'    {owner}.source_syntax_{q}).trans {owner}.returns_{q}\n'
-                     '  rows := source_rows_of_local\n'
-                     f'    {owner}.label_{q} {owner}.syntax_{q}\n'
+        parts.append(f'noncomputable def {record} : SourceCertificate :=\n'
+                     f'  makeCertificate {owner}.label_{q} {owner}.syntax_{q}\n'
                      f'    {owner}.source_syntax_{q}\n'
+                     f'    {data["row_sizes"][q]} {len(data["return_local_targets"][q])}\n'
+                     f'    {owner}.nodes_{q} {owner}.returns_{q}\n'
                      f'    {owner}.coherent_{q} {owner}.returned_{q}\n')
         roots.append(namespace + '.' + record)
         parts.append(progress_marker('source-records', q + 1,

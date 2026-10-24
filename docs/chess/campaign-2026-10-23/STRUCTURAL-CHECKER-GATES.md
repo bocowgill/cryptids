@@ -56,3 +56,10 @@ costs. A full estimate must include uncertainty, memory growth, assembly/audits
 and unchanged-machine linkage. Until then, no credible full-machine cost is
 available. Keep accepted savings, experimental counts and generic proof progress
 separate. No paid resources, local heavy work, frozen edits or outreach.
+
+
+Checkpoint68: collection theorem passes6roots, but1/16fails180.058s at43records,
+peak4.776GB. No substantial coverage accepted. Record assembly grows linearly
+with label index; the next bounded pilot uses a generic abstract makeCertificate
+constructor. All obligations/caps remain. This is a category-level assembly
+redesign, not an unchanged retry or a new state-count claim.

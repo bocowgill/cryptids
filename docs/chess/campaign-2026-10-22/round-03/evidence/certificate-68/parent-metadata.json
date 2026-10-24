@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40071460885,
+  "commit": "be302e9a0855bd9a1561478ab37bc3b28d351041",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": true,
+  "actual_rows": 4370,
+  "negative_control": "kernel_rejected",
+  "diagnosis": "SourceScopeTools6root/22724dependency audit PASS. LocalScope16 reaches only43assembled records before180.058s wall stop at4776136704bytes, no memory/source error, no1/16module/audit or quarter coverage. Timings isolate concrete record assembly:0.368s atq0 to7.273s atq42; source/row phases stay near0.17s on these early operations. Redesign constructor to do frozen-accessor dependent transport once with abstract parameters; preserve actual row/count obligations and all budgets.",
+  "new_accepted_machine": false
+}

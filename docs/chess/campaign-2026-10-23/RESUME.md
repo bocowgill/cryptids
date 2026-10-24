@@ -845,3 +845,34 @@ proofs and include every source label in a complete prefix, all slots/bits/store
 and paid local returns. Native counts stay proposals until complete root/audit
 success. Detailed progress files are hash-bound by checkpoint/review tooling.
 Keep6GiB and1200soverall; no12GiBtest/no paid hosts/no local heavy computation.
+
+Goal-turn classification: previous continuation was PROGRESS:67proved a complete
+actual block and68dispatched larger tests; this turn revalidated68live before
+observing its terminal result. Do not treat observation delay as termination.
+
+Scaling68retained/reviewed: SourceScopeTools6roots/22724dependencies PASS5.884s
+build+3.755s audit. Scope16targets448source labels/6995nodes/853return ranks,
+39240original states/78480rows, but FAILS180.058s wall budget at4776136704bytes.
+Only43records assembled; no scope16module/audit or quarter credit. No memory or
+source error. Detailed hash-bound markers show per-record post-node assembly
+0.368s atlabel0,0.839s at3,2.968s at16,5.840s at32,7.273s at42, while measured
+source/raw/coherence/return/node phases stay about0.17s on those early operations.
+The concrete constructor's dependent frozen-source field goals trigger increasing
+normalization. This assembly route cannot continue unchanged; no credible full
+cost estimate or new accepted machine follows from failed448label test.
+
+Corrective redesign: SourceScopeTools.makeCertificate checks the same dependent
+count/row transport ONCE with abstract label/syntax arguments. Each concrete
+record calls it with literal syntax and already checked source/coherence/census
+facts, avoiding eager frozen getter goals in a `where` constructor. Keep the
+original SourceCertificate type and all6roots, add maker as7th; preserve exact
+scopes448/atleast1/16then1/4,180/210s,1200stotal,6GiB and all audits/fixtures.
+Same detailed markers must demonstrate whether assembly now stays flat; do not
+raise limits. Current block67still2185states/4370rows only. Accepted769344;
+target310029; prospective459315; new accepted full-machine savings0.
+
+Unwired drafts global_rows_pilot.py and full_link_pilot.py prepare the two shared
+halt controls, all-source to global rows, arbitrary-tape halting equivalence,
+and reuse of exact frozen table/seed decoders and writer. They remain UNVERIFIED
+and explicitly CONDITIONAL on every source's row certificate. No final theorem
+with an undischarged source hypothesis can satisfy G4/G5or be accepted as310029.

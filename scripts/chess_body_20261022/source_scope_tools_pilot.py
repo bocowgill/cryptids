@@ -43,6 +43,20 @@ structure SourceCertificate where
   returns_eq : FieldSelectiveLayout.localSize label = returns
   rows : SourceRows label
 
+-- Transport is checked with abstract q/p once; concrete records never expose the
+-- frozen syntax getter inside dependent field goals during structure elaboration.
+noncomputable def makeCertificate (q : Fin 4042) (p : Syntax 4042)
+    (same : FieldPacked.syntaxRows.get q = p) (nodes returns : Nat)
+    (nodeCount : p.size = nodes) (returnCount : 1 + FieldReturns.writeCount p = returns)
+    (main : Coherent q p) (returned : ReturnCoherent q p) : SourceCertificate where
+  label := q
+  nodes := nodes
+  returns := returns
+  nodes_eq := (congrArg Syntax.size same).trans nodeCount
+  returns_eq := (congrArg (fun p : Syntax 4042 ↦ 1 + FieldReturns.writeCount p) same).trans
+    returnCount
+  rows := source_rows_of_local q p same main returned
+
 -- The branch cache is unused: this proof collection is scanned, never indexed.
 def scan : Balanced.RowTree SourceCertificate → Nat → Option (Nat × Nat × Nat)
   | .empty, start => some (start, 0, 0)
@@ -146,8 +160,8 @@ end SourceScopeToolsPilot
 
 
 def generate(driver, header, audit_and_end, module):
-    names = ['SourceRows', 'source_rows_of_local', 'SourceCertificate', 'scan', 'scan_covers',
-             'scan_sizes']
+    names = ['SourceRows', 'source_rows_of_local', 'SourceCertificate', 'makeCertificate',
+             'scan', 'scan_covers', 'scan_sizes']
     driver.emit('SourceScopeTools.lean', header([module + '.LocalRules']) + SOURCE + audit_and_end(
         driver, 'SourceScopeTools', ['SourceScopeToolsPilot.' + name for name in names],
         'Checked source certificate collection covers every claimed source label'))

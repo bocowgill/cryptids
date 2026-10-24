@@ -177,3 +177,12 @@ with at least1/16and1/4paid-body coverage, using a reusable checked source-recor
 collection to avoid one giant assembly proof. High proof difficulty; moderate
 remaining checker assembly effort; full linkage/review still required. No full
 runtime estimate until substantial measurements. No additional memory tests.
+
+Checkpoint68decision: REDESIGN assembly, not the frozen machine. Actual small
+block67passes, generic collection68passes, but1/16times out180.058s below memory
+with only43records. Concrete record assembly grows0.368→7.273s forlabels0→42;
+early row checking staysnear0.17s/operation. Prioritize a generic abstract record
+constructor to eliminate repeated frozen-source dependent-type normalization.
+Same459315payoff/high proof difficulty, small targeted implementation effort;
+full-machine saving still0. Retest identical substantial scopes/caps and demand
+flat assembly plus completed audits before continuing. No full cost estimate.
