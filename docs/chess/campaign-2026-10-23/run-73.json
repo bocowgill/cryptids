@@ -2,7 +2,7 @@
   "run_id": 40077567555,
   "source": "7d861fab2527f9f07b8e40209f2fa6c8fa4b4160",
   "mode": "local",
-  "status": "remote_queued",
+  "status": "retained_reviewed_source_failure",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-73",
   "correction": "Reusable structural root/children certificate eliminates repeated indexed syntax getters",
   "required_new_generic_roots": 12,
@@ -20,5 +20,10 @@
   "memory_gib": 6,
   "accepted_states": 769344,
   "target_states": 310029,
-  "new_accepted_machine": false
+  "new_accepted_machine": false,
+  "failed_stage": "StructuralChecks",
+  "build_seconds": 6.092813907,
+  "peak_bytes": 3181682688,
+  "substantial_scopes_attempted": false,
+  "decision": "Correct explicit embedding function eta and leaf-to-root finite-index proof; no throughput inference"
 }

@@ -31,16 +31,18 @@ but Scope16 still times out 180.104 s after 421 records, peak 4,861,300,736 byte
 Main-coherence timings unchanged; reject literalization as scaling solution.
 Packet retained/reviewed. No larger completed module/audit or quarter.
 
-Current pilot 73: run 40077567555 at
-7d861fab2527f9f07b8e40209f2fa6c8fa4b4160 (mode local; retain certificate-73).
-It uses a reusable root-and-children structural certificate. Its
-runtime traverses each syntax constructor once and never uses an indexed
-node getter. A universal Lean induction must prove every original slot is
-covered; subtree embeddings preserve exact global postorder addresses. Actual
-Q/map equations, all bits/stores/returns and frozen-source identity unchanged.
-Generic soundness/audit 60 s, regression block/corruption 120 s, substantial
-1/16 and 1/4 stages 180/210 s including audits; 1200 overall / 6 GiB unchanged.
-This new generic proof is UNVERIFIED before its remote preflight.
+Pilot 73 is retained/reviewed: generic structural proof fails in 6.093 s,
+peak 3,181,682,688 bytes, with embedding eta/leaf Fin1 transparency mismatches.
+No block/substantial attempt or scalability evidence. Corrected with explicit
+function equality and direct Fin.ext leaf-to-root bounds; same checker and
+obligations. Corrected pilot 74 requires 13 generic roots and full private audit.
+
+It uses a root-and-children structural certificate without indexed runtime node
+getters. Actual Q/map equations, source identity, all bits/stores/returns remain.
+Generic preflight 60 s, block/corruption 120 s, 1/16 and 1/4 stages 180/210 s
+including audits; 1200 s overall / 6 GiB. Return inversion, numeric lookup, size
+and build/audit work remain; no linear total-runtime claim. Generic proof still
+UNVERIFIED until remote build/audit.
 
 NEXT: require generic checker proof and private audit, then completed substantial
 coverage and resource evidence. Decide continue/redesign from those results.
@@ -50,4 +52,4 @@ global_rows_pilot.py and full_link_pilot.py retain an explicit all-source
 hypothesis and have no final-theorem credit.
 
 See ../campaign-2026-10-23/RESUME.md, GATES.md, STRUCTURAL-CHECKER-GATES.md,
-run-69.json through run-73.json and STATE-COUNTS-AND-OPPORTUNITIES.md. Last account usage 11%; no reset.
+run-69.json through run-74.json and STATE-COUNTS-AND-OPPORTUNITIES.md. Last account usage 11%; no reset.

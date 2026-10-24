@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40077567555,
+  "commit": "7d861fab2527f9f07b8e40209f2fa6c8fa4b4160",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": true,
+  "actual_rows": 0,
+  "negative_control": "not_run",
+  "diagnosis": "StructuralChecks source proof failure6.093s, peak3181682688bytes; no resource stop or actual scope attempt. Recursive embedding function eta mismatch and Fin1 leaf typeclass transparency. Add explicit embedding function equality and direct leaf-to-root Fin.ext bounds; same traversal, obligations and caps.",
+  "new_accepted_machine": false
+}

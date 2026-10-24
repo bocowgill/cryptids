@@ -987,3 +987,27 @@ substantial coverage and include all fixed loading/audit/assembly costs in
 any full-machine estimate. No such estimate yet. Accepted machine remains
 769,344, target 310,029 and prospective saving 459,315; accepted new saving 0.
 Shared-control/global-row/unchanged-decoder linkage and final review still open.
+
+Traversal caveat: one recursive checkSub visit per constructor does not imply
+linear total runtime. rootCheck still performs actual numeric map/Q lookups,
+and literal writes still use the existing FieldReturns.findTarget inverse.
+Subtree size calculations and fresh builds/audits also remain. Pilot 73 must
+measure the completed larger certificates rather than infer a complexity bound
+from the recursion shape. No extra state saving is claimed for this helper.
+
+
+### Pilot 73: structural induction needs explicit embedding and leaf bounds
+
+Run 40077567555 at 7d861fab2527f9f07b8e40209f2fa6c8fa4b4160 is retained and
+reviewed as certificate-73. StructuralChecks source proof fails in 6.093 s,
+peak 3,181,682,688 bytes, without resource stop. The indexed runtime getter
+has been removed, but the generic induction is not yet accepted: simplification
+leaves a partially applied embed function versus an eta-expanded function, and
+Fin (.go/.halt).size does not synthesize Fin1 numeral/subsingleton instances
+at typeclass transparency. Corrected with an explicit embed_as_function lemma
+and direct Fin.ext leaf-to-root bounds. No checker semantics or obligations
+change. New helper is a 13th audited root. No block or substantial scopes ran.
+Decision: one corrected bounded structural proof/scaling trial 74, same limits.
+If generic proof passes, measure actual 1/16 and 1/4 complete modules/audits;
+no inference of linear total cost from recursion shape. Accepted counts stay
+769,344 / target 310,029, new saving zero; linkage/final review remain open.

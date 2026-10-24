@@ -31,6 +31,12 @@ theorem embed_zero (whole : Syntax 4042) (fits : 0 + whole.size ≤ whole.size) 
   apply Fin.ext
   exact Nat.zero_add i.val
 
+theorem embed_as_function (whole : Syntax 4042) (offset : Nat) (sub : Syntax 4042)
+    (fits : offset + sub.size ≤ whole.size) :
+    embed whole offset sub fits =
+      (fun i : Fin sub.size ↦ (⟨offset + i.val, by have bound := i.isLt; omega⟩ :
+        Fin whole.size)) := rfl
+
 -- Construct the root directly; nodeAt/root would reintroduce indexed traversal.
 def rootNode : (sub : Syntax 4042) → BoolGraph.Node sub.size 5 4042
   | .move d rest => .move d rest.root.castSucc
@@ -92,7 +98,7 @@ theorem checkSub_sound (q : Fin 4042) (whole : Syntax 4042) (offset : Nat)
       simpa only [rootNode, Syntax.nodeAt, Syntax.root, Fin.lastCases_last] using word
     · have word := ih offset _ checked.2 j bit value
       simpa only [Syntax.nodeAt, Fin.lastCases_castSucc, mapNode_comp, Function.comp_def,
-        embed, Fin.val_castSucc] using word
+        embed_as_function, Fin.val_castSucc] using word
   | branch t yes no ihYes ihNo =>
     simp only [checkSub, Bool.and_eq_true] at checked
     intro i bit value
@@ -103,18 +109,35 @@ theorem checkSub_sound (q : Fin 4042) (whole : Syntax 4042) (offset : Nat)
       | left j =>
         have word := ihYes offset _ checked.2.1 j bit value
         simpa only [Syntax.nodeAt, Fin.lastCases_castSucc, Fin.addCases_left,
-          mapNode_comp, Function.comp_def, embed, Fin.val_castSucc, Fin.val_castAdd] using word
+          mapNode_comp, Function.comp_def, embed_as_function, Fin.val_castSucc,
+          Fin.val_castAdd] using word
       | right j =>
         have word := ihNo (offset + yes.size) _ checked.2.2 j bit value
         simpa only [Syntax.nodeAt, Fin.lastCases_castSucc, Fin.addCases_right,
-          mapNode_comp, Function.comp_def, embed, Fin.val_castSucc, Fin.val_natAdd,
+          mapNode_comp, Function.comp_def, embed_as_function, Fin.val_castSucc, Fin.val_natAdd,
           Nat.add_assoc] using word
-  | go t | halt =>
+  | go t =>
     intro i bit value
-    have zeroIndex : i = 0 := Subsingleton.elim _ _
-    subst i
+    have atRoot : i = (Syntax.go t).root := by
+      apply Fin.ext
+      have bound := i.isLt
+      simp only [Syntax.size] at bound
+      change i.val = 0
+      omega
+    rewrite [atRoot]
     have word := rootCheck_sound q whole offset _ fits checked bit value
-    simpa only [Syntax.nodeAt, Syntax.root, rootNode] using word
+    simpa only [Syntax.nodeAt, rootNode] using word
+  | halt =>
+    intro i bit value
+    have atRoot : i = (Syntax.halt : Syntax 4042).root := by
+      apply Fin.ext
+      have bound := i.isLt
+      simp only [Syntax.size] at bound
+      change i.val = 0
+      omega
+    rewrite [atRoot]
+    have word := rootCheck_sound q whole offset _ fits checked bit value
+    simpa only [Syntax.nodeAt, rootNode] using word
 
 noncomputable def checkMain (q : Fin 4042) (whole : Syntax 4042) : Bool :=
   checkSub q whole 0 whole (by omega)
@@ -131,7 +154,8 @@ end StructuralCheckPilot
 
 
 def generate(driver, header, audit_and_end, module):
-    names = ['mapNode_comp', 'mapNode_id', 'embed', 'embed_zero', 'rootNode', 'rootCheck',
+    names = ['mapNode_comp', 'mapNode_id', 'embed', 'embed_zero', 'embed_as_function',
+             'rootNode', 'rootCheck',
              'checkSub', 'SubRows', 'rootCheck_sound', 'checkSub_sound',
              'checkMain', 'checkMain_sound']
     driver.emit('StructuralChecks.lean', header([module + '.DirectChecks']) + SOURCE +
