@@ -59,6 +59,8 @@ def main():
                   'scripts/chess_body_20261022/numeric_phase_pilot.py',
                   'scripts/chess_body_20261022/local_rule_pilot.py',
                   'scripts/chess_body_20261022/local_chunk_pilot.py',
+                  'scripts/chess_body_20261022/source_scope_tools_pilot.py',
+                  'scripts/chess_body_20261022/source_scope_pilot.py',
                   'scripts/chess_body_20261022/source_table_pilot.py',
                   'scripts/chess_body_20261022/source_chunk_pilot.py',
                   'scripts/chess_body_20261022/raw_label_pilot.py',
@@ -118,7 +120,14 @@ def main():
         assert detail['local_chunk_proposed']['kernel_checked'] is True
         assert detail['local_chunk_kernel_corruption_rejected'] is True
         assert detail['negative_control']['status'] == 'kernel_rejected'
-        assert detail['completed_positive_unique_rows'] == detail['local_chunk_proposed'][
+        assert detail['source_scope_collection_soundness_checked'] is True
+        for divisor in (16, 4):
+            scope = detail[f'local_scope_{divisor}_proposed']
+            assert scope['kernel_checked'] is True
+            assert divisor * scope['finite_state_domain'] >= 573802
+        assert detail['local_scope_4_proposed']['finite_state_domain'] > detail[
+            'local_scope_16_proposed']['finite_state_domain']
+        assert detail['completed_positive_unique_rows'] == detail['local_scope_4_proposed'][
             'finite_row_domain']
         assert detail['completed_positive_unique_rows'] > 0
     if raw:
@@ -131,7 +140,7 @@ def main():
         assert detail['completed_positive_unique_rows'] == 0
     (WORK / 'verification.json').write_text(json.dumps(dict(manifest, status='passed', checks=checks,
         mode=args.mode, detail=detail,
-        scope=('One complete actual source-block row certificate; no full quotient or new machine'
+        scope=('At least 1/16 and 1/4 of actual paid body; no full quotient or new machine'
                if local else
                'Complete raw source reconstruction, bounds and meaning; no quotient or new machine'
                if raw else

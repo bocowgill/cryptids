@@ -166,3 +166,14 @@ with a kernel corruption control, then substantial1/16and1/4state coverage.
 Rank1same459315payoff, high proof difficulty; remaining implementation effort is
 local checker/coverage assembly plus full-machine linkage. Small helper successes
 are proof dependencies, not extra savings. Still no credible complete-cost estimate.
+
+Checkpoint67: the structural checker now proves an entire real source block,
+2185original body states/4370rows, in12.917s plus3.027s audit,295roots. Both bits,
+all5stores and62local return ranks are covered. False-word kernel rejection and
+wrong-rank/callback/range fixtures pass. This is partial actual-row progress,
+not a new machine or a scaling result. The unchanged accepted769344breakdown
+and459315prospective quotient opportunity remain. Rank1next tests source prefixes
+with at least1/16and1/4paid-body coverage, using a reusable checked source-record
+collection to avoid one giant assembly proof. High proof difficulty; moderate
+remaining checker assembly effort; full linkage/review still required. No full
+runtime estimate until substantial measurements. No additional memory tests.

@@ -18,17 +18,17 @@ stay fixed; all generation, counting, Lean checking and fixtures run remotely.
 - [x] S5: Numeric projections agree with actual Q/classMap observations and local
   return ranks; all17explicit roots and their full-private audit pass under60s.
   Certificate66:17roots/22620dependencies,4.040s build +2.926s full-private audit.
-- [ ] S6: Finite local checkers and source-local pure-child induction imply
+- [x] S6: Finite local checkers and source-local pure-child induction imply
   actual RowAt main/return conclusions, with explicit audited finite deciders.
-  Certificate66has only a diagnosed branch unfold/split error;11roots remain required.
-- [ ] S7: A complete actual source block with literal writes checks every local
+  Certificate67:11roots/22722dependencies;3.934s build +2.925s full-private audit.
+- [x] S7: A complete actual source block with literal writes checks every local
   node, both bits, all5stores and all paid returns; proves exact frozen-source
   fidelity and domain census; all required roots/audits pass. Fresh corrupted
   numeric-word proof must reach kernel type-mismatch rejection, wrong return
   ranks must be rejected, and callback/range fixtures must pass.
-  local_chunk_pilot.py is now wired behind S6and fresh raw fixtures. It selects a complete
- 32operation block containing an actual write; counts remain untrusted proposals
-  until the required census and row roots pass. Do not credit generated markers.
+  Certificate67checks labels256..287,375nodes,62return ranks and2185original
+  states/4370rows.12.917s build +3.027s full-private295root audit. Fresh false
+  word reaches kernel rejection in3.634s. This is small coverage, not scaling.
 - [ ] S8: Increasing portions reach at least1/16and1/4of actual paid body-state
   coverage, with all bits/stores/returns and required audits. Report peak RSS,
   runtime, coverage and one-time data/assembly/audit/linkage overhead separately.

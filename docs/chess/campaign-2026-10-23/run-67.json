@@ -1,0 +1,32 @@
+{
+  "run_id": 40067208743,
+  "source": "d3d391ce592186c6a0e2f6e23ebcd4f8a0cc7161",
+  "mode": "local",
+  "status": "retained_complete_actual_source_block_passed",
+  "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-67",
+  "coverage": {
+    "all_paid_local_returns": true,
+    "counts_are_proposals_until_required_roots_pass": true,
+    "end_label": 288,
+    "every_bit_and_store": true,
+    "finite_row_domain": 4370,
+    "finite_state_domain": 2185,
+    "first_label": 256,
+    "full_quotient_certified": false,
+    "kernel_checked": true,
+    "main_nodes": 375,
+    "new_accepted_machine": false,
+    "operations": 32,
+    "return_ranks": 62
+  },
+  "local_build_seconds": 12.917,
+  "local_audit_seconds": 3.027,
+  "local_audit_roots": 295,
+  "local_audit_dependencies": 23685,
+  "local_build_peak_rss_bytes": 3597856768,
+  "local_audit_peak_rss_bytes": 5056147456,
+  "kernel_corruption_rejected": true,
+  "accepted_states": 769344,
+  "target_states": 310029,
+  "new_accepted_machine": false
+}

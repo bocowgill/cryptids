@@ -25,6 +25,47 @@ theorem restored_literal (op : Op 4042) (raw : RawOp)
 '''
 
 
+
+def append_operation(parts, q, operations, data):
+    parts.append(f'def label_{q} : Fin 4042 := ⟨{q}, by decide +kernel⟩\n'
+                 f'noncomputable def raw_{q} : RawOp :=\n' +
+                 indent(raw_op(operations[q])) + '\n'
+                 f'noncomputable def op_{q} : Op 4042 := (restore 4042 raw_{q}).getD .halt\n'
+                 f'noncomputable def syntax_{q} : Syntax 4042 := lower op_{q}\n'
+                 f'theorem source_raw_{q} :\n'
+                 f'    erase (toTableOp (Snapshot.program label_{q})) = raw_{q} := by\n'
+                 '  decide +kernel\n'
+                 f'theorem source_op_{q} : op_{q} = Snapshot.program label_{q} :=\n'
+                 f'  restored_literal (Snapshot.program label_{q}) raw_{q} source_raw_{q}\n'
+                 f'theorem source_syntax_{q} :\n'
+                 f'    FieldPacked.syntaxRows.get label_{q} = syntax_{q} :=\n'
+                 f'  (FieldAware.syntaxRows_get label_{q}).trans\n'
+                 f'    (congrArg lower source_op_{q}).symm\n'
+                 f'theorem coherent_{q} : Coherent label_{q} syntax_{q} := by\n'
+                 '  decide +kernel\n'
+                 f'theorem returned_{q} : ReturnCoherent label_{q} syntax_{q} := by\n'
+                 '  decide +kernel\n'
+                 f'theorem main_rows_{q} (slot : Fin syntax_{q}.size)\n'
+                 '    (bit : Bool) (value : Fin 5) :\n'
+                 f'    RowAt (mainIndex (slotIndex label_{q} syntax_{q}\n'
+                 f'      source_syntax_{q} slot) value) (Binary.encodeSymbol bit) :=\n'
+                 f'  main_rows_local label_{q} syntax_{q} source_syntax_{q}\n'
+                 f'    coherent_{q} slot bit value\n'
+                 f'theorem return_rows_{q}\n'
+                 f'    (rank : Fin (1 + FieldReturns.writeCount syntax_{q}))\n'
+                 '    (bit : Bool) (value : Fin 5) :\n'
+                 f'    RowAt (bounceIndex label_{q} syntax_{q}\n'
+                 f'      source_syntax_{q} rank value) (Binary.encodeSymbol bit) :=\n'
+                 f'  return_rows_local label_{q} syntax_{q} source_syntax_{q}\n'
+                 f'    returned_{q} rank bit value\n'
+                 f'theorem nodes_{q} : syntax_{q}.size = {data["row_sizes"][q]} := by\n'
+                 '  decide +kernel\n'
+                 f'theorem returns_{q} : 1 + FieldReturns.writeCount syntax_{q} =\n'
+                 f'    {len(data["return_local_targets"][q])} := by decide +kernel\n')
+    return [prefix + str(q) for prefix in ['source_raw_', 'source_op_', 'source_syntax_',
+                                           'coherent_', 'returned_', 'main_rows_',
+                                           'return_rows_', 'nodes_', 'returns_']]
+
 def generate(driver, snapshot, expected_sha, header, audit_and_end, progress_marker, module, ns):
     assert driver.summary['source_local_rule_soundness_checked']
     assert driver.summary['raw_source_chunk_checked']
@@ -46,44 +87,7 @@ def generate(driver, snapshot, expected_sha, header, audit_and_end, progress_mar
         'public import Lean\n', 'public meta import Lean\n'), TOOLS]
     roots = ['restored_literal']
     for q in range(start, end):
-        parts.append(f'def label_{q} : Fin 4042 := ⟨{q}, by decide +kernel⟩\n'
-                     f'noncomputable def raw_{q} : RawOp :=\n' +
-                     indent(raw_op(operations[q])) + '\n'
-                     f'noncomputable def op_{q} : Op 4042 := (restore 4042 raw_{q}).getD .halt\n'
-                     f'noncomputable def syntax_{q} : Syntax 4042 := lower op_{q}\n'
-                     f'theorem source_raw_{q} :\n'
-                     f'    erase (toTableOp (Snapshot.program label_{q})) = raw_{q} := by\n'
-                     '  decide +kernel\n'
-                     f'theorem source_op_{q} : op_{q} = Snapshot.program label_{q} :=\n'
-                     f'  restored_literal (Snapshot.program label_{q}) raw_{q} source_raw_{q}\n'
-                     f'theorem source_syntax_{q} :\n'
-                     f'    FieldPacked.syntaxRows.get label_{q} = syntax_{q} :=\n'
-                     f'  (FieldAware.syntaxRows_get label_{q}).trans\n'
-                     f'    (congrArg lower source_op_{q}).symm\n'
-                     f'theorem coherent_{q} : Coherent label_{q} syntax_{q} := by\n'
-                     '  decide +kernel\n'
-                     f'theorem returned_{q} : ReturnCoherent label_{q} syntax_{q} := by\n'
-                     '  decide +kernel\n'
-                     f'theorem main_rows_{q} (slot : Fin syntax_{q}.size)\n'
-                     '    (bit : Bool) (value : Fin 5) :\n'
-                     f'    RowAt (mainIndex (slotIndex label_{q} syntax_{q}\n'
-                     f'      source_syntax_{q} slot) value) (Binary.encodeSymbol bit) :=\n'
-                     f'  main_rows_local label_{q} syntax_{q} source_syntax_{q}\n'
-                     f'    coherent_{q} slot bit value\n'
-                     f'theorem return_rows_{q}\n'
-                     f'    (rank : Fin (1 + FieldReturns.writeCount syntax_{q}))\n'
-                     '    (bit : Bool) (value : Fin 5) :\n'
-                     f'    RowAt (bounceIndex label_{q} syntax_{q}\n'
-                     f'      source_syntax_{q} rank value) (Binary.encodeSymbol bit) :=\n'
-                     f'  return_rows_local label_{q} syntax_{q} source_syntax_{q}\n'
-                     f'    returned_{q} rank bit value\n'
-                     f'theorem nodes_{q} : syntax_{q}.size = {data["row_sizes"][q]} := by\n'
-                     '  decide +kernel\n'
-                     f'theorem returns_{q} : 1 + FieldReturns.writeCount syntax_{q} =\n'
-                     f'    {len(data["return_local_targets"][q])} := by decide +kernel\n')
-        roots += [prefix + str(q) for prefix in ['source_raw_', 'source_op_', 'source_syntax_',
-                                               'coherent_', 'returned_', 'main_rows_',
-                                               'return_rows_', 'nodes_', 'returns_']]
+        roots += append_operation(parts, q, operations, data)
         parts.append(progress_marker('complete-local-source-operations', q - start + 1,
                                      driver.args.output / 'local-chunk-progress.tsv'))
     anchor = writes[0]

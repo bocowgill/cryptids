@@ -805,3 +805,30 @@ failures cannot count as a negative success.120s actual-block+audit and45s
 negative budgets are the existing first-row/negative tier limits;1200s total,
 6GiB normal cap unchanged. No new test has yet run. Numerical domain proposals
 receive no credit before all required row/census/audit roots pass. G4/G5/G6open.
+
+Source-block67 PASS retained/reviewed atd3d391ce592186c6a0e2f6e23ebcd4f8a0cc7161,
+run40067208743. LocalRules11roots/22722dependencies pass3.934+2.925s. Complete
+actual labels256..287prove375main nodes,62return ranks,2185original body states
+and4370transition rows (both bits/all5stores/all paid local returns). Source
+fidelity and individual/aggregate census, callback/range/wrong-rank fixtures pass.
+LocalChunk12.917s build at3597856768bytes +3.027s full-private295root/23685dep
+audit at5056147456bytes. Fresh LocalNegative reaches KERNEL TYPE MISMATCH in
+3.634s; this is not a source or resource failure. Only standard3axioms. Total
+mathematical orchestration285.418s. No full quotient or new machine accepted.
+
+Next bounded phase extends this SAME numeric checker to at least1/16and1/4of
+573802paid body states, determined from actual source weights rather than label
+fractions. New source_scope_tools_pilot.py proposes a proof-carrying source record
+(label, exact node/return counts and all-row bundle), checked in one linear tree
+scan. Soundness must prove every claimed source label covered and exact real
+source-weight sums. New source_scope_pilot.py reuses already checked operation
+proofs; emits only new operations, then checks a complete source prefix and
+explicit substantial-domain bounds. Both generated scope bodies and full-private
+roots are mandatory; markers get0proof credit. More detailed timing markers
+separate source fidelity, main coherence, returns and census. Scope16has180s,
+scope4has210s, each including audit; original1200s overall/6GiB cap stays fixed.
+SourceScopeTools has60s; no resource increase. Stop before the larger scope if
+its prerequisite fails. These new producers are unverified/unexecuted. No full
+cost estimate from the small67sample; require both substantial scopes and account
+for fixed data, assembly, audits, full-machine linkage and uncertainty. Accepted
+machine769344, target310029, prospective saving459315; new accepted saving0.

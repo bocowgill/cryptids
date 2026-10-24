@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40067208743,
+  "commit": "d3d391ce592186c6a0e2f6e23ebcd4f8a0cc7161",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": true,
+  "actual_rows": 4370,
+  "negative_control": "kernel_rejected",
+  "diagnosis": "PASS source-local finite checker11roots and one complete actual source block. Exact frozen source fidelity, every slot/bit/store, all paid local returns, per-operation/aggregate domain census, callback/range/wrong-rank fixtures and fresh false numeric-word KERNEL TYPE MISMATCH rejection pass. Not a full quotient, not yet substantial scaling or a new machine.",
+  "new_accepted_machine": false
+}

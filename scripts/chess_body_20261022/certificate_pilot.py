@@ -165,6 +165,14 @@ class Driver:
                 self.summary[key] = {
                     "path": progress.name, "info": info(progress), "events": len(events),
                     "last_event": events[-1] if events else None, "proof_credit": False}
+        for divisor in (16, 4):
+            for kind in ('progress', 'details'):
+                progress = self.args.output / f'LocalScope{divisor}-{kind}.tsv'
+                if progress.exists():
+                    events = progress.read_text().splitlines()
+                    self.summary[f'local_scope_{divisor}_{kind}'] = {
+                        'path': progress.name, 'info': info(progress), 'events': len(events),
+                        'last_event': events[-1] if events else None, 'proof_credit': False}
         diagnostics = self.args.output / "command-diagnostics.log"
         if diagnostics.exists():
             self.summary["durable_command_diagnostics"] = {

@@ -48,6 +48,13 @@ def main():
         path = unpacked / proposal['path']
         assert path.stat().st_size == proposal['info']['bytes']
         assert digest(path) == proposal['info']['sha256'], path.name
+    for divisor in (16, 4):
+        for kind in ('progress', 'details'):
+            progress = summary.get(f'local_scope_{divisor}_{kind}')
+            if progress:
+                path = unpacked / progress['path']
+                assert path.stat().st_size == progress['info']['bytes']
+                assert digest(path) == progress['info']['sha256'], path.name
     if args.preview:
         assert digest(args.preview) == retention['artifact_sha256']
     review = dict(scope='Retained source/generated/log/provenance bytes only; no proof execution',

@@ -77,12 +77,36 @@ def run(driver, api):
     driver.run('LocalChunk', 120, 'Complete actual source block main and return rows checked')
     coverage = driver.summary['local_chunk_proposed']
     coverage['kernel_checked'] = True
+    coverage['domain_census_kernel_checked'] = True
     driver.summary.update(completed_positive_source_blocks=1,
                           completed_positive_sample_states=coverage['finite_state_domain'],
                           completed_positive_unique_rows=coverage['finite_row_domain'])
     driver.checkpoint()
     driver.run('LocalNegative', 45, negative=True)
     driver.summary['local_chunk_kernel_corruption_rejected'] = True
+    driver.checkpoint()
+    import source_scope_tools_pilot
+    source_scope_tools_pilot.generate(driver, api.header, api.audit_and_end, api.MODULE)
+    driver.run('SourceScopeTools', 60,
+               'Checked source certificate collection covers every claimed source label')
+    driver.summary['source_scope_collection_soundness_checked'] = True
+    driver.checkpoint()
+    inherited = {q: 'LocalChunk' for q in range(coverage['first_label'], coverage['end_label'])}
+    import source_scope_pilot
+    for divisor, seconds in [(16, 180), (4, 210)]:
+        owners = source_scope_pilot.generate(driver, api.SNAPSHOT, api.SNAPSHOT_SHA,
+            api.header, api.audit_and_end, api.progress_marker, api.MODULE, divisor, inherited)
+        driver.run(f'LocalScope{divisor}', seconds,
+                   f'Actual paid body coverage checked: at least 1/{divisor}')
+        scope = driver.summary[f'local_scope_{divisor}_proposed']
+        scope['kernel_checked'] = True
+        scope['domain_census_kernel_checked'] = True
+        inherited.update(owners)
+        driver.summary.update(
+            completed_positive_sample_states=scope['finite_state_domain'],
+            completed_positive_unique_rows=scope['finite_row_domain'],
+            coverage_counter_scope='Largest certified source prefix; off-prefix block not added')
+        driver.checkpoint()
     driver.summary.update(status='numeric_local_passed', numeric_local_interface_checked=True)
     driver.checkpoint()
     print('Numeric source-local projection pilot passed', flush=True)
