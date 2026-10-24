@@ -17,7 +17,8 @@ def SourceRows (q : Fin 4042) : Prop :=
   (∀ (slot : Fin (FieldPacked.syntaxRows.get q).size) (bit : Bool) (value : Fin 5),
     RowAt (mainIndex (FieldSelectiveLayout.nodeIndex q slot) value) (Binary.encodeSymbol bit)) ∧
   (∀ (rank : Fin (FieldSelectiveLayout.localSize q)) (bit : Bool) (value : Fin 5),
-    RowAt (SelectiveBinary.bounceState (FieldSelectiveLayout.liveReturn q rank value))
+    RowAt (SelectiveBinary.bounceState (q := 533341)
+      (FieldSelectiveLayout.liveReturn q rank value))
       (Binary.encodeSymbol bit))
 
 theorem source_rows_of_local (q : Fin 4042) (p : Syntax 4042)
