@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40111992559,
+  "commit": "50b2464bd189cca3d1eb83e8cbae1580a74401ae",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": true,
+  "actual_rows": 4370,
+  "negative_control": "kernel_rejected",
+  "diagnosis": "Early FamilyWiring source failure, not memory/time/scaling: generated Boolean conjunction is not definitionally checks windows; show tactic also triggers strict style linter. Driver421.709s; failing helper4.242s peak3262803968bytes. All generic11roots and prior controls pass. Replace inline conversion with universally proved window_checked/cons_checked using the exact reverse of already-audited WorkingViews world_correct simplification. Add both generic roots to six-root wiring audit; keep all substantive claims/caps.",
+  "new_accepted_machine": false
+}

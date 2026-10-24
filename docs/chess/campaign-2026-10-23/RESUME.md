@@ -1621,3 +1621,26 @@ Re-poll exact live90handle; observer timeout does not warrant restart.
 Accepted769,344/target310,029/new full savings0; strongest complete aggregate
 39,240states/78,480rows. Quarter/full still open. GoalACTIVE; remote/free,
 frozen3116pins and no outreach fixed; lastusage13%, no reset.
+
+
+90TERMINAL retained/reviewed source failure: FamilyWiring4.242s,
+3,262,803,968bytes, driver421.709s. Generated Bool conjunction not
+DEFINITIONALLY checks windows; List.all_cons is a propositional rewrite.
+Inline show tactics also fail strict style linter. No memory/time obstruction,
+large cache prep or substantial source. No source-scaling verdict from90.
+
+91specific category correction: generic window_checked and cons_checked prove
+those conversions ONCE using original checks/List.all_cons/Bool.and_eq_true
+rewrites (reverse of already-audited WorkingViews.world_correct proof).
+Generated terms apply these constructors with explicit Window/list arguments;
+no repeated inline show/simp wrappers. FamilyWiring now6roots:2generic plus
+4actual list/fidelity/World receipts, private audit within same60s. All batch
+sources import checked constructors. Preserve original source180/210s and
+1200s/6GiB, every mathematical field/control/linter/foundation obligation.
+Need full batch and substantial tiers before throughput conclusion. If the
+closed checker remains impractical after setup removal, redesign checker,
+not more cache variants. Frozen/remote/no-outreach fixed. Accepted769,344,
+target310,029/new full savings0; strongest source39,240states/78,480rows.
+GoalACTIVE; previous turn PROGRESS (specific correction, retained evidence,
+pushed run90 with exact handle); this turn retains90and eliminates repeated
+proof conversion. Source-only changes do not automatically dispatch smoke.

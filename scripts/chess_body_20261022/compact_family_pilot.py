@@ -10,29 +10,48 @@ import json
 
 
 def window_truth(window):
-    """Transport the retained validation proof; do not normalize cells again."""
+    """Use one abstract proved constructor, with no per-window tactic wrapper."""
     first, finish, namespace = window['start'], window['finish'], window['namespace']
-    return (f'by\n'
-            f'      show WorkingViewPilot.checkWindow\n'
-            f'        ⟨{first}, {finish}, {namespace}.cache⟩ = true\n'
-            '      simpa only [WorkingViewPilot.checkWindow, Bool.and_eq_true,\n'
-            '        decide_eq_true_eq] using\n'
-            f'        (show LookupCachePilot.validate {namespace}.cache {first} =\n'
-            f'          some {finish} ∧ {finish} ≤ 573802 from\n'
-            f'          ⟨{namespace}.checked, by decide +kernel⟩)')
+    return ('(FamilyConstructorsPilot.window_checked\n'
+            f'      {first} {finish} {namespace}.cache\n'
+            f'      {namespace}.checked (by decide +kernel))')
 
 
 def list_truth(windows):
     result = 'rfl'
+    suffix = '[]'
     for window in reversed(windows):
-        result = ('Bool.and_eq_true_iff.mpr ⟨(' + window_truth(window) + '),\n'
-                  '    ' + result + '⟩')
+        literal = (f'⟨{window["start"]}, {window["finish"]}, '
+                   f'{window["namespace"]}.cache⟩')
+        result = ('FamilyConstructorsPilot.cons_checked\n'
+                  '    ' + literal + '\n'
+                  '    (' + suffix + ')\n'
+                  '    ' + window_truth(window) + '\n'
+                  '    (' + result + ')')
+        suffix = literal + ' ::\n      ' + suffix
     return result
 
 
 def wiring_preflight(driver, api):
     windows = [dict(start=0, finish=128, namespace='LookupCache128Pilot')] * 2
-    source = '''namespace FamilyWiringPilot
+    source = r'''open ConjectureMachines.Optimisation LookupCachePilot WorkingViewPilot
+namespace FamilyConstructorsPilot
+set_option backward.isDefEq.respectTransparency false
+
+theorem window_checked (start finish : Nat) (cache : Balanced.RowTree Cell)
+    (valid : validate cache start = some finish) (bound : finish ≤ 573802) :
+    checkWindow ⟨start, finish, cache⟩ = true := by
+  have parts : validate cache start = some finish ∧ finish ≤ 573802 := ⟨valid, bound⟩
+  simpa only [checkWindow, Bool.and_eq_true, decide_eq_true_eq] using parts
+
+theorem cons_checked (w : Window) (windows : List Window)
+    (head : checkWindow w = true) (tail : checks windows = true) :
+    checks (w :: windows) = true := by
+  have parts : checkWindow w = true ∧ checks windows = true := ⟨head, tail⟩
+  simpa only [checks, List.all_cons, Bool.and_eq_true] using parts
+
+end FamilyConstructorsPilot
+namespace FamilyWiringPilot
 noncomputable def windows : List WorkingViewPilot.Window := [
   ⟨0, 128, LookupCache128Pilot.cache⟩,
   ⟨0, 128, LookupCache128Pilot.cache⟩
@@ -45,10 +64,11 @@ theorem world_exact : WorkingViewPilot.world windows = LookupWorldPilot.actualWo
   WorkingViewPilot.world_correct windows checked
 end FamilyWiringPilot
 '''
+    roots = ['FamilyConstructorsPilot.window_checked', 'FamilyConstructorsPilot.cons_checked']
+    roots += ['FamilyWiringPilot.' + n for n in ['windows', 'checked', 'fidelity', 'world_exact']]
     driver.emit('FamilyWiring.lean', api.header([api.MODULE + '.WorkingViews',
         api.MODULE + '.LookupCache128']) + source + api.audit_and_end(driver, 'FamilyWiring',
-        ['FamilyWiringPilot.' + n for n in ['windows', 'checked', 'fidelity', 'world_exact']],
-        'Compact family proof wiring checked before large batch preparation'))
+        roots, 'Compact family proof wiring checked before large batch preparation'))
 
 
 def run(driver, api):
@@ -74,6 +94,7 @@ def run(driver, api):
     driver.run('FamilyWiring', 60,
                'Compact family proof wiring checked before large batch preparation')
     driver.summary['compact_family_wiring_checked'] = True
+    driver.summary['compact_family_wiring_roots'] = 6
     assert hashlib.sha256(api.SNAPSHOT.read_bytes()).hexdigest() == api.SNAPSHOT_SHA
     data = json.loads(api.SNAPSHOT.read_text())
     end, covered = 0, 0
@@ -117,7 +138,7 @@ def run(driver, api):
         namespace = stem + 'Pilot'
         data_parts = [api.header([api.MODULE + '.LookupCacheLoaders'])]
         checks = [api.header([api.MODULE + '.' + stem + 'Data',
-                             api.MODULE + '.WorkingViews', api.MODULE + '.FamilyReturns'])]
+                             api.MODULE + '.FamilyWiring', api.MODULE + '.FamilyReturns'])]
         data_roots, check_roots, definitions, keys = [], [], [], []
         for operation in group:
             q, windows = operation['label'], []

@@ -57,3 +57,23 @@ map checker. New FamilyWiring4root helper exercises the SAME window_truth and
 list_truth generators over2checked real128entry windows before large cache
 preparation. Its universal fidelity/world equality and private audit must pass
 within60s. Original SOURCE16/4, all mathematical obligations and caps fixed.
+
+
+90TERMINAL retained/reviewed source failure: FamilyWiring4.242s,
+3,262,803,968bytes, driver421.709s. Generated Bool conjunction not
+DEFINITIONALLY checks windows; List.all_cons is a propositional rewrite.
+Inline show tactics also fail strict style linter. No memory/time obstruction,
+large cache prep or substantial source. No source-scaling verdict from90.
+
+91specific category correction: generic window_checked and cons_checked prove
+those conversions ONCE using original checks/List.all_cons/Bool.and_eq_true
+rewrites (reverse of already-audited WorkingViews.world_correct proof).
+Generated terms apply these constructors with explicit Window/list arguments;
+no repeated inline show/simp wrappers. FamilyWiring now6roots:2generic plus
+4actual list/fidelity/World receipts, private audit within same60s. All batch
+sources import checked constructors. Preserve original source180/210s and
+1200s/6GiB, every mathematical field/control/linter/foundation obligation.
+Need full batch and substantial tiers before throughput conclusion. If the
+closed checker remains impractical after setup removal, redesign checker,
+not more cache variants. Frozen/remote/no-outreach fixed. Accepted769,344,
+target310,029/new full savings0; strongest source39,240states/78,480rows.

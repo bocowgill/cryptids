@@ -2,7 +2,7 @@
   "run_id": 40111992559,
   "source": "50b2464bd189cca3d1eb83e8cbae1580a74401ae",
   "mode": "local",
-  "status": "remote_running",
+  "status": "retained_reviewed_early_source_failure",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-90",
   "route": "Compact validated chunks plus quantified Window/list fidelity; shared return table; unchanged substantial SOURCE16/4",
   "overall_seconds": 1200,
@@ -21,7 +21,7 @@
   "all_mathematical_window_fidelity_claims_preserved": true,
   "individual_old_wrapper_names_retained": false,
   "zero_fallback_claim": false,
-  "next_gate": "Early SAME generated proof wiring, all bounded batch audits/controls/negative; then both unchanged SOURCE16/4 tiers; compare setup/source overhead",
+  "next_gate": "Universal window/list proof constructors, explicit Window/list arguments, six-root preflight then unchanged substantial tiers",
   "accepted_components": {
     "writer": 173642,
     "structured_decoder": 21682,
@@ -34,5 +34,10 @@
   },
   "specific_correction": "Bool.and_eq_true_iff.mpr plus early FamilyWiring4root preflight",
   "wiring_stage_seconds": 60,
-  "required_wiring_roots": 4
+  "required_wiring_roots": 4,
+  "driver_seconds": 421.70916086100004,
+  "failed_module": "FamilyWiring",
+  "failure": "Boolean conjunction not definitionally WorkingView.checks windows; show tactic style warning",
+  "memory_or_time_failure": false,
+  "source_scaling_verdict_available": false
 }
