@@ -25,6 +25,12 @@ def embed (whole : Syntax 4042) (offset : Nat) (sub : Syntax 4042)
     (fits : offset + sub.size ≤ whole.size) (i : Fin sub.size) : Fin whole.size :=
   ⟨offset + i.val, by have bound := i.isLt; omega⟩
 
+theorem embed_zero (whole : Syntax 4042) (fits : 0 + whole.size ≤ whole.size) :
+    embed whole 0 whole fits = id := by
+  funext i
+  apply Fin.ext
+  exact Nat.zero_add i.val
+
 -- Construct the root directly; nodeAt/root would reintroduce indexed traversal.
 def rootNode : (sub : Syntax 4042) → BoolGraph.Node sub.size 5 4042
   | .move d rest => .move d rest.root.castSucc
@@ -118,14 +124,14 @@ theorem checkMain_sound (q : Fin 4042) (whole : Syntax 4042)
   have rows := checkSub_sound q whole 0 whole (by omega) checked
   intro slot bit value
   have word := rows slot bit value
-  simpa only [embed, Nat.zero_add, mapNode_id, Syntax.fastNodeAt_eq] using word
+  simpa only [embed_zero, mapNode_id, id_eq, Syntax.fastNodeAt_eq] using word
 
 end StructuralCheckPilot
 '''
 
 
 def generate(driver, header, audit_and_end, module):
-    names = ['mapNode_comp', 'mapNode_id', 'embed', 'rootNode', 'rootCheck',
+    names = ['mapNode_comp', 'mapNode_id', 'embed', 'embed_zero', 'rootNode', 'rootCheck',
              'checkSub', 'SubRows', 'rootCheck_sound', 'checkSub_sound',
              'checkMain', 'checkMain_sound']
     driver.emit('StructuralChecks.lean', header([module + '.DirectChecks']) + SOURCE +
