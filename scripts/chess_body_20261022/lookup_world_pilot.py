@@ -177,45 +177,54 @@ def generate(driver, api):
                     'Coefficient substitution preserves every original source obligation'))
 
 
-def controls(driver, api):
+def controls(driver, api, stem='CacheWorld', world_expr='CacheWorldPilot.cacheWorld',
+             maker_expr='CacheWorldPilot.fromCachedRaw', imports=None):
     anchor = driver.summary['local_chunk_proposed']['anchor_write_label']
     nodes = driver.summary['recipe_anchor_nodes']
     returns = driver.summary['recipe_anchor_returns']
+    namespace = stem + 'ControlsPilot'
     source = f'''open ConjectureMachines.Optimisation
-open Chess.Optimisation FieldCompiler LocalChunkPilot CacheWorldPilot
-namespace CacheWorldControlsPilot
+open Chess.Optimisation FieldCompiler LocalChunkPilot
+namespace {namespace}
 
-theorem anchor_recipe : LookupWorldPilot.checkRecipe cacheWorld label_{anchor} raw_{anchor}
+theorem anchor_recipe : LookupWorldPilot.checkRecipe
+    {world_expr}
+    label_{anchor} raw_{anchor}
     {nodes} {returns} = true := by decide +kernel
 
 noncomputable def anchor_certificate : SourceScopeToolsPilot.SourceCertificate :=
-  fromCachedRaw label_{anchor} raw_{anchor} {nodes} {returns} anchor_recipe
+  {maker_expr} label_{anchor} raw_{anchor} {nodes} {returns} anchor_recipe
 
 theorem wrong_node_count_rejected :
-    LookupWorldPilot.checkRecipe cacheWorld label_{anchor} raw_{anchor}
+    LookupWorldPilot.checkRecipe
+      {world_expr}
+      label_{anchor} raw_{anchor}
       {nodes + 1} {returns} = false := by decide +kernel
 
 theorem wrong_return_count_rejected :
-    LookupWorldPilot.checkRecipe cacheWorld label_{anchor} raw_{anchor}
+    LookupWorldPilot.checkRecipe
+      {world_expr}
+      label_{anchor} raw_{anchor}
       {nodes} {returns + 1} = false := by decide +kernel
 
-end CacheWorldControlsPilot
+end {namespace}
 '''
     roots = ['anchor_recipe', 'anchor_certificate', 'wrong_node_count_rejected',
              'wrong_return_count_rejected']
-    driver.emit('CacheWorldControls.lean', api.header([api.MODULE + '.CacheWorld']) + source +
-                api.audit_and_end(driver, 'CacheWorldControls',
-                    ['CacheWorldControlsPilot.' + name for name in roots],
+    driver.emit(stem + 'Controls.lean',
+                api.header(imports or [api.MODULE + '.CacheWorld']) + source +
+                api.audit_and_end(driver, stem + 'Controls',
+                    [namespace + '.' + name for name in roots],
                     'Fast coefficients preserve real write and source-count controls'))
     negative = f'''module
-public import {api.MODULE}.CacheWorldControls
+public import {api.MODULE}.{stem}Controls
 public meta import Lean
 public meta section
 open Lean Elab Term Meta Command
 
 elab "submit_false_cached_recipe" : command => do
   liftTermElabM do
-    let name := `{api.NS}.CacheWorldControlsPilot.anchor_recipe
+    let name := `{api.NS}.{namespace}.anchor_recipe
     let info ← getConstInfo name
     let equality ← whnf info.type
     unless equality.isAppOfArity ``Eq 3 do throwError "Expected recipe equality"
@@ -230,4 +239,4 @@ elab "submit_false_cached_recipe" : command => do
     }}) true
 submit_false_cached_recipe
 '''
-    driver.emit('CacheWorldNegative.lean', negative)
+    driver.emit(stem + 'Negative.lean', negative)

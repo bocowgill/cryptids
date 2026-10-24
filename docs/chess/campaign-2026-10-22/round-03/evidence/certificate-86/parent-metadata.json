@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40097651571,
+  "commit": "661d59cf72d63100bd325bf8099689c6cf2b278d",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": true,
+  "actual_rows": 4370,
+  "negative_control": "kernel_rejected",
+  "diagnosis": "Generic LocalViews3roots/24389deps, all3small cache fidelities, SourceProfile45roots/27202deps and72ordered timing events pass. Heavy445 whole global1815->local1427ms/main1619->1246; heavy476 reversed whole1835->1421/main1674->1270. Real~22-24% reduction vs global, no substantial scaling credit. Integrate source operation-local views in bounded batches (no per-operation process), shared verified return cache; remove unused global main-cache materialization; require unchanged SOURCE16/4 complete modules/audits and all existing obligations/controls/caps. Accepted machine unchanged.",
+  "new_accepted_machine": false
+}

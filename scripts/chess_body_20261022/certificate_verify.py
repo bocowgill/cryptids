@@ -69,6 +69,7 @@ def main():
                   'scripts/chess_body_20261022/cached_world_pilot.py',
                   'scripts/chess_body_20261022/source_profile_pilot.py',
                   'scripts/chess_body_20261022/local_view_pilot.py',
+                  'scripts/chess_body_20261022/local_source_cache_pilot.py',
                   'scripts/chess_body_20261022/local_chunk_pilot.py',
                   'scripts/chess_body_20261022/source_scope_tools_pilot.py',
                   'scripts/chess_body_20261022/source_scope_pilot.py',
@@ -162,9 +163,16 @@ def main():
         assert detail['complete_prefix_scan_checked'] is True
         assert detail['completed_positive_unique_rows'] == 0
     if local:
-        assert detail['cache_world_source_checker_agreement_checked'] is True
-        assert detail['cache_world_actual_source_controls_checked'] is True
-        assert detail['cache_world_kernel_corruption_rejected'] is True
+        assert detail['operation_local_source_cache_checked'] is True
+        assert detail['operation_local_source_controls_checked'] is True
+        assert detail['operation_local_source_kernel_corruption_rejected'] is True
+        assert detail['local_source_cache_proposed']['kernel_checked'] is True
+        assert detail['local_source_cache_proposed'][
+            'all_individual_fidelity_roots_retained'] is True
+        for batch in detail['local_source_cache_proposed']['batches']:
+            assert batch['kernel_checked'] is True
+            assert batch['entries'] <= 16384
+            assert len(batch['labels']) <= 128
         assert detail['numeric_local_interface_checked'] is True
         assert detail['source_local_rule_soundness_checked'] is True
         assert detail['complete_prefix_scan_checked'] is True

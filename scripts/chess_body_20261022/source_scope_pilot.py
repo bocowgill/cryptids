@@ -13,10 +13,17 @@ from source_chunk_pilot import indent
 
 
 def generate(driver, snapshot, expected_sha, header, audit_and_end, progress_marker, module,
-             divisor, inherited, recipe_constructor='SourceRecipePilot.fromRaw'):
+             divisor, inherited, recipe_constructor='SourceRecipePilot.fromRaw',
+             recipe_constructors=None, recipe_modules=None):
     assert divisor in (16, 4)
     assert recipe_constructor in ('SourceRecipePilot.fromRaw', 'CacheWorldPilot.fromCachedRaw')
     fast_world = recipe_constructor == 'CacheWorldPilot.fromCachedRaw'
+    local_views = recipe_constructors is not None
+    if local_views:
+        assert recipe_modules is not None
+        assert driver.summary['operation_local_source_cache_checked']
+        assert driver.summary['operation_local_source_controls_checked']
+        assert driver.summary['operation_local_source_kernel_corruption_rejected']
     if fast_world:
         assert driver.summary['cache_world_source_checker_agreement_checked']
         assert driver.summary['cache_world_actual_source_controls_checked']
@@ -45,6 +52,9 @@ def generate(driver, snapshot, expected_sha, header, audit_and_end, progress_mar
                [module + '.' + name for name in parent_stems])
     if fast_world:
         imports.append(module + '.CacheWorldControls')
+    if local_views:
+        imports += sorted({recipe_modules[q] for q in range(end)})
+        imports.append(module + '.LocalViewControls')
     parts = [header(imports + ['Lean']).replace(
         'public import Lean\n', 'public meta import Lean\n'),
              'open ConjectureMachines.Optimisation\n'
@@ -72,6 +82,7 @@ def generate(driver, snapshot, expected_sha, header, audit_and_end, progress_mar
                          f'    {owner}.nodes_{q} {owner}.returns_{q}\n'
                          f'    {owner}.coherent_{q} {owner}.returned_{q}\n')
         else:
+            constructor = recipe_constructors[q] if local_views else recipe_constructor
             parts.append(progress_marker('recipe_data', q,
                                          driver.args.output / f'{stem}-details.tsv'))
             parts.append(f'def label_{q} : Fin 4042 := ⟨{q}, by decide +kernel⟩\n'
@@ -80,12 +91,15 @@ def generate(driver, snapshot, expected_sha, header, audit_and_end, progress_mar
             parts.append(progress_marker('recipe_check', q,
                                          driver.args.output / f'{stem}-details.tsv'))
             parts.append(f'noncomputable def {record} : SourceCertificate :=\n'
-                         f'  {recipe_constructor} label_{q} raw_{q}\n'
+                         f'  {constructor} label_{q} raw_{q}\n'
                          f'    {data["row_sizes"][q]} {len(data["return_local_targets"][q])}\n'
                          '    (by decide +kernel)\n')
         roots.append(namespace + '.' + record)
         parts.append(progress_marker('source-records', q + 1,
                                      driver.args.output / f'{stem}-progress.tsv'))
+
+    parts.append(progress_marker('assembly_build', 0,
+                                 driver.args.output / f'{stem}-details.tsv'))
 
     def tree(first, count):
         if count == 1:
@@ -119,7 +133,15 @@ def generate(driver, snapshot, expected_sha, header, audit_and_end, progress_mar
                  f'end {namespace}\n')
     roots += [namespace + '.' + name for name in ['collection_checked', 'complete_source_prefix',
               'actual_node_and_return_census', 'substantial_domain', 'wrong_source_order_rejected']]
-    driver.emit(stem + '.lean', ''.join(parts) + audit_and_end(
+    source = ''.join(parts)
+    declarations = ['theorem collection_checked', 'theorem complete_source_prefix',
+                    'theorem actual_node_and_return_census', 'theorem substantial_domain',
+                    'theorem wrong_source_order_rejected', 'end ' + namespace + '\n']
+    for index, declaration in enumerate(declarations, 1):
+        assert source.count(declaration) == 1
+        source = source.replace(declaration, progress_marker('assembly', index,
+            driver.args.output / f'{stem}-details.tsv') + declaration)
+    driver.emit(stem + '.lean', source + audit_and_end(
         driver, stem, roots, f'Actual paid body coverage checked: at least 1/{divisor}'))
     driver.summary[f'local_scope_{divisor}_proposed'] = dict(
         divisor=divisor, first_label=0, end_label=end, operations=end,
@@ -129,7 +151,8 @@ def generate(driver, snapshot, expected_sha, header, audit_and_end, progress_mar
         every_bit_and_store=True, all_paid_local_returns=True,
         syntax_representation='lower restored raw operation; exact raw-source equality checked',
         proof_representation='compact Boolean recipe implies identical SourceRows and census',
-        recipe_constructor=recipe_constructor,
+        recipe_constructor=('certified operation-local family' if local_views else
+                            recipe_constructor),
         independent_block_roots_preserved=True,
         kernel_checked=False, full_quotient_certified=False, new_accepted_machine=False)
     driver.checkpoint()

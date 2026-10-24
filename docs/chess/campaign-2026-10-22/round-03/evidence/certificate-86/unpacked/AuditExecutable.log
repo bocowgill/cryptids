@@ -1,0 +1,4 @@
+✔ [2/4] Built Cryptids.Chess.Optimisation.BodyCertificatePilot.Audit (3.9s)
+✔ [3/4] Built Cryptids.Chess.Optimisation.BodyCertificatePilot.Audit:c.o (464ms)
+✔ [4/4] Built chess_body_certificate_audit:exe (1.2s)
+Build completed successfully (4 jobs).

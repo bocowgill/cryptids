@@ -48,13 +48,17 @@ end LocalViewPilot
 '''
 
 
-def prepare(driver, api, data, labels):
-    import lookup_cache_pilot
+def generate_core(driver, api):
     driver.emit('LocalViews.lean', api.header([api.MODULE + '.LookupWorld',
                 api.MODULE + '.SourceReturnCache']) + SOURCE + api.audit_and_end(
                 driver, 'LocalViews', ['LocalViewPilot.' + n for n in
                 ['world', 'world_correct', 'fromLocalRaw']],
                 'Operation-local views globally preserve original lookup coefficients'))
+
+
+def prepare(driver, api, data, labels):
+    import lookup_cache_pilot
+    generate_core(driver, api)
     views = {}
     for q in labels:
         base, nodes = data['prefix_offsets'][q], data['row_sizes'][q]

@@ -292,3 +292,29 @@ Only material benefit justifies integration into original180/210s SOURCE16/4
 coverage gates. Prior source16coverage39,240states/78,480rows, quarter open,
 accepted769,344/target310,029/new accepted savings0. GoalACTIVE; frozen/remote/
 no-outreach constraints fixed, last account usage12%, no reset.
+
+
+Pilot86 terminal PASS retained/reviewed: run40097651571 at661d59cf, generic
+LocalViews3roots/24,389deps and SourceProfile45roots/27,202deps, standard3axioms;
+72ordered monotone timings. All3local-window fidelities and original/global/
+local source/count/offset/main/return/whole proofs+certificates pass. Driver
+834.680s. Heavy445 whole global1815->local1427ms/main1619->1246;476reversed
+whole1835->1421/main1674->1270. About21-24%gain, materially consistent.
+No substantial scaling or accepted machine credit from these small cases.
+
+Next87 integrates local main views in bounded batches (<=128labels/16,384cells,
+data60/fidelity120s), shared return cache40461, reused generic21/15/3root proofs.
+Every per-window chunk/branch/fidelity/count/bound/class/word root retained in
+UNION audits; no per-operation processes. Native observations read once.
+Unused global main-cache materialization removed. New backend-specific receipts
+certify universal local family and actual anchor controls/fresh kernel negative;
+all original source/census/bit/store/return/lint/fidelity obligations remain.
+Profile mode stays diagnostic. Original local SOURCE16/4 assertions unchanged,
+180/210s. Add durable assembly markers for collection/check/census diagnosis.
+Entire planned source batch width-checked before expensive batch proofs.
+
+See BATCHED-LOCAL-VIEW-GATES.md. Need both complete substantial modules/audits
+and setup/source/assembly costs before full-cost/scaling claim. Same1200s/6GiB
+global/driver512MiB/Lean-M6144, no paid runners. Prior coverage39,240states/
+78,480rows; accepted769,344/target310,029/new savings0; same459,315prospective
+payoff, high proof/moderate effort. Frozen/remote/outreach fixed, goalACTIVE.

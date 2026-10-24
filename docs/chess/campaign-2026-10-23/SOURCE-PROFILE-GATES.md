@@ -54,12 +54,18 @@ these small comparisons cannot close source-scaling or machine gates.
 
 ## Local-view variant86 gates (unproved at dispatch)
 
-- [ ] L1: Generic3root local-window world/forall-address equality/constructor
+- [x] L1: Generic3root local-window world/forall-address equality/constructor
   builds and full-private audit passes. No new assumptions about callers.
-- [ ] L2: All3actual local cache windows pass data/fidelity/audits. Exact
+- [x] L2: All3actual local cache windows pass data/fidelity/audits. Exact
   source prefix offsets and node/return counts checked in profile cases.
-- [ ] L3: Original/global/local main/return/whole proofs and3exact certificates
+- [x] L3: Original/global/local main/return/whole proofs and3exact certificates
   per label pass45root audit and72ordered monotone before/after events.
-- [ ] L4: Decide from same-host timings whether local views materially remove
+- [x] L4: Decide from same-host timings whether local views materially remove
   dominant main cost; if yes require unchanged substantial tiers next, if no
   reject this remedy and diagnose syntax/checker overhead. No cap increases.
+
+
+86 completes L1-L4: generic3root proof and45root profile/audits pass with72
+ordered events. Heavy445 whole1815->1427ms;476reversed1835->1421ms. Main
+1619->1246/1674->1270ms. Batch integration is now justified as a bounded
+substantial-source pilot, not acceptance. See BATCHED-LOCAL-VIEW-GATES.md.

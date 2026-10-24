@@ -195,10 +195,14 @@ run_cmd Lean.logInfo "Typed observation cache loader checked"
     driver.emit('LookupCacheLoaders.lean', loaders)
 
 
-def generate_data(driver, api, count, start=0, stem=None):
-    mapping = api.words(driver.args.input / 'class-map.u32le', api.N)
-    path = api.ROOT / api.PREFIX / 'quotient-packed.rows'
-    pairs = [tuple(map(int, line.split())) for line in path.read_text().splitlines()]
+def generate_data(driver, api, count, start=0, stem=None, fragments_only=False,
+                  observations=None):
+    if observations is None:
+        mapping = api.words(driver.args.input / 'class-map.u32le', api.N)
+        path = api.ROOT / api.PREFIX / 'quotient-packed.rows'
+        pairs = [tuple(map(int, line.split())) for line in path.read_text().splitlines()]
+    else:
+        mapping, pairs = observations
     assert len(pairs) == api.K and 0 < count and 0 <= start < start + count <= api.N
     stem = stem or f'LookupCache{count}'
     namespace = stem + 'Pilot'
@@ -232,8 +236,10 @@ def generate_data(driver, api, count, start=0, stem=None):
     driver.emit(f'lookup-cache-{cache_id}-nodes.json', json.dumps(nodes, indent=2) + '\n')
     parts.append(f'noncomputable def cache : Balanced.RowTree Cell := {root}\n'
                  f'end {namespace}\n')
-    driver.emit(stem + 'Data.lean', ''.join(parts) + api.audit_and_end(driver, stem + 'Data',
-                [namespace + '.cache'], f'Numeric observation cache data loaded: {count}'))
+    data_roots = [namespace + '.cache']
+    if not fragments_only:
+        driver.emit(stem + 'Data.lean', ''.join(parts) + api.audit_and_end(driver, stem + 'Data',
+                    data_roots, f'Numeric observation cache data loaded: {count}'))
     proofs = []
     for node in nodes:
         first, size = node['first'], node['size']
@@ -247,7 +253,8 @@ def generate_data(driver, api, count, start=0, stem=None):
             proofs.append(f'  exact validate_branch {half} {node["left"]} {node["right"]}\n'
                           f'    {first} {middle} {first + size}\n'
                           f'    checked_{first}_{half} rfl checked_{middle}_{size - half}\n')
-    checked = (api.header([api.MODULE + '.' + stem + 'Data']) +
+    check_header = api.header([api.MODULE + '.' + stem + 'Data'])
+    checked = (check_header +
                'open LookupCachePilot\n' + f'namespace {namespace}\n' + ''.join(proofs) + f'''
 theorem checked : validate cache {start} = some {start + count} := checked_{start}_{count}
 
@@ -267,14 +274,15 @@ theorem all_cached_words (address : Nat) :
 
 end {namespace}
 ''')
-    driver.emit(stem + '.lean', checked + api.audit_and_end(driver, stem,
-                [namespace + '.checked_' + str(node['first']) + '_' + str(node['size'])
-                 for node in nodes] +
-                [namespace + '.' + name for name in ['checked', 'count_exact',
-                 'within_body', 'all_cached_classes', 'all_cached_words']],
-                f'Numeric observation cache fidelity checked: {count}'))
+    check_roots = ([namespace + '.checked_' + str(node['first']) + '_' + str(node['size'])
+                    for node in nodes] +
+                   [namespace + '.' + name for name in ['checked', 'count_exact',
+                    'within_body', 'all_cached_classes', 'all_cached_words']])
+    if not fragments_only:
+        driver.emit(stem + '.lean', checked + api.audit_and_end(driver, stem,
+                    check_roots, f'Numeric observation cache fidelity checked: {count}'))
     cls, (a, b) = mapping[0], pairs[mapping[0]]
-    if start == 0 and count == 128:
+    if not fragments_only and start == 0 and count == 128:
         controls = api.header([api.MODULE + '.' + stem]) + f'''open LookupCachePilot
 namespace LookupCacheControlsPilot
 theorem bad_class_rejected : checkCell 0 ⟨{cls + 1}, {a}, {b}⟩ = false := by
@@ -317,6 +325,10 @@ submit_wrong_cache_extent
         validation_representation='composed independently checked chunks of at most 256 cells',
         chunk_limit=256, required_chunk_and_branch_proofs=len(nodes),
         kernel_checked=False, source_rows_certified=0, new_accepted_machine=False)
+    if fragments_only:
+        return dict(data=''.join(parts[1:]), checks=checked[len(check_header):],
+                    data_roots=data_roots, check_roots=check_roots,
+                    summary_key=key, namespace=namespace)
     driver.checkpoint()
 
 

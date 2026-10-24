@@ -125,18 +125,20 @@ def run(driver, api, lookup_only=False, profile_only=False):
     driver.run('RecipeNegative', 45, negative=True)
     driver.summary['compact_recipe_kernel_corruption_rejected'] = True
     driver.checkpoint()
-    import cached_world_pilot
-    cached_world_pilot.run(driver, api)
     if profile_only:
+        import cached_world_pilot
+        cached_world_pilot.run(driver, api)
         import source_profile_pilot
         source_profile_pilot.run(driver, api)
         return
+    import local_source_cache_pilot
+    makers, modules = local_source_cache_pilot.run(driver, api)
     inherited = {q: 'LocalChunk' for q in range(coverage['first_label'], coverage['end_label'])}
     import source_scope_pilot
     for divisor, seconds in [(16, 180), (4, 210)]:
         owners = source_scope_pilot.generate(driver, api.SNAPSHOT, api.SNAPSHOT_SHA,
             api.header, api.audit_and_end, api.progress_marker, api.MODULE, divisor, inherited,
-            recipe_constructor='CacheWorldPilot.fromCachedRaw')
+            recipe_constructors=makers, recipe_modules=modules)
         driver.run(f'LocalScope{divisor}', seconds,
                    f'Actual paid body coverage checked: at least 1/{divisor}')
         scope = driver.summary[f'local_scope_{divisor}_proposed']

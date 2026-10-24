@@ -2,7 +2,7 @@
   "run_id": 40097651571,
   "source": "661d59cf72d63100bd325bf8099689c6cf2b278d",
   "mode": "profile",
-  "status": "remote_queued",
+  "status": "passed_retained_reviewed",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-86",
   "route": "Reusable all-address local-window World correctness and controlled original/global/local source comparison",
   "labels": [
@@ -76,5 +76,28 @@
       "status": "Deprioritized by controlled profile85; main checks dominate"
     }
   ],
-  "component_provenance": "Accepted allocation from pinned100ed947; prospective allocation unchanged from full body quotient plan; these literals report existing counts, no local machine generation/counting."
+  "component_provenance": "Accepted allocation from pinned100ed947; prospective allocation unchanged from full body quotient plan; these literals report existing counts, no local machine generation/counting.",
+  "driver_seconds": 834.680350311,
+  "generic_local_view_roots": 3,
+  "generic_local_view_dependencies": 24389,
+  "profile_roots": 45,
+  "profile_dependencies": 27202,
+  "timing_events": 72,
+  "heavy445_ms": {
+    "main_original": 2476,
+    "main_global": 1619,
+    "main_local": 1246,
+    "whole_original": 2701,
+    "whole_global": 1815,
+    "whole_local": 1427
+  },
+  "heavy476_reversed_ms": {
+    "main_original": 2488,
+    "main_global": 1674,
+    "main_local": 1270,
+    "whole_original": 3200,
+    "whole_global": 1835,
+    "whole_local": 1421
+  },
+  "decision": "Local view correctness and same-host~21-24% main/whole improvement justify batched substantial-source pilot. Need original SOURCE16/4 complete audits; no machine savings or scalable full-cost claim yet."
 }
