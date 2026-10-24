@@ -36,8 +36,9 @@ evidence and pins stay fixed. No outreach or bulk upstream migration.
   91terminal failure and complete archives retained. Numeric-tree92proves
   generic exact count/root/trace/ordered paid-target fidelity (20roots).
   Numeric-control93proves natural inverse and abstract node/trace/paid-return
-  checker soundness (29roots); typed-source/concrete source transport and
-  larger scaling stay open.
+  checker soundness (29roots). SourceCore95proves full generic typed-source
+  slot/paid-rank coverage (17roots); concrete original mapQ/address/source
+  certificate transport and larger scaling stay open.
 - [ ] G5: The complete blank-tape binary machine has exactly 310,029 paid states
   and the original not-draw equivalence; all actual rows, independent fixtures,
   corruption controls, regressions and foundation audits pass remotely.

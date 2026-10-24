@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40121592620,
+  "commit": "b2d13080063a0f16dd53e11ef12060141ceae7da",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": false,
+  "actual_rows": 0,
+  "negative_control": "kernel_rejected",
+  "diagnosis": "PASS exact original typed-source generic coverage17roots/2900dependencies, standard3axioms. Build5.167s peak2804498432bytes; private audit2.937s peak4543512576bytes; fresh explicit false-source-target kernel rejection5.068s. Every source syntax slot, all bit/store cases and every paid return rank covered; all previous numeric/tree/control/original smoke replays pass, driver163.885s. Explicit identity conversion fixed94without changing any statement/cap. Concrete mapQ/address/source certificate adapter and actual355/445/356 fidelity/checking/corruption/scaling remain open. No concrete source-row or accepted full-machine saving credited.",
+  "new_accepted_machine": false
+}

@@ -2,7 +2,7 @@
   "run_id": 40121592620,
   "source": "b2d13080063a0f16dd53e11ef12060141ceae7da",
   "mode": "smoke",
-  "status": "remote_running",
+  "status": "retained_reviewed_success",
   "route": "Complete generic original typed-syntax node and paid-return coverage from numeric traces",
   "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-95",
   "required_numeric_source_core_roots": 17,
@@ -21,7 +21,7 @@
   "prior_complete_source_states": 39240,
   "prior_complete_source_rows": 78480,
   "last_usage_percent": 15,
-  "next_gate": "All17typed-source roots/private audit and kernel false-source-target control, plus full prior smoke replay. Then concrete actual-source certificate adapter and355/445/356 total-cost pilot.",
+  "next_gate": "Concrete mapQ/address/typed-step/SourceCertificate adapter and actual355/445/356 same-host total-cost plus callback/target/row corruption pilot. No more cache variants; full-source/full-machine gates stay open.",
   "accepted_components": {
     "writer": 173642,
     "structured_decoder": 21682,
@@ -32,5 +32,14 @@
     "interpreter_returns": 40461,
     "total": 769344
   },
-  "specific_correction": "Explicitly change identity-lambda mapChild to mapChild id, then rewrite mapChild_id; all17statements unchanged"
+  "specific_correction": "Explicitly change identity-lambda mapChild to mapChild id, then rewrite mapChild_id; all17statements unchanged",
+  "driver_seconds": 163.88508623200002,
+  "numeric_source_core_build_seconds": 5.167184227999996,
+  "numeric_source_core_audit_seconds": 2.937465799999984,
+  "numeric_source_core_dependencies": 2900,
+  "numeric_source_core_build_peak_bytes": 2804498432,
+  "numeric_source_core_audit_peak_bytes": 4543512576,
+  "numeric_source_core_negative_seconds": 5.067962899999998,
+  "numeric_source_core_kernel_checked": true,
+  "numeric_source_core_kernel_corruption_rejected": true
 }

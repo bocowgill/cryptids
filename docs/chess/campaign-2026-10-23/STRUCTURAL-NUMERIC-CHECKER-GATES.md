@@ -2,7 +2,7 @@
 
 Status: decorated numeric serialization core IMPLEMENTED/VERIFIED in92.
 Generic numeric return/node/trace checker VERIFIED in93. Original typed-source
-compatibility/concrete source transport/scaling remain UNIMPLEMENTED. Target fully certified310,029; accepted769,344; accepted new
+compatibility VERIFIED in95; concrete source transport/scaling UNIMPLEMENTED. Target fully certified310,029; accepted769,344; accepted new
 full-machine savings0. Candidate body114,487 replaces573,802: same459,315
 prospective payoff. Prior aggregate source39,240states/78,480rows.
 
@@ -113,3 +113,10 @@ generic fidelity proofs without per-cell observation caches; next use them.
 all-node/trace/paid-return checking over abstract observation/layout functions.
 N1still needs original typed-source compatibility and concrete SourceCertificate
 transport. N2-N4/source throughput/full-machine acceptance remain open.
+
+
+95closes generic typed-source S1-S4:17roots cover every original syntax slot,
+bit/store and every paid finite return rank. NumericTree/Control/Source cores
+nowverified. N1still needs actual mapQ/prefix/address binding and unchanged
+SourceCertificate transport; N2-N4remain open. Next do concrete binding and
+actual three-case cost/corruption comparison, not another generic cache variant.

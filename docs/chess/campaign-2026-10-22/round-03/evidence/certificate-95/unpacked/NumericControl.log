@@ -1,0 +1,5 @@
+ℹ [3853/3854] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.NumericTree
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericTree.lean:149:0: Decorated numeric syntax preserves node positions and paid return targets
+ℹ [3854/3854] Built Cryptids.Chess.Optimisation.BodyCertificatePilot.NumericControl (2.7s)
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericControl.lean:232:0: Numeric node and paid-return checks preserve all bit and store cases
+Build completed successfully (3854 jobs).

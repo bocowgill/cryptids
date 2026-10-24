@@ -5,19 +5,19 @@ Scope: generic structural compatibility after verified20root NumericTree92 and
 and concrete source certificate/scaling are still open. Accepted769,344;
 target310,029; same459,315prospective payoff; accepted new full savings0.
 
-- [ ] S1: Erasure preserves unary/left/right child renaming and numeric offset
+- [x] S1: Erasure preserves unary/left/right child renaming and numeric offset
   composition. TraceRows(reference offset p) covers EVERY Fin p.size slot,
   both bits/all5stores, including all branch subtrees and leaves.
   MANUAL CHECK: NumericSourceCore17root strict build/full-private audit.
-- [ ] S2: With canonical original paid targets, numeric step equals original
+- [x] S2: With canonical original paid targets, numeric step equals original
   typed-node step for every constructor, including none/some write inverse.
   Full trace check implies typed Coherent for every source Syntax.
   MANUAL CHECK: exact step_erase/checkMain_sound statements and private audit.
-- [ ] S3: Nat paid-target getD equals original finite targetAt for EVERY valid
+- [x] S3: Nat paid-target getD equals original finite targetAt for EVERY valid
   paid rank. Complete numeric return checks imply original typed return rows.
   Missing fallback is never accepted by modulo/clipping or an invalid rank.
   MANUAL CHECK: getD_values/paid_getD/checkReturns_sound and private audit.
-- [ ] S4: Correct/wrong halt return target controls pass and a fresh forged
+- [x] S4: Correct/wrong halt return target controls pass and a fresh forged
   source-target theorem is rejected explicitly by the kernel. All NumericTree,
   NumericControl and old smoke proofs/negative controls continue to pass.
   MANUAL CHECK: complete smoke plus explicit kernel-negative receipt.
@@ -48,3 +48,12 @@ statements/coverage/controls/caps remain EXACTLY unchanged; no new hypothesis.
 No checker/data redesign or budget increase follows from this source error.
 GoalACTIVE; accepted769,344/target310,029/new full savings0, strongest source
 39,240states/78,480rows. Frozen/remote/free/no-outreach unchanged.
+
+
+Evidence95run40121592620 atb2d13080 retained/metadata-reviewed. All17roots/
+2,900deps pass standard3axioms; build5.167s/audit2.937s, peak2,804,498,432/
+4,543,512,576bytes; explicit wrong-source-target kernel rejected5.068s.
+All prior core/smoke/negative replays pass, driver163.885s.94identity-conversion
+error fixed without changing statements. This closes S1-S4only; actual mapQ/
+address/source certificate binding, concrete profiling/scaling and machine
+acceptance remain open. No new actual source prefix or full-machine savings.

@@ -652,3 +652,50 @@ GoalACTIVE, lastusage15%, no reset; frozen/remote/free/no-outreach fixed.
 No live research job remains after93terminal success. Previous goal turn
 PROGRESS (20root numeric representation implemented/proved/pushed). Current
 turn implements/proves29root numeric control, not smaller-scope completion.
+
+
+95SUCCESS retained/reviewed: run40121592620 atb2d13080. NumericSourceCore17roots/
+2,900deps pass standard3axioms; build5.167s/audit2.937s, peak2,804,498,432/
+4,543,512,576bytes. Explicit wrong-source-target reaches kernel/rejected5.068s;
+all earlier numeric/tree/control/oldsmoke replays pass, driver163.885s. Source/
+generated/log/pins/width<=100 provenance reviewed, completearchives retained.
+94single identity-conversion fixed with change+explicit rewrite, same statements.
+S1-S4met. Generic20/29/17core stack verified; N1concrete binding, N2-N4actual
+profiling/scaling and G4-G6machine gates remain OPEN. No new actual prefix
+coverage or accepted full-machine saving. No live research job after95success.
+
+NEXT IMPLEMENT concrete adapter AND actual three-case profile in one bounded
+profile-mode run; avoid another generic-only run. Add constructive DecidableEq
+to numeric Node/Trace/Fragment for literal fidelity. Define actual observation
+pairAt=Q.lookup(map.lookup address0)(0,0), command=NumericLocal.commandWord.
+Layout(mainBase,returnBase,targets) uses EXACT old mainAddress (includingraw1->0),
+returnAddress; entry global label returnprefix rank0; halt533341. Prove typedStep
+alias LocalRule.stepWord by cases/rfl, Coherent transport via fastNodeAt_eq,
+return transport by definitions. Reuse old makeCertificate/source_syntax.
+New checkRecipe(q,raw,fragment,base,ret,nodes,returns) must check actual raw
+source, fragment=encode0(syntaxOfraw), exact prefix bases, count/paid-target
+length, numeric Trace and Return checks. fromRaw takes only closed checked
+truth and yields unchanged SourceCertificate; NO extra unproved source premise.
+
+Render ordinary literal Trace/Node/Fragment from pinned snapshot syntax[q],
+row_sizes[q],return_local_targets[q]. Each trace header uses original postorder
+slot; retain all10tablecells in array order. Unary/branch child addresses from
+native proposal, all finite callback/label bounds checked, source fidelity in
+kernel. Name subtrees at depth6 as old literal_syntax renderer to bound terms.
+Fragment.root=nodes-1, targets=paid_target_list[1:], count=nodes. Native producer
+hygiene is not proof. Include real355load/445write/356move; each gets old/new
+whole SourceCertificates and component/fidelity/checking/total timings on same
+host (reverse second-heavy order), plus wrong callback/target/row controls and
+fresh explicit kernel negative. No standalone observation caches. Profile branch
+can retire old cache-only assertions, but preserve full candidate data/prefix/
+raw source/all old independent block/count/range/callback/actual-row controls;
+local substantial gates stay unchanged until new backend integration justified.
+Generic concrete adapter60s/profile120s/global1200s/6GiB incldriver unchanged.
+
+Need N1binding+N2correctness+N3material total-cost gain before original SOURCE16/
+SOURCE4 and larger/full source/allshared/bidirectionalhalting/exact310,029/
+fixtures/finalreview. No credible full-cost estimate yet. Same459,315potential
+payoff/highproof/higheffort; accepted769,344/target310,029/new full savings0;
+strongest source39,240states/78,480rows. GoalACTIVE; lastusage15%, no reset;
+frozen/remote/free/no-outreach fixed. This goal turnPROGRESS: implemented generic
+coverage, diagnosed94, fixed/proved95 and retained all evidence; not completion.

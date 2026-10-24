@@ -1,0 +1,15 @@
+ℹ [3853/3854] Replayed Cryptids.Chess.Optimisation.BodyCertificatePilot.NumericTree
+info: Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericTree.lean:149:0: Decorated numeric syntax preserves node positions and paid return targets
+✖ [3854/3854] Building Cryptids.Chess.Optimisation.BodyCertificatePilot.NumericTreeNegative (2.3s)
+trace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean -M6144 /home/runner/work/cryptids/cryptids/Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericTreeNegative.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericTreeNegative.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericTreeNegative.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericTreeNegative.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericTreeNegative.setup.json --json
+error: Cryptids/Chess/Optimisation/BodyCertificatePilot/NumericTreeNegative.lean:20:0: (kernel) declaration type mismatch, 'Chess.Optimisation.BodyCertificatePilot.deliberately_false_numeric_annotation' has type
+  (Chess.Optimisation.BodyCertificatePilot.NumericTreePilot.encode 0
+        ConjectureMachines.Compilation.FieldCompiler.Syntax.halt).count =
+    1
+but it is expected to have type
+  (Chess.Optimisation.BodyCertificatePilot.NumericTreePilot.encode 0
+        ConjectureMachines.Compilation.FieldCompiler.Syntax.halt).count =
+    2
+Some required targets logged failures:
+- Cryptids.Chess.Optimisation.BodyCertificatePilot.NumericTreeNegative
+error: build failed
