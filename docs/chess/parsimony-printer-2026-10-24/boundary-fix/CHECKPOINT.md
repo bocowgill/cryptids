@@ -45,6 +45,11 @@ blank exterior. The fix changes expected metadata only; the full printer table
 is byte-identical to the retained failed pilot. See [DIAGNOSIS.md](DIAGNOSIS.md).
 Historical failure archives and the original failed ledger remain unchanged.
 
+The complete recovery payload was pushed and fork-ref verified at
+`6f472b90ff0d6c32b326a9dea0673366128e3b40`. The worktree was clean. The final
+gate-evidence update adds no research computation. All five follow-up gates are
+met, with zero unmet or abandoned gates; this does not complete certification.
+
 ## Next concrete authorization
 
 Propose and execute a bounded **structural printer certification** phase if the

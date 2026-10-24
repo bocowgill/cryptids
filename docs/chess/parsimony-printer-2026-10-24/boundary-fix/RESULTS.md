@@ -132,3 +132,8 @@ Certification cost is still uncertain. First test a reusable structural proof
 kernel on a small instance, then demonstrate scaling to the exact data layout;
 avoid repeated full-table normalization, the obstruction in the earlier body
 quotient campaign. No certification work is launched in this checkpoint.
+
+All five gates for this bounded follow-up are met: diagnosis, fixtures, full
+census, honest resource/proof-status accounting, and pushed recovery checkpoint.
+There are zero unmet or abandoned follow-up gates. The original failed pilot's
+separate ledger and historical failures remain retained unchanged.

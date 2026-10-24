@@ -27,8 +27,8 @@ No Lean certification, outreach, paid resources or old-goal resumption.
   EXPECT: PARSIMONY_NET_SAVINGS_ASSESSED
   EVIDENCE: Same successful validation command and required token. Exact/frozen pins passed; 27.746 seconds total, driver peak 329804 KiB. Full probe stopped at 500000000 steps without startup completion. RESULTS.md distinguishes experimental saving 160097 from accepted saving zero and records structural proof/composition obligations. See gate-evidence.json for environment and output fingerprint.
 
-- [ ] R1: Complete artifacts, logs, producer hashes, diagnosis, corrected sources and next steps are pushed in a clean recoverable checkpoint, with no pilot jobs left active.
-  EVIDENCE: pending; manual archive/provenance and fork-ref review after terminal runs
+- [x] R1: Complete artifacts, logs, producer hashes, diagnosis, corrected sources and next steps are pushed in a clean recoverable checkpoint, with no pilot jobs left active.
+  EVIDENCE: Complete table, both archives/logs, manifests, diagnosis/results and CHECKPOINT.md pushed in 6f472b90ff0d6c32b326a9dea0673366128e3b40; push exited zero, fork ref matched, worktree clean. Archive digests and exact committed producer hashes independently rechecked. Both new runs terminal-success, no printer job active. Accepted pins unchanged; no Lean edits. Manual recovery/provenance review only.
 
 ## Bounds and accounting
 
