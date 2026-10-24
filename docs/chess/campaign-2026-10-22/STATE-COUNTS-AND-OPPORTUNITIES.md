@@ -522,3 +522,22 @@ Re-poll exact live90handle; observer timeout does not warrant restart.
 Accepted769,344/target310,029/new full savings0; strongest complete aggregate
 39,240states/78,480rows. Quarter/full still open. GoalACTIVE; remote/free,
 frozen3116pins and no outreach fixed; lastusage13%, no reset.
+
+
+Corrected91 dispatched: run40113309464 at
+f168f11f8954a244c8dfbc43adc34e4753c1e619, mode local. Retain certificate-91
+ONLY once terminal. NEXT FamilyWiring6roots: generic window_checked/cons_checked
+plus real2windowlist checks/fidelity/world equality, full-private audit60s;
+then every batch and unchanged source180/210s. Exact same helper functions
+generate preflight and substantial certificates, with explicit Window/list
+arguments. No inline show tactics or reliance on List.all definitional shape.
+No claim the NEW2generic constructor lemmas are verified until remote audit.
+
+90retained/reviewed: source/hash/generated/log/pins match, driver421.709s,
+helper4.242s/3,262,803,968bytes; source/conversion/style error only. No memory/
+time/scalability verdict. Existing11root WorkingViews passed. Do not restart91
+for observation timeout or change caps. Global1200s/6GiB group+driver fixed.
+Accepted769,344/target310,029/new full savings0; strongest completed source
+39,240states/78,480rows. Rank1same459,315prospective payoff/high proof/
+moderate effort. GoalACTIVE; lastusage14%, no reset. Frozen3116pins, heavy
+remote/existing free runner/local use low/outreach on hold unchanged.
