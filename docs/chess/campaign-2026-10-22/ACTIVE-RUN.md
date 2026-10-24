@@ -25,3 +25,8 @@ are time obstructions, distinct from historical19memory failure38.335s/6GiB.
 All3116accepted pins fixed. All heavy work remote; local memory/output low;
 outreach on hold; no new agents. Last usage9% consumed; no reset performed.
 See ../campaign-2026-10-23/RESUME.md, GATES.md and MEMORY-COMPARISON-PLAN.md.
+
+CORRECTED CURRENT RUN:40059035050 at a2879c2545bba07282be2f1fb64a6bf8c6448e14,
+TWO matrixjobs6/10GiB, retain51/52. One manualdispatch, no duplicates. Memory
+verdictpending. Generic observed-cache prototype is unwired/unexecuted; direct
+quotient-local certificate design saved as alternative, not accepted progress.

@@ -1,0 +1,125 @@
+#!/usr/bin/env python3
+"""Unwired remote-only proof prototype: observed caches over exact source slots."""
+import os
+
+if os.environ.get('CHESS_REMOTE') != '1' or os.environ.get('GITHUB_ACTIONS') != 'true':
+    raise SystemExit('Remote GitHub Actions execution required before import')
+
+
+SOURCE = r'''open FieldCompiler
+namespace ObservedCachePilot
+set_option backward.isDefEq.respectTransparency false
+
+abbrev Result (n k : Nat) := GraphPost.Descriptor n k × TM0.Stmt Bool
+
+def observedStep {n k labels : Nat} {α : Type}
+    (entry : Fin labels → Fin n) (observe : Bool → Result n k → α)
+    (cache : Bool → Fin n → Fin k → α) (bit : Bool)
+    (node : BoolGraph.Node n k labels) (value : Fin k) : α :=
+  match node with
+  | .move dir child => observe bit ((some child, value), .move dir)
+  | .write table child => observe bit ((some child, value), .write (table.read bit value))
+  | .load table child => cache bit child (table.read bit value)
+  | .branch table left right =>
+      if table.read bit value then cache bit left value else cache bit right value
+  | .goto table => observe bit ((some (entry (table.read bit value)), value), .write bit)
+  | .halt => observe bit ((none, value), .write bit)
+
+theorem observed_cache_sound {n k labels : Nat} {α : Type}
+    (g : LazyGraph.Graph n k labels) (observe : Bool → Result n k → α)
+    (cache : Bool → Fin n → Fin k → α)
+    (checked : ∀ bit i value,
+      cache bit i value = observedStep g.entry observe cache bit (g.node i) value)
+    (bit : Bool) (i : Fin n) (value : Fin k) :
+    cache bit i value = observe bit (LazyGraph.trAux g bit i value) := by
+  rewrite [checked bit i value]
+  cases row : g.node i with
+  | move dir child =>
+    simp only [observedStep, row]
+    rewrite [LazyGraph.trAux_move g bit i child value dir row]
+    rfl
+  | write table child =>
+    simp only [observedStep, row]
+    rewrite [LazyGraph.trAux_write g bit i child value table row]
+    rfl
+  | load table child =>
+    simp only [observedStep, row]
+    rewrite [LazyGraph.trAux_load g bit i child value table row]
+    exact observed_cache_sound g observe cache checked bit child (table.read bit value)
+  | branch table left right =>
+    simp only [observedStep, row]
+    rewrite [LazyGraph.trAux_branch g bit i left right value table row]
+    cases test : table.read bit value <;>
+      simp only [test, Bool.false_eq_true, ↓reduceIte]
+    · exact observed_cache_sound g observe cache checked bit right value
+    · exact observed_cache_sound g observe cache checked bit left value
+  | goto table =>
+    simp only [observedStep, row]
+    rewrite [LazyGraph.trAux_goto g bit i value table row]
+    rfl
+  | halt =>
+    simp only [observedStep, row]
+    rewrite [LazyGraph.trAux_halt g bit i value row]
+    rfl
+termination_by i.val
+decreasing_by all_goals exact g.below i _ (by simp [row, BoolGraph.Node.children])
+
+def sourceIndex {labels total : Nat} (rows : Vector (Syntax labels) labels)
+    (layout : FieldPacking.Layout rows total) (q : Fin labels) (p : Syntax labels)
+    (same : rows.get q = p) (i : Fin p.size) : Fin total :=
+  FieldPacking.graphIndex rows layout q (i.cast (congrArg Syntax.size same).symm)
+
+theorem source_node {labels total : Nat} (rows : Vector (Syntax labels) labels)
+    (layout : FieldPacking.Layout rows total) (q : Fin labels) (p : Syntax labels)
+    (same : rows.get q = p) (i : Fin p.size) :
+    (FieldPacking.graph rows layout).node (sourceIndex rows layout q p same i) =
+      TemplateGraph.mapNode (sourceIndex rows layout q p same) (p.fastNodeAt i) := by
+  cases same
+  change FieldPacking.graphNode rows layout (FieldPacking.graphIndex rows layout q i) =
+    TemplateGraph.mapNode (FieldPacking.graphIndex rows layout q) ((rows.get q).fastNodeAt i)
+  rewrite [Syntax.fastNodeAt_eq]
+  exact FieldPacking.graphNode_index rows layout q i
+
+theorem sourceIndex_surjective {labels total : Nat} (rows : Vector (Syntax labels) labels)
+    (layout : FieldPacking.Layout rows total) (syntax : Fin labels → Syntax labels)
+    (same : ∀ q, rows.get q = syntax q) :
+    Function.Surjective (fun slot : (Σ q, Fin (syntax q).size) ↦
+      sourceIndex rows layout slot.1 (syntax slot.1) (same slot.1) slot.2) := by
+  intro i
+  obtain ⟨⟨q, local⟩, rfl⟩ := layout.code.surjective i
+  let size_eq := congrArg Syntax.size (same q)
+  refine ⟨⟨q, local.cast size_eq⟩, ?_⟩
+  have cancelled : (local.cast size_eq).cast size_eq.symm = local := Fin.ext rfl
+  change layout.code ⟨q, (local.cast size_eq).cast size_eq.symm⟩ = layout.code ⟨q, local⟩
+  rewrite [cancelled]
+  rfl
+
+theorem source_cache_sound {labels total : Nat} {α : Type}
+    (rows : Vector (Syntax labels) labels) (layout : FieldPacking.Layout rows total)
+    (syntax : Fin labels → Syntax labels) (same : ∀ q, rows.get q = syntax q)
+    (observe : Bool → Result total 5 → α) (cache : Bool → Fin total → Fin 5 → α)
+    (checked : ∀ q bit local value,
+      cache bit (sourceIndex rows layout q (syntax q) (same q) local) value =
+        observedStep (FieldPacking.graph rows layout).entry observe cache bit
+          (TemplateGraph.mapNode (sourceIndex rows layout q (syntax q) (same q))
+            ((syntax q).fastNodeAt local)) value)
+    (bit : Bool) (i : Fin total) (value : Fin 5) :
+    cache bit i value = observe bit (LazyGraph.trAux (FieldPacking.graph rows layout)
+      bit i value) := by
+  refine observed_cache_sound (FieldPacking.graph rows layout) observe cache ?_ bit i value
+  intro scanned index store
+  obtain ⟨⟨q, local⟩, address⟩ := sourceIndex_surjective rows layout syntax same index
+  rewrite [← address, source_node rows layout q (syntax q) (same q) local]
+  exact checked q scanned local store
+
+end ObservedCachePilot
+'''
+
+
+def generate(driver, header, audit_and_end):
+    roots = ['ObservedCachePilot.' + name for name in
+             ['observedStep', 'observed_cache_sound', 'sourceIndex', 'source_node',
+              'sourceIndex_surjective', 'source_cache_sound']]
+    driver.emit('ObservedCache.lean', header(['Cryptids.Compilation.FieldPacking.Graph']) +
+                SOURCE + audit_and_end(driver, 'ObservedCache', roots,
+                                       'Generic observed cache and source-slot coverage checked'))

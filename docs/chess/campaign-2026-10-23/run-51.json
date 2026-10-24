@@ -1,0 +1,13 @@
+{
+  "run_id": 40059035050,
+  "source": "a2879c2545bba07282be2f1fb64a6bf8c6448e14",
+  "mode": "paired_memory_comparison",
+  "memory_gib": 6,
+  "status": "corrected_remote_matrix_running",
+  "artifact": "chess-memory-a2879c2545bba07282be2f1fb64a6bf8c6448e14-6gib",
+  "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-51",
+  "historical_proof_certificate": 19,
+  "accepted_states": 769344,
+  "prospective_states": 310029,
+  "new_accepted_machine": false
+}

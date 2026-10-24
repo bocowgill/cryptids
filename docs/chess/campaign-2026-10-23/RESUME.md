@@ -569,3 +569,18 @@ changes NO proof/data bytes. Normal memorycaps/timegates remainidentical.
 Corrected comparison must be MANUALLY dispatched ONCE after sourcepush (workflow
 fileunchanged, no automatic trigger). This supplies the two requested measured
 pilots, not an unchanged retry. Retain next6/10artifacts as51/52.
+
+Corrected two-job memory comparison40059035050 at sourcea2879c2545bba07282be2f1fb64a6bf8c6448e14
+was manually dispatched ONCE. Retain51artifact chess-memory-a2879c2545bba07282be2f1fb64a6bf8c6448e14-6gib,
+and52sameprefix-10gib. Historical diagnostic path now aliases each trialoutput;
+proofsources byte-identical, existing proof/audit/timegates unchanged. No other
+heavy job started. The memory verdict is pending both measured outcomes.
+
+Unwired UNEXECUTED observed_cache_pilot.py source prototype proposes generic
+projected-cache soundness plus exact source-slot transport/coverage for arbitrary
+rows/layouts. DIRECT-QUOTIENT-CERTIFICATE.md explains direct C=Q(classMap(main)),
+which may avoid extra graph/cache/global-return dumps. Use frozen local
+findReturn_syntax/findTarget plus returnAt_syntax, with complete return coverage
+and checked fast numeric prefixes still unproved. Generic theorem is independent
+of fullsourceR4; actual decodedsource application still requires R4. No remote
+alternative pilot before initial memory comparison's route decision.
