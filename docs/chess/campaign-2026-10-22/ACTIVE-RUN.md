@@ -382,3 +382,20 @@ Strongest aggregate source39,240states/78,480rows, quarter/full open. Accepted
 769,344/target310,029/new accepted savings0. Same459,315prospective saving,
 high proof/moderate effort. No full-cost estimate yet. Frozen/remote/no paid/
 no outreach constraints fixed. GoalACTIVE, last usage13%, no reset.
+
+
+Universal working-set88 dispatched: run40107652971, source
+811ad59ef560b0635dee3a85dd2b01e7a178084f, mode profile; retain certificate-88.
+NEXT WorkingViews11root universal fidelity/all-address equivalence/constructor
+audit, extra return/target/halt data audit, WorkingSets9root list validation/
+all-member fidelity, then SourceProfile63root audit/102ordered monotone events
+with actual source labels/offsets/counts and original/global/main-only/working
+main/return/whole checks and4exact SourceCertificates per label. Reverse
+second-heavy order. All proposed window properties retained universally,
+exact fallback outside; NO zero-fallback or full-scaling claim from this test.
+Generic/data/list60s/profile120s, global1200s/6GiB incl driver unchanged.
+No new workflow/auto-smoke, no paid runner, all heavy work remote. Do not
+restart live run. Only material benefit permits substantial integration.
+Prior aggregate39,240states/78,480rows; accepted769,344/target310,029/new full
+savings0. Same459,315prospective payoff/high proof/moderate effort. GoalACTIVE;
+frozen3116pins and history fixed, outreach on hold, last usage13%, no reset.

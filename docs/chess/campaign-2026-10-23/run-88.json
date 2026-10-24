@@ -1,0 +1,45 @@
+{
+  "run_id": 40107652971,
+  "source": "811ad59ef560b0635dee3a85dd2b01e7a178084f",
+  "mode": "profile",
+  "status": "remote_queued",
+  "evidence_destination": "docs/chess/campaign-2026-10-22/round-03/evidence/certificate-88",
+  "route": "Universal window-list fidelity + exact all-address working-set World; controlled original/global/main-only/working source comparison",
+  "labels": [
+    445,
+    476,
+    356
+  ],
+  "required_generic_roots": 11,
+  "required_working_sets_roots": 9,
+  "required_profile_roots": 63,
+  "required_ordered_timing_events": 102,
+  "stage_seconds": {
+    "generic": 60,
+    "extra_data": 60,
+    "working_list_validation": 60,
+    "profile": 120
+  },
+  "overall_seconds": 1200,
+  "memory_gib": 6,
+  "accepted_states": 769344,
+  "target_states": 310029,
+  "accepted_full_machine_savings": 0,
+  "prior_complete_source_states": 39240,
+  "prior_complete_source_rows": 78480,
+  "substantial_source_scaling_established": false,
+  "new_accepted_machine": false,
+  "all_mathematical_window_fidelity_claims_preserved": true,
+  "zero_fallback_claim": false,
+  "next_gate": "Require all new proofs/audits and material same-host benefit before substantial source integration; keep original180/210s source gates and all obligations",
+  "accepted_components": {
+    "writer": 173642,
+    "structured_decoder": 21682,
+    "new_bridge": 1,
+    "seed_expander": 216,
+    "retained_bridge": 1,
+    "interpreter_main": 533341,
+    "interpreter_returns": 40461,
+    "total": 769344
+  }
+}
