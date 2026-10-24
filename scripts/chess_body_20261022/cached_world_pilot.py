@@ -90,18 +90,23 @@ def run(driver, api):
         windows=windows, quarter_source_end=end, main_address_end=main_end,
         source_rows_certified=0, accepted_full_machine_saving=0)
     driver.checkpoint()
+    # Emit the whole planned batch first. Driver.emit checks every Lean line
+    # before the first expensive cache proof; later names/ranges cannot hide
+    # a formatting failure behind already completed fidelity builds.
     for w in windows:
         count, stem = w['finish'] - w['start'], w['stem']
         lookup_cache_pilot.generate_data(driver, api, count, start=w['start'], stem=stem)
+    generate_world(driver, api, windows)
+    lookup_world_pilot.controls(driver, api)
+    for w in windows:
+        count, stem = w['finish'] - w['start'], w['stem']
         driver.run(stem + 'Data', 60, f'Numeric observation cache data loaded: {count}')
         driver.run(stem, 180, f'Numeric observation cache fidelity checked: {count}')
         driver.summary[stem + '_proposed']['kernel_checked'] = True
         driver.checkpoint()
-    generate_world(driver, api, windows)
     driver.run('CacheWorld', 60,
                'Validated cache coefficients yield unchanged source certificates')
     driver.summary['cache_world_source_checker_agreement_checked'] = True
-    lookup_world_pilot.controls(driver, api)
     driver.run('CacheWorldControls', 60,
                'Fast coefficients preserve real write and source-count controls')
     driver.summary['cache_world_actual_source_controls_checked'] = True

@@ -1,0 +1,3 @@
+Audited 24 required roots and 2234 dependencies from Cryptids.Chess.Optimisation.BodyCertificatePilot.RawLabels
+Permitted axioms: #[propext, Classical.choice, Quot.sound]
+Body full-private kernel root audit passed

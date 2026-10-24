@@ -1,0 +1,24 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "scripts/chess_body_20261022/certificate_pilot.py",
+    "--lakefile",
+    "lakefile.chess-body-certificate-20261022.toml",
+    "--output",
+    "/home/runner/work/cryptids/cryptids/.lake/chess-body-certificate-20261022",
+    "--seconds",
+    "1200",
+    "--memory-gib",
+    "6",
+    "--numeric-local-only"
+  ],
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "shell": false,
+  "exit": 1,
+  "output": "Bounded body kernel certificate pilot stopped: SourceMainCache65536Data.lean: generated Lean exceeds 100 characters: [(14, 104), (17, 104), (22, 104), (25, 104), (32, 104)]\n",
+  "output_sha256": "c636afbf731faf0cb9371306cacab65b9c2a91371454df07aa181c9cc1a6bcbc",
+  "timed_out": false,
+  "timeout_seconds": 1260,
+  "elapsed_seconds": 667.142521453,
+  "cumulative_children_peak_rss_kib": 4040108
+}

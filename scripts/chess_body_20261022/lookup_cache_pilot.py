@@ -210,7 +210,7 @@ def generate_data(driver, api, count, start=0, stem=None):
     def tree(first, size):
         name = f'cache_{first}_{size}'
         if size <= 256:
-            filename = f'lookup-cache-{cache_id}-chunks/{first:06d}-{size:04d}.cache'
+            filename = f'lc-{cache_id}/{first:06d}-{size:04d}.cache'
             rows = []
             for address in range(first, first + size):
                 cls = mapping[address]

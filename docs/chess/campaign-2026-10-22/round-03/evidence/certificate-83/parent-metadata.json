@@ -1,0 +1,14 @@
+{
+  "scope": "Retained source/generated/log/provenance bytes only; no proof execution",
+  "run_id": 40091849574,
+  "commit": "0847eeedd6c876f19db58f042f71155a28320467",
+  "source_generated_log_hashes_match": true,
+  "accepted_pin_manifest_matches": true,
+  "generated_lean_width_at_most_100": true,
+  "preview_hash_matches": null,
+  "complete_candidate_data": true,
+  "actual_rows": 4370,
+  "negative_control": "kernel_rejected",
+  "diagnosis": "Generic World21root proof/private audit passes; first65536cache data10.134+3.454s fidelity105.401+3.654s, audit peak5221601280bytes. Next window source generation rejects104char filename line before build. No memory/proof/time failure or larger SOURCE credit. Shorten generated cache paths and emit ALL planned modules before first expensive fidelity build so whole-batch width guard runs early. Same predicates, caps and source tiers.",
+  "new_accepted_machine": false
+}

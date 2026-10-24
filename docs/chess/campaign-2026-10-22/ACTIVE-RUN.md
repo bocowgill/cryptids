@@ -168,3 +168,24 @@ then unchanged1/16and1/4SOURCE complete module/audit/resource outcomes.
 Do not restart a live run. No accepted saving or scalable-cost claim yet.
 Accepted769,344/target310,029/new accepted savings0. GoalACTIVE; remote/frozen/
 outreach constraints unchanged. Last account usage12%; no reset.
+
+
+Pilot83 failed formatting guard and is retained/reviewed: run40091849574 at
+0847eee. Generic checker agreement PASSES21roots/23,072private dependencies,
+standard3axioms. First65536cache data10.134+3.454s/fidelity105.401+3.654s
+passes; fidelity audit peak5,221,601,280bytes. Next cache loader path produces
+104char line and Driver.emit stops BEFORE compiling that window. No memory/
+time/proof failure; no larger source tier or source-scaling inference.
+
+Quarter plan is960source labels, main-address end133601; windows0..65535,
+65536..131071,131072..133600 and533341..573801returns. Shorter generated
+cache filenames fix the generator. All four data/fidelity modules, CacheWorld
+and its controls now EMIT before the first expensive cache build, so the
+whole planned batch is width-checked early. All predicates, roots, strict lint,
+6GiB/1200s and source180/210s caps remain. Only after complete1/16and1/4
+SOURCE proofs/audits can the route support a credible full-cost estimate.
+
+Accepted769,344/target310,029/new accepted savings0; same459,315prospective
+state opportunity, high proof difficulty/moderate implementation effort.
+Generic21root progress is a dependency only. G4-G6/S8-S9 stay open. GoalACTIVE,
+all heavy work remote, frozen pins fixed, no outreach. Corrected84 next.
