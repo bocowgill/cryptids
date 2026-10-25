@@ -102,3 +102,13 @@ Decision: stop and hand off at the requested cap. Generic structural proofs now
 check, but this phase has not demonstrated the complete printer composition.
 No unbounded extension or automatic resumption. See UNTESTED-FIX.md for the next
 concrete source correction and the evidence required to accept a restart.
+
+Verified terminal recovery payload **ce9f27a04d52ab85516790a80d0b42dc02219251**
+is on the fork with an exact ref match. Working tree was clean; active and queued
+Chess-branch run lists were empty. All 553 exact unpacked archive members across
+three attempts, all log archives and API/checksum metadata are tracked. The
+source and untested exporter fix are recoverable. See recovery-payload-publication.json
+for local/remote commit and tree equality. Final metadata records this audit.
+Acceptance: **2 evidence/recovery gates met, 2 proof gates abandoned as incomplete,
+0 pending**. The requested end-to-end theorem remains UNPROVED. No fourth job,
+automatic continuation or outreach. A new instruction is required to resume.

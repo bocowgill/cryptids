@@ -24,8 +24,8 @@ nine checked generic sources, machine, old theorem statements and batch objects.
   EXPECT: PARSIMONY_COMPLETE_PRINTER_PARTIAL_VERIFIED
   EVIDENCE: exit=0; shell=/bin/sh; cwd=/Users/bocowgill/.codex/worktrees/6ba9/cryptids; path=984dc1d7a649/31 entries; EXPECT=matched; output-sha256=29b7754dd180cf970346d8dd3d93fae36a370ccf28d59a682ef5b3f341fc5575; output-bytes=122
 
-- [ ] R1: Push complete logs/artifacts, exact accepted/experimental counts, measurements, failed approaches, remaining obligations and recovery instructions; leave no active job or automatic continuation.
-  EVIDENCE: pending
+- [x] R1: Push complete logs/artifacts, exact accepted/experimental counts, measurements, failed approaches, remaining obligations and recovery instructions; leave no active job or automatic continuation.
+  EVIDENCE: Payload ce9f27a04d52ab85516790a80d0b42dc02219251 published with exact local/remote tree and commit equality, independently matched fork ref, clean working tree and empty active/queued Chess-job lists. All 553 exact archive members, full logs, API manifests and hashes tracked. CHECKPOINT.md, RESULTS.md, ATTEMPT-LOG.md and UNTESTED-FIX.md preserve counts, checked generic object, rejected roots, failures and next obligations. Three-attempt cap honored; no fourth job or outreach. Full-printer proof remains incomplete.
 
 Maximum THREE source-bound remote attempts, including failures before proof stages.
 No unchanged retries or resource increases. Free ubuntu-24.04 runner, one Lean
