@@ -1,0 +1,216 @@
+{
+  "accepted_machine_states": 769344,
+  "candidate_states": 609247,
+  "certified_saving": 0,
+  "checked_modules": [
+    "Common",
+    "Counter",
+    "Insertion",
+    "Extractor"
+  ],
+  "checked_prefix": "Common scans; counter; word insertion; generic query/extraction composition",
+  "commands": [
+    {
+      "argv": [
+        "lake",
+        "exe",
+        "cache",
+        "get",
+        "Mathlib.Computability.TuringMachine.PostTuringMachine",
+        "Mathlib.Data.Nat.Prime.Basic",
+        "Mathlib.Algebra.GCDMonoid.Finset",
+        "Mathlib.Order.Interval.Finset.Nat",
+        "Mathlib.NumberTheory.LSeries.RiemannZeta",
+        "Mathlib.SetTheory.ZFC.Basic",
+        "Mathlib.Tactic"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "effective_budget_seconds": 300,
+      "elapsed_seconds": 27.823271826999985,
+      "exit": 0,
+      "expected_exit": 0,
+      "log": "mathlib-cache.log",
+      "log_sha256": "5943730cc09007b2307780dec63c5f2b5752ed20b1300622c37622639cef018a",
+      "name": "mathlib-cache",
+      "peak_group_plus_driver_rss_bytes": 1102426112,
+      "resource_stop": null
+    },
+    {
+      "argv": [
+        "lake",
+        "--wfail",
+        "-f",
+        "lakefile.chess-parsimony-counter-20261024.toml",
+        "build",
+        "Cryptids.Compilation.Parsimony.Common"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "effective_budget_seconds": 240,
+      "elapsed_seconds": 16.546205783000005,
+      "exit": 0,
+      "expected_exit": 0,
+      "log": "kernel-common.log",
+      "log_sha256": "30c6b37a934ac7f85fb17a1fb5749848a284e23cfa0e4d1debc0fc3b7518e67e",
+      "name": "kernel-common",
+      "peak_group_plus_driver_rss_bytes": 2719260672,
+      "resource_stop": null
+    },
+    {
+      "argv": [
+        "lake",
+        "--wfail",
+        "-f",
+        "lakefile.chess-parsimony-counter-20261024.toml",
+        "build",
+        "Cryptids.Compilation.Parsimony.Counter"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "effective_budget_seconds": 240,
+      "elapsed_seconds": 7.2262701589999665,
+      "exit": 0,
+      "expected_exit": 0,
+      "log": "kernel-counter.log",
+      "log_sha256": "65124f37a45281f50b7653df2b5fe2280e94ad4345bb295f51b76c2e83a0f061",
+      "name": "kernel-counter",
+      "peak_group_plus_driver_rss_bytes": 2738925568,
+      "resource_stop": null
+    },
+    {
+      "argv": [
+        "lake",
+        "--wfail",
+        "-f",
+        "lakefile.chess-parsimony-counter-20261024.toml",
+        "build",
+        "Cryptids.Compilation.Parsimony.Insertion"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "effective_budget_seconds": 240,
+      "elapsed_seconds": 4.047163763000015,
+      "exit": 0,
+      "expected_exit": 0,
+      "log": "kernel-insertion.log",
+      "log_sha256": "a9a69fe021a6d31dd90b16f762827b8d3fc671d88c93f0bd2abafdf358daab82",
+      "name": "kernel-insertion",
+      "peak_group_plus_driver_rss_bytes": 2725515264,
+      "resource_stop": null
+    },
+    {
+      "argv": [
+        "lake",
+        "--wfail",
+        "-f",
+        "lakefile.chess-parsimony-counter-20261024.toml",
+        "build",
+        "Cryptids.Compilation.Parsimony.Extractor"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "effective_budget_seconds": 240,
+      "elapsed_seconds": 4.138739740999995,
+      "exit": 0,
+      "expected_exit": 0,
+      "log": "kernel-extractor.log",
+      "log_sha256": "3b3e81dd9c066c21790837c4dbbcb8c8ff678d7dd64fd7e615dc06f4df7ef867",
+      "name": "kernel-extractor",
+      "peak_group_plus_driver_rss_bytes": 2729902080,
+      "resource_stop": null
+    },
+    {
+      "argv": [
+        "lake",
+        "-f",
+        "lakefile.chess-parsimony-counter-20261024.toml",
+        "env",
+        "lean",
+        "-M5120",
+        "-T2000000",
+        "-o",
+        "/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/Audit.olean",
+        "/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/Audit.lean"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "effective_budget_seconds": 180,
+      "elapsed_seconds": 13.729355681999948,
+      "exit": 0,
+      "expected_exit": 0,
+      "log": "foundations.log",
+      "log_sha256": "1d15235d5790ccd89a741720d6fd55108fb9ceb4eeddb397b75f59cee2d78c02",
+      "name": "foundations",
+      "peak_group_plus_driver_rss_bytes": 4887859200,
+      "resource_stop": null
+    },
+    {
+      "argv": [
+        "lake",
+        "-f",
+        "lakefile.chess-parsimony-counter-20261024.toml",
+        "env",
+        "lean",
+        "-M5120",
+        "-T2000000",
+        "-o",
+        "/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/InsertionAudit.olean",
+        "/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/InsertionAudit.lean"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "effective_budget_seconds": 180,
+      "elapsed_seconds": 3.0570449900000085,
+      "exit": 0,
+      "expected_exit": 0,
+      "log": "insertion-foundations.log",
+      "log_sha256": "8191ae72e2e8fd6282a8b10b66069a6c09ec25f256df8aa7d9ce619a910f10dd",
+      "name": "insertion-foundations",
+      "peak_group_plus_driver_rss_bytes": 4912103424,
+      "resource_stop": null
+    },
+    {
+      "argv": [
+        "lake",
+        "-f",
+        "lakefile.chess-parsimony-counter-20261024.toml",
+        "env",
+        "lean",
+        "-M5120",
+        "-T2000000",
+        "-o",
+        "/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/ExtractorAudit.olean",
+        "/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/ExtractorAudit.lean"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "effective_budget_seconds": 180,
+      "elapsed_seconds": 3.0110533200000305,
+      "exit": 0,
+      "expected_exit": 0,
+      "log": "extractor-foundations.log",
+      "log_sha256": "648ec384bbd05bad7a17c016e183c4d46cca5799a6db7fd1eb5116af44b75dd7",
+      "name": "extractor-foundations",
+      "peak_group_plus_driver_rss_bytes": 4916412416,
+      "resource_stop": null
+    }
+  ],
+  "complete_printer_certified": false,
+  "complete_requested_composition": false,
+  "driver_peak_rss_kib": 22356,
+  "elapsed_seconds": 94.070318512,
+  "experimental_saving": 160097,
+  "gates": {
+    "C1": true,
+    "W1": true
+  },
+  "limits": {
+    "composition_seconds": 180,
+    "driver_rss_bytes": 536870912,
+    "generic_seconds": 240,
+    "group_plus_driver_rss_bytes": 6442450944,
+    "lean_heap_mib": 5120,
+    "lean_threads": 1,
+    "total_seconds": 1200
+  },
+  "new_accepted_machine": false,
+  "remaining": [
+    "all-word composition and candidate row binding",
+    "final audit"
+  ],
+  "schema": "parsimony-counter-insertion-v1",
+  "status": "counter_checked"
+}

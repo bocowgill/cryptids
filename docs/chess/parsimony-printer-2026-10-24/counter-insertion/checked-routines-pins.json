@@ -1,0 +1,7 @@
+{
+  "Cryptids/Compilation/Parsimony/Common.lean": "70f6efa34e23b16b9ba2d5dd237e94a17a2d2f01cc01afeebed6b94b8a33939d",
+  "Cryptids/Compilation/Parsimony/Counter.lean": "01044086f2a574c2d4591b345cadecf8913b585c9e77d6070482ed0c9ea35700",
+  "Cryptids/Compilation/Parsimony/Data.lean": "2317ad63aab9eb6796508ba6e2df1bb33a61816afd77b55ceb363dab2b20d6ac",
+  "Cryptids/Compilation/Parsimony/Extractor.lean": "3fc4d09094204e67138936ad934bdd13972756613c72ecc7e5c17bd6e9a3edf2",
+  "Cryptids/Compilation/Parsimony/Insertion.lean": "85cf5426ddf5a522a24c4414d6124468523c24c8b4a2e874b6685a71b9e83850"
+}

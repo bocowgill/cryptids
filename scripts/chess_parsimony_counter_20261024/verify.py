@@ -14,6 +14,7 @@ import traceback
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'scripts/chess_parsimony_proof_20261024'))
 import verify as proof
+import compose
 runner = proof.runner
 WORK = ROOT / '.lake/chess-parsimony-counter-20261024'
 LAKE = 'lakefile.chess-parsimony-counter-20261024.toml'
@@ -46,12 +47,19 @@ def main():
     pins = json.loads((ROOT / pins_path).read_text())
     for path, expected in pins.items():
         assert runner.sha(ROOT / path) == expected, 'Accepted/frozen source changed: ' + path
+    checked_path = 'docs/chess/parsimony-printer-2026-10-24/counter-insertion/' \
+                   'checked-routines-pins.json'
+    checked = json.loads((ROOT / checked_path).read_text())
+    for path, expected in checked.items():
+        assert runner.sha(ROOT / path) == expected, 'Checked routine changed: ' + path
     assert runner.sha(proof.SOURCE) == \
         '2317ad63aab9eb6796508ba6e2df1bb33a61816afd77b55ceb363dab2b20d6ac'
     paths = [str(p.relative_to(ROOT)) for p in
              (ROOT / 'Cryptids/Compilation/Parsimony').glob('*.lean')]
-    paths += [LAKE, pins_path, 'lean-toolchain', 'lake-manifest.json',
+    paths += [LAKE, pins_path, checked_path, 'lean-toolchain', 'lake-manifest.json',
         'scripts/chess_parsimony_counter_20261024/verify.py',
+        'scripts/chess_parsimony_counter_20261024/compose.py',
+        compose.SHARED, compose.TABLE, compose.NAMES,
         'scripts/chess_parsimony_proof_20261024/verify.py',
         'scripts/chess_parsimony_20261024/pilot.py',
         'scripts/chess_parsimony_20261024/printer.py',
@@ -71,6 +79,13 @@ def main():
     for path in paths:
         if path.endswith('.lean'):
             proof.source_check(ROOT / path)
+    instance = compose.generate(WORK)
+    proof.source_check(instance['source'])
+    runner.save('instance-plan.json', dict(words=instance['words'], states=instance['states'],
+        cells=instance['cells'], source_sha256=runner.sha(instance['source']),
+        candidate_sha256=instance['candidate_sha256'], fresh_machine_states=0,
+        model_boundary_is_existing_decoder=True,
+        all_named_controls_are_existing_physical_states=True))
     runner.checkpoint()
     runner.run('mathlib-cache', ['lake', 'exe', 'cache', 'get',
         'Mathlib.Computability.TuringMachine.PostTuringMachine', 'Mathlib.Data.Nat.Prime.Basic',
@@ -125,13 +140,53 @@ def main():
                      'query', 'query_extract']))
     proof.source_check(audit)
     proof.foundations(lean('extractor-foundations', audit))
-    SUMMARY.update(status='counter_checked', complete_requested_composition=False,
-        checked_prefix='Common scans; counter; word insertion; generic query/extraction composition',
-        remaining=[
-                   'all-word composition and candidate row binding', 'final audit'])
+    runner.checkpoint()
+    output = lean('all-word-composition', instance['source'], run=True)
+    proof.foundations(output)
+    assert 'PARSIMONY_ALL_WORDS_EXPORTED' in output
+    exported = [tuple(map(int, line.split())) for line in
+                instance['source'].with_suffix('.rows').read_text().splitlines()]
+    assert exported == instance['actual'], 'All-word local rows differ from fixed candidate'
+    changed = list(exported)
+    w, d, t = changed[0]
+    changed[0] = (1 - w, d, t)
+    assert changed != instance['actual']
+    runner.save('composition.json', dict(words=instance['words'], rows_compared=len(exported),
+        operational_theorem='ParsimonyComposed.allWords', full_execution_unrolled=False,
+        proof_source_bytes=instance['source'].stat().st_size,
+        proof_source_sha256=runner.sha(instance['source']),
+        object_bytes=instance['source'].with_suffix('.olean').stat().st_size,
+        object_sha256=runner.sha(instance['source'].with_suffix('.olean')),
+        export_sha256=runner.sha(instance['source'].with_suffix('.rows')),
+        command_receipt=SUMMARY['commands'][-1], transport_corruption_rejected=True,
+        external_binding_is_not_kernel_parser_certification=True))
+    SUMMARY['gates']['U1'] = True
+    runner.checkpoint()
+    corrupted = WORK / 'Corrupted.lean'
+    original = instance['source'].read_text()
+    target = instance['ids']['convert_incr_no_carry_1']
+    needle = '  (1, .left, at ' + str(target) + ')'
+    assert original.count(needle) == 1
+    corrupted.write_text(original.replace(needle, '  (0, .left, at ' + str(target) + ')'))
+    proof.source_check(corrupted)
+    rejected = lean('changed-counter-row', corrupted, expected_exit=1)
+    assert 'error:' in rejected
+    assert runner.sha(ROOT / compose.TABLE) == compose.TABLE_SHA
+    for path, expected in pins.items():
+        assert runner.sha(ROOT / path) == expected
+    for path, expected in checked.items():
+        assert runner.sha(ROOT / path) == expected
+    SUMMARY['gates']['B1'] = True
+    SUMMARY.update(status='counter_insertion_phase_passed', complete_requested_composition=True,
+        checked_prefix='Counter, insertion, conversion and full-data local query/extraction',
+        remaining=['global printer iteration and termination', 'preamble/epilogue and cleanup',
+                   'exact frozen packet identity', 'direct full suffix linking and relocation',
+                   'both complete halting directions', 'whole-machine final audits'])
     runner.checkpoint()
     print('PARSIMONY_COUNTER_KERNEL_PASSED', flush=True)
     print('PARSIMONY_INSERTION_KERNEL_PASSED', flush=True)
+    print('PARSIMONY_COUNTER_COMPOSITION_PASSED', flush=True)
+    print('PARSIMONY_COUNTER_BINDING_AUDIT_PASSED', flush=True)
 
 
 if __name__ == '__main__':

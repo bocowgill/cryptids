@@ -9,15 +9,15 @@ arbitrary exterior frames. Preserve Data.lean, historical evidence, accepted
 sources, complete candidate rows and frozen pins. No machine reduction is
 accepted until the later complete printer/link/halting proof is finished.
 
-- [ ] C1: Remote Lean checks a reusable nonoverflowing ripple-carry counter contract with exact tape/head and a binary-value successor guarantee.
+- [x] C1: Remote Lean checks a reusable nonoverflowing ripple-carry counter contract with exact tape/head and a binary-value successor guarantee.
   CHECK: python3 scripts/chess_parsimony_counter_20261024/verify.py
   EXPECT: PARSIMONY_COUNTER_KERNEL_PASSED
-  EVIDENCE: pending
+  EVIDENCE: Run 40147646742 at b32b0642816973b1fed4f7bcc6cafd78a212f68f exited zero and emitted PARSIMONY_COUNTER_KERNEL_PASSED. Strict counter build and foundations passed; plus_length/value/exists, pass and complete paid return run audited with standard axioms only. Checked declarations are now pinned in checked-routines-pins.json; all-word physical instantiation remains U1/B1.
 
-- [ ] W1: Remote Lean checks blank-word insertion for arbitrary unary length and exterior frames, including both carry paths and the real finish controls.
+- [x] W1: Remote Lean checks blank-word insertion for arbitrary unary length and exterior frames, including both carry paths and the real finish controls.
   CHECK: python3 scripts/chess_parsimony_counter_20261024/verify.py
   EXPECT: PARSIMONY_INSERTION_KERNEL_PASSED
-  EVIDENCE: pending
+  EVIDENCE: Same zero-exit run emitted PARSIMONY_INSERTION_KERNEL_PASSED. Strict insertion build and foundations passed for charZero, charPositive, charCarry, carryRun, zeroRun and word. Exact arbitrary-frame word contract includes both separators, paid finish controls and all carry entries. No statement was weakened after checking; the source is pinned. Full-data binding remains U1/B1.
 
 - [ ] U1: The data query, branching, insertion and conversion contracts compose without full-execution unrolling, and instantiate with shared data at all 13,360 actual words under fixed caps.
   CHECK: python3 scripts/chess_parsimony_counter_20261024/verify.py
