@@ -7,7 +7,7 @@ on:
         type: choice
         required: true
         default: structural
-        options: [structural, memory, counter, global, wrapper]
+        options: [structural, memory, counter, global, wrapper, complete]
 permissions:
   contents: read
 concurrency:
@@ -55,6 +55,9 @@ jobs:
       - name: Bounded final wrapper with checked batch reuse and corruption control
         if: inputs.phase == 'wrapper'
         run: python3 scripts/chess_parsimony_wrapper_20261025/verify.py
+      - name: Bounded complete blank-tape printer and cleanup proof
+        if: inputs.phase == 'complete'
+        run: python3 scripts/chess_parsimony_complete_20261025/verify.py
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
