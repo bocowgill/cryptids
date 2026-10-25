@@ -59,6 +59,12 @@ def observed (i : Fin 30) (c : ControlWord) : Option Nat :=
 def failure (i : Fin 30) (c : ControlWord) : Prop :=
   (Parser.walkInternal 15 (Control.walked c)).isSome = true ∧ observed i c ≠ expected i c
 
+/-- Use the existing computable comparisons for the named endpoint predicate. -/
+instance failureDecidable (i : Fin 30) (c : ControlWord) : Decidable (failure i c) :=
+  inferInstanceAs (Decidable
+    ((Parser.walkInternal 15 (Control.walked c)).isSome = true ∧
+      observed i c ≠ expected i c))
+
 /-- Every ordered pair of distinct family members occurs among the 30 choices. -/
 theorem family_exact : ∀ a b : Fin 6, a ≠ b → ∃ i : Fin 30,
     keep i = members.getD a.val 26 ∧ remove i = members.getD b.val 26 := by

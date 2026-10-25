@@ -1,8 +1,8 @@
-name: RH bounded decoder-sharing pilot
+name: RH retained decoder-witness Lean verification
 on:
   push:
     branches: ['codex/riemann-reduction']
-    paths: ['scripts/riemann_share/launch.json']
+    paths: ['scripts/riemann_share/launch-verify02.json']
 permissions:
   contents: read
 concurrency:
@@ -16,6 +16,7 @@ jobs:
     env:
       RHSHARE_REMOTE: '1'
       RHSHARE_PUBLIC: '${{ !github.event.repository.private }}'
+      RHSHARE_OUTPUT_DIR: '.lake/riemann-share-verify02'
       LEAN_NUM_THREADS: '1'
       OMP_NUM_THREADS: '1'
       ELAN_NO_UPDATE_CHECK: '1'
@@ -41,16 +42,16 @@ jobs:
           path: |
             .lake/packages
             .lake/build
-          key: rh-share-${{ runner.os }}-${{ github.sha }}
+          key: rh-share-verify02-${{ runner.os }}-${{ github.sha }}
           restore-keys: |
             lake-Linux-X64-
             chess-body-certificate-20261022-Linux-
-      - name: Run the fixed alias pilot under aggregate limits
-        run: python3 scripts/riemann_share/driver.py
+      - name: Check and audit only the retained witnesses under aggregate limits
+        run: python3 scripts/riemann_share/verify_driver.py
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
-          name: rh-share-${{ github.sha }}
-          path: .lake/riemann-share/**
+          name: rh-share-verify02-${{ github.sha }}
+          path: .lake/riemann-share-verify02/**
           include-hidden-files: true
           retention-days: 30

@@ -12,7 +12,7 @@ import shlex
 import subprocess
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT = ROOT / '.lake/riemann-share'
+OUT = ROOT / os.environ.get('RHSHARE_OUTPUT_DIR', '.lake/riemann-share')
 
 
 def main():
