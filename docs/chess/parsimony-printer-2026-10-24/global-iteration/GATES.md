@@ -23,8 +23,8 @@ The persistent older goal stays paused; this is separately authorized bounded wo
   EXPECT: PARSIMONY_GLOBAL_BINDING_PASSED
   EVIDENCE: Final run stays within all memory/time caps, all successful roots have standard foundations, all earlier pins and rows are fixed. Positive/negative packet controls were not reached because the final wrapper failed; the full binding/audit gate remains incomplete.
 
-- [ ] R1: Retain all producer-bound logs/artifacts, measurements, failures, remaining obligations and exact recovery instructions in a pushed checkpoint, with no active pilot left.
-  EVIDENCE: pending
+- [x] R1: Retain all producer-bound logs/artifacts, measurements, failures, remaining obligations and exact recovery instructions in a pushed checkpoint, with no active pilot left.
+  EVIDENCE: Complete recovery payload aefede63cb4d376bd8939a0a5b096781454fbb1d pushed with exit zero; exact fork ref independently matched, working tree clean, and both active/queued Chess-branch run lists empty. All eight archives/logs and final 53 object/source pairs are tracked. RESULTS.md/CHECKPOINT.md record the incomplete wrapper, rejected sorryAx root, unrun controls, unchanged counts, measured full-data scaling and next task. Older goal stays paused; outreach held. Two gates met, two explicitly abandoned as incomplete handoff, zero pending.
 
 At most eight source-bound remote iterations; no unchanged retries, resource
 escalation, paid runner or broad CI dispatch. Each driver: 1,200 seconds; cache:

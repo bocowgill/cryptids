@@ -83,3 +83,11 @@ Workspace /Users/bocowgill/.codex/worktrees/6ba9/cryptids, branch
 codex/chess-openevolve-pilot. Push only to git@github.com:bocowgill/cryptids.git;
 origin is upstream. Final recovery push verification follows in this file.
 No automatic resumption is authorized by this checkpoint.
+
+Recovery payload **aefede63cb4d376bd8939a0a5b096781454fbb1d** was pushed with exit
+zero and independently matched the fork ref. Working tree was clean. Both active
+and queued Chess-branch run lists were empty after that push. All 202 payload
+paths, including all successful batch objects and eight complete archives, are
+tracked. Final metadata records that verification; no new job is launched.
+Acceptance accounting: 2 met, 2 explicitly abandoned/incomplete, 0 pending.
+The requested full phase remains incomplete. Do not resume automatically.
