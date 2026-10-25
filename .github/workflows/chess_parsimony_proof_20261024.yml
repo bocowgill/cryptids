@@ -7,7 +7,7 @@ on:
         type: choice
         required: true
         default: structural
-        options: [structural, memory]
+        options: [structural, memory, counter]
 permissions:
   contents: read
 concurrency:
@@ -21,6 +21,7 @@ jobs:
       CHESS_REMOTE: '1'
       ELAN_NO_UPDATE_CHECK: '1'
       LEAN_NUM_THREADS: '1'
+      PILOT_NAME: ${{ inputs.phase == 'structural' && 'proof' || inputs.phase }}
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
       - uses: leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6
@@ -45,10 +46,13 @@ jobs:
       - name: Paired full-data proof memory comparison
         if: inputs.phase == 'memory'
         run: python3 scripts/chess_parsimony_memory_20261024/verify.py
+      - name: Bounded counter and insertion certification
+        if: inputs.phase == 'counter'
+        run: python3 scripts/chess_parsimony_counter_20261024/verify.py
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
-          name: chess-parsimony-${{ inputs.phase == 'memory' && 'memory' || 'proof' }}-${{ github.sha }}
+          name: chess-parsimony-${{ env.PILOT_NAME }}-${{ github.sha }}
           include-hidden-files: true
-          path: .lake/chess-parsimony-${{ inputs.phase == 'memory' && 'memory' || 'proof' }}-20261024/**
+          path: .lake/chess-parsimony-${{ env.PILOT_NAME }}-20261024/**
           retention-days: 30
