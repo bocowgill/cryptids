@@ -33,7 +33,7 @@ def wrap(text):
 
 
 def chars_def(name, bits):
-    literal = '[' + ', '.join("'" + bit + "'" for bit in bits) + ']'
+    literal = '[' + ', '.join('zeroChar' if bit == '0' else 'oneChar' for bit in bits) + ']'
     return 'def ' + name + ' : List Char :=\n' + wrap('  ' + literal) + '\n\n'
 
 
@@ -144,6 +144,7 @@ theorem numeric_eq (input : Array Nat) :
   simp [numeric]
 
 """
+    common += "def zeroChar : Char := '0'\ndef oneChar : Char := '1'\n\n"
     common += chars_def('marker', '1' * 32 + '0')
     common += chars_def('tailPadding', '100000')
     common += '\nend ParsimonyComposed\n#print axioms ParsimonyComposed.numeric_eq\n'

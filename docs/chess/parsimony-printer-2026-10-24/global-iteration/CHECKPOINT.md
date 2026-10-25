@@ -110,3 +110,9 @@ Compose opaque checked atoms algebraically, avoiding both repeated reductions
 and elaborator expansion of payload lists. Retain/checkpoint after every batch.
 Keep per-stage and total caps fixed, and require all 13,360 words to pass; the
 successful small sample alone is not completion. Three of eight attempts remain.
+
+Before dispatching attempt 6, share the two ASCII character constructors across
+all payload lists. The old 32-word pilot object was 578,008 bytes; carrying that
+representation into every imported chunk risks substantial proof-data overhead.
+Use named zeroChar/oneChar definitions and independently verify their values in
+the retained-source review. No sixth job launched from intermediate 8c90d529.

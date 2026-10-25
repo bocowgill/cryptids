@@ -88,14 +88,19 @@ def main():
     assert len(batch_sources) == 53
     definitions = re.findall(r'def packetChars\d+ : List Char :=(.*?)def frozenChunk',
                              '\n'.join(batch_sources), re.S)
-    packet = ''.join(''.join(re.findall(r"'([01])'", chunk)) for chunk in definitions)
+    packet = ''.join(''.join('0' if c == 'zeroChar' else '1' for c in
+        re.findall(r'\b(zeroChar|oneChar)\b', chunk)) for chunk in definitions)
     assert len(definitions) == item['chunks']
     assert hashlib.sha256(packet.encode('ascii')).hexdigest() == item['frozen_packet_sha256']
     common = (work / 'PacketCommon.lean').read_text()
+    assert "def zeroChar : Char := '0'" in common
+    assert "def oneChar : Char := '1'" in common
     marker = common.split('def marker : List Char :=', 1)[1].split('def tailPadding', 1)[0]
     tail = common.split('def tailPadding : List Char :=', 1)[1].split('end ParsimonyComposed', 1)[0]
-    assert ''.join(re.findall(r"'([01])'", marker)) == '1' * 32 + '0'
-    assert ''.join(re.findall(r"'([01])'", tail)) == '100000'
+    assert ''.join('0' if c == 'zeroChar' else '1' for c in
+        re.findall(r'\b(zeroChar|oneChar)\b', marker)) == '1' * 32 + '0'
+    assert ''.join('0' if c == 'zeroChar' else '1' for c in
+        re.findall(r'\b(zeroChar|oneChar)\b', tail)) == '100000'
     for path, expected in manifest['frozen_source_sha256'].items():
         assert sha(ROOT / path) == expected, path
     for logfile, root in [('global-iteration.log', 'global_terminated'),
