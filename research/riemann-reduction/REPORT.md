@@ -1,6 +1,10 @@
-# RH reduction: checked state-53 and decoder-sharing counterexamples
+# RH reduction: closed decoder-sharing route and next bounded proposal
 
-**Latest result:** one separately authorized verification repaired the computable
+**Current disposition:** the [fixed decoder-sharing route is closed](pilot-decoder-sharing/CLOSED.md).
+The [next proof-only proposal](pilot-41-guard/PROPOSAL.md) awaits approval; no job
+has launched and no saving is claimed for it.
+
+**Latest checked result:** one separately authorized verification repaired the computable
 Decidable instance and Lean-checked all 30 retained decoder-sharing counterexamples.
 The full-private audit and explicit rejection controls passed. See
 [the verified result](pilot-decoder-sharing/verify-02/RESULT.md). The first job's
@@ -40,6 +44,25 @@ single additional verification job passed in 347.438 governed seconds with a
 sampled 5.85 GiB aggregate RSS peak. It replayed only the 30 retained endpoints,
 with no new search, candidate export or retry. The original 3180s/6GiB/512MiB-driver
 limits were kept. Further RH jobs and broader search are held; Chess's pause is preserved.
+
+## Proposed cell-41 guard pilot — awaiting approval
+
+The sole next proposal asks whether actual 41/ONE is unreachable throughout the
+blank run. The proposed reason is concrete: incoming 58/ONE crosses the `10`
+register separator onto ZERO. Proving this requires actual-table fidelity,
+all-intermediate-step macro traces, the 3634-step blank boot and unbounded typed
+closure. Existing endpoint results and finite absence of a visit do not prove it.
+
+If avoidance is proved, derive a separate corollary for overwriting only 41/ONE
+while retaining the 95-state type and every other cell. This permits neither
+state deletion nor a combined optimization that could create a new visit.
+The pilot exports zero candidates and earns zero RH savings even on success.
+
+The unchanged envelope is one free remote job, no retry, 3180 governed seconds,
+6 GiB aggregate RSS and a 512 MiB driver; Lean remains serialized and remote.
+The [proposal](pilot-41-guard/PROPOSAL.md) fixes finite rejection filters, proof
+gates, audits, controls and exact obstruction reporting. This source-review turn
+adds no runner or workflow. Approval is required before any further compute job.
 
 ## Preserved audit and baseline
 

@@ -4,7 +4,11 @@ The canonical state-53 route is now [closed](pilot-53/CLOSED.md). A 94-state
 rejected-route artifact was generated for its verified counterexample; no smaller
 RH machine is certified. The [retained decoder-sharing witnesses](pilot-decoder-sharing/verify-02/RESULT.md)
 are now Lean-checked and audited after the computable Decidable repair: all 30
-fixed aliases violate the required endpoint contract. No further job is authorized.
+fixed aliases violate the required endpoint contract. The
+[fixed family is closed](pilot-decoder-sharing/CLOSED.md). The sole
+[next proposed pilot](pilot-41-guard/PROPOSAL.md) is proof-only cell 41/ONE
+avoidance; it awaits approval and promises zero direct state savings.
+No further job is authorized.
 All other saving estimates below concern the **complete**
 physical machine. Ranges are planning
 estimates from the affected state pools, not achieved bounds or a probability of
@@ -14,6 +18,7 @@ success. Decoder costs need not track logical instruction counts.
 | --- | --- | --- | --- | --- |
 | Closed | Canonical skipped-bit removal of decoder 53 with unchanged returns | 0 certified; bridge refuted | Exact zero-DEC counterexample verified | Retired; preserve evidence |
 | Closed contract | Fixed common-ZERO decoder-sharing family | 0 RH savings; all 30 endpoint failures checked | Kernel certificate and full-private audit passed | Preserve exact witnesses; no retry |
+| Next proposed proof kernel | Certify 41/ONE avoidance and an isolated-overwrite corollary | 0; prerequisite only | High: all intermediate traces and unbounded blank-run coverage | Bounded proof-only pilot; approval pending |
 | 3 | Eliminate a whole register-program transfer or duplicate update | 0-4, very uncertain | High: new stage/register relation | High: logical and physical program changes |
 | 4 | Reuse a temporary bank across non-overlapping phases | 0-4, before any staging cost | High: phase-dependent liveness and frames | High |
 | 5 | Reorder/reverse operand-bank layout to share selection/return work | 0-3 | High for tape reversal; medium/high for a permutation | Medium/high |
@@ -22,6 +27,16 @@ success. Decoder costs need not track logical instruction counts.
 The fixed decoder-sharing family has checked counterexamples to its required
 endpoint contract. Do not reopen that false contract or expand the search.
 Larger speculative ranges need an explicit complete machine before scoring.
+
+## Next proof-only pilot: cell 41/ONE guard
+
+Actual 58/ONE is `0R41`. A valid DEC-j frame puts the separator's following ZERO
+under 41, suggesting global avoidance of 41/ONE. The
+[proposal](pilot-41-guard/PROPOSAL.md) explicitly requires an incoming-edge
+certificate, full intermediate macro traces, exact blank boot and unbounded
+assembly. Neither textual inspection nor the retained finite bootstrap proves
+the claim. No machine candidate, state merge, row deletion or combined rewrite
+is proposed. All remaining optimization rows below stay unexecuted.
 
 ## 1. Pass-through state 53 and control-word encoding
 
@@ -150,6 +165,7 @@ stronger language invariant loses fence detection.
   complete physical-state objective.
 - State 41/ONE is unvisited by the retained bootstrap check. This finite fact
   neither proves global unreachability nor frees a physical state by itself.
+  The proposed proof-only pilot targets the missing global theorem; it has not run.
 - Merely redirecting around 53 on the old tape skips a symbol. The canonical
   shorter encoding also fails the verified E/pop equation; its route is closed.
 - The state-53 result is a verified local encoding rejection, with independent

@@ -4,6 +4,8 @@
 are Lean-checked, and the full-private audit and rejection controls passed.**
 This rejects the fixed decoder-sharing family's unchanged-endpoint contract.
 The accepted RH baseline remains 95 states, with zero new certified savings.
+The user has now [closed this fixed route](../CLOSED.md); this verified evidence
+is retained unchanged. The closure launches no further job.
 
 ## Checked statement and unchanged inputs
 

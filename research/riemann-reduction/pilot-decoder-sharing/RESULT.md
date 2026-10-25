@@ -1,6 +1,7 @@
 # Decoder-sharing result — 2026-10-24
 
-**Historical first-job result.** A separately authorized verification now repaired
+**Closed route; historical first-job result.** See [CLOSED.md](CLOSED.md).
+A separately authorized verification now repaired
 the computable Decidable instance and Lean-checked/audited all 30 unchanged
 witnesses successfully. Read [verify-02/RESULT.md](verify-02/RESULT.md) first.
 The original failure description and evidence below remain preserved.

@@ -5,11 +5,14 @@ Branch: `codex/riemann-reduction`.
 Path: `/Users/bocowgill/.codex/worktrees/4e0d/cryptids`.
 Pinned base: `6c28d8524fa008c6fb5aadb759df74a55ce96423`.
 
-**All 30 retained decoder-sharing witnesses are Lean-checked and audited.**
+**The fixed decoder-sharing route is closed; the next proposal awaits approval.**
+Read [the closure](pilot-decoder-sharing/CLOSED.md) and
+[the proof-only 41/ONE proposal](pilot-41-guard/PROPOSAL.md) first.
+All 30 retained decoder-sharing witnesses are Lean-checked and audited.
 The separately authorized job 40145261135 supplied the computable Decidable
 instance, checked the unchanged batch and passed the full-private audit and
-rejection controls. Read [the verified result](pilot-decoder-sharing/verify-02/RESULT.md)
-first. The initial failure 40141846969 remains preserved. No candidate was
+rejection controls. See [the verified result](pilot-decoder-sharing/verify-02/RESULT.md).
+The initial failure 40141846969 remains preserved. No candidate was
 exported; no further job is authorized. Both this unchanged-endpoint family and
 the canonical state-53 route are rejected within their stated contracts.
 Broader search remains held. No 94-state RH theorem is certified.
@@ -63,6 +66,22 @@ those 30 endpoints (515 evaluations), and ran no new search. Full-private audit:
 Fresh sorryAx and kernel-invalid controls rejected. No retry or table export.
 Do not rerun enumeration, widen the family or launch another job without approval.
 
+## Next bounded proposal — not launched
+
+[Certify cell 41/ONE avoidance](pilot-41-guard/PROPOSAL.md): prove the separator
+guard, refine all intermediate physical traces, cover the 3634-step blank boot
+and assemble avoidance at every finite time. Then prove that an isolated overwrite
+of that one cell preserves every blank-run prefix. Endpoint-only stage theorems
+and finite screens are insufficient. This does not permit a combined rewrite,
+state merge or deletion; zero candidates and zero state savings are proposed.
+
+Requested future envelope: one free remote job, no retry, 3180 governed seconds,
+6 GiB aggregate RSS, 512 MiB driver, serialized Lean and the repaired capacity
+probe. Bounded rejection filters share a 2000000-transition total. Return the
+audited theorem/corollary or the exact failed guard, missing trace lemma or
+resource obstruction. No runner, workflow or launch packet is created here.
+The user must approve before execution. Chess and broader search stay held.
+
 ## Preserved boundaries
 
 - Accepted files, artifact, manifest, toolchain, specification and historical
@@ -71,7 +90,7 @@ Do not rerun enumeration, widen the family or launch another job without approva
 - The older Chess campaign remains paused. Its pause file is byte-identical to
   historical checkpoint `b971fa888c84b5a62900171fa17eef7cf2cda6d9`. A read-only
   Git inspection observed its shared branch at
-  `bc3c131b7d5590204ffe6ecbed313fe8239c6ffe`, advanced by separate Parsimony
+  `b5a53f9dd1ce628c03cde7db6d8ff27624ef5c49`, advanced by separate Parsimony
   work. That work's recorded run is outside this RH task; no Chess/Parsimony
   source, job or goal was changed here. Do not reset or resume that checkout.
 - All Lean/Lake/LSP/LeanProbe, generation, simulations and executable census
