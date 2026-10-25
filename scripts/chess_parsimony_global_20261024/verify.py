@@ -94,14 +94,21 @@ def main():
         'Mathlib.Algebra.GCDMonoid.Finset', 'Mathlib.Order.Interval.Finset.Nat',
         'Mathlib.NumberTheory.LSeries.RiemannZeta', 'Mathlib.SetTheory.ZFC.Basic',
         'Mathlib.Tactic'], 300)
+    generic_failures = []
     for name in ['Packet', 'Global']:
-        output = runner.run('kernel-' + name.lower(), ['lake', '--wfail', '-f', LAKE,
-            'build', 'Cryptids.Compilation.Parsimony.' + name], 240)
-        assert 'warning:' not in output and 'error:' not in output
-        built = ROOT / ('.lake/build/lib/lean/Cryptids/Compilation/Parsimony/' + name + '.olean')
-        (WORK / (name + '.olean')).write_bytes(built.read_bytes())
-        SUMMARY.setdefault('checked_modules', []).append(name)
-        runner.checkpoint()
+        try:
+            output = runner.run('kernel-' + name.lower(), ['lake', '--wfail', '-f', LAKE,
+                'build', 'Cryptids.Compilation.Parsimony.' + name], 240)
+            assert 'warning:' not in output and 'error:' not in output
+        except AssertionError as error:
+            generic_failures.append(dict(module=name, error=str(error)))
+        else:
+            built = ROOT / ('.lake/build/lib/lean/Cryptids/Compilation/Parsimony/' + name + '.olean')
+            (WORK / (name + '.olean')).write_bytes(built.read_bytes())
+            SUMMARY.setdefault('checked_modules', []).append(name)
+            runner.checkpoint()
+    runner.save('generic-failures.json', generic_failures)
+    assert not generic_failures, 'Strict generic stages failed; inspect separate retained logs'
     audit = WORK / 'Audit.lean'
     audit.write_text('import Cryptids.Compilation.Parsimony.Global\n' + '\n'.join(
         '#print axioms ConjectureMachines.Compilation.Parsimony.' + root for root in

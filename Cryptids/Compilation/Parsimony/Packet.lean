@@ -83,7 +83,7 @@ theorem render_range (width : Nat) (values : List Nat) :
   | nil => rfl
   | cons value values ih =>
     simp only [List.length_cons, List.range_succ_eq_map, List.flatMap_cons,
-      List.flatMap_map, Function.comp_def, List.getElem?_cons_zero,
+      List.flatMap_map, List.getElem?_cons_zero,
       List.getElem?_cons_succ, Option.getD_some, render, List.flatMap_cons] at *
     exact congrArg (text (encode width value).reverse ++ ·) ih
 
@@ -95,7 +95,7 @@ theorem indexed_render (width last : Nat) (values : Array (Fin (last + 1))) :
   have lookup (i : Nat) : (values.toList.map Fin.val)[i]?.getD 0 =
       (Data.wordAt last values i).val := by
     simp only [List.getElem?_map, Array.getElem?_toList, Data.wordAt]
-    cases h : values[i]? <;> simp [h]
+    cases values[i]? <;> simp
   simpa only [List.length_map, Array.length_toList, lookup] using
     render_range width (values.toList.map Fin.val)
 

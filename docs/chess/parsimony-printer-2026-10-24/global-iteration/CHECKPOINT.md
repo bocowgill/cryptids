@@ -28,3 +28,16 @@ and cons_zero names and reserved macro binder. No resource cap hit. Replaced
 these with an explicit quotient blank/cons proof and localRun binder; normalize
 blank padding before composing paths. Attempt 2 adds shared full-data/packet
 instantiation and deliberate expected-bit corruption. No source pin changed.
+
+Attempt 2 dispatched: run 40153656046, producer
+19214d2e671b3d0b0895b138ed56238d717aefda. Verified fork push; only manual phase
+global dispatched, broad CI skipped. Full-data/packet source generation remains
+remote and is width-checked before proof stages. PROOF-PLAN.md records the exact
+invariant, representation boundaries and full-machine state/opportunity census.
+
+Attempt 2 terminal failure retained in evidence/global-02: new Packet rendering
+lemmas typechecked but strict lint rejected two unused simp arguments. Removed
+exactly Function.comp_def and the unnecessary case-equation simp argument; no
+linter disabled, no theorem weakened. Generator passed remote width checks.
+Attempt 3 collects diagnostics for both generic modules before stopping on any
+strict failure, then proceeds to full-data stages only if both pass.

@@ -1,0 +1,72 @@
+{
+  "GlobalInstance.lean": {
+    "bytes": 2152,
+    "sha256": "1376f8dbd882e34f9285c054a2ea7455f226fe59c4e208a68953e685af15e905",
+    "crc32": 2617113352,
+    "compressed_bytes": 799,
+    "compression": 8
+  },
+  "Identity.lean": {
+    "bytes": 404437,
+    "sha256": "010834586214cdf3cc1670e9947d6288ae9382541906fd51180bf6e3c0b296c8",
+    "crc32": 805835519,
+    "compressed_bytes": 60347,
+    "compression": 8
+  },
+  "AllWords.lean": {
+    "bytes": 130978,
+    "sha256": "ef84cd5b758fa2351da72a74ad21bb2cf6bb00acd6fcf671b5d2bad82ab4e10e",
+    "crc32": 676890850,
+    "compressed_bytes": 32990,
+    "compression": 8
+  },
+  "failure.txt": {
+    "bytes": 837,
+    "sha256": "f3f4b9aede8639a74b11549ec89c06d9596ccc66da25a4cdb6c2e2a57b8c94fb",
+    "crc32": 3498717026,
+    "compressed_bytes": 337,
+    "compression": 8
+  },
+  "instance-plan.json": {
+    "bytes": 643,
+    "sha256": "04415ecb4942f55f74f1e7789699f47511a7eed8470d633b462f55e31a92341b",
+    "crc32": 2469007385,
+    "compressed_bytes": 380,
+    "compression": 8
+  },
+  "kernel-packet.log": {
+    "bytes": 2744,
+    "sha256": "d4f5f10f2823e27f72f512a5e3545193379f6f233040ae441314cc40ffb89d37",
+    "crc32": 1698327899,
+    "compressed_bytes": 672,
+    "compression": 8
+  },
+  "mathlib-cache.log": {
+    "bytes": 1811,
+    "sha256": "c20ae0511244265f3c7537d1e101e724c9a6fce863aa1f8a3649502de307e9e5",
+    "crc32": 1441934926,
+    "compressed_bytes": 531,
+    "compression": 8
+  },
+  "pilot-summary.json": {
+    "bytes": 2229,
+    "sha256": "81c1fa5679c3f96933efb043381a73ae9fbcaa555a66fadffb25877414520897",
+    "crc32": 2504271984,
+    "compressed_bytes": 889,
+    "compression": 8
+  },
+  "runner-capacity.json": {
+    "bytes": 1787,
+    "sha256": "020899173daa19beacf89cafea0e8b7986cf884d7e8e3c4053fcc048bfe8ead0",
+    "crc32": 1617296869,
+    "compressed_bytes": 668,
+    "compression": 8
+  },
+  "source-manifest.json": {
+    "bytes": 469010,
+    "sha256": "f949d3ff429cdafe344d52f7aed6ac3e07b8817230598c987f7d4d2d5e86031d",
+    "crc32": 4148390807,
+    "compressed_bytes": 128081,
+    "compression": 8
+  }
+}
