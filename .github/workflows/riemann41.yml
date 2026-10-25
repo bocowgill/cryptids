@@ -1,0 +1,56 @@
+name: RH41 bounded proof-only avoidance pilot
+on:
+  push:
+    branches: ['codex/riemann-reduction']
+    paths: ['scripts/riemann41/launch.json']
+permissions:
+  contents: read
+concurrency:
+  group: rh41-proof-only-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  pilot:
+    if: github.repository == 'bocowgill/cryptids' && !github.event.repository.private
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    env:
+      RH41_REMOTE: '1'
+      RH41_PUBLIC: '${{ !github.event.repository.private }}'
+      LEAN_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      ELAN_NO_UPDATE_CHECK: '1'
+    steps:
+      - name: Start whole-job clock
+        run: echo "RH41_JOB_START=$(date +%s)" >> "$GITHUB_ENV"
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        timeout-minutes: 14
+        with:
+          fetch-depth: 20
+      - uses: leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6
+        timeout-minutes: 8
+        with:
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'false'
+          use-github-cache: 'false'
+      - uses: actions/cache/restore@caa296126883cff596d87d8935842f9db880ef25
+        timeout-minutes: 4
+        with:
+          path: |
+            .lake/packages
+            .lake/build
+          key: rh41-proof-${{ runner.os }}-${{ github.sha }}
+          restore-keys: |
+            lake-Linux-X64-
+            chess-body-certificate-20261022-Linux-
+      - name: Run the single bounded proof pilot
+        run: python3 scripts/riemann41/driver.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: rh41-proof-${{ github.sha }}
+          path: .lake/riemann41/**
+          include-hidden-files: true
+          retention-days: 30

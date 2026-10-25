@@ -1,6 +1,9 @@
 # Proposed next pilot: certify avoidance of cell 41/ONE
 
-**Proposal only. The user must approve before any remote job launches.**
+**Approved for one free remote job, no retries, on 2026-10-24.**
+The user accepted the proposal below. See [GATES.md](GATES.md) for execution
+evidence; the original proposal wording is preserved.
+Original status: proposal only; approval required before launch.
 This is a proof-only prerequisite pilot, with zero optimized candidates, zero
 exported tables and zero state savings claimed. Preparation is lightweight
 source/provenance inspection; none of the proposed checks has run.

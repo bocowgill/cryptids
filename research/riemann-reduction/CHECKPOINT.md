@@ -5,7 +5,7 @@ Branch: `codex/riemann-reduction`.
 Path: `/Users/bocowgill/.codex/worktrees/4e0d/cryptids`.
 Pinned base: `6c28d8524fa008c6fb5aadb759df74a55ce96423`.
 
-**The fixed decoder-sharing route is closed; the next proposal awaits approval.**
+**The fixed decoder-sharing route is closed; one proof-only 41/ONE job is approved.**
 Read [the closure](pilot-decoder-sharing/CLOSED.md) and
 [the proof-only 41/ONE proposal](pilot-41-guard/PROPOSAL.md) first.
 All 30 retained decoder-sharing witnesses are Lean-checked and audited.
@@ -13,7 +13,8 @@ The separately authorized job 40145261135 supplied the computable Decidable
 instance, checked the unchanged batch and passed the full-private audit and
 rejection controls. See [the verified result](pilot-decoder-sharing/verify-02/RESULT.md).
 The initial failure 40141846969 remains preserved. No candidate was
-exported; no further job is authorized. Both this unchanged-endpoint family and
+exported. The user has now authorized the single bounded 41/ONE pilot, with no
+retry; no other job is authorized. Both this unchanged-endpoint family and
 the canonical state-53 route are rejected within their stated contracts.
 Broader search remains held. No 94-state RH theorem is certified.
 
@@ -66,7 +67,7 @@ those 30 endpoints (515 evaluations), and ran no new search. Full-private audit:
 Fresh sorryAx and kernel-invalid controls rejected. No retry or table export.
 Do not rerun enumeration, widen the family or launch another job without approval.
 
-## Next bounded proposal — not launched
+## Approved bounded proof-only pilot — source preparation
 
 [Certify cell 41/ONE avoidance](pilot-41-guard/PROPOSAL.md): prove the separator
 guard, refine all intermediate physical traces, cover the 3634-step blank boot
@@ -79,8 +80,11 @@ Requested future envelope: one free remote job, no retry, 3180 governed seconds,
 6 GiB aggregate RSS, 512 MiB driver, serialized Lean and the repaired capacity
 probe. Bounded rejection filters share a 2000000-transition total. Return the
 audited theorem/corollary or the exact failed guard, missing trace lemma or
-resource obstruction. No runner, workflow or launch packet is created here.
-The user must approve before execution. Chess and broader search stay held.
+resource obstruction. The original proposal created no runner or launch packet.
+The user approved exactly one free job on 2026-10-24. Separate scripts, proof
+modules and a launch-only workflow are now prepared; no local executable
+mathematics ran. See [the pilot gates](pilot-41-guard/GATES.md). Chess and broader
+search stay held. Only the approved pilot may launch, with no retries.
 
 ## Preserved boundaries
 
@@ -99,5 +103,6 @@ The user must approve before execution. Chess and broader search stay held.
 - New Lean must keep strict warnings/linting, lines <=100, no new hypotheses,
   sorry or native oracle. Public target remains blank-tape `Halts candidate ↔ ¬ RH`.
 
-This checkpoint update launches zero jobs and implements zero new candidates.
+The source-transport checkpoint launches zero jobs and implements zero candidates;
+one separately committed launch packet will dispatch the approved job.
 Its Git commit is reported separately to avoid a self-referential hash.

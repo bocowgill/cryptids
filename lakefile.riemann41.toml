@@ -1,0 +1,40 @@
+name = "Cryptids"
+version = "0.1.0"
+defaultTargets = ["GuardCore", "GuardBoot", "AssemblyProbe"]
+weakLeanArgs = ["-M6144", "-DwarningAsError=true"]
+
+[leanOptions]
+pp.unicode.fun = true
+relaxedAutoImplicit = false
+weak.linter.mathlibStandardSet = true
+weak.linter.style.header = false
+maxSynthPendingDepth = 3
+
+[[require]]
+name = "verso"
+scope = "leanprover"
+rev = "v4.35.0-rc4"
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.35.0-rc4"
+
+[[lean_lib]]
+name = "Cryptids"
+
+[[lean_lib]]
+name = "GuardLiteral"
+srcDir = "scripts/riemann41"
+
+[[lean_lib]]
+name = "GuardCore"
+srcDir = "scripts/riemann41"
+
+[[lean_lib]]
+name = "GuardBoot"
+srcDir = "scripts/riemann41"
+
+[[lean_lib]]
+name = "AssemblyProbe"
+srcDir = "scripts/riemann41"
