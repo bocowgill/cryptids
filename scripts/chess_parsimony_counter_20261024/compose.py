@@ -32,7 +32,7 @@ def generate(work):
     assert all(w < 2 and d < 2 and t <= end for w, d, t in rows[2 * 13366:])
     source = (ROOT / SHARED).read_text().split('/-- One shared bound proof', 1)[0]
     source = source.replace('import Cryptids.Compilation.Parsimony.Data',
-                            'import Cryptids.Compilation.Parsimony.Extractor')
+                            'import Cryptids.Compilation.Parsimony.IndexedExtractor')
     source = source.replace('namespace ParsimonyScale13360', 'namespace ParsimonyComposed')
     source += '''
 open Parsimony.Common Parsimony.Insertion
@@ -47,22 +47,22 @@ theorem words_bound (input : Array Nat) (i : Nat) :
     (Parsimony.Data.wordAt 13359 (input.map narrow) i).val < 8192 := by
   simp only [Parsimony.Data.wordAt, Array.getElem?_map]
   cases h : input[i]? with
-  | none => simp [h]
+  | none => simp
   | some value => simpa [h, narrow] using Nat.mod_lt value (by decide +kernel : 0 < 8192)
 
 def values : Array (Fin 13360) := raw.map narrow
 attribute [local irreducible] values
 
-def at (i : Nat) : Fin 13546 := ⟨i % 13546, Nat.mod_lt i (by decide +kernel)⟩
+def stateOf (i : Nat) : Fin 13546 := ⟨i % 13546, Nat.mod_lt i (by decide +kernel)⟩
 
 def data (i : Nat) : Fin 13546 := ⟨6 + min i 13359, by omega⟩
-def exit : Fin 13546 := at 13366
+def exit : Fin 13546 := stateOf 13366
 
 private def staticRows : Array (Fin 2 × Turing.Dir × Fin 13546) := #[
 '''
     static = rows[2 * 13366:]
     for i, (w, d, t) in enumerate(static):
-        source += f'  ({w}, .{"right" if d else "left"}, at {t})' + \
+        source += f'  ({w}, .{"right" if d else "left"}, stateOf {t})' + \
                   (',' if i + 1 < len(static) else '') + '\n'
     source += ''']
 
@@ -87,7 +87,7 @@ theorem row_more (values : Array (Fin 13360)) (i : Nat) (bound : i < 13359) :
 
 theorem row_last (values : Array (Fin 13360)) :
     (model values).transition (data 13359) 0 = some (0, .right, exit) := by
-  decide +kernel
+  rfl
 
 theorem row_one (values : Array (Fin 13360)) (i : Nat) (bound : i ≤ 13359) :
     (model values).transition (data i) 1 =
@@ -95,8 +95,14 @@ theorem row_one (values : Array (Fin 13360)) (i : Nat) (bound : i ≤ 13359) :
   simp [model, data, Nat.min_eq_left bound,
     show ¬6 + i < 6 by omega, show 6 + i < 13366 by omega]
 
+theorem static_eq (first second : Array (Fin 13360)) (state : Fin 13546) (bit : Fin 2)
+    (bound : 13366 ≤ state.val) :
+    (model first).transition state bit = (model second).transition state bit := by
+  simp only [model, show ¬state.val < 6 by omega,
+    show ¬state.val < 13366 by omega, ↓reduceIte]
+
 private def select (items : Array Nat) (i : Nat) : Fin 13546 :=
-  at (items[i]?.getD ''' + str(error) + ''')
+  stateOf (items[i]?.getD ''' + str(error) + ''')
 '''
 
     def array(indices):
@@ -115,8 +121,8 @@ private def select (items : Array Nat) (i : Nat) : Fin 13546 :=
     source += '\ndef insert : Parsimony.Insertion.Controls 13546 where\n'
     for field, states in controls.items():
         source += wrap('  ' + field + ' i := select (' + array(states) + ') i')
-    source += '  back := at ' + str(ids['create_blank_go_left']) + '\n'
-    source += '  out := at ' + str(ids['create_blank_word_out']) + '\n'
+    source += '  back := stateOf ' + str(ids['create_blank_go_left']) + '\n'
+    source += '  out := stateOf ' + str(ids['create_blank_word_out']) + '\n'
     carries = [ids['convert_increment']] + [ids[f'convert_incr_carry_{i}'] for i in range(1, 13)]
     no_carries = [error] + [ids[f'convert_incr_no_carry_{i}'] for i in range(1, 13)]
     backs = [error] + [ids[f'convert_incr_get_out_{i}'] for i in range(1, 13)] + [ids['convert_incrout']]
@@ -129,15 +135,39 @@ private def select (items : Array Nat) (i : Nat) : Fin 13546 :=
         ('second', 'convert_get_to_second_a_left'), ('returnToUnary', 'convert_get_to_second_a_right'),
         ('makeMarker', 'convert_make_new_b'), ('moveLeft', 'convert_move_left'),
         ('clean', 'convert_clean_up_mess')]:
-        source += '  ' + field + ' := at ' + str(ids[label]) + '\n'
+        source += '  ' + field + ' := stateOf ' + str(ids[label]) + '\n'
     source += '  data := data 0\n  counter := increment\n  back := back\n'
 
     def finite(field, intro, proposition, application):
-        return '  ' + field + ' := by\n    intro ' + intro + '\n    have finite :\n' + \
-            '\n'.join(textwrap.wrap(proposition + ' := by decide +kernel', width=98,
+        prefix, body = proposition.split('(model values).transition ', 1)
+        depth, stop = 0, None
+        for i, char in enumerate(body):
+            depth += int(char == '(') - int(char == ')')
+            if i > 0 and depth == 0:
+                stop = i + 1
+                break
+        assert stop is not None
+        state, bit = body[:stop], body[stop:].strip().split()[0]
+        actual_state = state.replace('j.val', 'i')
+        physical = prefix + '13366 ≤ ' + state + '.val'
+        lines = '  ' + field + ' := by\n    intro ' + intro + '\n    have physical :\n'
+        lines += '\n'.join(textwrap.wrap(physical + ' := by decide +kernel', 98,
+            initial_indent='      ', subsequent_indent='      ',
+            break_long_words=False, break_on_hyphens=False)) + '\n'
+        lines += '    have finite :\n' + \
+            '\n'.join(textwrap.wrap(proposition.replace('(model values)', '(model #[])') +
+                ' := by decide +kernel', width=98,
                 initial_indent='      ', subsequent_indent='      ',
                 break_long_words=False, break_on_hyphens=False)) + \
-            '\n    exact finite ' + application + '\n'
+            '\n'
+        lines += wrap('    rw [static_eq values #[] ' + actual_state + ' ' + bit +
+                      ' (physical ' + application + ')]')
+        return lines + '    exact finite ' + application + '\n'
+
+    def closed(field, state, bit):
+        return '  ' + field + ' := by\n' + wrap(
+            '    rw [static_eq values #[] (' + state + ') ' + str(bit) +
+            ' (by decide +kernel)]') + '    decide +kernel\n'
 
     source += '''
 theorem counter_rows (values : Array (Fin 13360)) :
@@ -179,26 +209,23 @@ theorem insert_rows (values : Array (Fin 13360)) :
     source += finite('bZero', 'i lower upper',
         '∀ j : Fin 13, 1 ≤ j.val → (model values).transition (insert.b j.val) 0 = '
         'some (1, .left, insert.first j.val)', '⟨i, upper⟩ lower')
-    source += '''  finishA := by decide +kernel
-  back := by decide +kernel
-  finishB := by decide +kernel
+    source += closed('finishA', 'insert.a 13', 0)
+    source += closed('back', 'insert.back', 0)
+    source += closed('finishB', 'insert.b 13', 0)
+    source += '''
 
 theorem convert_rows (values : Array (Fin 13360)) :
     Parsimony.Extractor.Rows (model values) convert 13 where
   counter := counter_rows values
-  scanOne := by decide +kernel
-  scanZero := by decide +kernel
-  deleteOne := by decide +kernel
-  firstOne := by decide +kernel
-  firstZero := by decide +kernel
-  second := by decide +kernel
-  back := by decide +kernel
-  returnToUnary := by decide +kernel
-  deleteZero := by decide +kernel
-  makeMarker := by decide +kernel
-  moveLeft := by decide +kernel
-  clean := by decide +kernel
-
+'''
+    for field, state, bit in [('scanOne', 'convert.scan', 1), ('scanZero', 'convert.scan', 0),
+        ('deleteOne', 'convert.delete', 1), ('firstOne', 'convert.first', 1),
+        ('firstZero', 'convert.first', 0), ('second', 'convert.second', 0),
+        ('back', 'convert.back 13', 0), ('returnToUnary', 'convert.returnToUnary', 0),
+        ('deleteZero', 'convert.delete', 0), ('makeMarker', 'convert.makeMarker', 0),
+        ('moveLeft', 'convert.moveLeft', 0), ('clean', 'convert.clean', 0)]:
+        source += closed(field, state, bit)
+    source += '''
 theorem allWords (i : Fin 13360) (L R : ListBlank (Fin 2)) :
     let v := (Parsimony.Data.wordAt 13359 values i.val).val
     ∃ out : List (Fin 2), out.length = 13 ∧ Parsimony.Counter.value out = v ∧
@@ -208,10 +235,55 @@ theorem allWords (i : Fin 13360) (L R : ListBlank (Fin 2)) :
   exact Parsimony.Extractor.query_extract (model values) data exit 13359 values
     (row_more values) (row_last values) (row_one values) insert convert 13
     (insert_rows values) (convert_rows values) (by decide +kernel) rfl rfl (by omega)
-    i.val (by have := i.isLt; omega) (by simpa only [values] using words_bound raw i.val) L R
+    i.val (by have := i.isLt; omega) (by
+      simpa only [values, show (2 : Nat) ^ 13 = 8192 by decide +kernel]
+        using words_bound raw i.val) L R
+
+'''
+    source += '\ndef insertionRight (i : Nat) : Fin 13546 := select (' + array([
+        ids[f'create_blank_char_{i}_find_first_a_right'] for i in range(13)]) + ') i\n'
+    # Wrap the entire definition, including its signature and literal state array.
+    last = source.rsplit('\ndef insertionRight ', 1)
+    source = last[0] + '\n' + wrap('def insertionRight ' + last[1].strip())
+    source += '''
+theorem indexed_insert_rows (values : Array (Fin 13360)) :
+    Parsimony.IndexedInsertion.Rows (model values) insert 13 insertionRight where
+  base := insert_rows values
+'''
+    for field, start, read, write, direction, target in [
+        ('secondOne', 'insert.second', 1, 1, 'left', 'insert.second'),
+        ('putOne', 'insert.put', 1, 0, 'right', 'insertionRight'),
+        ('rightOne', 'insertionRight', 1, 1, 'right', 'insertionRight'),
+        ('rightZero', 'insertionRight', 0, 1, 'right', 'insert.middle')]:
+        source += finite(field, 'i upper',
+            f'∀ j : Fin 13, (model values).transition ({start} j.val) {read} = '
+            f'some ({write}, .{direction}, {target} j.val)', '⟨i, upper⟩')
+    source += '''
+theorem indexed_convert_rows (values : Array (Fin 13360)) :
+    Parsimony.IndexedExtractor.Rows (model values) convert 13 where
+  base := convert_rows values
+'''
+    for field, state in [('secondOne', 'convert.second'),
+                          ('returnOne', 'convert.returnToUnary'), ('cleanOne', 'convert.clean')]:
+        source += closed(field, state, 1)
+    source += '''
+theorem allWordsIndexed (i : Fin 13360) (L R : ListBlank (Fin 2)) :
+    let v := (Parsimony.Data.wordAt 13359 values i.val).val
+    ∃ out : List (Fin 2), out.length = 13 ∧ Parsimony.Counter.value out = v ∧
+    Parsimony.Common.Runs (model values)
+      ⟨data i.val, Tape.mk' (O i.val (L.cons 0)) ((Z (v + 1) (Z 15 R)).cons 1)⟩
+      ⟨data 0, Tape.mk' ((ListBlank.append out L).cons 0)
+        (Z i.val (((Z (v + 2) R).cons 1).cons 0))⟩ := by
+  exact Parsimony.IndexedExtractor.query_extract (model values) data exit 13359 values
+    (row_more values) (row_last values) (row_one values) insert convert 13 insertionRight
+    (indexed_insert_rows values) (indexed_convert_rows values) (by decide +kernel)
+    rfl rfl (by omega) i.val i.val (by have := i.isLt; omega) (by
+      simpa only [values, show (2 : Nat) ^ 13 = 8192 by decide +kernel]
+        using words_bound raw i.val) L R
 
 end ParsimonyComposed
 
+#print axioms ParsimonyComposed.allWordsIndexed
 #print axioms ParsimonyComposed.allWords
 #print axioms ParsimonyComposed.words_bound
 #print axioms ParsimonyComposed.counter_rows
@@ -221,7 +293,7 @@ end ParsimonyComposed
 def main : IO Unit := do
   let file ← IO.FS.Handle.mk ".lake/chess-parsimony-counter-20261024/AllWords.rows" .write
   for i in List.range 13539 do
-    let state := ParsimonyComposed.at (i + 6)
+    let state := ParsimonyComposed.stateOf (i + 6)
     for bit in ([0, 1] : List (Fin 2)) do
       match (ParsimonyComposed.model ParsimonyComposed.values).transition state bit with
       | none => file.putStrLn "halt"

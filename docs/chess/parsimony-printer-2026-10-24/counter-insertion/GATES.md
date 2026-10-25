@@ -1,6 +1,6 @@
 # Gates: bounded counter and word-insertion certification
 
-OWNS: Cryptids/Compilation/Parsimony/Common.lean, Cryptids/Compilation/Parsimony/Counter.lean, Cryptids/Compilation/Parsimony/Insertion.lean, Cryptids/Compilation/Parsimony/Extractor.lean, scripts/chess_parsimony_counter_20261024/**, docs/chess/parsimony-printer-2026-10-24/counter-insertion/**, lakefile.chess-parsimony-counter-20261024.toml, .github/workflows/chess_parsimony_proof_20261024.yml
+OWNS: Cryptids/Compilation/Parsimony/Common.lean, Cryptids/Compilation/Parsimony/Counter.lean, Cryptids/Compilation/Parsimony/Insertion.lean, Cryptids/Compilation/Parsimony/Extractor.lean, Cryptids/Compilation/Parsimony/IndexedInsertion.lean, Cryptids/Compilation/Parsimony/IndexedExtractor.lean, scripts/chess_parsimony_counter_20261024/**, docs/chess/parsimony-printer-2026-10-24/counter-insertion/**, lakefile.chess-parsimony-counter-20261024.toml, .github/workflows/chess_parsimony_proof_20261024.yml
 
 Scope: Certify the existing physical counter and blank-word insertion, including
 their unary-conversion composition with the data routine at all 13,360 words.
@@ -14,12 +14,12 @@ accepted until the later complete printer/link/halting proof is finished.
   EXPECT: PARSIMONY_COUNTER_KERNEL_PASSED
   EVIDENCE: Run 40147646742 at b32b0642816973b1fed4f7bcc6cafd78a212f68f exited zero and emitted PARSIMONY_COUNTER_KERNEL_PASSED. Strict counter build and foundations passed; plus_length/value/exists, pass and complete paid return run audited with standard axioms only. Checked declarations are now pinned in checked-routines-pins.json; all-word physical instantiation remains U1/B1.
 
-- [x] W1: Remote Lean checks blank-word insertion for arbitrary unary length and exterior frames, including both carry paths and the real finish controls.
+- [ ] W1: Remote Lean checks blank-word insertion for arbitrary unary value and word-index lengths and exterior frames, including both carry paths and the real finish controls.
   CHECK: python3 scripts/chess_parsimony_counter_20261024/verify.py
   EXPECT: PARSIMONY_INSERTION_KERNEL_PASSED
-  EVIDENCE: Same zero-exit run emitted PARSIMONY_INSERTION_KERNEL_PASSED. Strict insertion build and foundations passed for charZero, charPositive, charCarry, carryRun, zeroRun and word. Exact arbitrary-frame word contract includes both separators, paid finish controls and all carry entries. No statement was weakened after checking; the source is pinned. Full-data binding remains U1/B1.
+  EVIDENCE: Zero-index subcase checked in run 40147646742 and pinned unchanged. Continuation audit identified a nonzero unary index run at later query entries, so this gate now explicitly requires that additional parameter rather than treating the subcase as complete. IndexedInsertion/IndexedExtractor add the missing contracts; old checked statements stay fixed. Full indexed check pending.
 
-- [ ] U1: The data query, branching, insertion and conversion contracts compose without full-execution unrolling, and instantiate with shared data at all 13,360 actual words under fixed caps.
+- [ ] U1: The data query, branching, insertion and conversion contracts compose for actual unary word-index entries without full-execution unrolling, and instantiate with shared data at all 13,360 actual words under fixed caps.
   CHECK: python3 scripts/chess_parsimony_counter_20261024/verify.py
   EXPECT: PARSIMONY_COUNTER_COMPOSITION_PASSED
   EVIDENCE: pending

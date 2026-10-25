@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/home/runner/work/cryptids/cryptids/scripts/chess_parsimony_counter_20261024/verify.py", line 196, in <module>
+    main()
+  File "/home/runner/work/cryptids/cryptids/scripts/chess_parsimony_counter_20261024/verify.py", line 144, in main
+    output = lean('all-word-composition', instance['source'], run=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/cryptids/cryptids/scripts/chess_parsimony_counter_20261024/verify.py", line 33, in lean
+    output = runner.run(name, ['lake', '-f', LAKE, 'env', 'lean', '-M5120', '-T2000000',
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/cryptids/cryptids/scripts/chess_parsimony_20261024/pilot.py", line 121, in run
+    assert code == expected_exit and cause is None, name + ' failed; retained log: ' + str(log)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: all-word-composition failed; retained log: /home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/all-word-composition.log

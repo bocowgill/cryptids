@@ -54,6 +54,22 @@ numbers, exports all 27,078 local rows (data plus unchanged static printer regio
 and compares them against the exact candidate. The local model's decoder boundary
 is an existing machine state; its outgoing decoder rows and semantics are outside
 this proof. A changed actual counter row must fail kernel certification.
+Round 6 run 40148305978 at 084b318e2d0675cc615970062036dd0ab2aceefd
+retained in evidence/counter-06. Generic proofs repeated successfully. The emitted
+instance failed: `at` is a reserved Lean token, kernel decision tactics require
+closed goals even when free word data is in an unreachable branch, the capacity
+power needed an explicit rewrite, and one simp argument was redundant. Round 7
+renames the constructor, proves static-row independence from word data and checks
+finite rows on an empty array before transporting them to arbitrary data. No
+resource cap was raised or reached.
+
+Continuation audit also found the printer's second unary run: the current word
+index. The checked five-file kernel covers its zero case only. Those files and
+proofs remain pinned unchanged. New IndexedInsertion/IndexedExtractor contracts
+handle arbitrary index runs, both index-shift branches and final index erasure;
+the all-word root must use the actual i.val run. W1 is explicitly pending that
+extension; U1 is not met by a zero-index-only all-word benchmark. At most two
+remote iterations remain under the original eight-iteration phase bound.
 Remaining requested work is
 counter return, blank-word insertion, unary conversion, composition with data
 at all 13,360 words, physical row binding and final foundation/corruption audit.

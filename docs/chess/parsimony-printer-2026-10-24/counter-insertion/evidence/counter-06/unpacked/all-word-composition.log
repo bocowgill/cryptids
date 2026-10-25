@@ -1,0 +1,167 @@
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:13547:18: warning: This simp argument is unused:
+  h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:13553:3: error: unexpected token 'at'; expected identifier
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:13556:23: error: unexpected token 'at'; expected term
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:13559:12: error: unexpected token 'at'; expected ')'
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:13940:2: error: Expected type must not contain free variables
+  (model values).transition (data 13359) 0 = some (0, Dir.right, exit)
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:13948:63: error: unexpected token 'at'; expected term
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:13964:9: error: unexpected token 'at'; expected term
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:13978:11: error: unexpected token 'at'; expected term
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:13996:77: error: Expected type must not contain free variables
+  ∀ (j : Fin 12) (carry : Bool) (bit : Fin 2),
+    0 < ↑j ∨ carry = true →
+      (model values).transition (increment carry ↑j) bit =
+        some (Parsimony.Counter.digit carry bit, Dir.left, increment (Parsimony.Counter.next carry bit) (↑j + 1))
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:14003:28: error: Expected type must not contain free variables
+  ∀ (carry : Bool) (bit : Fin 2),
+    Parsimony.Counter.next carry bit = false →
+      (model values).transition (increment carry 12) bit = some (Parsimony.Counter.digit carry bit, Dir.right, back 1)
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:14009:44: error: Expected type must not contain free variables
+  ∀ (j : Fin 13),
+    1 ≤ ↑j → ∀ (bit : Fin 2), (model values).transition (back ↑j) bit = some (bit, Dir.right, back (↑j + 1))
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:14018:19: error: Expected type must not contain free variables
+  ∀ (j : Fin 13), (model values).transition (insert.a ↑j) 0 = some (0, Dir.left, insert.first ↑j)
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:14060:28: error: Expected type must not contain free variables
+  ∀ (j : Fin 14), 1 ≤ ↑j → (model values).transition (insert.b ↑j) 1 = some (1, Dir.right, insert.b ↑j)
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:14066:32: error: Expected type must not contain free variables
+  ∀ (j : Fin 13), 1 ≤ ↑j → (model values).transition (insert.b ↑j) 0 = some (1, Dir.left, insert.first ↑j)
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:14024:32: error: Expected type must not contain free variables
+  ∀ (j : Fin 13), (model values).transition (insert.first ↑j) 1 = some (1, Dir.left, insert.first ↑j)
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:14030:33: error: Expected type must not contain free variables
+  ∀ (j : Fin 13), (model values).transition (insert.first ↑j) 0 = some (0, Dir.left, insert.second ↑j)
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:14036:30: error: Expected type must not contain free variables
+  ∀ (j : Fin 13), (model values).transition (insert.second ↑j) 0 = some (0, Dir.right, insert.put ↑j)
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:14042:33: error: Expected type must not contain free variables
+  ∀ (j : Fin 13), (model values).transition (insert.put ↑j) 0 = some (0, Dir.right, insert.middle ↑j)
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:14048:25: error: Expected type must not contain free variables
+  ∀ (j : Fin 13), (model values).transition (insert.middle ↑j) 0 = some (0, Dir.right, insert.a (↑j + 1))
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:14054:25: error: Expected type must not contain free variables
+  ∀ (j : Fin 13), (model values).transition (insert.middle ↑j) 1 = some (0, Dir.right, insert.b (↑j + 1))
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:14068:16: error: Expected type must not contain free variables
+  (model values).transition (insert.a 13) 0 = some (0, Dir.right, insert.back)
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:14069:13: error: Expected type must not contain free variables
+  (model values).transition insert.back 0 = some (0, Dir.left, insert.out)
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:14070:16: error: Expected type must not contain free variables
+  (model values).transition (insert.b 13) 0 = some (1, Dir.right, insert.out)
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:14074:13: error: Type mismatch
+  counter_rows values
+has type
+  Parsimony.Counter.Rows (model values) increment back 13
+but is expected to have type
+  Parsimony.Counter.Rows (model values) convert.counter convert.back 13
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:14075:16: error: Expected type must not contain free variables
+  (model values).transition convert.scan 1 = some (1, Dir.right, convert.scan)
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:14076:17: error: Expected type must not contain free variables
+  (model values).transition convert.scan 0 = some (0, Dir.left, convert.delete)
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:14077:18: error: Expected type must not contain free variables
+  (model values).transition convert.delete 1 = some (0, Dir.left, convert.first)
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:14078:17: error: Expected type must not contain free variables
+  (model values).transition convert.first 1 = some (1, Dir.left, convert.first)
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:14079:18: error: Expected type must not contain free variables
+  (model values).transition convert.first 0 = some (0, Dir.left, convert.second)
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:14080:15: error: Expected type must not contain free variables
+  (model values).transition convert.second 0 = some (0, Dir.left, convert.counter true 0)
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:14081:13: error: Expected type must not contain free variables
+  (model values).transition (convert.back 13) 0 = some (0, Dir.right, convert.returnToUnary)
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:14082:22: error: Expected type must not contain free variables
+  (model values).transition convert.returnToUnary 0 = some (0, Dir.right, convert.scan)
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:14083:19: error: Expected type must not contain free variables
+  (model values).transition convert.delete 0 = some (0, Dir.right, convert.makeMarker)
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:14084:19: error: Expected type must not contain free variables
+  (model values).transition convert.makeMarker 0 = some (1, Dir.left, convert.moveLeft)
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:14085:17: error: Expected type must not contain free variables
+  (model values).transition convert.moveLeft 0 = some (0, Dir.left, convert.clean)
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:14086:14: error: Expected type must not contain free variables
+  (model values).transition convert.clean 0 = some (0, Dir.right, convert.data)
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:14096:51: error: Tactic `decide` failed to reduce
+  @decide ((model values).transition exit 0 = some (0, Dir.left, insert.a 0))
+    (((model values).transition exit 0).instDecidableEq (some (0, Dir.left, insert.a 0)))
+to `true` or `false`.
+
+Reduction got stuck at
+  match (model values).transition exit 0 with
+  | none =>
+    match some (0, Dir.left, insert.a 0) with
+    | none => isTrue ⋯
+    | some val => isFalse ⋯
+  | some a =>
+    match some (0, Dir.left, insert.a 0) with
+    | none => isFalse ⋯
+    | some b =>
+      match (fun a b => instDecidableEqProd a b) a b with
+      | { decide := true, reflects_decide := h } => isTrue ⋯
+      | { decide := false, reflects_decide := n } => isFalse ⋯
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:14097:41: error: Type mismatch: After simplification, term
+  words_bound raw ↑i
+ has type
+  @LT.lt ℕ instLTNat (↑(Parsimony.Data.wordAt 13359 (Array.map narrow raw) ↑i)) 8192
+but is expected to have type
+  @LT.lt ℕ instLTNat (↑(Parsimony.Data.wordAt 13359 (Array.map narrow raw) ↑i)) (2 ^ 13)
+'ParsimonyComposed.allWords' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ParsimonyComposed.words_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ParsimonyComposed.counter_rows' depends on axioms: [propext, sorryAx, Quot.sound]
+'ParsimonyComposed.insert_rows' depends on axioms: [propext, sorryAx, Quot.sound]
+'ParsimonyComposed.convert_rows' depends on axioms: [propext, sorryAx, Quot.sound]
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean:14110:17: error(lean.unknownIdentifier): Unknown constant `ParsimonyComposed.at`

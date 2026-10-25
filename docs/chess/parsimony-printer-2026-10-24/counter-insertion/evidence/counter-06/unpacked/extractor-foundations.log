@@ -1,0 +1,13 @@
+'ConjectureMachines.Compilation.Parsimony.Extractor.addMany_exists' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ConjectureMachines.Compilation.Parsimony.Extractor.cycle' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ConjectureMachines.Compilation.Parsimony.Extractor.terminal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ConjectureMachines.Compilation.Parsimony.Extractor.convert' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ConjectureMachines.Compilation.Parsimony.Extractor.convert_safe' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ConjectureMachines.Compilation.Parsimony.Extractor.query' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ConjectureMachines.Compilation.Parsimony.Extractor.query_extract' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

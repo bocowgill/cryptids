@@ -1,0 +1,10 @@
+'ConjectureMachines.Compilation.Parsimony.Insertion.charZero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ConjectureMachines.Compilation.Parsimony.Insertion.charPositive' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ConjectureMachines.Compilation.Parsimony.Insertion.charCarry' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ConjectureMachines.Compilation.Parsimony.Insertion.carryRun' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ConjectureMachines.Compilation.Parsimony.Insertion.zeroRun' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ConjectureMachines.Compilation.Parsimony.Insertion.word' depends on axioms: [propext, Classical.choice, Quot.sound]

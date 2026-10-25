@@ -116,6 +116,14 @@ def main():
     (WORK / 'Extractor.olean').write_bytes(built.read_bytes())
     SUMMARY.setdefault('checked_modules', []).append('Extractor')
     runner.checkpoint()
+    for name in ['IndexedInsertion', 'IndexedExtractor']:
+        output = runner.run('kernel-' + name.lower(), ['lake', '--wfail', '-f', LAKE, 'build',
+            'Cryptids.Compilation.Parsimony.' + name], 240)
+        assert 'warning:' not in output and 'error:' not in output
+        built = ROOT / ('.lake/build/lib/lean/Cryptids/Compilation/Parsimony/' + name + '.olean')
+        (WORK / (name + '.olean')).write_bytes(built.read_bytes())
+        SUMMARY.setdefault('checked_modules', []).append(name)
+        runner.checkpoint()
     for name in ['Data']:
         built = ROOT / ('.lake/build/lib/lean/Cryptids/Compilation/Parsimony/' + name + '.olean')
         (WORK / (name + '.olean')).write_bytes(built.read_bytes())
@@ -132,7 +140,6 @@ def main():
         for root in ['charZero', 'charPositive', 'charCarry', 'carryRun', 'zeroRun', 'word']))
     proof.source_check(audit)
     proof.foundations(lean('insertion-foundations', audit))
-    SUMMARY['gates']['W1'] = True
     audit = WORK / 'ExtractorAudit.lean'
     audit.write_text('import Cryptids.Compilation.Parsimony.Extractor\n' + '\n'.join(
         '#print axioms ConjectureMachines.Compilation.Parsimony.Extractor.' + root
@@ -140,6 +147,15 @@ def main():
                      'query', 'query_extract']))
     proof.source_check(audit)
     proof.foundations(lean('extractor-foundations', audit))
+    audit = WORK / 'IndexedAudit.lean'
+    audit.write_text('import Cryptids.Compilation.Parsimony.IndexedExtractor\n' + '\n'.join(
+        '#print axioms ConjectureMachines.Compilation.Parsimony.' + root for root in
+        ['IndexedInsertion.indexBody', 'IndexedInsertion.word', 'IndexedExtractor.cleanRun',
+         'IndexedExtractor.cycle', 'IndexedExtractor.terminal', 'IndexedExtractor.convert',
+         'IndexedExtractor.convert_safe', 'IndexedExtractor.query_extract']))
+    proof.source_check(audit)
+    proof.foundations(lean('indexed-foundations', audit))
+    SUMMARY['gates']['W1'] = True
     runner.checkpoint()
     output = lean('all-word-composition', instance['source'], run=True)
     proof.foundations(output)
@@ -152,7 +168,8 @@ def main():
     changed[0] = (1 - w, d, t)
     assert changed != instance['actual']
     runner.save('composition.json', dict(words=instance['words'], rows_compared=len(exported),
-        operational_theorem='ParsimonyComposed.allWords', full_execution_unrolled=False,
+        operational_theorem='ParsimonyComposed.allWordsIndexed', full_execution_unrolled=False,
+        arbitrary_index_run_certified=True, actual_word_index_used=True,
         proof_source_bytes=instance['source'].stat().st_size,
         proof_source_sha256=runner.sha(instance['source']),
         object_bytes=instance['source'].with_suffix('.olean').stat().st_size,
@@ -165,9 +182,9 @@ def main():
     corrupted = WORK / 'Corrupted.lean'
     original = instance['source'].read_text()
     target = instance['ids']['convert_incr_no_carry_1']
-    needle = '  (1, .left, at ' + str(target) + ')'
+    needle = '  (1, .left, stateOf ' + str(target) + ')'
     assert original.count(needle) == 1
-    corrupted.write_text(original.replace(needle, '  (0, .left, at ' + str(target) + ')'))
+    corrupted.write_text(original.replace(needle, '  (0, .left, stateOf ' + str(target) + ')'))
     proof.source_check(corrupted)
     rejected = lean('changed-counter-row', corrupted, expected_exit=1)
     assert 'error:' in rejected

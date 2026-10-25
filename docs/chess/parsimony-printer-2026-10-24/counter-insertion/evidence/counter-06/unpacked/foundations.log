@@ -1,0 +1,7 @@
+'ConjectureMachines.Compilation.Parsimony.Counter.plus_length' depends on axioms: [propext]
+'ConjectureMachines.Compilation.Parsimony.Counter.plus_value' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ConjectureMachines.Compilation.Parsimony.Counter.plus_exists' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ConjectureMachines.Compilation.Parsimony.Counter.pass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ConjectureMachines.Compilation.Parsimony.Counter.run' depends on axioms: [propext, Classical.choice, Quot.sound]
