@@ -1,0 +1,14 @@
+✖ [3815/3815] Building Cryptids.Compilation.Parsimony.Counter (2.7s)
+trace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean -M5120 /home/runner/work/cryptids/cryptids/Cryptids/Compilation/Parsimony/Counter.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Compilation/Parsimony/Counter.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Compilation/Parsimony/Counter.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Compilation/Parsimony/Counter.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Compilation/Parsimony/Counter.setup.json --json
+error: Cryptids/Compilation/Parsimony/Counter.lean:86:11: Invalid `⟨...⟩` notation: The expected type `ℕ` has more than one constructor
+
+Note: This notation can only be used when the expected type is an inductive type with a single constructor
+error: Cryptids/Compilation/Parsimony/Counter.lean:123:11: Invalid `⟨...⟩` notation: The expected type `ℕ` has more than one constructor
+
+Note: This notation can only be used when the expected type is an inductive type with a single constructor
+error: Cryptids/Compilation/Parsimony/Counter.lean:147:24: Invalid `⟨...⟩` notation: The expected type `ℕ` has more than one constructor
+
+Note: This notation can only be used when the expected type is an inductive type with a single constructor
+Some required targets logged failures:
+- Cryptids.Compilation.Parsimony.Counter
+error: build failed

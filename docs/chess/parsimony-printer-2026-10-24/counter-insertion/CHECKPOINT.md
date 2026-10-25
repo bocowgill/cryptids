@@ -25,6 +25,15 @@ Logs and receipts are retained in evidence/counter-02; no resource limit hit.
 Round 3 uses an explicit equality-based ReflTransGen definition and checks the
 independent counter/insertion modules sequentially, retaining both diagnostics
 if Common passes. Insertion has exact zero/positive carry and finish contracts.
+Round 3 run 40146645212 at a02c5b02861e72c9793d4dd63c130b3ba445701f
+kernel-checked Common. Counter/insertion failed at name/structure elaboration:
+parent ConjectureMachines.Runs shadowed the opened helper, and grouped structure
+field names were parsed as binders. Exact logs/object are retained in counter-03.
+Round 4 qualifies Common.Runs, separates structure fields and states the actual
+valid entry domains (there is no physical no-carry digit zero or B entry zero).
+It also checks the decreasing unary converter and generic query/insertion/
+conversion composition. Data and existing checked Common declarations are fixed;
+only a new exact-run-to-path helper was appended to Common.
 Remaining requested work is
 counter return, blank-word insertion, unary conversion, composition with data
 at all 13,360 words, physical row binding and final foundation/corruption audit.

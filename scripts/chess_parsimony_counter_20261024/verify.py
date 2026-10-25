@@ -94,6 +94,13 @@ def main():
             runner.checkpoint()
     runner.save('module-failures.json', failures)
     assert not failures, 'Independent proof modules failed; inspect their separate logs'
+    output = runner.run('kernel-extractor', ['lake', '--wfail', '-f', LAKE, 'build',
+        'Cryptids.Compilation.Parsimony.Extractor'], 240)
+    assert 'warning:' not in output and 'error:' not in output
+    built = ROOT / '.lake/build/lib/lean/Cryptids/Compilation/Parsimony/Extractor.olean'
+    (WORK / 'Extractor.olean').write_bytes(built.read_bytes())
+    SUMMARY.setdefault('checked_modules', []).append('Extractor')
+    runner.checkpoint()
     for name in ['Data']:
         built = ROOT / ('.lake/build/lib/lean/Cryptids/Compilation/Parsimony/' + name + '.olean')
         (WORK / (name + '.olean')).write_bytes(built.read_bytes())
@@ -111,9 +118,16 @@ def main():
     proof.source_check(audit)
     proof.foundations(lean('insertion-foundations', audit))
     SUMMARY['gates']['W1'] = True
+    audit = WORK / 'ExtractorAudit.lean'
+    audit.write_text('import Cryptids.Compilation.Parsimony.Extractor\n' + '\n'.join(
+        '#print axioms ConjectureMachines.Compilation.Parsimony.Extractor.' + root
+        for root in ['addMany_exists', 'cycle', 'terminal', 'convert', 'convert_safe',
+                     'query', 'query_extract']))
+    proof.source_check(audit)
+    proof.foundations(lean('extractor-foundations', audit))
     SUMMARY.update(status='counter_checked', complete_requested_composition=False,
-        checked_prefix='Common finite scans; counter arithmetic/return and word insertion',
-        remaining=['unary conversion',
+        checked_prefix='Common scans; counter; word insertion; generic query/extraction composition',
+        remaining=[
                    'all-word composition and candidate row binding', 'final audit'])
     runner.checkpoint()
     print('PARSIMONY_COUNTER_KERNEL_PASSED', flush=True)

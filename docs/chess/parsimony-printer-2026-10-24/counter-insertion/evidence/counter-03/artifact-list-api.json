@@ -1,0 +1,25 @@
+{
+  "total_count": 1,
+  "artifacts": [
+    {
+      "id": 12580373181,
+      "node_id": "MDg6QXJ0aWZhY3QxMjU4MDM3MzE4MQ==",
+      "name": "chess-parsimony-counter-a02c5b02861e72c9793d4dd63c130b3ba445701f",
+      "size_in_bytes": 147601,
+      "url": "https://api.github.com/repos/bocowgill/cryptids/actions/artifacts/12580373181",
+      "archive_download_url": "https://api.github.com/repos/bocowgill/cryptids/actions/artifacts/12580373181/zip",
+      "expired": false,
+      "digest": "sha256:faa7b9168039993c9d29b6df167f3481943f948f6c41febb59437a4e5d989ee7",
+      "created_at": "2026-10-25T00:28:28Z",
+      "updated_at": "2026-10-25T00:28:28Z",
+      "expires_at": "2026-11-24T00:28:27Z",
+      "workflow_run": {
+        "id": 40146645212,
+        "repository_id": 1426408147,
+        "head_repository_id": 1426408147,
+        "head_branch": "codex/chess-openevolve-pilot",
+        "head_sha": "a02c5b02861e72c9793d4dd63c130b3ba445701f"
+      }
+    }
+  ]
+}

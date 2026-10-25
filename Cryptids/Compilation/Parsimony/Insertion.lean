@@ -35,14 +35,20 @@ abbrev O (n : Nat) (frame : ListBlank Bit) := ListBlank.append (List.replicate n
   simp only [Z, ← ListBlank.append_assoc, ← List.replicate_add]
 
 structure Controls (q : Nat) where
-  a b first second put middle : Nat → Fin q
-  back out : Fin q
+  a : Nat → Fin q
+  b : Nat → Fin q
+  first : Nat → Fin q
+  second : Nat → Fin q
+  put : Nat → Fin q
+  middle : Nat → Fin q
+  back : Fin q
+  out : Fin q
 
 /-- Only rows reached under the two-separator invariant are required. -/
 structure Rows {q : Nat} (M : Machine q 2) (c : Controls q) (width : Nat) : Prop where
   a : ∀ i, i < width → M.transition (c.a i) 0 = some (0, .left, c.first i)
-  bOne : ∀ i, i ≤ width → M.transition (c.b i) 1 = some (1, .right, c.b i)
-  bZero : ∀ i, i < width → M.transition (c.b i) 0 = some (1, .left, c.first i)
+  bOne : ∀ i, 1 ≤ i → i ≤ width → M.transition (c.b i) 1 = some (1, .right, c.b i)
+  bZero : ∀ i, 1 ≤ i → i < width → M.transition (c.b i) 0 = some (1, .left, c.first i)
   firstOne : ∀ i, i < width → M.transition (c.first i) 1 = some (1, .left, c.first i)
   firstZero : ∀ i, i < width → M.transition (c.first i) 0 = some (0, .left, c.second i)
   second : ∀ i, i < width → M.transition (c.second i) 0 = some (0, .right, c.put i)
@@ -56,7 +62,7 @@ structure Rows {q : Nat} (M : Machine q 2) (c : Controls q) (width : Nat) : Prop
 /-- A zero-unary character uses the two zero delimiters and advances one cell. -/
 theorem charZero {q : Nat} (M : Machine q 2) (c : Controls q) (width : Nat)
     (rows : Rows M c width) (i : Nat) (bound : i < width) (L R : ListBlank Bit) :
-    Runs M ⟨c.a i, Tape.mk' (Z 2 L) (R.cons 0)⟩
+    Common.Runs M ⟨c.a i, Tape.mk' (Z 2 L) (R.cons 0)⟩
       ⟨c.a (i + 1), Tape.mk' (Z 3 L) R⟩ := by
   have h0 := Common.leftCell M (c.a i) (c.first i) 0 0 0 (L.cons 0) R (rows.a i bound)
   have h1 := Common.leftCell M (c.first i) (c.second i) 0 0 0 L (R.cons 0)
@@ -73,7 +79,7 @@ theorem charZero {q : Nat} (M : Machine q 2) (c : Controls q) (width : Nat)
 theorem charPositive {q : Nat} (M : Machine q 2) (c : Controls q) (width : Nat)
     (rows : Rows M c width) (i : Nat) (bound : i < width) (v : Nat)
     (L R : ListBlank Bit) :
-    Runs M ⟨c.a i, Tape.mk' (O (v + 1) (Z 2 L)) (R.cons 0)⟩
+    Common.Runs M ⟨c.a i, Tape.mk' (O (v + 1) (Z 2 L)) (R.cons 0)⟩
       ⟨c.b (i + 1), Tape.mk' (Z 3 L) (O v (R.cons 0))⟩ := by
   have h0 := Common.left M (c.a i) (c.first i) 0 0 (O (v + 1) (Z 2 L)) R (rows.a i bound)
   have h1 := Common.scanL M (c.first i) (c.second i) 0 (rows.firstOne i bound)
@@ -89,12 +95,13 @@ theorem charPositive {q : Nat} (M : Machine q 2) (c : Controls q) (width : Nat)
 
 /-- One carried character shifts the finite unary run, retaining both delimiters. -/
 theorem charCarry {q : Nat} (M : Machine q 2) (c : Controls q) (width : Nat)
-    (rows : Rows M c width) (i : Nat) (bound : i < width) (v : Nat)
+    (rows : Rows M c width) (i : Nat) (positive : 1 ≤ i) (bound : i < width) (v : Nat)
     (L R : ListBlank Bit) :
-    Runs M ⟨c.b i, Tape.mk' (Z 2 L) (O v (R.cons 0))⟩
+    Common.Runs M ⟨c.b i, Tape.mk' (Z 2 L) (O v (R.cons 0))⟩
       ⟨c.b (i + 1), Tape.mk' (Z 3 L) (O v R)⟩ := by
-  have h0 := Common.repeatR M (c.b i) 1 (rows.bOne i (by omega)) v (Z 2 L) (R.cons 0)
-  have h1 := Common.left M (c.b i) (c.first i) 0 1 (O v (Z 2 L)) R (rows.bZero i bound)
+  have h0 := Common.repeatR M (c.b i) 1 (rows.bOne i positive (by omega)) v (Z 2 L) (R.cons 0)
+  have h1 := Common.left M (c.b i) (c.first i) 0 1 (O v (Z 2 L)) R
+    (rows.bZero i positive bound)
   have h2 := Common.scanL M (c.first i) (c.second i) 0 (rows.firstOne i bound)
     (rows.firstZero i bound) v (L.cons 0) (R.cons 1)
   have h3 := Common.right M (c.second i) (c.put i) 0 0 L ((O v (R.cons 1)).cons 0)
@@ -109,29 +116,29 @@ theorem charCarry {q : Nat} (M : Machine q 2) (c : Controls q) (width : Nat)
 
 /-- Remaining carried characters terminate through the actual final push control. -/
 theorem carryRun {q : Nat} (M : Machine q 2) (c : Controls q) (width : Nat)
-    (rows : Rows M c width) (v count : Nat) : ∀ i, i + count = width →
+    (rows : Rows M c width) (v count : Nat) : ∀ i, 1 ≤ i → i + count = width →
     ∀ L R : ListBlank Bit,
-    Runs M ⟨c.b i, Tape.mk' (Z 2 L) (O v (Z (count + 1) R))⟩
+    Common.Runs M ⟨c.b i, Tape.mk' (Z 2 L) (O v (Z (count + 1) R))⟩
       ⟨c.out, Tape.mk' (O (v + 1) (Z (count + 2) L)) R⟩ := by
   induction count with
   | zero =>
-    intro i total L R
+    intro i positive total L R
     have equal : i = width := by omega
     subst i
     simpa [O, Z, ListBlank.append, List.replicate_succ] using
-      Common.scanR M (c.b width) c.out 1 (rows.bOne width (by omega)) rows.finishB
+      Common.scanR M (c.b width) c.out 1 (rows.bOne width positive (by omega)) rows.finishB
         v (Z 2 L) R
   | succ count ih =>
-    intro i total L R
-    have first := charCarry M c width rows i (by omega) v L (Z (count + 1) R)
-    have rest := ih (i + 1) (by omega) (L.cons 0) R
+    intro i positive total L R
+    have first := charCarry M c width rows i positive (by omega) v L (Z (count + 1) R)
+    have rest := ih (i + 1) (by omega) (by omega) (L.cons 0) R
     simpa [Nat.add_assoc] using first.trans rest
 
 /-- The all-zero unary case uses the actual right/left finish controls. -/
 theorem zeroRun {q : Nat} (M : Machine q 2) (c : Controls q) (width : Nat)
     (rows : Rows M c width) (count : Nat) : ∀ i, i + count = width →
     ∀ L R : ListBlank Bit,
-    Runs M ⟨c.a i, Tape.mk' (Z 2 L) (Z (count + 2) R)⟩
+    Common.Runs M ⟨c.a i, Tape.mk' (Z 2 L) (Z (count + 2) R)⟩
       ⟨c.out, Tape.mk' (Z (count + 2) L) (Z 2 R)⟩ := by
   induction count with
   | zero =>
@@ -150,7 +157,7 @@ theorem zeroRun {q : Nat} (M : Machine q 2) (c : Controls q) (width : Nat)
 /-- Insert exactly width blank bits while preserving every exterior cell. -/
 theorem word {q : Nat} (M : Machine q 2) (c : Controls q) (width : Nat)
     (rows : Rows M c width) (positive : 0 < width) (v : Nat) (L R : ListBlank Bit) :
-    Runs M ⟨c.a 0, Tape.mk' (O v (Z 2 L)) (Z (width + 2) R)⟩
+    Common.Runs M ⟨c.a 0, Tape.mk' (O v (Z 2 L)) (Z (width + 2) R)⟩
       ⟨c.out, Tape.mk' (O v (Z (width + 2) L)) (Z 2 R)⟩ := by
   cases v with
   | zero => simpa using zeroRun M c width rows width 0 (by omega) L R
@@ -159,8 +166,9 @@ theorem word {q : Nat} (M : Machine q 2) (c : Controls q) (width : Nat)
     | zero => omega
     | succ width =>
       have first := charPositive M c (width + 1) rows 0 (by omega) v L (Z (width + 2) R)
-      have rest := carryRun M c (width + 1) rows v width 1 (by omega) (L.cons 0) (Z 2 R)
-      have rest' : Runs M
+      have rest := carryRun M c (width + 1) rows v width 1 (by omega) (by omega)
+        (L.cons 0) (Z 2 R)
+      have rest' : Common.Runs M
           ⟨c.b 1, Tape.mk' (Z 3 L) (O v (Z (width + 3) R))⟩
           ⟨c.out, Tape.mk' (O (v + 1) (Z (width + 3) L)) (Z 2 R)⟩ := by
         simpa [Nat.add_assoc] using rest

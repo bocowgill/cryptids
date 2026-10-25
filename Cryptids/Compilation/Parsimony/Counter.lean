@@ -69,7 +69,7 @@ theorem plus_exists (carry : Bool) (bits : List Bit)
 /-- Local row equations only; the final carry-one row is intentionally unavailable. -/
 structure Rows {q : Nat} (M : Machine q 2) (control : Bool → Nat → Fin q)
     (back : Nat → Fin q) (width : Nat) : Prop where
-  more : ∀ i, i + 1 < width → ∀ carry bit,
+  more : ∀ i, i + 1 < width → ∀ carry bit, (0 < i ∨ carry = true) →
     M.transition (control carry i) bit =
       some (digit carry bit, .left, control (next carry bit) (i + 1))
   last : ∀ carry bit, next carry bit = false →
@@ -82,13 +82,14 @@ theorem pass {q : Nat} (M : Machine q 2) (control : Bool → Nat → Fin q)
     (back : Nat → Fin q) (width : Nat) (rows : Rows M control back width)
     (bits : List Bit) : ∀ (i : Nat) (carry : Bool) (out : List Bit),
     bits ≠ [] → i + bits.length = width → plus carry bits = some out →
+    (0 < i ∨ carry = true) →
     ∀ left right : ListBlank Bit,
-    Runs M ⟨control carry i, atL (ListBlank.append bits left) right⟩
+    Common.Runs M ⟨control carry i, atL (ListBlank.append bits left) right⟩
       ⟨back 1, (Tape.mk' left (ListBlank.append out.reverse right)).move .right⟩ := by
   induction bits with
   | nil => intro i carry out nonempty; exact (nonempty rfl).elim
   | cons bit bits ih =>
-    intro i carry out _nonempty total result left right
+    intro i carry out _nonempty total result valid left right
     cases tail : plus (next carry bit) bits with
     | none => simp [plus, tail] at result
     | some output =>
@@ -108,10 +109,10 @@ theorem pass {q : Nat} (M : Machine q 2) (control : Bool → Nat → Fin q)
       | cons nextBit rest =>
         have first := Common.left M (control carry i) (control (next carry bit) (i + 1))
           bit (digit carry bit) (ListBlank.append (nextBit :: rest) left) right
-          (rows.more i (by simp_all; omega) carry bit)
+          (rows.more i (by simp_all; omega) carry bit valid)
         have later := ih (i + 1) (next carry bit) output (by simp)
           (by simp only [List.length_cons] at total ⊢; omega)
-          tail left (right.cons (digit carry bit))
+          tail (Or.inl (by omega)) left (right.cons (digit carry bit))
         simpa [ListBlank.append, List.reverse_cons, ListBlank.append_assoc] using
           first.trans later
 
@@ -120,12 +121,12 @@ theorem run {q : Nat} (M : Machine q 2) (control : Bool → Nat → Fin q)
     (back : Nat → Fin q) (width : Nat) (rows : Rows M control back width)
     (positive : 0 < width) (bits out : List Bit) (length : bits.length = width)
     (result : plus true bits = some out) (left right : ListBlank Bit) :
-    Runs M ⟨control true 0, atL (ListBlank.append bits left) right⟩
+    Common.Runs M ⟨control true 0, atL (ListBlank.append bits left) right⟩
       ⟨back width, Tape.mk' (ListBlank.append out left) right⟩ := by
   have outLength : out.length = width := (plus_length true bits out result).trans length
   have nonempty : bits ≠ [] := by intro empty; simp [empty] at length; omega
   have first := pass M control back width rows bits 0 true out nonempty
-    (by simpa using length) result left right
+    (by simpa using length) result (Or.inr rfl) left right
   cases reverse : out.reverse with
   | nil => have := congrArg List.length reverse; simp_all
   | cons bit rest =>
@@ -144,7 +145,7 @@ theorem run {q : Nat} (M : Machine q 2) (control : Bool → Nat → Fin q)
       intro i lower upper b
       exact rows.back i lower (by omega) b)
     rw [total, frame] at finish
-    have begin : Runs M ⟨control true 0, atL (ListBlank.append bits left) right⟩
+    have begin : Common.Runs M ⟨control true 0, atL (ListBlank.append bits left) right⟩
         ⟨back 1, Tape.mk' (left.cons bit) (ListBlank.append rest right)⟩ := by
       simpa only [reverse, ListBlank.append, Tape.move_right_mk',
         ListBlank.head_cons, ListBlank.tail_cons] using first

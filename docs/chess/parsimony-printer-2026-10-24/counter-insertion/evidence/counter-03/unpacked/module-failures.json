@@ -1,0 +1,10 @@
+[
+  {
+    "error": "kernel-counter failed; retained log: /home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/kernel-counter.log",
+    "module": "Counter"
+  },
+  {
+    "error": "kernel-insertion failed; retained log: /home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/kernel-insertion.log",
+    "module": "Insertion"
+  }
+]

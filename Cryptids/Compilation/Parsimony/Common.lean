@@ -124,4 +124,18 @@ theorem walkR {q : Nat} (M : Machine q 2) (control : Nat → Fin q)
       List.reverse_cons, ListBlank.append_assoc,
       ListBlank.append] using first.trans rest
 
+/-- An exact successful run gives the same ordinary finite path relation. -/
+theorem of_run {q : Nat} (M : Machine q 2) (count : Nat) :
+    ∀ (cfg out : Cfg q 2), FlatInit.runFrom M count cfg = some out → Runs M cfg out := by
+  induction count with
+  | zero => intro cfg out result; cases result; exact .refl
+  | succ count ih =>
+    intro cfg out result
+    cases first : step M cfg with
+    | none => simp [FlatInit.runFrom, first] at result
+    | some next =>
+      have rest : FlatInit.runFrom M count next = some out := by
+        simpa [FlatInit.runFrom, first] using result
+      exact (Relation.ReflTransGen.single first).trans (ih next out rest)
+
 end ConjectureMachines.Compilation.Parsimony.Common

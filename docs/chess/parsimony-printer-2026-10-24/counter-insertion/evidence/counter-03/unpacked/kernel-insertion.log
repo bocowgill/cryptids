@@ -1,0 +1,53 @@
+✖ [3815/3815] Building Cryptids.Compilation.Parsimony.Insertion (1.0s)
+trace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean -M5120 /home/runner/work/cryptids/cryptids/Cryptids/Compilation/Parsimony/Insertion.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Compilation/Parsimony/Insertion.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Compilation/Parsimony/Insertion.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Compilation/Parsimony/Insertion.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Compilation/Parsimony/Insertion.setup.json --json
+error: Cryptids/Compilation/Parsimony/Insertion.lean:39:7: Failed to infer type of binder `out`
+error: Cryptids/Compilation/Parsimony/Insertion.lean:38:23: Failed to infer type of binder `middle`
+error: Cryptids/Compilation/Parsimony/Insertion.lean:38:19: Failed to infer type of binder `put`
+error: Cryptids/Compilation/Parsimony/Insertion.lean:38:12: Failed to infer type of binder `second`
+error: Cryptids/Compilation/Parsimony/Insertion.lean:38:6: Failed to infer type of binder `first`
+error: Cryptids/Compilation/Parsimony/Insertion.lean:38:4: Failed to infer type of binder `b`
+error: Cryptids/Compilation/Parsimony/Insertion.lean:42:48: Unknown identifier `Controls`
+
+Note: It is not possible to treat `Controls` as an implicitly bound variable here because it has multiple characters while the `relaxedAutoImplicit` option is set to `false`.
+error: Cryptids/Compilation/Parsimony/Insertion.lean:57:50: Unknown identifier `Controls`
+
+Note: It is not possible to treat `Controls` as an implicitly bound variable here because it has multiple characters while the `relaxedAutoImplicit` option is set to `false`.
+error: Cryptids/Compilation/Parsimony/Insertion.lean:59:11: Invalid `⟨...⟩` notation: The expected type `ℕ` has more than one constructor
+
+Note: This notation can only be used when the expected type is an inductive type with a single constructor
+error: Cryptids/Compilation/Parsimony/Insertion.lean:73:54: Unknown identifier `Controls`
+
+Note: It is not possible to treat `Controls` as an implicitly bound variable here because it has multiple characters while the `relaxedAutoImplicit` option is set to `false`.
+error: Cryptids/Compilation/Parsimony/Insertion.lean:76:11: Invalid `⟨...⟩` notation: The expected type `ℕ` has more than one constructor
+
+Note: This notation can only be used when the expected type is an inductive type with a single constructor
+error: Cryptids/Compilation/Parsimony/Insertion.lean:91:51: Unknown identifier `Controls`
+
+Note: It is not possible to treat `Controls` as an implicitly bound variable here because it has multiple characters while the `relaxedAutoImplicit` option is set to `false`.
+error: Cryptids/Compilation/Parsimony/Insertion.lean:94:11: Invalid `⟨...⟩` notation: The expected type `ℕ` has more than one constructor
+
+Note: This notation can only be used when the expected type is an inductive type with a single constructor
+error: Cryptids/Compilation/Parsimony/Insertion.lean:111:50: Unknown identifier `Controls`
+
+Note: It is not possible to treat `Controls` as an implicitly bound variable here because it has multiple characters while the `relaxedAutoImplicit` option is set to `false`.
+error: Cryptids/Compilation/Parsimony/Insertion.lean:114:11: Invalid `⟨...⟩` notation: The expected type `ℕ` has more than one constructor
+
+Note: This notation can only be used when the expected type is an inductive type with a single constructor
+error: Cryptids/Compilation/Parsimony/Insertion.lean:131:49: Unknown identifier `Controls`
+
+Note: It is not possible to treat `Controls` as an implicitly bound variable here because it has multiple characters while the `relaxedAutoImplicit` option is set to `false`.
+error: Cryptids/Compilation/Parsimony/Insertion.lean:134:11: Invalid `⟨...⟩` notation: The expected type `ℕ` has more than one constructor
+
+Note: This notation can only be used when the expected type is an inductive type with a single constructor
+error: Cryptids/Compilation/Parsimony/Insertion.lean:151:46: Unknown identifier `Controls`
+
+Note: It is not possible to treat `Controls` as an implicitly bound variable here because it has multiple characters while the `relaxedAutoImplicit` option is set to `false`.
+error: Cryptids/Compilation/Parsimony/Insertion.lean:153:11: Invalid `⟨...⟩` notation: The expected type `ℕ` has more than one constructor
+
+Note: This notation can only be used when the expected type is an inductive type with a single constructor
+error: Cryptids/Compilation/Parsimony/Insertion.lean:164:10: Invalid `⟨...⟩` notation: The expected type `ℕ` has more than one constructor
+
+Note: This notation can only be used when the expected type is an inductive type with a single constructor
+Some required targets logged failures:
+- Cryptids.Compilation.Parsimony.Insertion
+error: build failed
