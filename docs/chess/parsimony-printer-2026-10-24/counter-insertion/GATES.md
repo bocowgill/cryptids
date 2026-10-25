@@ -12,22 +12,22 @@ accepted until the later complete printer/link/halting proof is finished.
 - [x] C1: Remote Lean checks a reusable nonoverflowing ripple-carry counter contract with exact tape/head and a binary-value successor guarantee.
   CHECK: python3 scripts/chess_parsimony_counter_20261024/verify.py
   EXPECT: PARSIMONY_COUNTER_KERNEL_PASSED
-  EVIDENCE: Run 40147646742 at b32b0642816973b1fed4f7bcc6cafd78a212f68f exited zero and emitted PARSIMONY_COUNTER_KERNEL_PASSED. Strict counter build and foundations passed; plus_length/value/exists, pass and complete paid return run audited with standard axioms only. Checked declarations are now pinned in checked-routines-pins.json; all-word physical instantiation remains U1/B1.
+  EVIDENCE: Final run 40149380578 at 86439e752fc3b2f0fb296d02781e026fca76e655 exited zero and emitted the counter token. Strict counter build and foundations passed; length/value/existence, pass and paid return audited with standard axioms only. Earlier checked source pins stayed identical and the final physical rows are bound. Full logs, shell/cwd/output fingerprint and exact producer are in evidence/counter-07 and gate-evidence.json.
 
-- [ ] W1: Remote Lean checks blank-word insertion for arbitrary unary value and word-index lengths and exterior frames, including both carry paths and the real finish controls.
+- [x] W1: Remote Lean checks blank-word insertion for arbitrary unary value and word-index lengths and exterior frames, including both carry paths and the real finish controls.
   CHECK: python3 scripts/chess_parsimony_counter_20261024/verify.py
   EXPECT: PARSIMONY_INSERTION_KERNEL_PASSED
-  EVIDENCE: Zero-index subcase checked in run 40147646742 and pinned unchanged. Continuation audit identified a nonzero unary index run at later query entries, so this gate now explicitly requires that additional parameter rather than treating the subcase as complete. IndexedInsertion/IndexedExtractor add the missing contracts; old checked statements stay fixed. Full indexed check pending.
+  EVIDENCE: Same final zero-exit run emitted the insertion token. IndexedInsertion.word covers arbitrary value/index runs, both index-shift branches, carries and real finish controls; IndexedExtractor crosses and finally erases the index. The earlier zero-index specialization is pinned unchanged. Strict builds and standard-foundation audits of all indexed roots passed. Every used control is a real emitted address; no ghost or extra paid states.
 
-- [ ] U1: The data query, branching, insertion and conversion contracts compose for actual unary word-index entries without full-execution unrolling, and instantiate with shared data at all 13,360 actual words under fixed caps.
+- [x] U1: The data query, branching, insertion and conversion contracts compose for actual unary word-index entries without full-execution unrolling, and instantiate with shared data at all 13,360 actual words under fixed caps.
   CHECK: python3 scripts/chess_parsimony_counter_20261024/verify.py
   EXPECT: PARSIMONY_COUNTER_COMPOSITION_PASSED
-  EVIDENCE: pending
+  EVIDENCE: Same final zero-exit run emitted the composition token. ParsimonyComposed.allWordsIndexed sets the real index run to i.val for every i : Fin 13360, proves a width-13 word of the actual value and the exact tape/head/erased-index/new-marker boundary. Shared proof data and generic capacity proof avoid full execution unrolling. All-word compile/export 14.678 seconds, sampled peak 5364101120 bytes, object 13456080 bytes, below unchanged caps. Whole-machine global proofs remain outside this gate.
 
-- [ ] B1: All used canonical rows match the unchanged candidate, strict positive proof logs and foundation audits pass, and positive-tested corruption controls reject changed transitions.
+- [x] B1: All used canonical rows match the unchanged candidate, strict positive proof logs and foundation audits pass, and positive-tested corruption controls reject changed transitions.
   CHECK: python3 scripts/chess_parsimony_counter_20261024/verify.py
   EXPECT: PARSIMONY_COUNTER_BINDING_AUDIT_PASSED
-  EVIDENCE: pending
+  EVIDENCE: Same final zero-exit run emitted the binding/audit token. All 27078 cells at addresses 6..13544 match the unchanged candidate. Changed exported data and a single actual increment write are rejected; negative kernel command exits one as expected. Every positive log is warning-free, all roots standard-only, all accepted/frozen and checked-source pins preserved. review.py --iteration 7 independently verified retained provenance, producer blobs, hashes and the single corruption difference. External binary binding is distinguished from a kernel parser/full-machine theorem in RESULTS.md.
 
 - [ ] R1: Complete producer-bound artifacts/logs, measurements, state breakdown, unresolved obligations, diagnosed failures and next task are retained in a clean pushed checkpoint; no pilot job remains active.
   EVIDENCE: pending

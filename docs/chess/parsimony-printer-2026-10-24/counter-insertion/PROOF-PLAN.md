@@ -60,3 +60,34 @@ the full chess suffix link and both final halting directions.
 Round 1: run 40145616663, producer
 `791794fce52335ff6bfc917edaeb148d7c09abd6`. Targets Common scans plus counter
 arithmetic/left sweep only. No phase gate is inferred from a checked prefix.
+
+## Continuation audit: nonzero word-index run
+
+The initial contracts above describe the zero-index subcase. Round 5 checked
+them, including their arithmetic and generic composition; they stay pinned
+unchanged. Inspecting the actual next-query continuation exposed the additional
+unary index run. A benchmark varying every data state while resetting that run
+to zero is not enough for the requested operational milestone.
+
+Write `P(j,L) = 0 :: O(j) ++ 0 :: L` in nearest-head-first left order. The real
+insertion contract starts with left `O(v) ++ P(j,L)` and ends with left
+`O(v) ++ P(j,Z(width) ++ L)`, with the same right-frame contract as above. Its
+secondary left search crosses j ones and turns right on its terminal zero;
+the write-one branch shifts those j ones back right. These are actual emitted
+controls omitted from the zero-index specialization.
+
+The converter keeps j fixed during each increment. It crosses the j ones left
+before entering the counter and crosses them right on return. At terminal value
+zero, it creates the next marker and erases exactly those j ones while moving
+left. Its exit has left `0 :: out ++ L` and right
+`Z(j) ++ [0,1] ++ Z(v+2) ++ R` for the composed query entry. This boundary is
+suitable for the subsequent data-chain advance to the next word. Proving that
+global iteration remains a later obligation.
+
+New IndexedInsertion/IndexedExtractor modules extend the checked specialization
+without changing it. The final full-word family must set j to the actual i.val,
+and certify both the numeric value and complete tape/head result for every
+`i : Fin 13360`. Static-row certificates must be independent of the data array:
+check the finite static tables on an empty array and transport them via a checked
+static-state equality, instead of asking `decide` to accept a free array parameter.
+All native comparison and kernel binary-parser obligations remain distinct.

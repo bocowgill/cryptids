@@ -1,0 +1,40 @@
+{
+  "actual_word_index_used": true,
+  "arbitrary_index_run_certified": true,
+  "command_receipt": {
+    "argv": [
+      "lake",
+      "-f",
+      "lakefile.chess-parsimony-counter-20261024.toml",
+      "env",
+      "lean",
+      "-M5120",
+      "-T2000000",
+      "-o",
+      "/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.olean",
+      "--run",
+      "/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/AllWords.lean"
+    ],
+    "cwd": "/home/runner/work/cryptids/cryptids",
+    "effective_budget_seconds": 180,
+    "elapsed_seconds": 14.678122969000015,
+    "exit": 0,
+    "expected_exit": 0,
+    "log": "all-word-composition.log",
+    "log_sha256": "698b21b38b0fad9e57166b640728775e36507d769de5a9c875decf8296008c8e",
+    "name": "all-word-composition",
+    "peak_group_plus_driver_rss_bytes": 5364101120,
+    "resource_stop": null
+  },
+  "export_sha256": "00c969fe4433fdacb6a5cccee583b1872305a8f3c5a7820c8186078a47942e41",
+  "external_binding_is_not_kernel_parser_certification": true,
+  "full_execution_unrolled": false,
+  "object_bytes": 13456080,
+  "object_sha256": "d0e3bcd034f20ee1ced40f14ccc6d6fc4b1c381ad25b7528413d8d64b88032d4",
+  "operational_theorem": "ParsimonyComposed.allWordsIndexed",
+  "proof_source_bytes": 131413,
+  "proof_source_sha256": "98731976b679e8aca4c94c3cfc1175de324afcdcf633f94300a5494bbf61af10",
+  "rows_compared": 27078,
+  "transport_corruption_rejected": true,
+  "words": 13360
+}

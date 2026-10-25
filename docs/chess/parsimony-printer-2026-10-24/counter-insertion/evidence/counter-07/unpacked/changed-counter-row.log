@@ -1,0 +1,25 @@
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-counter-20261024/Corrupted.lean:14005:77: error: (kernel) application type mismatch
+  id (Eq.refl true)
+argument has type
+  true = true
+but function has type
+  decide
+        (∀ (j : Fin 12) (carry : Bool) (bit : Fin 2),
+          0 < ↑j ∨ carry = true →
+            (model #[]).transition (increment carry ↑j) bit =
+              some
+                (Parsimony.Counter.digit carry bit, Dir.left, increment (Parsimony.Counter.next carry bit) (↑j + 1))) =
+      true →
+    decide
+        (∀ (j : Fin 12) (carry : Bool) (bit : Fin 2),
+          0 < ↑j ∨ carry = true →
+            (model #[]).transition (increment carry ↑j) bit =
+              some
+                (Parsimony.Counter.digit carry bit, Dir.left, increment (Parsimony.Counter.next carry bit) (↑j + 1))) =
+      true
+'ParsimonyComposed.allWordsIndexed' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ParsimonyComposed.allWords' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ParsimonyComposed.words_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ParsimonyComposed.counter_rows' depends on axioms: [propext, sorryAx, Quot.sound]
+'ParsimonyComposed.insert_rows' depends on axioms: [propext, Quot.sound]
+'ParsimonyComposed.convert_rows' depends on axioms: [propext, sorryAx, Quot.sound]

@@ -1,0 +1,24 @@
+'ConjectureMachines.Compilation.Parsimony.IndexedInsertion.indexBody' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ConjectureMachines.Compilation.Parsimony.IndexedInsertion.word' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ConjectureMachines.Compilation.Parsimony.IndexedExtractor.cleanRun' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ConjectureMachines.Compilation.Parsimony.IndexedExtractor.cycle' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ConjectureMachines.Compilation.Parsimony.IndexedExtractor.terminal' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ConjectureMachines.Compilation.Parsimony.IndexedExtractor.convert' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ConjectureMachines.Compilation.Parsimony.IndexedExtractor.convert_safe' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ConjectureMachines.Compilation.Parsimony.IndexedExtractor.query_extract' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

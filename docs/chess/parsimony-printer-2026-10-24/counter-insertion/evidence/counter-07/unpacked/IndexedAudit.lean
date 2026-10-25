@@ -1,0 +1,9 @@
+import Cryptids.Compilation.Parsimony.IndexedExtractor
+#print axioms ConjectureMachines.Compilation.Parsimony.IndexedInsertion.indexBody
+#print axioms ConjectureMachines.Compilation.Parsimony.IndexedInsertion.word
+#print axioms ConjectureMachines.Compilation.Parsimony.IndexedExtractor.cleanRun
+#print axioms ConjectureMachines.Compilation.Parsimony.IndexedExtractor.cycle
+#print axioms ConjectureMachines.Compilation.Parsimony.IndexedExtractor.terminal
+#print axioms ConjectureMachines.Compilation.Parsimony.IndexedExtractor.convert
+#print axioms ConjectureMachines.Compilation.Parsimony.IndexedExtractor.convert_safe
+#print axioms ConjectureMachines.Compilation.Parsimony.IndexedExtractor.query_extract

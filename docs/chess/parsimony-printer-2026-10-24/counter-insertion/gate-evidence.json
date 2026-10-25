@@ -1,0 +1,21 @@
+{
+  "all_matches": true,
+  "command": "python3 scripts/chess_parsimony_counter_20261024/verify.py",
+  "cwd": "/home/runner/work/cryptids/cryptids",
+  "exit": 0,
+  "exit_evidence": "Terminal successful workflow step, no continue-on-error",
+  "manual_recovery_gate": "pending complete payload push and status/ref verification",
+  "matches": {
+    "B1": "PARSIMONY_COUNTER_BINDING_AUDIT_PASSED",
+    "C1": "PARSIMONY_COUNTER_KERNEL_PASSED",
+    "U1": "PARSIMONY_COUNTER_COMPOSITION_PASSED",
+    "W1": "PARSIMONY_INSERTION_KERNEL_PASSED"
+  },
+  "path": "/home/runner/.elan/bin:/snap/bin:/home/runner/.local/bin:/opt/pipx_bin:/home/runner/.cargo/bin:/home/runner/.config/composer/vendor/bin:/usr/local/.ghcup/bin:/home/runner/.dotnet/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+  "producer": "86439e752fc3b2f0fb296d02781e026fca76e655",
+  "retained_review": "review.py --iteration 7 exited zero with PARSIMONY_COUNTER_RETAINED_VERIFIED",
+  "run_id": 40149380578,
+  "shell": "/bin/bash",
+  "workflow_step_log": "proof/7_Bounded counter and insertion certification.txt",
+  "workflow_step_sha256": "bff8f1394e4dc85a649b000d1a759980d8f8e88717df97e8e011572ee6e195f7"
+}
