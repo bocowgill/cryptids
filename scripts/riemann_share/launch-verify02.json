@@ -1,0 +1,19 @@
+{
+  "schema": "rh-decoder-retained-witness-verification-v2",
+  "source_transport_commit": "af6db67b89a92d4d28a0b2e8d9448c03ade19991",
+  "baseline_commit": "6c28d8524fa008c6fb5aadb759df74a55ce96423",
+  "authorization_date": "2026-10-24",
+  "retained_witnesses": 30,
+  "maximum_exported_candidates": 0,
+  "jobs_authorized": 1,
+  "retry": false,
+  "total_seconds": 3180,
+  "aggregate_memory_bytes": 6442450944,
+  "driver_memory_bytes": 536870912,
+  "maximum_concurrent_lean_processes": 1,
+  "lean_allocator_mib": 6144,
+  "new_alias_searches": 0,
+  "paid_resources": false,
+  "chess_paused": true,
+  "broader_search_on_hold": true
+}
