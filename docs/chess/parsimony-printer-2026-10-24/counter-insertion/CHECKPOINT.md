@@ -11,8 +11,14 @@ Accepted complete machine **769,344 states**, source
 saving **160,097**, new accepted saving **zero**. Proof infrastructure does not
 change the machine. The full breakdown is retained in ../proof-memory/RESULTS.md.
 
-Current proof target is the Common scans plus counter arithmetic/left sweep.
-No new kernel check or phase gate is claimed yet. Remaining requested work is
+Round 1 run 40145616663 at 791794fce52335ff6bfc917edaeb148d7c09abd6 failed
+in Common: explicit Tape.move reduction was missing, repeat-list normalization
+used the append-oriented successor law on the input side, a bit argument was
+missing, and an indexed sum needed reassociation. All logs and exact producer
+are retained under evidence/counter-01. No memory or time limit was hit.
+Round 2 corrects those exact issues, adds a shared repeat/cons normalization
+lemma and the counter's paid return sweep. No phase gate is claimed yet.
+Remaining requested work is
 counter return, blank-word insertion, unary conversion, composition with data
 at all 13,360 words, physical row binding and final foundation/corruption audit.
 Data.lean and the preceding shared-data proof/evidence remain immutable.

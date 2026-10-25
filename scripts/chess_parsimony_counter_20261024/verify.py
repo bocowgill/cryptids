@@ -83,17 +83,18 @@ def main():
         built = ROOT / ('.lake/build/lib/lean/Cryptids/Compilation/Parsimony/' + name + '.olean')
         (WORK / (name + '.olean')).write_bytes(built.read_bytes())
     audit = WORK / 'Audit.lean'
-    roots = ['plus_length', 'plus_value', 'plus_exists', 'pass']
+    roots = ['plus_length', 'plus_value', 'plus_exists', 'pass', 'run']
     audit.write_text('import ' + TARGET + '\n' + '\n'.join(
         '#print axioms ConjectureMachines.Compilation.Parsimony.Counter.' + root for root in roots))
     proof.source_check(audit)
     proof.foundations(lean('foundations', audit))
-    SUMMARY.update(status='counter_prefix_checked', complete_requested_composition=False,
-        checked_prefix='Common finite scans; counter arithmetic and left sweep',
-        remaining=['counter return sweep', 'word insertion', 'unary conversion',
+    SUMMARY['gates']['C1'] = True
+    SUMMARY.update(status='counter_checked', complete_requested_composition=False,
+        checked_prefix='Common finite scans; counter arithmetic and complete return path',
+        remaining=['word insertion', 'unary conversion',
                    'all-word composition and candidate row binding', 'final audit'])
     runner.checkpoint()
-    print('PARSIMONY_COUNTER_PREFIX_CHECKED', flush=True)
+    print('PARSIMONY_COUNTER_KERNEL_PASSED', flush=True)
 
 
 if __name__ == '__main__':

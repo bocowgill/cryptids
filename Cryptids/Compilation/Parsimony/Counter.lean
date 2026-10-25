@@ -13,6 +13,8 @@ namespace ConjectureMachines.Compilation.Parsimony.Counter
 
 open Turing Common
 
+set_option backward.isDefEq.respectTransparency false
+
 def digit (carry : Bool) (bit : Bit) : Bit := if carry then if bit = 0 then 1 else 0 else bit
 
 def next (carry : Bool) (bit : Bit) : Bool := carry && decide (bit = 1)
@@ -112,5 +114,40 @@ theorem pass {q : Nat} (M : Machine q 2) (control : Bool → Nat → Fin q)
           tail left (right.cons (digit carry bit))
         simpa [ListBlank.append, List.reverse_cons, ListBlank.append_assoc] using
           first.trans later
+
+/-- The paid return sweep reaches the separator with the exact incremented word. -/
+theorem run {q : Nat} (M : Machine q 2) (control : Bool → Nat → Fin q)
+    (back : Nat → Fin q) (width : Nat) (rows : Rows M control back width)
+    (positive : 0 < width) (bits out : List Bit) (length : bits.length = width)
+    (result : plus true bits = some out) (left right : ListBlank Bit) :
+    Runs M ⟨control true 0, atL (ListBlank.append bits left) right⟩
+      ⟨back width, Tape.mk' (ListBlank.append out left) right⟩ := by
+  have outLength : out.length = width := (plus_length true bits out result).trans length
+  have nonempty : bits ≠ [] := by intro empty; simp [empty] at length; omega
+  have first := pass M control back width rows bits 0 true out nonempty
+    (by simpa using length) result left right
+  cases reverse : out.reverse with
+  | nil => have := congrArg List.length reverse; simp_all
+  | cons bit rest =>
+    have total : 1 + rest.length = width := by
+      have := congrArg List.length reverse
+      simp only [List.length_reverse, List.length_cons] at this
+      omega
+    have word : out = rest.reverse ++ [bit] := by
+      have := congrArg List.reverse reverse
+      simpa using this
+    have frame : ListBlank.append rest.reverse (left.cons bit) =
+        ListBlank.append out left := by
+      simpa only [ListBlank.append_assoc, ListBlank.append] using
+        congrArg (fun bs ↦ ListBlank.append bs left) word.symm
+    have finish := Common.walkR M back rest 1 (left.cons bit) right (by
+      intro i lower upper b
+      exact rows.back i lower (by omega) b)
+    rw [total, frame] at finish
+    have begin : Runs M ⟨control true 0, atL (ListBlank.append bits left) right⟩
+        ⟨back 1, Tape.mk' (left.cons bit) (ListBlank.append rest right)⟩ := by
+      simpa only [reverse, ListBlank.append, Tape.move_right_mk',
+        ListBlank.head_cons, ListBlank.tail_cons] using first
+    exact begin.trans finish
 
 end ConjectureMachines.Compilation.Parsimony.Counter
