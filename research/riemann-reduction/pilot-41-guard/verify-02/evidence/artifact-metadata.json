@@ -1,0 +1,23 @@
+{
+  "artifacts": [
+    {
+      "id": 12600029966,
+      "name": "rh41-verify02-73cff1f1cc90bd00cfbb138be8b48cdaaebe53c0",
+      "size_in_bytes": 1509,
+      "url": "https://api.github.com/repos/bocowgill/cryptids/actions/artifacts/12600029966",
+      "archive_download_url": "https://api.github.com/repos/bocowgill/cryptids/actions/artifacts/12600029966/zip",
+      "expired": false,
+      "created_at": "2026-10-25T13:43:41Z",
+      "expires_at": "2026-11-24T13:43:41Z",
+      "updated_at": "2026-10-25T13:43:41Z",
+      "digest": "sha256:1f08eb3b7a6745c08547f1dec46f7c916929a5ae7fbbdfb07640858957d8e602",
+      "workflow_run": {
+        "id": 40198910472,
+        "repository_id": 1426408147,
+        "head_repository_id": 1426408147,
+        "head_branch": "codex/riemann-reduction",
+        "head_sha": "73cff1f1cc90bd00cfbb138be8b48cdaaebe53c0"
+      }
+    }
+  ]
+}

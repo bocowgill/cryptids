@@ -1,8 +1,10 @@
-# RH reduction: 41/ONE pilot's exact Lean obstruction
+# RH reduction: repaired 41/ONE proof remains unchecked
 
 **Current disposition:** the [fixed decoder-sharing route is closed](pilot-decoder-sharing/CLOSED.md).
-The [41/ONE proof-only pilot](pilot-41-guard/RESULT.md) has run once and stopped
-at a local Lean source error. No retry is authorized, and global avoidance is unproved.
+The [additional repair verification](pilot-41-guard/verify-02/RESULT.md) stopped
+before Lean because its shallow checkout omitted the pinned baseline commit.
+Source repairs are committed but unverified. No retry is authorized; global
+avoidance remains unproved.
 
 **Prior checked result:** one separately authorized verification repaired the computable
 Decidable instance and Lean-checked all 30 retained decoder-sharing counterexamples.
@@ -45,7 +47,7 @@ sampled 5.85 GiB aggregate RSS peak. It replayed only the 30 retained endpoints,
 with no new search, candidate export or retry. The original 3180s/6GiB/512MiB-driver
 limits were kept. Further RH jobs and broader search are held; Chess's pause is preserved.
 
-## Executed cell-41 proof-only pilot
+## First cell-41 proof-only pilot
 
 Run 40154837829, attempt 1, retained the exact first certification obstruction:
 ambiguous custom/mathlib Tape.write/Tape.move at GuardCore.lean:34, subsequent
@@ -64,8 +66,23 @@ The job used 351.125 governed seconds and sampled 5.86 GiB aggregate RSS, within
 the original 3180s/6GiB/512MiB-driver envelope. There was one free job, no retry,
 no candidate and no state saving. [RESULT.md](pilot-41-guard/RESULT.md) retains
 the exact failed source, log, artifact hashes and unexecuted proof obligations.
-The failed source is not repaired here. Every further RH job and broader search
-are held; the accepted 95-state machine and Chess pause remain preserved.
+That failed producer and its evidence are retained unchanged.
+
+## Additional repair verification stopped before proof checks
+
+Run 40198910472, attempt 1, used the repaired namespace/deprecation calls plus the
+pinned Bool iff API. It failed at the first accepted-source Git comparison:
+fatal bad object 6c28d852... . The baseline was the 21st commit and the checkout
+fetched only 20. The job never reached finite filters, proof checking or audits.
+This is a runner defect; it supplies no mathematical result about the repaired proof.
+
+Actual resources were 14.900 governed seconds and 48074752 bytes sampled aggregate
+RSS, with zero wrapped proof/dependency Lean invocations. Artifact 12600029966 is
+retained and hash-matched. The workflow now explicitly fetches the exact proof
+pins; that checkout repair remains unexecuted. No retry or replacement job ran.
+See [the full result](pilot-41-guard/verify-02/RESULT.md) for the unfulfilled
+verification and gate handoff. The accepted 95-state baseline and Chess pause are
+preserved; every further RH job and broader search remain held.
 
 ## Preserved audit and baseline
 

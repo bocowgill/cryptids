@@ -1,0 +1,44 @@
+diff --git a/scripts/riemann41/GuardBoot.lean b/scripts/riemann41/GuardBoot.lean
+index 89aaca71..16f949bc 100644
+--- a/scripts/riemann41/GuardBoot.lean
++++ b/scripts/riemann41/GuardBoot.lean
+@@ -13,7 +13,7 @@ public import Cryptids.ReductionSupport.Riemann95.Bootstrap95
+ 
+ namespace Rh41
+ 
+-open Turing ConjectureMachines ConjectureMachines.Riemann95
++open ConjectureMachines ConjectureMachines.Riemann95
+ 
+ def safeFast : Nat → Fin 95 → List (Fin 2) → Fin 2 → List (Fin 2) → Bool
+   | 0, q, _, h, _ => !(q == 41 && h == 1)
+@@ -39,7 +39,7 @@ theorem safeFast_sound (n : Nat) (q : Fin 95) (L : List (Fin 2))
+       simp [safeFast] at hc
+     simpa [Avoid, Zf380.cfgOfFast, Tape.mk'] using hh
+   | succ n ih =>
+-    have hparts := Bool.and_eq_true.mp hc
++    have hparts := Bool.and_eq_true_iff.mp hc
+     have hh : ¬ (q = 41 ∧ h = 1) := by
+       rintro ⟨rfl, rfl⟩
+       simpa using hparts.1
+diff --git a/scripts/riemann41/GuardCore.lean b/scripts/riemann41/GuardCore.lean
+index ec59801e..e6856954 100644
+--- a/scripts/riemann41/GuardCore.lean
++++ b/scripts/riemann41/GuardCore.lean
+@@ -12,7 +12,7 @@ public import GuardLiteral
+ 
+ namespace Rh41
+ 
+-open Turing ConjectureMachines ConjectureMachines.Riemann95
++open ConjectureMachines ConjectureMachines.Riemann95
+ 
+ def Avoid (c : Cfg 95 2) : Prop := ¬ (c.state = 41 ∧ c.tape.head = 1)
+ 
+@@ -53,7 +53,7 @@ theorem step_overwrite (replacement : Option (Fin 2 × Dir × Fin 95))
+     (c : Cfg 95 2) (ha : Avoid c) : step (overwrite replacement) c = step machine c := by
+   rcases c with ⟨q, t⟩
+   simp only [Avoid] at ha
+-  simp only [step, overwrite, if_neg ha]
++  simp only [step, overwrite, ite_eq_right ha]
+ 
+ def run (m : Machine 95 2) : Nat → Cfg 95 2 → Option (Cfg 95 2)
+   | 0, c => some c

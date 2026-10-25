@@ -1,0 +1,9 @@
+fatal: bad object 6c28d8524fa008c6fb5aadb759df74a55ce96423
+Traceback (most recent call last):
+  File "/home/runner/work/cryptids/cryptids/scripts/riemann41/pilot.py", line 264, in <module>
+    {'prepare': prepare, 'filters': filters}[sys.argv[1]]()
+  File "/home/runner/work/cryptids/cryptids/scripts/riemann41/pilot.py", line 143, in prepare
+    subprocess.run(['git', 'diff', '--exit-code', BASE, '--', 'Cryptids', 'Cryptids.lean',
+  File "/usr/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'diff', '--exit-code', '6c28d8524fa008c6fb5aadb759df74a55ce96423', '--', 'Cryptids', 'Cryptids.lean', 'Challenge.lean', 'artifacts', 'comparator', 'lean-toolchain', 'lakefile.toml', 'lake-manifest.json', 'verify.py']' returned non-zero exit status 128.

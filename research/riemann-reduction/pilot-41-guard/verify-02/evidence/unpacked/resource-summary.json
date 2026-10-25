@@ -1,0 +1,63 @@
+{
+  "status": "execution-failed",
+  "commit": "73cff1f1cc90bd00cfbb138be8b48cdaaebe53c0",
+  "run_id": "40198910472",
+  "total_limit_seconds": 3180,
+  "aggregate_limit_bytes": 6442450944,
+  "driver_limit_bytes": 536870912,
+  "capacity": {
+    "host": {
+      "MemTotal": 16766402560,
+      "MemAvailable": 15249035264
+    },
+    "runner": "GitHub Actions 1000000393",
+    "environment": "github-hosted",
+    "cgroup": "0::/system.slice/hosted-compute-agent.service\n",
+    "visible_cgroup_files": {
+      "/sys/fs/cgroup/memory.max": null,
+      "/sys/fs/cgroup/memory.current": null,
+      "/sys/fs/cgroup/memory/memory.limit_in_bytes": null,
+      "/sys/fs/cgroup/memory/memory.usage_in_bytes": null,
+      "/sys/fs/cgroup/memory.limit_in_bytes": null,
+      "/sys/fs/cgroup/memory.usage_in_bytes": null
+    },
+    "probe_revision": "optional-v1-v2-files; rh41 proof pilot"
+  },
+  "setup_seconds": 14.421700239181519,
+  "stages": [
+    {
+      "name": "fidelity",
+      "argv": [
+        "/usr/bin/python3",
+        "scripts/riemann41/pilot.py",
+        "prepare"
+      ],
+      "exit": 1,
+      "seconds": 0.4752624179999998,
+      "effective_cap_seconds": 120,
+      "stop": null
+    }
+  ],
+  "peak_group_plus_driver_rss_bytes": 48074752,
+  "candidate_limit": 0,
+  "exported_candidates": 0,
+  "new_certified_savings": 0,
+  "global_avoidance_proved": false,
+  "retries": 0,
+  "stage_caps": {
+    "setup": 900,
+    "fidelity": 120,
+    "filters": 180,
+    "local": 600,
+    "assembly": 900,
+    "audits": 450,
+    "packaging": 30
+  },
+  "error": "Failed stage: fidelity",
+  "total_seconds": 14.899998997181513,
+  "driver_peak_rss_bytes": 17240064,
+  "lean_runs": 0,
+  "retained_hashes": {
+    "fidelity.log": "cd82d32834b6bf7835eefe771f01b65af0c699e4e1c2a3038e5874c7ff2b54e8"
+  }
+}

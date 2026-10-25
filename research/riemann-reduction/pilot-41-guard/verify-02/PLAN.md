@@ -1,5 +1,10 @@
 # Authorized repair and one additional verification job — 2026-10-25
 
+**Executed once, stopped before proof checking.** [RESULT.md](RESULT.md) retains
+the shallow-checkout provenance failure. The proof edits remain unverified;
+an explicit-pin checkout repair is prepared but no further job is authorized.
+The approved plan below is historical.
+
 The user authorized repair of the namespace/deprecation errors and exactly one
 additional ordinary free remote job under the original limits, with no retries.
 Chess remains paused; the accepted RH baseline and prior evidence stay pinned;

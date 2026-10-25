@@ -1,5 +1,10 @@
 # 41/ONE proof-only pilot: exact certification obstruction
 
+**Historical first-job result.** The separately authorized
+[repair verification](verify-02/RESULT.md) later stopped before proof checking
+at a shallow-checkout provenance error. The first failed source and all raw
+evidence below remain preserved.
+
 The single approved job completed with **an implementation failure in the local
 Lean proof source**. It did not certify unbounded 41/ONE avoidance, the separator
 trace invariant, or an unconditional overwrite corollary. This is not a mathematical

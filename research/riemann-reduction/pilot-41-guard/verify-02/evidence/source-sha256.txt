@@ -1,0 +1,4 @@
+378128af442264d39e5494f2f78632d180f2f3f8c82244c17618dd7dfbf8879e  scripts/riemann41/GuardCore.lean
+d92b7d739c2819c87bcab0d86dc319beaca660b72a517b4d50a945b127dde4c5  scripts/riemann41/GuardBoot.lean
+b779ca795d9b76905f4454930cac9978c26f633fb9db707a7af3c16f288489e5  scripts/riemann41/AssemblyProbe.lean
+1f08eb3b7a6745c08547f1dec46f7c916929a5ae7fbbdfb07640858957d8e602  research/riemann-reduction/pilot-41-guard/verify-02/evidence/remote-artifact.zip

@@ -1,0 +1,16 @@
+{
+  "run_id": 40198910472,
+  "job_id": 121185664029,
+  "status": "completed",
+  "conclusion": "failure",
+  "run_attempt": 1,
+  "producer": "73cff1f1cc90bd00cfbb138be8b48cdaaebe53c0",
+  "source_transport": "79c7e9450b55792ad8c12ad0832487c1cd7ef8e3",
+  "url": "https://github.com/bocowgill/cryptids/actions/runs/40198910472",
+  "branch": "codex/riemann-reduction",
+  "public_fork": true,
+  "rh_branch_total_runs": 6,
+  "active_rh_runs": 0,
+  "result_scope": "startup failure: pinned baseline outside shallow checkout; no proof checks executed",
+  "checkout_repair_executed": false
+}

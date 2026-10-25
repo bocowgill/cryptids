@@ -5,10 +5,10 @@ Branch: `codex/riemann-reduction`.
 Path: `/Users/bocowgill/.codex/worktrees/4e0d/cryptids`.
 Pinned base: `6c28d8524fa008c6fb5aadb759df74a55ce96423`.
 
-**One additional repaired 41/ONE proof check is now authorized; source preparation only.**
-Read [the repair plan](pilot-41-guard/verify-02/PLAN.md) and
-[the first exact result](pilot-41-guard/RESULT.md). The new authorization is one
-free job with no retry, under the same limits. Global avoidance remains unproved.
+**The additional 41/ONE job stopped before proof checking: missing pinned Git object.**
+Read [the latest result](pilot-41-guard/verify-02/RESULT.md) first.
+Namespace/deprecation/Bool repairs are committed but unverified. No retry or
+further job is authorized; global avoidance remains unproved.
 The [fixed decoder-sharing route stays closed](pilot-decoder-sharing/CLOSED.md).
 All 30 retained decoder-sharing witnesses are Lean-checked and audited.
 The separately authorized job 40145261135 supplied the computable Decidable
@@ -16,7 +16,8 @@ instance, checked the unchanged batch and passed the full-private audit and
 rejection controls. See [the verified result](pilot-decoder-sharing/verify-02/RESULT.md).
 The initial failure 40141846969 remains preserved. No candidate was
 exported. The first 41/ONE job is consumed; the user separately authorized the
-single repair verification on 2026-10-25. No other compute job is authorized.
+single repair verification on 2026-10-25. That job is now consumed as well.
+No other compute job is authorized.
 Both this unchanged-endpoint family and
 the canonical state-53 route are rejected within their stated contracts.
 Broader search remains held. No 94-state RH theorem is certified.
@@ -96,6 +97,27 @@ Full native,
 jump/return/stage coverage, boot prefix safety, unbounded assembly and unconditional
 overwrite remain open. Chess and broader search stay held.
 
+## Additional repair verification — startup failure
+
+Run 40198910472, job 121185664029, attempt 1, producer
+`73cff1f1cc90bd00cfbb138be8b48cdaaebe53c0`, failed before any mathematical check.
+The first Git comparison returned exit 128: fatal bad object 6c28d852... .
+The pinned baseline was the 21st commit, outside fetch-depth:20.
+
+The submitted proof repair removes competing Turing namespace openings, replaces
+if_neg with ite_eq_right and uses Bool.and_eq_true_iff. Statements and hypotheses
+are unchanged, but the remote proof-binding assertion and all Lean/filter/audit
+stages did not execute. Zero new proof credit, candidates or state savings.
+Actual resources: 14.900 governed seconds, 48074752-byte sampled aggregate peak,
+17240064-byte driver peak, zero wrapped Lean proof/dependency invocations.
+
+Artifact 12600029966 is retained and hash-matched; see
+[verify-02/RESULT.md](pilot-41-guard/verify-02/RESULT.md). The current workflow
+explicitly fetches both pinned proof commits; this checkout repair is unexecuted,
+saved with skip CI, and does not authorize a new job. The verification request
+remains unfulfilled. Gate handoff: 4 met, 0 other unmet, 1 abandoned.
+Chess, every further RH run and broader search remain held.
+
 ## Preserved boundaries
 
 - Accepted files, artifact, manifest, toolchain, specification and historical
@@ -104,7 +126,7 @@ overwrite remain open. Chess and broader search stay held.
 - The older Chess campaign remains paused. Its pause file is byte-identical to
   historical checkpoint `b971fa888c84b5a62900171fa17eef7cf2cda6d9`. A read-only
   Git inspection observed its shared branch at
-  `1aa1fb5df7decb40672d58eb2eb46287ad3d894f`, advanced by separate Parsimony
+  `3052b8cfdba08828f975b1213f55a7b6a93d18e5`, advanced by separate Parsimony
   work. That work's recorded run is outside this RH task; no Chess/Parsimony
   source, job or goal was changed here. Do not reset or resume that checkout.
 - All Lean/Lake/LSP/LeanProbe, generation, simulations and executable census

@@ -6,9 +6,11 @@ RH machine is certified. The [retained decoder-sharing witnesses](pilot-decoder-
 are now Lean-checked and audited after the computable Decidable repair: all 30
 fixed aliases violate the required endpoint contract. The
 [fixed family is closed](pilot-decoder-sharing/CLOSED.md). The sole
-[executed proof-only pilot](pilot-41-guard/RESULT.md) for cell 41/ONE stopped
-at a local Lean namespace/deprecation error. Literal fidelity and finite filters
-passed; global avoidance remains unproved, with zero state savings.
+[first proof-only pilot](pilot-41-guard/RESULT.md) for cell 41/ONE stopped
+at a local Lean namespace/deprecation error. The
+[additional repaired check](pilot-41-guard/verify-02/RESULT.md) then stopped before
+Lean because the shallow checkout omitted the baseline commit. The repairs are
+unverified; global avoidance remains unproved, with zero state savings.
 No further job is authorized.
 All other saving estimates below concern the **complete**
 physical machine. Ranges are planning
@@ -19,7 +21,7 @@ success. Decoder costs need not track logical instruction counts.
 | --- | --- | --- | --- | --- |
 | Closed | Canonical skipped-bit removal of decoder 53 with unchanged returns | 0 certified; bridge refuted | Exact zero-DEC counterexample verified | Retired; preserve evidence |
 | Closed contract | Fixed common-ZERO decoder-sharing family | 0 RH savings; all 30 endpoint failures checked | Kernel certificate and full-private audit passed | Preserve exact witnesses; no retry |
-| Held after one proof job | Certify 41/ONE avoidance and an isolated-overwrite corollary | 0; prerequisite only | Local Lean source failed; global trace coverage unproved | Preserve failed source/evidence; no retry authorized |
+| Held after two bounded jobs | Certify 41/ONE avoidance and an isolated-overwrite corollary | 0; prerequisite only | Source repaired, but check stopped before Lean; global coverage unproved | Explicit-pin checkout fix prepared, unexecuted; no further job authorized |
 | 3 | Eliminate a whole register-program transfer or duplicate update | 0-4, very uncertain | High: new stage/register relation | High: logical and physical program changes |
 | 4 | Reuse a temporary bank across non-overlapping phases | 0-4, before any staging cost | High: phase-dependent liveness and frames | High |
 | 5 | Reorder/reverse operand-bank layout to share selection/return work | 0-3 | High for tape reversal; medium/high for a permutation | Medium/high |
@@ -40,7 +42,9 @@ the claim. No machine candidate, state merge, row deletion or combined rewrite
 is proposed. The [result](pilot-41-guard/RESULT.md) kernel-checks literal fidelity
 and independently replays the fixed finite boot/frame filters, but GuardCore's
 namespace collision and fatal deprecation stopped certification. The conjectured
-guard is neither proved nor refuted. All remaining optimization rows stay unexecuted.
+guard is neither proved nor refuted. Its source repairs remain unchecked after
+the additional job's Git provenance startup failure. All remaining optimization
+rows stay unexecuted.
 
 ## 1. Pass-through state 53 and control-word encoding
 

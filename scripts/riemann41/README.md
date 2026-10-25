@@ -48,3 +48,8 @@ launch-verify02.json and .lake/riemann41-verify02; it does not overwrite the fir
 artifact. Its preflight binds the exact namespace/deprecation/Bool compatibility
 substitutions to the failed producer and requires seven finite/source receipts
 to match the retained first run. All original limits and proof boundaries remain.
+
+That additional job stopped at the first Git baseline comparison because the
+pinned baseline was just outside fetch-depth:20. The current checkout recipe
+explicitly fetches the baseline and failed producer; this fix is unexecuted.
+The repaired proofs have not been checked. Every further job remains held.

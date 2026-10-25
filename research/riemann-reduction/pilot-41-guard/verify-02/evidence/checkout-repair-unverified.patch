@@ -1,0 +1,17 @@
+diff --git a/.github/workflows/riemann41.yml b/.github/workflows/riemann41.yml
+index 098865cd..c4f69613 100644
+--- a/.github/workflows/riemann41.yml
++++ b/.github/workflows/riemann41.yml
+@@ -29,6 +29,12 @@ jobs:
+         timeout-minutes: 14
+         with:
+           fetch-depth: 20
++      - name: Fetch the exact pinned proof commits
++        timeout-minutes: 2
++        run: |
++          git fetch --no-tags --depth=1 origin 6c28d8524fa008c6fb5aadb759df74a55ce96423 06e9245fe2675f1c2e94ba1477982c2d2a8b4816
++          git cat-file -e '6c28d8524fa008c6fb5aadb759df74a55ce96423^{commit}'
++          git cat-file -e '06e9245fe2675f1c2e94ba1477982c2d2a8b4816^{commit}'
+       - uses: leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6
+         timeout-minutes: 8
+         with:
