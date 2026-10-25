@@ -1,0 +1,21 @@
+{
+  "schema": "rh41-proof-repair-verification-v2",
+  "source_transport_commit": "79c7e9450b55792ad8c12ad0832487c1cd7ef8e3",
+  "failed_producer": "06e9245fe2675f1c2e94ba1477982c2d2a8b4816",
+  "baseline_commit": "6c28d8524fa008c6fb5aadb759df74a55ce96423",
+  "authorization_date": "2026-10-25",
+  "jobs_authorized": 1,
+  "retry": false,
+  "maximum_exported_candidates": 0,
+  "total_seconds": 3180,
+  "aggregate_memory_bytes": 6442450944,
+  "driver_memory_bytes": 536870912,
+  "maximum_concurrent_lean_processes": 1,
+  "lean_allocator_mib": 6144,
+  "combined_transition_evaluations": 2000000,
+  "maximum_callers": 16,
+  "maximum_frames": 128,
+  "paid_resources": false,
+  "chess_paused": true,
+  "broader_search_on_hold": true
+}
