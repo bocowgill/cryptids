@@ -7,7 +7,7 @@ on:
         type: choice
         required: true
         default: structural
-        options: [structural, memory, counter, global]
+        options: [structural, memory, counter, global, wrapper]
 permissions:
   contents: read
 concurrency:
@@ -52,6 +52,9 @@ jobs:
       - name: Bounded global iteration and frozen packet identity
         if: inputs.phase == 'global'
         run: python3 scripts/chess_parsimony_global_20261024/verify.py
+      - name: Bounded final wrapper with checked batch reuse and corruption control
+        if: inputs.phase == 'wrapper'
+        run: python3 scripts/chess_parsimony_wrapper_20261025/verify.py
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
