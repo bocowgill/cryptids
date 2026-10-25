@@ -176,7 +176,8 @@ theorem startup {q : Nat} (M : Machine q 2) (c : Controls q) (rows : Rows M c) :
   have a := Parsimony.Common.right M c.initial c.signal 0 0 blank blank rows.initial
   have b := Parsimony.Common.leftCell M c.signal c.back 0 1 0 blank blank rows.signal
   have d := Parsimony.Common.right M c.back c.data 0 0 blank (blank.cons 1) rows.back
-  simpa only [Parsimony.Global.blank_cons, atL_cons] using a.trans (b.trans d)
+  simp only [Parsimony.Global.blank_cons] at a b d
+  exact a.trans (b.trans d)
 
 /-- Erase the unary workspace and stop on the last printed bit. -/
 theorem workspace {q : Nat} (M : Machine q 2) (c : Controls q) (rows : Rows M c)
@@ -225,7 +226,7 @@ theorem cleanup {q : Nat} (M : Machine q 2) (c : Controls q) (rows : Rows M c)
   have done := Parsimony.Common.right M c.clear c.out 0 0 blank
     (ListBlank.append packet blank) rows.clearZero
   simp only [List.reverse_append, List.reverse_cons, List.reverse_nil, List.reverse_reverse,
-    List.nil_append, ListBlank.append, List.reverse_replicate, List.length_replicate,
+    List.nil_append, ListBlank.append,
     Nat.zero_add, atL_cons, atL_blank, Parsimony.Global.blank_cons,
     Parsimony.Global.zero_blank] at *
   exact a.trans (walk.trans (enter.trans (erase.trans done)))

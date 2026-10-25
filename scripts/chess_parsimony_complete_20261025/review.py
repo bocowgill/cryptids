@@ -34,7 +34,11 @@ def main():
     retention, run = read(folder / 'retention.json'), read(folder / 'run-api.json')
     assert run['status'] == 'completed' and run['conclusion'] == 'success'
     assert retention['producer_source_verified']
-    assert sha(folder / 'artifact.zip') == retention['artifact_sha256']
+    if (folder / 'artifact.zip').is_file():
+        assert sha(folder / 'artifact.zip') == retention['artifact_sha256']
+    for name, entry in read(folder / 'archive-entries.json').items():
+        assert sha(work / name) == entry['sha256'], name
+        assert (work / name).stat().st_size == entry['bytes'], name
     assert sha(folder / 'logs.zip') == retention['logs_sha256']
     manifest = read(work / 'source-manifest.json')
     assert manifest['commit'] == run['head_sha'] == retention['workflow_commit']

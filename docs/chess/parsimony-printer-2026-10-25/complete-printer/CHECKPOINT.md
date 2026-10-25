@@ -18,3 +18,18 @@ Attempt 1 active: run 40233914383, producer
 4dd1a46617142b843e12cb37849d25cce1bbeaaa. Inspect this handle before another
 launch. Terminal retention command:
 `python3 scripts/chess_parsimony_complete_20261025/retain.py --run 40233914383 --source 4dd1a46617142b843e12cb37849d25cce1bbeaaa --iteration 1`.
+
+Attempt 1 terminal failure: generated PrinterModel.lean line 143 over 100 columns.
+No cache/build/proof commands ran. Full evidence retained in complete-01. Fixed
+in generator by splitting the row-export call; no linter or cap changed. Two
+attempts remain. Startup/cleanup modules remain drafts until remote validation.
+
+Recovery transport: repeated SSH/HTTPS uploads of the redundant 40 MiB artifact
+ZIP stalled; no proof attempt was consumed. Every unpacked archive member and
+its SHA256/byte count, complete logs and API provenance remain tracked. The
+original ZIP remains local and in its original GitHub artifact (30-day retention),
+and the full unpublished Git snapshot is preserved by local branch
+codex/chess-complete-recovery-923c0a0b. New evidence ZIPs are ignored in this phase
+only; no historical evidence is removed. Permanent recovery uses all exact
+unpacked files plus archive-entries.json. All old reused batch archives remain
+unchanged and tracked. Do not depend on GitHub artifact retention for the proofs.

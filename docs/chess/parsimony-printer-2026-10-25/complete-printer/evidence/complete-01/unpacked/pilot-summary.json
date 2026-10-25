@@ -1,0 +1,25 @@
+{
+  "accepted_machine_states": 769344,
+  "candidate_states": 609247,
+  "certified_saving": 0,
+  "commands": [],
+  "complete_printer_certified": false,
+  "driver_peak_rss_kib": 30484,
+  "elapsed_seconds": 8.265614504000013,
+  "experimental_saving": 160097,
+  "failure": "Lean width exceeded: /home/runner/work/cryptids/cryptids/.lake/chess-parsimony-complete-20261024/PrinterModel.lean [143]",
+  "failure_type": "AssertionError",
+  "gates": {},
+  "limits": {
+    "composition_seconds": 180,
+    "driver_rss_bytes": 536870912,
+    "generic_seconds": 240,
+    "group_plus_driver_rss_bytes": 6442450944,
+    "lean_heap_mib": 5120,
+    "lean_threads": 1,
+    "total_seconds": 1200
+  },
+  "new_accepted_machine": false,
+  "schema": "parsimony-complete-printer-v1",
+  "status": "failed"
+}

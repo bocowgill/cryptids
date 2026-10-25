@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/home/runner/work/cryptids/cryptids/scripts/chess_parsimony_complete_20261025/verify.py", line 203, in <module>
+    main()
+  File "/home/runner/work/cryptids/cryptids/scripts/chess_parsimony_complete_20261025/verify.py", line 114, in main
+    proof.source_check(path)
+  File "/home/runner/work/cryptids/cryptids/scripts/chess_parsimony_proof_20261024/verify.py", line 41, in source_check
+    assert not wide, 'Lean width exceeded: ' + str(path) + ' ' + str(wide[:10])
+           ^^^^^^^^
+AssertionError: Lean width exceeded: /home/runner/work/cryptids/cryptids/.lake/chess-parsimony-complete-20261024/PrinterModel.lean [143]

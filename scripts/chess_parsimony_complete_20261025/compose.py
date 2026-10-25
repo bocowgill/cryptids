@@ -124,7 +124,9 @@ def main : IO Unit := do
       | some (write, direction, target) =>
         let d := if direction = .right then 1 else 0
         lines := lines.push s!"{i} {b} {write.val} {d} {target.val}"
-  IO.FS.writeFile "''' + str(work / 'PrinterModel.rows') + '''" (String.intercalate "\\n" lines.toList)
+  IO.FS.writeFile
+    "''' + str(work / 'PrinterModel.rows') + '''"
+    (String.intercalate "\\n" lines.toList)
   IO.println "PARSIMONY_COMPLETE_PRINTER_ROWS_EXPORTED"
 '''
     model = work / 'PrinterModel.lean'
@@ -222,9 +224,13 @@ theorem complete_printer :
   have work := workspace (printer values) controls (printer_rows values) 13359
     (ListBlank.append (Parsimony.Global.written word 13360) blank)
   have finish := tail (printer values) controls (printer_rows values) L
-  rw [geometry] at work
+  have bridge : Parsimony.Common.Runs (printer values)
+      ⟨controls.find, atL (ListBlank.append (Parsimony.Global.written word 13360) blank) blank⟩
+      ⟨controls.find, atL (Z 5 (L.cons 1)) blank⟩ := by
+    rw [geometry]
+    exact .refl
   have clean := cleanup (printer values) controls (printer_rows values) packet _ packet_scan
-  exact first.trans (core.trans (work.trans (finish.trans clean)))
+  exact first.trans (core.trans (work.trans (bridge.trans (finish.trans clean))))
 
 end ParsimonyComposed
 

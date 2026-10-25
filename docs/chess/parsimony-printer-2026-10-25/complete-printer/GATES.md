@@ -10,12 +10,12 @@ integer head-displacement theorem is claimed. Preserve frozen specification,
 nine checked generic sources, machine, old theorem statements and batch objects.
 
 - [ ] P1: A remote kernel-checked complete_printer theorem composes blank startup, full checked printing, cleanup and exact decoder-entry tape, with standard foundations and no missing intermediate premise.
-  CHECK: python3 scripts/chess_parsimony_complete_20261025/review.py --iteration 1
+  CHECK: python3 scripts/chess_parsimony_complete_20261025/review.py --iteration 2
   EXPECT: PARSIMONY_COMPLETE_PRINTER_VERIFIED
   EVIDENCE: pending
 
 - [ ] B1: Complete finite printer rows match the unchanged physical candidate; checked objects are reused with producer/source/toolchain hashes, chunk cleanup certificates cover the entire frozen packet, and paired wrong-head/output controls reject.
-  CHECK: python3 scripts/chess_parsimony_complete_20261025/review.py --iteration 1
+  CHECK: python3 scripts/chess_parsimony_complete_20261025/review.py --iteration 2
   EXPECT: PARSIMONY_COMPLETE_PRINTER_BINDING_VERIFIED
   EVIDENCE: pending
 
