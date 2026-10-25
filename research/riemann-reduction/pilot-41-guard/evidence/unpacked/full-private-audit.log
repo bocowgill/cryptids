@@ -1,0 +1,5 @@
+Checked module level: literal
+Proof roots: 4
+Full-private dependencies: 750
+Permitted axioms used: #[propext]
+RH41_FULL_PRIVATE_AUDIT_PASSED

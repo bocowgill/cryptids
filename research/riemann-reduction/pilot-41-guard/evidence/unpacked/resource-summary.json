@@ -1,0 +1,156 @@
+{
+  "status": "exact-obstruction-recorded",
+  "commit": "06e9245fe2675f1c2e94ba1477982c2d2a8b4816",
+  "run_id": "40154837829",
+  "total_limit_seconds": 3180,
+  "aggregate_limit_bytes": 6442450944,
+  "driver_limit_bytes": 536870912,
+  "capacity": {
+    "host": {
+      "MemTotal": 16766414848,
+      "MemAvailable": 14968668160
+    },
+    "runner": "GitHub Actions 1000000387",
+    "environment": "github-hosted",
+    "cgroup": "0::/system.slice/hosted-compute-agent.service\n",
+    "visible_cgroup_files": {
+      "/sys/fs/cgroup/memory.max": null,
+      "/sys/fs/cgroup/memory.current": null,
+      "/sys/fs/cgroup/memory/memory.limit_in_bytes": null,
+      "/sys/fs/cgroup/memory/memory.usage_in_bytes": null,
+      "/sys/fs/cgroup/memory.limit_in_bytes": null,
+      "/sys/fs/cgroup/memory.usage_in_bytes": null
+    },
+    "probe_revision": "optional-v1-v2-files; rh41 proof pilot"
+  },
+  "setup_seconds": 19.47906804084778,
+  "stages": [
+    {
+      "name": "fidelity",
+      "argv": [
+        "/usr/bin/python3",
+        "scripts/riemann41/pilot.py",
+        "prepare"
+      ],
+      "exit": 0,
+      "seconds": 0.0719945519999996,
+      "effective_cap_seconds": 120,
+      "stop": null
+    },
+    {
+      "name": "filters",
+      "argv": [
+        "/usr/bin/python3",
+        "scripts/riemann41/pilot.py",
+        "filters"
+      ],
+      "exit": 0,
+      "seconds": 0.13580438199999634,
+      "effective_cap_seconds": 180,
+      "stop": null
+    },
+    {
+      "name": "independent-replay",
+      "argv": [
+        "node",
+        "scripts/riemann41/replay.mjs"
+      ],
+      "exit": 0,
+      "seconds": 0.3170991809999961,
+      "effective_cap_seconds": 60,
+      "stop": null
+    },
+    {
+      "name": "setup",
+      "argv": [
+        "/usr/bin/python3",
+        "scripts/riemann41/setup.py"
+      ],
+      "exit": 0,
+      "seconds": 95.22659798700002,
+      "effective_cap_seconds": 879.9770605461522,
+      "stop": null
+    },
+    {
+      "name": "local-kernel",
+      "argv": [
+        "lake",
+        "--wfail",
+        "-f",
+        "lakefile.riemann41.toml",
+        "build",
+        "GuardCore",
+        "GuardBoot"
+      ],
+      "exit": 1,
+      "seconds": 219.69439057,
+      "effective_cap_seconds": 600,
+      "stop": null
+    },
+    {
+      "name": "audits",
+      "argv": [
+        "/usr/bin/python3",
+        "scripts/riemann41/check_lean.py"
+      ],
+      "exit": 0,
+      "seconds": 16.146675469,
+      "effective_cap_seconds": 390,
+      "stop": null
+    }
+  ],
+  "peak_group_plus_driver_rss_bytes": 6292324352,
+  "candidate_limit": 0,
+  "exported_candidates": 0,
+  "new_certified_savings": 0,
+  "global_avoidance_proved": false,
+  "retries": 0,
+  "stage_caps": {
+    "setup": 900,
+    "fidelity": 120,
+    "filters": 180,
+    "local": 600,
+    "assembly": 900,
+    "audits": 450,
+    "packaging": 30
+  },
+  "obstruction": "local-kernel-build-failed",
+  "checked_level": "literal",
+  "transition_evaluations": 36418,
+  "frame_count": 128,
+  "assembly_exit": null,
+  "total_seconds": 351.12450406484777,
+  "driver_peak_rss_bytes": 18509824,
+  "lean_runs": 41,
+  "retained_hashes": {
+    "ReplayAudit.lean": "924eb77e724cba9564d46bb954cbdb864167ba299fa7c47a19bf2d1b08e380f3",
+    "PrintAxioms.lean": "6c65dc7680623d912f91f8f035df799eb767cdc321292801fe2a534835f147cb",
+    "print-axioms.log": "6152051b259a7f7c34a47169e37350e3e36b3cd91a3bc5500732949e170d525d",
+    "InvalidControl.lean": "2d274e40452c3f97d15012e36556c909d8de2d7b0481043390a4aa4a6fc70c66",
+    "independent-replay.json": "4a05c541c7608d1617f704b1cf3d36e34a8c6a3b8fbe271a5f800317c691a46f",
+    "provenance.json": "3175b6f2a8ee2667122e6011fd42637338daf79577d116ffe5b356c1bb5e2bc3",
+    "AssemblyProbe.lean": "b779ca795d9b76905f4454930cac9978c26f633fb9db707a7af3c16f288489e5",
+    "fidelity.log": "80f23c62e9bce7ea1852874bb7312e0a252249e2ef1af8c7d45bc95f20eaca4e",
+    "literal-cells.json": "e0b433c2b8e150b73681e98c383a50196617cdabb9a9c7a203aa7c2abca363f8",
+    "selected-callers.json": "0b7326d3b3185cfa9e16a80daa224739812d5361cb3fdabb448f23f99c26a97e",
+    "forbidden-axiom-control.log": "25e77efff0da4a435953fd833bca02bfafebc29e9ecd1c800424f3f0efd40786",
+    "GuardLiteral.lean": "4b4860e9320ba4eb0205112695dfbf602b13f68a120bef4915548cb1156e4023",
+    "toolchain.json": "89ace14340ae96d2b9a60b135b84579b4b3e0c57998df35f84afb58c026cdc4d",
+    "local-kernel.log": "f5ac04f49fa88d9b39f84044514cdd1cd3c9c72290b0815fd29cde8698a5b118",
+    "frames.jsonl": "be605eb7ed467b3b5a70130c5f3cc69975766baad96bd9a38de1c33445062400",
+    "independent-replay.log": "1468b3f8762e5ceb40960e9de2439f86122e49529788f0495c7f89d2e094a1bd",
+    "lean-invocations.txt": "2c79ff1030c1ae527afd3cdc9a77c8ef48e5bb9db78fdb92d5152af690c085c9",
+    "finite-summary.json": "9346d1dcda468dfe44b0a36b4e64ddba833a383932845c003169d2f2109e1350",
+    "decoder-cases.json": "fde54a0e5bc6f4917517043a6aa0b5d0b9487ed599af603922f020d537feb298",
+    "GuardBoot.lean": "5f6a8c5d0ae1a36b80155ff068afc1f2772ddc1000ae34945dbd837d6386d6c9",
+    "audits.log": "199be64975e059b4710c87824c27c937bd7a7f39c32ff832b0851d8427837384",
+    "result.json": "68509043800d8a49c67281fab0bcb011f8a1fd3dd33a0fa52b9318957f41b439",
+    "lean-verification.json": "c8f9268a8186787e4481bc3493b9354895dc3ed40ad2c4a99ea597b33e237215",
+    "full-private-audit.log": "bb4bc61828bc47516d62e4c859f1560ad63c2806fbf9c7b3516fee24c43cd294",
+    "filters.log": "3c5241372c462877829e0ce144f7cfa6e7b31d4af2d79d7344907a36c0ccfa67",
+    "GuardCore.lean": "f4ffc518c8ad967a3e40f3650093e7e3bf4d0cf70d418e6f6e32a6bad355633c",
+    "boot.json": "77c169da3b3953b66721468c87003dd0a1054ec77eed41f057f3afc3a966b188",
+    "setup.log": "c141cb1bab336be0fbe8eaf051544784574037150d032404a67a51199a6282d0",
+    "kernel-rejection-control.log": "d13d1dd51b1734c25cad4ef2229fdf57f636b5414f58d47ffadbf47a65c16173"
+  }
+}

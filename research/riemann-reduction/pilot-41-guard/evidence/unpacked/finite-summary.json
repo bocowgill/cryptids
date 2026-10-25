@@ -1,0 +1,18 @@
+{
+  "status": "finite-filters-passed",
+  "selected_callers": 16,
+  "frame_count": 128,
+  "primary_transition_evaluations": 18209,
+  "combined_limit": 2000000,
+  "independent_replay_reserved": 18209,
+  "known_hit_control": {
+    "outcome": "target-hit",
+    "transitions": 0,
+    "state": 0,
+    "head": 0,
+    "ones": [],
+    "trace": []
+  },
+  "global_avoidance_proved": false,
+  "exported_candidates": 0
+}

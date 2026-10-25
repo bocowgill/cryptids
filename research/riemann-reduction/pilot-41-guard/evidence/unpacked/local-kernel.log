@@ -1,0 +1,114 @@
+✔ [3251/3266] Built Cryptids.Machines (12s)
+✔ [3252/3266] Built Cryptids.Semantics.Riemann.Gadgets (33s)
+✔ [3253/3266] Built Cryptids.Semantics.Zf.Gadgets (14s)
+✔ [3254/3266] Built Cryptids.Semantics.Zf.Boot (3.6s)
+✔ [3256/3271] Built Cryptids.Riemann120 (10s)
+✔ [3257/3271] Built Cryptids.Semantics.Riemann120.Backend (68s)
+✔ [3258/3271] Built Cryptids.Zf393 (17s)
+✔ [3259/3271] Built Cryptids.Riemann104 (12s)
+✔ [3260/3271] Built Cryptids.Zf380 (25s)
+✔ [3261/3271] Built Cryptids.ReductionSupport.Riemann.WordGuard (1.4s)
+✔ [3262/3271] Built Cryptids.Riemann95Definition (1.4s)
+✔ [3263/3271] Built Cryptids.ReductionSupport.Riemann95.ControllerSchema95 (2.9s)
+✔ [3264/3271] Built Cryptids.ReductionSupport.Riemann95.Bootstrap95 (2.1s)
+✔ [3265/3271] Built Cryptids.ReductionSupport.Riemann95.NoThree95 (1.6s)
+✔ [3266/3271] Built Cryptids.ReductionSupport.Riemann95.ControlStep95 (5.5s)
+✔ [3267/3271] Built GuardLiteral (2.4s)
+✖ [3268/3271] Building GuardCore (1.5s)
+trace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean -M6144 -DwarningAsError=true /home/runner/work/cryptids/cryptids/scripts/riemann41/GuardCore.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/GuardCore.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/GuardCore.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/GuardCore.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/GuardCore.setup.json --json
+error: scripts/riemann41/GuardCore.lean:34:54: Ambiguous term
+  Tape.write
+Possible interpretations:
+  ConjectureMachines.Tape.write : ?m.118 → ConjectureMachines.Tape ?m.118 → ConjectureMachines.Tape ?m.118
+  
+  Turing.Tape.write : ?m.118 → Turing.Tape ?m.118 → Turing.Tape ?m.118
+error: scripts/riemann41/GuardCore.lean:34:66: Ambiguous term
+  Tape.move
+Possible interpretations:
+  ConjectureMachines.Tape.move : Dir → ConjectureMachines.Tape ?m.118 → ConjectureMachines.Tape ?m.118
+  
+  Turing.Tape.move : Dir → Turing.Tape ?m.118 → Turing.Tape ?m.118
+error: scripts/riemann41/GuardCore.lean:34:36: Type mismatch: After simplification, term
+  hb
+ has type
+  @Eq (Fin 2) (ConjectureMachines.Tape.move Dir.right (ConjectureMachines.Tape.write w t)).head 1
+but is expected to have type
+  @Eq (Fin 2) t.right.head 1
+error: scripts/riemann41/GuardCore.lean:38:30: Ambiguous term
+  ListBlank
+Possible interpretations:
+  ConjectureMachines.ListBlank (Fin 2) : Type
+  
+  Turing.ListBlank (Fin 2) : Type
+error: scripts/riemann41/GuardCore.lean:38:30: Ambiguous term
+  ListBlank
+Possible interpretations:
+  ConjectureMachines.ListBlank (Fin 2) : Type
+  
+  Turing.ListBlank (Fin 2) : Type
+error: scripts/riemann41/GuardCore.lean:42:18: Ambiguous term
+  Tape.mk'
+Possible interpretations:
+  ConjectureMachines.Tape.mk' : ConjectureMachines.ListBlank ?m.45 →
+    ConjectureMachines.ListBlank ?m.45 → ConjectureMachines.Tape ?m.45
+  
+  Turing.Tape.mk' : Turing.ListBlank ?m.45 → Turing.ListBlank ?m.45 → Turing.Tape ?m.45
+error: scripts/riemann41/GuardCore.lean:42:28: Ambiguous term
+  Tape.write
+Possible interpretations:
+  ConjectureMachines.Tape.write : ?m.45 → ConjectureMachines.Tape ?m.45 → ConjectureMachines.Tape ?m.45
+  
+  Turing.Tape.write : ?m.45 → Turing.Tape ?m.45 → Turing.Tape ?m.45
+error: scripts/riemann41/GuardCore.lean:42:40: Ambiguous term
+  Tape.move
+Possible interpretations:
+  ConjectureMachines.Tape.move : Dir → ConjectureMachines.Tape ?m.45 → ConjectureMachines.Tape ?m.45
+  
+  Turing.Tape.move : Dir → Turing.Tape ?m.45 → Turing.Tape ?m.45
+error: scripts/riemann41/GuardCore.lean:40:71: unsolved goals
+L : sorry
+R : sorry
+ht : machine.transition 58 1 = some (0, Dir.right, 41)
+⊢ (∃ a,
+      machine.transition 58 (sorry ()).head = some (0, a, 41) ∧
+        ConjectureMachines.Tape.move a (ConjectureMachines.Tape.write 0 (sorry ())) = sorry ()) ∨
+    ∃ a,
+      machine.transition 58 (sorry ()).head = some (1, a, 41) ∧
+        ConjectureMachines.Tape.move a (ConjectureMachines.Tape.write 1 (sorry ())) = sorry ()
+error: scripts/riemann41/GuardCore.lean:42:14: This simp argument is unused:
+  ht
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [step, Tape.mk', Tape.write, Tape.move]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+error: scripts/riemann41/GuardCore.lean:44:32: Ambiguous term
+  ListBlank
+Possible interpretations:
+  ConjectureMachines.ListBlank (Fin 2) : Type
+  
+  Turing.ListBlank (Fin 2) : Type
+error: scripts/riemann41/GuardCore.lean:44:32: Ambiguous term
+  ListBlank
+Possible interpretations:
+  ConjectureMachines.ListBlank (Fin 2) : Type
+  
+  Turing.ListBlank (Fin 2) : Type
+error: scripts/riemann41/GuardCore.lean:46:15: Ambiguous term
+  Tape.mk'
+Possible interpretations:
+  ConjectureMachines.Tape.mk' : ConjectureMachines.ListBlank ?m.13 →
+    ConjectureMachines.ListBlank ?m.13 → ConjectureMachines.Tape ?m.13
+  
+  Turing.Tape.mk' : Turing.ListBlank ?m.13 → Turing.ListBlank ?m.13 → Turing.Tape ?m.13
+error: scripts/riemann41/GuardCore.lean:45:70: unsolved goals
+L : sorry
+R : sorry
+⊢ ¬(sorry ()).head = 1
+error: scripts/riemann41/GuardCore.lean:56:30: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Some required targets logged failures:
+- GuardCore
+error: build failed

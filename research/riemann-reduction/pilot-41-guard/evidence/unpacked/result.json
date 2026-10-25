@@ -1,0 +1,15 @@
+{
+  "status": "exact-obstruction",
+  "obstruction": "local-kernel-build-failed",
+  "local_exit": 1,
+  "assembly_exit": null,
+  "checked_level": "literal",
+  "global_avoidance_proved": false,
+  "unconditional_isolation_proved": false,
+  "exported_candidates": 0,
+  "certified_state_savings": 0,
+  "unexecuted": [
+    "global blank-run assembly",
+    "unconditional overwrite corollary"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "status": "fixed-filters-independently-replayed",
+  "frames": 128,
+  "callers": 16,
+  "transition_evaluations": 18209,
+  "combined_transition_evaluations": 36418,
+  "known_hit_control_rejected": true,
+  "wrong_incoming_cell_rejected": true,
+  "complete_tapes_and_traces_replayed": true,
+  "global_avoidance_proved": false
+}

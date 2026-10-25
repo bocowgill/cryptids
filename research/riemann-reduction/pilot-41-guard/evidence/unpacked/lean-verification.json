@@ -1,0 +1,80 @@
+{
+  "status": "built-local-roots-audited",
+  "checked_level": "literal",
+  "commands": [
+    {
+      "label": "full-private-audit",
+      "argv": [
+        "lake",
+        "-f",
+        "lakefile.riemann41.toml",
+        "env",
+        "lean",
+        "-M6144",
+        "-DwarningAsError=true",
+        "--run",
+        "scripts/riemann41/ReplayAudit.lean",
+        "literal"
+      ],
+      "exit": 0,
+      "output_sha256": "bb4bc61828bc47516d62e4c859f1560ad63c2806fbf9c7b3516fee24c43cd294"
+    },
+    {
+      "label": "forbidden-axiom-control",
+      "argv": [
+        "lake",
+        "-f",
+        "lakefile.riemann41.toml",
+        "env",
+        "lean",
+        "-M6144",
+        "-DwarningAsError=true",
+        "--run",
+        "scripts/riemann41/ReplayAudit.lean",
+        "literal",
+        "--negative-control"
+      ],
+      "exit": 1,
+      "output_sha256": "25e77efff0da4a435953fd833bca02bfafebc29e9ecd1c800424f3f0efd40786"
+    },
+    {
+      "label": "kernel-rejection-control",
+      "argv": [
+        "lake",
+        "-f",
+        "lakefile.riemann41.toml",
+        "env",
+        "lean",
+        "-M6144",
+        "-DwarningAsError=true",
+        "/home/runner/work/cryptids/cryptids/.lake/riemann41/InvalidControl.lean"
+      ],
+      "exit": 1,
+      "output_sha256": "d13d1dd51b1734c25cad4ef2229fdf57f636b5414f58d47ffadbf47a65c16173"
+    },
+    {
+      "label": "print-axioms",
+      "argv": [
+        "lake",
+        "-f",
+        "lakefile.riemann41.toml",
+        "env",
+        "lean",
+        "-M6144",
+        "-DwarningAsError=true",
+        "/home/runner/work/cryptids/cryptids/.lake/riemann41/PrintAxioms.lean"
+      ],
+      "exit": 0,
+      "output_sha256": "6152051b259a7f7c34a47169e37350e3e36b3cd91a3bc5500732949e170d525d"
+    }
+  ],
+  "global_avoidance_proved": false,
+  "isolation_is_conditional": false,
+  "source_hashes": {
+    "ReplayAudit.lean": "924eb77e724cba9564d46bb954cbdb864167ba299fa7c47a19bf2d1b08e380f3",
+    "AssemblyProbe.lean": "b779ca795d9b76905f4454930cac9978c26f633fb9db707a7af3c16f288489e5",
+    "GuardLiteral.lean": "4b4860e9320ba4eb0205112695dfbf602b13f68a120bef4915548cb1156e4023",
+    "GuardBoot.lean": "5f6a8c5d0ae1a36b80155ff068afc1f2772ddc1000ae34945dbd837d6386d6c9",
+    "GuardCore.lean": "f4ffc518c8ad967a3e40f3650093e7e3bf4d0cf70d418e6f6e32a6bad355633c"
+  }
+}

@@ -14,15 +14,29 @@ zero table exports and zero state savings. All executable mathematics is remote.
     Exact caller/bank fixtures, complete tape deltas, independent parser/replay,
     known-hit and proof-rejection controls are present. Global and conditional roots
     are explicitly distinguished. No local mathematical execution occurred.
-- [ ] P2: Exactly one ordinary free remote job runs, with no retry and measured resources.
-  EVIDENCE: pending remote run ID, attempt, capacity and watchdog receipts.
-- [ ] P3: Literal fidelity and bounded rejection filters receive explicit dispositions.
-  EVIDENCE: pending remote receipts, independent replay and known-hit negative control.
-- [ ] P4: The job returns audited global proofs or an exact false/missing implication.
-  EVIDENCE: pending strict kernel logs, local/global root distinctions, full-private audit
-    and fresh sorryAx/kernel-invalid rejection controls. A finite pass is not avoidance.
-- [ ] P5: Evidence is retained, baseline and Chess pause preserved, broader search held.
-  EVIDENCE: pending retained hashes, scoped Git comparisons and final hold.
+- [x] P2: Exactly one ordinary free remote job runs, with no retry and measured resources.
+  EVIDENCE: Run 40154837829, job 121053880229, attempt 1, ordinary ubuntu-24.04;
+    351.125 governed seconds, 6292324352-byte sampled aggregate peak, 18509824-byte
+    driver peak, 41 serialized Lean invocations. No resource stop or retry.
+- [x] P3: Literal fidelity and bounded rejection filters receive explicit dispositions.
+  EVIDENCE: GuardLiteral strict build passed for all 190 cells and selected effects.
+    Finite-summary and independent-replay record 16 callers, 128 frames and the exact
+    3634-step full-tape initializer; 36418 combined evaluations. Known 0/ZERO hit and
+    corrupt incoming-cell controls rejected. No global claim follows from this pass.
+- [x] P4: The job returns audited global proofs or an exact false/missing implication.
+  EVIDENCE: RESULT and local-kernel.log identify ambiguous custom/mathlib tape names
+    beginning at GuardCore.lean:34:54 plus fatal deprecated if_neg at line 56.
+    GuardCore failed; GuardBoot and assembly did not run. Only four built literal
+    roots were audited: 750 dependencies, propext only. Fresh sorryAx and invalid
+    kernel controls rejected, exit 1. The exact-obstruction outcome is met; global
+    avoidance and both local/unconditional isolation receive no certification credit.
+- [x] P5: Evidence is retained, baseline and Chess pause preserved, broader search held.
+  EVIDENCE: Artifact 12584417386 retained intact/extracted; measured ZIP SHA-256 equals
+    ff7e585d6bad60d368fda3a481fc51ac59917607d0102786bcd2637fef708f82.
+    Local/remote failed sources compare equal. Accepted-source, old-runner/evidence
+    and historical Chess-pause scoped Git comparisons exit 0. No further job authorized.
 
 These are task-integration gates reviewed against remote evidence. A met
 exact-obstruction gate does not certify an unproved mathematical conclusion.
+Manual task-integration gates: 5 met, 0 unmet, 0 abandoned. The failed local proof
+is still failed; only completion at the approved exact-obstruction outcome is recorded.

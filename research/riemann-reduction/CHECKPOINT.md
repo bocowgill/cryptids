@@ -5,16 +5,17 @@ Branch: `codex/riemann-reduction`.
 Path: `/Users/bocowgill/.codex/worktrees/4e0d/cryptids`.
 Pinned base: `6c28d8524fa008c6fb5aadb759df74a55ce96423`.
 
-**The fixed decoder-sharing route is closed; one proof-only 41/ONE job is approved.**
-Read [the closure](pilot-decoder-sharing/CLOSED.md) and
-[the proof-only 41/ONE proposal](pilot-41-guard/PROPOSAL.md) first.
+**The proof-only 41/ONE job stopped at a local Lean implementation error.**
+Read [the exact result](pilot-41-guard/RESULT.md) first. No retry or further job
+is authorized. Literal fidelity is checked; global avoidance remains unproved.
+The [fixed decoder-sharing route stays closed](pilot-decoder-sharing/CLOSED.md).
 All 30 retained decoder-sharing witnesses are Lean-checked and audited.
 The separately authorized job 40145261135 supplied the computable Decidable
 instance, checked the unchanged batch and passed the full-private audit and
 rejection controls. See [the verified result](pilot-decoder-sharing/verify-02/RESULT.md).
 The initial failure 40141846969 remains preserved. No candidate was
-exported. The user has now authorized the single bounded 41/ONE pilot, with no
-retry; no other job is authorized. Both this unchanged-endpoint family and
+exported. The one approved 41/ONE job has now been consumed, with no retry.
+Both this unchanged-endpoint family and
 the canonical state-53 route are rejected within their stated contracts.
 Broader search remains held. No 94-state RH theorem is certified.
 
@@ -67,24 +68,29 @@ those 30 endpoints (515 evaluations), and ran no new search. Full-private audit:
 Fresh sorryAx and kernel-invalid controls rejected. No retry or table export.
 Do not rerun enumeration, widen the family or launch another job without approval.
 
-## Approved bounded proof-only pilot — source preparation
+## Executed 41/ONE proof-only pilot — exact obstruction
 
-[Certify cell 41/ONE avoidance](pilot-41-guard/PROPOSAL.md): prove the separator
-guard, refine all intermediate physical traces, cover the 3634-step blank boot
-and assemble avoidance at every finite time. Then prove that an isolated overwrite
-of that one cell preserves every blank-run prefix. Endpoint-only stage theorems
-and finite screens are insufficient. This does not permit a combined rewrite,
-state merge or deletion; zero candidates and zero state savings are proposed.
+Run 40154837829, producer `06e9245fe2675f1c2e94ba1477982c2d2a8b4816`, attempt 1,
+completed the allowed exact-obstruction recipe. GuardCore failed beginning at
+line 34: ambiguous Tape.write/Tape.move, later ListBlank/Tape.mk', plus fatal
+deprecated if_neg at line 56. This is a proof-source error, not a counterexample
+or resource stop. GuardCore, new GuardBoot and assembly receive no proof credit.
 
-Requested future envelope: one free remote job, no retry, 3180 governed seconds,
-6 GiB aggregate RSS, 512 MiB driver, serialized Lean and the repaired capacity
-probe. Bounded rejection filters share a 2000000-transition total. Return the
-audited theorem/corollary or the exact failed guard, missing trace lemma or
-resource obstruction. The original proposal created no runner or launch packet.
-The user approved exactly one free job on 2026-10-24. Separate scripts, proof
-modules and a launch-only workflow are now prepared; no local executable
-mathematics ran. See [the pilot gates](pilot-41-guard/GATES.md). Chess and broader
-search stay held. Only the approved pilot may launch, with no retries.
+GuardLiteral kernel-checked all 190 cells, the unique incoming 58/ONE edge to 41,
+and the selected typed effects. Its four-root full-private audit checked 750
+dependencies, propext only; sorryAx and fresh invalid-proof controls rejected.
+The exact 3634-step full-tape boot and 128 native frames independently replayed:
+16 callers, 36418 combined evaluations, no finite target/guard failure.
+These finite checks do not establish global avoidance or isolated-overwrite safety.
+
+Actual resources: 351.125 governed seconds, sampled 6292324352-byte aggregate peak,
+18509824-byte driver peak, 41 serialized Lean invocations, within all original
+3180s/6GiB/512MiB-driver limits. Artifact 12584417386 is retained and hash-matched.
+Read [RESULT.md](pilot-41-guard/RESULT.md) and [the gates](pilot-41-guard/GATES.md).
+Five task-integration gates met; the exact compiler obstruction is the outcome.
+No repair is applied, no candidate exported and no retry authorized. Full native,
+jump/return/stage coverage, boot prefix safety, unbounded assembly and unconditional
+overwrite remain open. Chess and broader search stay held.
 
 ## Preserved boundaries
 
@@ -94,7 +100,7 @@ search stay held. Only the approved pilot may launch, with no retries.
 - The older Chess campaign remains paused. Its pause file is byte-identical to
   historical checkpoint `b971fa888c84b5a62900171fa17eef7cf2cda6d9`. A read-only
   Git inspection observed its shared branch at
-  `b5a53f9dd1ce628c03cde7db6d8ff27624ef5c49`, advanced by separate Parsimony
+  `1aa1fb5df7decb40672d58eb2eb46287ad3d894f`, advanced by separate Parsimony
   work. That work's recorded run is outside this RH task; no Chess/Parsimony
   source, job or goal was changed here. Do not reset or resume that checkout.
 - All Lean/Lake/LSP/LeanProbe, generation, simulations and executable census
@@ -103,6 +109,5 @@ search stay held. Only the approved pilot may launch, with no retries.
 - New Lean must keep strict warnings/linting, lines <=100, no new hypotheses,
   sorry or native oracle. Public target remains blank-tape `Halts candidate ↔ ¬ RH`.
 
-The source-transport checkpoint launches zero jobs and implements zero candidates;
-one separately committed launch packet will dispatch the approved job.
+This evidence-integration checkpoint launches zero additional jobs and exports zero candidates.
 Its Git commit is reported separately to avoid a self-referential hash.

@@ -1,10 +1,10 @@
-# RH reduction: closed decoder-sharing route and next bounded proposal
+# RH reduction: 41/ONE pilot's exact Lean obstruction
 
 **Current disposition:** the [fixed decoder-sharing route is closed](pilot-decoder-sharing/CLOSED.md).
-The [next proof-only proposal](pilot-41-guard/PROPOSAL.md) awaits approval; no job
-has launched and no saving is claimed for it.
+The [41/ONE proof-only pilot](pilot-41-guard/RESULT.md) has run once and stopped
+at a local Lean source error. No retry is authorized, and global avoidance is unproved.
 
-**Latest checked result:** one separately authorized verification repaired the computable
+**Prior checked result:** one separately authorized verification repaired the computable
 Decidable instance and Lean-checked all 30 retained decoder-sharing counterexamples.
 The full-private audit and explicit rejection controls passed. See
 [the verified result](pilot-decoder-sharing/verify-02/RESULT.md). The first job's
@@ -45,24 +45,27 @@ sampled 5.85 GiB aggregate RSS peak. It replayed only the 30 retained endpoints,
 with no new search, candidate export or retry. The original 3180s/6GiB/512MiB-driver
 limits were kept. Further RH jobs and broader search are held; Chess's pause is preserved.
 
-## Proposed cell-41 guard pilot — awaiting approval
+## Executed cell-41 proof-only pilot
 
-The sole next proposal asks whether actual 41/ONE is unreachable throughout the
-blank run. The proposed reason is concrete: incoming 58/ONE crosses the `10`
-register separator onto ZERO. Proving this requires actual-table fidelity,
-all-intermediate-step macro traces, the 3634-step blank boot and unbounded typed
-closure. Existing endpoint results and finite absence of a visit do not prove it.
+Run 40154837829, attempt 1, retained the exact first certification obstruction:
+ambiguous custom/mathlib Tape.write/Tape.move at GuardCore.lean:34, subsequent
+ListBlank/Tape.mk' ambiguities, and fatal deprecated if_neg at line 56. The local
+module failed; the new boot prefix theorem and assembly did not run. This is an
+implementation failure, not a mathematical refutation of the guard.
 
-If avoidance is proved, derive a separate corollary for overwriting only 41/ONE
-while retaining the 95-state type and every other cell. This permits neither
-state deletion nor a combined optimization that could create a new visit.
-The pilot exports zero candidates and earns zero RH savings even on success.
+The literal module did build and kernel-check all 190 cells, the sole 58/ONE
+incoming edge to 41 and selected typed effects. Its four-root full-private audit
+covers 750 dependencies and uses only propext. Both explicit proof-rejection
+controls passed. Independent finite full-tape replay passed the unchanged
+3634-step initializer and all 128 frames from 16 fixed callers, using 36418 combined
+transitions. These finite results do not certify unbounded avoidance.
 
-The unchanged envelope is one free remote job, no retry, 3180 governed seconds,
-6 GiB aggregate RSS and a 512 MiB driver; Lean remains serialized and remote.
-The [proposal](pilot-41-guard/PROPOSAL.md) fixes finite rejection filters, proof
-gates, audits, controls and exact obstruction reporting. This source-review turn
-adds no runner or workflow. Approval is required before any further compute job.
+The job used 351.125 governed seconds and sampled 5.86 GiB aggregate RSS, within
+the original 3180s/6GiB/512MiB-driver envelope. There was one free job, no retry,
+no candidate and no state saving. [RESULT.md](pilot-41-guard/RESULT.md) retains
+the exact failed source, log, artifact hashes and unexecuted proof obligations.
+The failed source is not repaired here. Every further RH job and broader search
+are held; the accepted 95-state machine and Chess pause remain preserved.
 
 ## Preserved audit and baseline
 

@@ -1,8 +1,10 @@
 # Proposed next pilot: certify avoidance of cell 41/ONE
 
 **Approved for one free remote job, no retries, on 2026-10-24.**
-The user accepted the proposal below. See [GATES.md](GATES.md) for execution
-evidence; the original proposal wording is preserved.
+The job is complete: [RESULT.md](RESULT.md) records the local Lean source failure,
+checked literal roots and independently replayed finite filters. Global avoidance
+is unproved; no further job is authorized. See [GATES.md](GATES.md).
+The original proposal wording is preserved below.
 Original status: proposal only; approval required before launch.
 This is a proof-only prerequisite pilot, with zero optimized candidates, zero
 exported tables and zero state savings claimed. Preparation is lightweight

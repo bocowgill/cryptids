@@ -1,0 +1,7 @@
+{
+  "lean_real": "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean.rh41-real",
+  "original_binary_sha256": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+  "serialized_by": "/home/runner/work/_temp/rh41-lean.lock",
+  "allocator_mib": 6144,
+  "version": "Lean (version 4.35.0-rc4, x86_64-unknown-linux-gnu, commit c29b6dda4f7c20e3eeaa717c4e565663c5cfa364, Release)"
+}
