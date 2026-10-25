@@ -136,6 +136,7 @@ theorem of_run {q : Nat} (M : Machine q 2) (count : Nat) :
     | some next =>
       have rest : FlatInit.runFrom M count next = some out := by
         simpa [FlatInit.runFrom, first] using result
-      exact (Relation.ReflTransGen.single first).trans (ih next out rest)
+      have move : Runs M cfg next := .single first
+      exact move.trans (ih next out rest)
 
 end ConjectureMachines.Compilation.Parsimony.Common

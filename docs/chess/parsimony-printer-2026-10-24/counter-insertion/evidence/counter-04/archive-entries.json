@@ -1,0 +1,44 @@
+{
+  "failure.txt": {
+    "bytes": 840,
+    "sha256": "16152bd665a0bea2de5a06c2c72c376c21e0f4553470f9852b6b72106d4e5012",
+    "crc32": 147997486,
+    "compressed_bytes": 336,
+    "compression": 8
+  },
+  "kernel-common.log": {
+    "bytes": 2235,
+    "sha256": "60b812f7b30070cc935324d57b08918ab8d1dafc4bf388dcfc268c7be60a6286",
+    "crc32": 1819228143,
+    "compressed_bytes": 549,
+    "compression": 8
+  },
+  "mathlib-cache.log": {
+    "bytes": 2131,
+    "sha256": "2da521da357e2514343ab08a96b0e1ed615b9c3c9676c5e2078776502cc94f7f",
+    "crc32": 644279571,
+    "compressed_bytes": 583,
+    "compression": 8
+  },
+  "pilot-summary.json": {
+    "bytes": 2242,
+    "sha256": "3f3e7024768aeb9955bef0a593e5b5ac006b7554640bea86035972e28aedd284",
+    "crc32": 446818042,
+    "compressed_bytes": 896,
+    "compression": 8
+  },
+  "runner-capacity.json": {
+    "bytes": 1790,
+    "sha256": "fa4444befdeef53f406cfb55edca5cf6e06eee0808940d9a0e51652cbced3ae8",
+    "crc32": 1491740457,
+    "compressed_bytes": 676,
+    "compression": 8
+  },
+  "source-manifest.json": {
+    "bytes": 466587,
+    "sha256": "a26d4d2a4201f393629f67b9b7de101979e808f3dfa52d85cc98dfa1f9c563db",
+    "crc32": 1641970145,
+    "compressed_bytes": 127111,
+    "compression": 8
+  }
+}

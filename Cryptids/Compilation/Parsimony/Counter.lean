@@ -109,7 +109,7 @@ theorem pass {q : Nat} (M : Machine q 2) (control : Bool → Nat → Fin q)
       | cons nextBit rest =>
         have first := Common.left M (control carry i) (control (next carry bit) (i + 1))
           bit (digit carry bit) (ListBlank.append (nextBit :: rest) left) right
-          (rows.more i (by simp_all; omega) carry bit valid)
+          (rows.more i (by simp only [List.length_cons] at total; omega) carry bit valid)
         have later := ih (i + 1) (next carry bit) output (by simp)
           (by simp only [List.length_cons] at total ⊢; omega)
           tail (Or.inl (by omega)) left (right.cons (digit carry bit))

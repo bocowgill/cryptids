@@ -34,6 +34,11 @@ valid entry domains (there is no physical no-carry digit zero or B entry zero).
 It also checks the decreasing unary converter and generic query/insertion/
 conversion composition. Data and existing checked Common declarations are fixed;
 only a new exact-run-to-path helper was appended to Common.
+Round 4 run 40147284895 at 13ba1dc8f0e0be4698160001b135e8663b14bc00
+stopped in that new helper: an untyped single-edge constructor inferred equality
+on Option configurations instead of the machine-step relation. Round 5 supplies
+its explicit finite-path type. No old Common theorem was edited; the complete
+failure is retained in evidence/counter-04. No resource cap was hit.
 Remaining requested work is
 counter return, blank-word insertion, unary conversion, composition with data
 at all 13,360 words, physical row binding and final foundation/corruption audit.

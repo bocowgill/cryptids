@@ -1,0 +1,14 @@
+✔ [3813/3814] Built Cryptids.Compilation.Parsimony.Data (6.3s)
+✖ [3814/3814] Building Cryptids.Compilation.Parsimony.Common (1.7s)
+trace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean -M5120 /home/runner/work/cryptids/cryptids/Cryptids/Compilation/Parsimony/Common.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Compilation/Parsimony/Common.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Compilation/Parsimony/Common.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Compilation/Parsimony/Common.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Compilation/Parsimony/Common.setup.json --json
+error: Cryptids/Compilation/Parsimony/Common.lean:139:55: Application type mismatch: The argument
+  ih next out rest
+has type
+  Runs M next out
+but is expected to have type
+  ReflTransGen Eq (some next) ?m.146
+in the application
+  ReflTransGen.trans (ReflTransGen.single first) (ih next out rest)
+Some required targets logged failures:
+- Cryptids.Compilation.Parsimony.Common
+error: build failed
