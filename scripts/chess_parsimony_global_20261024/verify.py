@@ -80,14 +80,18 @@ def main():
         if path.endswith('.lean'):
             proof.source_check(ROOT / path)
     instance = compose.generate(WORK)
-    for key in ['source', 'global_source', 'identity_source']:
+    for key in ['source', 'global_source', 'identity_source', 'common_source']:
         proof.source_check(instance[key])
+    for source_batch in instance['batches']:
+        proof.source_check(source_batch)
     runner.save('instance-plan.json', dict(words=instance['words'], chunks=instance['chunks'],
         states=instance['states'], cells=instance['cells'], final_post=instance['final_post'],
         packet_bits=instance['packet_bits'], framed_bits=instance['framed_bits'],
         packet_sha256=instance['packet_sha256'], candidate_sha256=instance['candidate_sha256'],
         generated_sha256={key: runner.sha(instance[key]) for key in
-            ['source', 'global_source', 'identity_source']}, fresh_machine_states=0))
+            ['source', 'global_source', 'identity_source', 'common_source']},
+        batch_source_sha256={p.name: runner.sha(p) for p in instance['batches']},
+        fresh_machine_states=0))
     runner.checkpoint()
     runner.run('mathlib-cache', ['lake', 'exe', 'cache', 'get',
         'Mathlib.Computability.TuringMachine.PostTuringMachine', 'Mathlib.Data.Nat.Prime.Basic',
@@ -129,11 +133,13 @@ def main():
     assert "'ParsimonyComposed.global_terminated' depends on axioms:" in output
     SUMMARY['gates']['I1'] = True
     runner.checkpoint()
-    pilot = WORK / 'IdentityPilot.lean'
-    pilot.write_text(instance['identity_source'].read_text().split('def packetChars1', 1)[0] +
-        '\nend ParsimonyComposed\n#print axioms ParsimonyComposed.packet_chunk0\n')
-    proof.source_check(pilot)
-    proof.foundations(lean('identity-first-32-words', pilot))
+    proof.foundations(lean('packet-common', instance['common_source']))
+    for index, source_batch in enumerate(instance['batches']):
+        output = lean('identity-batch-' + str(index).zfill(2), source_batch)
+        proof.foundations(output)
+        SUMMARY['checked_identity_words'] = min((index + 1) * 256, 13360)
+        SUMMARY['checked_identity_batches'] = index + 1
+        runner.checkpoint()
     output = lean('frozen-packet-identity', instance['identity_source'])
     proof.foundations(output)
     assert "'ParsimonyComposed.global_bits_identity' depends on axioms:" in output
@@ -180,7 +186,11 @@ theorem packet_first_control : (Parsimony.Packet.render 13 (numeric sub0)).head?
             source_bytes=instance[key].stat().st_size,
             object_sha256=runner.sha(instance[key].with_suffix('.olean')),
             object_bytes=instance[key].with_suffix('.olean').stat().st_size)
-            for key in ['source', 'global_source', 'identity_source']}))
+            for key in ['source', 'global_source', 'identity_source', 'common_source']},
+        batches={path.name: dict(source_sha256=runner.sha(path),
+            object_sha256=runner.sha(path.with_suffix('.olean')),
+            object_bytes=path.with_suffix('.olean').stat().st_size)
+            for path in instance['batches']}))
     SUMMARY['gates']['B1'] = True
     SUMMARY.update(status='global_iteration_packet_identity_passed',
         complete_requested_composition=True,

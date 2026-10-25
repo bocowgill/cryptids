@@ -45,24 +45,9 @@ def generate(work):
     source = source.replace('private def part', 'def part')
     source = source.replace('chess-parsimony-counter-20261024/AllWords.rows',
                             'chess-parsimony-global-20261024/AllWords.rows')
-    # Factor each retained 256-word literal into shared 32-word subarrays.
-    # This changes proof representation only; the exported numeric rows must match.
-    subparts = []
-    def split_part(match):
-        parent, body = match.group(1), match.group(2)
-        entries = re.findall(r'\d+', body)
-        assert 1 <= len(entries) <= 256
-        children = []
-        definitions = ''
-        for begin in range(0, len(entries), 32):
-            name = 'sub' + str(len(subparts))
-            subparts.append(name)
-            children.append(name)
-            definitions += 'def ' + name + ' : Array Nat := #[\n  '
-            definitions += ',\n  '.join(entries[begin:begin + 32]) + '\n]\n'
-        return definitions + 'def ' + parent + ' : Array Nat :=\n' + wrap('  ' + balanced(children))
-    source = re.sub(r'def (part\d+) : Array Nat := #\[(.*?)\]', split_part, source, flags=re.S)
-    assert len(subparts) == 418
+    entries_by_part = [(name, re.findall(r'\d+', body)) for name, body in
+        re.findall(r'def (part\d+) : Array Nat := #\[(.*?)\]', source, re.S)]
+    assert len(entries_by_part) == 53
     parts = re.findall(r'def (part\d+) : Array Nat :=', source)
     assert len(parts) == 53
     source += '\nnamespace ParsimonyComposed\n'
@@ -142,7 +127,7 @@ end ParsimonyComposed
     # Chunk identities read expected characters from the pinned packet, not the table.
     parts = re.findall(r'def (part\d+) : Array Nat :=', source)
     assert len(parts) == 53
-    identity = """import GlobalInstance
+    common = """import GlobalInstance
 
 open Turing ConjectureMachines
 open ConjectureMachines.Compilation
@@ -159,29 +144,68 @@ theorem numeric_eq (input : Array Nat) :
   simp [numeric]
 
 """
-    identity += chars_def('marker', '1' * 32 + '0')
-    identity += chars_def('tailPadding', '100000')
-    chunks, payloads = [], []
-    for i, part in enumerate(subparts):
-        begin, end = i * 32 * 13, min((i + 1) * 32 * 13, len(framed))
-        chunk = framed[begin:end]
-        # First/last framing is kept symbolic in the concatenation proof.
-        payload = chunk[33:] if i == 0 else chunk
-        if i == len(subparts) - 1:
-            payload = payload[:-6]
-        payload_name, name = 'packetChars' + str(i), 'frozenChunk' + str(i)
-        payloads.append(payload_name)
-        chunks.append(name)
-        identity += chars_def(payload_name, payload)
-        expression = payload_name
-        if i == 0:
-            expression = 'marker ++ ' + expression
-        if i == len(subparts) - 1:
-            expression += ' ++ tailPadding'
-        identity += 'def ' + name + ' : List Char := ' + expression + '\n\n'
-        identity += 'theorem packet_chunk' + str(i) + ' :\n'
-        identity += '    Parsimony.Packet.render 13 (numeric ' + part + ') = ' + name + ' := by\n'
-        identity += '  decide +kernel\n\n'
+    common += chars_def('marker', '1' * 32 + '0')
+    common += chars_def('tailPadding', '100000')
+    common += '\nend ParsimonyComposed\n#print axioms ParsimonyComposed.numeric_eq\n'
+    common_source = work / 'PacketCommon.lean'
+    common_source.write_text(common)
+    chunks, payloads, subparts, batches = [], [], [], []
+    for batch, (parent, entries) in enumerate(entries_by_part):
+        module = 'PacketBatch' + str(batch).zfill(2)
+        body = """import PacketCommon
+
+open Turing ConjectureMachines
+open ConjectureMachines.Compilation
+namespace ParsimonyComposed
+
+"""
+        children = []
+        for offset in range(0, len(entries), 32):
+            i = len(subparts)
+            part = 'sub' + str(i)
+            children.append(part)
+            subparts.append(part)
+            body += 'def ' + part + ' : Array Nat := #[\n  '
+            body += ',\n  '.join(entries[offset:offset + 32]) + '\n]\n'
+            begin, end = i * 32 * 13, min((i + 1) * 32 * 13, len(framed))
+            chunk = framed[begin:end]
+            payload = chunk[33:] if i == 0 else chunk
+            if end == len(framed):
+                payload = payload[:-6]
+            payload_name, name = 'packetChars' + str(i), 'frozenChunk' + str(i)
+            payloads.append(payload_name)
+            chunks.append(name)
+            body += chars_def(payload_name, payload)
+            expression = payload_name
+            if i == 0:
+                expression = 'marker ++ ' + expression
+            if end == len(framed):
+                expression += ' ++ tailPadding'
+            body += 'def ' + name + ' : List Char := ' + expression + '\n\n'
+            body += 'theorem packet_chunk' + str(i) + ' :\n'
+            body += '    Parsimony.Packet.render 13 (numeric ' + part + ') = ' + name + ' := by\n'
+            body += '  decide +kernel\n\n'
+        body += 'theorem partition_' + parent + ' : ' + parent + ' =\n'
+        body += wrap('  ' + balanced(children) + ' := by decide +kernel') + '\n'
+        body += '\nend ParsimonyComposed\n'
+        for root in ['partition_' + parent] + ['packet_chunk' + str(j) for j in
+            range(len(subparts) - len(children), len(subparts))]:
+            body += '#print axioms ParsimonyComposed.' + root + '\n'
+        path_batch = work / (module + '.lean')
+        path_batch.write_text(body)
+        batches.append(path_batch)
+    assert len(subparts) == 418
+    identity = '\n'.join('import ' + path.stem for path in batches)
+    identity += """
+
+open Turing ConjectureMachines
+open ConjectureMachines.Compilation
+namespace ParsimonyComposed
+
+"""
+    # Algebraic composition treats certified concrete data as atoms.
+    identity += wrap('attribute [local irreducible] marker tailPadding raw ' +
+        ' '.join(parts + subparts + payloads)) + '\n\n'
     identity += 'def frozenFramed : List Char :=\n' + wrap('  ' + balanced(chunks)) + '\n\n'
     identity += 'def frozenPacket : List Char :=\n' + wrap('  ' + balanced(payloads)) + '\n\n'
     identity += 'theorem packet_framing : frozenFramed = marker ++ frozenPacket ++ tailPadding := by\n'
@@ -189,7 +213,7 @@ theorem numeric_eq (input : Array Nat) :
     identity += wrap('    ' + ', '.join(chunks) + ', List.append_assoc]') + '\n\n'
     identity += 'theorem all_packet_words : Parsimony.Packet.render 13 (numeric raw) = frozenFramed := by\n'
     identity += '  simp only [raw, numeric_append, Parsimony.Packet.render_append,\n'
-    identity += wrap('    ' + ', '.join(parts) + ',') + '\n'
+    identity += wrap('    ' + ', '.join('partition_' + part for part in parts) + ',') + '\n'
     identity += wrap('    ' + ', '.join('packet_chunk' + str(i) for i in range(len(subparts))) + ',') + '\n'
     identity += """    frozenFramed, List.append_assoc]
 
@@ -219,4 +243,4 @@ end ParsimonyComposed
     identity_source.write_text(identity)
     return dict(**item, global_source=global_source, identity_source=identity_source,
         packet_sha256=PACKET_SHA, packet_bits=len(packet), framed_bits=len(framed),
-        chunks=len(subparts), final_post=post)
+        chunks=len(subparts), final_post=post, common_source=common_source, batches=batches)

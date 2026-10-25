@@ -67,7 +67,7 @@ def main():
     assert item['external_binding_is_not_kernel_file_parser']
     assert not item['artifact_to_TableSeed_ChessCodec_bits_bridge']
     for key, name in [('source', 'AllWords'), ('global_source', 'GlobalInstance'),
-                      ('identity_source', 'Identity')]:
+                      ('identity_source', 'Identity'), ('common_source', 'PacketCommon')]:
         saved = item['generated'][key]
         assert sha(work / (name + '.lean')) == saved['source_sha256']
         assert sha(work / (name + '.olean')) == saved['object_sha256']
@@ -79,13 +79,21 @@ def main():
     differences = [(a, b) for a, b in zip(original, corrupted) if a != b]
     assert differences == [('1', '0')]
     # Independent literal/file binding; no generator or machine execution.
-    identity = (work / 'Identity.lean').read_text()
-    definitions = re.findall(r'def packetChars\d+ : List Char :=(.*?)def frozenChunk', identity, re.S)
+    batch_sources = []
+    for name, metadata in item['batches'].items():
+        path = work / name
+        assert sha(path) == metadata['source_sha256']
+        assert sha(path.with_suffix('.olean')) == metadata['object_sha256']
+        batch_sources.append(path.read_text())
+    assert len(batch_sources) == 53
+    definitions = re.findall(r'def packetChars\d+ : List Char :=(.*?)def frozenChunk',
+                             '\n'.join(batch_sources), re.S)
     packet = ''.join(''.join(re.findall(r"'([01])'", chunk)) for chunk in definitions)
     assert len(definitions) == item['chunks']
     assert hashlib.sha256(packet.encode('ascii')).hexdigest() == item['frozen_packet_sha256']
-    marker = identity.split('def marker : List Char :=', 1)[1].split('def tailPadding', 1)[0]
-    tail = identity.split('def tailPadding : List Char :=', 1)[1].split('def packetChars0', 1)[0]
+    common = (work / 'PacketCommon.lean').read_text()
+    marker = common.split('def marker : List Char :=', 1)[1].split('def tailPadding', 1)[0]
+    tail = common.split('def tailPadding : List Char :=', 1)[1].split('end ParsimonyComposed', 1)[0]
     assert ''.join(re.findall(r"'([01])'", marker)) == '1' * 32 + '0'
     assert ''.join(re.findall(r"'([01])'", tail)) == '100000'
     for path, expected in manifest['frozen_source_sha256'].items():

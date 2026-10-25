@@ -85,3 +85,28 @@ list map/modulo, with a reusable proof relating it to the same Fin array. Avoid
 normalizing Array.map and bound proofs during character identity decisions.
 The positive/negative control inspects the checked first output bit directly.
 No fifth job was launched from intermediate commit a07504be.
+
+Attempt 5 dispatched from 1aa1fb5df7decb40672d58eb2eb46287ad3d894f after successful
+push and exact fork-ref verification. No job dispatched from a07504be. This
+pilot checks one 32-word identity first and then the complete unchanged machine
+prefix and packet representation under the original caps.
+Attempt 5 run handle: 40155348005. Attempt 4's complete operational root took
+3.237 seconds at sampled 4,929,732,608 bytes; full iteration is already checked.
+Only the new packet representation/scaling remains under test in this run.
+
+Attempt 5 terminal failure retained in evidence/global-05. The actual iteration
+rechecked, and the 32-word character identity passed with standard foundations
+in 3.616 seconds at 4,971,102,208 bytes. The single full certificate module still
+accumulated proof memory and hit its 180-second wall cap at 6,249,267,200 bytes.
+Full packet identity remains unaccepted. Refactoring the runtime array also made
+the all-word compile unnecessarily slower (100.65 s); undo that representation
+change rather than treating it as progress.
+
+Attempt 6 redesign: keep the original runtime array and fast all-word instance.
+Certify 53 independent 256-word batches in separate Lean processes, each using
+eight at-most-32-word character certificates. Each batch proves its proof-data
+subarrays partition the exact original part; no native equality oracle is used.
+Compose opaque checked atoms algebraically, avoiding both repeated reductions
+and elaborator expansion of payload lists. Retain/checkpoint after every batch.
+Keep per-stage and total caps fixed, and require all 13,360 words to pass; the
+successful small sample alone is not completion. Three of eight attempts remain.

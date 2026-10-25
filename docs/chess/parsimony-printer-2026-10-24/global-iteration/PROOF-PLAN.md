@@ -26,7 +26,11 @@ The left-frame word order is little endian and most recent word first. Reverse
 the entire printed prefix to obtain chronological big-endian output. Prove
 index-based rendering agrees with rendering the numeric array's ordered list.
 Use 418 certificates of at most 32 words (416 characters), then compose their
-identities with append lemmas. The first attempt at 53 larger string-based
+identities in 53 separately checked 256-word modules with append lemmas. Keep
+the runtime array unchanged and prove each batch partitions its actual original
+array. Treat the checked concrete characters as opaque atoms during composition.
+The monolithic module accumulated proof memory despite a successful 32-word
+check; splitting compilation is the next bounded scalability test. The first attempt at 53 larger string-based
 certificates failed to normalize and hit the fixed time cap; keep that evidence. The expected characters come independently from the pinned
 packet.bits file, not by reading the candidate's reconstructed output.
 

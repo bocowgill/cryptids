@@ -1,0 +1,25 @@
+{
+  "total_count": 1,
+  "artifacts": [
+    {
+      "id": 12584468328,
+      "node_id": "MDg6QXJ0aWZhY3QxMjU4NDQ2ODMyOA==",
+      "name": "chess-parsimony-global-1aa1fb5df7decb40672d58eb2eb46287ad3d894f",
+      "size_in_bytes": 3035902,
+      "url": "https://api.github.com/repos/bocowgill/cryptids/actions/artifacts/12584468328",
+      "archive_download_url": "https://api.github.com/repos/bocowgill/cryptids/actions/artifacts/12584468328/zip",
+      "expired": false,
+      "digest": "sha256:2af970d9833fe88b0f9f809012ce5103d243446a34f58f37b8ef4981fb483493",
+      "created_at": "2026-10-25T02:48:19Z",
+      "updated_at": "2026-10-25T02:48:19Z",
+      "expires_at": "2026-11-24T02:48:17Z",
+      "workflow_run": {
+        "id": 40155348005,
+        "repository_id": 1426408147,
+        "head_repository_id": 1426408147,
+        "head_branch": "codex/chess-openevolve-pilot",
+        "head_sha": "1aa1fb5df7decb40672d58eb2eb46287ad3d894f"
+      }
+    }
+  ]
+}

@@ -1,0 +1,184 @@
+{
+  "AllWords.lean": {
+    "bytes": 151997,
+    "sha256": "c81bd57217b21f51cd477da590af33882834fdef59c2a812bcbbff69739c5183",
+    "crc32": 670785312,
+    "compressed_bytes": 37643,
+    "compression": 8
+  },
+  "AllWords.olean": {
+    "bytes": 10556688,
+    "sha256": "360f238cfaecd00480b8affcbc7a3494a51e735cbff2a856b41908af8c716bd8",
+    "crc32": 2165170190,
+    "compressed_bytes": 2537070,
+    "compression": 8
+  },
+  "AllWords.rows": {
+    "bytes": 253737,
+    "sha256": "00c969fe4433fdacb6a5cccee583b1872305a8f3c5a7820c8186078a47942e41",
+    "crc32": 1184924162,
+    "compressed_bytes": 63802,
+    "compression": 8
+  },
+  "Audit.lean": {
+    "bytes": 850,
+    "sha256": "623a0ee0a03ba6530560233561f84f2eacad8526f4617ce25fee63d633711084",
+    "crc32": 3859106884,
+    "compressed_bytes": 170,
+    "compression": 8
+  },
+  "Audit.olean": {
+    "bytes": 1376,
+    "sha256": "5baa034dadde523422613b4f13ec3b89512de99e75274f8a418d3e3e1b1e0e36",
+    "crc32": 2732044886,
+    "compressed_bytes": 559,
+    "compression": 8
+  },
+  "GlobalInstance.lean": {
+    "bytes": 2128,
+    "sha256": "3a32b18b2b433741c8cfa7e4ab362b4a2bd25d23f6316e8fa63215a29f0d1a54",
+    "crc32": 1543431583,
+    "compressed_bytes": 797,
+    "compression": 8
+  },
+  "Global.olean": {
+    "bytes": 61592,
+    "sha256": "a6b15675e7f32441e5e597ec5ebbe371c2ad32eefeca110b6cb417b41265b2aa",
+    "crc32": 3744468818,
+    "compressed_bytes": 20066,
+    "compression": 8
+  },
+  "GlobalInstance.olean": {
+    "bytes": 57600,
+    "sha256": "5b6fb093a467a0d460fcc9b0a884703f482073a82ab071aee64c191bc8c24819",
+    "crc32": 2951170362,
+    "compressed_bytes": 19065,
+    "compression": 8
+  },
+  "Identity.lean": {
+    "bytes": 1021567,
+    "sha256": "d5cf64550ae9321d5cf423275b567ad595d4a0c10773b13e6556e482e81f3105",
+    "crc32": 3605669111,
+    "compressed_bytes": 67207,
+    "compression": 8
+  },
+  "IdentityPilot.lean": {
+    "bytes": 3034,
+    "sha256": "2b01df4dfd462b008a735aed5287ea32d4b68ef66af5d89d626f23a1a7bb929e",
+    "crc32": 4066795288,
+    "compressed_bytes": 509,
+    "compression": 8
+  },
+  "IdentityPilot.olean": {
+    "bytes": 578008,
+    "sha256": "3c1a967170705d37bb8c00eb8270a79896d3917fca4f31716d91744c9c987675",
+    "crc32": 4091421256,
+    "compressed_bytes": 134315,
+    "compression": 8
+  },
+  "Packet.olean": {
+    "bytes": 57456,
+    "sha256": "c103639ce9f2b680d4b634bae2bfe362b8a4dd43c417efdaa2e536cd3ac4058c",
+    "crc32": 174390100,
+    "compressed_bytes": 18620,
+    "compression": 8
+  },
+  "all-word-macros.log": {
+    "bytes": 524,
+    "sha256": "698b21b38b0fad9e57166b640728775e36507d769de5a9c875decf8296008c8e",
+    "crc32": 1801159380,
+    "compressed_bytes": 160,
+    "compression": 8
+  },
+  "failure.txt": {
+    "bytes": 1129,
+    "sha256": "37dd453fb03af8c3552b6bf66f7ab957f389e2e9b5daf6bf98c04f2f94061928",
+    "crc32": 2714662775,
+    "compressed_bytes": 391,
+    "compression": 8
+  },
+  "frozen-packet-identity.log": {
+    "bytes": 392,
+    "sha256": "33427ca9eafeb417ec1fa8db80d1c0619648019e97c3891c427b4096c3b020e2",
+    "crc32": 1053654335,
+    "compressed_bytes": 132,
+    "compression": 8
+  },
+  "generic-failures.json": {
+    "bytes": 3,
+    "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "crc32": 1885917764,
+    "compressed_bytes": 5,
+    "compression": 8
+  },
+  "generic-foundations.log": {
+    "bytes": 1243,
+    "sha256": "eac6768460d63d40a05593cc95dd27c05014a0c671bb2e2897e3690a3470e7a4",
+    "crc32": 3702886091,
+    "compressed_bytes": 208,
+    "compression": 8
+  },
+  "global-iteration.log": {
+    "bytes": 193,
+    "sha256": "9134785fa1a45665d80793e3597a6bd6bf8337224a2682ffbf5d7ce378337e04",
+    "crc32": 1832854962,
+    "compressed_bytes": 105,
+    "compression": 8
+  },
+  "identity-first-32-words.log": {
+    "bytes": 63,
+    "sha256": "ee3dc701243665d8d39e978f09ba2d527165b32c40f7d2045b38d66e8c2c1b68",
+    "crc32": 3247087982,
+    "compressed_bytes": 65,
+    "compression": 8
+  },
+  "instance-plan.json": {
+    "bytes": 644,
+    "sha256": "738ecde366c5d977bb293cd5de8efea307702da1d1898c039d9274731d73aca8",
+    "crc32": 2811029185,
+    "compressed_bytes": 378,
+    "compression": 8
+  },
+  "kernel-global.log": {
+    "bytes": 403,
+    "sha256": "a656026b793b14e1e0a94604a9f78497bef6636b42280f5494519285bb3b2824",
+    "crc32": 3689277471,
+    "compressed_bytes": 163,
+    "compression": 8
+  },
+  "kernel-packet.log": {
+    "bytes": 309,
+    "sha256": "5652ff211e21b21ce678631883c379569f49744f06d2b787b8b9b1816e609bfd",
+    "crc32": 3894032164,
+    "compressed_bytes": 146,
+    "compression": 8
+  },
+  "mathlib-cache.log": {
+    "bytes": 2808,
+    "sha256": "1baa2e421457db29da6da11142fa993ba34f7135ef4b1b64ab985a3ee26337d2",
+    "crc32": 241244305,
+    "compressed_bytes": 705,
+    "compression": 8
+  },
+  "pilot-summary.json": {
+    "bytes": 7152,
+    "sha256": "7532d9ac47cbab2d5b5a15ea0a33987f7507db93c30e5b3714de340169fdf4d6",
+    "crc32": 3295164133,
+    "compressed_bytes": 1552,
+    "compression": 8
+  },
+  "runner-capacity.json": {
+    "bytes": 1787,
+    "sha256": "cbbfe236d919e87f2a51c27c3e44dd1cf63ede2e5762b4c4ac70b04d658211dc",
+    "crc32": 1086184024,
+    "compressed_bytes": 673,
+    "compression": 8
+  },
+  "source-manifest.json": {
+    "bytes": 469010,
+    "sha256": "b9c68a80ff4192b79c9599cb70c1dc9568b296f497a4e0d85fbea25bec0b0479",
+    "crc32": 2469500752,
+    "compressed_bytes": 128086,
+    "compression": 8
+  }
+}

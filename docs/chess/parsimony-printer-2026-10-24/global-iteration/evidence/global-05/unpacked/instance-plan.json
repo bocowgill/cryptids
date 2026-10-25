@@ -1,0 +1,17 @@
+{
+  "candidate_sha256": "b9cf384e5470f3c9f5c501bd8c13555f15d4ea134469f5d159cd1bdb363cbf45",
+  "cells": 27078,
+  "chunks": 418,
+  "final_post": 13506,
+  "framed_bits": 173680,
+  "fresh_machine_states": 0,
+  "generated_sha256": {
+    "global_source": "3a32b18b2b433741c8cfa7e4ab362b4a2bd25d23f6316e8fa63215a29f0d1a54",
+    "identity_source": "d5cf64550ae9321d5cf423275b567ad595d4a0c10773b13e6556e482e81f3105",
+    "source": "c81bd57217b21f51cd477da590af33882834fdef59c2a812bcbbff69739c5183"
+  },
+  "packet_bits": 173641,
+  "packet_sha256": "ab1f8764749765bfb0d44b22a999d7907345d2648bf478092a276cf8df71c2d8",
+  "states": 13539,
+  "words": 13360
+}
