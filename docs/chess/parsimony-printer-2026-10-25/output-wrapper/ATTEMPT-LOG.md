@@ -6,4 +6,9 @@
    Reuse archive and all 53 checked batch object/source pairs; new generic
    `indexed_render_sized` rewrites size before concrete instantiation. Split
    `FrozenPacket` prefix from final `Identity`. Paired control follows identity.
-   Running; no acceptance claimed until retained terminal evidence is reviewed.
+   Success; driver 87.056 seconds, no resource stop. Final identity exported in
+   3.368 seconds with [propext, Quot.sound]. All 53 batches reused, zero rebuilt.
+   Positive control passed; its exact one-character corruption failed because
+   the proposition is false. Retained producer/log/object/literal/pin audit passed.
+   No second or third attempt needed. Local reviewer portability was corrected
+   from hashlib.file_digest to streaming SHA256; this did not rerun Lean.

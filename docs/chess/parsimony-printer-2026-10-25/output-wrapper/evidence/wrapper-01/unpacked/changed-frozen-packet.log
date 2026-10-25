@@ -1,0 +1,4 @@
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-wrapper-20261024/Corrupted.lean:9:2: error: Tactic `decide` proved that the proposition
+  frozenChunk0.head? = some '0'
+is false
+'packet_first_control' depends on axioms: [propext, sorryAx]

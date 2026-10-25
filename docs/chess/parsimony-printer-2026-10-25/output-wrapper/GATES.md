@@ -7,15 +7,15 @@ reuse the exact 53 checked batches, then run paired positive and one-bit corrupt
 controls. The nine pinned generic modules, frozen specification, packet, physical
 machine and checked theorem statements stay fixed. The older goal stays paused.
 
-- [ ] W1: A successful remote kernel export proves the unchanged global_bits_identity statement, all_packet_words and packet_framing, with standard foundations and all 13,360 words covered by the 53 reused checked batches.
+- [x] W1: A successful remote kernel export proves the unchanged global_bits_identity statement, all_packet_words and packet_framing, with standard foundations and all 13,360 words covered by the 53 reused checked batches.
   CHECK: python3 scripts/chess_parsimony_wrapper_20261025/review.py --iteration 1
   EXPECT: PARSIMONY_WRAPPER_IDENTITY_VERIFIED
-  EVIDENCE: pending
+  EVIDENCE: exit=0; shell=/bin/sh; cwd=/Users/bocowgill/.codex/worktrees/6ba9/cryptids; path=984dc1d7a649/31 entries; EXPECT=matched; output-sha256=34d27e1a112d57eeb0e8be5037d6df477f0d80ee6ffc29655d40d2b630c8f754; output-bytes=71
 
-- [ ] C1: The positive first-bit identity compiles; its exact one-character corruption fails because the proposition is false, under the same imports, limits and producer. Frozen pins and the complete candidate stay fixed.
+- [x] C1: The positive first-bit identity compiles; its exact one-character corruption fails because the proposition is false, under the same imports, limits and producer. Frozen pins and the complete candidate stay fixed.
   CHECK: python3 scripts/chess_parsimony_wrapper_20261025/review.py --iteration 1
   EXPECT: PARSIMONY_WRAPPER_CONTROL_VERIFIED
-  EVIDENCE: pending
+  EVIDENCE: exit=0; shell=/bin/sh; cwd=/Users/bocowgill/.codex/worktrees/6ba9/cryptids; path=984dc1d7a649/31 entries; EXPECT=matched; output-sha256=34d27e1a112d57eeb0e8be5037d6df477f0d80ee6ffc29655d40d2b630c8f754; output-bytes=71
 
 - [ ] R1: Push a complete recovery checkpoint with producer-bound logs and objects, resource measurements, remaining obligations and no active pilot.
   EVIDENCE: pending

@@ -1,0 +1,17 @@
+{
+  "candidate_sha256": "b9cf384e5470f3c9f5c501bd8c13555f15d4ea134469f5d159cd1bdb363cbf45",
+  "chunks": 418,
+  "framed_bits": 173680,
+  "fresh_machine_states": 0,
+  "generated_sha256": {
+    "Corrupted.lean": "c2d99480882bdcba3489257e3b9a10a66504f94eb830b31235c68c7bfe74c0ce",
+    "FrozenPacket.lean": "cba9631b357a0aa9f868e9e14b8b5c4aec429907e37f8d544d7dd34b0e9b430a",
+    "Identity.lean": "565c779f20604e2dd7d0a9e8feda72b70df20bb78b7299c6719ea587dde71787",
+    "PositiveControl.lean": "973c849191bc73c0762ddc2478f35dd279b7a314ae536ea5daf9cbfdeab73eda",
+    "SizedRender.lean": "1cc4b2b6e6bd3f7e140d76cd6e82a6ea3ac29bb416f19e5d6058c3b804474a90"
+  },
+  "no_machine_generation": true,
+  "packet_offset": 33,
+  "packet_sha256": "ab1f8764749765bfb0d44b22a999d7907345d2648bf478092a276cf8df71c2d8",
+  "words": 13360
+}

@@ -1,0 +1,3 @@
+'ParsimonyComposed.global_bits_identity' depends on axioms: [propext, Quot.sound]
+'ParsimonyComposed.all_packet_words' depends on axioms: [propext, Quot.sound]
+'ParsimonyComposed.packet_framing' depends on axioms: [propext]

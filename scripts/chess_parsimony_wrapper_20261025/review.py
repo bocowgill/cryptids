@@ -14,8 +14,11 @@ OLD = PRIOR / 'evidence/global-08'
 
 
 def sha(path):
+    digest = hashlib.sha256()
     with path.open('rb') as stream:
-        return hashlib.file_digest(stream, 'sha256').hexdigest()
+        for block in iter(lambda: stream.read(1 << 20), b''):
+            digest.update(block)
+    return digest.hexdigest()
 
 
 def read(path):
@@ -131,6 +134,7 @@ def main():
         assert not re.search(r'\b(sorry|axiom|native_decide|unsafe)\b', text), source
     record = dict(schema='parsimony-wrapper-review-v1', run=run['id'], producer=run['head_sha'],
         prior_run=reuse['run'], prior_producer=reuse['producer'], checked_batches_reused=53,
+        reviewer_sha256=sha(Path(__file__).resolve()),
         checked_words=13360, final_identity_checked=True, corruption_control_checked=True,
         accepted_machine_states=769344, candidate_states=609247, new_full_machine_saving=0,
         standard_foundations_only=True, frozen_and_checked_pins_unchanged=True,
