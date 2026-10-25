@@ -1,8 +1,8 @@
-name: RH41 bounded proof-only avoidance pilot
+name: RH41 namespace repair and proof verification
 on:
   push:
     branches: ['codex/riemann-reduction']
-    paths: ['scripts/riemann41/launch.json']
+    paths: ['scripts/riemann41/launch-verify02.json']
 permissions:
   contents: read
 concurrency:
@@ -16,6 +16,9 @@ jobs:
     env:
       RH41_REMOTE: '1'
       RH41_PUBLIC: '${{ !github.event.repository.private }}'
+      RH41_VERIFY02: '1'
+      RH41_OUTPUT_DIR: '.lake/riemann41-verify02'
+      RH41_LAUNCH_PACKET: 'scripts/riemann41/launch-verify02.json'
       LEAN_NUM_THREADS: '1'
       OMP_NUM_THREADS: '1'
       ELAN_NO_UPDATE_CHECK: '1'
@@ -41,16 +44,16 @@ jobs:
           path: |
             .lake/packages
             .lake/build
-          key: rh41-proof-${{ runner.os }}-${{ github.sha }}
+          key: rh41-verify02-${{ runner.os }}-${{ github.sha }}
           restore-keys: |
             lake-Linux-X64-
             chess-body-certificate-20261022-Linux-
-      - name: Run the single bounded proof pilot
+      - name: Check the repaired proofs once under the original limits
         run: python3 scripts/riemann41/driver.py
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
-          name: rh41-proof-${{ github.sha }}
-          path: .lake/riemann41/**
+          name: rh41-verify02-${{ github.sha }}
+          path: .lake/riemann41-verify02/**
           include-hidden-files: true
           retention-days: 30

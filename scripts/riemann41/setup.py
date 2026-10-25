@@ -11,7 +11,7 @@ import shlex
 import subprocess
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT = ROOT / '.lake/riemann41'
+OUT = ROOT / os.environ.get('RH41_OUTPUT_DIR', '.lake/riemann41')
 
 
 def main():

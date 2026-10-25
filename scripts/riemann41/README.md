@@ -42,3 +42,9 @@ intermediate visits to state 15 are not mistaken for completion. Each fixture's
 initial support plus all state/head/read/write/move deltas and final support
 encode the complete tape at every step without dropping blank coordinates.
 Independent Node code reconstructs and compares each trace and full tape.
+
+The user authorized one additional repair-verification job on 2026-10-25. It uses
+launch-verify02.json and .lake/riemann41-verify02; it does not overwrite the first
+artifact. Its preflight binds the exact namespace/deprecation/Bool compatibility
+substitutions to the failed producer and requires seven finite/source receipts
+to match the retained first run. All original limits and proof boundaries remain.

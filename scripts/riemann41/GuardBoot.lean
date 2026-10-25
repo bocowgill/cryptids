@@ -13,7 +13,7 @@ public import Cryptids.ReductionSupport.Riemann95.Bootstrap95
 
 namespace Rh41
 
-open Turing ConjectureMachines ConjectureMachines.Riemann95
+open ConjectureMachines ConjectureMachines.Riemann95
 
 def safeFast : Nat → Fin 95 → List (Fin 2) → Fin 2 → List (Fin 2) → Bool
   | 0, q, _, h, _ => !(q == 41 && h == 1)
@@ -39,7 +39,7 @@ theorem safeFast_sound (n : Nat) (q : Fin 95) (L : List (Fin 2))
       simp [safeFast] at hc
     simpa [Avoid, Zf380.cfgOfFast, Tape.mk'] using hh
   | succ n ih =>
-    have hparts := Bool.and_eq_true.mp hc
+    have hparts := Bool.and_eq_true_iff.mp hc
     have hh : ¬ (q = 41 ∧ h = 1) := by
       rintro ⟨rfl, rfl⟩
       simpa using hparts.1

@@ -12,7 +12,7 @@ public import GuardLiteral
 
 namespace Rh41
 
-open Turing ConjectureMachines ConjectureMachines.Riemann95
+open ConjectureMachines ConjectureMachines.Riemann95
 
 def Avoid (c : Cfg 95 2) : Prop := ¬ (c.state = 41 ∧ c.tape.head = 1)
 
@@ -53,7 +53,7 @@ theorem step_overwrite (replacement : Option (Fin 2 × Dir × Fin 95))
     (c : Cfg 95 2) (ha : Avoid c) : step (overwrite replacement) c = step machine c := by
   rcases c with ⟨q, t⟩
   simp only [Avoid] at ha
-  simp only [step, overwrite, if_neg ha]
+  simp only [step, overwrite, ite_eq_right ha]
 
 def run (m : Machine 95 2) : Nat → Cfg 95 2 → Option (Cfg 95 2)
   | 0, c => some c

@@ -1,20 +1,22 @@
 # Recoverable RH reduction checkpoint
 
-Date: 2026-10-24, America/New_York.
+Date: 2026-10-25, America/New_York.
 Branch: `codex/riemann-reduction`.
 Path: `/Users/bocowgill/.codex/worktrees/4e0d/cryptids`.
 Pinned base: `6c28d8524fa008c6fb5aadb759df74a55ce96423`.
 
-**The proof-only 41/ONE job stopped at a local Lean implementation error.**
-Read [the exact result](pilot-41-guard/RESULT.md) first. No retry or further job
-is authorized. Literal fidelity is checked; global avoidance remains unproved.
+**One additional repaired 41/ONE proof check is now authorized; source preparation only.**
+Read [the repair plan](pilot-41-guard/verify-02/PLAN.md) and
+[the first exact result](pilot-41-guard/RESULT.md). The new authorization is one
+free job with no retry, under the same limits. Global avoidance remains unproved.
 The [fixed decoder-sharing route stays closed](pilot-decoder-sharing/CLOSED.md).
 All 30 retained decoder-sharing witnesses are Lean-checked and audited.
 The separately authorized job 40145261135 supplied the computable Decidable
 instance, checked the unchanged batch and passed the full-private audit and
 rejection controls. See [the verified result](pilot-decoder-sharing/verify-02/RESULT.md).
 The initial failure 40141846969 remains preserved. No candidate was
-exported. The one approved 41/ONE job has now been consumed, with no retry.
+exported. The first 41/ONE job is consumed; the user separately authorized the
+single repair verification on 2026-10-25. No other compute job is authorized.
 Both this unchanged-endpoint family and
 the canonical state-53 route are rejected within their stated contracts.
 Broader search remains held. No 94-state RH theorem is certified.
@@ -88,7 +90,9 @@ Actual resources: 351.125 governed seconds, sampled 6292324352-byte aggregate pe
 3180s/6GiB/512MiB-driver limits. Artifact 12584417386 is retained and hash-matched.
 Read [RESULT.md](pilot-41-guard/RESULT.md) and [the gates](pilot-41-guard/GATES.md).
 Five task-integration gates met; the exact compiler obstruction is the outcome.
-No repair is applied, no candidate exported and no retry authorized. Full native,
+That run applied no repair and exported no candidate; its artifact remains frozen.
+The separately authorized repair verification above is a new job, not a rerun.
+Full native,
 jump/return/stage coverage, boot prefix safety, unbounded assembly and unconditional
 overwrite remain open. Chess and broader search stay held.
 

@@ -4,7 +4,7 @@ import crypto from 'node:crypto';
 import assert from 'node:assert/strict';
 assert.equal(process.env.RH41_REMOTE, '1');
 assert.equal(process.env.GITHUB_ACTIONS, 'true');
-const dir = '.lake/riemann41/';
+const dir = (process.env.RH41_OUTPUT_DIR || '.lake/riemann41') + '/';
 const read = name => JSON.parse(fs.readFileSync(dir + name, 'utf8'));
 const bytes = fs.readFileSync('artifacts/riemann_95/machine.txt');
 assert.equal(crypto.createHash('sha256').update(bytes).digest('hex'),
@@ -147,10 +147,20 @@ frames.forEach((record, i) => {
 });
 if (summary.status === 'finite-filters-passed') assert.equal(frames.length, expected.length);
 assert.equal(evaluations, summary.primary_transition_evaluations);
+let retainedBytesMatch = null;
+if (process.env.RH41_VERIFY02 === '1') {
+  const retained = 'research/riemann-reduction/pilot-41-guard/evidence/unpacked/';
+  const hash = path => crypto.createHash('sha256').update(fs.readFileSync(path)).digest('hex');
+  for (const name of ['boot.json', 'frames.jsonl', 'decoder-cases.json',
+    'selected-callers.json', 'finite-summary.json', 'literal-cells.json', 'GuardLiteral.lean'])
+    assert.equal(hash(dir + name), hash(retained + name), name);
+  retainedBytesMatch = true;
+}
 const result = {status:'fixed-filters-independently-replayed', frames:frames.length,
   callers:selected.length, transition_evaluations:evaluations,
   combined_transition_evaluations:evaluations + summary.primary_transition_evaluations,
   known_hit_control_rejected:true, wrong_incoming_cell_rejected:true,
   complete_tapes_and_traces_replayed:true, global_avoidance_proved:false};
+if (retainedBytesMatch !== null) result.seven_retained_files_match = retainedBytesMatch;
 fs.writeFileSync(dir+'independent-replay.json', JSON.stringify(result,null,2)+'\n');
 console.log('RH41_FIXED_FILTERS_INDEPENDENTLY_REPLAYED');

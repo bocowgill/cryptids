@@ -13,7 +13,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT = ROOT / '.lake/riemann41'
+OUT = ROOT / os.environ.get('RH41_OUTPUT_DIR', '.lake/riemann41')
 BASE = '6c28d8524fa008c6fb5aadb759df74a55ce96423'
 TABLE = 'artifacts/riemann_95/machine.txt'
 SHA = '7e9731ed1b7c63d4e67c0f8d646f8498d9645f26e237a8604d4b7f91a6ab398d'
@@ -144,6 +144,28 @@ def prepare():
                     'Challenge.lean', 'artifacts', 'comparator', 'lean-toolchain',
                     'lakefile.toml', 'lake-manifest.json', 'verify.py'], check=True)
     rows = table()
+    if os.environ.get('RH41_VERIFY02') == '1':
+        failed = '06e9245fe2675f1c2e94ba1477982c2d2a8b4816'
+        repairs = {}
+        for name in ['GuardCore.lean', 'GuardBoot.lean', 'AssemblyProbe.lean']:
+            path = 'scripts/riemann41/' + name
+            old = subprocess.check_output(['git', 'show', failed + ':' + path], text=True)
+            expected = old
+            if name != 'AssemblyProbe.lean':
+                expected = expected.replace(
+                    'open Turing ConjectureMachines ConjectureMachines.Riemann95',
+                    'open ConjectureMachines ConjectureMachines.Riemann95')
+            if name == 'GuardCore.lean':
+                expected = expected.replace('if_neg ha', 'ite_eq_right ha')
+            if name == 'GuardBoot.lean':
+                expected = expected.replace('Bool.and_eq_true.mp hc',
+                                            'Bool.and_eq_true_iff.mp hc')
+            actual = (ROOT / path).read_text()
+            assert actual == expected, 'Exact proof-compatibility repair: ' + name
+            repairs[path] = dict(before=hashlib.sha256(old.encode()).hexdigest(),
+                                 after=hashlib.sha256(actual.encode()).hexdigest())
+        save('repair-binding.json', dict(status='exact-proof-compatibility-repair-bound',
+             failed_producer=failed, proofs=repairs, statements_and_hypotheses_unchanged=True))
     paths = [TABLE, SCHEMA, 'lean-toolchain', 'lake-manifest.json', 'lakefile.riemann41.toml',
              '.github/workflows/riemann41.yml']
     paths += [str(p.relative_to(ROOT)) for p in sorted((ROOT / 'scripts/riemann41').glob('*'))

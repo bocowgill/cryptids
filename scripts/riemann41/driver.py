@@ -18,7 +18,7 @@ import sys
 import time
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT = ROOT / '.lake/riemann41'
+OUT = ROOT / os.environ.get('RH41_OUTPUT_DIR', '.lake/riemann41')
 TOTAL, MEMORY, DRIVER_MEMORY = 3180, 6 << 30, 512 << 20
 BASE = '6c28d8524fa008c6fb5aadb759df74a55ce96423'
 
@@ -128,13 +128,18 @@ def main():
             if limit and usage and limit.isdigit() and usage.isdigit() and int(limit) < 1 << 60:
                 available = min(available, int(limit) - int(usage))
         assert available >= MEMORY + (2 << 30), 'Insufficient free-runner headroom'
-        launch = json.loads((ROOT / 'scripts/riemann41/launch.json').read_text())
+        packet = os.environ.get('RH41_LAUNCH_PACKET', 'scripts/riemann41/launch.json')
+        launch = json.loads((ROOT / packet).read_text())
         parent = subprocess.check_output(['git', 'rev-parse', 'HEAD^'], text=True).strip()
         assert launch['source_transport_commit'] == parent
         assert launch['baseline_commit'] == BASE
         assert launch['jobs_authorized'] == 1 and launch['retry'] is False
         assert launch['maximum_exported_candidates'] == 0
         assert launch['total_seconds'] == TOTAL and launch['aggregate_memory_bytes'] == MEMORY
+        if os.environ.get('RH41_VERIFY02') == '1':
+            assert packet == 'scripts/riemann41/launch-verify02.json'
+            assert os.environ.get('RH41_OUTPUT_DIR') == '.lake/riemann41-verify02'
+            assert launch['failed_producer'] == '06e9245fe2675f1c2e94ba1477982c2d2a8b4816'
         stage('fidelity', 120, [sys.executable, 'scripts/riemann41/pilot.py', 'prepare'])
         stage('filters', 180, [sys.executable, 'scripts/riemann41/pilot.py', 'filters'])
         stage('independent-replay', 60, ['node', 'scripts/riemann41/replay.mjs'])
