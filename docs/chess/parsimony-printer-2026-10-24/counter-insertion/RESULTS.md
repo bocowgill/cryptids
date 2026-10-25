@@ -231,3 +231,9 @@ machine-size claim.
 The bounded phase stops here. The older goal remains paused; no subsequent
 research job, upstream update or outreach is launched automatically. Final pushed
 recovery verification and all gate evidence are recorded in CHECKPOINT.md.
+
+All five phase gates are met; zero unmet or abandoned. Complete recovery payload
+`56158fe52c7915e7f827c573215a9a75bda531cd` was pushed with exit zero, fork ref
+matched, working tree clean and every final artifact member tracked. The entire
+Chess branch has zero active runs after wind-down. This phase status does not
+accept the experimental machine or discharge the remaining global proofs.

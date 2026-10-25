@@ -8,8 +8,13 @@ and outreach held. Push only to `git@github.com:bocowgill/cryptids.git`, branch
 `codex/chess-openevolve-pilot`; never origin (upstream).
 
 Workspace: `/Users/bocowgill/.codex/worktrees/6ba9/cryptids`.
-Complete recovery payload push/ref verification: pending final retention commit.
-Four runnable phase gates are met; manual R1 awaits that push and status check.
+Complete recovery payload pushed at
+`56158fe52c7915e7f827c573215a9a75bda531cd`; push exited zero and fork ref matched.
+All 38 final artifact members and twelve incidental CI logs are tracked; all
+seven pilot archives and exact producer provenance are retained. The working
+tree was clean and the entire Chess branch had zero active runs after the push.
+All five phase gates are met, zero unmet or abandoned. Final metadata records
+that completed verification; full-machine certification remains open.
 
 ## Results to preserve
 

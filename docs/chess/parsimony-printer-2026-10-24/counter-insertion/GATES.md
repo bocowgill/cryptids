@@ -29,8 +29,8 @@ accepted until the later complete printer/link/halting proof is finished.
   EXPECT: PARSIMONY_COUNTER_BINDING_AUDIT_PASSED
   EVIDENCE: Same final zero-exit run emitted the binding/audit token. All 27078 cells at addresses 6..13544 match the unchanged candidate. Changed exported data and a single actual increment write are rejected; negative kernel command exits one as expected. Every positive log is warning-free, all roots standard-only, all accepted/frozen and checked-source pins preserved. review.py --iteration 7 independently verified retained provenance, producer blobs, hashes and the single corruption difference. External binary binding is distinguished from a kernel parser/full-machine theorem in RESULTS.md.
 
-- [ ] R1: Complete producer-bound artifacts/logs, measurements, state breakdown, unresolved obligations, diagnosed failures and next task are retained in a clean pushed checkpoint; no pilot job remains active.
-  EVIDENCE: pending
+- [x] R1: Complete producer-bound artifacts/logs, measurements, state breakdown, unresolved obligations, diagnosed failures and next task are retained in a clean pushed checkpoint; no pilot job remains active.
+  EVIDENCE: Complete recovery payload 56158fe52c7915e7f827c573215a9a75bda531cd pushed with exit zero and fork ref independently matched. All 38 final artifact members, seven run archives and twelve incidental CI logs are tracked; exact producer blobs and hashes reviewed. Entire Chess branch has zero active runs after wind-down, with four incidental CI successes and eight cancellations retained. Working tree was clean. RESULTS.md/CHECKPOINT.md retain all state categories, actual indexed contract, measured caps/uncertainty, failed approaches and next global proof. Five gates met, zero unmet or abandoned; no automatic continuation.
 
 ## Bounded execution and honest stopping
 
