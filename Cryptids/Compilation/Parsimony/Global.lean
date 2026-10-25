@@ -16,15 +16,22 @@ open Turing Common Insertion
 
 set_option backward.isDefEq.respectTransparency false
 
+/-- The unchanged infinite blank half-tape. -/
+def blank : ListBlank Bit := ListBlank.mk []
+
+@[simp] theorem blank_cons : blank.cons 0 = blank := by
+  change ListBlank.mk [0] = ListBlank.mk []
+  apply Quotient.sound
+  exact Or.inr ⟨1, rfl⟩
+
 /-- The marker advances once per word; the cleared index is immediately before it. -/
 def boundary {q : Nat} (data : Nat → Fin q) (index : Nat) (L : ListBlank Bit) : Cfg q 2 :=
-  ⟨data 0, Tape.mk' (L.cons 0) (Z index ((ListBlank.nil : ListBlank Bit).cons 1))⟩
+  ⟨data 0, Tape.mk' (L.cons 0) (Z index (blank.cons 1))⟩
 
-@[simp] theorem zero_blank (n : Nat) : Z n (ListBlank.nil : ListBlank Bit) = ListBlank.nil := by
+@[simp] theorem zero_blank (n : Nat) : Z n blank = blank := by
   induction n with
   | zero => rfl
-  | succ n ih => simpa only [Z_succ, ih] using (ListBlank.cons_zero :
-      (ListBlank.nil : ListBlank Bit).cons 0 = ListBlank.nil)
+  | succ n ih => simp only [Z_succ, ih, blank_cons]
 
 /-- Scan the cleared index using only the actual data zero rows. -/
 theorem scan {q : Nat} (M : Machine q 2) (data : Nat → Fin q) (last : Nat)
@@ -46,7 +53,7 @@ theorem scan {q : Nat} (M : Machine q 2) (data : Nat → Fin q) (last : Nat)
 theorem tick {q : Nat} (M : Machine q 2) (data : Nat → Fin q) (last width : Nat)
     (more : ∀ i, i < last → M.transition (data i) 0 = some (1, .right, data (i + 1)))
     (values : Nat → Nat) (safe : ∀ i, i ≤ last → values i < 2 ^ width)
-    (macro : ∀ i, i ≤ last → ∀ L R : ListBlank Bit,
+    (localRun : ∀ i, i ≤ last → ∀ L R : ListBlank Bit,
       ∃ out : List Bit, out.length = width ∧ Counter.value out = values i ∧
       Common.Runs M
         ⟨data i, Tape.mk' (O i (L.cons 0))
@@ -56,12 +63,13 @@ theorem tick {q : Nat} (M : Machine q 2) (data : Nat → Fin q) (last width : Na
     (i : Nat) (bound : i ≤ last) (L : ListBlank Bit) :
     Common.Runs M (boundary data i L)
       (boundary data (i + 1) (ListBlank.append (Packet.encode width (values i)) L)) := by
-  obtain ⟨out, length, value, run⟩ := macro i bound L ListBlank.nil
+  obtain ⟨out, length, value, run⟩ := localRun i bound L blank
   have equal := Packet.encode_unique width (values i) (safe i bound) out length value
   subst out
-  have first := scan M data last more i 0 (by omega) (L.cons 0) (ListBlank.nil.cons 1)
-  simpa only [boundary, zero_blank, Nat.zero_add, Z, List.replicate_succ,
-    ListBlank.append, Common.replicate_cons] using first.trans run
+  simp only [zero_blank] at run
+  have first := scan M data last more i 0 (by omega) (L.cons 0) (blank.cons 1)
+  simp only [Nat.zero_add] at first
+  simpa only [boundary, Z_succ, Z_cons] using first.trans run
 
 /-- Nearest-head-first printed prefix; iteration does not unroll physical machine steps. -/
 def written (word : Nat → List Bit) : Nat → List Bit
@@ -90,10 +98,10 @@ theorem finish {q : Nat} (M : Machine q 2) (data : Nat → Fin q) (exit post : F
     (final : M.transition (data last) 0 = some (0, .right, exit))
     (done : M.transition exit 1 = some (1, .right, post)) (L : ListBlank Bit) :
     Common.Runs M (boundary data (last + 1) L)
-      ⟨post, Tape.mk' (((O last (L.cons 0)).cons 0).cons 1) ListBlank.nil⟩ := by
+      ⟨post, Tape.mk' (((O last (L.cons 0)).cons 0).cons 1) blank⟩ := by
   have first := Common.of_run M (last + 1) _ _
-    (Data.unary_run M data exit last more final last 0 (by omega) (L.cons 0) (ListBlank.nil.cons 1))
-  have later := Common.right M exit post 1 1 ((O last (L.cons 0)).cons 0) ListBlank.nil done
+    (Data.unary_run M data exit last more final last 0 (by omega) (L.cons 0) (blank.cons 1))
+  have later := Common.right M exit post 1 1 ((O last (L.cons 0)).cons 0) blank done
   simpa only [boundary, Z, O, ListBlank.append, Nat.zero_add] using first.trans later
 
 /-- Ordered output is exactly the chronological word sequence. -/

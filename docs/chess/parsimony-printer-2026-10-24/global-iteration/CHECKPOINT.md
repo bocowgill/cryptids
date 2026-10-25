@@ -17,3 +17,14 @@ Preamble, epilogue, marker cleanup, full machine linking and halting remain late
 Push only to git@github.com:bocowgill/cryptids.git, branch
 codex/chess-openevolve-pilot; origin is upstream. Use [skip ci] on source commits
 and explicitly dispatch the manual global phase only after push/ref verification.
+
+Attempt 1 dispatched: run 40153316633, producer
+1dd45de52f5996ba546497c1a6e3b10e273ac958. Generic Packet/Global only, full-data
+instantiation not yet claimed. Push exited zero and fork ref matched first.
+
+Attempt 1 terminal failure retained in evidence/global-01: Packet's original
+encoding/value uniqueness checked, Global failed on nonexistent ListBlank.nil
+and cons_zero names and reserved macro binder. No resource cap hit. Replaced
+these with an explicit quotient blank/cons proof and localRun binder; normalize
+blank padding before composing paths. Attempt 2 adds shared full-data/packet
+instantiation and deliberate expected-bit corruption. No source pin changed.

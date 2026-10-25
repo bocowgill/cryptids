@@ -1,0 +1,94 @@
+{
+  "accepted_machine_states": 769344,
+  "candidate_states": 609247,
+  "certified_saving": 0,
+  "checked_modules": [
+    "Packet"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "lake",
+        "exe",
+        "cache",
+        "get",
+        "Mathlib.Computability.TuringMachine.PostTuringMachine",
+        "Mathlib.Data.Nat.Prime.Basic",
+        "Mathlib.Algebra.GCDMonoid.Finset",
+        "Mathlib.Order.Interval.Finset.Nat",
+        "Mathlib.NumberTheory.LSeries.RiemannZeta",
+        "Mathlib.SetTheory.ZFC.Basic",
+        "Mathlib.Tactic"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "effective_budget_seconds": 300,
+      "elapsed_seconds": 22.42658801600001,
+      "exit": 0,
+      "expected_exit": 0,
+      "log": "mathlib-cache.log",
+      "log_sha256": "2c262219212d54d142c031a856f0005c4aaf1cc75e74ef8683547dadb2cb167d",
+      "name": "mathlib-cache",
+      "peak_group_plus_driver_rss_bytes": 1061367808,
+      "resource_stop": null
+    },
+    {
+      "argv": [
+        "lake",
+        "--wfail",
+        "-f",
+        "lakefile.chess-parsimony-global-20261024.toml",
+        "build",
+        "Cryptids.Compilation.Parsimony.Packet"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "effective_budget_seconds": 240,
+      "elapsed_seconds": 19.375043974999983,
+      "exit": 0,
+      "expected_exit": 0,
+      "log": "kernel-packet.log",
+      "log_sha256": "37ae58c1e42654e6febf385b00d1d839c904b064bf854ae2b446e70d57e55396",
+      "name": "kernel-packet",
+      "peak_group_plus_driver_rss_bytes": 2724581376,
+      "resource_stop": null
+    },
+    {
+      "argv": [
+        "lake",
+        "--wfail",
+        "-f",
+        "lakefile.chess-parsimony-global-20261024.toml",
+        "build",
+        "Cryptids.Compilation.Parsimony.Global"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "effective_budget_seconds": 240,
+      "elapsed_seconds": 14.222796388999996,
+      "exit": 1,
+      "expected_exit": 0,
+      "log": "kernel-global.log",
+      "log_sha256": "d984bbed3e4e3b984b9f766bcd4718febfec94d8057f8bfea02401ea264aaae1",
+      "name": "kernel-global",
+      "peak_group_plus_driver_rss_bytes": 2724069376,
+      "resource_stop": null
+    }
+  ],
+  "complete_printer_certified": false,
+  "driver_peak_rss_kib": 22076,
+  "elapsed_seconds": 63.82859230499999,
+  "experimental_saving": 160097,
+  "failure": "kernel-global failed; retained log: /home/runner/work/cryptids/cryptids/.lake/chess-parsimony-global-20261024/kernel-global.log",
+  "failure_type": "AssertionError",
+  "gates": {},
+  "limits": {
+    "composition_seconds": 180,
+    "driver_rss_bytes": 536870912,
+    "generic_seconds": 240,
+    "group_plus_driver_rss_bytes": 6442450944,
+    "lean_heap_mib": 5120,
+    "lean_threads": 1,
+    "total_seconds": 1200
+  },
+  "new_accepted_machine": false,
+  "schema": "parsimony-global-v1",
+  "status": "failed"
+}

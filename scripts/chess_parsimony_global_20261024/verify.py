@@ -5,6 +5,7 @@ if os.environ.get('CHESS_REMOTE') != '1' or os.environ.get('GITHUB_ACTIONS') != 
     raise SystemExit('Remote GitHub Actions execution required before import')
 
 import json
+import importlib.util
 from pathlib import Path
 import signal
 import sys
@@ -14,6 +15,10 @@ import traceback
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'scripts/chess_parsimony_proof_20261024'))
 import verify as proof
+spec = importlib.util.spec_from_file_location('global_compose',
+    ROOT / 'scripts/chess_parsimony_global_20261024/compose.py')
+compose = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(compose)
 runner = proof.runner
 WORK = ROOT / '.lake/chess-parsimony-global-20261024'
 LAKE = 'lakefile.chess-parsimony-global-20261024.toml'
@@ -52,6 +57,9 @@ def main():
              (ROOT / 'Cryptids/Compilation/Parsimony').glob('*.lean')]
     paths += [LAKE, *pinfiles, 'lean-toolchain', 'lake-manifest.json',
         'scripts/chess_parsimony_global_20261024/verify.py',
+        'scripts/chess_parsimony_global_20261024/compose.py',
+        'scripts/chess_parsimony_counter_20261024/compose.py',
+        compose.counter.SHARED, compose.counter.TABLE, compose.counter.NAMES, compose.PACKET,
         'scripts/chess_parsimony_proof_20261024/verify.py',
         'scripts/chess_parsimony_20261024/pilot.py',
         'scripts/chess_parsimony_20261024/printer.py',
@@ -71,6 +79,15 @@ def main():
     for path in paths:
         if path.endswith('.lean'):
             proof.source_check(ROOT / path)
+    instance = compose.generate(WORK)
+    for key in ['source', 'global_source', 'identity_source']:
+        proof.source_check(instance[key])
+    runner.save('instance-plan.json', dict(words=instance['words'], chunks=instance['chunks'],
+        states=instance['states'], cells=instance['cells'], final_post=instance['final_post'],
+        packet_bits=instance['packet_bits'], framed_bits=instance['framed_bits'],
+        packet_sha256=instance['packet_sha256'], candidate_sha256=instance['candidate_sha256'],
+        generated_sha256={key: runner.sha(instance[key]) for key in
+            ['source', 'global_source', 'identity_source']}, fresh_machine_states=0))
     runner.checkpoint()
     runner.run('mathlib-cache', ['lake', 'exe', 'cache', 'get',
         'Mathlib.Computability.TuringMachine.PostTuringMachine', 'Mathlib.Data.Nat.Prime.Basic',
@@ -89,13 +106,70 @@ def main():
     audit.write_text('import Cryptids.Compilation.Parsimony.Global\n' + '\n'.join(
         '#print axioms ConjectureMachines.Compilation.Parsimony.' + root for root in
         ['Packet.encode_value', 'Packet.encode_unique', 'Packet.value_injective',
+         'Packet.render_range', 'Packet.indexed_render',
          'Global.scan', 'Global.tick', 'Global.iterate', 'Global.finish', 'Global.written_reverse']))
     proof.source_check(audit)
     proof.foundations(lean('generic-foundations', audit))
-    # The next source-bound checkpoint supplies full-data instantiation after generic checks.
-    SUMMARY.update(status='generic_checked_full_data_pending')
+    os.environ['LEAN_PATH'] = str(WORK)
+    output = lean('all-word-macros', instance['source'], run=True)
+    proof.foundations(output)
+    assert 'PARSIMONY_ALL_WORDS_EXPORTED' in output
+    exported = [tuple(map(int, line.split())) for line in
+                instance['source'].with_suffix('.rows').read_text().splitlines()]
+    assert exported == instance['actual'], 'Rows differ from unchanged complete candidate'
+    output = lean('global-iteration', instance['global_source'])
+    proof.foundations(output)
+    assert "'ParsimonyComposed.global_terminated' depends on axioms:" in output
+    SUMMARY['gates']['I1'] = True
     runner.checkpoint()
-    print('PARSIMONY_GLOBAL_GENERIC_PASSED', flush=True)
+    output = lean('frozen-packet-identity', instance['identity_source'])
+    proof.foundations(output)
+    assert "'ParsimonyComposed.global_bits_identity' depends on axioms:" in output
+    SUMMARY['gates']['P1'] = True
+    runner.checkpoint()
+    corrupted = WORK / 'Corrupted.lean'
+    original = instance['identity_source'].read_text()
+    # Only the independently frozen expected chunk's first bit is changed.
+    needle = 'def frozenChunk0 : String :=\n  '
+    begin = original.index(needle) + len(needle)
+    bit = original.index('1', begin)
+    assert original[bit - 1] == '"'
+    corrupted.write_text(original[:bit] + '0' + original[bit + 1:])
+    proof.source_check(corrupted)
+    rejected = lean('changed-frozen-packet', corrupted, expected_exit=1)
+    assert 'error:' in rejected
+    for path, expected in pins.items():
+        assert runner.sha(ROOT / path) == expected, path
+    assert runner.sha(ROOT / compose.counter.TABLE) == compose.counter.TABLE_SHA
+    assert runner.sha(ROOT / compose.PACKET) == compose.PACKET_SHA
+    runner.save('composition.json', dict(words=instance['words'], chunks=instance['chunks'],
+        rows_compared=len(exported), full_execution_unrolled=False,
+        iteration_theorem='ParsimonyComposed.global_terminated',
+        identity_theorem='ParsimonyComposed.global_bits_identity',
+        framing_theorem='ParsimonyComposed.packet_framing',
+        frozen_packet_sha256=compose.PACKET_SHA, frozen_packet_bits=instance['packet_bits'],
+        framed_bits=instance['framed_bits'], fresh_machine_states=0,
+        output_includes_width_padding_zeros=3, packet_offset=33,
+        complete_blank_startup=False, complete_printer_certified=False,
+        external_binding_is_not_kernel_file_parser=True,
+        artifact_to_TableSeed_ChessCodec_bits_bridge=False,
+        generated={key: dict(source_sha256=runner.sha(instance[key]),
+            source_bytes=instance[key].stat().st_size,
+            object_sha256=runner.sha(instance[key].with_suffix('.olean')),
+            object_bytes=instance[key].with_suffix('.olean').stat().st_size)
+            for key in ['source', 'global_source', 'identity_source']}))
+    SUMMARY['gates']['B1'] = True
+    SUMMARY.update(status='global_iteration_packet_identity_passed',
+        complete_requested_composition=True,
+        remaining=['preamble and epilogue', 'marker and tail cleanup',
+            'artifact to TableSeed.ChessCodec.bits proof bridge',
+            'direct suffix linking and relocation', 'both complete halting directions',
+            'whole-machine final audits'])
+    runner.checkpoint()
+    print('PARSIMONY_GLOBAL_ITERATION_PASSED', flush=True)
+    print('PARSIMONY_FROZEN_PACKET_IDENTITY_PASSED', flush=True)
+    print('PARSIMONY_GLOBAL_BINDING_PASSED', flush=True)
+
 
 
 if __name__ == '__main__':

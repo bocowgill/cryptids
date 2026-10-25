@@ -1,0 +1,58 @@
+{
+  "Packet.olean": {
+    "bytes": 51512,
+    "sha256": "f90ef435da30e0b4298b8dc7b87046fd3ce3735fe9d40ec1d7a5ea4b3f0e75b1",
+    "crc32": 3165953826,
+    "compressed_bytes": 16637,
+    "compression": 8
+  },
+  "kernel-global.log": {
+    "bytes": 3430,
+    "sha256": "d984bbed3e4e3b984b9f766bcd4718febfec94d8057f8bfea02401ea264aaae1",
+    "crc32": 1310169051,
+    "compressed_bytes": 643,
+    "compression": 8
+  },
+  "failure.txt": {
+    "bytes": 837,
+    "sha256": "b572c66a46ed61cdda368e0dbda9c4b08cd2290fd94e5e7c202f05e42bd89fa6",
+    "crc32": 3752560676,
+    "compressed_bytes": 332,
+    "compression": 8
+  },
+  "kernel-packet.log": {
+    "bytes": 309,
+    "sha256": "37ae58c1e42654e6febf385b00d1d839c904b064bf854ae2b446e70d57e55396",
+    "crc32": 3812354598,
+    "compressed_bytes": 146,
+    "compression": 8
+  },
+  "mathlib-cache.log": {
+    "bytes": 2005,
+    "sha256": "2c262219212d54d142c031a856f0005c4aaf1cc75e74ef8683547dadb2cb167d",
+    "crc32": 3801024779,
+    "compressed_bytes": 561,
+    "compression": 8
+  },
+  "pilot-summary.json": {
+    "bytes": 2892,
+    "sha256": "bfeea1fad45cb63c3f4b2538c32a9066f9d4d0a0e08635b7c9ae125c4402e340",
+    "crc32": 2841973042,
+    "compressed_bytes": 988,
+    "compression": 8
+  },
+  "runner-capacity.json": {
+    "bytes": 1787,
+    "sha256": "14e143a4beba708bde9b1801a2da810a62460a538f8a23ae9805550e479ca262",
+    "crc32": 440194570,
+    "compressed_bytes": 678,
+    "compression": 8
+  },
+  "source-manifest.json": {
+    "bytes": 468086,
+    "sha256": "e2290f508b1a7cb72c1957a1ff58690e6e6797a6f8eab4630e92db7f0c3ff950",
+    "crc32": 114831312,
+    "compressed_bytes": 127730,
+    "compression": 8
+  }
+}

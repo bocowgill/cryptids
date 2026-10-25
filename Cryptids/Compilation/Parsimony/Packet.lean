@@ -75,4 +75,28 @@ def render (width : Nat) (values : List Nat) : List Char :=
     render width (first ++ second) = render width first ++ render width second := by
   simp [render]
 
+/-- Rendering a finite list agrees with chronological indexing; no data is unfolded. -/
+theorem render_range (width : Nat) (values : List Nat) :
+    (List.range values.length).flatMap
+      (fun i ↦ text (encode width (values[i]?.getD 0)).reverse) = render width values := by
+  induction values with
+  | nil => rfl
+  | cons value values ih =>
+    simp only [List.length_cons, List.range_succ_eq_map, List.flatMap_cons,
+      List.flatMap_map, Function.comp_def, List.getElem?_cons_zero,
+      List.getElem?_cons_succ, Option.getD_some, render, List.flatMap_cons] at *
+    exact congrArg (text (encode width value).reverse ++ ·) ih
+
+/-- The same ordered rendering for the actual optional array lookup used by data rows. -/
+theorem indexed_render (width last : Nat) (values : Array (Fin (last + 1))) :
+    (List.range values.size).flatMap (fun i ↦
+      text (encode width (Data.wordAt last values i).val).reverse) =
+        render width (values.toList.map Fin.val) := by
+  have lookup (i : Nat) : (values.toList.map Fin.val)[i]?.getD 0 =
+      (Data.wordAt last values i).val := by
+    simp only [List.getElem?_map, Array.getElem?_toList, Data.wordAt]
+    cases h : values[i]? <;> simp [h]
+  simpa only [List.length_map, Array.length_toList, lookup] using
+    render_range width (values.toList.map Fin.val)
+
 end ConjectureMachines.Compilation.Parsimony.Packet
