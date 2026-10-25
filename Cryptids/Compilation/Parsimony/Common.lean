@@ -18,7 +18,8 @@ set_option backward.isDefEq.respectTransparency false
 abbrev Bit := Fin 2
 
 /-- Ordinary finite machine reachability, including a zero-step path. -/
-abbrev Runs {q : Nat} (M : Machine q 2) := Reaches (step M)
+abbrev Runs {q : Nat} (M : Machine q 2) (a b : Cfg q 2) : Prop :=
+  ReflTransGen (fun first second ↦ step M first = some second) a b
 
 /-- A zipper whose left frame includes the current cell. -/
 def atL (left right : ListBlank Bit) : Tape Bit := ⟨left.head, left.tail, right⟩

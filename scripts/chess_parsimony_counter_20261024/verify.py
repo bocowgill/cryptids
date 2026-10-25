@@ -77,9 +77,24 @@ def main():
         'Mathlib.Algebra.GCDMonoid.Finset', 'Mathlib.Order.Interval.Finset.Nat',
         'Mathlib.NumberTheory.LSeries.RiemannZeta', 'Mathlib.SetTheory.ZFC.Basic',
         'Mathlib.Tactic'], 300)
-    output = runner.run('generic-kernel', ['lake', '--wfail', '-f', LAKE, 'build', TARGET], 240)
-    assert 'warning:' not in output and 'error:' not in output
-    for name in ['Data', 'Common', 'Counter']:
+    failures = []
+    for name in ['Common', 'Counter', 'Insertion']:
+        try:
+            output = runner.run('kernel-' + name.lower(), ['lake', '--wfail', '-f', LAKE,
+                'build', 'Cryptids.Compilation.Parsimony.' + name], 240)
+            assert 'warning:' not in output and 'error:' not in output
+        except AssertionError as error:
+            failures.append(dict(module=name, error=str(error)))
+            if name == 'Common':
+                raise
+        else:
+            built = ROOT / ('.lake/build/lib/lean/Cryptids/Compilation/Parsimony/' + name + '.olean')
+            (WORK / (name + '.olean')).write_bytes(built.read_bytes())
+            SUMMARY.setdefault('checked_modules', []).append(name)
+            runner.checkpoint()
+    runner.save('module-failures.json', failures)
+    assert not failures, 'Independent proof modules failed; inspect their separate logs'
+    for name in ['Data']:
         built = ROOT / ('.lake/build/lib/lean/Cryptids/Compilation/Parsimony/' + name + '.olean')
         (WORK / (name + '.olean')).write_bytes(built.read_bytes())
     audit = WORK / 'Audit.lean'
@@ -89,12 +104,20 @@ def main():
     proof.source_check(audit)
     proof.foundations(lean('foundations', audit))
     SUMMARY['gates']['C1'] = True
+    audit = WORK / 'InsertionAudit.lean'
+    audit.write_text('import Cryptids.Compilation.Parsimony.Insertion\n' + '\n'.join(
+        '#print axioms ConjectureMachines.Compilation.Parsimony.Insertion.' + root
+        for root in ['charZero', 'charPositive', 'charCarry', 'carryRun', 'zeroRun', 'word']))
+    proof.source_check(audit)
+    proof.foundations(lean('insertion-foundations', audit))
+    SUMMARY['gates']['W1'] = True
     SUMMARY.update(status='counter_checked', complete_requested_composition=False,
-        checked_prefix='Common finite scans; counter arithmetic and complete return path',
-        remaining=['word insertion', 'unary conversion',
+        checked_prefix='Common finite scans; counter arithmetic/return and word insertion',
+        remaining=['unary conversion',
                    'all-word composition and candidate row binding', 'final audit'])
     runner.checkpoint()
     print('PARSIMONY_COUNTER_KERNEL_PASSED', flush=True)
+    print('PARSIMONY_INSERTION_KERNEL_PASSED', flush=True)
 
 
 if __name__ == '__main__':

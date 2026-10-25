@@ -18,6 +18,13 @@ missing, and an indexed sum needed reassociation. All logs and exact producer
 are retained under evidence/counter-01. No memory or time limit was hit.
 Round 2 corrects those exact issues, adds a shared repeat/cons normalization
 lemma and the counter's paid return sweep. No phase gate is claimed yet.
+Round 2 run 40146146317 at 79f6cd2c1a6be35707ae4ba10c27ca7be9d74136 still
+failed in Common: simplification produced a reachability relation in a different
+normal form from its opaque wrapper. Other earlier shape/index goals were gone.
+Logs and receipts are retained in evidence/counter-02; no resource limit hit.
+Round 3 uses an explicit equality-based ReflTransGen definition and checks the
+independent counter/insertion modules sequentially, retaining both diagnostics
+if Common passes. Insertion has exact zero/positive carry and finish contracts.
 Remaining requested work is
 counter return, blank-word insertion, unary conversion, composition with data
 at all 13,360 words, physical row binding and final foundation/corruption audit.

@@ -1,0 +1,52 @@
+✔ [3813/3815] Built Cryptids.Compilation.Parsimony.Data (5.3s)
+✖ [3814/3815] Building Cryptids.Compilation.Parsimony.Common (1.7s)
+trace: .> LEAN_PATH=/home/runner/work/cryptids/cryptids/.lake/packages/subverso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/MD4Lean/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/illuminate/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/verso/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/cryptids/cryptids/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean -M5120 /home/runner/work/cryptids/cryptids/Cryptids/Compilation/Parsimony/Common.lean -o /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Compilation/Parsimony/Common.olean -i /home/runner/work/cryptids/cryptids/.lake/build/lib/lean/Cryptids/Compilation/Parsimony/Common.ilean -c /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Compilation/Parsimony/Common.c --setup /home/runner/work/cryptids/cryptids/.lake/build/ir/Cryptids/Compilation/Parsimony/Common.setup.json --json
+error: Cryptids/Compilation/Parsimony/Common.lean:74:4: Type mismatch: After simplification, term
+  ReflTransGen.trans first (ih (ListBlank.cons bit left))
+ has type
+  ReflTransGen (fun a b ↦ b ∈ step M a)
+    { state := s, tape := Tape.mk' left (ListBlank.cons bit (ListBlank.append (List.replicate n bit) right)) }
+    { state := s, tape := Tape.mk' (ListBlank.cons bit (ListBlank.append (List.replicate n bit) left)) right }
+but is expected to have type
+  Runs M { state := s, tape := Tape.mk' left (ListBlank.cons bit (ListBlank.append (List.replicate n bit) right)) }
+    { state := s, tape := Tape.mk' (ListBlank.cons bit (ListBlank.append (List.replicate n bit) left)) right }
+error: Cryptids/Compilation/Parsimony/Common.lean:89:4: Type mismatch: After simplification, term
+  ReflTransGen.trans first (ih (ListBlank.cons 1 left))
+ has type
+  ReflTransGen (fun a b ↦ b ∈ step M a)
+    { state := s,
+      tape := Tape.mk' left (ListBlank.cons 1 (ListBlank.append (List.replicate n 1) (ListBlank.cons 0 right))) }
+    { state := t,
+      tape := Tape.mk' (ListBlank.cons write (ListBlank.cons 1 (ListBlank.append (List.replicate n 1) left))) right }
+but is expected to have type
+  Runs M
+    { state := s,
+      tape := Tape.mk' left (ListBlank.cons 1 (ListBlank.append (List.replicate n 1) (ListBlank.cons 0 right))) }
+    { state := t,
+      tape := Tape.mk' (ListBlank.cons write (ListBlank.cons 1 (ListBlank.append (List.replicate n 1) left))) right }
+error: Cryptids/Compilation/Parsimony/Common.lean:104:4: Type mismatch: After simplification, term
+  ReflTransGen.trans first (ih (ListBlank.cons 1 right))
+ has type
+  ReflTransGen (fun a b ↦ b ∈ step M a)
+    { state := s, tape := atL (ListBlank.cons 1 (ListBlank.append (List.replicate n 1) (ListBlank.cons 0 left))) right }
+    { state := t,
+      tape := atL left (ListBlank.cons write (ListBlank.cons 1 (ListBlank.append (List.replicate n 1) right))) }
+but is expected to have type
+  Runs M
+    { state := s, tape := atL (ListBlank.cons 1 (ListBlank.append (List.replicate n 1) (ListBlank.cons 0 left))) right }
+    { state := t,
+      tape := atL left (ListBlank.cons write (ListBlank.cons 1 (ListBlank.append (List.replicate n 1) right))) }
+error: Cryptids/Compilation/Parsimony/Common.lean:122:4: Type mismatch: After simplification, term
+  ReflTransGen.trans first rest
+ has type
+  ReflTransGen (fun a b ↦ step M a = some b)
+    { state := control i, tape := Tape.mk' left (ListBlank.cons bit (ListBlank.append bits right)) }
+    { state := control (i + (bits.length + 1)),
+      tape := Tape.mk' (ListBlank.append bits.reverse (ListBlank.cons bit left)) right }
+but is expected to have type
+  Runs M { state := control i, tape := Tape.mk' left (ListBlank.cons bit (ListBlank.append bits right)) }
+    { state := control (i + (bits.length + 1)),
+      tape := Tape.mk' (ListBlank.append bits.reverse (ListBlank.cons bit left)) right }
+Some required targets logged failures:
+- Cryptids.Compilation.Parsimony.Common
+error: build failed
