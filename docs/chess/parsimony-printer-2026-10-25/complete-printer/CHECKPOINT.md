@@ -33,3 +33,9 @@ codex/chess-complete-recovery-923c0a0b. New evidence ZIPs are ignored in this ph
 only; no historical evidence is removed. Permanent recovery uses all exact
 unpacked files plus archive-entries.json. All old reused batch archives remain
 unchanged and tracked. Do not depend on GitHub artifact retention for the proofs.
+
+Attempt 2 active: run 40235959402, producer
+168ebc597b7b217d177738cf8b07b27cf7ae1455. Exact source/tree hash verified via Git
+API; no extra proof attempt or workflow permission was needed for transport.
+Retention: `python3 scripts/chess_parsimony_complete_20261025/retain.py --run 40235959402 --source 168ebc597b7b217d177738cf8b07b27cf7ae1455 --iteration 2`.
+Do not launch attempt 3 until terminal logs diagnose a specific correction.
