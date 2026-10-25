@@ -14,3 +14,8 @@ before instantiating the concrete input. Do not increase recursion/memory budget
 Accepted complete size 769,344; experimental 609,247; accepted new saving zero.
 Frozen specification/machine unchanged; heavy work remote; outreach held. Older
 persistent campaign remains paused. Preserve all old evidence and pinned routines.
+
+Attempt 1 launched from exact pushed source 13ba1c5e5b2d8810f2d99d8be5185236b46ba54e:
+https://github.com/bocowgill/cryptids/actions/runs/40198826275 . If interrupted,
+inspect that run before launching anything. Retain with
+`python3 scripts/chess_parsimony_wrapper_20261025/retain.py --run 40198826275 --source 13ba1c5e5b2d8810f2d99d8be5185236b46ba54e --iteration 1`.
