@@ -16,7 +16,7 @@ The next boundary is i+1 with the new word prepended to the left frame.
 Prove the iteration by induction on word count, reusing the macro once in the
 inductive step. Do not evaluate 13,360 physical runs or expand their unary work.
 After the last word, scan all 13,360 zero index cells: the last data row writes
-zero and enters data_out on the next marker 1. Include data_out's one branch to
+zero and enters data_out on the next marker 1. Include data_out's one branch (write 0, move left) to
 test_positive_end, preserving the exact remaining unary index/work area.
 This is finite ordinary reachability, not an exact global step count.
 

@@ -41,3 +41,19 @@ exactly Function.comp_def and the unnecessary case-equation simp argument; no
 linter disabled, no theorem weakened. Generator passed remote width checks.
 Attempt 3 collects diagnostics for both generic modules before stopping on any
 strict failure, then proceeds to full-data stages only if both pass.
+
+Attempt 3 dispatched: run 40154000971, producer
+5b694f4ef24aeac6519ecbbe2ddfbc01f30585c2. Fork ref verified after push exit zero.
+Scope/caps unchanged; no further jobs pending or automatic continuation enabled.
+
+Attempt 3 terminal failure retained in evidence/global-03. Both reusable modules
+and standard foundations passed strict checking; full actual word macros/export
+passed in 16.169 s at 5,383,180,288 bytes. The full instance's naive raw array
+length decision exhausted the 5 GiB Lean heap (group peak 6,242,496,512 bytes,
+below 6 GiB sampled group cap). It was not a failed global-induction theorem:
+global_iteration itself checked with standard foundations. Replace array-size
+normalization by 53 bounded chunk-size proofs plus append arithmetic, preserving
+the fixed caps. Also correct the draft's mistaken final physical row assumption:
+retained row export and upstream source both show data_out 1 -> write 0, LEFT,
+test_positive_end. Add finish_left without changing checked generic statements
+or any machine row. Fix malformed newline field notation in the terminal target.

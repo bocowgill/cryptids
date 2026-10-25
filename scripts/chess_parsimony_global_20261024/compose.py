@@ -45,6 +45,17 @@ def generate(work):
     source = source.replace('private def part', 'def part')
     source = source.replace('chess-parsimony-counter-20261024/AllWords.rows',
                             'chess-parsimony-global-20261024/AllWords.rows')
+    parts = re.findall(r'def (part\d+) : Array Nat :=', source)
+    assert len(parts) == 53
+    source += '\nnamespace ParsimonyComposed\n'
+    for i, part in enumerate(parts):
+        count = min(256, 13360 - i * 256)
+        source += ('theorem size_' + part + ' : ' + part + '.size = ' + str(count) +
+                   ' := by decide +kernel\n')
+    source += 'theorem raw_size : raw.size = 13360 := by\n'
+    source += '  simp only [raw, Array.size_append,\n'
+    source += wrap('    ' + ', '.join('size_' + p for p in parts) + ']') + '\n'
+    source += '\nend ParsimonyComposed\n'
     path.write_text(source)
     generic = '''import AllWords
 
@@ -80,21 +91,20 @@ theorem global_iteration (L : ListBlank (Fin 2)) :
     post = item['ids']['test_positive_end']
     generic += 'def positiveEnd : Fin 13546 := stateOf ' + str(post) + '\n\n'
     generic += '''theorem values_size : values.size = 13360 := by
-  simp only [values, Array.size_map]
-  decide +kernel
+  simp only [values, Array.size_map, raw_size]
 
 theorem final_one : (model values).transition exit 1 =
-    some (1, .right, positiveEnd) := by
+    some (0, .left, positiveEnd) := by
   rw [static_eq values #[] exit 1 (by decide +kernel)]
   decide +kernel
 
 theorem global_terminated (L : ListBlank (Fin 2)) :
     Parsimony.Common.Runs (model values) (Parsimony.Global.boundary data 0 L)
       ⟨positiveEnd, Tape.mk'
-        (((O 13359 ((ListBlank.append (Parsimony.Global.written word 13360) L).cons 0)).cons 0)
-          .cons 1) Parsimony.Global.blank⟩ :=
+        (O 13359 ((ListBlank.append (Parsimony.Global.written word 13360) L).cons 0))
+        Parsimony.Global.blank⟩ :=
   (global_iteration L).trans
-    (Parsimony.Global.finish (model values) data exit positiveEnd 13359
+    (Parsimony.Global.finish_left (model values) data exit positiveEnd 13359
       (row_more values) (row_last values) final_one _)
 
 end ParsimonyComposed

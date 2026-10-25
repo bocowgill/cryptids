@@ -1,0 +1,20 @@
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-global-20261024/GlobalInstance.lean:35:2: error: (kernel) excessive memory consumption detected
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-global-20261024/GlobalInstance.lean:40:2: error: (kernel) application type mismatch
+  id (Eq.refl true)
+argument has type
+  true = true
+but function has type
+  decide ((model #[]).transition exit 1 = some (1, Dir.right, positiveEnd)) = true →
+    decide ((model #[]).transition exit 1 = some (1, Dir.right, positiveEnd)) = true
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-global-20261024/GlobalInstance.lean:45:9: error: Function expected at
+  ListBlank.cons 0 (O 13359 (ListBlank.cons 0 (ListBlank.append (Parsimony.Global.written word 13360) L)))
+but this term has type
+  ListBlank Bit
+
+Note: Expected a function because this term is being applied to the argument
+  .cons
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-global-20261024/GlobalInstance.lean:42:0: error: maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+'ParsimonyComposed.global_iteration' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ParsimonyComposed.global_terminated' does not depend on any axioms

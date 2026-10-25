@@ -114,7 +114,7 @@ def main():
         '#print axioms ConjectureMachines.Compilation.Parsimony.' + root for root in
         ['Packet.encode_value', 'Packet.encode_unique', 'Packet.value_injective',
          'Packet.render_range', 'Packet.indexed_render',
-         'Global.scan', 'Global.tick', 'Global.iterate', 'Global.finish', 'Global.written_reverse']))
+         'Global.scan', 'Global.tick', 'Global.iterate', 'Global.finish', 'Global.finish_left', 'Global.written_reverse']))
     proof.source_check(audit)
     proof.foundations(lean('generic-foundations', audit))
     os.environ['LEAN_PATH'] = str(WORK)

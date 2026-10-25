@@ -104,6 +104,19 @@ theorem finish {q : Nat} (M : Machine q 2) (data : Nat → Fin q) (exit post : F
   have later := Common.right M exit post 1 1 ((O last (L.cons 0)).cons 0) blank done
   simpa only [boundary, Z, O, ListBlank.append, Nat.zero_add] using first.trans later
 
+/-- The actual printer erases the terminal marker and turns left into its epilogue. -/
+theorem finish_left {q : Nat} (M : Machine q 2) (data : Nat → Fin q) (exit post : Fin q)
+    (last : Nat)
+    (more : ∀ i, i < last → M.transition (data i) 0 = some (1, .right, data (i + 1)))
+    (final : M.transition (data last) 0 = some (0, .right, exit))
+    (done : M.transition exit 1 = some (0, .left, post)) (L : ListBlank Bit) :
+    Common.Runs M (boundary data (last + 1) L)
+      ⟨post, Tape.mk' (O last (L.cons 0)) blank⟩ := by
+  have first := Common.of_run M (last + 1) _ _
+    (Data.unary_run M data exit last more final last 0 (by omega) (L.cons 0) (blank.cons 1))
+  have later := Common.leftCell M exit post 1 0 0 (O last (L.cons 0)) blank done
+  simpa only [boundary, Z, O, ListBlank.append, Nat.zero_add, blank_cons] using first.trans later
+
 /-- Ordered output is exactly the chronological word sequence. -/
 theorem written_reverse (word : Nat → List Bit) (count : Nat) :
     (written word count).reverse = (List.range count).flatMap (fun i ↦ (word i).reverse) := by
