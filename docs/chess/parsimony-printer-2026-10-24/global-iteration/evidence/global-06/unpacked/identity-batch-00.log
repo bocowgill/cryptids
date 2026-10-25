@@ -1,0 +1,10 @@
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-global-20261024/PacketBatch00.lean:692:83: error: (kernel) excessive memory consumption detected
+'ParsimonyComposed.partition_part0' depends on axioms: [sorryAx]
+'ParsimonyComposed.packet_chunk0' depends on axioms: [propext]
+'ParsimonyComposed.packet_chunk1' depends on axioms: [propext]
+'ParsimonyComposed.packet_chunk2' depends on axioms: [propext]
+'ParsimonyComposed.packet_chunk3' depends on axioms: [propext]
+'ParsimonyComposed.packet_chunk4' depends on axioms: [propext]
+'ParsimonyComposed.packet_chunk5' depends on axioms: [propext]
+'ParsimonyComposed.packet_chunk6' depends on axioms: [propext]
+'ParsimonyComposed.packet_chunk7' depends on axioms: [propext]

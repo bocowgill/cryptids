@@ -186,11 +186,20 @@ namespace ParsimonyComposed
             body += 'theorem packet_chunk' + str(i) + ' :\n'
             body += '    Parsimony.Packet.render 13 (numeric ' + part + ') = ' + name + ' := by\n'
             body += '  decide +kernel\n\n'
-        body += 'theorem partition_' + parent + ' : ' + parent + ' =\n'
-        body += wrap('  ' + balanced(children) + ' := by decide +kernel') + '\n'
+        body += 'theorem partition_' + parent + ' : ' + parent + '.toList =\n'
+        body += wrap('  ' + balanced([c + '.toList' for c in children]) + ' := by rfl') + '\n'
+        body += 'theorem packet_' + parent + ' : Parsimony.Packet.render 13 (numeric ' + parent + ') =\n'
+        local_chunks = chunks[-len(children):]
+        body += wrap('  ' + balanced(local_chunks) + ' := by') + '\n'
+        body += '  have equal : numeric ' + parent + ' =\n'
+        body += wrap('    ' + balanced(['numeric ' + c for c in children]) + ' := by') + '\n'
+        body += '    simp only [numeric, partition_' + parent + ', List.map_append]\n'
+        body += '  rw [equal]\n  simp only [Parsimony.Packet.render_append,\n'
+        local_roots = ['packet_chunk' + str(j) for j in
+            range(len(subparts) - len(children), len(subparts))]
+        body += wrap('    ' + ', '.join(local_roots) + ']') + '\n'
         body += '\nend ParsimonyComposed\n'
-        for root in ['partition_' + parent] + ['packet_chunk' + str(j) for j in
-            range(len(subparts) - len(children), len(subparts))]:
+        for root in ['partition_' + parent, 'packet_' + parent] + local_roots:
             body += '#print axioms ParsimonyComposed.' + root + '\n'
         path_batch = work / (module + '.lean')
         path_batch.write_text(body)
@@ -214,8 +223,7 @@ namespace ParsimonyComposed
     identity += wrap('    ' + ', '.join(chunks) + ', List.append_assoc]') + '\n\n'
     identity += 'theorem all_packet_words : Parsimony.Packet.render 13 (numeric raw) = frozenFramed := by\n'
     identity += '  simp only [raw, numeric_append, Parsimony.Packet.render_append,\n'
-    identity += wrap('    ' + ', '.join('partition_' + part for part in parts) + ',') + '\n'
-    identity += wrap('    ' + ', '.join('packet_chunk' + str(i) for i in range(len(subparts))) + ',') + '\n'
+    identity += wrap('    ' + ', '.join('packet_' + part for part in parts) + ',') + '\n'
     identity += """    frozenFramed, List.append_assoc]
 
 theorem global_bits_identity :

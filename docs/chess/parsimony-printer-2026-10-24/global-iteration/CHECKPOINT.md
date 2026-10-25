@@ -116,3 +116,23 @@ all payload lists. The old 32-word pilot object was 578,008 bytes; carrying that
 representation into every imported chunk risks substantial proof-data overhead.
 Use named zeroChar/oneChar definitions and independently verify their values in
 the retained-source review. No sixth job launched from intermediate 8c90d529.
+
+Attempt 6 dispatched from edd52ebe175e26a7335c1febaf6f9ddfdb01b662 after push exit
+zero and exact fork-ref verification. No job launched from intermediate
+8c90d529. This run checkpoints each of 53 certificate batches separately, then
+requires the complete structural packet identity and positive/negative control.
+Attempt 6 run handle: 40156311217. Only this scoped pilot is active/authorized;
+limits and frozen/checked pins are unchanged. Outreach remains on hold.
+
+Attempt 6 terminal failure retained in evidence/global-06. Reusable roots, full
+actual iteration and common packet lemmas passed. All eight first-batch 32-word
+identities checked with propext only; batch failed solely at its Array.append
+equality decision with a 5 GiB Lean heap error (9.701 s, sampled 6,240,821,248
+bytes). No batch object accepted, because the partition obligation failed.
+
+Specific attempt 7 correction: prove the original part's toList equals appended
+small toLists by definitional equality; derive rendered-part identity using map
+and render append lemmas. Compose those rendered-part theorems globally. This
+eliminates Array.append evaluation rather than raising caps or weakening output
+identity. Keep the eight checked character statements and runtime array fixed.
+Two of eight attempts remain. No seventh job launched yet.

@@ -1,0 +1,218 @@
+{
+  "accepted_machine_states": 769344,
+  "candidate_states": 609247,
+  "certified_saving": 0,
+  "checked_modules": [
+    "Packet",
+    "Global"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "lake",
+        "exe",
+        "cache",
+        "get",
+        "Mathlib.Computability.TuringMachine.PostTuringMachine",
+        "Mathlib.Data.Nat.Prime.Basic",
+        "Mathlib.Algebra.GCDMonoid.Finset",
+        "Mathlib.Order.Interval.Finset.Nat",
+        "Mathlib.NumberTheory.LSeries.RiemannZeta",
+        "Mathlib.SetTheory.ZFC.Basic",
+        "Mathlib.Tactic"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "effective_budget_seconds": 300,
+      "elapsed_seconds": 21.255377917000004,
+      "exit": 0,
+      "expected_exit": 0,
+      "log": "mathlib-cache.log",
+      "log_sha256": "f537bb8b105c3548b9512991c1195663273bb02391b15332e5a9c1c1c87b60ef",
+      "name": "mathlib-cache",
+      "peak_group_plus_driver_rss_bytes": 1081954304,
+      "resource_stop": null
+    },
+    {
+      "argv": [
+        "lake",
+        "--wfail",
+        "-f",
+        "lakefile.chess-parsimony-global-20261024.toml",
+        "build",
+        "Cryptids.Compilation.Parsimony.Packet"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "effective_budget_seconds": 240,
+      "elapsed_seconds": 24.785139641,
+      "exit": 0,
+      "expected_exit": 0,
+      "log": "kernel-packet.log",
+      "log_sha256": "f34637fbe69302e8a397db58010b7c85743ad30100249a99f88e5be6e6520038",
+      "name": "kernel-packet",
+      "peak_group_plus_driver_rss_bytes": 2727444480,
+      "resource_stop": null
+    },
+    {
+      "argv": [
+        "lake",
+        "--wfail",
+        "-f",
+        "lakefile.chess-parsimony-global-20261024.toml",
+        "build",
+        "Cryptids.Compilation.Parsimony.Global"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "effective_budget_seconds": 240,
+      "elapsed_seconds": 12.360601212999995,
+      "exit": 0,
+      "expected_exit": 0,
+      "log": "kernel-global.log",
+      "log_sha256": "ded1ab8fe0d908308249c6b202b016ce080eb11dd41020ded8465d69c87b9bd1",
+      "name": "kernel-global",
+      "peak_group_plus_driver_rss_bytes": 2728853504,
+      "resource_stop": null
+    },
+    {
+      "argv": [
+        "lake",
+        "-f",
+        "lakefile.chess-parsimony-global-20261024.toml",
+        "env",
+        "lean",
+        "-M5120",
+        "-T2000000",
+        "-o",
+        "/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-global-20261024/Audit.olean",
+        "/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-global-20261024/Audit.lean"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "effective_budget_seconds": 180,
+      "elapsed_seconds": 15.511925990000009,
+      "exit": 0,
+      "expected_exit": 0,
+      "log": "generic-foundations.log",
+      "log_sha256": "eac6768460d63d40a05593cc95dd27c05014a0c671bb2e2897e3690a3470e7a4",
+      "name": "generic-foundations",
+      "peak_group_plus_driver_rss_bytes": 4889530368,
+      "resource_stop": null
+    },
+    {
+      "argv": [
+        "lake",
+        "-f",
+        "lakefile.chess-parsimony-global-20261024.toml",
+        "env",
+        "lean",
+        "-M5120",
+        "-T2000000",
+        "-o",
+        "/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-global-20261024/AllWords.olean",
+        "--run",
+        "/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-global-20261024/AllWords.lean"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "effective_budget_seconds": 180,
+      "elapsed_seconds": 11.897718862999966,
+      "exit": 0,
+      "expected_exit": 0,
+      "log": "all-word-macros.log",
+      "log_sha256": "698b21b38b0fad9e57166b640728775e36507d769de5a9c875decf8296008c8e",
+      "name": "all-word-macros",
+      "peak_group_plus_driver_rss_bytes": 5366906880,
+      "resource_stop": null
+    },
+    {
+      "argv": [
+        "lake",
+        "-f",
+        "lakefile.chess-parsimony-global-20261024.toml",
+        "env",
+        "lean",
+        "-M5120",
+        "-T2000000",
+        "-o",
+        "/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-global-20261024/GlobalInstance.olean",
+        "/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-global-20261024/GlobalInstance.lean"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "effective_budget_seconds": 180,
+      "elapsed_seconds": 3.1141380020000042,
+      "exit": 0,
+      "expected_exit": 0,
+      "log": "global-iteration.log",
+      "log_sha256": "9134785fa1a45665d80793e3597a6bd6bf8337224a2682ffbf5d7ce378337e04",
+      "name": "global-iteration",
+      "peak_group_plus_driver_rss_bytes": 4932964352,
+      "resource_stop": null
+    },
+    {
+      "argv": [
+        "lake",
+        "-f",
+        "lakefile.chess-parsimony-global-20261024.toml",
+        "env",
+        "lean",
+        "-M5120",
+        "-T2000000",
+        "-o",
+        "/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-global-20261024/PacketCommon.olean",
+        "/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-global-20261024/PacketCommon.lean"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "effective_budget_seconds": 180,
+      "elapsed_seconds": 3.0423516960000256,
+      "exit": 0,
+      "expected_exit": 0,
+      "log": "packet-common.log",
+      "log_sha256": "f17717a0f0633b46dbc3668f512c08e1f458bb75e82e488502d5d1ad1afd90a0",
+      "name": "packet-common",
+      "peak_group_plus_driver_rss_bytes": 4924846080,
+      "resource_stop": null
+    },
+    {
+      "argv": [
+        "lake",
+        "-f",
+        "lakefile.chess-parsimony-global-20261024.toml",
+        "env",
+        "lean",
+        "-M5120",
+        "-T2000000",
+        "-o",
+        "/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-global-20261024/PacketBatch00.olean",
+        "/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-global-20261024/PacketBatch00.lean"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "effective_budget_seconds": 180,
+      "elapsed_seconds": 9.701100232999977,
+      "exit": 1,
+      "expected_exit": 0,
+      "log": "identity-batch-00.log",
+      "log_sha256": "1f89d9454947b8ba30673e439bf90873b03f2ebcdb5995846a90b658beea3e07",
+      "name": "identity-batch-00",
+      "peak_group_plus_driver_rss_bytes": 6240821248,
+      "resource_stop": null
+    }
+  ],
+  "complete_printer_certified": false,
+  "driver_peak_rss_kib": 33488,
+  "elapsed_seconds": 117.41945405000001,
+  "experimental_saving": 160097,
+  "failure": "identity-batch-00 failed; retained log: /home/runner/work/cryptids/cryptids/.lake/chess-parsimony-global-20261024/identity-batch-00.log",
+  "failure_type": "AssertionError",
+  "gates": {
+    "I1": true
+  },
+  "limits": {
+    "composition_seconds": 180,
+    "driver_rss_bytes": 536870912,
+    "generic_seconds": 240,
+    "group_plus_driver_rss_bytes": 6442450944,
+    "lean_heap_mib": 5120,
+    "lean_threads": 1,
+    "total_seconds": 1200
+  },
+  "new_accepted_machine": false,
+  "schema": "parsimony-global-v1",
+  "status": "failed"
+}
