@@ -1,0 +1,2 @@
+PARSIMONY_GLOBAL_PARTIAL_RETAINED_VERIFIED
+Operational root and full packet batches checked; final wrapper remains unverified

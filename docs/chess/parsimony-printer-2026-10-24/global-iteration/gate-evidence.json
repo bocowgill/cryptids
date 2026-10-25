@@ -1,0 +1,36 @@
+{
+  "counts": {
+    "abandoned_incomplete": 2,
+    "met": 1,
+    "pending": 1
+  },
+  "gates": {
+    "B1": {
+      "reason": "Final wrapper and positive/negative controls not checked",
+      "status": "abandoned_incomplete"
+    },
+    "I1": {
+      "check": "python3 scripts/chess_parsimony_global_20261024/review.py --iteration 8 --partial",
+      "cwd": "/Users/bocowgill/.codex/worktrees/6ba9/cryptids",
+      "evidence": "partial-review.json",
+      "exit": 0,
+      "expect": "PARSIMONY_GLOBAL_PARTIAL_RETAINED_VERIFIED",
+      "expect_matched": true,
+      "output_sha256": "04be492354023df6a5c70172b1142f288cc6d10a499dc0994bb6b70674cba458",
+      "path": "/Users/bocowgill/.local/bin:/Applications/ChatGPT.app/Contents/Resources/codex-cli/codex-path:/Users/bocowgill/.elan/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/opt/X11/bin:/Library/TeX/texbin:/opt/homebrew/bin:/Users/bocowgill/.local/bin:/Users/bocowgill/.codex/tmp/arg0-macos/codex-arg0GACBi8:/Applications/ChatGPT.app/Contents/Resources/codex-cli/codex-path:/Users/bocowgill/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override:/opt/homebrew/Caskroom/miniforge/base/bin:/opt/homebrew/Caskroom/miniforge/base/condabin:/Users/bocowgill/.elan/bin:/opt/homebrew/sbin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/Users/bocowgill/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback:/Applications/ChatGPT.app/Contents/Resources:/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS:/Applications/Sublime Text.app/Contents/SharedSupport/bin",
+      "shell": "/bin/zsh",
+      "status": "met"
+    },
+    "P1": {
+      "reason": "Final operational identity wrapper recurses while instantiating indexed_render; eight-attempt bound exhausted",
+      "status": "abandoned_incomplete"
+    },
+    "R1": {
+      "status": "pending_push_verification"
+    }
+  },
+  "partial_review_sha256": "93da8ab8c1cd0ab9bb9b08afe8127b66b0b071d04a24d3aee67f3c7fdbfac05c",
+  "producer": "317cb4f2efcb561687af90c979e48323e51b6b78",
+  "run": 40157504256,
+  "schema": "bounded-global-gates-v1"
+}

@@ -1,0 +1,6 @@
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-global-20261024/Identity.lean:242:6: error: maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+'ParsimonyComposed.global_bits_identity' depends on axioms: [propext, sorryAx, Quot.sound]
+'ParsimonyComposed.all_packet_words' depends on axioms: [propext, Quot.sound]
+'ParsimonyComposed.packet_framing' depends on axioms: [propext]

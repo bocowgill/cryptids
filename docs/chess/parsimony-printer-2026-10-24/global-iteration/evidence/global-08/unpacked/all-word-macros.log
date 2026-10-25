@@ -1,0 +1,7 @@
+'ParsimonyComposed.allWordsIndexed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ParsimonyComposed.allWords' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ParsimonyComposed.words_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ParsimonyComposed.counter_rows' depends on axioms: [propext, Quot.sound]
+'ParsimonyComposed.insert_rows' depends on axioms: [propext, Quot.sound]
+'ParsimonyComposed.convert_rows' depends on axioms: [propext, Quot.sound]
+PARSIMONY_ALL_WORDS_EXPORTED

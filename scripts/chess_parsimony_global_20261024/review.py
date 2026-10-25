@@ -23,16 +23,87 @@ def read(path):
     return json.loads(path.read_text())
 
 
+def review_partial(work, run, manifest):
+    """Validate the exact checked prefix without certifying the failed wrapper."""
+    summary = read(work / 'pilot-summary.json')
+    assert run['conclusion'] == 'failure' and summary['status'] == 'failed'
+    assert summary['gates'] == dict(I1=True)
+    assert summary['checked_identity_words'] == 13360
+    assert summary['checked_identity_batches'] == 53
+    assert summary['certified_saving'] == 0 and not summary['new_accepted_machine']
+    assert not summary['complete_printer_certified']
+    allowed = {'propext', 'Classical.choice', 'Quot.sound'}
+    for command in summary['commands']:
+        log = work / command['log']
+        assert sha(log) == command['log_sha256'] and command['resource_stop'] is None
+        text = log.read_text()
+        if command['name'] == 'frozen-packet-identity':
+            assert command['exit'] == 1 and 'maximum recursion depth' in text
+            assert "'ParsimonyComposed.global_bits_identity' depends on axioms:" in text
+            assert 'sorryAx' in text  # Explicitly reject the final failed root.
+            for root in ['all_packet_words', 'packet_framing']:
+                groups = re.findall("'ParsimonyComposed." + root +
+                    "' depends on axioms:\s*\[([^\]]*)\]", text, re.S)
+                assert len(groups) == 1
+                assert set(groups[0].replace(' ', '').replace('\n', '').split(',')) <= allowed
+        else:
+            assert command['exit'] == command['expected_exit'] == 0
+            if command['name'] != 'mathlib-cache':
+                assert 'warning:' not in text and 'error:' not in text
+                assert 'sorryAx' not in text and 'Lean.ofReduceBool' not in text
+                for group in re.findall(r'depends on axioms:\s*\[([^\]]*)\]', text, re.S):
+                    assert set(group.replace(' ', '').replace('\n', '').split(',')) <= allowed
+    assert not (work / 'Identity.olean').exists()
+    assert (work / 'GlobalInstance.olean').is_file()
+    plan = read(work / 'instance-plan.json')
+    sources, objects, payloads = [], {}, []
+    for path in sorted(work.glob('PacketBatch*.lean')):
+        assert sha(path) == plan['batch_source_sha256'][path.name]
+        obj = path.with_suffix('.olean')
+        assert obj.is_file()
+        objects[path.name] = dict(source_sha256=sha(path), object_sha256=sha(obj),
+                                  object_bytes=obj.stat().st_size)
+        sources.append(path.read_text())
+    assert len(sources) == 53
+    for chunk in re.findall(r'def packetChars\d+ : List Char :=(.*?)def frozenChunk',
+                            '\n'.join(sources), re.S):
+        payloads.append(''.join('0' if c == 'zeroChar' else '1' for c in
+            re.findall(r'\b(zeroChar|oneChar)\b', chunk)))
+    assert len(payloads) == 418
+    assert hashlib.sha256(''.join(payloads).encode('ascii')).hexdigest() == plan['packet_sha256']
+    common = (work / 'PacketCommon.lean').read_text()
+    assert "def zeroChar : Char := '0'" in common and "def oneChar : Char := '1'" in common
+    marker = common.split('def marker : List Char :=', 1)[1].split('def tailPadding', 1)[0]
+    tail = common.split('def tailPadding : List Char :=', 1)[1].split('end ParsimonyComposed', 1)[0]
+    decode = lambda text: ''.join('0' if c == 'zeroChar' else '1' for c in
+        re.findall(r'\b(zeroChar|oneChar)\b', text))
+    assert decode(marker) == '1' * 32 + '0' and decode(tail) == '100000'
+    assert sha(work / 'AllWords.rows') == \
+        '00c969fe4433fdacb6a5cccee583b1872305a8f3c5a7820c8186078a47942e41'
+    for path, expected in manifest['frozen_source_sha256'].items():
+        assert sha(ROOT / path) == expected, path
+    record = dict(schema='parsimony-global-partial-review-v1', run=run['id'],
+        producer=run['head_sha'], operational_root_checked=True, packet_batches_checked=53,
+        packet_words_checked=13360, numeric_packet_and_framing_roots_checked=True,
+        final_operational_identity_wrapper_checked=False, corruption_control_checked=False,
+        final_failed_module_exportable=False, accepted_machine_states=769344,
+        candidate_states=609247, new_accepted_full_machine_saving=0, batch_artifacts=objects)
+    (DOC / 'partial-review.json').write_text(json.dumps(record, indent=2, sort_keys=True) + '\n')
+    print('PARSIMONY_GLOBAL_PARTIAL_RETAINED_VERIFIED')
+    print('Operational root and full packet batches checked; final wrapper remains unverified')
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--iteration', type=int, required=True)
+    parser.add_argument('--partial', action='store_true')
     args = parser.parse_args()
     assert 1 <= args.iteration <= 8
     folder = DOC / 'evidence' / ('global-' + str(args.iteration).zfill(2))
     work = folder / 'unpacked'
     retained, run = read(folder / 'retention.json'), read(folder / 'run-api.json')
     manifest = read(work / 'source-manifest.json')
-    assert run['status'] == 'completed' and run['conclusion'] == 'success'
+    assert run['status'] == 'completed' and (args.partial or run['conclusion'] == 'success')
     assert retained['producer_source_verified']
     assert retained['workflow_commit'] == run['head_sha'] == manifest['commit']
     assert retained['artifact_sha256'] == sha(folder / 'artifact.zip')
@@ -40,6 +111,9 @@ def main():
     for path, expected in manifest['source_sha256'].items():
         raw = subprocess.check_output(['git', 'show', manifest['commit'] + ':' + path], cwd=ROOT)
         assert hashlib.sha256(raw).hexdigest() == expected, path
+    if args.partial:
+        review_partial(work, run, manifest)
+        return
     summary = read(work / 'pilot-summary.json')
     assert summary['status'] == 'global_iteration_packet_identity_passed'
     assert summary['gates'] == dict(I1=True, P1=True, B1=True)

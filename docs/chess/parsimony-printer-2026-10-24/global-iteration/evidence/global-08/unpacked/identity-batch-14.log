@@ -1,0 +1,11 @@
+'ParsimonyComposed.partition_part14' does not depend on any axioms
+'ParsimonyComposed.packet_part14' depends on axioms: [propext]
+'ParsimonyComposed.frame_part14' depends on axioms: [propext]
+'ParsimonyComposed.packet_chunk112' depends on axioms: [propext]
+'ParsimonyComposed.packet_chunk113' depends on axioms: [propext]
+'ParsimonyComposed.packet_chunk114' depends on axioms: [propext]
+'ParsimonyComposed.packet_chunk115' depends on axioms: [propext]
+'ParsimonyComposed.packet_chunk116' depends on axioms: [propext]
+'ParsimonyComposed.packet_chunk117' depends on axioms: [propext]
+'ParsimonyComposed.packet_chunk118' depends on axioms: [propext]
+'ParsimonyComposed.packet_chunk119' depends on axioms: [propext]

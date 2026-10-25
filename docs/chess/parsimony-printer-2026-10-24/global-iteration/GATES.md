@@ -8,20 +8,20 @@ frozen framed packet including width padding. Instantiate at all 13,360 words.
 Keep the seven checked sources, accepted/frozen pins and physical machine fixed.
 The persistent older goal stays paused; this is separately authorized bounded work.
 
-- [ ] I1: Strict remote Lean checks structural iteration with an exact tape/head boundary and the final data_out one branch; its full-data root uses the actual physical indexed contract.
-  CHECK: python3 scripts/chess_parsimony_global_20261024/verify.py
-  EXPECT: PARSIMONY_GLOBAL_ITERATION_PASSED
-  EVIDENCE: pending
+- [x] I1: Strict remote Lean checks structural iteration with an exact tape/head boundary and the final data_out one branch; its full-data root uses the actual physical indexed contract.
+  CHECK: python3 scripts/chess_parsimony_global_20261024/review.py --iteration 8 --partial
+  EXPECT: PARSIMONY_GLOBAL_PARTIAL_RETAINED_VERIFIED
+  EVIDENCE: Run 40157504256 at 317cb4f2efcb561687af90c979e48323e51b6b78 checked the full operational root in 3.114 seconds, with all 27078 rows bound to the unchanged candidate, strict generic builds and standard foundations. The full workflow failed later at a distinct wrapper. The evidence-only check above exited zero and verified the exact producer, completed kernel commands, row export hash, objects and frozen pins; see partial-review.json. This gate claims the checked iteration only, not whole-phase success.
 
 - [ ] P1: A kernel-checked ordered bit/string identity binds every emitted width-13 word to the frozen packet, its 32-one marker, separator, tail 100 and three padding zeros, with source/file representation binding explicitly distinguished.
   CHECK: python3 scripts/chess_parsimony_global_20261024/verify.py
   EXPECT: PARSIMONY_FROZEN_PACKET_IDENTITY_PASSED
-  EVIDENCE: pending
+  EVIDENCE: All 53 batch modules and numeric packet/framing roots checked; final operational identity wrapper hits recursion depth at Identity.lean:242. No Identity.olean exported; global_bits_identity depends on automatic sorryAx after that error and is rejected. Eight-attempt bound reached; see RESULTS.md and the complete retained run.
 
 - [ ] B1: All-data composition stays within unchanged time/memory caps, foundations are standard, deliberate identity corruption fails, and previous source/machine pins stay identical.
   CHECK: python3 scripts/chess_parsimony_global_20261024/verify.py
   EXPECT: PARSIMONY_GLOBAL_BINDING_PASSED
-  EVIDENCE: pending
+  EVIDENCE: Final run stays within all memory/time caps, all successful roots have standard foundations, all earlier pins and rows are fixed. Positive/negative packet controls were not reached because the final wrapper failed; the full binding/audit gate remains incomplete.
 
 - [ ] R1: Retain all producer-bound logs/artifacts, measurements, failures, remaining obligations and exact recovery instructions in a pushed checkpoint, with no active pilot left.
   EVIDENCE: pending
@@ -38,3 +38,6 @@ No outreach. Never change theorem statements/pins or hide failed obligations.
 Accepted complete size 769,344; experimental size 609,247; potential saving
 160,097; new accepted full-machine saving zero until complete blank startup,
 cleanup/linking and both halting directions are proved and audited.
+
+ABANDON: P1 Eight source-bound attempts exhausted. Full word certificates and numeric/framing roots are retained, but the operational identity wrapper is not checked. Recover with an abstract size-specialized rendering lemma; do not treat the failed root as proved.
+ABANDON: B1 The end-to-end identity wrapper and its deliberate corruption control remain unchecked; no more jobs are launched in this bounded phase.
