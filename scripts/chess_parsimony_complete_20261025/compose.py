@@ -118,7 +118,7 @@ def main : IO Unit := do
   for i in [:13545] do
     for b in [:2] do
       let state : Fin 13546 := ParsimonyComposed.stateOf i
-      let bit : Fin 2 := ⟨b, by omega⟩
+      let bit : Fin 2 := ⟨b % 2, Nat.mod_lt b (by decide +kernel)⟩
       match (ParsimonyComposed.printer ParsimonyComposed.values).transition state bit with
       | none => throw (IO.userError "Missing paid printer row")
       | some (write, direction, target) =>
