@@ -1,0 +1,15 @@
+'ConjectureMachines.Compilation.Parsimony.Packet.encode_value' depends on axioms: [propext, Quot.sound]
+'ConjectureMachines.Compilation.Parsimony.Packet.encode_unique' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ConjectureMachines.Compilation.Parsimony.Packet.value_injective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ConjectureMachines.Compilation.Parsimony.Packet.render_range' depends on axioms: [propext, Quot.sound]
+'ConjectureMachines.Compilation.Parsimony.Packet.indexed_render' depends on axioms: [propext, Quot.sound]
+'ConjectureMachines.Compilation.Parsimony.Global.scan' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ConjectureMachines.Compilation.Parsimony.Global.tick' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ConjectureMachines.Compilation.Parsimony.Global.iterate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ConjectureMachines.Compilation.Parsimony.Global.finish' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ConjectureMachines.Compilation.Parsimony.Global.finish_left' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ConjectureMachines.Compilation.Parsimony.Global.written_reverse' depends on axioms: [propext]

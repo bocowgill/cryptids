@@ -1,0 +1,9 @@
+{
+  "run_id": 40156805093,
+  "workflow_commit": "3e39b1d62813aa9e72d415e1e6159969c7a7d363",
+  "conclusion": "failure",
+  "logs_sha256": "582684c8156ef6ed80c60dd9eae861442077ae10232e7d84b5e65d962188c99c",
+  "no_local_machine_execution": true,
+  "producer_source_verified": true,
+  "artifact_sha256": "3afb239cd63aa4b09e02a5a12194f5e2e47014a009d85e8399e71b7b770a5e52"
+}

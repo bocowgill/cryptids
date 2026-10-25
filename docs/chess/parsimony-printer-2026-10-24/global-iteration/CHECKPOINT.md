@@ -136,3 +136,22 @@ and render append lemmas. Compose those rendered-part theorems globally. This
 eliminates Array.append evaluation rather than raising caps or weakening output
 identity. Keep the eight checked character statements and runtime array fixed.
 Two of eight attempts remain. No seventh job launched yet.
+
+Attempt 7 dispatched from 3e39b1d62813aa9e72d415e1e6159969c7a7d363 after push exit
+zero and exact fork-ref verification. Only this scoped manual run is active;
+all previous runs terminal and retained. No caps or machine/specification changed.
+Attempt 7 run handle: 40156805093. Caps and eight-attempt bound remain in force.
+
+Attempt 7 terminal failure retained in evidence/global-07. Runtime/iteration
+roots rechecked. First batch's eight character proofs still standard-only. The
+list-partition rfl avoided memory blowup (whole failed batch 3.816 s at
+5,019,910,144 bytes) but hit the default elaborator recursion-depth limit. It is
+not a counterexample or a rule/machine defect; the partition remains unproved.
+
+Final attempt 8: a plain List Nat equality decision replaces the deep rfl; no
+Array.append computation or recursion limit increase. Keep all bit identities
+unchanged. Group final framing/rendering composition by 53 part wrappers, so it
+works over at most 53 opaque lists rather than a 418-element normalization spine.
+All eight-attempt, time, heap/RSS, frozen/checked-source, remote-only and outreach
+constraints remain. This is the final job authorized by this phase's own bound;
+if incomplete, stop with exact obligations and retained partial coverage.

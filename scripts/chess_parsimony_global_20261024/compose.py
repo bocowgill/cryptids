@@ -151,6 +151,7 @@ theorem numeric_eq (input : Array Nat) :
     common_source = work / 'PacketCommon.lean'
     common_source.write_text(common)
     chunks, payloads, subparts, batches = [], [], [], []
+    payload_parts, framed_parts = [], []
     for batch, (parent, entries) in enumerate(entries_by_part):
         module = 'PacketBatch' + str(batch).zfill(2)
         body = """import PacketCommon
@@ -186,20 +187,37 @@ namespace ParsimonyComposed
             body += 'theorem packet_chunk' + str(i) + ' :\n'
             body += '    Parsimony.Packet.render 13 (numeric ' + part + ') = ' + name + ' := by\n'
             body += '  decide +kernel\n\n'
-        body += 'theorem partition_' + parent + ' : ' + parent + '.toList =\n'
-        body += wrap('  ' + balanced([c + '.toList' for c in children]) + ' := by rfl') + '\n'
-        body += 'theorem packet_' + parent + ' : Parsimony.Packet.render 13 (numeric ' + parent + ') =\n'
         local_chunks = chunks[-len(children):]
-        body += wrap('  ' + balanced(local_chunks) + ' := by') + '\n'
+        local_payloads = payloads[-len(children):]
+        payload_part, framed_part = 'payloadPart' + str(batch), 'framedPart' + str(batch)
+        payload_parts.append(payload_part)
+        framed_parts.append(framed_part)
+        body += 'def ' + payload_part + ' : List Char :=\n' + wrap('  ' + balanced(local_payloads)) + '\n'
+        body += 'def ' + framed_part + ' : List Char :=\n' + wrap('  ' + balanced(local_chunks)) + '\n'
+        body += wrap('attribute [local irreducible] marker tailPadding ' + ' '.join(local_payloads)) + '\n'
+        body += 'theorem partition_' + parent + ' : ' + parent + '.toList =\n'
+        body += wrap('  ' + balanced([c + '.toList' for c in children]) + ' := by decide +kernel') + '\n'
+        body += 'theorem packet_' + parent + ' : Parsimony.Packet.render 13 (numeric ' + parent + ') =\n'
+        body += '  ' + framed_part + ' := by\n'
         body += '  have equal : numeric ' + parent + ' =\n'
         body += wrap('    ' + balanced(['numeric ' + c for c in children]) + ' := by') + '\n'
         body += '    simp only [numeric, partition_' + parent + ', List.map_append]\n'
         body += '  rw [equal]\n  simp only [Parsimony.Packet.render_append,\n'
         local_roots = ['packet_chunk' + str(j) for j in
             range(len(subparts) - len(children), len(subparts))]
-        body += wrap('    ' + ', '.join(local_roots) + ']') + '\n'
+        body += wrap('    ' + ', '.join(local_roots) + ', ' + framed_part + ']') + '\n'
+        frame_target = payload_part
+        if batch == 0:
+            frame_target = 'marker ++ ' + frame_target
+        if batch == len(entries_by_part) - 1:
+            frame_target += ' ++ tailPadding'
+        body += 'theorem frame_' + parent + ' : ' + framed_part + ' = ' + frame_target + ' := by\n'
+        frame_rules = [framed_part, payload_part] + local_chunks
+        if batch == 0 or batch == len(entries_by_part) - 1:
+            frame_rules.append('List.append_assoc')
+        body += '  simp only [\n' + wrap('    ' + ', '.join(frame_rules) + ']') + '\n'
         body += '\nend ParsimonyComposed\n'
-        for root in ['partition_' + parent, 'packet_' + parent] + local_roots:
+        for root in ['partition_' + parent, 'packet_' + parent, 'frame_' + parent] + local_roots:
             body += '#print axioms ParsimonyComposed.' + root + '\n'
         path_batch = work / (module + '.lean')
         path_batch.write_text(body)
@@ -215,16 +233,16 @@ namespace ParsimonyComposed
 """
     # Algebraic composition treats certified concrete data as atoms.
     identity += wrap('attribute [local irreducible] marker tailPadding raw ' +
-        ' '.join(parts + subparts + payloads)) + '\n\n'
-    identity += 'def frozenFramed : List Char :=\n' + wrap('  ' + balanced(chunks)) + '\n\n'
-    identity += 'def frozenPacket : List Char :=\n' + wrap('  ' + balanced(payloads)) + '\n\n'
+        ' '.join(parts + subparts + payloads + payload_parts + framed_parts)) + '\n\n'
+    identity += 'def frozenFramed : List Char :=\n' + wrap('  ' + balanced(framed_parts)) + '\n\n'
+    identity += 'def frozenPacket : List Char :=\n' + wrap('  ' + balanced(payload_parts)) + '\n\n'
     identity += 'theorem packet_framing : frozenFramed = marker ++ frozenPacket ++ tailPadding := by\n'
     identity += '  simp only [frozenFramed, frozenPacket,\n'
-    identity += wrap('    ' + ', '.join(chunks) + ', List.append_assoc]') + '\n\n'
+    identity += wrap('    ' + ', '.join('frame_' + part for part in parts) + ', List.append_assoc]') + '\n\n'
     identity += 'theorem all_packet_words : Parsimony.Packet.render 13 (numeric raw) = frozenFramed := by\n'
     identity += '  simp only [raw, numeric_append, Parsimony.Packet.render_append,\n'
     identity += wrap('    ' + ', '.join('packet_' + part for part in parts) + ',') + '\n'
-    identity += """    frozenFramed, List.append_assoc]
+    identity += """    frozenFramed]
 
 theorem global_bits_identity :
     Parsimony.Packet.text (Parsimony.Global.written word 13360).reverse = frozenFramed := by

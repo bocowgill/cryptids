@@ -1,0 +1,13 @@
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-global-20261024/PacketBatch00.lean:693:44: error: maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+'ParsimonyComposed.partition_part0' depends on axioms: [sorryAx]
+'ParsimonyComposed.packet_part0' depends on axioms: [propext, sorryAx]
+'ParsimonyComposed.packet_chunk0' depends on axioms: [propext]
+'ParsimonyComposed.packet_chunk1' depends on axioms: [propext]
+'ParsimonyComposed.packet_chunk2' depends on axioms: [propext]
+'ParsimonyComposed.packet_chunk3' depends on axioms: [propext]
+'ParsimonyComposed.packet_chunk4' depends on axioms: [propext]
+'ParsimonyComposed.packet_chunk5' depends on axioms: [propext]
+'ParsimonyComposed.packet_chunk6' depends on axioms: [propext]
+'ParsimonyComposed.packet_chunk7' depends on axioms: [propext]
