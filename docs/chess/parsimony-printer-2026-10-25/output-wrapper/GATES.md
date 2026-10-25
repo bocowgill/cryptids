@@ -17,8 +17,8 @@ machine and checked theorem statements stay fixed. The older goal stays paused.
   EXPECT: PARSIMONY_WRAPPER_CONTROL_VERIFIED
   EVIDENCE: exit=0; shell=/bin/sh; cwd=/Users/bocowgill/.codex/worktrees/6ba9/cryptids; path=984dc1d7a649/31 entries; EXPECT=matched; output-sha256=34d27e1a112d57eeb0e8be5037d6df477f0d80ee6ffc29655d40d2b630c8f754; output-bytes=71
 
-- [ ] R1: Push a complete recovery checkpoint with producer-bound logs and objects, resource measurements, remaining obligations and no active pilot.
-  EVIDENCE: pending
+- [x] R1: Push a complete recovery checkpoint with producer-bound logs and objects, resource measurements, remaining obligations and no active pilot.
+  EVIDENCE: Recovery payload e3d95f3cf04050be676c7798d75171c44d22a532 pushed with exit zero and exact fork-ref match. All 142 retained evidence files are tracked; working tree clean; active and queued Chess-branch run lists empty. CHECKPOINT.md and RESULTS.md contain accepted/experimental counts, command receipts, failures, remaining obligations, rankings and recovery instructions. Both runnable evidence gates passed with captured output fingerprints. No later milestone, new job or outreach started.
 
 At most three new source-bound remote attempts; diagnose and correct before retry.
 No rebuilding the 53 batches, no later startup/cleanup/linking milestone, no paid

@@ -82,3 +82,9 @@ origin is upstream. Source/metadata commits use [skip ci]; manual pilot only.
 The active handle was pushed while running. The terminal evidence payload and
 final fork-ref/clean-tree/no-active-job checks are recorded below when complete.
 A new instruction is required to proceed beyond this finished bounded phase.
+
+Recovery payload **e3d95f3cf04050be676c7798d75171c44d22a532** pushed with exit zero;
+the fork ref independently matched exactly. Working tree was clean. All 142
+retained evidence paths are tracked; active and queued Chess-branch run lists
+were empty. The final metadata commit records these verified results. Acceptance:
+**3 gates met, 0 unmet, 0 abandoned**. No further job is launched.
