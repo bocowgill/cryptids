@@ -1,0 +1,20 @@
+{
+  "id": 12614684035,
+  "node_id": "MDg6QXJ0aWZhY3QxMjYxNDY4NDAzNQ==",
+  "name": "chess-parsimony-complete-168ebc597b7b217d177738cf8b07b27cf7ae1455",
+  "size_in_bytes": 42306467,
+  "url": "https://api.github.com/repos/bocowgill/cryptids/actions/artifacts/12614684035",
+  "archive_download_url": "https://api.github.com/repos/bocowgill/cryptids/actions/artifacts/12614684035/zip",
+  "expired": false,
+  "digest": "sha256:bf2fe19173dabda05ce1c4ca103c8415003d83c28146822fbe25885fa9d8c4b6",
+  "created_at": "2026-10-25T21:35:17Z",
+  "updated_at": "2026-10-25T21:35:17Z",
+  "expires_at": "2026-11-24T21:35:11Z",
+  "workflow_run": {
+    "id": 40235959402,
+    "repository_id": 1426408147,
+    "head_repository_id": 1426408147,
+    "head_branch": "codex/chess-openevolve-pilot",
+    "head_sha": "168ebc597b7b217d177738cf8b07b27cf7ae1455"
+  }
+}

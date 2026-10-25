@@ -42,16 +42,11 @@ for line in git('diff','--raw','--no-abbrev',BASE,head).decode().splitlines():
  if sha in old_objects:
   entry['sha']=sha; entries.append(entry); continue
  data=git('cat-file','blob',sha)
- try: content=data.decode('utf8')
- except UnicodeDecodeError:
-  # Reuse every old binary object; publish only new binary objects over REST.
-  present=subprocess.run(['git','merge-base','--is-ancestor',BASE,head],cwd=ROOT).returncode==0
-  assert present
-  if sha not in old_objects:
-   got=api('git/blobs','POST',dict(content=base64.b64encode(data).decode(),encoding='base64'))
-   assert got['sha']==sha
-  entry['sha']=sha
- else: entry['content']=content
+ got=api('git/blobs','POST',dict(content=base64.b64encode(data).decode(),encoding='base64'))
+ assert got['sha']==sha
+ old_objects.add(sha)
+ entry['sha']=sha
+ print('Published exact blob',sha[:8],len(data),flush=True)
  entries.append(entry)
 print('Publishing tree entries:',len(entries),flush=True)
 result=api('git/trees','POST',dict(base_tree=base_tree,tree=entries))

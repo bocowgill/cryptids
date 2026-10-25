@@ -1,0 +1,10 @@
+✔ [3813/3821] Built Cryptids.Compilation.Parsimony.Data (6.4s)
+✔ [3814/3821] Built Cryptids.Compilation.Parsimony.Common (2.2s)
+✔ [3815/3821] Built Cryptids.Compilation.Parsimony.Insertion (2.2s)
+✔ [3816/3821] Built Cryptids.Compilation.Parsimony.Counter (2.9s)
+✔ [3817/3821] Built Cryptids.Compilation.Parsimony.IndexedInsertion (2.2s)
+✔ [3818/3821] Built Cryptids.Compilation.Parsimony.Packet (1.0s)
+✔ [3819/3821] Built Cryptids.Compilation.Parsimony.Extractor (2.4s)
+✔ [3820/3821] Built Cryptids.Compilation.Parsimony.IndexedExtractor (2.1s)
+✔ [3821/3821] Built Cryptids.Compilation.Parsimony.Global (1.0s)
+Build completed successfully (3821 jobs).

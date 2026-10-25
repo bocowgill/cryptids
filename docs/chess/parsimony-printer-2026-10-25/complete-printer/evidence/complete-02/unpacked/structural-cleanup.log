@@ -1,0 +1,33 @@
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-complete-20261024/Cleanup.lean:14:50: error: Tactic `rfl` failed: The left-hand side
+  atL blank R
+is not definitionally equal to the right-hand side
+  Tape.mk' blank (ListBlank.cons 0 R)
+
+R : ListBlank Bit
+⊢ atL blank R = Tape.mk' blank (ListBlank.cons 0 R)
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-complete-20261024/Cleanup.lean:26:44: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  0 ≤ a ≤ 1
+where
+ a := ↑↑bit
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-complete-20261024/Cleanup.lean:35:39: error: Application type mismatch: The argument
+  run
+has type
+  Parsimony.Common.Runs old a b
+of sort `Prop` but is expected to have type
+  ?m.25
+of sort `Type ?u.23` in the application
+  Relation.ReflTransGen.mono ?m.28 run
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-complete-20261024/Cleanup.lean:230:18: warning: This simp argument is unused:
+  atL_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.reverse_append, List.reverse_cons, List.reverse_nil, List.reverse_reverse, List.nil_append,
+    ListBlank.append, Nat.zero_add, atL_blank, Parsimony.Global.blank_cons, Parsimony.Global.zero_blank] at *
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'ParsimonyComplete.extend' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ParsimonyComplete.startup' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ParsimonyComplete.workspace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ParsimonyComplete.tail' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ParsimonyComplete.cleanup' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

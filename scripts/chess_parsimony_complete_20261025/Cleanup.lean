@@ -11,7 +11,8 @@ abbrev Bit := Fin 2
 abbrev blank := Parsimony.Global.blank
 
 @[simp] theorem atL_blank (R : ListBlank Bit) :
-    atL blank R = Tape.mk' blank (R.cons 0) := by rfl
+    atL blank R = Tape.mk' blank (R.cons 0) := by
+  rw [← Parsimony.Common.atL_cons 0 blank R, Parsimony.Global.blank_cons]
 
 def decode (chars : List Char) : List Bit := chars.map (fun c ↦ if c = '1' then 1 else 0)
 
@@ -22,8 +23,7 @@ def decode (chars : List Char) : List Bit := chars.map (fun c ↦ if c = '1' the
   induction bits with
   | nil => rfl
   | cons bit bits ih =>
-    have small := bit.isLt
-    have splitbit : bit = 0 ∨ bit = 1 := by omega
+    have splitbit : bit = 0 ∨ bit = 1 := by fin_cases bit <;> simp
     rcases splitbit with rfl | rfl <;> simp [decode, Parsimony.Packet.text] at *
     all_goals exact ih
 
@@ -32,7 +32,7 @@ theorem extend {q : Nat} (old new : Machine q 2)
     (rows : ∀ s b out, old.transition s b = some out → new.transition s b = some out)
     {a b : Cfg q 2} (run : Parsimony.Common.Runs old a b) :
     Parsimony.Common.Runs new a b := by
-  refine Relation.ReflTransGen.mono ?_ run
+  refine Relation.ReflTransGen.mono ?_ a b run
   intro first second h
   rcases first with ⟨s, tape⟩
   cases row : old.transition s tape.head with
@@ -227,7 +227,7 @@ theorem cleanup {q : Nat} (M : Machine q 2) (c : Controls q) (rows : Rows M c)
     (ListBlank.append packet blank) rows.clearZero
   simp only [List.reverse_append, List.reverse_cons, List.reverse_nil, List.reverse_reverse,
     List.nil_append, ListBlank.append,
-    Nat.zero_add, atL_cons, atL_blank, Parsimony.Global.blank_cons,
+    Nat.zero_add, atL_blank, Parsimony.Global.blank_cons,
     Parsimony.Global.zero_blank] at *
   exact a.trans (walk.trans (enter.trans (erase.trans done)))
 

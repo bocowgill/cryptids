@@ -39,3 +39,8 @@ Attempt 2 active: run 40235959402, producer
 API; no extra proof attempt or workflow permission was needed for transport.
 Retention: `python3 scripts/chess_parsimony_complete_20261025/retain.py --run 40235959402 --source 168ebc597b7b217d177738cf8b07b27cf7ae1455 --iteration 2`.
 Do not launch attempt 3 until terminal logs diagnose a specific correction.
+
+Attempt 2 failed with three ordinary structural proof errors plus unused simp
+argument; no resource cap hit. No Cleanup.olean exists; roots with automatic
+sorryAx are rejected. Exact corrections in ATTEMPT-LOG.md. Final attempt remains;
+no fourth attempt authorized. Evidence is fully retained under complete-02.

@@ -190,7 +190,7 @@ theorem packet_scan : eval 0 packet.reverse = some ''' + str(count) + ''' := by
     s += wrap('  simp only [eval_append, ' + ', '.join('scan_part' + str(i) for i in reversed(range(53))) +
               ', Option.bind_some]')
     s += '''
-attribute [local irreducible] frozenPacket packet
+attribute [local irreducible] frozenPacket
 
 theorem printed_eq : Parsimony.Global.written word 13360 =
     [0, 0, 0, 0, 0, 1] ++ packet.reverse ++ [0] ++ List.replicate 32 1 := by
@@ -203,6 +203,8 @@ theorem printed_eq : Parsimony.Global.written word 13360 =
   have backward := congrArg List.reverse forward
   simpa only [List.reverse_reverse, List.reverse_append, List.reverse_cons,
     List.reverse_nil, List.nil_append, List.reverse_replicate, List.append_assoc] using backward
+
+attribute [local irreducible] packet
 
 /-- Complete physical printer interface: start on blank tape, decoder on first packet bit. -/
 theorem complete_printer :
