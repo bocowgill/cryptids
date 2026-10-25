@@ -79,3 +79,9 @@ Keep marker/payload/tail symbolic in append proofs. Check the first 32-word
 certificate before the full identity, so a repeated obstruction stops early.
 A tiny positive/one-bit-negative control tests the same checked first chunk.
 All caps, earlier checked theorem statements and physical rows remain fixed.
+
+Before dispatching attempt 5, additionally move numeric rendering to ordinary
+list map/modulo, with a reusable proof relating it to the same Fin array. Avoid
+normalizing Array.map and bound proofs during character identity decisions.
+The positive/negative control inspects the checked first output bit directly.
+No fifth job was launched from intermediate commit a07504be.

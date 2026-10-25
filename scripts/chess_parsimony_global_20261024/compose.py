@@ -148,11 +148,15 @@ open Turing ConjectureMachines
 open ConjectureMachines.Compilation
 namespace ParsimonyComposed
 
-def numeric (input : Array Nat) : List Nat := (input.map narrow).toList.map Fin.val
+def numeric (input : Array Nat) : List Nat := input.toList.map (fun value ↦ value % 8192)
+
+theorem numeric_eq (input : Array Nat) :
+    numeric input = (input.map narrow).toList.map Fin.val := by
+  simp [numeric, narrow, List.map_map]
 
 @[simp] theorem numeric_append (first second : Array Nat) :
     numeric (first ++ second) = numeric first ++ numeric second := by
-  simp [numeric, Array.map_append]
+  simp [numeric]
 
 """
     identity += chars_def('marker', '1' * 32 + '0')
@@ -201,7 +205,9 @@ theorem global_bits_identity :
     _ = Parsimony.Packet.render 13 (values.toList.map Fin.val) := by
       simpa only [values_size] using Parsimony.Packet.indexed_render 13 13359 values
     _ = frozenFramed := by
-      simpa only [values, numeric] using all_packet_words
+      change Parsimony.Packet.render 13 ((raw.map narrow).toList.map Fin.val) = frozenFramed
+      rw [← numeric_eq]
+      exact all_packet_words
 
 end ParsimonyComposed
 
