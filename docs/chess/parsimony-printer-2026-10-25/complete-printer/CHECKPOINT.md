@@ -13,3 +13,8 @@ certify its finite scan over all packet chunks. Compose from blank startup.
 
 Accepted complete 769,344; candidate 609,247; new accepted saving zero. Neither a
 complete halting theorem nor full suffix relocation is within this phase.
+
+Attempt 1 active: run 40233914383, producer
+4dd1a46617142b843e12cb37849d25cce1bbeaaa. Inspect this handle before another
+launch. Terminal retention command:
+`python3 scripts/chess_parsimony_complete_20261025/retain.py --run 40233914383 --source 4dd1a46617142b843e12cb37849d25cce1bbeaaa --iteration 1`.
