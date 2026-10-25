@@ -1,0 +1,120 @@
+{
+  "accepted_machine_states": 769344,
+  "candidate_states": 609247,
+  "certified_saving": 0,
+  "commands": [
+    {
+      "argv": [
+        "lake",
+        "exe",
+        "cache",
+        "get",
+        "Mathlib.Computability.TuringMachine.PostTuringMachine",
+        "Mathlib.Data.Nat.Prime.Basic",
+        "Mathlib.Algebra.GCDMonoid.Finset",
+        "Mathlib.Order.Interval.Finset.Nat",
+        "Mathlib.NumberTheory.LSeries.RiemannZeta",
+        "Mathlib.SetTheory.ZFC.Basic",
+        "Mathlib.Tactic"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "effective_budget_seconds": 300,
+      "elapsed_seconds": 21.517562525000017,
+      "exit": 0,
+      "expected_exit": 0,
+      "log": "mathlib-cache.log",
+      "log_sha256": "2ba358577dc561ea883943391c54a9528603e8a83a3e780e61be0b10890bd00a",
+      "name": "mathlib-cache",
+      "peak_group_plus_driver_rss_bytes": 1057566720,
+      "resource_stop": null
+    },
+    {
+      "argv": [
+        "lake",
+        "--wfail",
+        "-f",
+        "lakefile.chess-parsimony-global-20261024.toml",
+        "build",
+        "Cryptids.Compilation.Parsimony.Global"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "effective_budget_seconds": 240,
+      "elapsed_seconds": 26.81524215600001,
+      "exit": 0,
+      "expected_exit": 0,
+      "log": "kernel-frozen-global.log",
+      "log_sha256": "b4667045954b34b9a2ef6fed859bf45fbd4c400f13194f0d01fce0bda47ea5e5",
+      "name": "kernel-frozen-global",
+      "peak_group_plus_driver_rss_bytes": 2729472000,
+      "resource_stop": null
+    },
+    {
+      "argv": [
+        "lake",
+        "-f",
+        "lakefile.chess-parsimony-global-20261024.toml",
+        "env",
+        "lean",
+        "-M5120",
+        "-T2000000",
+        "-o",
+        "/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-complete-20261024/Cleanup.olean",
+        "/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-complete-20261024/Cleanup.lean"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "effective_budget_seconds": 180,
+      "elapsed_seconds": 10.406623311999994,
+      "exit": 0,
+      "expected_exit": 0,
+      "log": "structural-cleanup.log",
+      "log_sha256": "cdc07935f16ae00e9c374b605ce46f0848d6aaa65f8572c403d0dc19f12e5bf0",
+      "name": "structural-cleanup",
+      "peak_group_plus_driver_rss_bytes": 4922597376,
+      "resource_stop": null
+    },
+    {
+      "argv": [
+        "lake",
+        "-f",
+        "lakefile.chess-parsimony-global-20261024.toml",
+        "env",
+        "lean",
+        "-M5120",
+        "-T2000000",
+        "-o",
+        "/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-complete-20261024/PrinterModel.olean",
+        "--run",
+        "/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-complete-20261024/PrinterModel.lean"
+      ],
+      "cwd": "/home/runner/work/cryptids/cryptids",
+      "effective_budget_seconds": 180,
+      "elapsed_seconds": 5.63872903699999,
+      "exit": 1,
+      "expected_exit": 0,
+      "log": "complete-model-rows.log",
+      "log_sha256": "75946e67bf972052470d3ee1bdfaba684a7454c3eb0769f38e34eee59ba85adf",
+      "name": "complete-model-rows",
+      "peak_group_plus_driver_rss_bytes": 5318914048,
+      "resource_stop": null
+    }
+  ],
+  "complete_printer_certified": false,
+  "driver_peak_rss_kib": 30432,
+  "elapsed_seconds": 71.43163847099999,
+  "experimental_saving": 160097,
+  "failure": "complete-model-rows failed; retained log: /home/runner/work/cryptids/cryptids/.lake/chess-parsimony-complete-20261024/complete-model-rows.log",
+  "failure_type": "AssertionError",
+  "gates": {},
+  "limits": {
+    "composition_seconds": 180,
+    "driver_rss_bytes": 536870912,
+    "generic_seconds": 240,
+    "group_plus_driver_rss_bytes": 6442450944,
+    "lean_heap_mib": 5120,
+    "lean_threads": 1,
+    "total_seconds": 1200
+  },
+  "new_accepted_machine": false,
+  "schema": "parsimony-complete-printer-v1",
+  "status": "failed"
+}

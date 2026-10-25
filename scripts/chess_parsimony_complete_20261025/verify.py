@@ -129,7 +129,7 @@ def main():
     assert 'warning:' not in output and 'error:' not in output
     os.environ['LEAN_PATH'] = str(WORK)
     lean('structural-cleanup', WORK / 'Cleanup.lean')
-    output = lean('complete-model-rows', instance['model'], run=True)
+    output = lean('complete-model-rows', instance['model'])
     assert 'PARSIMONY_COMPLETE_PRINTER_ROWS_EXPORTED' in output
     import struct
     record = struct.Struct('<BBI')

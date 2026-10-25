@@ -1,0 +1,3 @@
+'ParsimonyComposed.model_extension' depends on axioms: [propext, Quot.sound]
+'ParsimonyComposed.printer_rows' depends on axioms: [propext, Quot.sound]
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-complete-20261024/PrinterModel.lean:132:4: error: `main` has already been declared

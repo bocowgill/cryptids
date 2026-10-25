@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/home/runner/work/cryptids/cryptids/scripts/chess_parsimony_complete_20261025/verify.py", line 203, in <module>
+    main()
+  File "/home/runner/work/cryptids/cryptids/scripts/chess_parsimony_complete_20261025/verify.py", line 132, in main
+    output = lean('complete-model-rows', instance['model'], run=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/cryptids/cryptids/scripts/chess_parsimony_complete_20261025/verify.py", line 47, in lean
+    output = runner.run(name, ['lake', '-f', LAKE, 'env', 'lean', '-M5120', '-T2000000',
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/cryptids/cryptids/scripts/chess_parsimony_20261024/pilot.py", line 121, in run
+    assert code == expected_exit and cause is None, name + ' failed; retained log: ' + str(log)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: complete-model-rows failed; retained log: /home/runner/work/cryptids/cryptids/.lake/chess-parsimony-complete-20261024/complete-model-rows.log

@@ -30,7 +30,16 @@
 
 3. [Run 40236839275](https://github.com/bocowgill/cryptids/actions/runs/40236839275),
    producer `8356473ef26aa4d9c4180e04b282cfde3d17806f`.
-   Running, third and FINAL permitted attempt. Diagnosed blank quotient equality,
+   Failed, third and FINAL permitted attempt. Diagnosed blank quotient equality,
    Fin bit cases, mono endpoint arguments and unused simp argument corrected.
    No time, heap, recursion, linter or machine changes. Exact source/tree hashes
    verified after REST blob publication. No fourth job authorized.
+
+   Result: strict generic Cleanup.lean now checks and exports Cleanup.olean.
+   All five audited roots have standard foundations. PrinterModel.lean then
+   fails because its new main collides with imported AllWords.main. No model
+   object or row export exists; no new scan batch, full theorem or control ran.
+   Structural stage 10.407 seconds, model failure 5.639 seconds; driver 71.432
+   seconds, maximum 5,318,914,048 bytes, no resource stop. All evidence retained.
+   Three-attempt budget exhausted; no fourth job. Mutable exporter fix is
+   prepared but UNTESTED; see UNTESTED-FIX.md. Historical failed source unchanged.

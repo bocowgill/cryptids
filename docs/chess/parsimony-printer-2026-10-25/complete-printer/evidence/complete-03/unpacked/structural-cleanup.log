@@ -1,0 +1,5 @@
+'ParsimonyComplete.extend' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ParsimonyComplete.startup' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ParsimonyComplete.workspace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ParsimonyComplete.tail' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ParsimonyComplete.cleanup' depends on axioms: [propext, Classical.choice, Quot.sound]

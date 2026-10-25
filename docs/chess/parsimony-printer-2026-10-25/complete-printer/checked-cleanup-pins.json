@@ -1,0 +1,14 @@
+{
+  "checked_roots": [
+    "extend",
+    "startup",
+    "workspace",
+    "tail",
+    "cleanup"
+  ],
+  "object_bytes": 474664,
+  "object_sha256": "3fee235f52df10e8a5a45913f13d5ab4ab9d227699aa5cc181791b07711e4046",
+  "producer": "8356473ef26aa4d9c4180e04b282cfde3d17806f",
+  "run": 40236839275,
+  "source_sha256": "5e8445a9ccc23657fc46e3d0894f863daa7b61487e3288ff63af35258507cf6e"
+}

@@ -113,7 +113,7 @@ end ParsimonyComposed
 #print axioms ParsimonyComposed.model_extension
 #print axioms ParsimonyComposed.printer_rows
 
-def main : IO Unit := do
+def exportCompletePrinterRows20261025 : IO Unit := do
   let mut lines : Array String := #[]
   for i in [:13545] do
     for b in [:2] do
@@ -128,6 +128,8 @@ def main : IO Unit := do
     "''' + str(work / 'PrinterModel.rows') + '''"
     (String.intercalate "\\n" lines.toList)
   IO.println "PARSIMONY_COMPLETE_PRINTER_ROWS_EXPORTED"
+
+#eval exportCompletePrinterRows20261025
 '''
     model = work / 'PrinterModel.lean'
     model.write_text(source)
