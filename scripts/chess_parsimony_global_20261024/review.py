@@ -60,7 +60,7 @@ def main():
         if command['name'] == 'changed-frozen-packet':
             assert command['exit'] == 1 and 'error:' in output
     item = read(work / 'composition.json')
-    assert item['words'] == 13360 and item['rows_compared'] == 27078 and item['chunks'] == 53
+    assert item['words'] == 13360 and item['rows_compared'] == 27078 and item['chunks'] == 418
     assert item['iteration_theorem'] == 'ParsimonyComposed.global_terminated'
     assert item['identity_theorem'] == 'ParsimonyComposed.global_bits_identity'
     assert not item['full_execution_unrolled'] and item['fresh_machine_states'] == 0
@@ -73,19 +73,21 @@ def main():
         assert sha(work / (name + '.olean')) == saved['object_sha256']
         assert (work / (name + '.lean')).stat().st_size == saved['source_bytes']
         assert (work / (name + '.olean')).stat().st_size == saved['object_bytes']
-    original = (work / 'Identity.lean').read_text()
+    original = (work / 'PositiveControl.lean').read_text()
     corrupted = (work / 'Corrupted.lean').read_text()
     assert len(original) == len(corrupted)
     differences = [(a, b) for a, b in zip(original, corrupted) if a != b]
     assert differences == [('1', '0')]
-    # Independent source-literal/file binding, not execution of the generator.
-    packet_source = original.split('def frozenPacket : String :=', 1)[1].split(
-        'theorem packet_framing', 1)[0]
-    packet = ''.join(re.findall(r'"([01]+)"', packet_source))
+    # Independent literal/file binding; no generator or machine execution.
+    identity = (work / 'Identity.lean').read_text()
+    definitions = re.findall(r'def packetChars\d+ : List Char :=(.*?)def frozenChunk', identity, re.S)
+    packet = ''.join(''.join(re.findall(r"'([01])'", chunk)) for chunk in definitions)
+    assert len(definitions) == item['chunks']
     assert hashlib.sha256(packet.encode('ascii')).hexdigest() == item['frozen_packet_sha256']
-    chunks = re.findall(r'def frozenChunk\d+ : String :=(.*?)theorem packet_chunk', original, re.S)
-    framed = ''.join(''.join(re.findall(r'"([01]+)"', chunk)) for chunk in chunks)
-    assert framed == '1' * 32 + '0' + packet + '100000'
+    marker = identity.split('def marker : List Char :=', 1)[1].split('def tailPadding', 1)[0]
+    tail = identity.split('def tailPadding : List Char :=', 1)[1].split('def packetChars0', 1)[0]
+    assert ''.join(re.findall(r"'([01])'", marker)) == '1' * 32 + '0'
+    assert ''.join(re.findall(r"'([01])'", tail)) == '100000'
     for path, expected in manifest['frozen_source_sha256'].items():
         assert sha(ROOT / path) == expected, path
     for logfile, root in [('global-iteration.log', 'global_terminated'),

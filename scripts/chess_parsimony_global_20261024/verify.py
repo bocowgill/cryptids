@@ -129,19 +129,35 @@ def main():
     assert "'ParsimonyComposed.global_terminated' depends on axioms:" in output
     SUMMARY['gates']['I1'] = True
     runner.checkpoint()
+    pilot = WORK / 'IdentityPilot.lean'
+    pilot.write_text(instance['identity_source'].read_text().split('def packetChars1', 1)[0] +
+        '\nend ParsimonyComposed\n#print axioms ParsimonyComposed.packet_chunk0\n')
+    proof.source_check(pilot)
+    proof.foundations(lean('identity-first-32-words', pilot))
     output = lean('frozen-packet-identity', instance['identity_source'])
     proof.foundations(output)
     assert "'ParsimonyComposed.global_bits_identity' depends on axioms:" in output
     SUMMARY['gates']['P1'] = True
     runner.checkpoint()
+    positive = WORK / 'PositiveControl.lean'
+    positive.write_text("""import Identity
+
+open ParsimonyComposed
+open ConjectureMachines.Compilation
+
+theorem packet_first_control : Parsimony.Packet.render 13 (numeric sub0) =
+    '1' :: frozenChunk0.tail := by
+  rw [packet_chunk0]
+  decide +kernel
+
+#print axioms packet_first_control
+""")
+    proof.source_check(positive)
+    proof.foundations(lean('positive-first-bit', positive))
     corrupted = WORK / 'Corrupted.lean'
-    original = instance['identity_source'].read_text()
-    # Only the independently frozen expected chunk's first bit is changed.
-    needle = 'def frozenChunk0 : String :=\n  '
-    begin = original.index(needle) + len(needle)
-    bit = original.index('1', begin)
-    assert original[bit - 1] == '"'
-    corrupted.write_text(original[:bit] + '0' + original[bit + 1:])
+    original = positive.read_text()
+    assert original.count("'1'") == 1
+    corrupted.write_text(original.replace("'1'", "'0'"))
     proof.source_check(corrupted)
     rejected = lean('changed-frozen-packet', corrupted, expected_exit=1)
     assert 'error:' in rejected

@@ -1,0 +1,279 @@
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-global-20261024/Identity.lean:61:2: error: Tactic `decide` failed to reduce
+  @decide (Parsimony.Packet.render 13 (numeric part0) = frozenChunk0.toList)
+    (instDecidableEqList (Parsimony.Packet.render 13 (numeric part0)) frozenChunk0.toList)
+to `true` or `false`.
+
+Reduction got stuck at
+  match Parsimony.Packet.render 13 (numeric part0) with
+  | [] =>
+    match frozenChunk0.toList with
+    | [] => isTrue ⋯
+    | head :: tail => isFalse ⋯
+  | a :: as =>
+    match frozenChunk0.toList with
+    | [] => isFalse ⋯
+    | b :: bs =>
+      match decEq a b with
+      | { decide := true, reflects_decide := hab } =>
+        match as.hasDecEq bs with
+        | { decide := true, reflects_decide := habs } => isTrue ⋯
+        | { decide := false, reflects_decide := nabs } => isFalse ⋯
+      | { decide := false, reflects_decide := nab } => isFalse ⋯
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-global-20261024/Identity.lean:111:2: error: Tactic `decide` failed to reduce
+  @decide (Parsimony.Packet.render 13 (numeric part1) = frozenChunk1.toList)
+    (instDecidableEqList (Parsimony.Packet.render 13 (numeric part1)) frozenChunk1.toList)
+to `true` or `false`.
+
+Reduction got stuck at
+  match Parsimony.Packet.render 13 (numeric part1) with
+  | [] =>
+    match frozenChunk1.toList with
+    | [] => isTrue ⋯
+    | head :: tail => isFalse ⋯
+  | a :: as =>
+    match frozenChunk1.toList with
+    | [] => isFalse ⋯
+    | b :: bs =>
+      match decEq a b with
+      | { decide := true, reflects_decide := hab } =>
+        match as.hasDecEq bs with
+        | { decide := true, reflects_decide := habs } => isTrue ⋯
+        | { decide := false, reflects_decide := nabs } => isFalse ⋯
+      | { decide := false, reflects_decide := nab } => isFalse ⋯
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-global-20261024/Identity.lean:161:2: error: Tactic `decide` failed to reduce
+  @decide (Parsimony.Packet.render 13 (numeric part2) = frozenChunk2.toList)
+    (instDecidableEqList (Parsimony.Packet.render 13 (numeric part2)) frozenChunk2.toList)
+to `true` or `false`.
+
+Reduction got stuck at
+  match Parsimony.Packet.render 13 (numeric part2) with
+  | [] =>
+    match frozenChunk2.toList with
+    | [] => isTrue ⋯
+    | head :: tail => isFalse ⋯
+  | a :: as =>
+    match frozenChunk2.toList with
+    | [] => isFalse ⋯
+    | b :: bs =>
+      match decEq a b with
+      | { decide := true, reflects_decide := hab } =>
+        match as.hasDecEq bs with
+        | { decide := true, reflects_decide := habs } => isTrue ⋯
+        | { decide := false, reflects_decide := nabs } => isFalse ⋯
+      | { decide := false, reflects_decide := nab } => isFalse ⋯
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-global-20261024/Identity.lean:211:2: error: Tactic `decide` failed to reduce
+  @decide (Parsimony.Packet.render 13 (numeric part3) = frozenChunk3.toList)
+    (instDecidableEqList (Parsimony.Packet.render 13 (numeric part3)) frozenChunk3.toList)
+to `true` or `false`.
+
+Reduction got stuck at
+  match Parsimony.Packet.render 13 (numeric part3) with
+  | [] =>
+    match frozenChunk3.toList with
+    | [] => isTrue ⋯
+    | head :: tail => isFalse ⋯
+  | a :: as =>
+    match frozenChunk3.toList with
+    | [] => isFalse ⋯
+    | b :: bs =>
+      match decEq a b with
+      | { decide := true, reflects_decide := hab } =>
+        match as.hasDecEq bs with
+        | { decide := true, reflects_decide := habs } => isTrue ⋯
+        | { decide := false, reflects_decide := nabs } => isFalse ⋯
+      | { decide := false, reflects_decide := nab } => isFalse ⋯
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-global-20261024/Identity.lean:261:2: error: Tactic `decide` failed to reduce
+  @decide (Parsimony.Packet.render 13 (numeric part4) = frozenChunk4.toList)
+    (instDecidableEqList (Parsimony.Packet.render 13 (numeric part4)) frozenChunk4.toList)
+to `true` or `false`.
+
+Reduction got stuck at
+  match Parsimony.Packet.render 13 (numeric part4) with
+  | [] =>
+    match frozenChunk4.toList with
+    | [] => isTrue ⋯
+    | head :: tail => isFalse ⋯
+  | a :: as =>
+    match frozenChunk4.toList with
+    | [] => isFalse ⋯
+    | b :: bs =>
+      match decEq a b with
+      | { decide := true, reflects_decide := hab } =>
+        match as.hasDecEq bs with
+        | { decide := true, reflects_decide := habs } => isTrue ⋯
+        | { decide := false, reflects_decide := nabs } => isFalse ⋯
+      | { decide := false, reflects_decide := nab } => isFalse ⋯
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-global-20261024/Identity.lean:311:2: error: Tactic `decide` failed to reduce
+  @decide (Parsimony.Packet.render 13 (numeric part5) = frozenChunk5.toList)
+    (instDecidableEqList (Parsimony.Packet.render 13 (numeric part5)) frozenChunk5.toList)
+to `true` or `false`.
+
+Reduction got stuck at
+  match Parsimony.Packet.render 13 (numeric part5) with
+  | [] =>
+    match frozenChunk5.toList with
+    | [] => isTrue ⋯
+    | head :: tail => isFalse ⋯
+  | a :: as =>
+    match frozenChunk5.toList with
+    | [] => isFalse ⋯
+    | b :: bs =>
+      match decEq a b with
+      | { decide := true, reflects_decide := hab } =>
+        match as.hasDecEq bs with
+        | { decide := true, reflects_decide := habs } => isTrue ⋯
+        | { decide := false, reflects_decide := nabs } => isFalse ⋯
+      | { decide := false, reflects_decide := nab } => isFalse ⋯
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-global-20261024/Identity.lean:361:2: error: Tactic `decide` failed to reduce
+  @decide (Parsimony.Packet.render 13 (numeric part6) = frozenChunk6.toList)
+    (instDecidableEqList (Parsimony.Packet.render 13 (numeric part6)) frozenChunk6.toList)
+to `true` or `false`.
+
+Reduction got stuck at
+  match Parsimony.Packet.render 13 (numeric part6) with
+  | [] =>
+    match frozenChunk6.toList with
+    | [] => isTrue ⋯
+    | head :: tail => isFalse ⋯
+  | a :: as =>
+    match frozenChunk6.toList with
+    | [] => isFalse ⋯
+    | b :: bs =>
+      match decEq a b with
+      | { decide := true, reflects_decide := hab } =>
+        match as.hasDecEq bs with
+        | { decide := true, reflects_decide := habs } => isTrue ⋯
+        | { decide := false, reflects_decide := nabs } => isFalse ⋯
+      | { decide := false, reflects_decide := nab } => isFalse ⋯
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-global-20261024/Identity.lean:411:2: error: Tactic `decide` failed to reduce
+  @decide (Parsimony.Packet.render 13 (numeric part7) = frozenChunk7.toList)
+    (instDecidableEqList (Parsimony.Packet.render 13 (numeric part7)) frozenChunk7.toList)
+to `true` or `false`.
+
+Reduction got stuck at
+  match Parsimony.Packet.render 13 (numeric part7) with
+  | [] =>
+    match frozenChunk7.toList with
+    | [] => isTrue ⋯
+    | head :: tail => isFalse ⋯
+  | a :: as =>
+    match frozenChunk7.toList with
+    | [] => isFalse ⋯
+    | b :: bs =>
+      match decEq a b with
+      | { decide := true, reflects_decide := hab } =>
+        match as.hasDecEq bs with
+        | { decide := true, reflects_decide := habs } => isTrue ⋯
+        | { decide := false, reflects_decide := nabs } => isFalse ⋯
+      | { decide := false, reflects_decide := nab } => isFalse ⋯
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-global-20261024/Identity.lean:461:2: error: Tactic `decide` failed to reduce
+  @decide (Parsimony.Packet.render 13 (numeric part8) = frozenChunk8.toList)
+    (instDecidableEqList (Parsimony.Packet.render 13 (numeric part8)) frozenChunk8.toList)
+to `true` or `false`.
+
+Reduction got stuck at
+  match Parsimony.Packet.render 13 (numeric part8) with
+  | [] =>
+    match frozenChunk8.toList with
+    | [] => isTrue ⋯
+    | head :: tail => isFalse ⋯
+  | a :: as =>
+    match frozenChunk8.toList with
+    | [] => isFalse ⋯
+    | b :: bs =>
+      match decEq a b with
+      | { decide := true, reflects_decide := hab } =>
+        match as.hasDecEq bs with
+        | { decide := true, reflects_decide := habs } => isTrue ⋯
+        | { decide := false, reflects_decide := nabs } => isFalse ⋯
+      | { decide := false, reflects_decide := nab } => isFalse ⋯
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-global-20261024/Identity.lean:511:2: error: Tactic `decide` failed to reduce
+  @decide (Parsimony.Packet.render 13 (numeric part9) = frozenChunk9.toList)
+    (instDecidableEqList (Parsimony.Packet.render 13 (numeric part9)) frozenChunk9.toList)
+to `true` or `false`.
+
+Reduction got stuck at
+  match Parsimony.Packet.render 13 (numeric part9) with
+  | [] =>
+    match frozenChunk9.toList with
+    | [] => isTrue ⋯
+    | head :: tail => isFalse ⋯
+  | a :: as =>
+    match frozenChunk9.toList with
+    | [] => isFalse ⋯
+    | b :: bs =>
+      match decEq a b with
+      | { decide := true, reflects_decide := hab } =>
+        match as.hasDecEq bs with
+        | { decide := true, reflects_decide := habs } => isTrue ⋯
+        | { decide := false, reflects_decide := nabs } => isFalse ⋯
+      | { decide := false, reflects_decide := nab } => isFalse ⋯
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-global-20261024/Identity.lean:561:2: error: Tactic `decide` failed to reduce
+  @decide (Parsimony.Packet.render 13 (numeric part10) = frozenChunk10.toList)
+    (instDecidableEqList (Parsimony.Packet.render 13 (numeric part10)) frozenChunk10.toList)
+to `true` or `false`.
+
+Reduction got stuck at
+  match Parsimony.Packet.render 13 (numeric part10) with
+  | [] =>
+    match frozenChunk10.toList with
+    | [] => isTrue ⋯
+    | head :: tail => isFalse ⋯
+  | a :: as =>
+    match frozenChunk10.toList with
+    | [] => isFalse ⋯
+    | b :: bs =>
+      match decEq a b with
+      | { decide := true, reflects_decide := hab } =>
+        match as.hasDecEq bs with
+        | { decide := true, reflects_decide := habs } => isTrue ⋯
+        | { decide := false, reflects_decide := nabs } => isFalse ⋯
+      | { decide := false, reflects_decide := nab } => isFalse ⋯
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-global-20261024/Identity.lean:611:2: error: Tactic `decide` failed to reduce
+  @decide (Parsimony.Packet.render 13 (numeric part11) = frozenChunk11.toList)
+    (instDecidableEqList (Parsimony.Packet.render 13 (numeric part11)) frozenChunk11.toList)
+to `true` or `false`.
+
+Reduction got stuck at
+  match Parsimony.Packet.render 13 (numeric part11) with
+  | [] =>
+    match frozenChunk11.toList with
+    | [] => isTrue ⋯
+    | head :: tail => isFalse ⋯
+  | a :: as =>
+    match frozenChunk11.toList with
+    | [] => isFalse ⋯
+    | b :: bs =>
+      match decEq a b with
+      | { decide := true, reflects_decide := hab } =>
+        match as.hasDecEq bs with
+        | { decide := true, reflects_decide := habs } => isTrue ⋯
+        | { decide := false, reflects_decide := nabs } => isFalse ⋯
+      | { decide := false, reflects_decide := nab } => isFalse ⋯
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-global-20261024/Identity.lean:661:2: error: Tactic `decide` failed to reduce
+  @decide (Parsimony.Packet.render 13 (numeric part12) = frozenChunk12.toList)
+    (instDecidableEqList (Parsimony.Packet.render 13 (numeric part12)) frozenChunk12.toList)
+to `true` or `false`.
+
+Reduction got stuck at
+  match Parsimony.Packet.render 13 (numeric part12) with
+  | [] =>
+    match frozenChunk12.toList with
+    | [] => isTrue ⋯
+    | head :: tail => isFalse ⋯
+  | a :: as =>
+    match frozenChunk12.toList with
+    | [] => isFalse ⋯
+    | b :: bs =>
+      match decEq a b with
+      | { decide := true, reflects_decide := hab } =>
+        match as.hasDecEq bs with
+        | { decide := true, reflects_decide := habs } => isTrue ⋯
+        | { decide := false, reflects_decide := nabs } => isFalse ⋯
+      | { decide := false, reflects_decide := nab } => isFalse ⋯
+/home/runner/work/cryptids/cryptids/.lake/chess-parsimony-global-20261024/Identity.lean:711:2: error: Tactic `decide` failed to reduce
+  @decide (Parsimony.Packet.render 13 (numeric part13) = frozenChunk13.toList)
+    (instDecidableEqList (Parsimony.Packet.render 13 (numeric part13)) frozenChunk13.toList)
+to `true` or `false`.
+
+Redulibc++abi: terminating due to uncaught exception of type lean::memory_exception: excessive memory consumption detected at 'interpreter' (potential solution: increase memory consumption threshold)

@@ -25,8 +25,9 @@ This is finite ordinary reachability, not an exact global step count.
 The left-frame word order is little endian and most recent word first. Reverse
 the entire printed prefix to obtain chronological big-endian output. Prove
 index-based rendering agrees with rendering the numeric array's ordered list.
-Use 53 certificates of at most 256 words, then compose their identities with
-append lemmas. The expected characters come independently from the pinned
+Use 418 certificates of at most 32 words (416 characters), then compose their
+identities with append lemmas. The first attempt at 53 larger string-based
+certificates failed to normalize and hit the fixed time cap; keep that evidence. The expected characters come independently from the pinned
 packet.bits file, not by reading the candidate's reconstructed output.
 
 Exact expected output: 32 ones, separator 0, the 173,641-bit frozen packet,

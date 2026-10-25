@@ -32,9 +32,9 @@ def wrap(text):
         break_on_hyphens=False, subsequent_indent='    '))
 
 
-def string_def(name, bits):
-    pieces = ['"' + bits[i:i + 76] + '"' for i in range(0, len(bits), 76)]
-    return 'def ' + name + ' : String :=\n  ' + balanced(pieces, ' ++\n  ') + '\n\n'
+def chars_def(name, bits):
+    literal = '[' + ', '.join("'" + bit + "'" for bit in bits) + ']'
+    return 'def ' + name + ' : List Char :=\n' + wrap('  ' + literal) + '\n\n'
 
 
 def generate(work):
@@ -45,6 +45,24 @@ def generate(work):
     source = source.replace('private def part', 'def part')
     source = source.replace('chess-parsimony-counter-20261024/AllWords.rows',
                             'chess-parsimony-global-20261024/AllWords.rows')
+    # Factor each retained 256-word literal into shared 32-word subarrays.
+    # This changes proof representation only; the exported numeric rows must match.
+    subparts = []
+    def split_part(match):
+        parent, body = match.group(1), match.group(2)
+        entries = re.findall(r'\d+', body)
+        assert 1 <= len(entries) <= 256
+        children = []
+        definitions = ''
+        for begin in range(0, len(entries), 32):
+            name = 'sub' + str(len(subparts))
+            subparts.append(name)
+            children.append(name)
+            definitions += 'def ' + name + ' : Array Nat := #[\n  '
+            definitions += ',\n  '.join(entries[begin:begin + 32]) + '\n]\n'
+        return definitions + 'def ' + parent + ' : Array Nat :=\n' + wrap('  ' + balanced(children))
+    source = re.sub(r'def (part\d+) : Array Nat := #\[(.*?)\]', split_part, source, flags=re.S)
+    assert len(subparts) == 418
     parts = re.findall(r'def (part\d+) : Array Nat :=', source)
     assert len(parts) == 53
     source += '\nnamespace ParsimonyComposed\n'
@@ -124,7 +142,7 @@ end ParsimonyComposed
     # Chunk identities read expected characters from the pinned packet, not the table.
     parts = re.findall(r'def (part\d+) : Array Nat :=', source)
     assert len(parts) == 53
-    identity = '''import GlobalInstance
+    identity = """import GlobalInstance
 
 open Turing ConjectureMachines
 open ConjectureMachines.Compilation
@@ -136,31 +154,43 @@ def numeric (input : Array Nat) : List Nat := (input.map narrow).toList.map Fin.
     numeric (first ++ second) = numeric first ++ numeric second := by
   simp [numeric, Array.map_append]
 
-'''
-    chunks = []
-    for i, part in enumerate(parts):
-        begin, end = i * 256 * 13, min((i + 1) * 256 * 13, len(framed))
-        name = 'frozenChunk' + str(i)
+"""
+    identity += chars_def('marker', '1' * 32 + '0')
+    identity += chars_def('tailPadding', '100000')
+    chunks, payloads = [], []
+    for i, part in enumerate(subparts):
+        begin, end = i * 32 * 13, min((i + 1) * 32 * 13, len(framed))
+        chunk = framed[begin:end]
+        # First/last framing is kept symbolic in the concatenation proof.
+        payload = chunk[33:] if i == 0 else chunk
+        if i == len(subparts) - 1:
+            payload = payload[:-6]
+        payload_name, name = 'packetChars' + str(i), 'frozenChunk' + str(i)
+        payloads.append(payload_name)
         chunks.append(name)
-        identity += string_def(name, framed[begin:end])
+        identity += chars_def(payload_name, payload)
+        expression = payload_name
+        if i == 0:
+            expression = 'marker ++ ' + expression
+        if i == len(subparts) - 1:
+            expression += ' ++ tailPadding'
+        identity += 'def ' + name + ' : List Char := ' + expression + '\n\n'
         identity += 'theorem packet_chunk' + str(i) + ' :\n'
-        identity += '    Parsimony.Packet.render 13 (numeric ' + part + ') = ' + name + '.toList := by\n'
+        identity += '    Parsimony.Packet.render 13 (numeric ' + part + ') = ' + name + ' := by\n'
         identity += '  decide +kernel\n\n'
-    identity += 'def frozenFramed : String :=\n' + wrap('  ' + balanced(chunks)) + '\n\n'
-    identity += string_def('frozenPacket', packet)
-    identity += '''theorem packet_framing : frozenFramed =
-    "111111111111111111111111111111110" ++ frozenPacket ++ "100000" := by
-  decide +kernel
-
-theorem all_packet_words : Parsimony.Packet.render 13 (numeric raw) = frozenFramed.toList := by
-  simp only [raw, numeric_append, Parsimony.Packet.render_append,
-'''
-    identity += wrap('    ' + ', '.join('packet_chunk' + str(i) for i in range(53)) + ',') + '\n'
-    identity += '''    frozenFramed, String.toList_append]
+    identity += 'def frozenFramed : List Char :=\n' + wrap('  ' + balanced(chunks)) + '\n\n'
+    identity += 'def frozenPacket : List Char :=\n' + wrap('  ' + balanced(payloads)) + '\n\n'
+    identity += 'theorem packet_framing : frozenFramed = marker ++ frozenPacket ++ tailPadding := by\n'
+    identity += '  simp only [frozenFramed, frozenPacket,\n'
+    identity += wrap('    ' + ', '.join(chunks) + ', List.append_assoc]') + '\n\n'
+    identity += 'theorem all_packet_words : Parsimony.Packet.render 13 (numeric raw) = frozenFramed := by\n'
+    identity += '  simp only [raw, numeric_append, Parsimony.Packet.render_append,\n'
+    identity += wrap('    ' + ', '.join(parts) + ',') + '\n'
+    identity += wrap('    ' + ', '.join('packet_chunk' + str(i) for i in range(len(subparts))) + ',') + '\n'
+    identity += """    frozenFramed, List.append_assoc]
 
 theorem global_bits_identity :
-    Parsimony.Packet.text (Parsimony.Global.written word 13360).reverse =
-      frozenFramed.toList := by
+    Parsimony.Packet.text (Parsimony.Global.written word 13360).reverse = frozenFramed := by
   calc
     Parsimony.Packet.text (Parsimony.Global.written word 13360).reverse =
         (List.range 13360).flatMap (fun i ↦
@@ -170,7 +200,7 @@ theorem global_bits_identity :
       simp only [Parsimony.Packet.text, List.map_flatMap, word]
     _ = Parsimony.Packet.render 13 (values.toList.map Fin.val) := by
       simpa only [values_size] using Parsimony.Packet.indexed_render 13 13359 values
-    _ = frozenFramed.toList := by
+    _ = frozenFramed := by
       simpa only [values, numeric] using all_packet_words
 
 end ParsimonyComposed
@@ -178,9 +208,9 @@ end ParsimonyComposed
 #print axioms ParsimonyComposed.global_bits_identity
 #print axioms ParsimonyComposed.all_packet_words
 #print axioms ParsimonyComposed.packet_framing
-'''
+"""
     identity_source = work / 'Identity.lean'
     identity_source.write_text(identity)
     return dict(**item, global_source=global_source, identity_source=identity_source,
         packet_sha256=PACKET_SHA, packet_bits=len(packet), framed_bits=len(framed),
-        chunks=len(parts), final_post=post)
+        chunks=len(subparts), final_post=post)

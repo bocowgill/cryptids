@@ -57,3 +57,25 @@ the fixed caps. Also correct the draft's mistaken final physical row assumption:
 retained row export and upstream source both show data_out 1 -> write 0, LEFT,
 test_positive_end. Add finish_left without changing checked generic statements
 or any machine row. Fix malformed newline field notation in the terminal target.
+
+Attempt 4 dispatched from 81201e3516fbced4cf4ff3eaeb323020309f40dd after successful
+push and exact fork ref verification. Shared chunk lengths replace full-array
+normalization; actual final row is erase-marker/left-turn. Existing checked
+statements and all seven prior source pins remain fixed.
+Attempt 4 run handle: 40154421483. Only this scoped manual pilot is authorized
+and active; outreach remains held. No automatic goal/campaign resumption.
+
+Attempt 4 terminal result retained in evidence/global-04: full global_iteration
+and global_terminated passed with standard foundations; gate I1 met remotely.
+The shared chunk-size repair succeeded. Identity's 256-word/string reductions
+failed to normalize repeatedly, accumulated memory (sampled peak 6,243,155,968
+bytes) and hit the 180-second wall cap. The machine and row export stayed fixed.
+No full identity or full-machine reduction accepted.
+
+Specific redesign for attempt 5: factor each proof-data array into 32-word
+subarrays; compare at most 416 literal characters per certificate, avoiding
+String.append/toList normalization; combine 418 subcertificates structurally.
+Keep marker/payload/tail symbolic in append proofs. Check the first 32-word
+certificate before the full identity, so a repeated obstruction stops early.
+A tiny positive/one-bit-negative control tests the same checked first chunk.
+All caps, earlier checked theorem statements and physical rows remain fixed.
