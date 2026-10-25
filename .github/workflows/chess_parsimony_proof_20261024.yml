@@ -7,7 +7,7 @@ on:
         type: choice
         required: true
         default: structural
-        options: [structural, memory, counter]
+        options: [structural, memory, counter, global]
 permissions:
   contents: read
 concurrency:
@@ -49,6 +49,9 @@ jobs:
       - name: Bounded counter and insertion certification
         if: inputs.phase == 'counter'
         run: python3 scripts/chess_parsimony_counter_20261024/verify.py
+      - name: Bounded global iteration and frozen packet identity
+        if: inputs.phase == 'global'
+        run: python3 scripts/chess_parsimony_global_20261024/verify.py
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
