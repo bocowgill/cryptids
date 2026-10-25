@@ -44,3 +44,12 @@ Attempt 2 failed with three ordinary structural proof errors plus unused simp
 argument; no resource cap hit. No Cleanup.olean exists; roots with automatic
 sorryAx are rejected. Exact corrections in ATTEMPT-LOG.md. Final attempt remains;
 no fourth attempt authorized. Evidence is fully retained under complete-02.
+
+Attempt 3 (FINAL) active: run 40236839275, producer
+8356473ef26aa4d9c4180e04b282cfde3d17806f. No fourth proof attempt authorized.
+Retain when terminal:
+`python3 scripts/chess_parsimony_complete_20261025/retain.py --run 40236839275 --source 8356473ef26aa4d9c4180e04b282cfde3d17806f --iteration 3`.
+Publication through scripts/chess_parsimony_complete_20261025/publish_checkpoint.py
+uses exact new blob hashes and a hash-only tree; large inline-content requests
+were rejected. Every unpacked artifact member remains permanent in Git; redundant
+ZIPs remain local/GitHub and are not required for content recovery.

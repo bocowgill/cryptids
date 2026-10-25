@@ -27,3 +27,10 @@
    seconds, peak 4.577 GiB, no resource stop. Evidence retained complete-02.
    Final draft also delays local packet irreducibility until after the bit/string
    conversion, avoiding an unnecessary opaque-definition change obligation.
+
+3. [Run 40236839275](https://github.com/bocowgill/cryptids/actions/runs/40236839275),
+   producer `8356473ef26aa4d9c4180e04b282cfde3d17806f`.
+   Running, third and FINAL permitted attempt. Diagnosed blank quotient equality,
+   Fin bit cases, mono endpoint arguments and unused simp argument corrected.
+   No time, heap, recursion, linter or machine changes. Exact source/tree hashes
+   verified after REST blob publication. No fourth job authorized.
