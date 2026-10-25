@@ -1,0 +1,4 @@
+Decoder-sharing certificate roots: 4
+Full-private dependencies: 774
+Permitted axioms used: #[propext, Quot.sound]
+RHSHARE_FULL_PRIVATE_AUDIT_PASSED

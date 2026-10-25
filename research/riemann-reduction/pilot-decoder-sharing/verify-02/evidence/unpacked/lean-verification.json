@@ -1,0 +1,71 @@
+{
+  "status": "lean-family-counterexamples-checked",
+  "commands": [
+    {
+      "label": "full-private-audit",
+      "argv": [
+        "lake",
+        "-f",
+        "lakefile.riemann-share.toml",
+        "env",
+        "lean",
+        "-M6144",
+        "-DwarningAsError=true",
+        "--run",
+        "scripts/riemann_share/ReplayAudit.lean"
+      ],
+      "exit": 0,
+      "output_sha256": "b4b20c32e82b873475d18ef6f69b7597c729a18073f198b6fb05aea02df9f95e"
+    },
+    {
+      "label": "forbidden-axiom-control",
+      "argv": [
+        "lake",
+        "-f",
+        "lakefile.riemann-share.toml",
+        "env",
+        "lean",
+        "-M6144",
+        "-DwarningAsError=true",
+        "--run",
+        "scripts/riemann_share/ReplayAudit.lean",
+        "--negative-control"
+      ],
+      "exit": 1,
+      "output_sha256": "25e77efff0da4a435953fd833bca02bfafebc29e9ecd1c800424f3f0efd40786"
+    },
+    {
+      "label": "kernel-rejection-control",
+      "argv": [
+        "lake",
+        "-f",
+        "lakefile.riemann-share.toml",
+        "env",
+        "lean",
+        "-M6144",
+        "-DwarningAsError=true",
+        "/home/runner/work/cryptids/cryptids/.lake/riemann-share-verify02/InvalidControl.lean"
+      ],
+      "exit": 1,
+      "output_sha256": "50a93cf58255dcd86a427519dc5ba2f01b26b210a5bf4d1f3f61bc82d435a875"
+    },
+    {
+      "label": "print-axioms",
+      "argv": [
+        "lake",
+        "-f",
+        "lakefile.riemann-share.toml",
+        "env",
+        "lean",
+        "-M6144",
+        "-DwarningAsError=true",
+        "/home/runner/work/cryptids/cryptids/.lake/riemann-share-verify02/PrintAxioms.lean"
+      ],
+      "exit": 0,
+      "output_sha256": "33e1e89c5fff0a8eb2d57a8ed3df21947fab4b2769218c381a29456f0cdd21ec"
+    }
+  ],
+  "target": "RhShare.all_aliases_fail",
+  "source_sha256": "68d218019755897c2fcc67f3ab3594fd4c279ac35240668766e9f1c1791d466e",
+  "new_certified_rh_reduction": false
+}

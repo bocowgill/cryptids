@@ -1,9 +1,9 @@
 # Proposed next pilot: decoder sharing with unchanged words
 
-**Historical approved contract, now executed once.** Read [RESULT.md](RESULT.md):
-all 30 finite witnesses were independently reproduced, but the batched Lean
-certificate failed Decidable synthesis. No retry or further job is authorized.
-The original proposal wording below is preserved.
+**Historical approved contract.** The first job's Decidable synthesis error is
+preserved in [RESULT.md](RESULT.md). One separately authorized verification has
+now [Lean-checked and audited all 30 retained witnesses](verify-02/RESULT.md).
+No further job is authorized. The original proposal wording below is preserved.
 
 Status: **proposal only; awaiting the user's approval before any job launch**.
 No candidate, new runner, Lean proof or execution result is supplied by this

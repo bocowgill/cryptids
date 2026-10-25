@@ -1,10 +1,10 @@
-# RH reduction: closed state-53 route and decoder-sharing obstruction
+# RH reduction: checked state-53 and decoder-sharing counterexamples
 
-**Latest result:** the separately approved decoder-sharing pilot ran once.
-Python and independent Node replay found endpoint failures for every one of
-the 30 aliases. The batched Lean theorem failed Decidable synthesis; no audit
-or retry followed. See [the precise result](pilot-decoder-sharing/RESULT.md).
-No candidate was exported, and no new RH saving is certified.
+**Latest result:** one separately authorized verification repaired the computable
+Decidable instance and Lean-checked all 30 retained decoder-sharing counterexamples.
+The full-private audit and explicit rejection controls passed. See
+[the verified result](pilot-decoder-sharing/verify-02/RESULT.md). The first job's
+Decidable failure remains preserved. No candidate was exported or RH saving certified.
 
 The **canonical state-53 bypass is closed**. Independent full-tape replay and
 Lean kernel checking confirmed that its skipped-bit encoding does not commute
@@ -29,16 +29,17 @@ with accepted words/tapes/returns unchanged. No finite alias survived, so the
 conditional candidate-export and full RH proof path did not run.
 
 The retained 189-case screen supplies a typed witness per choice, independently
-reproduced, plus two complete tape traces. This computational rejection of the
-unchanged-endpoint contract is not blank-run inequivalence. The exact certificate
-error is `Decidable (∀ i : Fin 30, failure i (witness i))` synthesis at generated
-ShareCertificate.lean:52:2. Family definitions built, but the final theorem and
-its full-private audit/rejection controls remain unverified.
+reproduced, plus two complete tape traces. The same witness module now passes
+the Lean kernel after the computable instance repair. Four audited roots cover
+774 dependencies and use only propext/Quot.sound; the main batch uses only propext.
+Injected sorryAx and fresh kernel-invalid controls rejected. This formally rejects
+the unchanged-endpoint contract without establishing blank-run inequivalence.
 
-Exactly one free ordinary remote job ran, attempt 1, without retry: 332.146
-governed seconds and sampled 5.13 GiB aggregate RSS. No resource stop occurred.
-The original 3180s/6GiB/512MiB-driver limits were kept. Further RH jobs and broader
-search are held pending new authorization; the Chess campaign pause is preserved.
+The original job failed at Decidable synthesis; its evidence is unchanged. The
+single additional verification job passed in 347.438 governed seconds with a
+sampled 5.85 GiB aggregate RSS peak. It replayed only the 30 retained endpoints,
+with no new search, candidate export or retry. The original 3180s/6GiB/512MiB-driver
+limits were kept. Further RH jobs and broader search are held; Chess's pause is preserved.
 
 ## Preserved audit and baseline
 
@@ -47,7 +48,7 @@ search are held pending new authorization; the Chess campaign pause is preserved
 `7e9731ed1b7c63d4e67c0f8d646f8498d9645f26e237a8604d4b7f91a6ab398d`,
 toolchain, manifest and historical PR7/PR10 default-kernel evidence.
 Accepted sources remain unchanged. No full accepted-baseline comparator replay
-was run by the audit or the state-53 counterexample verification.
+was run by this audit or either finite-counterexample verification.
 
 [STATE-ACCOUNTING.md](STATE-ACCOUNTING.md) and [the ledger](state-ledger.tsv)
 charge every physical state once: 45 decoder + 10 native leaves + 7 INC core +

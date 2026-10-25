@@ -54,6 +54,7 @@ The older Chess campaign's pause record remains in force; this work changes no
 Chess checkout, goal or job. Its historical pause checkpoint is
 `b971fa888c84b5a62900171fa17eef7cf2cda6d9`; subsequent separate Parsimony work
 on that shared branch is left untouched. See [current provenance](../CHECKPOINT.md).
-The subsequently approved [decoder-sharing pilot](../pilot-decoder-sharing/RESULT.md)
-has run once, retaining finite failures and an exact Lean certificate error.
+The subsequently approved [decoder-sharing verification](../pilot-decoder-sharing/verify-02/RESULT.md)
+now has Lean-checked endpoint failures and a passing full-private audit. Its
+first job's Decidable error remains preserved as history.
 Broader search and all further RH compute jobs remain on hold.

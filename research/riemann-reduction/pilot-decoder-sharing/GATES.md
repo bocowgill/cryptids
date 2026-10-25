@@ -1,5 +1,9 @@
 # Gates: authorized decoder-sharing pilot
 
+Historical first-job integration ledger. The separately authorized retained-witness
+verification succeeded; see [verify-02/RESULT.md](verify-02/RESULT.md) and its gates.
+The original failed producer and unexecuted first-job audit remain historical facts.
+
 OWNS: scripts/riemann_share/**, lakefile.riemann-share.toml,
   .github/workflows/riemann_share.yml, research/riemann-reduction/**
 

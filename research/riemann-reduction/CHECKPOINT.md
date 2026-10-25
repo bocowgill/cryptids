@@ -5,13 +5,14 @@ Branch: `codex/riemann-reduction`.
 Path: `/Users/bocowgill/.codex/worktrees/4e0d/cryptids`.
 Pinned base: `6c28d8524fa008c6fb5aadb759df74a55ce96423`.
 
-**Decoder-sharing pilot stopped at an exact certification error; no retry.**
-The approved single job 40141846969 independently reproduced endpoint failures
-for all 30 aliases. Its final Lean theorem could not synthesize
-`Decidable (∀ i : Fin 30, failure i (witness i))`; the batch is unverified and
-the full-private audit/controls did not run. No candidate was exported. Read
-[the exact result](pilot-decoder-sharing/RESULT.md) first. No further job is
-authorized. The canonical state-53 bypass remains closed; broader search is held.
+**All 30 retained decoder-sharing witnesses are Lean-checked and audited.**
+The separately authorized job 40145261135 supplied the computable Decidable
+instance, checked the unchanged batch and passed the full-private audit and
+rejection controls. Read [the verified result](pilot-decoder-sharing/verify-02/RESULT.md)
+first. The initial failure 40141846969 remains preserved. No candidate was
+exported; no further job is authorized. Both this unchanged-endpoint family and
+the canonical state-53 route are rejected within their stated contracts.
+Broader search remains held. No 94-state RH theorem is certified.
 
 Read [pilot-53/CLOSED.md](pilot-53/CLOSED.md) for the exact retired route,
 [pilot-53/replay-02/RESULT.md](pilot-53/replay-02/RESULT.md) for verified evidence,
@@ -38,23 +39,29 @@ the approved historical contract. The old PILOT document is historical as well.
 - Chess's numeric correspondence provides no RH quotient theorem; its full
   310,029-state candidate remains uncertified and paused.
 
-## Executed decoder-sharing pilot and remaining obstruction
+## Verified decoder-sharing counterexamples
 
 The six-state common-ZERO family {26,46,50,86,87,94}, both representatives of
 all 15 pairs, has finite counterexamples in the approved 189-case set. Node
 independently checked each shortest-in-set witness and the representative full
 tapes. Combined transition evaluations: 40050. No alias survived; no complete
-94-state table was materialized. This is computational contract rejection,
-not a kernel-certified batch or a claim about blank equivalence.
+94-state table was materialized. The unchanged batch has now been kernel-checked;
+this rejects the endpoint contract, not blank equivalence or other encodings.
 
 Run 40141846969 used 332.146 governed seconds and sampled 5.13 GiB aggregate
 RSS within the approved 3180s/6GiB/512MiB-driver limits. The kernel stage exited
 1 at the missing computable Decidable instance for the named failure predicate;
-it was not a timeout or memory stop. Accepted baseline replays: zero. The source
-repair is identified but unapplied and untested. Do not rerun enumeration, apply
-an oracle, widen the family or launch a verification job without new approval.
+it was not a timeout or memory stop. Accepted baseline comparator replays: zero.
 Producer: `8f3bda3344561fcb2d81987f8dfc48eeac1413ef`.
 The complete original artifact and generated failed certificate are retained.
+
+The separately authorized verification used producer
+`18e8cc2907fbf20b95f52b2cbdfaac5c8991be4b`, 347.438 governed seconds and sampled
+5.85 GiB aggregate RSS. It checked the identical witness source, replayed only
+those 30 endpoints (515 evaluations), and ran no new search. Full-private audit:
+4 roots, 774 dependencies, propext/Quot.sound only; main batch propext only.
+Fresh sorryAx and kernel-invalid controls rejected. No retry or table export.
+Do not rerun enumeration, widen the family or launch another job without approval.
 
 ## Preserved boundaries
 
@@ -64,7 +71,7 @@ The complete original artifact and generated failed certificate are retained.
 - The older Chess campaign remains paused. Its pause file is byte-identical to
   historical checkpoint `b971fa888c84b5a62900171fa17eef7cf2cda6d9`. A read-only
   Git inspection observed its shared branch at
-  `930716110577d087acec1fc44bd5f3987561cb4f`, advanced by separate Parsimony
+  `bc3c131b7d5590204ffe6ecbed313fe8239c6ffe`, advanced by separate Parsimony
   work. That work's recorded run is outside this RH task; no Chess/Parsimony
   source, job or goal was changed here. Do not reset or resume that checkout.
 - All Lean/Lake/LSP/LeanProbe, generation, simulations and executable census

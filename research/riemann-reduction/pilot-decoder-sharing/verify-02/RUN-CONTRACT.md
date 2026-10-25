@@ -29,3 +29,7 @@ Pinned baseline remains 6c28d8524fa008c6fb5aadb759df74a55ce96423. Chess's older
 campaign pause remains unchanged; separate Parsimony work is untouched. No RH
 saving, blank reachability or blank equivalence claim follows from this batch.
 Stop after this job, retaining success or the exact first obstruction.
+
+Executed once as successful run 40145261135, attempt 1. The unchanged batch
+passed the kernel, full-private audit and rejection controls. No search, table
+export or retry ran. See RESULT.md and its retained artifact; authorization consumed.

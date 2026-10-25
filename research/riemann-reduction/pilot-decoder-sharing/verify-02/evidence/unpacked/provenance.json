@@ -1,0 +1,29 @@
+{
+  "status": "retained-witnesses-pinned",
+  "baseline": "6c28d8524fa008c6fb5aadb759df74a55ce96423",
+  "producer": "18e8cc2907fbf20b95f52b2cbdfaac5c8991be4b",
+  "prior_producer": "8f3bda3344561fcb2d81987f8dfc48eeac1413ef",
+  "retained_sha256": {
+    "ShareCertificate.lean": "68d218019755897c2fcc67f3ab3594fd4c279ac35240668766e9f1c1791d466e",
+    "family.json": "ee7ec59f11a59c92815a7800d7964c4aa653a31b2f4fb573eb345a268d35ada0",
+    "aliases.jsonl": "8d4e45fc739385345d9990f81659b9f8d1f0e417a45d8c7a8eaa3d0e62843333",
+    "screen.json": "5dafe5aff759fdc4b1de979735b0b4fdfc717a7b8da321dba6e9026da92d51ed",
+    "independent-replay.json": "f759eaf099f7a8fc9007c07d77f67849e764bdf0406ac56336844f51641af671",
+    "tapes.json": "72020b9ff65f84d71e89e3dcf2e34c4a33027fbeb5eb689394fa8e3eaef24f53"
+  },
+  "exact_decidable_only_repair": true,
+  "witness_search_executed": false,
+  "exported_candidates": 0,
+  "hashes": {
+    "scripts/riemann_share/ShareDefinitions.lean": "ae0c7ab078f877d14454796289b412f44de6b2302ef80165b4235e7e749ebf37",
+    "lakefile.riemann-share.toml": "a807e0b0fdc4cd6e3fde48cd74c8c73653d232316f3b282a8d0e1eb49dbfdfcf",
+    ".github/workflows/riemann_share.yml": "e091afb36463074a1bc266e6d3f191da4e5a369c586812c60c7c546970e3aafd",
+    "scripts/riemann_share/verify_driver.py": "45107726c1a82a65f64ebcc583e3d93982bac63349d2d307e9f7b84866f36c55",
+    "scripts/riemann_share/retained.py": "a0636cf050739a178b0389f6c8c8d5486ff8d0ad62e8f16082f8ff3e64a1116f",
+    "scripts/riemann_share/verify-retained.mjs": "337b38f64951a26d6b6c89193bfdd51fe3eb7d9c33dda07d0335c6edbbcbec6d",
+    "scripts/riemann_share/check_lean.py": "dac7cd7738ad9e2a7a9f65143afe143958c9b2cc710ff7563312748816447207",
+    "scripts/riemann_share/setup.py": "705a195422d456caf440fc0326272cddcf16650cf9e673b2a7734457e26bf640",
+    "scripts/riemann_share/ReplayAudit.lean": "28d2bd7eca798f03212cf1e174d9485b106b9ecf2f9313cca292f27668d27b4b",
+    "scripts/riemann_share/launch-verify02.json": "578a65f6713ff9d3eec975c0accfc01b45f77a0839c561db7b71f424fa360553"
+  }
+}

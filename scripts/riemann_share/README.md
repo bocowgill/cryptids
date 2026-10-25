@@ -1,11 +1,16 @@
 # Approved fixed decoder-sharing pilot
 
-Disposition: executed once as run 40141846969. Python/Node reproduced all 30
-finite failures; the final Lean batch failed Decidable synthesis and is not
-verified. No full-private audit or kernel rejection controls ran. The authorized
-job is consumed; no retry is authorized. The recoverable source defect remains
-unrepaired, and no extra verification job has been launched.
-See research/riemann-reduction/pilot-decoder-sharing/RESULT.md.
+Disposition: the separately authorized run 40145261135 repaired the computable
+Decidable instance and verified all 30 retained witnesses with a passing full-private
+audit and rejection controls. The first job's failure 40141846969 remains retained.
+Both authorizations are consumed; no further job is authorized. Read
+research/riemann-reduction/pilot-decoder-sharing/verify-02/RESULT.md.
+
+The active workflow uses verify_driver.py, retained.py and verify-retained.mjs.
+It hash-binds the original witness module and evidence, checks the instance-only
+mathematical diff, replays only the 30 retained endpoints, then builds and audits.
+There is no new alias/fixture search or candidate export. The older pilot runner
+below is preserved as history, not an instruction to execute another search.
 
 Remote-only: 30 ordered representatives of the 15 pairs in
 {26,46,50,86,87,94}, unchanged typed words/tapes/returns, at most one exported

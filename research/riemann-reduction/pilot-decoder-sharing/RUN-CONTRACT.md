@@ -24,3 +24,7 @@ Executed once as run 40141846969, attempt 1. The independent finite screen found
 all 30 endpoint mismatches, but the batched Lean theorem failed Decidable
 synthesis. No audit, candidate export or retry followed. Read RESULT.md for
 retained diagnostics and resources. This authorization is consumed.
+
+A separate user authorization later repaired and verified the identical retained
+witnesses in run 40145261135. See verify-02/RESULT.md. That verification also
+completed once; neither historical contract authorizes further computation.

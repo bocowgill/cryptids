@@ -1,0 +1,12 @@
+Run https://github.com/bocowgill/cryptids/actions/runs/40145261135
+Producer 18e8cc2907fbf20b95f52b2cbdfaac5c8991be4b; job 121025114709; attempt 1
+2026-10-25T00:04:48.8716510Z retained provenance/copy exit 0, 0.09151232500005335 seconds
+2026-10-25T00:04:50.8431517Z independent retained replay exit 0, 1.9706268630000068 seconds
+2026-10-25T00:06:31.8174589Z setup exit 0, 100.973759234 seconds
+2026-10-25T00:10:02.8198023Z kernel exit 0, 211.001712461 seconds
+2026-10-25T00:10:22.4385352Z audits exit 0, 19.61815493600011 seconds
+2026-10-25T00:10:22.4386459Z ALL_30_RETAINED_WITNESSES_KERNEL_CHECKED_AND_AUDITED
+2026-10-25T00:10:23.8342444Z Artifact finalized, ID 12580686076, 16257 bytes
+Artifact digest 98240a6cffd58954b5511886e4cebd0f4ef86da7fe2864a775d43bc677125edb
+Full-private audit: 4 roots, 774 dependencies, [propext, Quot.sound]; main theorem [propext].
+Fresh sorryAx and kernel-invalid controls both rejected, exit 1. See unpacked logs/JSON.

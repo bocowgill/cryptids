@@ -3,9 +3,9 @@
 **Historical proposal; canonical route now closed.** The verified return-pop
 counterexample retires the skipped-bit/unchanged-return construction described
 below. Read [pilot-53/CLOSED.md](pilot-53/CLOSED.md). The subsequently approved
-[decoder-sharing pilot](pilot-decoder-sharing/RESULT.md) has also run once and
-stopped at its exact Lean certificate error. Nothing in this retained document
-authorizes another job.
+[decoder-sharing pilot](pilot-decoder-sharing/verify-02/RESULT.md) now also has
+Lean-checked endpoint counterexamples after a separately authorized repair/check.
+Nothing in this retained document authorizes another job.
 
 Proposal only. The initial audit ends before implementation or execution.
 Target: one certified state saved, 95 -> 94. No larger saving is promised.

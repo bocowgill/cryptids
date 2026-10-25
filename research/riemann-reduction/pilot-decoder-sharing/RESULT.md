@@ -1,5 +1,10 @@
 # Decoder-sharing result — 2026-10-24
 
+**Historical first-job result.** A separately authorized verification now repaired
+the computable Decidable instance and Lean-checked/audited all 30 unchanged
+witnesses successfully. Read [verify-02/RESULT.md](verify-02/RESULT.md) first.
+The original failure description and evidence below remain preserved.
+
 **All 30 fixed aliases have independently reproduced finite endpoint mismatches.
 The batched Lean certificate is not verified: its final theorem failed typeclass
 synthesis.** The single authorized job stopped at that error. No retry, candidate

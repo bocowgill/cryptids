@@ -1,0 +1,6 @@
+/home/runner/work/cryptids/cryptids/.lake/riemann-share-verify02/InvalidControl.lean:2:2: error: Type mismatch
+  True.intro
+has type
+  True
+but is expected to have type
+  False

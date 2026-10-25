@@ -1,0 +1,339 @@
+{
+  "choice": {
+    "index": 0,
+    "pair": [
+      26,
+      46
+    ],
+    "keep": 26,
+    "remove": 46
+  },
+  "label": [
+    "local",
+    0,
+    0
+  ],
+  "input": {
+    "state": 15,
+    "head": 0,
+    "pad": 22,
+    "word": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1
+    ],
+    "banks": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ones": [
+      -1,
+      0,
+      1,
+      2,
+      3,
+      4,
+      6,
+      22,
+      24,
+      26,
+      28,
+      30,
+      32,
+      34,
+      36,
+      38,
+      40
+    ],
+    "blank_elsewhere": true
+  },
+  "requested_steps": 10,
+  "old": {
+    "halted": false,
+    "steps": 10,
+    "state": 58,
+    "head": 10,
+    "ones": [
+      -1,
+      0,
+      1,
+      2,
+      3,
+      4,
+      6,
+      22,
+      24,
+      26,
+      28,
+      30,
+      32,
+      34,
+      36,
+      38,
+      40
+    ],
+    "trace": [
+      {
+        "index": 0,
+        "state": 15,
+        "head": 0,
+        "bit": 1,
+        "cell": [
+          1,
+          1,
+          17
+        ]
+      },
+      {
+        "index": 1,
+        "state": 17,
+        "head": 1,
+        "bit": 1,
+        "cell": [
+          1,
+          1,
+          21
+        ]
+      },
+      {
+        "index": 2,
+        "state": 21,
+        "head": 2,
+        "bit": 1,
+        "cell": [
+          1,
+          1,
+          27
+        ]
+      },
+      {
+        "index": 3,
+        "state": 27,
+        "head": 3,
+        "bit": 1,
+        "cell": [
+          1,
+          1,
+          35
+        ]
+      },
+      {
+        "index": 4,
+        "state": 35,
+        "head": 4,
+        "bit": 1,
+        "cell": [
+          1,
+          1,
+          90
+        ]
+      },
+      {
+        "index": 5,
+        "state": 90,
+        "head": 5,
+        "bit": 0,
+        "cell": [
+          0,
+          1,
+          46
+        ]
+      },
+      {
+        "index": 6,
+        "state": 46,
+        "head": 6,
+        "bit": 1,
+        "cell": [
+          1,
+          1,
+          60
+        ]
+      },
+      {
+        "index": 7,
+        "state": 60,
+        "head": 7,
+        "bit": 0,
+        "cell": [
+          0,
+          1,
+          82
+        ]
+      },
+      {
+        "index": 8,
+        "state": 82,
+        "head": 8,
+        "bit": 0,
+        "cell": [
+          0,
+          1,
+          87
+        ]
+      },
+      {
+        "index": 9,
+        "state": 87,
+        "head": 9,
+        "bit": 0,
+        "cell": [
+          0,
+          1,
+          58
+        ]
+      }
+    ]
+  },
+  "aliased": {
+    "halted": false,
+    "steps": 10,
+    "state": 77,
+    "head": 10,
+    "ones": [
+      -1,
+      0,
+      1,
+      2,
+      3,
+      4,
+      6,
+      8,
+      9,
+      22,
+      24,
+      26,
+      28,
+      30,
+      32,
+      34,
+      36,
+      38,
+      40
+    ],
+    "trace": [
+      {
+        "index": 0,
+        "state": 15,
+        "head": 0,
+        "bit": 1,
+        "cell": [
+          1,
+          1,
+          17
+        ]
+      },
+      {
+        "index": 1,
+        "state": 17,
+        "head": 1,
+        "bit": 1,
+        "cell": [
+          1,
+          1,
+          21
+        ]
+      },
+      {
+        "index": 2,
+        "state": 21,
+        "head": 2,
+        "bit": 1,
+        "cell": [
+          1,
+          1,
+          27
+        ]
+      },
+      {
+        "index": 3,
+        "state": 27,
+        "head": 3,
+        "bit": 1,
+        "cell": [
+          1,
+          1,
+          35
+        ]
+      },
+      {
+        "index": 4,
+        "state": 35,
+        "head": 4,
+        "bit": 1,
+        "cell": [
+          1,
+          1,
+          90
+        ]
+      },
+      {
+        "index": 5,
+        "state": 90,
+        "head": 5,
+        "bit": 0,
+        "cell": [
+          0,
+          1,
+          26
+        ]
+      },
+      {
+        "index": 6,
+        "state": 26,
+        "head": 6,
+        "bit": 1,
+        "cell": [
+          1,
+          1,
+          33
+        ]
+      },
+      {
+        "index": 7,
+        "state": 33,
+        "head": 7,
+        "bit": 0,
+        "cell": [
+          0,
+          1,
+          77
+        ]
+      },
+      {
+        "index": 8,
+        "state": 77,
+        "head": 8,
+        "bit": 0,
+        "cell": [
+          1,
+          1,
+          77
+        ]
+      },
+      {
+        "index": 9,
+        "state": 77,
+        "head": 9,
+        "bit": 0,
+        "cell": [
+          1,
+          1,
+          77
+        ]
+      }
+    ]
+  },
+  "scope": "Full finite tapes at the parser length; no blank reachability claim"
+}

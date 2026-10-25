@@ -1,0 +1,12 @@
+{
+  "status": "retained-endpoints-replayed",
+  "witnesses": 30,
+  "witness_source_sha256": "68d218019755897c2fcc67f3ab3594fd4c279ac35240668766e9f1c1791d466e",
+  "transition_evaluations": 515,
+  "new_alias_searches": 0,
+  "exported_candidates": 0,
+  "negative_controls": {
+    "wrong_cell_rejected": true,
+    "wrong_alias_count_rejected": true
+  }
+}

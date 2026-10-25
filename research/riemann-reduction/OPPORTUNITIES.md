@@ -2,10 +2,10 @@
 
 The canonical state-53 route is now [closed](pilot-53/CLOSED.md). A 94-state
 rejected-route artifact was generated for its verified counterexample; no smaller
-RH machine is certified. The [bounded decoder-sharing pilot](pilot-decoder-sharing/RESULT.md)
-has now run: all 30 aliases failed the independent finite endpoint screen, but
-the batched Lean theorem has an unresolved Decidable synthesis error. No further
-job is authorized. All other saving estimates below concern the **complete**
+RH machine is certified. The [retained decoder-sharing witnesses](pilot-decoder-sharing/verify-02/RESULT.md)
+are now Lean-checked and audited after the computable Decidable repair: all 30
+fixed aliases violate the required endpoint contract. No further job is authorized.
+All other saving estimates below concern the **complete**
 physical machine. Ranges are planning
 estimates from the affected state pools, not achieved bounds or a probability of
 success. Decoder costs need not track logical instruction counts.
@@ -13,15 +13,15 @@ success. Decoder costs need not track logical instruction counts.
 | Rank | Concrete change to investigate | Plausible absolute net saving | Proof difficulty | Implementation effort |
 | --- | --- | --- | --- | --- |
 | Closed | Canonical skipped-bit removal of decoder 53 with unchanged returns | 0 certified; bridge refuted | Exact zero-DEC counterexample verified | Retired; preserve evidence |
-| Finite rejection | Fixed common-ZERO decoder-sharing family | 0 certified; all 30 finite failures reproduced | Batched Lean certificate blocked by Decidable synthesis | Preserve exact witnesses; no retry |
+| Closed contract | Fixed common-ZERO decoder-sharing family | 0 RH savings; all 30 endpoint failures checked | Kernel certificate and full-private audit passed | Preserve exact witnesses; no retry |
 | 3 | Eliminate a whole register-program transfer or duplicate update | 0-4, very uncertain | High: new stage/register relation | High: logical and physical program changes |
 | 4 | Reuse a temporary bank across non-overlapping phases | 0-4, before any staging cost | High: phase-dependent liveness and frames | High |
 | 5 | Reorder/reverse operand-bank layout to share selection/return work | 0-3 | High for tape reversal; medium/high for a permutation | Medium/high |
 | 6 | Share branch-return / padding / jump micro-routines | 0-2 | High: must retain branch and root-fence information | Medium |
 
-The fixed decoder-sharing family has no finite survivor. Its failed certification
-does not justify reopening the family or expanding the search. Larger speculative
-ranges should not guide a score until an explicit complete machine realizes them.
+The fixed decoder-sharing family has checked counterexamples to its required
+endpoint contract. Do not reopen that false contract or expand the search.
+Larger speculative ranges need an explicit complete machine before scoring.
 
 ## 1. Pass-through state 53 and control-word encoding
 
@@ -54,14 +54,15 @@ their ONE targets are respectively 33, 60, 64, 89, 94, 43. A two-state fusion
 could choose either ONE target, redirect all incoming edges and remove one ID.
 The six-member family has 15 unordered pairs and at most 30 such choices.
 The authorized job analyzed these symbolic aliases without exporting a table.
-Each has an independently reproduced typed-word endpoint mismatch. The final
-batched Lean proof failed Decidable synthesis, so do not claim formal family
-certification. See the retained result, witnesses, exact diagnostic and caps.
+Each has an independently reproduced typed-word endpoint mismatch, now checked
+in the same batched Lean source with the computable instance repair. Its full-private
+audit and rejection controls passed. This certifies the endpoint failures, not
+blank-run inequivalence or a machine-size lower bound. See the verified result.
 
 Matching one column is insufficient. Each valid typed caller word, including
-all recursion depths, must retain its native operation and continuation. Distinct
-ONE targets likely distinguish several or all pairs. A shortest distinguishing
-typed word is the desired failure record, rather than repeated random mutations.
+all recursion depths, must retain its native operation and continuation. The
+retained words distinguish all 30 aliases in this family; shortestness is only
+within the original finite fixture set. Do not repeat random mutations here.
 
 Reusable specification: `Schema.ControlWord`, `Parser.actual_prefix`,
 `Parser.actual_cycle`, `Parser.prefix_parse`, `Dispatch.nativeCorrect_all` and
